@@ -30,3 +30,4 @@ dependencyResolutionManagement {
 }
 include(":shared:domain")
 include(":shared:data")
+include(":shared:export")
