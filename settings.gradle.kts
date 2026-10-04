@@ -28,8 +28,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 include(":shared:domain")
 include(":shared:data")
 include(":shared:export")
 include(":shared:sync")
+include(":shared:watchcore")
 include(":composeApp")
