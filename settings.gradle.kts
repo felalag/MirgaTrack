@@ -28,3 +28,4 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+include(":shared:domain")
