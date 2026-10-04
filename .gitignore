@@ -1,0 +1,14 @@
+.gradle/
+.kotlin/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+xcuserdata/
+*.xcuserstate
+iosApp/iosApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
+# Full-resolution screenshots; docs/user-journey/img holds the compressed copies the report uses.
+docs/user-journey/raw/
