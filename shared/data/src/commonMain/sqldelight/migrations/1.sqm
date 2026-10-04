@@ -1,0 +1,10 @@
+-- Version 2 adds phone and watch sync.
+CREATE TABLE sync_outbox (
+    episode_id TEXT NOT NULL PRIMARY KEY,
+    queued_at INTEGER NOT NULL
+);
+
+CREATE TABLE document (
+    name TEXT NOT NULL PRIMARY KEY,
+    body TEXT NOT NULL
+);

@@ -1,0 +1,86 @@
+-- Single-row tables use id = 1. Id lists are joined by commas; ids never contain one.
+CREATE TABLE baseline_profile (
+    id INTEGER NOT NULL PRIMARY KEY CHECK (id = 1),
+    diagnoses TEXT NOT NULL,
+    frequency TEXT NOT NULL,
+    typical_duration TEXT NOT NULL,
+    typical_intensity INTEGER NOT NULL,
+    trigger_ids TEXT NOT NULL,
+    medication_ids TEXT NOT NULL
+);
+
+CREATE TABLE user_profile (
+    id INTEGER NOT NULL PRIMARY KEY CHECK (id = 1),
+    name TEXT NOT NULL,
+    -- ISO date, for example 2026-01-03.
+    member_since TEXT NOT NULL
+);
+
+CREATE TABLE export_preferences (
+    id INTEGER NOT NULL PRIMARY KEY CHECK (id = 1),
+    include_medications INTEGER NOT NULL,
+    include_symptoms INTEGER NOT NULL,
+    include_pain_charts INTEGER NOT NULL,
+    range TEXT NOT NULL
+);
+
+CREATE TABLE custom_trigger (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+);
+
+CREATE TABLE custom_medication (
+    id TEXT NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
+    dose TEXT NOT NULL,
+    role TEXT NOT NULL,
+    created_at INTEGER NOT NULL
+);
+
+selectBaseline:
+SELECT * FROM baseline_profile WHERE id = 1;
+
+upsertBaseline:
+INSERT OR REPLACE INTO baseline_profile(id, diagnoses, frequency, typical_duration, typical_intensity, trigger_ids, medication_ids)
+VALUES (1, ?, ?, ?, ?, ?, ?);
+
+selectUser:
+SELECT * FROM user_profile WHERE id = 1;
+
+upsertUser:
+INSERT OR REPLACE INTO user_profile(id, name, member_since) VALUES (1, ?, ?);
+
+selectExportPreferences:
+SELECT * FROM export_preferences WHERE id = 1;
+
+upsertExportPreferences:
+INSERT OR REPLACE INTO export_preferences(id, include_medications, include_symptoms, include_pain_charts, range)
+VALUES (1, ?, ?, ?, ?);
+
+selectCustomTriggers:
+SELECT * FROM custom_trigger ORDER BY created_at;
+
+insertCustomTrigger:
+INSERT INTO custom_trigger(id, name, created_at) VALUES (?, ?, ?);
+
+selectCustomMedications:
+SELECT * FROM custom_medication ORDER BY created_at;
+
+insertCustomMedication:
+INSERT INTO custom_medication(id, name, dose, role, created_at) VALUES (?, ?, ?, ?, ?);
+
+deleteBaseline:
+DELETE FROM baseline_profile;
+
+deleteUser:
+DELETE FROM user_profile;
+
+deleteExportPreferences:
+DELETE FROM export_preferences;
+
+deleteCustomTriggers:
+DELETE FROM custom_trigger;
+
+deleteCustomMedications:
+DELETE FROM custom_medication;

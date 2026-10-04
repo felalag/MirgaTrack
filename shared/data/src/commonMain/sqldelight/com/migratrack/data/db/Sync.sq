@@ -1,0 +1,32 @@
+-- Episodes logged on this device that the paired device has not confirmed yet.
+CREATE TABLE sync_outbox (
+    episode_id TEXT NOT NULL PRIMARY KEY,
+    queued_at INTEGER NOT NULL
+);
+
+-- Small JSON documents by name, for example the preset the watch receives from the phone.
+CREATE TABLE document (
+    name TEXT NOT NULL PRIMARY KEY,
+    body TEXT NOT NULL
+);
+
+enqueue:
+INSERT OR REPLACE INTO sync_outbox(episode_id, queued_at) VALUES (?, ?);
+
+pending:
+SELECT episode_id FROM sync_outbox ORDER BY queued_at;
+
+dequeue:
+DELETE FROM sync_outbox WHERE episode_id IN ?;
+
+clearOutbox:
+DELETE FROM sync_outbox;
+
+selectDocument:
+SELECT body FROM document WHERE name = ?;
+
+upsertDocument:
+INSERT OR REPLACE INTO document(name, body) VALUES (?, ?);
+
+clearDocuments:
+DELETE FROM document;

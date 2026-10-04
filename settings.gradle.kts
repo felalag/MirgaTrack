@@ -29,3 +29,4 @@ dependencyResolutionManagement {
     }
 }
 include(":shared:domain")
+include(":shared:data")
