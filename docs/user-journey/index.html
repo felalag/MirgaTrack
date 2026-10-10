@@ -95,12 +95,13 @@ p { margin: 0; }
 .device.phone { color: var(--pink); }
 .device.watch { color: var(--green); }
 .device + .device { margin-left: 12px; }
+/* Not a grid: a grid makes each text run and <code> a separate cell, and the label drifts away from its value. */
 .check {
-  display: grid; grid-template-columns: auto 1fr; gap: 8px; align-items: start;
+  position: relative;
   font-family: var(--font-data); font-size: 12px; line-height: 1.5; color: var(--fg);
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 9px 11px 9px 29px;
 }
-.check::before { content: "✓"; color: var(--green); font-weight: 700; }
+.check::before { content: "✓"; position: absolute; left: 11px; top: 9px; color: var(--green); font-weight: 700; }
 .check code { font-family: inherit; color: var(--cyan); word-break: break-word; }
 
 .shots { display: flex; flex-wrap: wrap; gap: 22px 18px; align-content: start; min-width: 0; }
@@ -163,14 +164,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 
 <main class="page">
   <header class="intro">
-    <span class="eyebrow">Сквозной тест · 4 октября 2026</span>
+    <span class="eyebrow">Сквозной тест · 4 октября 2026 · дополнен 11 октября</span>
     <h1>Путь пользователя <em>MigraTrack</em> на iPhone и Apple Watch</h1>
-    <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone, в приложении на часах, с компликации и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Нажмите на снимок, чтобы увеличить его.</p>
+    <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone, в приложении на часах, с компликации и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Шаги 16–21 добавил второй прогон: календарь Insights, правка приступа и лог в прошлый день. Нажмите на снимок, чтобы увеличить его.</p>
     <div class="facts">
-      <div class="fact"><b class="ok">15 из 15</b><span>шагов пройдено, ошибок приложения нет</span></div>
+      <div class="fact"><b class="ok">21 из 21</b><span>шага пройден, ошибок приложения нет</span></div>
       <div class="fact"><b>iPhone 18 Pro Max</b><span>симулятор, iOS 27.0</span></div>
       <div class="fact"><b>Watch Series 12</b><span>46 мм, watchOS 27.0, в паре с iPhone</span></div>
-      <div class="fact"><b>49</b><span>снимков экрана, Debug 1.0.0 (1)</span></div>
+      <div class="fact"><b>65</b><span>снимков экрана, Debug 1.0.0 (1)</span></div>
     </div>
   </header>
 
@@ -192,6 +193,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <li><a href="#s13"><span class="n">13</span><span class="d" style="background:var(--pink)"></span>Insights</a></li>
       <li><a href="#s14"><span class="n">14</span><span class="d" style="background:var(--pink)"></span>Export</a></li>
       <li><a href="#s15"><span class="n">15</span><span class="d" style="background:var(--pink)"></span>Spotlight и Siri</a></li>
+      <li><a href="#s16"><span class="n">16</span><span class="d" style="background:var(--pink)"></span>Календарь</a></li>
+      <li><a href="#s17"><span class="n">17</span><span class="d" style="background:var(--pink)"></span>Edit Episode</a></li>
+      <li><a href="#s18"><span class="n">18</span><span class="d" style="background:var(--pink)"></span>Лог в прошлый день</a></li>
+      <li><a href="#s19"><span class="n">19</span><span class="d" style="background:var(--pink)"></span>Период графика</a></li>
+      <li><a href="#s20"><span class="n">20</span><span class="d" style="background:var(--pink)"></span>Несколько приступов</a></li>
+      <li><a href="#s21"><span class="n">21</span><span class="d" style="background:var(--green)"></span>Правка на часах</a></li>
     </ol>
   </nav>
 
@@ -431,11 +438,115 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     </article>
   </section>
 
+  <section aria-labelledby="update">
+    <div class="section-head">
+      <span class="eyebrow">Второй прогон · 10–11 октября 2026</span>
+      <h2 id="update">Календарь Insights и правка приступа</h2>
+      <p>Шаги 16–21 используют данные первого прогона и демо-данные. Пользователь открывает календарь, правит и удаляет приступы и логирует приступ в прошлый день. Итог я сверил с SQLite на iPhone и на часах.</p>
+    </div>
+    <div class="journey">
+
+    <article class="step" id="s16">
+      <div class="num">16</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Плашка месяца открывает календарь</h2>
+        <p>Рядом с переключателем W, M, 6M и Y стоит плашка месяца. Тап по ней открывает календарь под графиком, второй тап закрывает его.</p>
+        <p>Неделя начинается с понедельника. Дни приступов розовые, с точкой в углу. Плашка <strong>2 Attack Days</strong> считает такие дни в месяце. Тап по дню без приступа выделяет его и показывает кнопку «Log Migraine Episode».</p>
+        <p>Месяц меняется свайпом по сетке. Тап по названию месяца открывает системное колесо месяца и года.</p>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p34-insights-month-pill.jpg" alt="Insights за месяц, плашка Oct 2026 рядом с W, M, 6M и Y" loading="lazy" width="560" height="1216"></button><figcaption>Плашка месяца, календарь закрыт</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p35-calendar-empty-day.jpg" alt="Календарь октября: сегодня без приступа, кнопка Log Migraine Episode" loading="lazy" width="560" height="1216"></button><figcaption>День без приступа: Log Migraine Episode</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p36-month-year-wheel.jpg" alt="Системное колесо месяца и года на September 2026" loading="lazy" width="560" height="1216"></button><figcaption>Колесо месяца и года</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s17">
+      <div class="num">17</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Карточка дня и Edit Episode</h2>
+        <p>Тап по дню приступа показывает карточку дня: дату и время, пиковую интенсивность и препараты. Под ними кнопки «Edit Episode Details» и «Delete Episode Log».</p>
+        <p>Edit Episode открывает форму вкладки Log с данными приступа. Строка «Episode Start» открывает системный выбор даты и времени. Будущее время выбрать нельзя.</p>
+        <p>Переносим приступ с 16 на <strong>15 сентября</strong> и нажимаем «Update Episode Log». Баннер подтверждает правку, календарь показывает новый день. Лист Last Event на Summary теперь тоже предлагает Edit Episode.</p>
+        <div class="check">SQLite iPhone и часов: <code>sample-18 | 2026-09-15 08:48</code></div>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p37-calendar-attack-day.jpg" alt="Карточка 16 сентября: пик 4 из 10, Ibuprofen 400mg, кнопки Edit и Delete" loading="lazy" width="560" height="1216"></button><figcaption>Карточка дня: пик 4/10, Ibuprofen</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p38-edit-episode-top.jpg" alt="Edit Episode: интенсивность 4, Occipital and Cervical Neck, Aphasia" loading="lazy" width="560" height="1216"></button><figcaption>Форма с данными приступа</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p39-edit-episode-bottom.jpg" alt="Episode Start Sep 16, 08:48, кнопки Update Episode Log и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Episode Start, Update и Delete</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p40-episode-start-picker.jpg" alt="Системный выбор даты: сентябрь 2026, время 08:48" loading="lazy" width="560" height="1216"></button><figcaption>Выбор даты и времени</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p41-episode-updated.jpg" alt="Баннер Episode updated, день приступа 15 сентября" loading="lazy" width="560" height="1216"></button><figcaption>Episode updated: приступ на 15 сентября</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s18">
+      <div class="num">18</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Лог в прошлый день и удаление</h2>
+        <p>Форма вкладки Log тоже получила строку «Episode Start». По умолчанию строка показывает <strong>Now</strong>, и приступ получает время сохранения.</p>
+        <p>На прошлом дне без приступа «Log Migraine Episode» открывает форму Log Episode. Время начала — этот день и текущее время суток: <strong>Sep 16, 18:16</strong>. Форма берёт пресет, как вкладка Log. Раньше приступ получал только текущее время.</p>
+        <p>«Delete Episode Log» в карточке дня спрашивает подтверждение. Алерт показывает дату, время и интенсивность приступа.</p>
+        <div class="check">SQLite iPhone и часов: приступа <code>2026-09-16 18:16</code> нет</div>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p42-log-tab-start-now.jpg" alt="Вкладка Log: Episode Start Now над кнопкой Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Вкладка Log: Episode Start · Now</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p43-log-past-day.jpg" alt="Log Episode на прошлый день: Episode Start Sep 16, 18:16" loading="lazy" width="560" height="1216"></button><figcaption>Лог на 16 сентября, 18:16</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p44-delete-confirm.jpg" alt="Алерт удаления: Sep 16, 2026 at 18:16, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>Подтверждение удаления</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s19">
+      <div class="num">19</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Месяц плашки задаёт период графика</h2>
+        <p>M показывает месяц плашки, 6M — шесть месяцев до него включительно, Y — его год. W показывает неделю с последним днём месяца. Для текущего месяца это неделя с сегодняшним днём.</p>
+        <p>При Sep 2026 график W показывает неделю с 28 сентября по 4 октября: <strong>5 приступов</strong> в пятницу и в воскресенье. Значок тренда сравнивает 7, 30, 182 или 365 дней до конца периода с таким же отрезком раньше.</p>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p45-insights-week-past-month.jpg" alt="Неделя с 28 сентября при плашке Sep 2026: 5 приступов" loading="lazy" width="560" height="1216"></button><figcaption>W при Sep 2026: неделя с 28 сентября</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s20">
+      <div class="num">20</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Несколько приступов в один день</h2>
+        <p>4 октября было четыре приступа. Карточка дня показывает пик дня и все препараты дня. «Edit Episode Details» и «Delete Episode Log» сначала спрашивают, какой приступ открыть.</p>
+        <p>Переносим приступ 10:31 на <strong>6 октября</strong>. Календарь показывает три дня приступов. У 4 октября остаются три приступа с пиком 9/10.</p>
+        <div class="check">SQLite iPhone и часов: <code>2026-10-06 10:31 | 6 | QuickLog</code></div>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p46-several-episodes-chooser.jpg" alt="Алерт Edit Episode: Sunday, Oct 4 has 4 episodes, четыре приступа с временем и интенсивностью" loading="lazy" width="560" height="1216"></button><figcaption>Выбор из четырёх приступов</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p47-calendar-after-move.jpg" alt="Календарь октября: дни приступов 2, 4 и 6 октября" loading="lazy" width="560" height="1216"></button><figcaption>После переноса: 6 октября в календаре</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p48-several-episodes-preview.jpg" alt="Карточка 4 октября: 3 приступа, пик 9 из 10, три препарата" loading="lazy" width="560" height="1216"></button><figcaption>4 октября: 3 приступа, пик 9/10</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step watch" id="s21">
+      <div class="num">21</div>
+      <div class="story">
+        <span class="device watch">Apple Watch</span>
+        <h2>Часы получают правку с iPhone</h2>
+        <p>После каждой правки iPhone отправляет на часы приступы за 60 дней. Часы показывают <strong>Last attack: Oct 6</strong> и 5 приступов в октябре.</p>
+        <p>iPhone помнит приступы, которые уже пришли с часов. Поэтому повторный пакет с часов не возвращает приступ, удалённый на iPhone. Это проверяют тесты синхронизации.</p>
+      </div>
+      <div class="shots">
+        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: 26 из 30 дней без боли, This month 5 attacks, Last attack Oct 6" loading="lazy" width="416" height="496"></button><figcaption>Last attack: Oct 6 после правки на iPhone</figcaption></figure>
+      </div>
+    </article>
+    </div>
+  </section>
+
   <section aria-labelledby="checks">
     <div class="section-head">
       <span class="eyebrow">Данные</span>
       <h2 id="checks">Что проверено в базах</h2>
-      <p>Каждое действие я сверял с SQLite на iPhone и в App Group на часах. Синхронизация завершена, когда очередь часов пуста.</p>
+      <p>Каждое действие я сверял с SQLite на iPhone и в App Group на часах. Синхронизация завершена, когда очередь часов пуста. Для шагов 16–21 я сверил итоговое состояние обеих баз.</p>
     </div>
     <div class="table-wrap">
       <table>
@@ -449,6 +560,9 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
           <tr><td>Перезагрузка часов</td><td>часы</td><td>Данные на месте, кольцо 29/30</td><td><span class="pill pass">Пройдено</span></td></tr>
           <tr><td>App Shortcut из Spotlight</td><td>iPhone</td><td>Новый <code>6 | QuickLog</code></td><td><span class="pill pass">Пройдено</span></td></tr>
           <tr><td>Экспорт .xlsx</td><td>файл</td><td>Архив без ошибок, 11 строк за 90 дней</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Edit Episode: перенос на 15 сентября</td><td>iPhone → часы</td><td><code>sample-18 | 2026-09-15 08:48</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Лог на 16 сентября, затем Delete</td><td>iPhone → часы</td><td>Приступа <code>2026-09-16 18:16</code> нет на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Перенос приступа 4 октября 10:31</td><td>iPhone → часы</td><td><code>2026-10-06 10:31 | 6 | QuickLog</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -458,12 +572,16 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     <div class="section-head">
       <span class="eyebrow">Замечания</span>
       <h2 id="notes">Что заметил по ходу</h2>
-      <p>Ошибок приложения в этом прогоне нет. Ниже одно наблюдение по дизайну, одно ограничение платформы и особенности симулятора.</p>
+      <p>Ошибок приложения в обоих прогонах нет. Ниже два наблюдения по дизайну, одно ограничение платформы и особенности симулятора.</p>
     </div>
     <div class="notes">
       <div class="note">
         <h3><span class="pill note">Дизайн</span>Месяцы на графике 6M и Y похожи</h3>
         <p>Розовая часть столбца не опускается ниже 14%, чтобы один день мигрени оставался видимым. Поэтому месяцы с 1 и с 4 днями мигрени выглядят одинаково. Можно уменьшить минимум или подписать число дней над столбцом.</p>
+      </div>
+      <div class="note">
+        <h3><span class="pill note">Дизайн</span>Макеты календаря молчат о части поведения</h3>
+        <p>Макеты не показывают время начала, смену месяца и день с несколькими приступами. Приложение берёт системные элементы: выбор даты в строке «Episode Start», колесо месяца и алерт выбора приступа. Длительности в карточке дня нет: приложение не хранит время конца приступа.</p>
       </div>
       <div class="note">
         <h3><span class="pill note">watchOS</span>Smart Stack и Control ждут приложение</h3>
