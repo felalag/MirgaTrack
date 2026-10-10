@@ -29,7 +29,7 @@ class SyncTest {
     private val watch = store("watch")
     private val phoneSync = PhoneSync(
         phone.episodes, phone.profiles, phone.catalog,
-        GetLoggingPreset(phone.profiles, phone.catalog), clock,
+        GetLoggingPreset(phone.profiles, phone.catalog), phone.documents, clock,
     )
     private val watchSync = WatchSync(watch.episodes, watch.outbox, watch.documents)
     private val watchQuickLog = QuickLogEpisode(watchSync, LogEpisode(watch.episodes, clock))
@@ -117,6 +117,46 @@ class SyncTest {
 
         assertEquals(emptyList(), phone.episodes.observeAll().first())
         assertNull(watchSync.pendingBatch())
+    }
+
+    @Test
+    fun episodeDeletedOnThePhoneStaysDeletedWhenTheWatchSendsItAgain() = runTest {
+        val logged = watchQuickLog().also { watchSync.queue(it) }
+        phoneSync.receive(assertNotNullBatch())
+        phone.episodes.delete(logged.id)
+
+        // The context that listed the episode was replaced by a newer one before the watch woke up.
+        watchSync.applyContext(phoneSync.context())
+        watchSync.pendingBatch()?.let { phoneSync.receive(it) }
+
+        assertEquals(emptyList(), phone.episodes.observeAll().first())
+        assertEquals(emptyList(), watch.episodes.observeAll().first())
+        assertNull(watchSync.pendingBatch())
+    }
+
+    @Test
+    fun undoThatOvertakesItsEpisodeStillDeletesIt() = runTest {
+        val logged = watchQuickLog().also { watchSync.queue(it) }
+        val inFlight = assertNotNullBatch()
+        watchSync.undo(logged.id)
+
+        phoneSync.receive(assertNotNullBatch())
+        phoneSync.receive(inFlight)
+
+        assertEquals(emptyList(), phone.episodes.observeAll().first())
+    }
+
+    @Test
+    fun editOnThePhoneReplacesTheWatchCopy() = runTest {
+        val logged = watchQuickLog().also { watchSync.queue(it) }
+        phoneSync.receive(assertNotNullBatch())
+        phone.episodes.add(logged.copy(intensity = PainIntensity(9)))
+
+        watchSync.applyContext(phoneSync.context())
+        watchSync.pendingBatch()?.let { phoneSync.receive(it) }
+
+        assertEquals(listOf(9), watch.episodes.observeAll().first().map { it.intensity.value })
+        assertEquals(listOf(9), phone.episodes.observeAll().first().map { it.intensity.value })
     }
 
     private suspend fun assertNotNullBatch(): String = requireNotNull(watchSync.pendingBatch()) { "expected a batch" }

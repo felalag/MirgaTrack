@@ -36,9 +36,16 @@ data class SyncMedication(val id: String, val name: String, val dose: String)
 @Serializable
 data class SyncPreset(val intensity: Int, val medications: List<SyncMedication> = emptyList())
 
-/** What the phone sends to the watch. The newest one replaces the one before. */
+/**
+ * What the phone sends to the watch. The newest one replaces the one before.
+ * [receivedIds] lists the newest ids the phone took in from the watch; it confirms an episode the user deleted on the phone.
+ */
 @Serializable
-data class PhoneContext(val preset: SyncPreset, val episodes: List<SyncEpisode> = emptyList())
+data class PhoneContext(
+    val preset: SyncPreset,
+    val episodes: List<SyncEpisode> = emptyList(),
+    val receivedIds: List<String> = emptyList(),
+)
 
 /** What the watch sends to the phone: new episodes and the ids the user undid. */
 @Serializable

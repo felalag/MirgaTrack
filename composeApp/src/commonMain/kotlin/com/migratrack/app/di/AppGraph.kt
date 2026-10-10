@@ -34,7 +34,7 @@ class AppGraph(
     val completeOnboarding = CompleteOnboarding(profiles, clock, timeZone)
     val loadSampleData = LoadSampleData(episodes, clock)
     val exportReport = ExportReport(episodes, profiles, catalog, clock, timeZone, services.pdfRenderer)
-    val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, clock)
+    val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, services.store.documents, clock)
 
     fun today(): LocalDate = clock.todayIn(timeZone())
 }

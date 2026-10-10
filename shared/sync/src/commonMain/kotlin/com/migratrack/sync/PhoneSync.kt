@@ -3,14 +3,18 @@ package com.migratrack.sync
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.repository.CatalogRepository
+import com.migratrack.domain.repository.DocumentStore
 import com.migratrack.domain.repository.EpisodeRepository
 import com.migratrack.domain.repository.ProfileRepository
 import com.migratrack.domain.usecase.PresetProvider
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.builtins.serializer
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
 
@@ -20,11 +24,14 @@ class PhoneSync(
     private val profiles: ProfileRepository,
     private val catalog: CatalogRepository,
     private val preset: PresetProvider,
+    private val documents: DocumentStore,
     private val clock: Clock,
 ) {
-    /** A new context after every change to the episodes or the preset. */
+    private val receivedChanges = MutableStateFlow(0)
+
+    /** A new context after every change to the episodes, the preset, or the ids received from the watch. */
     fun contexts(): Flow<String> =
-        combine(episodes.observeAll(), profiles.observeBaseline(), catalog.observeMedications()) { all, _, _ -> all }
+        combine(episodes.observeAll(), profiles.observeBaseline(), catalog.observeMedications(), receivedChanges) { all, _, _, _ -> all }
             .map { all -> encode(all) }
             .distinctUntilChanged()
 
@@ -33,14 +40,19 @@ class PhoneSync(
     /**
      * Adds the episodes the phone does not have and deletes the ones the user undid.
      * Batches can arrive twice and out of order with a delete, so both steps are idempotent.
+     * An id the phone took in once is never added again: the user may have deleted that episode here since.
      * @return the number of episodes added.
      */
     suspend fun receive(batch: String): Int {
         val decoded = SyncJson.decodeFromString<WatchBatch>(batch)
+        val received = readReceived()
         val known = episodes.observeAll().first().map { it.id }.toSet()
-        val fresh = decoded.episodes.mapNotNull { it.toDomain() }.filter { it.id !in known }
+        val fresh = decoded.episodes.mapNotNull { it.toDomain() }
+            .filter { it.id !in known && it.id.value !in received && it.id.value !in decoded.deletedIds }
         fresh.forEach { episodes.add(it) }
         decoded.deletedIds.map(::EpisodeId).filter { it in known }.forEach { episodes.delete(it) }
+        writeReceived(received + decoded.episodes.map { it.id } + decoded.deletedIds)
+        receivedChanges.value++
         return fresh.size
     }
 
@@ -50,11 +62,22 @@ class PhoneSync(
         val context = PhoneContext(
             preset = preset.preset().toSync(),
             episodes = all.filter { it.startedAt >= since }.map { it.toSync() },
+            receivedIds = readReceived(),
         )
         return SyncJson.encodeToString(PhoneContext.serializer(), context)
     }
 
+    private suspend fun readReceived(): List<String> =
+        documents.read(RECEIVED)?.let { SyncJson.decodeFromString(IdList, it) }.orEmpty()
+
+    // The watch clears its outbox within a few batches, so the newest ids are the only ones that matter.
+    private suspend fun writeReceived(ids: List<String>) =
+        documents.write(RECEIVED, SyncJson.encodeToString(IdList, ids.distinct().takeLast(MAX_RECEIVED_IDS)))
+
     companion object {
         const val CONTEXT_DAYS = 60
+        const val MAX_RECEIVED_IDS = 200
+        private const val RECEIVED = "received-watch-episode-ids"
+        private val IdList = ListSerializer(String.serializer())
     }
 }
