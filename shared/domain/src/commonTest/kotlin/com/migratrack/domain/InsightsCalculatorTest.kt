@@ -3,8 +3,10 @@ package com.migratrack.domain
 import com.migratrack.domain.analytics.InsightsCalculator
 import com.migratrack.domain.analytics.InsightsPeriod
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.YearMonth
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
@@ -88,5 +90,45 @@ class InsightsCalculatorTest {
         val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC)
         assertEquals("JFMAMJJASOND", insights.bars.joinToString("") { it.label })
         assertEquals(0, insights.bars[11].elapsedDays)
+    }
+
+    @Test
+    fun pastMonthShowsItsOwnWeeksCountAndTrend() {
+        // Sep 2026: attacks on Sep 3 and Sep 20; Aug 1–31 has three.
+        val episodes = listOf(
+            LocalDate(2026, 8, 5), LocalDate(2026, 8, 12), LocalDate(2026, 8, 30),
+            LocalDate(2026, 9, 3), LocalDate(2026, 9, 20), LocalDate(2026, 10, 2),
+        ).map { episodeOn(it) }
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, YearMonth(2026, 9))
+
+        assertEquals(YearMonth(2026, 9), insights.month)
+        assertEquals(LocalDate(2026, 9, 1)..LocalDate(2026, 9, 30), insights.range)
+        assertEquals(2, insights.attackCount)
+        // Sep 1–30 against Aug 2–31.
+        assertEquals(-33, insights.trendPercent)
+        assertEquals(listOf(7, 7, 7, 9), insights.bars.map { it.elapsedDays })
+        assertTrue(insights.bars.none { it.isCurrent })
+        assertFalse(insights.includesToday)
+    }
+
+    @Test
+    fun pastMonthAnchorsTheOtherPeriodsAtItsLastDay() {
+        val september = YearMonth(2026, 9)
+        val week = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, september)
+        val sixMonths = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, september)
+        val lastYear = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, YearMonth(2025, 3))
+
+        // Sep 30, 2026 is a Wednesday; its week runs into October.
+        assertEquals(LocalDate(2026, 9, 28)..LocalDate(2026, 10, 4), week.range)
+        assertEquals(listOf("Apr", "May", "Jun", "Jul", "Aug", "Sep"), sixMonths.bars.map { it.label })
+        assertEquals(LocalDate(2025, 1, 1)..LocalDate(2025, 12, 31), lastYear.range)
+        assertEquals(31, lastYear.bars[11].elapsedDays)
+    }
+
+    @Test
+    fun futureMonthFallsBackToTheCurrentOne() {
+        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Month, today, UTC, YearMonth(2027, 1))
+        assertEquals(YearMonth(2026, 10), insights.month)
+        assertTrue(insights.includesToday)
     }
 }

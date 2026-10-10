@@ -29,15 +29,16 @@ class WatchSync(
     suspend fun isLinked(): Boolean = storedContext() != null
 
     /**
-     * Mirrors the phone. An episode in the context confirms that the phone stored it, so it leaves the outbox.
-     * Episodes the context does not list go away, unless they still wait in the outbox.
+     * Mirrors the phone. An episode in the context, or its id in the received list, confirms that the phone
+     * took it in, so it leaves the outbox. Episodes the context does not list go away, unless they still wait in the outbox.
      */
     suspend fun applyContext(json: String) {
         val context = SyncJson.decodeFromString(PhoneContext.serializer(), json)
         documents.write(CONTEXT, json)
         val incoming = context.episodes.mapNotNull { it.toDomain() }
         val incomingIds = incoming.map { it.id }.toSet()
-        outbox.remove(outbox.pending().filter { it in incomingIds })
+        val confirmed = incomingIds + context.receivedIds.map(::EpisodeId)
+        outbox.remove(outbox.pending().filter { it in confirmed })
         val keep = incomingIds + outbox.pending()
         episodes.observeAll().first().filter { it.id !in keep }.forEach { episodes.delete(it.id) }
         incoming.forEach { episodes.add(it) }

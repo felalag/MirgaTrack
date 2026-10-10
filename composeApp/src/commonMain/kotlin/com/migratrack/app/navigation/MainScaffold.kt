@@ -30,6 +30,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.migratrack.app.feature.episode.EpisodeEditorScreen
+import com.migratrack.app.feature.episode.EpisodeTarget
+import com.migratrack.app.feature.episode.SAVED_MESSAGE
 import com.migratrack.app.feature.export.ExportScreen
 import com.migratrack.app.feature.insights.InsightsScreen
 import com.migratrack.app.feature.log.LogEpisodeScreen
@@ -43,7 +46,9 @@ import com.migratrack.app.ui.components.TabBar
 import com.migratrack.app.ui.components.TabBarHeight
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
+import com.migratrack.domain.model.EpisodeId
 import kotlinx.coroutines.delay
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -54,6 +59,13 @@ data object SettingsRoute
 
 @Serializable
 data class EditBaselineRoute(val step: Int)
+
+/** Edit Episode for [episodeId], or Log Episode on [date] (ISO) from the calendar. */
+@Serializable
+data class EpisodeRoute(val episodeId: String? = null, val date: String? = null) {
+    fun target(): EpisodeTarget =
+        episodeId?.let { EpisodeTarget.Edit(EpisodeId(it)) } ?: EpisodeTarget.NewOn(LocalDate.parse(requireNotNull(date)))
+}
 
 /**
  * Tabs with a shared push stack, as a UITabBarController hosting navigation controllers.
@@ -84,9 +96,20 @@ fun MainScaffold() {
                         tab = selectedTab,
                         openSettings = { navController.navigate(SettingsRoute) },
                         openLog = { selectedTab = Tab.Log },
+                        openEpisode = { route -> navController.navigate(route) },
                         onEpisodeSaved = {
                             selectedTab = Tab.Summary
-                            banner = "Episode saved. Take it easy and stay in low light."
+                            banner = SAVED_MESSAGE
+                        },
+                    )
+                }
+                composable<EpisodeRoute> { backStackEntry ->
+                    EpisodeEditorScreen(
+                        target = backStackEntry.toRoute<EpisodeRoute>().target(),
+                        onBack = { navController.popBackStack() },
+                        onDone = { message ->
+                            navController.popBackStack()
+                            banner = message
                         },
                     )
                 }
@@ -134,13 +157,24 @@ fun MainScaffold() {
 
 /** Keeps each tab's scroll position while another tab is shown. */
 @Composable
-private fun TabContent(tab: Tab, openSettings: () -> Unit, openLog: () -> Unit, onEpisodeSaved: () -> Unit) {
+private fun TabContent(
+    tab: Tab,
+    openSettings: () -> Unit,
+    openLog: () -> Unit,
+    openEpisode: (EpisodeRoute) -> Unit,
+    onEpisodeSaved: () -> Unit,
+) {
     val stateHolder = rememberSaveableStateHolder()
+    val editEpisode = { id: EpisodeId -> openEpisode(EpisodeRoute(episodeId = id.value)) }
     stateHolder.SaveableStateProvider(tab.name) {
         when (tab) {
-            Tab.Summary -> SummaryScreen(onOpenSettings = openSettings, onLogEpisode = openLog)
+            Tab.Summary -> SummaryScreen(onOpenSettings = openSettings, onLogEpisode = openLog, onEditEpisode = editEpisode)
             Tab.Log -> LogEpisodeScreen(onOpenSettings = openSettings, onSaved = onEpisodeSaved)
-            Tab.Insights -> InsightsScreen(onOpenSettings = openSettings)
+            Tab.Insights -> InsightsScreen(
+                onOpenSettings = openSettings,
+                onEditEpisode = editEpisode,
+                onLogOn = { date -> openEpisode(EpisodeRoute(date = date.toString())) },
+            )
             Tab.Export -> ExportScreen(onOpenSettings = openSettings)
         }
     }

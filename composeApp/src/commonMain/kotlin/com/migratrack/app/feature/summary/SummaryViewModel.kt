@@ -8,6 +8,7 @@ import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
+import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
 import com.migratrack.domain.platform.SleepAccess
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -54,14 +55,17 @@ class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
         refreshSleep()
     }
 
-    /** Offers to delete the last episode, the only way to undo a mistaken log in this version. */
-    fun manageEpisode(episode: Episode) = viewModelScope.launch {
+    /** Offers to edit or delete the last episode. */
+    fun manageEpisode(episode: Episode, onEdit: (EpisodeId) -> Unit) = viewModelScope.launch {
         val dateTime = episode.startedAt.toLocalDateTime(graph.timeZone())
         val choice = graph.services.dialogs.chooseAction(
             title = "${DateText.fullDate(dateTime.date)} at ${DateText.time(dateTime)}",
             message = "Intensity ${episode.intensity.value}/10",
-            actions = listOf(SheetAction("Delete Episode", destructive = true)),
+            actions = listOf(SheetAction("Edit Episode"), SheetAction("Delete Episode Log", destructive = true)),
         )
-        if (choice == 0) graph.episodes.delete(episode.id)
+        when (choice) {
+            0 -> onEdit(episode.id)
+            1 -> graph.episodes.delete(episode.id)
+        }
     }
 }

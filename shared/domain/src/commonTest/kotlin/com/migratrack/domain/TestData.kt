@@ -50,7 +50,8 @@ class InMemoryEpisodes : EpisodeRepository {
     override fun observeAll(): Flow<List<Episode>> = state.map { list -> list.sortedByDescending { it.startedAt } }
     override suspend fun inRange(from: Instant, until: Instant) =
         state.value.filter { it.startedAt >= from && it.startedAt < until }.sortedBy { it.startedAt }
-    override suspend fun add(episode: Episode) { state.value += episode }
+    override suspend fun find(id: EpisodeId) = state.value.firstOrNull { it.id == id }
+    override suspend fun add(episode: Episode) { state.value = state.value.filterNot { it.id == episode.id } + episode }
     override suspend fun delete(id: EpisodeId) { state.value = state.value.filterNot { it.id == id } }
 }
 
