@@ -18,6 +18,9 @@ interface EpisodeRepository {
     /** Episodes that started in [from, until), oldest first. */
     suspend fun inRange(from: Instant, until: Instant): List<Episode>
 
+    suspend fun find(id: EpisodeId): Episode?
+
+    /** Inserts the episode, or replaces the stored one with the same id. */
     suspend fun add(episode: Episode)
 
     suspend fun delete(id: EpisodeId)

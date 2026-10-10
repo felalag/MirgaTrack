@@ -27,8 +27,14 @@ SELECT * FROM episode ORDER BY started_at DESC;
 selectInRange:
 SELECT * FROM episode WHERE started_at >= :from AND started_at < :until ORDER BY started_at;
 
+selectById:
+SELECT * FROM episode WHERE id = :id;
+
 selectAllIntakes:
 SELECT * FROM medication_intake ORDER BY episode_id, position;
+
+selectIntakes:
+SELECT * FROM medication_intake WHERE episode_id = :episodeId ORDER BY position;
 
 insertEpisode:
 INSERT OR REPLACE INTO episode(id, started_at, intensity, region, symptoms, source)

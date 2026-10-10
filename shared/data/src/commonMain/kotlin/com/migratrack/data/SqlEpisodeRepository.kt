@@ -35,6 +35,10 @@ internal class SqlEpisodeRepository(
         attachIntakes(queries.selectInRange(from.toEpochMilliseconds(), until.toEpochMilliseconds()).executeAsList())
     }
 
+    override suspend fun find(id: EpisodeId): Episode? = withContext(dispatcher) {
+        queries.selectById(id.value).executeAsOneOrNull()?.toDomain(queries.selectIntakes(id.value).executeAsList())
+    }
+
     override suspend fun add(episode: Episode) = withContext(dispatcher) {
         database.transaction {
             queries.deleteIntakes(episode.id.value)

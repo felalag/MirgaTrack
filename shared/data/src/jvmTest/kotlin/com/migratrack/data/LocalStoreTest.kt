@@ -61,6 +61,19 @@ class LocalStoreTest {
     }
 
     @Test
+    fun findReturnsTheEpisodeAndAddReplacesItWithFewerIntakes() = runTest {
+        store.episodes.add(episode)
+        assertEquals(episode, store.episodes.find(EpisodeId("e1")))
+
+        val edited = episode.copy(intensity = PainIntensity(4), medications = episode.medications.take(1))
+        store.episodes.add(edited)
+
+        assertEquals(edited, store.episodes.find(EpisodeId("e1")))
+        assertEquals(listOf(edited), store.episodes.observeAll().first())
+        assertNull(store.episodes.find(EpisodeId("missing")))
+    }
+
+    @Test
     fun deleteRemovesTheEpisodeAndItsIntakes() = runTest {
         store.episodes.add(episode)
         store.episodes.add(episode.copy(id = EpisodeId("e2"), medications = emptyList()))

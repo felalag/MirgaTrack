@@ -50,7 +50,7 @@ The watch app and its extension link the same `MigraCore.framework`. `LogMigrain
 | `EpisodeRepository`, `ProfileRepository`, `CatalogRepository` | domain | `LocalStore` (SQLDelight) | The same code runs on Android and watchOS. |
 | `SleepDataSource` | domain | `HealthKitSleepDataSource` | Health Connect on Android. |
 | `PdfRenderer` / `ReportCanvas` | export | `UIKitPdfRenderer` (UIGraphicsPDFRenderer) | `android.graphics.pdf.PdfDocument`. The layout code stays shared. |
-| `SystemDialogs` | composeApp | `UIKitDialogs` (UIAlertController) | Compose or platform dialogs. |
+| `SystemDialogs` | composeApp | `UIKitDialogs`: UIAlertController, and a UIDatePicker in a sheet | Compose or platform dialogs. |
 | `FileSharing` | composeApp | Quick Look and UIActivityViewController | Intent chooser with FileProvider. |
 | `QuickLogEpisode` | domain | iPhone: `QuickLogBridge`. Watch: `WatchCore.quickLog()` | Android: a Quick Settings tile or a widget. |
 | `PresetProvider` | domain | Phone: `GetLoggingPreset`. Watch: `WatchSync`, from the phone context | — |
@@ -59,10 +59,17 @@ The watch app and its extension link the same `MigraCore.framework`. `LogMigrain
 `GetLoggingPreset` turns the baseline profile into the default form: the typical intensity and the acute medications of the treatment blueprint.
 The Log Episode form starts from it, and quick logging saves it unchanged. The watch has no baseline of its own; it receives the preset from the phone.
 
+## Episodes and the calendar
+
+- **One form, three uses.** `EpisodeFormViewModel` drives the Log tab, Edit Episode, and Log Episode for a day picked in the calendar. `EpisodeTarget` tells them apart.
+- **Start time.** `EpisodeDraft.startedAt` is null for "now", so a new episode still starts when the user saves it. `LogEpisode` and `UpdateEpisode` move a future start back to now.
+- **Edit.** `UpdateEpisode` keeps the id and the source. `EpisodeRepository.add` replaces the stored episode with the same id, and the phone context carries the new version to the watch.
+- **Insights.** `InsightsCalculator` takes the browsed month. `CalendarBuilder` builds the month grid, which starts on Monday, and the preview of one day.
+
 ## Native feel
 
 - **Navigation:** the iOS push transition, the edge swipe back, and a tab bar that stays under pushed screens.
-- **System UI:** UIAlertController for alerts, prompts and action sheets. Quick Look for the PDF preview, and the system share sheet.
+- **System UI:** UIAlertController for alerts, prompts and action sheets. A UIDatePicker sheet for the episode start and for month and year. Quick Look for the PDF preview, and the system share sheet.
 - **Scrolling and input:** the iOS overscroll bounce comes from Compose Multiplatform. Taps dim and shrink the control instead of a Material ripple.
 - **Haptics:** selection, toggle and confirmation haptics through `LocalHapticFeedback`, which Compose maps to the UIKit feedback generators.
 - **Accessibility:** VoiceOver labels and states on the custom controls. The pain scale is adjustable as a slider.
@@ -111,6 +118,7 @@ The rules live in `shared/sync`; Swift moves JSON strings over WatchConnectivity
   - Otherwise the watch queues the batch with `transferUserInfo`.
 - **Confirmation:** an episode leaves the outbox only when a phone context lists it. A finished transfer is not proof, because the phone app may not have stored the batch yet. Until then the watch keeps the episode and sends it again, and the phone ignores ids it already has.
 - **Undo:** the watch deletes the episode and sends a delete request, even if the episode was never confirmed. Its batch may already be on the way, and the phone ignores unknown ids.
+- **Delete and edit on the phone:** the phone remembers the last 200 ids it received from the watch and lists them in the context as `receivedIds`. A batch that arrives again cannot bring back an episode the user deleted on the phone, and the watch takes the list as confirmation. An edit reaches the watch with the next context.
 - **Database:** the watch app and the complication extension share one database in the App Group container, which `MigraTrackAppGroup` in Info.plist names.
 
 `SyncTest` covers these cases with two in-memory databases.

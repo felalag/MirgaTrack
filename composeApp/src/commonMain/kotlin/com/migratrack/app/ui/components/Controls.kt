@@ -111,6 +111,23 @@ fun SecondaryButton(
     }
 }
 
+/** Dark pill with pink text that deletes something: "Delete Episode Log". */
+@Composable
+fun DestructiveButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .clip(CircleShape)
+            .background(MtColors.Card)
+            .border(1.dp, Color.White.copy(alpha = 0.1f), CircleShape)
+            .pressable(enabled = enabled, pressedScale = 0.98f, onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        MtText(text, MtTheme.type.headline, color = MtColors.Pink, maxLines = 1)
+    }
+}
+
 /** Small accent text button, as the "Clear" links of the Log Episode cards. */
 @Composable
 fun TextAction(text: String, color: Color, onClick: () -> Unit, modifier: Modifier = Modifier) {

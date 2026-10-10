@@ -12,6 +12,9 @@ object MtColors {
     val Amber = Color(0xFFFF9500)
     val Purple = Color(0xFFBF5AF2)
 
+    /** The light pink of the brand mark, the calendar icons, and the attack days of the calendar. */
+    val PinkSoft = Color(0xFFFF8093)
+
     /** The lime of the online dot on the profile avatar. */
     val Lime = Color(0xFF8EDB00)
 

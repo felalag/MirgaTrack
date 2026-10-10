@@ -7,10 +7,12 @@ import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.Month
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.YearMonth
 import kotlinx.datetime.isoDayNumber
 import kotlinx.datetime.minus
 import kotlinx.datetime.number
 import kotlinx.datetime.plus
+import kotlinx.datetime.yearMonth
 import kotlin.math.roundToInt
 
 enum class InsightsPeriod { Week, Month, SixMonths, Year }
@@ -30,34 +32,49 @@ data class InsightsBar(
 data class Insights(
     val period: InsightsPeriod,
     val today: LocalDate,
+    /** The month the user browses; the chart shows the period that ends in it. */
+    val month: YearMonth,
+    /** The days the chart covers. Days after today count as not yet elapsed. */
+    val range: ClosedRange<LocalDate>,
     val attackCount: Int,
     /**
-     * Change in attacks over the last 7, 30, 182 or 365 days against the same span before it.
-     * Negative means fewer attacks; null when the earlier span has none.
+     * Change in attacks over 7, 30, 182 or 365 days up to the end of the range (today at most)
+     * against the same span before it. Negative means fewer attacks; null when the earlier span has none.
      */
     val trendPercent: Int?,
     val bars: List<InsightsBar>,
-)
+) {
+    val includesToday: Boolean get() = today in range
+}
 
 object InsightsCalculator {
 
+    /**
+     * @param month the browsed month; a later month than today's is clamped to today's.
+     *   For a past month the week view shows the week of its last day.
+     */
     fun calculate(
         episodes: List<Episode>,
         period: InsightsPeriod,
         today: LocalDate,
         timeZone: TimeZone,
+        month: YearMonth = today.yearMonth,
     ): Insights {
+        val shown = minOf(month, today.yearMonth)
+        val anchor = if (shown == today.yearMonth) today else shown.lastDay
+        val range = period.range(anchor)
+        val end = minOf(range.endInclusive, today)
         val days = MigraineDays(episodes, timeZone)
-        val attackCount = days.attacksIn(period.range(today).start..today)
+        val attackCount = days.attacksIn(range.start..end)
 
         // Rolling spans, not calendar periods: early in a month a calendar comparison sets
         // a few days against a whole month and swings by hundreds of percent.
         val span = period.trendSpanDays
-        val recent = days.attacksIn(today.minus(DatePeriod(days = span - 1))..today)
-        val earlier = days.attacksIn(today.minus(DatePeriod(days = 2 * span - 1))..today.minus(DatePeriod(days = span)))
+        val recent = days.attacksIn(end.minus(DatePeriod(days = span - 1))..end)
+        val earlier = days.attacksIn(end.minus(DatePeriod(days = 2 * span - 1))..end.minus(DatePeriod(days = span)))
         val trend = if (earlier == 0) null else ((recent - earlier) * 100.0 / earlier).roundToInt()
 
-        val bars = period.buckets(today).map { (label, bucket) ->
+        val bars = period.buckets(anchor).map { (label, bucket) ->
             val elapsedPart = bucket.start..minOf(bucket.endInclusive, today)
             InsightsBar(
                 label = label,
@@ -67,15 +84,15 @@ object InsightsCalculator {
                 isCurrent = today in bucket,
             )
         }
-        return Insights(period, today, attackCount, trend, bars)
+        return Insights(period, today, shown, range, attackCount, trend, bars)
     }
 }
 
-private fun InsightsPeriod.range(today: LocalDate): ClosedRange<LocalDate> = when (this) {
-    InsightsPeriod.Week -> today.startOfWeek().let { it..it.plus(DatePeriod(days = 6)) }
-    InsightsPeriod.Month -> today.startOfMonth().let { it..it.endOfMonth() }
-    InsightsPeriod.SixMonths -> today.startOfMonth().minus(DatePeriod(months = 5))..today.startOfMonth().endOfMonth()
-    InsightsPeriod.Year -> LocalDate(today.year, Month.JANUARY, 1)..LocalDate(today.year, Month.DECEMBER, 31)
+private fun InsightsPeriod.range(anchor: LocalDate): ClosedRange<LocalDate> = when (this) {
+    InsightsPeriod.Week -> anchor.startOfWeek().let { it..it.plus(DatePeriod(days = 6)) }
+    InsightsPeriod.Month -> anchor.startOfMonth().let { it..it.endOfMonth() }
+    InsightsPeriod.SixMonths -> anchor.startOfMonth().minus(DatePeriod(months = 5))..anchor.startOfMonth().endOfMonth()
+    InsightsPeriod.Year -> LocalDate(anchor.year, Month.JANUARY, 1)..LocalDate(anchor.year, Month.DECEMBER, 31)
 }
 
 private val InsightsPeriod.trendSpanDays: Int
@@ -86,9 +103,9 @@ private val InsightsPeriod.trendSpanDays: Int
         InsightsPeriod.Year -> 365
     }
 
-private fun InsightsPeriod.buckets(today: LocalDate): List<Pair<String, ClosedRange<LocalDate>>> = when (this) {
+private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<String, ClosedRange<LocalDate>>> = when (this) {
     InsightsPeriod.Week -> {
-        val monday = today.startOfWeek()
+        val monday = anchor.startOfWeek()
         DayOfWeek.entries.mapIndexed { index, day ->
             val date = monday.plus(DatePeriod(days = index))
             DateText.shortWeekday(day) to date..date
@@ -96,7 +113,7 @@ private fun InsightsPeriod.buckets(today: LocalDate): List<Pair<String, ClosedRa
     }
     InsightsPeriod.Month -> {
         // The last bucket absorbs days 29–31, so the chart always has the four bars of the design.
-        val first = today.startOfMonth()
+        val first = anchor.startOfMonth()
         val last = first.endOfMonth()
         (0 until 4).map { week ->
             val start = first.plus(DatePeriod(days = week * 7))
@@ -105,11 +122,11 @@ private fun InsightsPeriod.buckets(today: LocalDate): List<Pair<String, ClosedRa
         }
     }
     InsightsPeriod.SixMonths -> (5 downTo 0).map { back ->
-        val start = today.startOfMonth().minus(DatePeriod(months = back))
+        val start = anchor.startOfMonth().minus(DatePeriod(months = back))
         DateText.shortMonth(start.month) to start..start.endOfMonth()
     }
     InsightsPeriod.Year -> Month.entries.map { month ->
-        val start = LocalDate(today.year, month, 1)
+        val start = LocalDate(anchor.year, month, 1)
         DateText.shortMonth(month).take(1) to start..start.endOfMonth()
     }
 }

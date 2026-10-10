@@ -10,6 +10,7 @@ import com.migratrack.domain.usecase.GetLoggingPreset
 import com.migratrack.domain.usecase.LoadSampleData
 import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.domain.usecase.QuickLogEpisode
+import com.migratrack.domain.usecase.UpdateEpisode
 import com.migratrack.export.ExportReport
 import com.migratrack.sync.PhoneSync
 import kotlinx.datetime.LocalDate
@@ -29,6 +30,7 @@ class AppGraph(
     val catalog: CatalogRepository get() = services.store.catalog
 
     val logEpisode = LogEpisode(episodes, clock)
+    val updateEpisode = UpdateEpisode(episodes, clock)
     val loggingPreset = GetLoggingPreset(profiles, catalog)
     val quickLog = QuickLogEpisode(loggingPreset, logEpisode)
     val completeOnboarding = CompleteOnboarding(profiles, clock, timeZone)

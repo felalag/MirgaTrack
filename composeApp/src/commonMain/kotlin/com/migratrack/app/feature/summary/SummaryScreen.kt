@@ -47,12 +47,13 @@ import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.Episode
+import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
 @Composable
-fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit) {
+fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEpisode: (EpisodeId) -> Unit) {
     val graph = LocalAppGraph.current
     val viewModel = viewModel { SummaryViewModel(graph) }
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -74,7 +75,7 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit) {
             SleepCard.NeedsAccess -> SleepConnectCard(onConnect = viewModel::connectHealth)
             is SleepCard.Loaded -> SleepDepthCard(sleep.sleep)
         }
-        LastEventCard(snapshot.lastEpisode, graph.timeZone(), onClick = viewModel::manageEpisode)
+        LastEventCard(snapshot.lastEpisode, graph.timeZone(), onClick = { viewModel.manageEpisode(it, onEditEpisode) })
     }
 }
 

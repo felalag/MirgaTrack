@@ -1,6 +1,6 @@
 # MigraTrack
 
-MigraTrack is a migraine tracker for iPhone. You log attacks, see trends, and export a clinical report.
+MigraTrack is a migraine tracker for iPhone. You log attacks, see trends in a chart and a month calendar, edit past episodes, and export a clinical report.
 The data stays on the device.
 
 The app uses Kotlin Multiplatform. Compose Multiplatform draws the iPhone UI, and Swift and Kotlin/Native call iOS frameworks where the platform needs them.
@@ -85,10 +85,20 @@ The screens in the Stitch export and the design specification disagree in some p
 - **Layout comes from the most frequent variant in the screens.** Examples: the 20 pt side margin, the header with the brain mark, the settings gear on every tab.
 - **Native behavior wins where the screens are silent.** Settings is pushed under the tab bar with a back button and the edge swipe.
 
+The third Stitch export adds the Edit Episode screen and a calendar in Insights. Three of its images are broken files (`analytics_insights`, `analytics_insights_week_w`, `analytics_insights_year_y`), so their HTML was the reference.
+
+- **The month pill next to W / M / 6M / Y has one look on every period.** The HTML draws it two ways, three files each. The look of the calendar screens won, because two of the three valid images show it.
+- **The pill month drives the whole tab.** The chart shows the period that ends in that month: the month itself, six months, its year, or the week of its last day. The trend compares spans that end on the same day.
+- **Buttons in the calendar have the full 56 pt height.** "Edit Episode Details" is smaller in one screen, but "Log Migraine Episode" fills the same place at full height.
+- **The day preview follows `analytics_insights_calendar_expanded`.** The hidden drawer in `analytics_insights` has an older preview with an episode duration, which the app does not record.
+- **The tokens stay with the specification.** The `DESIGN.md` of the third export is an older palette with a lime accent on a black canvas.
+
 Additions that the screens imply but do not show:
 
 - **Step 3 of onboarding, "Treatment Blueprint".** Step 2 ends with "Continue to Medications", and Settings has a Treatment Blueprint row. The step follows the style of step 2.
-- **Delete an episode.** Tap the Last Event card on Summary.
+- **Edit and delete an episode.** Open the calendar in Insights and tap a day, or tap the Last Event card on Summary. A day with two episodes asks which one.
+- **Log a past episode.** Tap an empty day in the calendar, or change **Episode Start** at the bottom of the Log Episode form. The row opens the system date picker. The screens have no time field, but the calendar logs on past days and edits old episodes, so the form needs one.
+- **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.
 - **Sign out.** No account server exists, so Sign Out erases the data on this iPhone after a confirmation.
 - **Sleep from Apple Health.** The Sleep card reads last night's stages from HealthKit. The simulator has no sleep data unless you add some in the Health app.
@@ -96,5 +106,5 @@ Additions that the screens imply but do not show:
 ## Known limits
 
 - The UI text is English only.
-- An episode starts at the moment you save it; you cannot log a past time yet.
+- An episode has a start time but no end, so the app shows no attack duration.
 - The project has no linter configured. The build has no compiler warnings.

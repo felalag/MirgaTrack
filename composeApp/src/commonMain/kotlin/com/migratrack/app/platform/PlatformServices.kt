@@ -4,6 +4,7 @@ import com.migratrack.data.LocalStore
 import com.migratrack.domain.platform.SleepDataSource
 import com.migratrack.export.ExportFile
 import com.migratrack.export.pdf.PdfRenderer
+import kotlin.time.Instant
 
 /**
  * Everything the shared app needs from the operating system.
@@ -33,9 +34,20 @@ interface SystemDialogs {
 
     /** Shows an action sheet and returns the index of the chosen action, or null on cancel. */
     suspend fun chooseAction(title: String?, message: String? = null, actions: List<SheetAction>): Int?
+
+    /** Shows the system date picker in a sheet and returns the picked moment, or null on cancel. */
+    suspend fun pickDate(title: String, initial: Instant, latest: Instant, mode: DatePickerMode): Instant?
 }
 
 data class SheetAction(val title: String, val destructive: Boolean = false)
+
+enum class DatePickerMode {
+    /** A calendar with a time row, for the start of an episode. */
+    DateAndTime,
+
+    /** Month and year wheels, for the Insights calendar. */
+    MonthAndYear,
+}
 
 interface FileSharing {
     /** Opens the platform document preview, which has its own share button. */
