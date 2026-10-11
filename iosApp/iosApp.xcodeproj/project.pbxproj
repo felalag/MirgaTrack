@@ -16,13 +16,16 @@
 		7B0000000000000000000101 /* MigraTrackWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000001 /* MigraTrackWatchApp.swift */; };
 		7B0000000000000000000102 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000002 /* WatchModel.swift */; };
 		7B0000000000000000000103 /* PhoneConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000003 /* PhoneConnection.swift */; };
-		7B0000000000000000000104 /* WatchViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000004 /* WatchViews.swift */; };
-		7B0000000000000000000105 /* LogMigraineIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000005 /* LogMigraineIntent.swift */; };
-		7B0000000000000000000106 /* WatchShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000006 /* WatchShortcuts.swift */; };
+		7B0000000000000000000109 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000B /* Brand.swift */; };
+		7B000000000000000000010A /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000C /* SummaryView.swift */; };
+		7B000000000000000000010B /* LogEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000D /* LogEpisodeView.swift */; };
+		7B000000000000000000010C /* EpisodeLoggedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000E /* EpisodeLoggedView.swift */; };
+		7B000000000000000000010D /* OpenLoggerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000F /* OpenLoggerIntent.swift */; };
 		7B0000000000000000000107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000007 /* Assets.xcassets */; };
 		7B0000000000000000000108 /* MigraTrackComplications.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7C0000000000000000000004 /* MigraTrackComplications.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7C0000000000000000000101 /* Complications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0000000000000000000001 /* Complications.swift */; };
-		7C0000000000000000000102 /* LogMigraineIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000005 /* LogMigraineIntent.swift */; };
+		7C0000000000000000000103 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000B /* Brand.swift */; };
+		7C0000000000000000000104 /* OpenLoggerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B000000000000000000000F /* OpenLoggerIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +83,11 @@
 		7B0000000000000000000001 /* MigraTrackWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigraTrackWatchApp.swift; sourceTree = "<group>"; };
 		7B0000000000000000000002 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
 		7B0000000000000000000003 /* PhoneConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneConnection.swift; sourceTree = "<group>"; };
-		7B0000000000000000000004 /* WatchViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchViews.swift; sourceTree = "<group>"; };
-		7B0000000000000000000005 /* LogMigraineIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMigraineIntent.swift; sourceTree = "<group>"; };
-		7B0000000000000000000006 /* WatchShortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchShortcuts.swift; sourceTree = "<group>"; };
+		7B000000000000000000000B /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		7B000000000000000000000C /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		7B000000000000000000000D /* LogEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEpisodeView.swift; sourceTree = "<group>"; };
+		7B000000000000000000000E /* EpisodeLoggedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeLoggedView.swift; sourceTree = "<group>"; };
+		7B000000000000000000000F /* OpenLoggerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLoggerIntent.swift; sourceTree = "<group>"; };
 		7B0000000000000000000007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B0000000000000000000008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B0000000000000000000009 /* MigraTrackWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MigraTrackWatch.entitlements; sourceTree = "<group>"; };
@@ -167,9 +172,11 @@
 				7B0000000000000000000001 /* MigraTrackWatchApp.swift */,
 				7B0000000000000000000002 /* WatchModel.swift */,
 				7B0000000000000000000003 /* PhoneConnection.swift */,
-				7B0000000000000000000004 /* WatchViews.swift */,
-				7B0000000000000000000005 /* LogMigraineIntent.swift */,
-				7B0000000000000000000006 /* WatchShortcuts.swift */,
+				7B000000000000000000000B /* Brand.swift */,
+				7B000000000000000000000C /* SummaryView.swift */,
+				7B000000000000000000000D /* LogEpisodeView.swift */,
+				7B000000000000000000000E /* EpisodeLoggedView.swift */,
+				7B000000000000000000000F /* OpenLoggerIntent.swift */,
 				7B0000000000000000000007 /* Assets.xcassets */,
 				7B0000000000000000000008 /* Info.plist */,
 				7B0000000000000000000009 /* MigraTrackWatch.entitlements */,
@@ -394,9 +401,11 @@
 				7B0000000000000000000101 /* MigraTrackWatchApp.swift in Sources */,
 				7B0000000000000000000102 /* WatchModel.swift in Sources */,
 				7B0000000000000000000103 /* PhoneConnection.swift in Sources */,
-				7B0000000000000000000104 /* WatchViews.swift in Sources */,
-				7B0000000000000000000105 /* LogMigraineIntent.swift in Sources */,
-				7B0000000000000000000106 /* WatchShortcuts.swift in Sources */,
+				7B0000000000000000000109 /* Brand.swift in Sources */,
+				7B000000000000000000010A /* SummaryView.swift in Sources */,
+				7B000000000000000000010B /* LogEpisodeView.swift in Sources */,
+				7B000000000000000000010C /* EpisodeLoggedView.swift in Sources */,
+				7B000000000000000000010D /* OpenLoggerIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +414,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0000000000000000000101 /* Complications.swift in Sources */,
-				7C0000000000000000000102 /* LogMigraineIntent.swift in Sources */,
+				7C0000000000000000000103 /* Brand.swift in Sources */,
+				7C0000000000000000000104 /* OpenLoggerIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
