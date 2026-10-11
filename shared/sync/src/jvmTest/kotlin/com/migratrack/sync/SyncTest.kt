@@ -9,7 +9,6 @@ import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.usecase.GetLoggingPreset
 import com.migratrack.domain.usecase.LogEpisode
-import com.migratrack.domain.usecase.QuickLogEpisode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -32,7 +31,6 @@ class SyncTest {
         GetLoggingPreset(phone.profiles, phone.catalog), phone.documents, clock,
     )
     private val watchSync = WatchSync(watch.episodes, watch.outbox, watch.documents)
-    private val watchQuickLog = QuickLogEpisode(watchSync, LogEpisode(watch.episodes, clock))
 
     @Test
     fun watchTakesThePresetAndRecentEpisodesFromThePhone() = runTest {
@@ -52,13 +50,29 @@ class SyncTest {
     }
 
     @Test
+    fun watchDraftKeepsThePresetMedicationsAndTheScale() = runTest {
+        phone.profiles.saveBaseline(
+            BaselineProfile.Initial.copy(typicalIntensity = PainIntensity(6), medicationIds = setOf("ibuprofen-400")),
+        )
+        watchSync.applyContext(phoneSync.context())
+
+        val draft = watchSync.draft(intensity = 9)
+        assertEquals(PainIntensity(9), draft.intensity)
+        assertEquals(listOf("Ibuprofen 400mg"), draft.medications.map { it.displayName })
+        assertEquals(PainIntensity(10), watchSync.draft(intensity = 12).intensity)
+        assertEquals(PainIntensity(1), watchSync.draft(intensity = 0).intensity)
+    }
+
+    @Test
     fun episodeLoggedOnTheWatchReachesThePhoneOnce() = runTest {
-        val logged = watchQuickLog().also { watchSync.queue(it) }
+        val logged = watchLog(intensity = 8)
         val batch = assertNotNullBatch()
 
         assertEquals(1, phoneSync.receive(batch))
         assertEquals(0, phoneSync.receive(batch))
-        assertEquals(LogSource.QuickLog, phone.episodes.observeAll().first().single { it.id == logged.id }.source)
+        val received = phone.episodes.observeAll().first().single { it.id == logged.id }
+        assertEquals(PainIntensity(8), received.intensity)
+        assertEquals(LogSource.App, received.source)
 
         watchSync.markDelivered(batch)
         watchSync.applyContext(phoneSync.context())
@@ -68,7 +82,7 @@ class SyncTest {
     @Test
     fun watchKeepsAnEpisodeUntilThePhoneContextConfirmsIt() = runTest {
         // The transfer reports success, but the phone app has not stored the episode yet.
-        val logged = watchQuickLog().also { watchSync.queue(it) }
+        val logged = watchLog()
         watchSync.markDelivered(assertNotNullBatch())
         watchSync.applyContext(phoneSync.context())
 
@@ -80,7 +94,7 @@ class SyncTest {
     fun contextKeepsUnsentWatchEpisodesAndDropsOnesThePhoneDeleted() = runTest {
         val shared = phoneLog(daysAgo = 2)
         watchSync.applyContext(phoneSync.context())
-        val unsent = watchQuickLog().also { watchSync.queue(it) }
+        val unsent = watchLog()
 
         phone.episodes.delete(shared.id)
         watchSync.applyContext(phoneSync.context())
@@ -89,39 +103,18 @@ class SyncTest {
     }
 
     @Test
-    fun undoBeforeConfirmationStillReachesThePhone() = runTest {
-        // The first batch may already be on its way when the user taps Undo.
-        val logged = watchQuickLog().also { watchSync.queue(it) }
-        val inFlight = assertNotNullBatch()
-        watchSync.undo(logged.id)
-        val undo = assertNotNullBatch()
+    fun deleteRequestFromAnEarlierWatchBuildDeletesTheEpisodeOnThePhone() = runTest {
+        val logged = watchLog()
+        phoneSync.receive(assertNotNullBatch())
 
-        phoneSync.receive(inFlight)
-        phoneSync.receive(undo)
-
-        assertEquals(emptyList(), watch.episodes.observeAll().first())
-        assertEquals(emptyList(), phone.episodes.observeAll().first())
-    }
-
-    @Test
-    fun undoAfterSendingDeletesTheEpisodeOnThePhone() = runTest {
-        val logged = watchQuickLog().also { watchSync.queue(it) }
-        val first = assertNotNullBatch()
-        phoneSync.receive(first)
-        watchSync.markDelivered(first)
-
-        watchSync.undo(logged.id)
-        val second = assertNotNullBatch()
-        phoneSync.receive(second)
-        watchSync.markDelivered(second)
+        phoneSync.receive(deleteRequest(logged))
 
         assertEquals(emptyList(), phone.episodes.observeAll().first())
-        assertNull(watchSync.pendingBatch())
     }
 
     @Test
     fun episodeDeletedOnThePhoneStaysDeletedWhenTheWatchSendsItAgain() = runTest {
-        val logged = watchQuickLog().also { watchSync.queue(it) }
+        val logged = watchLog()
         phoneSync.receive(assertNotNullBatch())
         phone.episodes.delete(logged.id)
 
@@ -135,20 +128,31 @@ class SyncTest {
     }
 
     @Test
-    fun undoThatOvertakesItsEpisodeStillDeletesIt() = runTest {
-        val logged = watchQuickLog().also { watchSync.queue(it) }
+    fun deleteRequestThatOvertakesItsEpisodeStillDeletesIt() = runTest {
+        val logged = watchLog()
         val inFlight = assertNotNullBatch()
-        watchSync.undo(logged.id)
 
-        phoneSync.receive(assertNotNullBatch())
+        phoneSync.receive(deleteRequest(logged))
         phoneSync.receive(inFlight)
 
         assertEquals(emptyList(), phone.episodes.observeAll().first())
     }
 
     @Test
+    fun deleteRequestStoredBeforeAnUpdateIsSentUntilDelivered() = runTest {
+        // A build with Undo stored this request, and the watch app was updated before it went out.
+        watch.documents.write(WatchSync.DELETED, """["watch-old"]""")
+
+        val batch = assertNotNullBatch()
+        assertEquals(listOf("watch-old"), SyncJson.decodeFromString(WatchBatch.serializer(), batch).deletedIds)
+
+        watchSync.markDelivered(batch)
+        assertNull(watchSync.pendingBatch())
+    }
+
+    @Test
     fun editOnThePhoneReplacesTheWatchCopy() = runTest {
-        val logged = watchQuickLog().also { watchSync.queue(it) }
+        val logged = watchLog()
         phoneSync.receive(assertNotNullBatch())
         phone.episodes.add(logged.copy(intensity = PainIntensity(9)))
 
@@ -160,6 +164,13 @@ class SyncTest {
     }
 
     private suspend fun assertNotNullBatch(): String = requireNotNull(watchSync.pendingBatch()) { "expected a batch" }
+
+    /** What WatchCore.log does when the user saves on the watch. */
+    private suspend fun watchLog(intensity: Int = 7): Episode =
+        LogEpisode(watch.episodes, clock)(watchSync.draft(intensity), LogSource.App).also { watchSync.queue(it) }
+
+    private fun deleteRequest(episode: Episode): String =
+        SyncJson.encodeToString(WatchBatch.serializer(), WatchBatch(deletedIds = listOf(episode.id.value)))
 
     private suspend fun phoneLog(daysAgo: Int): Episode {
         val logged = LogEpisode(phone.episodes, object : Clock { override fun now() = now - daysAgo.days })

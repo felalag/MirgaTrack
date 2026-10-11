@@ -126,7 +126,7 @@ class GetLoggingPreset(
     }
 }
 
-/** One-tap logging for the App Shortcut and the watch complication. */
+/** One-tap logging for the iPhone App Shortcut. */
 class QuickLogEpisode(
     private val preset: PresetProvider,
     private val logEpisode: LogEpisode,

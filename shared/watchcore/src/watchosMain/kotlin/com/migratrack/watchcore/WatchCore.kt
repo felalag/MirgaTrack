@@ -2,45 +2,37 @@ package com.migratrack.watchcore
 
 import com.migratrack.data.AppleDatabase
 import com.migratrack.data.LocalStore
-import com.migratrack.domain.analytics.DateText
-import com.migratrack.domain.analytics.InsightsCalculator
-import com.migratrack.domain.analytics.InsightsPeriod
 import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.model.Episode
-import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.LogSource
-import com.migratrack.domain.model.PainIntensity
-import com.migratrack.domain.usecase.EpisodeDraft
 import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.sync.WatchSync
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.TimeZone
-import kotlinx.datetime.daysUntil
-import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.todayIn
 import platform.Foundation.NSBundle
 import kotlin.time.Clock
 
-/** What the watch app and the complications show. */
+/** What the watch app and the complication show. */
 data class WatchStatus(
     val painFreeDays: Int,
     val windowDays: Int,
-    val attacksThisMonth: Int,
-    /** "Oct 4", or null before the first episode. */
-    val lastEpisodeDate: String?,
-    val daysSinceLastEpisode: Int?,
+    /** The intensity the logger starts at: the typical intensity from the phone. */
     val presetIntensity: Int,
-    /** The acute medications that a quick log adds, for example "Ibuprofen 400mg". */
-    val presetMedications: String,
     /** False until the phone sent its first context; the preset is a default until then. */
     val isLinked: Boolean,
 )
 
-data class WatchEpisode(val id: String, val intensity: Int, val summary: String)
+/** An episode the watch just saved, for the Episode logged screen. */
+data class WatchEpisode(
+    val intensity: Int,
+    /** The acute medications from the phone's preset, for example "Ibuprofen 400mg, Sumatriptan 50mg"; empty when none. */
+    val medications: String,
+)
 
 /**
  * Swift entry point on the watch. The app and the complication extension both open
- * the database in the App Group container, so a log from either one shows in both.
+ * the database in the App Group container, so a log in the app shows in the complication.
  * The group id comes from the MigraTrackAppGroup key of Info.plist, which Config.xcconfig fills in.
  */
 object WatchCore {
@@ -55,34 +47,23 @@ object WatchCore {
     @Throws(Exception::class)
     suspend fun status(): WatchStatus {
         val zone = TimeZone.currentSystemDefault()
-        val today = clock.todayIn(zone)
         val all = store.episodes.observeAll().first()
-        val summary = SummaryCalculator.calculate(all, sleep = null, today = today, timeZone = zone)
-        val last = summary.lastEpisode?.startedAt?.toLocalDateTime(zone)?.date
-        val preset = sync.preset()
+        val summary = SummaryCalculator.calculate(all, sleep = null, today = clock.todayIn(zone), timeZone = zone)
         return WatchStatus(
             painFreeDays = summary.painFreeDays,
             windowDays = summary.windowDays,
-            attacksThisMonth = InsightsCalculator.calculate(all, InsightsPeriod.Month, today, zone).attackCount,
-            lastEpisodeDate = last?.let(DateText::monthDay),
-            daysSinceLastEpisode = last?.daysUntil(today),
-            presetIntensity = preset.intensity.value,
-            presetMedications = preset.medications.joinToString(", ") { it.displayName },
+            presetIntensity = sync.preset().intensity.value,
             isLinked = sync.isLinked(),
         )
     }
 
-    /** One tap from the complication: the preset as it is. */
+    /** Saves the phone's preset with the intensity the user chose on the Digital Crown, and queues it for the phone. */
     @Throws(Exception::class)
-    suspend fun quickLog(): WatchEpisode = log(sync.preset(), LogSource.QuickLog)
-
-    /** From the watch app, with the intensity the user chose on the Digital Crown. */
-    @Throws(Exception::class)
-    suspend fun log(intensity: Int): WatchEpisode =
-        log(sync.preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE))), LogSource.App)
-
-    @Throws(Exception::class)
-    suspend fun undo(episodeId: String) = sync.undo(EpisodeId(episodeId))
+    suspend fun log(intensity: Int): WatchEpisode {
+        val episode = logEpisode(sync.draft(intensity), LogSource.App)
+        sync.queue(episode)
+        return episode.toWatch()
+    }
 
     @Throws(Exception::class)
     suspend fun applyPhoneContext(json: String) = sync.applyContext(json)
@@ -94,15 +75,5 @@ object WatchCore {
     @Throws(Exception::class)
     suspend fun markDelivered(batch: String) = sync.markDelivered(batch)
 
-    private suspend fun log(draft: EpisodeDraft, source: LogSource): WatchEpisode {
-        val episode = logEpisode(draft, source)
-        sync.queue(episode)
-        return episode.toWatch()
-    }
-
-    private fun Episode.toWatch(): WatchEpisode {
-        val medications = medications.joinToString(", ") { it.displayName }
-        val summary = "Intensity ${intensity.value}/10" + if (medications.isEmpty()) "" else " · $medications"
-        return WatchEpisode(id.value, intensity.value, summary)
-    }
+    private fun Episode.toWatch() = WatchEpisode(intensity.value, medications.joinToString(", ") { it.displayName })
 }

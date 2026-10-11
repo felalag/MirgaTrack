@@ -2,21 +2,23 @@ import SwiftUI
 
 @main
 struct MigraTrackWatchApp: App {
-    @State private var model = WatchModel()
+    @State private var model: WatchModel
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
+        let model = WatchModel()
+        _model = State(initialValue: model)
+        LoggerLauncher.open = { model.showLogger() }
         PhoneConnection.shared.start()
     }
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SummaryView()
                 .environment(model)
                 .onOpenURL { url in
-                    // Complications on the watch face can only open the app, so the URL says what to do.
-                    if url.host == "quicklog" {
-                        Task { await model.quickLog() }
+                    if url.host == URL.logger.host {
+                        model.showLogger()
                     }
                 }
                 .task {
@@ -32,7 +34,7 @@ struct MigraTrackWatchApp: App {
                 PhoneConnection.shared.flush()
             case .background:
                 // The next visit starts on the summary, as Apple's own watch apps do.
-                model.sheet = nil
+                model.logger = nil
             default:
                 break
             }

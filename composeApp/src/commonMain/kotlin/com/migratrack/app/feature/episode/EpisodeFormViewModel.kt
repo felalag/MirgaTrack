@@ -43,7 +43,7 @@ data class EpisodeFormState(
     /** The stored episode when the form edits one. */
     val original: Episode? = null,
     val saving: Boolean = false,
-    /** The episode is gone, for example after Undo on the watch. The screen closes. */
+    /** The stored episode no longer exists, so the screen closes. */
     val missing: Boolean = false,
 )
 
