@@ -47,7 +47,7 @@ data class PhoneContext(
     val receivedIds: List<String> = emptyList(),
 )
 
-/** What the watch sends to the phone: new episodes and the ids the user undid. */
+/** What the watch sends to the phone: new episodes, and delete requests from earlier builds that had Undo. */
 @Serializable
 data class WatchBatch(val episodes: List<SyncEpisode> = emptyList(), val deletedIds: List<String> = emptyList())
 

@@ -38,7 +38,7 @@ class PhoneSync(
     suspend fun context(): String = encode(episodes.observeAll().first())
 
     /**
-     * Adds the episodes the phone does not have and deletes the ones the user undid.
+     * Adds the episodes the phone does not have and deletes the ones an earlier watch build undid.
      * Batches can arrive twice and out of order with a delete, so both steps are idempotent.
      * An id the phone took in once is never added again: the user may have deleted that episode here since.
      * @return the number of episodes added.
