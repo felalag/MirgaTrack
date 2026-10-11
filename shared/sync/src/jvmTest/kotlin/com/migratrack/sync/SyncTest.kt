@@ -52,6 +52,20 @@ class SyncTest {
     }
 
     @Test
+    fun watchDraftKeepsThePresetMedicationsAndTheScale() = runTest {
+        phone.profiles.saveBaseline(
+            BaselineProfile.Initial.copy(typicalIntensity = PainIntensity(6), medicationIds = setOf("ibuprofen-400")),
+        )
+        watchSync.applyContext(phoneSync.context())
+
+        val draft = watchSync.draft(intensity = 9)
+        assertEquals(PainIntensity(9), draft.intensity)
+        assertEquals(listOf("Ibuprofen 400mg"), draft.medications.map { it.displayName })
+        assertEquals(PainIntensity(10), watchSync.draft(intensity = 12).intensity)
+        assertEquals(PainIntensity(1), watchSync.draft(intensity = 0).intensity)
+    }
+
+    @Test
     fun episodeLoggedOnTheWatchReachesThePhoneOnce() = runTest {
         val logged = watchQuickLog().also { watchSync.queue(it) }
         val batch = assertNotNullBatch()

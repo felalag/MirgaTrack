@@ -25,6 +25,10 @@ class WatchSync(
     override suspend fun preset(): EpisodeDraft =
         storedContext()?.preset?.toDraft() ?: EpisodeDraft(PainIntensity.Default)
 
+    /** The preset with the intensity the user chose on the watch, kept within 1–10. */
+    suspend fun draft(intensity: Int): EpisodeDraft =
+        preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE)))
+
     /** True once a context from the phone arrived. */
     suspend fun isLinked(): Boolean = storedContext() != null
 

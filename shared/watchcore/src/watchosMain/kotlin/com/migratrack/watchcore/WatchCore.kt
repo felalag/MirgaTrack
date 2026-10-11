@@ -9,7 +9,6 @@ import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.LogSource
-import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.usecase.EpisodeDraft
 import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.sync.WatchSync
@@ -79,7 +78,7 @@ object WatchCore {
     /** From the watch app, with the intensity the user chose on the Digital Crown. */
     @Throws(Exception::class)
     suspend fun log(intensity: Int): WatchEpisode =
-        log(sync.preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE))), LogSource.App)
+        log(sync.draft(intensity), LogSource.App)
 
     @Throws(Exception::class)
     suspend fun undo(episodeId: String) = sync.undo(EpisodeId(episodeId))
