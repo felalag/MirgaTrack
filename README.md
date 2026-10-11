@@ -4,7 +4,7 @@ MigraTrack is a migraine tracker for iPhone. You log attacks, see trends in a ch
 The data stays on the device.
 
 The app uses Kotlin Multiplatform. Compose Multiplatform draws the iPhone UI, and Swift and Kotlin/Native call iOS frameworks where the platform needs them.
-An Apple Watch app in SwiftUI logs an episode from a complication, from the Smart Stack, or from a control. It shares the Kotlin core with the iPhone.
+An Apple Watch app in SwiftUI shows your pain-free days and logs an episode with the Digital Crown. A complication and a control open the logger. The watch app shares the Kotlin core with the iPhone.
 Android comes later. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) gives the seams for it.
 
 ## Run the app
@@ -34,7 +34,7 @@ xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -destination 'platfor
 
 1. Boot a paired iPhone and Apple Watch, for example iPhone 18 Pro Max and Apple Watch Series 12 (46mm). The pairs are listed by `xcrun simctl list pairs`.
 2. Run the `iosApp` scheme on the iPhone, then the `MigraTrackWatch` scheme on the watch.
-3. On the watch, touch and hold the face, add a face with complication slots (for example Infograph), and choose **MigraTrack › Log Migraine** and **Pain-Free Days**.
+3. On the watch, touch and hold the face, add a face with complication slots (for example Infograph), and choose **MigraTrack › Log Migraine**.
 
 In the simulator a batch the watch queues with `transferUserInfo` does not reach the iPhone app. The watch sends a direct message when the iPhone is reachable, which works in the simulator too.
 
@@ -42,18 +42,22 @@ In the simulator a batch the watch queues with `transferUserInfo` does not reach
 
 A Debug build has **Settings › Developer › Load Sample Data**. It adds a year of generated episodes.
 
-### Log in one tap
+### Log from the watch
 
-Every quick log saves an episode with your typical intensity and the acute medications of your treatment blueprint.
+The watch app has three screens:
+
+1. **Summary.** A ring shows the pain-free days of the last 30, with a **Log Migraine** button below it.
+2. **Pain Intensity.** Turn the Digital Crown to set 1–10, then tap **Save Episode**. The logger starts at your typical intensity.
+3. **Episode logged.** The intensity and the medications that the episode got. **Done** or the close button returns to the summary.
+
+The episode gets the acute medications of your treatment blueprint, and it goes to the iPhone at once.
 
 | Where | What a tap does |
 |---|---|
-| Watch face complication "Log Migraine" | Opens the watch app, which saves the episode at once and offers Undo. watchOS lets a watch-face complication only open its app. |
-| The same complication in the Smart Stack | Saves the episode in place, without opening the app. |
-| Control "Log Migraine" (watchOS 26 and later) | Saves in place from Control Center, the Smart Stack, or the Action button of Apple Watch Ultra. |
-| iPhone: Spotlight, Siri, Shortcuts, Action button | Saves on the iPhone: "Log a migraine in MigraTrack". |
-
-The "Pain-Free Days" complication shows the 30-day ring of the Summary tab.
+| Watch app: **Log Migraine** | Opens Pain Intensity. |
+| Complication "Log Migraine", on the watch face or in the Smart Stack | Opens the watch app on Pain Intensity. The rectangular style also shows your pain-free days. |
+| Control "Log Migraine" (watchOS 26 and later) | Opens Pain Intensity from Control Center, the Smart Stack, or the Action button of Apple Watch Ultra. |
+| iPhone: Spotlight, Siri, Shortcuts, Action button | Saves on the iPhone at once with your typical intensity: "Log a migraine in MigraTrack". |
 
 ## Test
 
@@ -74,8 +78,8 @@ The command runs the shared tests on the JVM, the iOS simulator, and the watchOS
 | `shared/watchcore` | `MigraCore.framework` for the watch app and its complications: a Swift facade over the core, without Compose. |
 | `composeApp` | Compose Multiplatform UI, view models, and the iOS platform services. Produces `ComposeApp.framework`. |
 | `iosApp/iosApp` | iPhone app: SwiftUI entry point, App Intent, WatchConnectivity, Info.plist, HealthKit entitlement. |
-| `iosApp/watchApp` | watchOS app in SwiftUI: summary ring, logger with the Digital Crown, App Intent, WatchConnectivity. |
-| `iosApp/watchComplications` | WidgetKit extension: the two complications and the watchOS 26 control. |
+| `iosApp/watchApp` | watchOS app in SwiftUI: the summary ring, the logger with the Digital Crown, the confirmation, and WatchConnectivity. |
+| `iosApp/watchComplications` | WidgetKit extension: the Log Migraine complication and the watchOS 26 control. |
 
 ## Design decisions
 
@@ -92,6 +96,23 @@ The third Stitch export adds the Edit Episode screen and a calendar in Insights.
 - **Buttons in the calendar have the full 56 pt height.** "Edit Episode Details" is smaller in one screen, but "Log Migraine Episode" fills the same place at full height.
 - **The day preview follows `analytics_insights_calendar_expanded`.** The hidden drawer in `analytics_insights` has an older preview with an episode duration, which the app does not record.
 - **The tokens stay with the specification.** The `DESIGN.md` of the third export is an older palette with a lime accent on a black canvas.
+
+The fourth Stitch export redraws the Apple Watch app in three screens: `apple_watch_summary_ring`, `apple_watch_log_episode` and `apple_watch_episode_logged`. The watch app now has only what they show. Their web layout became native watchOS controls:
+
+- **The logger and the confirmation are a sheet.** watchOS draws the close button and the time, as the screens show them.
+- **The intensity gauge is a 270° arc that is open at the bottom.** watchOS draws its own circular gauges this way. The HTML has the gap at the upper left.
+- **"Intensity 6/10" on Episode logged takes the severity color**, as on the logger. The HTML colors it pink.
+- **The watch uses the system font, SF Pro Rounded for the numbers.** The HTML loads Plus Jakarta Sans.
+- **The backgrounds are dark, with a soft glow of the severity color.** The sheet does not show the summary through it.
+
+Removed from the watch, because the screens do not have them: the This month and Last attack rows, the − and + buttons, the medications on the logger, Undo, the separate Pain-Free Days complication, and the Siri command on the watch. The iPhone keeps its App Shortcut.
+
+The screens do not show complications. The project owner chose the rest:
+
+- **A complication tap opens the logger and does not save at once.** An accidental tap saves nothing, so Undo is not necessary.
+- **One complication, "Log Migraine".** Its rectangular style also shows the pain-free days, as the summary screen does. The other styles show only the action.
+- **The control stays and opens the logger.**
+- **Before the first sync, the caption under the ring asks you to open MigraTrack on the iPhone.**
 
 Additions that the screens imply but do not show:
 
