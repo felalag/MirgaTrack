@@ -66,8 +66,8 @@ private struct LogMigraineView: View {
             ZStack {
                 AccessoryWidgetBackground()
                 VStack(spacing: 0) {
-                    Image(systemName: "plus").font(.title3.weight(.bold))
-                    Text("LOG").font(.system(size: 10, weight: .bold))
+                    Image(systemName: "plus").font(.title3.weight(.semibold))
+                    Text("LOG")
                 }
                 .foregroundStyle(Color.migraPink)
                 .widgetAccentable()
