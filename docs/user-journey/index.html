@@ -164,10 +164,10 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 
 <main class="page">
   <header class="intro">
-    <span class="eyebrow">Сквозной тест · 4 октября 2026 · дополнен 11 октября</span>
+    <span class="eyebrow">Сквозной тест · 4 октября 2026 · дополнен 11 и 13 октября</span>
     <h1>Путь пользователя <em>MigraTrack</em> на iPhone и Apple Watch</h1>
     <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone и на часах, открывает логгер часов с циферблата и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Шаги 16–21 добавил второй прогон: календарь Insights, правка приступа и лог в прошлый день. Нажмите на снимок, чтобы увеличить его.</p>
-    <p>11 октября приложение на часах получило новый дизайн из трёх экранов. Шаги часов 1, 8–11 и 21 я переснял на новой версии и на данных второго прогона. Поэтому числа на часах отличаются от чисел в шагах iPhone.</p>
+    <p>11 октября приложение на часах получило новый дизайн из трёх экранов. Шаги часов 1, 8–11 и 21 я переснял на новой версии и на данных второго прогона. Поэтому числа на часах отличаются от чисел в шагах iPhone. 13 октября экраны часов стали компактнее: на каждом экране только кольцо, шкала или галочка одного размера и кнопка. Снимки приложения и циферблата в шагах 1 и 8–11 и снимок шага 21 пересняты на этой версии.</p>
     <div class="facts">
       <div class="fact"><b class="ok">21 из 21</b><span>шага пройден, ошибок приложения нет</span></div>
       <div class="fact"><b>iPhone 18 Pro Max</b><span>симулятор, iOS 27.0</span></div>
@@ -210,12 +210,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device watch">Apple Watch</span>
         <h2>Первый запуск часов, до связи с iPhone</h2>
-        <p>Приложение на часах ставится вместе с приложением на iPhone. Пока iPhone не прислал данные, кольцо показывает <strong>30 из 30 дней без боли</strong>. Под кольцом подсказка «Open MigraTrack on your iPhone to sync».</p>
+        <p>Приложение на часах ставится вместе с приложением на iPhone. Пока iPhone не прислал данные, кольцо показывает <strong>30</strong>: все 30 дней без боли. Под кольцом подсказка «Open MigraTrack on your iPhone to sync».</p>
         <p>Логировать уже можно. Без пресета iPhone экран Pain Intensity начинается с 7, интенсивности по умолчанию.</p>
         <p>Эти снимки я сделал на отдельном симуляторе часов без пары. Часы основной пары уже получили данные iPhone.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Главный экран часов: кольцо 30 из 30, подсказка Open MigraTrack on your iPhone to sync и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 30/30 и подсказка о связи</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Главный экран часов: кольцо с числом 30, подсказка Open MigraTrack on your iPhone to sync и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 30 и подсказка о связи</figcaption></figure>
         <figure class="watch"><button class="shot" type="button"><img src="img/w02-watch-logger-default.jpg" alt="Pain Intensity 7 из 10 и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Без пресета: интенсивность 7</figcaption></figure>
       </div>
     </article>
@@ -316,11 +316,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device watch">Apple Watch</span>
         <h2>Часы получают пресет и приступы</h2>
-        <p>iPhone отправляет на часы пресет и приступы за 60 дней через WatchConnectivity. Подсказка о связи исчезла. Под кольцом теперь счёт дней без боли: <strong>26 of 30 days pain-free</strong>.</p>
+        <p>iPhone отправляет на часы пресет и приступы за 60 дней через WatchConnectivity. Подсказка о связи исчезла. Кольцо показывает <strong>26</strong>: столько дней из последних 30 прошли без боли.</p>
         <p>Главный экран показывает только кольцо и кнопку Log Migraine. Строк «This month» и «Last attack» в новой версии нет.</p>
+        <p>Снимки этого шага и шага 9 я переснял 13 октября на отдельных часах без пары, с копией данных основной пары. Так новый лог не попал в данные iPhone.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Часы: кольцо 26 из 30, 26 of 30 days pain-free и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 26/30 с данными iPhone</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Часы: кольцо с числом 26 и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 26 с данными iPhone</figcaption></figure>
       </div>
     </article>
 
@@ -330,14 +331,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
         <h2>Лог в приложении на часах</h2>
         <p>«Log Migraine» открывает экран Pain Intensity. Значение пришло из пресета iPhone (6), цвет шкалы следует тяжести. Его меняют колёсиком Digital Crown.</p>
-        <p>«Save Episode» сохраняет приступ. Тот же лист показывает Episode logged: интенсивность и препараты из профиля. «Done» возвращает на главный экран, и кольцо показывает <strong>25 из 30</strong>: 11 октября стал днём приступа.</p>
+        <p>«Save Episode» сохраняет приступ. Тот же лист показывает зелёную галочку. Приступ получает интенсивность и препараты из профиля. «Done» возвращает на главный экран, и кольцо показывает <strong>25</strong>: 11 октября стал днём приступа.</p>
         <p>Я логировал на часах дважды, в 01:25 и в 01:35. Карточка дня в календаре iPhone показывает оба приступа.</p>
         <div class="check">SQLite iPhone: <code>6 | App | Ibuprofen, Sumatriptan</code> в 01:25 и в 01:35, очередь часов <code>0</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w04-watch-pain-intensity.jpg" alt="Pain Intensity 6 из 10, подсказка Turn Digital Crown и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Пресет с iPhone: 6/10</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w05-watch-episode-logged.jpg" alt="Episode logged: Intensity 6/10, Ibuprofen 400mg, Sumatriptan 50mg и кнопка Done" loading="lazy" width="416" height="496"></button><figcaption>Episode logged: интенсивность и препараты</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Часы: кольцо 25 из 30 после лога" loading="lazy" width="416" height="496"></button><figcaption>После лога: 25/30</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w04-watch-pain-intensity.jpg" alt="Шкала Pain Intensity с числом 6 и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Пресет с iPhone: 6/10</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w05-watch-episode-logged.jpg" alt="Episode logged: зелёная галочка и кнопка Done" loading="lazy" width="416" height="496"></button><figcaption>Episode logged: галочка</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Часы: кольцо с числом 25 после лога" loading="lazy" width="416" height="496"></button><figcaption>После лога: 25</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p49-watch-episodes-on-iphone.jpg" alt="Календарь iPhone: Sunday, Oct 11, 2 episodes, пик 6 из 10, Ibuprofen 400mg и Sumatriptan 50mg" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 11 октября, 2 приступа с часов</figcaption></figure>
       </div>
     </article>
@@ -540,7 +541,7 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <div class="check">SQLite часов, как на iPhone: <code>sample-18 | 2026-09-15 08:48</code> и <code>2026-10-06 10:31 | 6 | QuickLog</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: кольцо 25 из 30, 25 of 30 days pain-free" loading="lazy" width="416" height="496"></button><figcaption>Часы: 25/30</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: кольцо с числом 25" loading="lazy" width="416" height="496"></button><figcaption>Часы: 25</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p50-summary-after-phone-edit.jpg" alt="Summary на iPhone: Pain-Free 25 из 30 дней, Last Event Oct 11, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: Pain-Free 25/30d</figcaption></figure>
       </div>
     </article>
