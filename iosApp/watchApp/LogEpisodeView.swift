@@ -7,19 +7,15 @@ struct LoggerSheet: View {
 
     var body: some View {
         NavigationStack {
-            if case .logged(let episode) = model.logger {
-                EpisodeLoggedView(episode: episode)
+            if model.logger == .logged {
+                EpisodeLoggedView()
                     .transition(.blurReplace)
             } else {
                 LogEpisodeView()
                     .transition(.blurReplace)
             }
         }
-        .animation(.smooth, value: isLogged)
-    }
-
-    private var isLogged: Bool {
-        if case .logged = model.logger { true } else { false }
+        .animation(.smooth, value: model.logger)
     }
 }
 
@@ -33,14 +29,8 @@ struct LogEpisodeView: View {
     private var level: Int { Int(crown.rounded()) }
 
     var body: some View {
-        VStack(spacing: 6) {
-            Text("Pain Intensity")
-                .textCase(.uppercase)
-                .font(.caption2.weight(.semibold))
-                .tracking(1.5)
-                .foregroundStyle(.secondary)
+        VStack(spacing: 4) {
             IntensityGauge(level: level)
-                .frame(maxHeight: .infinity)
                 .focusable()
                 .focusEffectDisabled()
                 .focused($isGaugeFocused)
@@ -58,17 +48,14 @@ struct LogEpisodeView: View {
                     @unknown default: break
                     }
                 }
-            Label {
-                Text("Turn Digital Crown").foregroundStyle(.secondary)
-            } icon: {
-                Image(systemName: "digitalcrown.arrow.clockwise").foregroundStyle(Color.severity(level))
-            }
-            .font(.caption2)
-            .imageScale(.small)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 2)
-            .background(.white.opacity(0.08), in: Capsule())
-            .accessibilityHidden(true)
+            Text("Pain Intensity")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                // The gauge already reads as "Pain intensity" to VoiceOver.
+                .accessibilityHidden(true)
+        }
+        .bottomAction {
             Button("Save Episode") {
                 Task { await model.save(intensity: level) }
             }
@@ -76,8 +63,6 @@ struct LogEpisodeView: View {
             .tint(.migraPink)
             .disabled(model.isSaving)
         }
-        .ignoresSafeArea(edges: .bottom)
-        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .presentationBackground { Glow(color: .severity(level)) }
         .animation(.smooth, value: level)
         .onAppear {
@@ -112,8 +97,8 @@ private struct IntensityGauge: View {
     var body: some View {
         let color = Color.severity(level)
         GeometryReader { geometry in
-            let side = min(geometry.size.width, geometry.size.height)
-            let line = side * 0.06
+            let side = RingMetrics.side(in: geometry.size)
+            let line = RingMetrics.line(side: side)
             ZStack {
                 Circle()
                     .trim(from: 0, to: 0.75)
@@ -125,16 +110,14 @@ private struct IntensityGauge: View {
             }
             .rotationEffect(.degrees(135))
             .overlay {
-                VStack(spacing: 0) {
-                    Text("\(level)")
-                        .font(.system(size: side * 0.44, weight: .heavy, design: .rounded))
-                        .foregroundStyle(color)
-                        .contentTransition(.numericText(value: Double(level)))
-                    Text("Out of 10")
-                        .textCase(.uppercase)
-                        .font(.system(size: side * 0.085, weight: .semibold))
-                        .foregroundStyle(.secondary)
-                }
+                Text("\(level)")
+                    .font(.largeTitle.bold())
+                    .monospacedDigit()
+                    .foregroundStyle(color)
+                    .contentTransition(.numericText(value: Double(level)))
+                    .lineLimit(1)
+                .minimumScaleFactor(0.5)
+                .frame(width: RingMetrics.textSide(side: side), height: RingMetrics.textSide(side: side))
             }
             .padding(line / 2)
             .frame(width: side, height: side)

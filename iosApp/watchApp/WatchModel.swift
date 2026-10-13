@@ -9,7 +9,7 @@ import WidgetKit
 final class WatchModel {
     enum LoggerStep {
         case intensity
-        case logged(WatchEpisode)
+        case logged
     }
 
     var status: WatchStatus?
@@ -35,7 +35,8 @@ final class WatchModel {
         isSaving = true
         defer { isSaving = false }
         do {
-            logger = .logged(try await WatchCore.shared.log(intensity: Int32(intensity)))
+            _ = try await WatchCore.shared.log(intensity: Int32(intensity))
+            logger = .logged
             WKInterfaceDevice.current().play(.success)
             await refresh()
             WidgetCenter.shared.reloadAllTimelines()

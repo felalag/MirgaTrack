@@ -48,7 +48,7 @@ The watch app has three screens:
 
 1. **Summary.** A ring shows the pain-free days of the last 30, with a **Log Migraine** button below it.
 2. **Pain Intensity.** Turn the Digital Crown to set 1–10, then tap **Save Episode**. The logger starts at your typical intensity.
-3. **Episode logged.** The intensity and the medications that the episode got. **Done** or the close button returns to the summary.
+3. **Episode logged.** A checkmark confirms the save. **Done** or the close button returns to the summary.
 
 The episode gets the acute medications of your treatment blueprint, and it goes to the iPhone at once.
 
@@ -101,9 +101,15 @@ The fourth Stitch export redraws the Apple Watch app in three screens: `apple_wa
 
 - **The logger and the confirmation are a sheet.** watchOS draws the close button and the time, as the screens show them.
 - **The intensity gauge is a 270° arc that is open at the bottom.** watchOS draws its own circular gauges this way. The HTML has the gap at the upper left.
-- **"Intensity 6/10" on Episode logged takes the severity color**, as on the logger. The HTML colors it pink.
-- **The watch uses the system font, SF Pro Rounded for the numbers.** The HTML loads Plus Jakarta Sans.
+- **The watch uses the system fonts of watchOS.** The app uses SF Compact in the system text styles; the numbers in the ring and the gauge are Large Title in its bold weight. WidgetKit sets SF Compact Rounded in the complications. The HTML loads Plus Jakarta Sans.
 - **The backgrounds are dark, with a soft glow of the severity color.** The sheet does not show the summary through it.
+- **Log Migraine, Save Episode and Done are at the bottom of the safe area.** The whole button stays clear of the round corners. The system bottom bar puts it 3 pt from the edge of the 40mm SE display. Each screen fits without scrolling, from the 40mm watch up.
+- **Each screen shows only its main parts.** The summary has no "N of 30 days pain-free" caption, and Log Migraine has no plus icon. VoiceOver reads the ring as the pain-free days.
+- **"Pain Intensity" is a gray footnote under the gauge, in place of the "Turn Digital Crown" hint.** The HTML has a caption above the gauge and the hint below it.
+- **The ring and the gauge show only the number.** The HTML has "/30d" and "out of 10" under it. VoiceOver still reads "25 of 30" and "6 out of 10".
+- **Episode logged shows only a checkmark and Done.** The checkmark has the size of the ring and the gauge, so the three screens match. The HTML also shows the title "Episode logged", the intensity and the medications. VoiceOver reads the checkmark as "Episode logged".
+- **The ring and the gauge have the same size and stroke**, so the summary and the logger match. Both take 33% of the screen width, the most that the gauge gets on the 49mm watch. The HTML draws the ring larger and thicker than the gauge.
+- **Text uses the system text styles and follows Dynamic Type.**
 
 Removed from the watch, because the screens do not have them: the This month and Last attack rows, the − and + buttons, the medications on the logger, Undo, the separate Pain-Free Days complication, and the Siri command on the watch. The iPhone keeps its App Shortcut.
 
