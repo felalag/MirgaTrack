@@ -97,7 +97,7 @@ fun SelectionCard(
                 title,
                 if (style == SelectionStyle.Diagnosis) MtTheme.type.bodyStrong else MtTheme.type.headline,
                 color = MtColors.TextPrimary,
-                maxLines = 1,
+                maxLines = 2,
             )
             MtText(subtitle, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary, maxLines = 2)
         }
@@ -153,7 +153,7 @@ fun RegionOption(title: String, selected: Boolean, onClick: () -> Unit, modifier
             title,
             MtTheme.type.subhead.copy(fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium, fontSize = MtTheme.type.body.fontSize),
             color = if (selected) MtColors.Amber else MtColors.Caption,
-            maxLines = 1,
+            maxLines = 2,
         )
     }
 }
@@ -184,7 +184,7 @@ fun SymptomCapsule(title: String, icon: ImageVector, selected: Boolean, onClick:
             title,
             MtTheme.type.subhead.copy(fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium, fontSize = MtTheme.type.body.fontSize),
             color = if (selected) MtColors.Cyan else MtColors.Caption,
-            maxLines = 1,
+            maxLines = 2,
         )
     }
 }
@@ -236,6 +236,6 @@ fun AddRow(text: String, accent: Color, onClick: () -> Unit, modifier: Modifier 
     ) {
         Icon(Symbols.AddCircle, tint = accent, size = 20.dp)
         Spacer(Modifier.width(MtSpacing.sm))
-        MtText(text, MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextPrimary, maxLines = 1)
+        MtText(text, MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextPrimary, maxLines = 2)
     }
 }

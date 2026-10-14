@@ -45,6 +45,7 @@ import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.theme.WithoutFontScaling
 
 val HeaderHeight = 64.dp
 val TabBarHeight = 60.dp
@@ -84,8 +85,10 @@ fun BrandHeader(
         }
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f).semantics(mergeDescendants = true) { heading() }) {
-            MtText("MIGRATRACK", MtTheme.type.caption.copy(letterSpacing = 0.16.em, fontWeight = FontWeight.SemiBold), color = MtColors.BrandLabel)
-            MtText(title, MtTheme.type.title1, color = MtColors.TextPrimary, maxLines = 1)
+            WithoutFontScaling {
+                MtText("MIGRATRACK", MtTheme.type.caption.copy(letterSpacing = 0.16.em, fontWeight = FontWeight.SemiBold), color = MtColors.BrandLabel)
+                MtText(title, MtTheme.type.title1, color = MtColors.TextPrimary, maxLines = 1)
+            }
         }
         if (onSettings != null) {
             Box(
@@ -169,7 +172,7 @@ fun TabBar(selected: Tab, onSelect: (Tab) -> Unit, modifier: Modifier = Modifier
                         modifier = if (active) Modifier.glow(MtColors.Pink, radius = 10.dp, alpha = 0.35f) else Modifier,
                     )
                     Spacer(Modifier.height(4.dp))
-                    MtText(tab.title, MtTheme.type.tabLabel, color = color)
+                    WithoutFontScaling { MtText(tab.title, MtTheme.type.tabLabel, color = color) }
                 }
             }
         }
