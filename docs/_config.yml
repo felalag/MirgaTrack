@@ -6,3 +6,5 @@ exclude:
   - ARCHITECTURE.md
   - APP_STORE.md
   - user-journey
+  - REVIEW_READINESS.md
+  - review-readiness
