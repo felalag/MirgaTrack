@@ -13,6 +13,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -191,12 +192,14 @@ private fun AttackCard(insights: Insights) {
             }
         }
         Spacer(Modifier.height(MtSpacing.md))
-        Row(
+        FlowRow(
             Modifier.fillMaxWidth().clip(RoundedCornerShape(MtRadius.sm)).background(MtColors.CardRaised.copy(alpha = 0.4f)).padding(vertical = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(MtSpacing.lg, Alignment.CenterHorizontally),
+            verticalArrangement = Arrangement.spacedBy(MtSpacing.xs),
         ) {
             LegendItem("Migraine Day", MtColors.Pink)
             LegendItem("Pain-Free Day", MtColors.Green)
+            if (insights.bars.any { it.elapsedDays > 0 && it.trackedDays == 0 }) LegendItem("Not Tracked", MtColors.TextTertiary)
         }
     }
 }
@@ -206,7 +209,7 @@ private fun LegendItem(text: String, color: androidx.compose.ui.graphics.Color) 
     Row(verticalAlignment = Alignment.CenterVertically) {
         Dot(color)
         Spacer(Modifier.width(6.dp))
-        MtText(text, MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption)
+        MtText(text, MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption, maxLines = 1)
     }
 }
 
@@ -231,19 +234,21 @@ private fun TrendBadge(percent: Int) {
 }
 
 /**
- * One stacked pill: migraine share on top in pink, pain-free share below in green.
+ * One stacked pill: migraine share of the tracked days on top in pink, pain-free share below in green.
  * In the week view a single day has no share, so the pink part shows that day's peak pain instead.
+ * A bucket in the future or before the tracking start is a grey pill.
  */
 @Composable
 private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifier) {
     val target = when {
-        bar.elapsedDays == 0 -> 0f
+        bar.trackedDays == 0 -> 0f
         period == InsightsPeriod.Week -> (bar.peakIntensity?.value ?: 0) / 10f
-        else -> bar.migraineDays.toFloat() / bar.elapsedDays
+        else -> bar.migraineDays.toFloat() / bar.trackedDays
     }
     val share by animateFloatAsState(target, tween(600))
     val description = when {
         bar.elapsedDays == 0 -> "${bar.label}: no data yet"
+        bar.trackedDays == 0 -> "${bar.label}: not tracked"
         bar.migraineDays == 0 -> "${bar.label}: pain-free"
         else -> "${bar.label}: ${bar.migraineDays} migraine ${if (bar.migraineDays == 1) "day" else "days"}, peak ${bar.peakIntensity?.value} of 10"
     }
@@ -252,7 +257,7 @@ private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifi
         verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.Bottom),
     ) {
         when {
-            bar.elapsedDays == 0 -> Box(Modifier.fillMaxWidth().weight(1f).background(MtColors.ControlHigh.copy(alpha = 0.4f), CircleShape))
+            bar.trackedDays == 0 -> Box(Modifier.fillMaxWidth().weight(1f).background(MtColors.ControlHigh.copy(alpha = 0.4f), CircleShape))
             bar.migraineDays == 0 -> {
                 if (period != InsightsPeriod.Week) {
                     Box(Modifier.fillMaxWidth().height(8.dp).background(MtColors.ControlHigh.copy(alpha = 0.4f), CircleShape))

@@ -40,6 +40,7 @@ fun report(
     episodes: List<Episode>,
     options: ExportPreferences = ExportPreferences(),
     name: String = "Аня Морозова",
+    trackedSince: LocalDate = LocalDate(2026, 1, 3),
 ): ClinicalReport = ClinicalReportBuilder.build(
     episodes = episodes,
     baseline = BaselineProfile.Initial.copy(
@@ -49,7 +50,7 @@ fun report(
     ),
     triggers = TriggerCatalog.defaults,
     medications = MedicationCatalog.defaults,
-    user = UserProfile(name, LocalDate(2026, 1, 3)),
+    user = UserProfile(name, trackedSince),
     options = options,
     today = TODAY,
     timeZone = TimeZone.UTC,

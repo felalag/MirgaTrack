@@ -34,7 +34,7 @@ class AppGraph(
     val loggingPreset = GetLoggingPreset(profiles, catalog)
     val quickLog = QuickLogEpisode(profiles, loggingPreset, logEpisode)
     val completeOnboarding = CompleteOnboarding(profiles, clock, timeZone)
-    val loadSampleData = LoadSampleData(episodes, clock)
+    val loadSampleData = LoadSampleData(episodes, profiles, clock, timeZone)
     val exportReport = ExportReport(episodes, profiles, catalog, clock, timeZone, services.pdfRenderer)
     val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, services.store.documents, services.store.eraser, clock)
 

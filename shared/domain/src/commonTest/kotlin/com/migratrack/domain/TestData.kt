@@ -28,6 +28,9 @@ import kotlin.time.Instant
 
 val UTC: TimeZone = TimeZone.UTC
 
+/** A tracking start before every date in the tests, so that every day is tracked. */
+val LONG_AGO = LocalDate(2020, 1, 1)
+
 fun episodeAt(dateTime: LocalDateTime, intensity: Int = 5, id: String = dateTime.toString()) = Episode(
     id = EpisodeId(id),
     startedAt = dateTime.toInstant(UTC),

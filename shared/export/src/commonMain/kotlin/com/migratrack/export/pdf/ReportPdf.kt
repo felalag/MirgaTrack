@@ -99,7 +99,14 @@ private class PageCursor(private val canvas: ReportCanvas) {
             canvas.drawText(value, TextStyle(20f, Weight.Bold, color), x + 12f, y + 10f, tileWidth - 24f)
             canvas.drawText(label, TextStyle(8.5f, color = Palette.SECONDARY), x + 12f, y + 38f, tileWidth - 24f)
         }
-        y += tileHeight + 22f
+        y += tileHeight
+        if (stats.untrackedDays > 0) {
+            val days = if (stats.untrackedDays == 1) "1 earlier day" else "${stats.untrackedDays} earlier days"
+            val note = "Tracking started on ${DateText.fullDate(report.trackedSince)}. " +
+                "$days of this range have no records and do not count as pain-free days."
+            y += 14f + text(note, TextStyle(9.5f, color = Palette.SECONDARY))
+        }
+        y += 22f
     }
 
     private fun sectionTitle(title: String, accent: Long) {
@@ -147,16 +154,27 @@ private class PageCursor(private val canvas: ReportCanvas) {
         val chartLeft = left + axisWidth
         val chartWidth = width - axisWidth
         val axisStyle = TextStyle(7.5f, color = Palette.SECONDARY)
+        val days = report.days
+        val slot = chartWidth / days.size.coerceAtLeast(1)
+        // One rect per run of untracked days: a rect per day leaves hairline seams between the slots.
+        var index = 0
+        while (index < days.size) {
+            if (days[index].isTracked) {
+                index++
+                continue
+            }
+            val start = index
+            while (index < days.size && !days[index].isTracked) index++
+            canvas.fillRect(chartLeft + start * slot, y, (index - start) * slot, chartHeight, Palette.TILE)
+        }
         for (level in listOf(0, 5, 10)) {
             val lineY = y + chartHeight - chartHeight * level / 10f
             canvas.strokeLine(chartLeft, lineY, chartLeft + chartWidth, lineY, Palette.DIVIDER, 0.5f)
             canvas.drawText(level.toString(), axisStyle.copy(align = Align.End), left, lineY - 5f, axisWidth - 6f)
         }
-        val days = report.dailyPeaks
-        val slot = chartWidth / days.size.coerceAtLeast(1)
         val barWidth = (slot * 0.7f).coerceIn(1f, 10f)
-        days.forEachIndexed { index, (_, peak) ->
-            if (peak == null) return@forEachIndexed
+        days.forEachIndexed { index, day ->
+            val peak = day.peak ?: return@forEachIndexed
             val barHeight = chartHeight * peak / 10f
             val x = chartLeft + index * slot + (slot - barWidth) / 2
             canvas.fillRect(x, y + chartHeight - barHeight, barWidth, barHeight, severityColor(peak), cornerRadius = barWidth / 2)
@@ -164,12 +182,19 @@ private class PageCursor(private val canvas: ReportCanvas) {
         y += chartHeight + 4f
         if (days.isNotEmpty()) {
             val labelWidth = 70f
-            canvas.drawText(DateText.monthDay(days.first().first), axisStyle, chartLeft, y, labelWidth)
-            canvas.drawText(DateText.monthDay(days[days.size / 2].first), axisStyle.copy(align = Align.Center), chartLeft + chartWidth / 2 - labelWidth / 2, y, labelWidth)
-            canvas.drawText(DateText.monthDay(days.last().first), axisStyle.copy(align = Align.End), chartLeft + chartWidth - labelWidth, y, labelWidth)
+            canvas.drawText(DateText.monthDay(days.first().date), axisStyle, chartLeft, y, labelWidth)
+            canvas.drawText(DateText.monthDay(days[days.size / 2].date), axisStyle.copy(align = Align.Center), chartLeft + chartWidth / 2 - labelWidth / 2, y, labelWidth)
+            canvas.drawText(DateText.monthDay(days.last().date), axisStyle.copy(align = Align.End), chartLeft + chartWidth - labelWidth, y, labelWidth)
         }
         y += 16f
-        legend(listOf("Mild 1–3" to Palette.GREEN, "Moderate 4–7" to Palette.ORANGE, "Severe 8–10" to Palette.PINK))
+        legend(
+            buildList {
+                add("Mild 1–3" to Palette.GREEN)
+                add("Moderate 4–7" to Palette.ORANGE)
+                add("Severe 8–10" to Palette.PINK)
+                if (days.any { !it.isTracked }) add("Not tracked" to Palette.DIVIDER)
+            },
+        )
         y += 20f
     }
 

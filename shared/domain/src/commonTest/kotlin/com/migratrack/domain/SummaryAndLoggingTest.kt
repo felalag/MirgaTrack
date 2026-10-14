@@ -32,7 +32,7 @@ class SummaryAndLoggingTest {
             episodeOn(LocalDate(2026, 9, 25)), // first day of the window
             episodeOn(LocalDate(2026, 9, 24)), // one day before the window
         )
-        val summary = SummaryCalculator.calculate(episodes, sleep = null, today = today, timeZone = UTC)
+        val summary = SummaryCalculator.calculate(episodes, sleep = null, today = today, timeZone = UTC, trackedSince = LONG_AGO)
 
         assertEquals(28, summary.painFreeDays)
         assertEquals(93, summary.balanceScore)
@@ -40,9 +40,37 @@ class SummaryAndLoggingTest {
     }
 
     @Test
+    fun painFreeDaysCountOnlyFromTheTrackingStart() {
+        // Tracking started on Oct 20: five days up to today, one of them with an episode.
+        val episodes = listOf(episodeOn(LocalDate(2026, 10, 22)), episodeOn(LocalDate(2026, 9, 26)))
+        val summary = SummaryCalculator.calculate(episodes, sleep = null, today, UTC, trackedSince = LocalDate(2026, 10, 20))
+
+        // The episode on Sep 26 makes that day tracked, but the days around it stay unknown.
+        assertEquals(6, summary.trackedDays)
+        assertEquals(4, summary.painFreeDays)
+        assertEquals(66, summary.balanceScore)
+    }
+
+    @Test
+    fun firstDayOfTrackingIsTheOnlyTrackedDay() {
+        val summary = SummaryCalculator.calculate(emptyList(), sleep = null, today, UTC, trackedSince = today)
+
+        assertEquals(1, summary.trackedDays)
+        assertEquals(1, summary.painFreeDays)
+    }
+
+    @Test
+    fun trackingStartAfterTodayCountsAsToday() {
+        val summary = SummaryCalculator.calculate(emptyList(), sleep = null, today, UTC, trackedSince = LocalDate(2026, 10, 26))
+
+        assertEquals(1, summary.trackedDays)
+        assertEquals(100, summary.balanceScore)
+    }
+
+    @Test
     fun balanceAveragesPainFreeShareAndRestWhenSleepIsKnown() {
         val sleep = SleepSummary(deep = 110.minutes, core = 252.minutes, rem = 103.minutes)
-        val summary = SummaryCalculator.calculate(emptyList(), sleep, today, UTC)
+        val summary = SummaryCalculator.calculate(emptyList(), sleep, today, UTC, LONG_AGO)
 
         assertEquals(RestScore.of(sleep), summary.restScore)
         assertEquals((100 + RestScore.of(sleep)) / 2, summary.balanceScore)

@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -46,6 +47,7 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.DateText
+import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
@@ -68,7 +70,7 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
         val current = state ?: return@Page
         val snapshot = current.snapshot
         SectionCaption("Today, ${DateText.monthDay(snapshot.today)}")
-        BalanceCard(snapshot.painFreeDays, snapshot.windowDays, snapshot.restScore, snapshot.balanceScore)
+        BalanceCard(snapshot.painFreeDays, snapshot.trackedDays, snapshot.restScore, snapshot.balanceScore)
         PrimaryButton("Log Migraine Episode", onClick = onLogEpisode, icon = Symbols.AddCircle)
         when (val sleep = current.sleep) {
             SleepCard.Hidden, SleepCard.Loading -> Unit
@@ -80,7 +82,7 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
 }
 
 @Composable
-private fun BalanceCard(painFreeDays: Int, windowDays: Int, rest: Int?, balance: Int) {
+private fun BalanceCard(painFreeDays: Int, trackedDays: Int, rest: Int?, balance: Int) {
     Card(color = MtColors.CardRaised, radius = MtRadius.xl, contentPadding = androidx.compose.foundation.layout.PaddingValues(MtSpacing.md)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.VitalSignsFilled, tint = MtColors.Pink, size = 20.dp)
@@ -89,12 +91,12 @@ private fun BalanceCard(painFreeDays: Int, windowDays: Int, rest: Int?, balance:
         }
         Spacer(Modifier.height(MtSpacing.lg))
         ActivityRings(
-            outer = painFreeDays.toFloat() / windowDays,
+            outer = painFreeDays.toFloat() / trackedDays,
             inner = rest?.div(100f),
             outerColor = MtColors.Pink,
             innerColor = MtColors.Green,
             centre = balance.toString(),
-            description = "Biometric balance $balance. Pain-free $painFreeDays of $windowDays days. Rest ${rest ?: "unknown"}.",
+            description = "Biometric balance $balance. Pain-free $painFreeDays of $trackedDays tracked days. Rest ${rest ?: "unknown"}.",
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(MtSpacing.lg))
@@ -102,8 +104,18 @@ private fun BalanceCard(painFreeDays: Int, windowDays: Int, rest: Int?, balance:
             Modifier.fillMaxWidth().clip(RoundedCornerShape(MtRadius.md)).background(MtColors.Control.copy(alpha = 0.6f)).padding(12.dp),
             horizontalArrangement = Arrangement.SpaceAround,
         ) {
-            LegendValue("Pain-Free", MtColors.Pink, painFreeDays.toString(), "/${windowDays}d")
+            LegendValue("Pain-Free", MtColors.Pink, painFreeDays.toString(), "/${trackedDays}d")
             LegendValue("Rest", MtColors.Green, rest?.toString() ?: "–", null)
+        }
+        if (trackedDays < SummaryCalculator.WINDOW_DAYS) {
+            Spacer(Modifier.height(MtSpacing.sm))
+            MtText(
+                "Counted from the day you started tracking. Days before it are not tracked.",
+                MtTheme.type.subhead,
+                color = MtColors.Caption,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+            )
         }
     }
 }

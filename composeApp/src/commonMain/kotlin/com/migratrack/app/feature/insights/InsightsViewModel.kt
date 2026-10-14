@@ -15,6 +15,7 @@ import com.migratrack.domain.analytics.InsightsPeriod
 import com.migratrack.domain.analytics.MonthCalendar
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
+import com.migratrack.domain.model.trackedSince
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -50,17 +51,20 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     private val calendarOpen = MutableStateFlow(false)
     private val selected = MutableStateFlow<LocalDate?>(graph.today())
 
+    private val calendarState = combine(calendarOpen, selected, ::Pair)
+
     val state: StateFlow<InsightsUiState?> =
-        combine(graph.episodes.observeAll(), period, month, calendarOpen, selected) { episodes, period, month, open, day ->
+        combine(graph.episodes.observeAll(), graph.profiles.observeUser(), period, month, calendarState) { episodes, user, period, month, (open, day) ->
             val today = graph.today()
             val zone = graph.timeZone()
-            val insights = InsightsCalculator.calculate(episodes, period, today, zone, month)
+            val trackedSince = user.trackedSince(today)
+            val insights = InsightsCalculator.calculate(episodes, period, today, zone, trackedSince, month)
             val shownDay = day?.takeIf { it.yearMonth == insights.month && it <= today }
             InsightsUiState(
                 period = period,
                 insights = insights,
                 calendarOpen = open,
-                calendar = CalendarBuilder.month(episodes, insights.month, today, zone),
+                calendar = CalendarBuilder.month(episodes, insights.month, today, zone, trackedSince),
                 selected = shownDay,
                 day = shownDay?.let { CalendarBuilder.day(episodes, it, zone) },
             )
