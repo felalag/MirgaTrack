@@ -46,7 +46,7 @@ fun App(graph: AppGraph) {
 sealed interface RootState {
     data object Loading : RootState
 
-    /** [session] changes each time onboarding starts again, for example after sign out. */
+    /** [session] changes each time onboarding starts again, for example after the user deletes all data. */
     data class Onboarding(val session: Int) : RootState
     data object Ready : RootState
 }

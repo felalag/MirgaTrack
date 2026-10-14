@@ -134,7 +134,7 @@ Additions that the screens imply but do not show:
 - **Log a past episode.** Tap an empty day in the calendar, or change **Episode Start** at the bottom of the Log Episode form. The row opens the system date picker. The screens have no time field, but the calendar logs on past days and edits old episodes, so the form needs one.
 - **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.
-- **Sign out.** No account server exists, so Sign Out erases the data on this iPhone after a confirmation. The welcome screen then shows again.
+- **Delete all data.** No account server exists, so Delete All Data in Settings erases the data on this iPhone after a confirmation. The welcome screen then shows again.
 - **Sleep from Apple Health.** The Sleep card reads last night's stages from HealthKit. The simulator has no sleep data unless you add some in the Health app.
 
 ## Known limits

@@ -68,7 +68,7 @@ enum class LegalDocument(val title: String, val sections: List<LegalSection>) {
             ),
             LegalSection(
                 "Delete your data",
-                "Settings › Sign Out of MigraTrack permanently deletes all MigraTrack data on this iPhone. When you delete the app, its data is deleted too.",
+                "Settings › Delete All Data permanently deletes all MigraTrack data on this iPhone. When you delete the app, its data is deleted too.",
             ),
             LegalSection(
                 "Changes",
