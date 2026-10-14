@@ -164,10 +164,10 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 
 <main class="page">
   <header class="intro">
-    <span class="eyebrow">Сквозной тест · 4 октября 2026 · дополнен 11 и 13 октября</span>
+    <span class="eyebrow">Сквозной тест · 4 октября 2026 · переснят 14 октября</span>
     <h1>Путь пользователя <em>MigraTrack</em> на iPhone и Apple Watch</h1>
-    <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone и на часах, открывает логгер часов с циферблата и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Шаги 16–21 добавил второй прогон: календарь Insights, правка приступа и лог в прошлый день. Нажмите на снимок, чтобы увеличить его.</p>
-    <p>11 октября приложение на часах получило новый дизайн из трёх экранов. Шаги часов 1, 8–11 и 21 я переснял на новой версии и на данных второго прогона. Поэтому числа на часах отличаются от чисел в шагах iPhone. 13 октября экраны часов стали компактнее: на каждом экране только кольцо, шкала или галочка одного размера и кнопка. Снимки приложения и циферблата в шагах 1 и 8–11 и снимок шага 21 пересняты на этой версии.</p>
+    <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone и на часах, открывает логгер часов с циферблата и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Шаги 16–21 показывают календарь Insights, правку приступа и лог в прошлый день. Нажмите на снимок, чтобы увеличить его.</p>
+    <p>14 октября я прошёл все 21 шаг заново на новой паре симуляторов. Перед этим сменился дизайн сводки. Иконка теперь — сетка из точек дней. Summary показывает карточку «Last 30 days» с полосой из 30 дней. Часы показывают число дней без приступа, линейную шкалу и дату последнего приступа. Снимки компликаций и Smart Stack в шагах 10 и 11 остались от 13 октября: эти экраны не изменились.</p>
     <div class="facts">
       <div class="fact"><b class="ok">21 из 21</b><span>шага пройден, ошибок приложения нет</span></div>
       <div class="fact"><b>iPhone 18 Pro Max</b><span>симулятор, iOS 27.0</span></div>
@@ -210,13 +210,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device watch">Apple Watch</span>
         <h2>Первый запуск часов, до связи с iPhone</h2>
-        <p>Приложение на часах ставится вместе с приложением на iPhone. Пока iPhone не прислал данные, кольцо показывает <strong>30</strong>: все 30 дней без боли. Под кольцом подсказка «Open MigraTrack on your iPhone to sync».</p>
-        <p>Логировать уже можно. Без пресета iPhone экран Pain Intensity начинается с 7, интенсивности по умолчанию.</p>
-        <p>Эти снимки я сделал на отдельном симуляторе часов без пары. Часы основной пары уже получили данные iPhone.</p>
+        <p>Приложение на часах ставится вместе с приложением на iPhone. Пока iPhone не прислал данные, часы считают только сегодняшний день: <strong>1 / 1</strong> день без боли и «No attacks logged». Под шкалой подсказка «Open MigraTrack on your iPhone to sync».</p>
+        <p>Кнопка Log Migraine неактивна, пока iPhone не прислал профиль. Так часы не сохраняют приступ до онбординга.</p>
+        <p>Снимок сделан на часах основной пары до первого запуска приложения на iPhone.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Главный экран часов: кольцо с числом 30, подсказка Open MigraTrack on your iPhone to sync и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 30 и подсказка о связи</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w02-watch-logger-default.jpg" alt="Pain Intensity 7 из 10 и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Без пресета: интенсивность 7</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Главный экран часов: Pain-free days 1 / 1, полная зелёная шкала, No attacks logged, подсказка Open MigraTrack on your iPhone to sync и неактивная кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>1 / 1 и подсказка о связи</figcaption></figure>
       </div>
     </article>
 
@@ -225,11 +224,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Онбординг, шаг 1: диагнозы и базовый профиль</h2>
-        <p>Пользователь открывает MigraTrack. Три шага онбординга задают базовый профиль. Выбираем <strong>Migraine with aura</strong> и <strong>Chronic Migraine</strong>, частоту 5–8 в месяц, длительность 4–12 ч и типичную интенсивность 6.</p>
+        <p>Пользователь открывает MigraTrack. Экран приветствия показывает пример: полосу из 30 дней с плашкой «Example» и 24 днями без боли. «Get Started» открывает онбординг. Три шага онбординга задают базовый профиль. Выбираем <strong>Migraine with aura</strong> и <strong>Chronic Migraine</strong>, частоту 5–8 в месяц, длительность 4–12 ч и типичную интенсивность 6.</p>
         <p>Кнопка «Continue» неактивна, пока не выбран ни один диагноз.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p00-home-screen.jpg" alt="Иконка MigraTrack на домашнем экране" loading="lazy" width="560" height="1216"></button><figcaption>Иконка на домашнем экране</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p00-home-screen.jpg" alt="Иконка MigraTrack на домашнем экране: сетка из точек дней" loading="lazy" width="560" height="1216"></button><figcaption>Иконка: сетка из точек дней</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p51-welcome.jpg" alt="Экран приветствия: карточка Last 30 days с плашкой Example, 24 pain-free days, полоса из 30 точек и кнопка Get Started" loading="lazy" width="560" height="1216"></button><figcaption>Экран приветствия с примером</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p01-onboarding-diagnoses.jpg" alt="Шаг 1 онбординга: список диагнозов" loading="lazy" width="560" height="1216"></button><figcaption>Шаг 1: диагнозы</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p02-onboarding-diagnoses-selected.jpg" alt="Выбраны два диагноза" loading="lazy" width="560" height="1216"></button><figcaption>Выбраны два диагноза</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p03-onboarding-baseline.jpg" alt="Частота 5–8 в месяц, длительность 4–12 часов, интенсивность 6" loading="lazy" width="560" height="1216"></button><figcaption>Частота, длительность, интенсивность 6</figcaption></figure>
@@ -270,13 +270,13 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Summary и подключение Apple Health</h2>
-        <p>После онбординга открывается Summary: <strong>30 из 30 дней без боли</strong>, баланс 100. Карточка сна предлагает подключить Apple Health.</p>
-        <p>Системный лист HealthKit показывает наше объяснение: приложение только читает данные сна. В симуляторе данных сна нет, поэтому карточка показывает пустое состояние с подсказкой.</p>
+        <p>После онбординга открывается Summary. Карточка «Last 30 days» показывает <strong>1 из 1</strong> отслеживаемого дня без приступа. Полоса из 30 точек начинается 15 сентября, дни до начала учёта серые. Карточка сна предлагает подключить Apple Health.</p>
+        <p>Системный лист HealthKit показывает наше объяснение: приложение только читает данные сна. Затем iOS 27 спрашивает период данных, я выбрал 30 дней. После разрешения карточка «Last 30 days» получает строку «Sleep last night». В симуляторе данных сна нет, поэтому строка показывает «Not recorded» с подсказкой.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p09-summary-empty.jpg" alt="Summary нового пользователя с баллом 100" loading="lazy" width="560" height="1216"></button><figcaption>Summary нового пользователя</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p10-health-permission.jpg" alt="Системный лист доступа к Apple Health" loading="lazy" width="560" height="1216"></button><figcaption>Доступ к Health: только чтение сна</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p11-summary-health-connected.jpg" alt="Карточка сна без данных и Last Event None yet" loading="lazy" width="560" height="1216"></button><figcaption>Сна нет: пустое состояние</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p09-summary-empty.jpg" alt="Summary нового пользователя: 1 of 1 tracked day, полоса из 30 точек, зелёная точка Today" loading="lazy" width="560" height="1216"></button><figcaption>Summary нового пользователя: 1 из 1</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p10-health-permission.jpg" alt="Системный лист доступа к Apple Health с иконкой MigraTrack" loading="lazy" width="560" height="1216"></button><figcaption>Доступ к Health: только чтение сна</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p11-summary-health-connected.jpg" alt="Строка Sleep last night: Not recorded, Last Event None yet" loading="lazy" width="560" height="1216"></button><figcaption>Сна нет: Not recorded</figcaption></figure>
       </div>
     </article>
 
@@ -286,14 +286,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device phone">iPhone</span>
         <h2>Лог приступа на iPhone</h2>
         <p>Вкладка Log уже заполнена пресетом: интенсивность 6 и два острых препарата. Пользователь ставит <strong>9</strong>, выбирает Left Temple, светобоязнь и тошноту.</p>
-        <p>«Add Medication» открывает системный action sheet снизу. В нём весь каталог и «Other Medication…». Добавляем Hydration Electrolytes.</p>
+        <p>Строка «Episode Start» внизу формы показывает Now. «Add Medication» открывает системный action sheet. В нём весь каталог и «Other Medication…». Добавляем Hydration Electrolytes.</p>
       </div>
       <div class="shots">
         <figure><button class="shot" type="button"><img src="img/p12-log-preset.jpg" alt="Форма лога с интенсивностью 6 из пресета" loading="lazy" width="560" height="1216"></button><figcaption>Форма открывается с пресетом</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p13-log-filled.jpg" alt="Интенсивность 9, Left Temple, светобоязнь и тошнота" loading="lazy" width="560" height="1216"></button><figcaption>Интенсивность 9, локализация, симптомы</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p14-log-medications.jpg" alt="Препараты из профиля в карточке Acute Abortive Therapy" loading="lazy" width="560" height="1216"></button><figcaption>Препараты из профиля уже на месте</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p15-add-medication-sheet.jpg" alt="Action sheet со списком препаратов" loading="lazy" width="560" height="1216"></button><figcaption>Action sheet: добавить препарат</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p16-log-ready.jpg" alt="Три препарата и кнопка Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Готово к сохранению</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p16-log-ready.jpg" alt="Три препарата, Episode Start Now и кнопка Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Готово к сохранению</figcaption></figure>
       </div>
     </article>
 
@@ -302,12 +302,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Сохранение и обновлённая сводка</h2>
-        <p>«Save Episode Log» сохраняет приступ, даёт тактильный отклик и возвращает на Summary с баннером. Теперь <strong>29 из 30 дней без боли</strong>, баланс 96. Карточка Last Event показывает симптом и интенсивность 9/10.</p>
+        <p>«Save Episode Log» сохраняет приступ, даёт тактильный отклик и возвращает на Summary с баннером. Теперь <strong>0 из 1</strong> дня без приступа: точка Today стала розовой. Карточка Last Event показывает симптом и интенсивность 9/10.</p>
         <div class="check">SQLite iPhone: <code>9 | App | Ibuprofen, Sumatriptan, Hydration Electrolytes</code></div>
       </div>
       <div class="shots">
         <figure><button class="shot" type="button"><img src="img/p17-saved-banner.jpg" alt="Баннер Episode saved над Summary" loading="lazy" width="560" height="1216"></button><figcaption>Баннер подтверждения</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p18-summary-after-log.jpg" alt="Summary: 29 из 30 дней, Last Event 9 из 10" loading="lazy" width="560" height="1216"></button><figcaption>Summary: 29/30, Last Event 9/10</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p18-summary-after-log.jpg" alt="Summary: 0 of 1 tracked day, розовая точка Today, Last Event Oct 14, Light, Intensity 9/10" loading="lazy" width="560" height="1216"></button><figcaption>Summary: 0 из 1, Last Event 9/10</figcaption></figure>
       </div>
     </article>
 
@@ -316,12 +316,10 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device watch">Apple Watch</span>
         <h2>Часы получают пресет и приступы</h2>
-        <p>iPhone отправляет на часы пресет и приступы за 60 дней через WatchConnectivity. Подсказка о связи исчезла. Кольцо показывает <strong>26</strong>: столько дней из последних 30 прошли без боли.</p>
-        <p>Главный экран показывает только кольцо и кнопку Log Migraine. Строк «This month» и «Last attack» в новой версии нет.</p>
-        <p>Снимки этого шага и шага 9 я переснял 13 октября на отдельных часах без пары, с копией данных основной пары. Так новый лог не попал в данные iPhone.</p>
+        <p>iPhone отправляет на часы пресет и приступы за 60 дней через WatchConnectivity. Подсказка о связи исчезла, кнопка Log Migraine стала активной. Часы показывают <strong>0 / 1</strong>: сегодня уже был приступ. Под шкалой строка «Last attack 14 Oct».</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Часы: кольцо с числом 26 и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Кольцо 26 с данными iPhone</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Часы: Pain-free days 0 / 1, пустая шкала, Last attack 14 Oct и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>0 / 1 с данными iPhone</figcaption></figure>
       </div>
     </article>
 
@@ -331,15 +329,15 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
         <h2>Лог в приложении на часах</h2>
         <p>«Log Migraine» открывает экран Pain Intensity. Значение пришло из пресета iPhone (6), цвет шкалы следует тяжести. Его меняют колёсиком Digital Crown.</p>
-        <p>«Save Episode» сохраняет приступ. Тот же лист показывает зелёную галочку. Приступ получает интенсивность и препараты из профиля. «Done» возвращает на главный экран, и кольцо показывает <strong>25</strong>: 11 октября стал днём приступа.</p>
-        <p>Я логировал на часах дважды, в 01:25 и в 01:35. Карточка дня в календаре iPhone показывает оба приступа.</p>
-        <div class="check">SQLite iPhone: <code>6 | App | Ibuprofen, Sumatriptan</code> в 01:25 и в 01:35, очередь часов <code>0</code></div>
+        <p>«Save Episode» сохраняет приступ. Тот же лист показывает зелёную галочку. Приступ получает интенсивность и препараты из профиля. «Done» возвращает на главный экран. Число остаётся <strong>0 / 1</strong>: 14 октября уже был днём приступа.</p>
+        <p>Карточка дня в календаре iPhone показывает оба приступа: лог с iPhone и лог с часов.</p>
+        <div class="check">SQLite iPhone: <code>6 | App | Ibuprofen, Sumatriptan</code> в 22:25, очередь часов <code>0</code></div>
       </div>
       <div class="shots">
         <figure class="watch"><button class="shot" type="button"><img src="img/w04-watch-pain-intensity.jpg" alt="Шкала Pain Intensity с числом 6 и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Пресет с iPhone: 6/10</figcaption></figure>
         <figure class="watch"><button class="shot" type="button"><img src="img/w05-watch-episode-logged.jpg" alt="Episode logged: зелёная галочка и кнопка Done" loading="lazy" width="416" height="496"></button><figcaption>Episode logged: галочка</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Часы: кольцо с числом 25 после лога" loading="lazy" width="416" height="496"></button><figcaption>После лога: 25</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p49-watch-episodes-on-iphone.jpg" alt="Календарь iPhone: Sunday, Oct 11, 2 episodes, пик 6 из 10, Ibuprofen 400mg и Sumatriptan 50mg" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 11 октября, 2 приступа с часов</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Часы после лога: Pain-free days 0 / 1, Last attack 14 Oct" loading="lazy" width="416" height="496"></button><figcaption>После лога: 0 / 1</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p49-watch-episodes-on-iphone.jpg" alt="Календарь iPhone: Wednesday, Oct 14, 2 episodes, пик 9 из 10, Ibuprofen 400mg, Sumatriptan 50mg и Hydration Electrolytes" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 14 октября, 2 приступа</figcaption></figure>
       </div>
     </article>
 
@@ -350,6 +348,7 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <h2>Компликация Log Migraine на циферблате</h2>
         <p>В редакторе циферблата у MigraTrack одна компликация, «Log Migraine». У неё четыре формы: круг, угол, прямоугольник и строка. На Infograph ставим её в угол и в круг справа.</p>
         <p>Тап по компликации открывает приложение на экране Pain Intensity. watchOS разрешает компликации на циферблате только открыть приложение. Сам тап ничего не сохраняет, приступ сохраняет только «Save Episode». Поэтому случайный тап отменять не нужно, и кнопки Undo нет.</p>
+        <p>Снимки шагов 10 и 11 сделаны 13 октября на часах основной пары прошлого прогона. Эти экраны с тех пор не изменились.</p>
         <div class="check">Тап по LOG: открыт Pain Intensity, число приступов в SQLite на обоих устройствах не изменилось</div>
       </div>
       <div class="shots">
@@ -382,11 +381,11 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Управление приступом и профилем</h2>
-        <p>Тап по Last Event открывает системный лист удаления. Settings сводит профиль: дату регистрации, число логов, диагнозы, 5 триггеров и препараты.</p>
+        <p>Тап по Last Event открывает системный лист с кнопками Edit Episode и Delete Episode Log. Settings сводит профиль: дату регистрации, число логов, диагнозы, 5 триггеров и препараты.</p>
         <p>Имя вводится в системном алерте и попадает в отчёт. Delete All Data предупреждает, что данные есть только на этом iPhone, и удаляет их после подтверждения. В тесте я нажал Cancel.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p20-delete-episode-sheet.jpg" alt="Лист удаления приступа" loading="lazy" width="560" height="1216"></button><figcaption>Удаление приступа</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p20-delete-episode-sheet.jpg" alt="Лист Last Event: Oct 14, 2026 at 22:25, Intensity 6/10, Edit Episode и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Лист Last Event</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p21-settings.jpg" alt="Settings: профиль и базовые параметры" loading="lazy" width="560" height="1216"></button><figcaption>Settings</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p22-name-prompt.jpg" alt="Алерт ввода имени Alex Morgan" loading="lazy" width="560" height="1216"></button><figcaption>Ввод имени</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p23-settings-bottom.jpg" alt="Нижняя часть Settings: Legal, Load Sample Data и кнопка Delete All Data" loading="lazy" width="560" height="1216"></button><figcaption>Legal, Load Sample Data, Delete All Data</figcaption></figure>
@@ -400,13 +399,13 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device phone">iPhone</span>
         <h2>Insights за неделю, месяц, полгода и год</h2>
         <p>Для графиков я загрузил демо-данные за год (Settings › Developer). Столбец делится на дни мигрени (розовый) и дни без боли (зелёный). В недельном виде розовая часть показывает пиковую боль дня.</p>
-        <p>Значок тренда сравнивает последние 7, 30, 182 или 365 дней с таким же периодом раньше. Без приступов в прошлом периоде значка нет.</p>
+        <p>Значок тренда сравнивает последние 7, 30, 182 или 365 дней с таким же периодом раньше. Без приступов в прошлом периоде значка нет. Под графиком карточка Possible Triggers считает, как часто отмечен каждый триггер.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p25-insights-month.jpg" alt="Месяц: 4 приступа, тренд 100 процентов" loading="lazy" width="560" height="1216"></button><figcaption>Месяц: 4 приступа, +100%</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p26-insights-week.jpg" alt="Неделя: пик боли по дням" loading="lazy" width="560" height="1216"></button><figcaption>Неделя: пик боли по дням</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p27-insights-6m.jpg" alt="6 месяцев: 18 приступов, тренд 19 процентов" loading="lazy" width="560" height="1216"></button><figcaption>6 месяцев: 18 приступов, +19%</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p28-insights-year.jpg" alt="Год: 27 приступов" loading="lazy" width="560" height="1216"></button><figcaption>Год: 27 приступов</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p25-insights-month.jpg" alt="Месяц: 3 приступа, тренд 150 процентов" loading="lazy" width="560" height="1216"></button><figcaption>Месяц: 3 приступа, +150%</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p26-insights-week.jpg" alt="Неделя: 3 приступа, пик боли по дням" loading="lazy" width="560" height="1216"></button><figcaption>Неделя: 3 приступа, пик боли по дням</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p27-insights-6m.jpg" alt="6 месяцев: 16 приступов, тренд 0 процентов" loading="lazy" width="560" height="1216"></button><figcaption>6 месяцев: 16 приступов, 0%</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p28-insights-year.jpg" alt="Год: 26 приступов" loading="lazy" width="560" height="1216"></button><figcaption>Год: 26 приступов</figcaption></figure>
       </div>
     </article>
 
@@ -416,11 +415,11 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device phone">iPhone</span>
         <h2>Экспорт в PDF и Excel</h2>
         <p>Export показывает число приступов и диапазон отчёта. Диапазон меняется в action sheet, переключатели решают, что войдёт в отчёт.</p>
-        <p>PDF открывается в Quick Look: две страницы с профилем, графиком боли, препаратами, симптомами и журналом. Excel уходит через системный share sheet.</p>
-        <div class="check">.xlsx на Mac: <code>unzip -t</code> без ошибок, 11 строк, даты как настоящие даты</div>
+        <p>PDF открывается в Quick Look: две страницы с профилем, графиком боли, препаратами, симптомами, триггерами и журналом. Excel уходит через системный share sheet.</p>
+        <div class="check">.xlsx на Mac: <code>unzip -t</code> без ошибок, 10 строк, даты как настоящие даты</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Экран Export: 11 приступов за 90 дней" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Экран Export: 10 приступов за 90 дней" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p30-export-range.jpg" alt="Action sheet выбора диапазона отчёта" loading="lazy" width="560" height="1216"></button><figcaption>Выбор диапазона</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p31-pdf-preview.jpg" alt="PDF-отчёт в Quick Look" loading="lazy" width="560" height="1216"></button><figcaption>PDF в Quick Look</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p32-xlsx-share.jpg" alt="Share sheet с файлом xlsx" loading="lazy" width="560" height="1216"></button><figcaption>Share sheet с .xlsx</figcaption></figure>
@@ -433,20 +432,20 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Spotlight и Siri</h2>
-        <p>Поиск «Log Migraine» показывает App Shortcut первым результатом. Тап сохранил приступ с пресетом, приложение не открылось. Та же команда работает в Siri и на кнопке Action.</p>
-        <div class="check">SQLite iPhone: новый <code>6 | QuickLog</code></div>
+        <p>Поиск «Log Migraine» показывает App Shortcut первым результатом. Тап сохранил приступ с пресетом, приложение не открылось. Spotlight показал ответ «Logged a migraine episode: intensity 6 of 10». Та же команда работает в Siri и на кнопке Action.</p>
+        <div class="check">SQLite iPhone: новый <code>6 | QuickLog</code> в 22:32</div>
       </div>
       <div class="shots">
-        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p33-spotlight.jpg" alt="Spotlight: App Shortcut Log Migraine первым результатом" loading="lazy" width="560" height="373"></button><figcaption>App Shortcut в Spotlight</figcaption></figure>
+        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p33-spotlight.jpg" alt="Spotlight: App Shortcut Log Migraine в Top Hit с иконкой MigraTrack" loading="lazy" width="560" height="373"></button><figcaption>App Shortcut в Spotlight</figcaption></figure>
       </div>
     </article>
   </section>
 
   <section aria-labelledby="update">
     <div class="section-head">
-      <span class="eyebrow">Второй прогон · 10–11 октября 2026</span>
+      <span class="eyebrow">Календарь и правка · 14 октября 2026</span>
       <h2 id="update">Календарь Insights и правка приступа</h2>
-      <p>Шаги 16–21 используют данные первого прогона и демо-данные. Пользователь открывает календарь, правит и удаляет приступы и логирует приступ в прошлый день. Итог я сверил с SQLite на iPhone и на часах.</p>
+      <p>Шаги 16–21 используют данные шагов 1–15 и демо-данные. Пользователь открывает календарь, правит и удаляет приступы и логирует приступ в прошлый день. Итог я сверил с SQLite на iPhone и на часах.</p>
     </div>
     <div class="journey">
 
@@ -460,8 +459,8 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <p>Месяц меняется свайпом по сетке. Тап по названию месяца открывает системное колесо месяца и года.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p34-insights-month-pill.jpg" alt="Insights за месяц, плашка Oct 2026 рядом с W, M, 6M и Y" loading="lazy" width="560" height="1216"></button><figcaption>Плашка месяца, календарь закрыт</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p35-calendar-empty-day.jpg" alt="Календарь октября: сегодня без приступа, кнопка Log Migraine Episode" loading="lazy" width="560" height="1216"></button><figcaption>День без приступа: Log Migraine Episode</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p34-insights-month-pill.jpg" alt="Insights за месяц: 4 приступа, тренд 200 процентов, плашка Oct 2026 рядом с W, M, 6M и Y" loading="lazy" width="560" height="1216"></button><figcaption>Плашка месяца, календарь закрыт</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p35-calendar-empty-day.jpg" alt="Календарь октября: выбран 13 октября без приступа, кнопка Log Migraine Episode" loading="lazy" width="560" height="1216"></button><figcaption>День без приступа: Log Migraine Episode</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p36-month-year-wheel.jpg" alt="Системное колесо месяца и года на September 2026" loading="lazy" width="560" height="1216"></button><figcaption>Колесо месяца и года</figcaption></figure>
       </div>
     </article>
@@ -473,15 +472,15 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <h2>Карточка дня и Edit Episode</h2>
         <p>Тап по дню приступа показывает карточку дня: дату и время, пиковую интенсивность и препараты. Под ними кнопки «Edit Episode Details» и «Delete Episode Log».</p>
         <p>Edit Episode открывает форму вкладки Log с данными приступа. Строка «Episode Start» открывает системный выбор даты и времени. Будущее время выбрать нельзя.</p>
-        <p>Переносим приступ с 16 на <strong>15 сентября</strong> и нажимаем «Update Episode Log». Баннер подтверждает правку, календарь показывает новый день. Лист Last Event на Summary теперь тоже предлагает Edit Episode.</p>
-        <div class="check">SQLite iPhone и часов: <code>sample-18 | 2026-09-15 08:48</code></div>
+        <p>Переносим приступ с 26 на <strong>25 сентября</strong> и нажимаем «Update Episode Log». Баннер подтверждает правку, календарь показывает новый день. Лист Last Event на Summary теперь тоже предлагает Edit Episode.</p>
+        <div class="check">SQLite iPhone и часов: <code>sample-18 | 2026-09-25 12:17</code></div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p37-calendar-attack-day.jpg" alt="Карточка 16 сентября: пик 4 из 10, Ibuprofen 400mg, кнопки Edit и Delete" loading="lazy" width="560" height="1216"></button><figcaption>Карточка дня: пик 4/10, Ibuprofen</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p38-edit-episode-top.jpg" alt="Edit Episode: интенсивность 4, Occipital and Cervical Neck, Aphasia" loading="lazy" width="560" height="1216"></button><figcaption>Форма с данными приступа</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p39-edit-episode-bottom.jpg" alt="Episode Start Sep 16, 08:48, кнопки Update Episode Log и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Episode Start, Update и Delete</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p40-episode-start-picker.jpg" alt="Системный выбор даты: сентябрь 2026, время 08:48" loading="lazy" width="560" height="1216"></button><figcaption>Выбор даты и времени</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p41-episode-updated.jpg" alt="Баннер Episode updated, день приступа 15 сентября" loading="lazy" width="560" height="1216"></button><figcaption>Episode updated: приступ на 15 сентября</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p37-calendar-attack-day.jpg" alt="Карточка 26 сентября, 12:17: пик 5 из 10, Ibuprofen 400mg, кнопки Edit и Delete" loading="lazy" width="560" height="1216"></button><figcaption>Карточка дня: пик 5/10, Ibuprofen</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p38-edit-episode-top.jpg" alt="Edit Episode: интенсивность 5, Right Temple, Nausea" loading="lazy" width="560" height="1216"></button><figcaption>Форма с данными приступа</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p39-edit-episode-bottom.jpg" alt="Episode Start Sep 26, 12:17, кнопки Update Episode Log и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Episode Start, Update и Delete</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p40-episode-start-picker.jpg" alt="Системный выбор даты: сентябрь 2026, выбрано 26, время 12:17" loading="lazy" width="560" height="1216"></button><figcaption>Выбор даты и времени</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p41-episode-updated.jpg" alt="Баннер Episode updated, дни приступов 2, 19 и 25 сентября" loading="lazy" width="560" height="1216"></button><figcaption>Episode updated: приступ на 25 сентября</figcaption></figure>
       </div>
     </article>
 
@@ -491,14 +490,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device phone">iPhone</span>
         <h2>Лог в прошлый день и удаление</h2>
         <p>Форма вкладки Log тоже получила строку «Episode Start». По умолчанию строка показывает <strong>Now</strong>, и приступ получает время сохранения.</p>
-        <p>На прошлом дне без приступа «Log Migraine Episode» открывает форму Log Episode. Время начала — этот день и текущее время суток: <strong>Sep 16, 18:16</strong>. Форма берёт пресет, как вкладка Log. Раньше приступ получал только текущее время.</p>
+        <p>На прошлом дне без приступа «Log Migraine Episode» открывает форму Log Episode. Время начала — этот день и текущее время суток: <strong>Sep 26, 22:35</strong>. Форма берёт пресет, как вкладка Log. Раньше приступ получал только текущее время.</p>
         <p>«Delete Episode Log» в карточке дня спрашивает подтверждение. Алерт показывает дату, время и интенсивность приступа.</p>
-        <div class="check">SQLite iPhone и часов: приступа <code>2026-09-16 18:16</code> нет</div>
+        <div class="check">SQLite iPhone и часов: приступа <code>2026-09-26 22:35</code> нет</div>
       </div>
       <div class="shots">
         <figure><button class="shot" type="button"><img src="img/p42-log-tab-start-now.jpg" alt="Вкладка Log: Episode Start Now над кнопкой Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Вкладка Log: Episode Start · Now</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p43-log-past-day.jpg" alt="Log Episode на прошлый день: Episode Start Sep 16, 18:16" loading="lazy" width="560" height="1216"></button><figcaption>Лог на 16 сентября, 18:16</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p44-delete-confirm.jpg" alt="Алерт удаления: Sep 16, 2026 at 18:16, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>Подтверждение удаления</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p43-log-past-day.jpg" alt="Log Episode на прошлый день: Episode Start Sep 26, 22:35" loading="lazy" width="560" height="1216"></button><figcaption>Лог на 26 сентября, 22:35</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p44-delete-confirm.jpg" alt="Алерт удаления: Sep 26, 2026 at 22:35, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>Подтверждение удаления</figcaption></figure>
       </div>
     </article>
 
@@ -508,10 +507,10 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
         <span class="device phone">iPhone</span>
         <h2>Месяц плашки задаёт период графика</h2>
         <p>M показывает месяц плашки, 6M — шесть месяцев до него включительно, Y — его год. W показывает неделю с последним днём месяца. Для текущего месяца это неделя с сегодняшним днём.</p>
-        <p>При Sep 2026 график W показывает неделю с 28 сентября по 4 октября: <strong>5 приступов</strong> в пятницу и в воскресенье. Значок тренда сравнивает 7, 30, 182 или 365 дней до конца периода с таким же отрезком раньше.</p>
+        <p>При Sep 2026 график W показывает неделю с 28 сентября по 4 октября: <strong>0 приступов</strong>. Значок тренда сравнивает 7, 30, 182 или 365 дней до конца периода с таким же отрезком раньше. Здесь он показывает −100%: неделей раньше был приступ 25 сентября.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p45-insights-week-past-month.jpg" alt="Неделя с 28 сентября при плашке Sep 2026: 5 приступов" loading="lazy" width="560" height="1216"></button><figcaption>W при Sep 2026: неделя с 28 сентября</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p45-insights-week-past-month.jpg" alt="Неделя с 28 сентября при плашке Sep 2026: 0 приступов, тренд минус 100 процентов" loading="lazy" width="560" height="1216"></button><figcaption>W при Sep 2026: неделя с 28 сентября</figcaption></figure>
       </div>
     </article>
 
@@ -520,14 +519,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Несколько приступов в один день</h2>
-        <p>4 октября было четыре приступа. Карточка дня показывает пик дня и все препараты дня. «Edit Episode Details» и «Delete Episode Log» сначала спрашивают, какой приступ открыть.</p>
-        <p>Переносим приступ 10:31 на <strong>6 октября</strong>. Календарь показывает три дня приступов. У 4 октября остаются три приступа с пиком 9/10.</p>
-        <div class="check">SQLite iPhone и часов: <code>2026-10-06 10:31 | 6 | QuickLog</code></div>
+        <p>14 октября было три приступа: лог на iPhone, лог с часов и QuickLog из Spotlight. Карточка дня показывает пик дня и все препараты дня. «Edit Episode Details» и «Delete Episode Log» сначала спрашивают, какой приступ открыть.</p>
+        <p>Переносим QuickLog 22:32 на <strong>13 октября</strong>. Календарь показывает три дня приступов: 12, 13 и 14 октября. У 14 октября остаются два приступа с пиком 9/10.</p>
+        <div class="check">SQLite iPhone и часов: <code>2026-10-13 22:32 | 6 | QuickLog</code></div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p46-several-episodes-chooser.jpg" alt="Алерт Edit Episode: Sunday, Oct 4 has 4 episodes, четыре приступа с временем и интенсивностью" loading="lazy" width="560" height="1216"></button><figcaption>Выбор из четырёх приступов</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p47-calendar-after-move.jpg" alt="Календарь октября: дни приступов 2, 4 и 6 октября" loading="lazy" width="560" height="1216"></button><figcaption>После переноса: 6 октября в календаре</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p48-several-episodes-preview.jpg" alt="Карточка 4 октября: 3 приступа, пик 9 из 10, три препарата" loading="lazy" width="560" height="1216"></button><figcaption>4 октября: 3 приступа, пик 9/10</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p46-several-episodes-chooser.jpg" alt="Алерт Edit Episode: Wednesday, Oct 14 has 3 episodes, три приступа с временем и интенсивностью" loading="lazy" width="560" height="1216"></button><figcaption>Выбор из трёх приступов</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p47-calendar-after-move.jpg" alt="Календарь октября: дни приступов 12, 13 и 14 октября" loading="lazy" width="560" height="1216"></button><figcaption>После переноса: 13 октября в календаре</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p48-several-episodes-preview.jpg" alt="Карточка 14 октября: 2 приступа, пик 9 из 10, три препарата" loading="lazy" width="560" height="1216"></button><figcaption>14 октября: 2 приступа, пик 9/10</figcaption></figure>
       </div>
     </article>
 
@@ -536,13 +535,13 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
         <h2>Часы получают правку с iPhone</h2>
-        <p>После каждой правки iPhone отправляет на часы приступы за 60 дней. Часы больше не показывают даты приступов, поэтому правку видно по кольцу. Кольцо считает дни приступов по тем же данным, что и Summary на iPhone. Оба устройства показывают <strong>25 из 30</strong>.</p>
+        <p>После каждой правки iPhone отправляет на часы приступы за 60 дней. Часы считают дни без приступа по тем же данным, что и карточка «Last 30 days» на iPhone. Оба устройства показывают <strong>25 из 30</strong>: приступы были 19 и 25 сентября и 12, 13 и 14 октября.</p>
         <p>iPhone помнит приступы, которые уже пришли с часов. Поэтому повторный пакет с часов не возвращает приступ, удалённый на iPhone. Это проверяют тесты синхронизации.</p>
-        <div class="check">SQLite часов, как на iPhone: <code>sample-18 | 2026-09-15 08:48</code> и <code>2026-10-06 10:31 | 6 | QuickLog</code></div>
+        <div class="check">SQLite часов, как на iPhone: <code>sample-18 | 2026-09-25 12:17</code> и <code>2026-10-13 22:32 | 6 | QuickLog</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: кольцо с числом 25" loading="lazy" width="416" height="496"></button><figcaption>Часы: 25</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p50-summary-after-phone-edit.jpg" alt="Summary на iPhone: Pain-Free 25 из 30 дней, Last Event Oct 11, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: Pain-Free 25/30d</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: Pain-free days 25 / 30, шкала, Last attack 14 Oct" loading="lazy" width="416" height="496"></button><figcaption>Часы: 25 / 30</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p50-summary-after-phone-edit.jpg" alt="Summary на iPhone: 25 of 30 tracked days, полоса с пятью розовыми точками, Last Event Oct 14, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 25 из 30</figcaption></figure>
       </div>
     </article>
     </div>
@@ -552,22 +551,22 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     <div class="section-head">
       <span class="eyebrow">Данные</span>
       <h2 id="checks">Что проверено в базах</h2>
-      <p>Каждое действие я сверял с SQLite на iPhone и в App Group на часах. Синхронизация завершена, когда очередь часов пуста. Для шагов 16–21 я сверил итоговое состояние обеих баз. Строки часов я перепроверил 11 октября на новой версии.</p>
+      <p>Каждое действие я сверял с SQLite на iPhone и в App Group на часах. Синхронизация завершена, когда очередь часов пуста. Для шагов 16–21 я сверил итоговое состояние обеих баз. 14 октября я повторил все проверки на новой паре симуляторов.</p>
     </div>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Действие</th><th>Где сохранено</th><th>Что в базе</th><th>Итог</th></tr></thead>
         <tbody>
           <tr><td>Лог на iPhone, 9/10</td><td>iPhone</td><td><code>9 | App</code>, три препарата</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Лог в приложении на часах, 6/10</td><td>часы → iPhone</td><td><code>6 | App</code> на iPhone в 01:25 и в 01:35, очередь часов 0</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Лог в приложении на часах, 6/10</td><td>часы → iPhone</td><td><code>6 | App</code> на iPhone в 22:25, очередь часов 0</td><td><span class="pill pass">Пройдено</span></td></tr>
           <tr><td>Тап по компликации на циферблате</td><td>часы</td><td>Открыт Pain Intensity, новых приступов нет</td><td><span class="pill pass">Пройдено</span></td></tr>
           <tr><td>Тап по Control в Smart Stack</td><td>часы</td><td>Открыт Pain Intensity, новых приступов нет</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Перезагрузка часов</td><td>часы</td><td>Данные на месте, кольцо 29/30</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Перезагрузка часов</td><td>часы</td><td>Данные на месте, 25 / 30</td><td><span class="pill pass">Пройдено</span></td></tr>
           <tr><td>App Shortcut из Spotlight</td><td>iPhone</td><td>Новый <code>6 | QuickLog</code></td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Экспорт .xlsx</td><td>файл</td><td>Архив без ошибок, 11 строк за 90 дней</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Edit Episode: перенос на 15 сентября</td><td>iPhone → часы</td><td><code>sample-18 | 2026-09-15 08:48</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Лог на 16 сентября, затем Delete</td><td>iPhone → часы</td><td>Приступа <code>2026-09-16 18:16</code> нет на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Перенос приступа 4 октября 10:31</td><td>iPhone → часы</td><td><code>2026-10-06 10:31 | 6 | QuickLog</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Экспорт .xlsx</td><td>файл</td><td>Архив без ошибок, 10 строк за 90 дней</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Edit Episode: перенос на 25 сентября</td><td>iPhone → часы</td><td><code>sample-18 | 2026-09-25 12:17</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Лог на 26 сентября, затем Delete</td><td>iPhone → часы</td><td>Приступа <code>2026-09-26 22:35</code> нет на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>Перенос приступа 14 октября 22:32</td><td>iPhone → часы</td><td><code>2026-10-13 22:32 | 6 | QuickLog</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -577,7 +576,7 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     <div class="section-head">
       <span class="eyebrow">Замечания</span>
       <h2 id="notes">Что заметил по ходу</h2>
-      <p>Ошибок приложения в обоих прогонах нет. Ниже два наблюдения по дизайну, одно ограничение платформы и особенности симулятора.</p>
+      <p>Ошибок приложения во всех прогонах нет. Ниже два наблюдения по дизайну, одно ограничение платформы и особенности симулятора.</p>
     </div>
     <div class="notes">
       <div class="note">
@@ -598,7 +597,7 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
           <li>Переключатель в листе HealthKit не реагирует на тап, сработал «Select All».</li>
           <li>После переустановки приложения на часах компликации пропали с циферблата до перезагрузки симулятора.</li>
           <li>В режиме Always On часы не принимают тапы.</li>
-          <li>Ответ Siri после App Shortcut исчезает быстрее, чем делается снимок; база подтверждает лог.</li>
+          <li>Приложение Fitness я убрал с домашнего экрана в App Library, чтобы его иконка не стояла рядом с иконкой MigraTrack.</li>
           <li><code>simctl openurl</code> на часах не работает, поэтому ссылку компликации я проверял тапом по циферблату.</li>
         </ul>
       </div>
