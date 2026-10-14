@@ -190,7 +190,7 @@ Use the same set of screens on each iPhone size. Load Settings › Developer ›
 
 | # | iPhone screen | What it shows |
 |---|---|---|
-| 1 | Summary | Pain-free days, last attacks, and the sleep card |
+| 1 | Summary | The Last 30 days card with the day strip and last night's sleep |
 | 2 | Log Episode | Intensity, aura, symptoms, triggers, and medications |
 | 3 | Insights, Month | The attack chart and the month calendar |
 | 4 | Insights calendar day | An episode on a day, with Edit Episode |
@@ -199,7 +199,7 @@ Use the same set of screens on each iPhone size. Load Settings › Developer ›
 
 | # | Apple Watch screen | What it shows |
 |---|---|---|
-| 1 | Summary | The pain-free ring and the Log Migraine button |
+| 1 | Summary | The pain-free days, the bar, and the Log Migraine button |
 | 2 | Pain Intensity | The Digital Crown value and Save Episode |
 | 3 | Episode logged | The checkmark |
 
@@ -215,12 +215,12 @@ These items do not block the submission, but App Review or a user can ask about 
 
 - **Guideline 5.1.3(ii)** says that apps "may not store personal health information in iCloud". MigraTrack does not use iCloud storage, but an iCloud backup of the iPhone includes the database. The Privacy Policy says this openly. To remove the doubt, exclude the database from backup (`isExcludedFromBackup`); then a new iPhone starts without the data.
 - **Pain-free days before the first launch.** The Summary, Insights, and the PDF report count every day without an episode as pain-free, also the days before the user installed the app. A report made on the first day shows "90 pain-free days". A clinician can misread this.
-- **Guideline 1.4.1** asks medical apps to remind users to check with a doctor. The reminder is in the Terms of Service and in the App Store description. A short line in the app, for example on the Export screen, makes it more visible.
+- **Guideline 1.4.1** asks medical apps to remind users to check with a doctor. The reminder is in the Terms of Service, in the App Store description, and in a short line under Log Migraine Episode on the Summary.
 
 ## Checks on the simulator
 
 - **iPad.** The app is for iPhone only (`TARGETED_DEVICE_FAMILY = 1`), so App Review can run it on an iPad in compatibility mode. On iPad Pro 13-inch (iPadOS 27) it opens in a window with the iPhone shape. The window controls stay in the status bar area and cover no content.
-- **Dynamic Type.** Text follows the iOS text size up to the largest standard size (XXXL). The accessibility sizes above it show the XXXL size, because larger text overflows the fixed rings, chips, and bars. The page header and the tab bar keep their design size, as UIKit bars do. Titles of rows and chips wrap to two lines instead of being cut.
+- **Dynamic Type.** Text follows the iOS text size up to the largest standard size (XXXL). The accessibility sizes above it show the XXXL size, because larger text overflows the fixed chips, bars, and day strips. The page header and the tab bar keep their design size, as UIKit bars do. Titles of rows and chips wrap to two lines instead of being cut.
 - **Empty state.** With zero episodes, the Summary, Insights, Export, and the PDF report show zero values and "None yet" or "No episodes recorded" messages. Nothing breaks.
 
 ## Release checklist

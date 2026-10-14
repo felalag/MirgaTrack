@@ -99,7 +99,7 @@ The Log Episode form starts from it, and quick logging saves it unchanged. The w
 
 The watch app follows the three watch screens of the fourth Stitch export.
 
-- `SummaryView`: the pain-free ring of the last 30 days and the **Log Migraine** button.
+- `SummaryView`: the pain-free days of the last 30 days as a number and a linear gauge, the last attack date, and the **Log Migraine** button.
 - `LoggerSheet`: a sheet with two steps. `LogEpisodeView` takes the intensity from the Digital Crown. After **Save Episode**, `EpisodeLoggedView` replaces it in the same sheet.
 - `WatchModel.logger` holds the step. It is nil while the summary shows, and the app clears it when it goes to the background.
 
