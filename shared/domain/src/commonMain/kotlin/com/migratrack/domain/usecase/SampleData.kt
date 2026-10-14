@@ -6,8 +6,10 @@ import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.MedicationCatalog
 import com.migratrack.domain.model.MedicationIntake
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
+import com.migratrack.domain.model.TriggerCatalog
 import com.migratrack.domain.repository.EpisodeRepository
 import kotlin.random.Random
 import kotlin.time.Clock
@@ -28,6 +30,9 @@ class LoadSampleData(
         val now = clock.now()
         val ibuprofen = MedicationCatalog.defaults.first { it.id == "ibuprofen-400" }
         val sumatriptan = MedicationCatalog.defaults.first { it.id == "sumatriptan-50" }
+        // Two triggers recur more often than the others, so the Insights card has a visible ranking.
+        val frequentTriggers = TriggerCatalog.defaults.filter { it.id == "poor-sleep" || it.id == "bright-light" }
+        val otherTriggers = TriggerCatalog.defaults - frequentTriggers.toSet()
         var daysAgo = 2 + random.nextInt(3)
         while (daysAgo < 365) {
             val startedAt = now - daysAgo.days - random.nextInt(0, 14).hours - random.nextInt(0, 59).minutes
@@ -46,6 +51,10 @@ class LoadSampleData(
                     medications = medications.map {
                         MedicationIntake(it.id, it.name, it.dose, startedAt + random.nextInt(10, 90).minutes)
                     },
+                    triggers = buildList {
+                        frequentTriggers.filterTo(this) { random.nextInt(5) < 2 }
+                        if (random.nextInt(3) == 0) add(otherTriggers.random(random))
+                    }.map { NotedTrigger(it.id, it.name) },
                     source = LogSource.App,
                 ),
             )

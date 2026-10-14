@@ -1,6 +1,7 @@
 package com.migratrack.export.report
 
 import com.migratrack.domain.analytics.MigraineDays
+import com.migratrack.domain.analytics.TriggerFrequency
 import com.migratrack.domain.model.BaselineProfile
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.ExportPreferences
@@ -27,6 +28,8 @@ data class ClinicalReport(
     val stats: ReportStats,
     val baseline: ReportBaseline?,
     val episodes: List<ReportEpisode>,
+    /** Possible triggers noted in the episodes of the range. */
+    val triggers: TriggerFrequency,
     /** Peak pain per day of the range, null for a pain-free day. */
     val dailyPeaks: List<Pair<LocalDate, Int?>>,
 )
@@ -54,6 +57,7 @@ data class ReportEpisode(
     val region: String?,
     val symptoms: List<String>,
     val medications: List<ReportIntake>,
+    val triggers: List<String>,
 )
 
 data class ReportIntake(val name: String, val dose: String, val takenAt: LocalDateTime)
@@ -111,8 +115,10 @@ object ClinicalReportBuilder {
                     medications = episode.medications.map {
                         ReportIntake(it.name, it.dose, it.takenAt.toLocalDateTime(timeZone))
                     },
+                    triggers = episode.triggers.map { it.name },
                 )
             },
+            triggers = TriggerFrequency.of(inRange),
             dailyPeaks = generateSequence(from) { it.plus(DatePeriod(days = 1)) }
                 .takeWhile { it <= today }
                 .map { it to days.peak(it)?.value }

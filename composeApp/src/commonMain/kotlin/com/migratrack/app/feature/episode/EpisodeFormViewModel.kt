@@ -13,11 +13,14 @@ import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.MedicationRole
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
+import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.usecase.EpisodeDraft
 import com.migratrack.domain.usecase.toDraft
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.datetime.LocalDate
@@ -40,6 +43,8 @@ sealed interface EpisodeTarget {
 
 data class EpisodeFormState(
     val draft: EpisodeDraft? = null,
+    /** The known triggers of the baseline profile. The form offers them but does not select them. */
+    val baselineTriggers: List<Trigger> = emptyList(),
     /** The stored episode when the form edits one. */
     val original: Episode? = null,
     val saving: Boolean = false,
@@ -50,7 +55,15 @@ data class EpisodeFormState(
 /** The form starts from the logging preset, so a typical attack needs only "Save". */
 class EpisodeFormViewModel(private val graph: AppGraph, private val target: EpisodeTarget) : ViewModel() {
     private val _state = MutableStateFlow(EpisodeFormState())
-    val state: StateFlow<EpisodeFormState> = _state.asStateFlow()
+
+    // Observed, so that the Log tab follows edits to Known Triggers in Settings.
+    private val baselineTriggers: StateFlow<List<Trigger>> =
+        combine(graph.profiles.observeBaseline(), graph.catalog.observeTriggers()) { baseline, triggers ->
+            triggers.filter { it.id in baseline?.triggerIds.orEmpty() }
+        }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
+
+    val state: StateFlow<EpisodeFormState> = combine(_state, baselineTriggers) { state, known -> state.copy(baselineTriggers = known) }
+        .stateIn(viewModelScope, SharingStarted.Eagerly, EpisodeFormState())
 
     init {
         viewModelScope.launch { _state.value = initialState() }
@@ -60,7 +73,7 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         EpisodeTarget.LogTab -> EpisodeFormState(draft = graph.loggingPreset())
         is EpisodeTarget.NewOn -> EpisodeFormState(draft = graph.loggingPreset().copy(startedAt = startOn(target.date)))
         is EpisodeTarget.Edit -> graph.episodes.find(target.id)
-            ?.let { EpisodeFormState(draft = it.toDraft(graph.catalog.medications()), original = it) }
+            ?.let { EpisodeFormState(draft = it.toDraft(graph.catalog.medications(), graph.catalog.triggers()), original = it) }
             ?: EpisodeFormState(missing = true)
     }
 
@@ -84,6 +97,39 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         edit { it.copy(symptoms = if (symptom in it.symptoms) it.symptoms - symptom else it.symptoms + symptom) }
 
     fun clearSymptoms() = edit { it.copy(symptoms = emptySet()) }
+
+    fun toggleTrigger(trigger: Trigger) = edit { draft ->
+        val noted = draft.triggers.any { it.id == trigger.id }
+        draft.copy(triggers = if (noted) draft.triggers.filterNot { it.id == trigger.id } else draft.triggers + trigger)
+    }
+
+    fun clearTriggers() = edit { it.copy(triggers = emptyList()) }
+
+    /** Native action sheet: the catalog triggers the card does not show yet, then a custom entry. */
+    fun addTrigger() = viewModelScope.launch {
+        val draft = _state.value.draft ?: return@launch
+        val shown = (baselineTriggers.value + draft.triggers).map { it.id }.toSet()
+        val candidates = graph.catalog.triggers().filter { it.id !in shown }
+        val dialogs = graph.services.dialogs
+        val choice = dialogs.chooseAction(
+            title = "Add Trigger",
+            message = "What came before this episode?",
+            actions = candidates.map { SheetAction(it.name) } + SheetAction("Other Trigger…"),
+        ) ?: return@launch
+        val trigger = if (choice < candidates.size) {
+            candidates[choice]
+        } else {
+            val name = dialogs.prompt(
+                title = "Other Trigger",
+                message = "Name something that came before this episode.",
+                placeholder = "For example, strong perfume",
+                confirmTitle = "Add",
+            )?.trim()
+            if (name.isNullOrEmpty()) return@launch
+            graph.catalog.addCustomTrigger(name)
+        }
+        edit { it.copy(triggers = it.triggers + trigger) }
+    }
 
     fun removeMedication(medication: Medication) =
         edit { draft -> draft.copy(medications = draft.medications.filterNot { it.id == medication.id }) }

@@ -28,10 +28,11 @@ import com.migratrack.app.ui.components.MedicationCard
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.PainScale
 import com.migratrack.app.ui.components.RegionOption
-import com.migratrack.app.ui.components.SymptomCapsule
+import com.migratrack.app.ui.components.SelectableCapsule
 import com.migratrack.app.ui.components.TextAction
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
@@ -41,6 +42,7 @@ import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Symptom
+import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.usecase.EpisodeDraft
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
@@ -51,6 +53,7 @@ import kotlinx.datetime.toLocalDateTime
 @Composable
 fun ColumnScope.EpisodeFormFields(
     draft: EpisodeDraft,
+    baselineTriggers: List<Trigger>,
     viewModel: EpisodeFormViewModel,
     today: LocalDate,
     timeZone: TimeZone,
@@ -79,9 +82,23 @@ fun ColumnScope.EpisodeFormFields(
     FormSection("Aura & Sensory Phenotypes", Symbols.Sensors, MtColors.Cyan, onClear = viewModel::clearSymptoms) {
         FlowRow(horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm), verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             Symptom.entries.forEach { symptom ->
-                SymptomCapsule(symptom.title, symptom.icon, symptom in draft.symptoms, { viewModel.toggleSymptom(symptom) })
+                SelectableCapsule(symptom.title, symptom.icon, symptom in draft.symptoms, { viewModel.toggleSymptom(symptom) })
             }
         }
+    }
+
+    // Violet is the specification's accent for trigger categorization; a chosen capsule takes its category color.
+    FormSection("Possible Triggers", Symbols.Bolt, MtColors.Purple, onClear = viewModel::clearTriggers) {
+        val noted = draft.triggers.map { it.id }.toSet()
+        val shown = baselineTriggers + draft.triggers.filterNot { trigger -> baselineTriggers.any { it.id == trigger.id } }
+        if (shown.isNotEmpty()) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm), verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
+                shown.forEach { trigger ->
+                    SelectableCapsule(trigger.name, trigger.icon, trigger.id in noted, { viewModel.toggleTrigger(trigger) }, accent = trigger.category.accent)
+                }
+            }
+        }
+        AddRow("Add Trigger", MtColors.Purple, onClick = viewModel::addTrigger)
     }
 
     FormSection("Acute Abortive Therapy", Symbols.Pill, MtColors.Green, onClear = viewModel::clearMedications) {

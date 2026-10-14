@@ -29,10 +29,14 @@ class ReportTest {
     fun workbookDropsSheetsAndColumnsThatTheTogglesExclude() {
         val all = ReportWorkbook.sheets(report(listOf(episode(20))))
         assertEquals(listOf("Episodes", "Medications", "Daily Pain", "Profile"), all.map { it.name })
-        assertEquals(5, all.first().columns.size)
+        assertEquals("Possible Triggers", all.first().columns.last().title)
+        assertEquals(6, all.first().columns.size)
 
         val bare = ReportWorkbook.sheets(
-            report(listOf(episode(20)), ExportPreferences(includeMedications = false, includeSymptoms = false, includePainCharts = false)),
+            report(
+                listOf(episode(20)),
+                ExportPreferences(includeMedications = false, includeSymptoms = false, includePainCharts = false, includeTriggers = false),
+            ),
         )
         assertEquals(listOf("Episodes", "Profile"), bare.map { it.name })
         assertEquals(3, bare.first().columns.size)
@@ -54,6 +58,30 @@ class ReportTest {
         val canvas = RecordingRenderer()
         ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas)
         assertFalse(canvas.texts.any { it.startsWith("Pain Intensity Timeline") })
+    }
+
+    @Test
+    fun reportCountsTheEpisodesThatNotedEachTrigger() {
+        val episodes = listOf(episode(20), episode(21, triggers = listOf("caffeine", "poor-sleep")), episode(22, triggers = emptyList()))
+        val report = report(episodes)
+
+        assertEquals(listOf("Caffeine Withdrawal / Excess" to 2, "Poor / Irregular Sleep" to 1), report.triggers.counts.map { it.name to it.episodes })
+        assertEquals(1, report.triggers.withoutTriggers)
+        assertEquals(listOf("Caffeine Withdrawal / Excess", "Poor / Irregular Sleep"), report.episodes[1].triggers)
+    }
+
+    @Test
+    fun pdfShowsTriggerFrequencyAsAShareOfEpisodesOnlyWhenSwitchedOn() {
+        val episodes = listOf(episode(20), episode(21, triggers = emptyList()))
+        val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it) }
+        assertTrue("Possible Triggers Noted" in on.texts)
+        assertTrue("1 of 2 episodes (50%)" in on.texts)
+        assertTrue(on.texts.any { it.contains("do not show a cause") && it.contains("1 of 2 episodes have no triggers noted") })
+        assertTrue("TRIGGERS" in on.texts)
+
+        val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it) }
+        assertFalse("Possible Triggers Noted" in off.texts)
+        assertFalse("TRIGGERS" in off.texts)
     }
 
     /** Records draw calls. Text wraps at half the font size per character, 1.2 × font size per line. */

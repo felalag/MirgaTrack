@@ -4,6 +4,7 @@ data class ExportPreferences(
     val includeMedications: Boolean = true,
     val includeSymptoms: Boolean = true,
     val includePainCharts: Boolean = true,
+    val includeTriggers: Boolean = true,
     val range: ExportRange = ExportRange.Last90Days,
 )
 

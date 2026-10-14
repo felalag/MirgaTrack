@@ -21,6 +21,15 @@ CREATE TABLE medication_intake (
     PRIMARY KEY (episode_id, position)
 );
 
+-- Triggers the user noted for an episode. The name is a copy, like the medication name above.
+CREATE TABLE episode_trigger (
+    episode_id TEXT NOT NULL,
+    position INTEGER NOT NULL,
+    trigger_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    PRIMARY KEY (episode_id, position)
+);
+
 selectAll:
 SELECT * FROM episode ORDER BY started_at DESC;
 
@@ -36,6 +45,12 @@ SELECT * FROM medication_intake ORDER BY episode_id, position;
 selectIntakes:
 SELECT * FROM medication_intake WHERE episode_id = :episodeId ORDER BY position;
 
+selectAllTriggers:
+SELECT * FROM episode_trigger ORDER BY episode_id, position;
+
+selectTriggers:
+SELECT * FROM episode_trigger WHERE episode_id = :episodeId ORDER BY position;
+
 insertEpisode:
 INSERT OR REPLACE INTO episode(id, started_at, intensity, region, symptoms, source)
 VALUES (?, ?, ?, ?, ?, ?);
@@ -44,14 +59,24 @@ insertIntake:
 INSERT INTO medication_intake(episode_id, position, medication_id, name, dose, taken_at)
 VALUES (?, ?, ?, ?, ?, ?);
 
+insertTrigger:
+INSERT INTO episode_trigger(episode_id, position, trigger_id, name)
+VALUES (?, ?, ?, ?);
+
 deleteEpisode:
 DELETE FROM episode WHERE id = :id;
 
 deleteIntakes:
 DELETE FROM medication_intake WHERE episode_id = :episodeId;
 
+deleteTriggers:
+DELETE FROM episode_trigger WHERE episode_id = :episodeId;
+
 deleteAllEpisodes:
 DELETE FROM episode;
 
 deleteAllIntakes:
 DELETE FROM medication_intake;
+
+deleteAllTriggers:
+DELETE FROM episode_trigger;

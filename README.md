@@ -1,6 +1,6 @@
 # MigraTrack
 
-MigraTrack is a migraine tracker for iPhone. You log attacks, see trends in a chart and a month calendar, edit past episodes, and export a clinical report.
+MigraTrack is a migraine tracker for iPhone. You log attacks and their possible triggers, see trends in a chart and a month calendar, edit past episodes, and export a clinical report.
 The data stays on the device.
 
 The app uses Kotlin Multiplatform. Compose Multiplatform draws the iPhone UI, and Swift and Kotlin/Native call iOS frameworks where the platform needs them.
@@ -50,7 +50,7 @@ The watch app has three screens:
 2. **Pain Intensity.** Turn the Digital Crown to set 1–10, then tap **Save Episode**. The logger starts at your typical intensity.
 3. **Episode logged.** A checkmark confirms the save. **Done** or the close button returns to the summary.
 
-The episode gets the acute medications of your treatment blueprint, and it goes to the iPhone at once.
+The episode gets the acute medications of your treatment blueprint, and it goes to the iPhone at once. It has no triggers. To add them, edit the episode on the iPhone.
 
 | Where | What a tap does |
 |---|---|
@@ -136,6 +136,12 @@ Additions that the screens imply but do not show:
 - **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.
 - **Delete all data.** No account server exists, so Delete All Data in Settings erases the data on this iPhone after a confirmation. The welcome screen then shows again. The watch deletes its copies with the next context and does not log until onboarding is complete again.
+- **Possible triggers of an episode.** The welcome screen promises help with triggers, but onboarding records only the known triggers of the profile. Each Insights screen of the Stitch exports has an empty "Top Identified Triggers Breakdown" slot. The `DESIGN.md` of the third export describes trigger badges: capsules that take the category color when chosen, with violet as the accent of trigger categories. The project owner approved this design:
+  - The Log Episode and Edit Episode forms have a **Possible Triggers** card after the symptoms. It shows the known triggers of the profile as capsules, but does not select them. If it selected them, every known trigger would be in almost every episode, and the frequency would have no meaning. **Add Trigger** opens the rest of the catalog and a custom entry.
+  - Insights has a **Possible Triggers** card below the chart. For the shown period it lists the five triggers that you noted most often, as "5 of 9" with a bar. The card shows how often you noted a trigger, not what causes an attack, and it says so. A last line counts the episodes with no triggers noted.
+  - The PDF has a **Possible Triggers Noted** section with the share of episodes and the same note. The episode log of the PDF and the Episodes sheet of the XLSX have a column for the triggers. The **Possible Triggers** toggle in Export controls all three.
+  - The watch and the iPhone App Shortcut log with one tap during an attack, so their episodes have no triggers. You add them later in Edit Episode. Sync sends the triggers to the watch with the episode, and older builds ignore the field.
+  - An episode keeps a copy of the trigger name, as it does for a medication name, so the history stays readable.
 - **Sleep from Apple Health.** The Sleep card reads last night's stages from HealthKit. The simulator has no sleep data unless you add some in the Health app.
 
 ## Known limits

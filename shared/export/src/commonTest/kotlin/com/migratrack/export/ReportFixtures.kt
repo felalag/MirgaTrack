@@ -9,6 +9,7 @@ import com.migratrack.domain.model.ExportPreferences
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.MedicationCatalog
 import com.migratrack.domain.model.MedicationIntake
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.model.TriggerCatalog
@@ -22,7 +23,13 @@ import kotlinx.datetime.toInstant
 
 val TODAY = LocalDate(2026, 10, 24)
 
-fun episode(day: Int, month: Int = 10, intensity: Int = 6, withMedication: Boolean = true): Episode {
+fun episode(
+    day: Int,
+    month: Int = 10,
+    intensity: Int = 6,
+    withMedication: Boolean = true,
+    triggers: List<String> = listOf("caffeine"),
+): Episode {
     val startedAt = LocalDateTime(2026, month, day, 9, 30).toInstant(TimeZone.UTC)
     val ibuprofen = MedicationCatalog.defaults.first()
     return Episode(
@@ -32,6 +39,7 @@ fun episode(day: Int, month: Int = 10, intensity: Int = 6, withMedication: Boole
         region = CranialRegion.LeftTemple,
         symptoms = setOf(Symptom.Photophobia, Symptom.Nausea),
         medications = if (withMedication) listOf(MedicationIntake(ibuprofen.id, ibuprofen.name, ibuprofen.dose, startedAt)) else emptyList(),
+        triggers = triggers.map { id -> TriggerCatalog.defaults.first { it.id == id }.let { NotedTrigger(it.id, it.name) } },
         source = LogSource.App,
     )
 }

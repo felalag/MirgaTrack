@@ -35,6 +35,7 @@ fun episodeAt(dateTime: LocalDateTime, intensity: Int = 5, id: String = dateTime
     region = null,
     symptoms = emptySet(),
     medications = emptyList(),
+    triggers = emptyList(),
     source = LogSource.App,
 )
 

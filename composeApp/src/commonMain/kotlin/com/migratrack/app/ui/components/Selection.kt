@@ -158,18 +158,25 @@ fun RegionOption(title: String, selected: Boolean, onClick: () -> Unit, modifier
     }
 }
 
-/** Multi-select capsule of the Aura & Sensory card, cyan when chosen. */
+/** Multi-select capsule. When chosen, it takes the accent for its border, tint, and text. */
 @Composable
-fun SymptomCapsule(title: String, icon: ImageVector, selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
+fun SelectableCapsule(
+    title: String,
+    icon: ImageVector,
+    selected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    accent: Color = MtColors.Cyan,
+) {
     val haptics = LocalHapticFeedback.current
-    val background by animateColorAsState(if (selected) MtColors.Cyan.copy(alpha = 0.2f) else MtColors.Control)
+    val background by animateColorAsState(if (selected) accent.copy(alpha = 0.2f) else MtColors.Control)
     Row(
         modifier = modifier
             .heightIn(min = 40.dp)
-            .then(if (selected) Modifier.glow(MtColors.Cyan, 10.dp, alpha = 0.3f) else Modifier)
+            .then(if (selected) Modifier.glow(accent, 10.dp, alpha = 0.3f) else Modifier)
             .clip(CircleShape)
             .background(background)
-            .then(if (selected) Modifier.border(1.dp, MtColors.Cyan.copy(alpha = 0.4f), CircleShape) else Modifier)
+            .then(if (selected) Modifier.border(1.dp, accent.copy(alpha = 0.4f), CircleShape) else Modifier)
             .semantics(mergeDescendants = true) { this.selected = selected }
             .pressable(role = Role.Checkbox, pressedScale = 0.95f) {
                 haptics.performHapticFeedback(if (selected) HapticFeedbackType.ToggleOff else HapticFeedbackType.ToggleOn)
@@ -178,12 +185,12 @@ fun SymptomCapsule(title: String, icon: ImageVector, selected: Boolean, onClick:
             .padding(horizontal = 14.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon(icon, tint = if (selected) MtColors.Cyan else MtColors.Caption, size = 18.dp)
+        Icon(icon, tint = if (selected) accent else MtColors.Caption, size = 18.dp)
         Spacer(Modifier.width(6.dp))
         MtText(
             title,
             MtTheme.type.subhead.copy(fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium, fontSize = MtTheme.type.body.fontSize),
-            color = if (selected) MtColors.Cyan else MtColors.Caption,
+            color = if (selected) accent else MtColors.Caption,
             maxLines = 2,
         )
     }

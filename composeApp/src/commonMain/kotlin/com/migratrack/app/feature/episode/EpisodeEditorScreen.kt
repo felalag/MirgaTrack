@@ -34,7 +34,7 @@ fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (mess
 
     Page(title = if (editing) "Edit Episode" else "Log Episode", onBack = onBack) {
         val draft = state.draft ?: return@Page
-        EpisodeFormFields(draft, viewModel, graph.today(), graph.timeZone())
+        EpisodeFormFields(draft, state.baselineTriggers, viewModel, graph.today(), graph.timeZone())
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             PrimaryButton(
                 text = if (editing) "Update Episode Log" else "Save Episode Log",

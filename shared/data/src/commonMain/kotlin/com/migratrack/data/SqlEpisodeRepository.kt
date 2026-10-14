@@ -1,6 +1,7 @@
 package com.migratrack.data
 
 import app.cash.sqldelight.coroutines.asFlow
+import com.migratrack.data.db.Episode_trigger
 import com.migratrack.data.db.Medication_intake
 import com.migratrack.data.db.MigraTrackDatabase
 import com.migratrack.domain.model.CranialRegion
@@ -8,6 +9,7 @@ import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.MedicationIntake
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.repository.EpisodeRepository
@@ -25,23 +27,26 @@ internal class SqlEpisodeRepository(
 ) : EpisodeRepository {
     private val queries = database.episodeQueries
 
-    // Intakes change only in the transaction that writes their episode, so the episode query's notification covers them.
+    // Intakes and triggers change only in the transaction that writes their episode,
+    // so the episode query's notification covers them.
     override fun observeAll(): Flow<List<Episode>> =
         queries.selectAll().asFlow()
-            .map { query -> attachIntakes(query.executeAsList()) }
+            .map { query -> attachDetails(query.executeAsList()) }
             .flowOn(dispatcher)
 
     override suspend fun inRange(from: Instant, until: Instant): List<Episode> = withContext(dispatcher) {
-        attachIntakes(queries.selectInRange(from.toEpochMilliseconds(), until.toEpochMilliseconds()).executeAsList())
+        attachDetails(queries.selectInRange(from.toEpochMilliseconds(), until.toEpochMilliseconds()).executeAsList())
     }
 
     override suspend fun find(id: EpisodeId): Episode? = withContext(dispatcher) {
-        queries.selectById(id.value).executeAsOneOrNull()?.toDomain(queries.selectIntakes(id.value).executeAsList())
+        queries.selectById(id.value).executeAsOneOrNull()
+            ?.toDomain(queries.selectIntakes(id.value).executeAsList(), queries.selectTriggers(id.value).executeAsList())
     }
 
     override suspend fun add(episode: Episode) = withContext(dispatcher) {
         database.transaction {
             queries.deleteIntakes(episode.id.value)
+            queries.deleteTriggers(episode.id.value)
             queries.insertEpisode(
                 id = episode.id.value,
                 started_at = episode.startedAt.toEpochMilliseconds(),
@@ -60,24 +65,34 @@ internal class SqlEpisodeRepository(
                     taken_at = intake.takenAt.toEpochMilliseconds(),
                 )
             }
+            episode.triggers.forEachIndexed { position, trigger ->
+                queries.insertTrigger(
+                    episode_id = episode.id.value,
+                    position = position.toLong(),
+                    trigger_id = trigger.triggerId,
+                    name = trigger.name,
+                )
+            }
         }
     }
 
     override suspend fun delete(id: EpisodeId) = withContext(dispatcher) {
         database.transaction {
             queries.deleteIntakes(id.value)
+            queries.deleteTriggers(id.value)
             queries.deleteEpisode(id.value)
         }
     }
 
-    private fun attachIntakes(rows: List<EpisodeRow>): List<Episode> {
+    private fun attachDetails(rows: List<EpisodeRow>): List<Episode> {
         if (rows.isEmpty()) return emptyList()
         val intakes = queries.selectAllIntakes().executeAsList().groupBy { it.episode_id }
-        return rows.map { it.toDomain(intakes[it.id].orEmpty()) }
+        val triggers = queries.selectAllTriggers().executeAsList().groupBy { it.episode_id }
+        return rows.map { it.toDomain(intakes[it.id].orEmpty(), triggers[it.id].orEmpty()) }
     }
 }
 
-private fun EpisodeRow.toDomain(intakes: List<Medication_intake>) = Episode(
+private fun EpisodeRow.toDomain(intakes: List<Medication_intake>, triggers: List<Episode_trigger>) = Episode(
     id = EpisodeId(id),
     startedAt = Instant.fromEpochMilliseconds(started_at),
     intensity = PainIntensity(intensity.toInt().coerceIn(PainIntensity.RANGE)),
@@ -86,5 +101,6 @@ private fun EpisodeRow.toDomain(intakes: List<Medication_intake>) = Episode(
     medications = intakes.map {
         MedicationIntake(it.medication_id, it.name, it.dose, Instant.fromEpochMilliseconds(it.taken_at))
     },
+    triggers = triggers.map { NotedTrigger(it.trigger_id, it.name) },
     source = enumOrNull<LogSource>(source) ?: LogSource.App,
 )

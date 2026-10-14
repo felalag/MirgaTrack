@@ -15,6 +15,7 @@ import com.migratrack.domain.analytics.InsightsPeriod
 import com.migratrack.domain.analytics.MonthCalendar
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
+import com.migratrack.domain.model.Trigger
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -38,6 +39,8 @@ data class InsightsUiState(
     /** The picked day of the shown month, or null. */
     val selected: LocalDate?,
     val day: DayEpisodes?,
+    /** The trigger catalog by id, for the icons and colors of the Possible Triggers card. */
+    val triggerCatalog: Map<String, Trigger>,
 ) {
     val canShowNextMonth: Boolean get() = calendar.month < insights.today.yearMonth
 }
@@ -50,8 +53,12 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     private val calendarOpen = MutableStateFlow(false)
     private val selected = MutableStateFlow<LocalDate?>(graph.today())
 
+    private val data = combine(graph.episodes.observeAll(), graph.catalog.observeTriggers()) { episodes, triggers ->
+        episodes to triggers.associateBy { it.id }
+    }
+
     val state: StateFlow<InsightsUiState?> =
-        combine(graph.episodes.observeAll(), period, month, calendarOpen, selected) { episodes, period, month, open, day ->
+        combine(data, period, month, calendarOpen, selected) { (episodes, triggerCatalog), period, month, open, day ->
             val today = graph.today()
             val zone = graph.timeZone()
             val insights = InsightsCalculator.calculate(episodes, period, today, zone, month)
@@ -63,6 +70,7 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
                 calendar = CalendarBuilder.month(episodes, insights.month, today, zone),
                 selected = shownDay,
                 day = shownDay?.let { CalendarBuilder.day(episodes, it, zone) },
+                triggerCatalog = triggerCatalog,
             )
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 

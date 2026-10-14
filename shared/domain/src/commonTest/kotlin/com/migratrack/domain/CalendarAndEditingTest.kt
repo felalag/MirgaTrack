@@ -5,6 +5,7 @@ import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.MedicationCatalog
+import com.migratrack.domain.model.TriggerCatalog
 import com.migratrack.domain.model.MedicationIntake
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
@@ -109,11 +110,11 @@ class CalendarAndEditingTest {
             medications = listOf(MedicationIntake(ibuprofen.id, "Ibuprofen", "400mg", at(day, 8, 40))),
         )
         episodes.add(original)
-        val draft = original.toDraft(MedicationCatalog.defaults).copy(
+        val draft = original.toDraft(MedicationCatalog.defaults, TriggerCatalog.defaults).copy(
             intensity = PainIntensity(8),
             region = CranialRegion.RightTemple,
             symptoms = setOf(Symptom.Nausea),
-            medications = original.toDraft(MedicationCatalog.defaults).medications + sumatriptan,
+            medications = original.toDraft(MedicationCatalog.defaults, TriggerCatalog.defaults).medications + sumatriptan,
             startedAt = at(day, 6, 0),
         )
 
@@ -136,7 +137,7 @@ class CalendarAndEditingTest {
                 MedicationIntake("custom-medication-gone", "Eletriptan 40mg", "", now),
             ),
         )
-        val draft = episode.toDraft(MedicationCatalog.defaults)
+        val draft = episode.toDraft(MedicationCatalog.defaults, TriggerCatalog.defaults)
 
         assertEquals(episode.startedAt, draft.startedAt)
         assertEquals(listOf("Ibuprofen 200mg", "Eletriptan 40mg"), draft.medications.map { it.displayName })

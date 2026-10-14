@@ -70,6 +70,7 @@ internal class SqlProfileRepository(
                 include_symptoms = preferences.includeSymptoms.toLong(),
                 include_pain_charts = preferences.includePainCharts.toLong(),
                 range = preferences.range.name,
+                include_triggers = preferences.includeTriggers.toLong(),
             )
         }
     }
@@ -93,4 +94,5 @@ private fun Export_preferences.toDomain() = ExportPreferences(
     includeSymptoms = include_symptoms == 1L,
     includePainCharts = include_pain_charts == 1L,
     range = enumOrNull<ExportRange>(range) ?: ExportRange.Last90Days,
+    includeTriggers = include_triggers == 1L,
 )
