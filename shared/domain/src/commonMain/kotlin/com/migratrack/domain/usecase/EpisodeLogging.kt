@@ -7,8 +7,11 @@ import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.MedicationIntake
 import com.migratrack.domain.model.MedicationRole
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
+import com.migratrack.domain.model.Trigger
+import com.migratrack.domain.model.TriggerCategory
 import com.migratrack.domain.repository.CatalogRepository
 import com.migratrack.domain.repository.EpisodeRepository
 import com.migratrack.domain.repository.ProfileRepository
@@ -22,6 +25,8 @@ data class EpisodeDraft(
     val region: CranialRegion? = null,
     val symptoms: Set<Symptom> = emptySet(),
     val medications: List<Medication> = emptyList(),
+    /** Possible triggers the user noted. The preset has none: it holds what is usual, and a trigger is a fact of one episode. */
+    val triggers: List<Trigger> = emptyList(),
     /** Null means "now": a new episode starts at the moment the user saves it. */
     val startedAt: Instant? = null,
 )
@@ -42,6 +47,7 @@ class LogEpisode(
             region = draft.region,
             symptoms = draft.symptoms,
             medications = draft.medications.map { MedicationIntake(it.id, it.name, it.dose, startedAt) },
+            triggers = draft.triggers.map { NotedTrigger(it.id, it.name) },
             source = source,
         )
         episodes.add(episode)
@@ -71,6 +77,7 @@ class UpdateEpisode(
                 kept[medication.id]?.let { it.copy(takenAt = minOf(it.takenAt + shift, now)) }
                     ?: MedicationIntake(medication.id, medication.name, medication.dose, startedAt)
             },
+            triggers = draft.triggers.map { NotedTrigger(it.id, it.name) },
         )
         episodes.add(updated)
         return updated
@@ -78,11 +85,12 @@ class UpdateEpisode(
 }
 
 /**
- * The form state for editing this episode. Medications keep the name and dose they were logged with;
- * the catalog adds the role and the drug class when it still has the entry.
+ * The form state for editing this episode. Medications and triggers keep the names they were logged with;
+ * the catalog adds the other details when it still has the entry.
  */
-fun Episode.toDraft(catalog: List<Medication>): EpisodeDraft {
+fun Episode.toDraft(catalog: List<Medication>, triggerCatalog: List<Trigger>): EpisodeDraft {
     val byId = catalog.associateBy { it.id }
+    val triggersById = triggerCatalog.associateBy { it.id }
     return EpisodeDraft(
         intensity = intensity,
         region = region,
@@ -97,6 +105,10 @@ fun Episode.toDraft(catalog: List<Medication>): EpisodeDraft {
                 drugClass = known?.drugClass.orEmpty(),
                 isCustom = known?.isCustom ?: false,
             )
+        },
+        triggers = triggers.map { noted ->
+            triggersById[noted.triggerId]?.copy(name = noted.name)
+                ?: Trigger(noted.triggerId, noted.name, description = "", category = TriggerCategory.Custom, isCustom = true)
         },
         startedAt = startedAt,
     )

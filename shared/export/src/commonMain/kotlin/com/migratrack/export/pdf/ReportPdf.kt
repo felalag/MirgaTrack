@@ -22,6 +22,7 @@ object ReportPdf {
             if (report.options.includePainCharts) page.painChart(report)
             if (report.options.includeMedications) page.medicationUse(report)
             if (report.options.includeSymptoms) page.symptomFrequency(report)
+            if (report.options.includeTriggers) page.triggerFrequency(report)
             page.episodeLog(report)
             page.disclaimer()
         }
@@ -34,6 +35,7 @@ private object Palette {
     const val CYAN = 0xFF00B8C4 // darker than the app cyan, which is unreadable on white
     const val TEXT = 0xFF1C1C1E
     const val SECONDARY = 0xFF6E6E73
+    const val PURPLE = 0xFFAF52DE // the iOS light-mode purple; the app's violet is too pale on white
     const val TILE = 0xFFF2F2F7
     const val DIVIDER = 0xFFE5E5EA
 }
@@ -242,6 +244,26 @@ private class PageCursor(private val canvas: ReportCanvas) {
         y += 14f
     }
 
+    fun triggerFrequency(report: ClinicalReport) {
+        val frequency = report.triggers
+        sectionTitle("Possible Triggers Noted", Palette.PURPLE)
+        if (frequency.counts.isEmpty()) {
+            y += text("No triggers noted in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
+            return
+        }
+        keyValueRows(frequency.counts.map { count ->
+            count.name to "${count.episodes} of ${frequency.episodes} episodes (${(count.episodes * 100f / frequency.episodes).roundToInt()}%)"
+        })
+        val note = buildString {
+            append("Counts show how often the patient noted a trigger with an episode. They do not show a cause.")
+            if (frequency.withoutTriggers > 0) {
+                append(" ${frequency.withoutTriggers} of ${frequency.episodes} episodes have no triggers noted.")
+            }
+        }
+        ensure(24f)
+        y += text(note, TextStyle(8.5f, color = Palette.SECONDARY)) + 18f
+    }
+
     fun episodeLog(report: ClinicalReport) {
         sectionTitle("Episode Log", Palette.ORANGE)
         if (report.episodes.isEmpty()) {
@@ -286,6 +308,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
             if (report.options.includeMedications) add("Medications" to { e: ReportEpisode ->
                 e.medications.joinToString(", ") { "${it.name} ${it.dose}".trim() + " at " + DateText.time(it.takenAt) }.ifBlank { "–" }
             })
+            if (report.options.includeTriggers) add("Triggers" to { e: ReportEpisode -> e.triggers.joinToString(", ").ifBlank { "–" } })
         }
         val remaining = width - fixed.sumOf { it.width.toDouble() }.toFloat()
         val fixedColumns = if (flexible.isEmpty()) {

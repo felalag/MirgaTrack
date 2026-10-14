@@ -6,6 +6,7 @@ import com.migratrack.data.db.MigraTrackDatabase
 import com.migratrack.domain.model.BaselineProfile
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.LogSource
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.UserProfile
 import com.migratrack.domain.usecase.GetLoggingPreset
@@ -59,6 +60,27 @@ class SyncTest {
         assertEquals(PainIntensity(6), preset.intensity)
         assertEquals(listOf("Ibuprofen 400mg"), preset.medications.map { it.displayName })
         assertTrue(watchSync.isLinked())
+    }
+
+    @Test
+    fun triggersAddedOnThePhoneReachTheWatchMirrorAndWatchLogsHaveNone() = runTest {
+        phone.profiles.saveBaseline(BaselineProfile.Initial.copy(triggerIds = setOf("poor-sleep")))
+        watchSync.applyContext(phoneSync.context())
+        val logged = watchLog()
+        assertEquals(emptyList(), logged.triggers)
+        phoneSync.receive(assertNotNullBatch())
+
+        val noted = listOf(NotedTrigger("poor-sleep", "Poor / Irregular Sleep"))
+        phone.episodes.add(phone.episodes.find(logged.id)!!.copy(triggers = noted))
+        watchSync.applyContext(phoneSync.context())
+
+        assertEquals(noted, watch.episodes.find(logged.id)?.triggers)
+    }
+
+    @Test
+    fun episodeFromAnOlderBuildWithoutTriggersStillDecodes() {
+        val payload = """{"id":"old","startedAt":1761300000000,"intensity":5,"source":"QuickLog"}"""
+        assertEquals(emptyList(), SyncJson.decodeFromString(SyncEpisode.serializer(), payload).toDomain()?.triggers)
     }
 
     @Test

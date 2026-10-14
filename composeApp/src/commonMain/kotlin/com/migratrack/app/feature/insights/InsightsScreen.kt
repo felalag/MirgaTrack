@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.stateDescription
@@ -47,6 +48,7 @@ import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.SegmentedControl
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
@@ -57,7 +59,11 @@ import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.Insights
 import com.migratrack.domain.analytics.InsightsBar
 import com.migratrack.domain.analytics.InsightsPeriod
+import com.migratrack.domain.analytics.TriggerCount
+import com.migratrack.domain.analytics.TriggerFrequency
 import com.migratrack.domain.model.EpisodeId
+import com.migratrack.domain.model.Trigger
+import com.migratrack.domain.model.TriggerCategory
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.YearMonth
 import kotlin.math.abs
@@ -110,8 +116,62 @@ fun InsightsScreen(
                 }
             }
         }
+        if (current.insights.attackCount > 0) TriggerCard(current.insights.triggers, current.triggerCatalog)
     }
 }
+
+/** How often each trigger was noted in the shown period. The wording reports a frequency, never a cause. */
+@Composable
+private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigger>) {
+    Card {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(Symbols.Bolt, tint = MtColors.Purple, size = 20.dp, modifier = Modifier.glow(MtColors.Purple, 8.dp, alpha = 0.5f))
+            Spacer(Modifier.width(MtSpacing.sm))
+            MtText("Possible Triggers", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.semantics { heading() })
+        }
+        Spacer(Modifier.height(MtSpacing.xs))
+        val caption = if (frequency.counts.isEmpty()) {
+            "Note possible triggers when you log or edit an episode. This card then shows how often you noted each one."
+        } else {
+            "How often you noted each trigger with an episode. This does not show a cause."
+        }
+        MtText(caption, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
+        frequency.counts.take(MAX_TRIGGER_ROWS).forEach { count ->
+            Spacer(Modifier.height(MtSpacing.md))
+            TriggerRow(count, frequency.episodes, catalog[count.triggerId]?.category?.accent ?: TriggerCategory.Custom.accent)
+        }
+        if (frequency.counts.isNotEmpty() && frequency.withoutTriggers > 0) {
+            Spacer(Modifier.height(MtSpacing.md))
+            Row(
+                Modifier.fillMaxWidth().clip(RoundedCornerShape(MtRadius.sm)).background(MtColors.CardRaised.copy(alpha = 0.4f)).padding(10.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(Symbols.Info, tint = MtColors.TextSecondary, size = 16.dp)
+                Spacer(Modifier.width(6.dp))
+                val noun = if (frequency.withoutTriggers == 1) "episode has" else "episodes have"
+                MtText("${frequency.withoutTriggers} of ${frequency.episodes} $noun no triggers noted", MtTheme.type.subhead, color = MtColors.TextSecondary)
+            }
+        }
+    }
+}
+
+@Composable
+private fun TriggerRow(count: TriggerCount, episodes: Int, accent: Color) {
+    val share by animateFloatAsState(count.episodes.toFloat() / episodes, tween(600))
+    Column(Modifier.semantics(mergeDescendants = true) { contentDescription = "${count.name}, noted in ${count.episodes} of $episodes episodes" }) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            MtText(count.name, MtTheme.type.body.copy(fontWeight = FontWeight.SemiBold), maxLines = 2, modifier = Modifier.weight(1f))
+            Spacer(Modifier.width(MtSpacing.sm))
+            MtText("${count.episodes} of $episodes", MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
+        }
+        Spacer(Modifier.height(6.dp))
+        Box(Modifier.fillMaxWidth().height(6.dp).clip(CircleShape).background(MtColors.ControlHigh.copy(alpha = 0.4f))) {
+            Box(Modifier.fillMaxWidth(share).height(6.dp).clip(CircleShape).background(accent))
+        }
+    }
+}
+
+private const val MAX_TRIGGER_ROWS = 5
 
 /** "Oct 2026" next to the period control; it opens and closes the calendar. */
 @Composable

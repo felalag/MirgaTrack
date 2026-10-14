@@ -36,6 +36,7 @@ class LocalStore(
             database.transaction {
                 with(database.episodeQueries) {
                     deleteAllIntakes()
+                    deleteAllTriggers()
                     deleteAllEpisodes()
                 }
                 with(database.profileQueries) {

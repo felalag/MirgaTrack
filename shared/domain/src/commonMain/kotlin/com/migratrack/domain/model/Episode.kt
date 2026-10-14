@@ -14,6 +14,8 @@ data class Episode(
     val region: CranialRegion?,
     val symptoms: Set<Symptom>,
     val medications: List<MedicationIntake>,
+    /** Possible triggers the user noted. Quick logs have none until the user edits the episode. */
+    val triggers: List<NotedTrigger>,
     val source: LogSource,
 )
 
@@ -32,6 +34,9 @@ data class MedicationIntake(
 ) {
     val displayName: String get() = medicationDisplayName(name, dose)
 }
+
+/** A trigger noted for an episode. The name is a copy, like the name of a [MedicationIntake]. */
+data class NotedTrigger(val triggerId: String, val name: String)
 
 enum class CranialRegion(val title: String) {
     LeftTemple("Left Temple"),

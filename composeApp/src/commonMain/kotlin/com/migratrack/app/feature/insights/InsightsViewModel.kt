@@ -15,11 +15,13 @@ import com.migratrack.domain.analytics.InsightsPeriod
 import com.migratrack.domain.analytics.MonthCalendar
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
+import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.model.trackedSince
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -39,6 +41,8 @@ data class InsightsUiState(
     /** The picked day of the shown month, or null. */
     val selected: LocalDate?,
     val day: DayEpisodes?,
+    /** The trigger catalog by id, for the icons and colors of the Possible Triggers card. */
+    val triggerCatalog: Map<String, Trigger>,
 ) {
     val canShowNextMonth: Boolean get() = calendar.month < insights.today.yearMonth
 }
@@ -52,9 +56,11 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     private val selected = MutableStateFlow<LocalDate?>(graph.today())
 
     private val calendarState = combine(calendarOpen, selected, ::Pair)
+    private val triggerCatalog = graph.catalog.observeTriggers().map { triggers -> triggers.associateBy { it.id } }
+    private val data = combine(graph.episodes.observeAll(), graph.profiles.observeUser(), triggerCatalog, ::Triple)
 
     val state: StateFlow<InsightsUiState?> =
-        combine(graph.episodes.observeAll(), graph.profiles.observeUser(), period, month, calendarState) { episodes, user, period, month, (open, day) ->
+        combine(data, period, month, calendarState) { (episodes, user, triggerCatalog), period, month, (open, day) ->
             val today = graph.today()
             val zone = graph.timeZone()
             val trackedSince = user.trackedSince(today)
@@ -67,6 +73,7 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
                 calendar = CalendarBuilder.month(episodes, insights.month, today, zone, trackedSince),
                 selected = shownDay,
                 day = shownDay?.let { CalendarBuilder.day(episodes, it, zone) },
+                triggerCatalog = triggerCatalog,
             )
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 

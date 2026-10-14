@@ -22,6 +22,7 @@ object ReportWorkbook {
             add(Column("Cranial Epicenter", 26.0))
             if (report.options.includeSymptoms) add(Column("Aura & Sensory Symptoms", 48.0))
             if (report.options.includeMedications) add(Column("Medications", 36.0))
+            if (report.options.includeTriggers) add(Column("Possible Triggers", 40.0))
         }
         val rows = report.episodes.map { episode ->
             buildList {
@@ -32,6 +33,7 @@ object ReportWorkbook {
                 if (report.options.includeMedications) {
                     add(Cell.Text(episode.medications.joinToString(", ") { it.name + " " + it.dose }.trim()))
                 }
+                if (report.options.includeTriggers) add(Cell.Text(episode.triggers.joinToString(", ")))
             }
         }
         return Sheet("Episodes", columns, rows)

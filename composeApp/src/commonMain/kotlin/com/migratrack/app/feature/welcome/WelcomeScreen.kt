@@ -96,7 +96,7 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                         style = MtTheme.type.largeTitle.copy(textAlign = TextAlign.Center),
                     )
                     MtText(
-                        "Track symptoms, identify hidden triggers, and export your personal reports anytime.",
+                        "Track symptoms, spot possible triggers, and export your personal reports anytime.",
                         MtTheme.type.body,
                         Modifier.fillMaxWidth().padding(horizontal = MtSpacing.sm),
                         color = MtColors.TextSecondary,

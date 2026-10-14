@@ -1,0 +1,10 @@
+-- Version 3 adds the triggers of an episode and their export toggle.
+CREATE TABLE episode_trigger (
+    episode_id TEXT NOT NULL,
+    position INTEGER NOT NULL,
+    trigger_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    PRIMARY KEY (episode_id, position)
+);
+
+ALTER TABLE export_preferences ADD COLUMN include_triggers INTEGER NOT NULL DEFAULT 1;

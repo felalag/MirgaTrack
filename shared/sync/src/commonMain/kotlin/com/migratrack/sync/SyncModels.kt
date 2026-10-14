@@ -7,6 +7,7 @@ import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.MedicationIntake
 import com.migratrack.domain.model.MedicationRole
+import com.migratrack.domain.model.NotedTrigger
 import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.usecase.EpisodeDraft
@@ -25,10 +26,14 @@ data class SyncEpisode(
     val symptoms: List<String> = emptyList(),
     val medications: List<SyncIntake> = emptyList(),
     val source: String = LogSource.QuickLog.name,
+    val triggers: List<SyncTrigger> = emptyList(),
 )
 
 @Serializable
 data class SyncIntake(val medicationId: String, val name: String, val dose: String, val takenAt: Long)
+
+@Serializable
+data class SyncTrigger(val triggerId: String, val name: String)
 
 @Serializable
 data class SyncMedication(val id: String, val name: String, val dose: String)
@@ -66,6 +71,7 @@ internal fun Episode.toSync() = SyncEpisode(
     symptoms = symptoms.map { it.name },
     medications = medications.map { SyncIntake(it.medicationId, it.name, it.dose, it.takenAt.toEpochMilliseconds()) },
     source = source.name,
+    triggers = triggers.map { SyncTrigger(it.triggerId, it.name) },
 )
 
 /** Null when the payload holds an intensity outside 1–10. */
@@ -78,6 +84,7 @@ internal fun SyncEpisode.toDomain(): Episode? {
         region = CranialRegion.entries.firstOrNull { it.name == region },
         symptoms = symptoms.mapNotNull { name -> Symptom.entries.firstOrNull { it.name == name } }.toSet(),
         medications = medications.map { MedicationIntake(it.medicationId, it.name, it.dose, Instant.fromEpochMilliseconds(it.takenAt)) },
+        triggers = triggers.map { NotedTrigger(it.triggerId, it.name) },
         source = LogSource.entries.firstOrNull { it.name == source } ?: LogSource.QuickLog,
     )
 }

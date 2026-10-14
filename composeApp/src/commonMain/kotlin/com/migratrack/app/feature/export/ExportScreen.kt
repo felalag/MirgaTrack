@@ -171,6 +171,15 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             )
             ListDivider(inset = false)
             ListRow(
+                title = "Possible Triggers",
+                subtitle = "Noted triggers and their frequency",
+                icon = Symbols.Bolt,
+                iconTint = MtColors.Purple,
+                iconBackground = MtColors.Control,
+                trailing = RowTrailing.Toggle(preferences.includeTriggers) { on -> viewModel.update { it.copy(includeTriggers = on) } },
+            )
+            ListDivider(inset = false)
+            ListRow(
                 title = "Pain Level Charts",
                 subtitle = "VAS 0–10 intensity timeline",
                 icon = Symbols.StackedLineChart,

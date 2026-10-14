@@ -21,7 +21,8 @@ CREATE TABLE export_preferences (
     include_medications INTEGER NOT NULL,
     include_symptoms INTEGER NOT NULL,
     include_pain_charts INTEGER NOT NULL,
-    range TEXT NOT NULL
+    range TEXT NOT NULL,
+    include_triggers INTEGER NOT NULL DEFAULT 1
 );
 
 CREATE TABLE custom_trigger (
@@ -55,8 +56,8 @@ selectExportPreferences:
 SELECT * FROM export_preferences WHERE id = 1;
 
 upsertExportPreferences:
-INSERT OR REPLACE INTO export_preferences(id, include_medications, include_symptoms, include_pain_charts, range)
-VALUES (1, ?, ?, ?, ?);
+INSERT OR REPLACE INTO export_preferences(id, include_medications, include_symptoms, include_pain_charts, range, include_triggers)
+VALUES (1, ?, ?, ?, ?, ?);
 
 selectCustomTriggers:
 SELECT * FROM custom_trigger ORDER BY created_at;

@@ -12,6 +12,7 @@ import kotlinx.datetime.isoDayNumber
 import kotlinx.datetime.minus
 import kotlinx.datetime.number
 import kotlinx.datetime.plus
+import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.yearMonth
 import kotlin.math.roundToInt
 
@@ -46,6 +47,8 @@ data class Insights(
      */
     val trendPercent: Int?,
     val bars: List<InsightsBar>,
+    /** Triggers noted in the episodes of the range up to today. */
+    val triggers: TriggerFrequency,
 ) {
     val includesToday: Boolean get() = today in range
 }
@@ -91,7 +94,8 @@ object InsightsCalculator {
                 isCurrent = today in bucket,
             )
         }
-        return Insights(period, today, shown, range, attackCount, trend, bars)
+        val inRange = episodes.filter { it.startedAt.toLocalDateTime(timeZone).date in range.start..end }
+        return Insights(period, today, shown, range, attackCount, trend, bars, TriggerFrequency.of(inRange))
     }
 }
 
