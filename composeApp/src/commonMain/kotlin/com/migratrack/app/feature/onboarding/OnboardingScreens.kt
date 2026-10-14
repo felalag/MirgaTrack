@@ -140,7 +140,7 @@ private fun DiagnosesStepScreen(
     StepPage(
         step = step,
         title = "Diagnoses & History",
-        subtitle = "Establish your headache profile to calibrate your personal baseline and stability rings.",
+        subtitle = "Set up your headache profile. Your logs and reports start from it.",
         onBack = onBack,
     ) {
         StepSection("Primary Diagnosis") {

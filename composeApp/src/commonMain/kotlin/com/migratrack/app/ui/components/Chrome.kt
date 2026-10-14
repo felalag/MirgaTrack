@@ -137,7 +137,7 @@ fun Page(
 }
 
 enum class Tab(val title: String, val icon: ImageVector) {
-    Summary("Summary", AppIcons.TabSummary),
+    Summary("Summary", Symbols.CalendarMonth),
     Log("Log", AppIcons.TabLog),
     Insights("Insights", AppIcons.TabInsights),
     Export("Export", AppIcons.TabExport),

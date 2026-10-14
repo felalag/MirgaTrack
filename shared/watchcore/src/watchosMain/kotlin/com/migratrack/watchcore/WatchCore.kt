@@ -9,8 +9,10 @@ import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.sync.WatchSync
 import kotlinx.coroutines.flow.first
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toNSDate
 import kotlinx.datetime.todayIn
 import platform.Foundation.NSBundle
+import platform.Foundation.NSDate
 import kotlin.time.Clock
 
 /** What the watch app and the complication show. */
@@ -20,6 +22,8 @@ data class WatchStatus(
     val trackedDays: Int,
     /** The intensity the logger starts at: the typical intensity from the phone. */
     val presetIntensity: Int,
+    /** When the last episode started; null when none is logged. */
+    val lastEpisodeStartedAt: NSDate?,
     /** False until a context arrives from a phone that finished onboarding; the watch does not log until then. */
     val isLinked: Boolean,
 )
@@ -50,10 +54,11 @@ object WatchCore {
         val zone = TimeZone.currentSystemDefault()
         val all = store.episodes.observeAll().first()
         val today = clock.todayIn(zone)
-        val summary = SummaryCalculator.calculate(all, sleep = null, today, zone, trackedSince = sync.trackedSince() ?: today)
+        val summary = SummaryCalculator.calculate(all, today, zone, trackedSince = sync.trackedSince() ?: today)
         return WatchStatus(
             painFreeDays = summary.painFreeDays,
             trackedDays = summary.trackedDays,
+            lastEpisodeStartedAt = summary.lastEpisode?.startedAt?.toNSDate(),
             presetIntensity = sync.preset().intensity.value,
             isLinked = sync.isLinked(),
         )

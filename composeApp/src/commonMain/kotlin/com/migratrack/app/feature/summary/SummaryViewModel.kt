@@ -34,9 +34,8 @@ class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
     private val sleepCard = MutableStateFlow<SleepCard>(SleepCard.Loading)
 
     val state: StateFlow<SummaryUiState?> = combine(graph.episodes.observeAll(), graph.profiles.observeUser(), sleepCard) { episodes, user, sleep ->
-        val lastNight = (sleep as? SleepCard.Loaded)?.sleep
         val today = graph.today()
-        SummaryUiState(SummaryCalculator.calculate(episodes, lastNight, today, graph.timeZone(), user.trackedSince(today)), sleep)
+        SummaryUiState(SummaryCalculator.calculate(episodes, today, graph.timeZone(), user.trackedSince(today)), sleep)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     init {

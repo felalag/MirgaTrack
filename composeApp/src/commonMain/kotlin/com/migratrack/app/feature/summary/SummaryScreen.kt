@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,7 +20,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -31,7 +33,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.LocalAppGraph
 import com.migratrack.app.ui.components.Card
-import com.migratrack.app.ui.components.Dot
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.PrimaryButton
@@ -48,6 +49,7 @@ import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.SummaryCalculator
+import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
@@ -70,71 +72,85 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
         val current = state ?: return@Page
         val snapshot = current.snapshot
         SectionCaption("Today, ${DateText.monthDay(snapshot.today)}")
-        BalanceCard(snapshot.painFreeDays, snapshot.trackedDays, snapshot.restScore, snapshot.balanceScore)
-        PrimaryButton("Log Migraine Episode", onClick = onLogEpisode, icon = Symbols.AddCircle)
-        when (val sleep = current.sleep) {
-            SleepCard.Hidden, SleepCard.Loading -> Unit
-            SleepCard.NeedsAccess -> SleepConnectCard(onConnect = viewModel::connectHealth)
-            is SleepCard.Loaded -> SleepDepthCard(sleep.sleep)
+        LastThirtyDaysCard(snapshot, current.sleep)
+        Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
+            PrimaryButton("Log Migraine Episode", onClick = onLogEpisode, icon = Symbols.AddCircle)
+            MtText(
+                "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment.",
+                MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
+                Modifier.fillMaxWidth().padding(horizontal = MtSpacing.sm),
+                color = MtColors.TextSecondary,
+                textAlign = TextAlign.Center,
+            )
         }
+        if (current.sleep == SleepCard.NeedsAccess) SleepConnectCard(onConnect = viewModel::connectHealth)
         LastEventCard(snapshot.lastEpisode, graph.timeZone(), onClick = { viewModel.manageEpisode(it, onEditEpisode) })
     }
 }
 
 @Composable
-private fun BalanceCard(painFreeDays: Int, trackedDays: Int, rest: Int?, balance: Int) {
-    Card(color = MtColors.CardRaised, radius = MtRadius.xl, contentPadding = androidx.compose.foundation.layout.PaddingValues(MtSpacing.md)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Icon(Symbols.VitalSignsFilled, tint = MtColors.Pink, size = 20.dp)
-            Spacer(Modifier.width(MtSpacing.sm))
-            MtText("BIOMETRIC BALANCE", MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextBody)
-        }
-        Spacer(Modifier.height(MtSpacing.lg))
-        ActivityRings(
-            outer = painFreeDays.toFloat() / trackedDays,
-            inner = rest?.div(100f),
-            outerColor = MtColors.Pink,
-            innerColor = MtColors.Green,
-            centre = balance.toString(),
-            description = "Biometric balance $balance. Pain-free $painFreeDays of $trackedDays tracked days. Rest ${rest ?: "unknown"}.",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(MtSpacing.lg))
-        Row(
-            Modifier.fillMaxWidth().clip(RoundedCornerShape(MtRadius.md)).background(MtColors.Control.copy(alpha = 0.6f)).padding(12.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
-        ) {
-            LegendValue("Pain-Free", MtColors.Pink, painFreeDays.toString(), "/${trackedDays}d")
-            LegendValue("Rest", MtColors.Green, rest?.toString() ?: "–", null)
-        }
-        if (trackedDays < SummaryCalculator.WINDOW_DAYS) {
+private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
+    Card(color = MtColors.CardRaised, radius = MtRadius.xl, contentPadding = PaddingValues(MtSpacing.md)) {
+        val trackedDays = "${snapshot.trackedDays} tracked ${if (snapshot.trackedDays == 1) "day" else "days"}"
+        val summary = "${snapshot.painFreeDays} of $trackedDays without a logged attack in the last 30 days"
+        Column(Modifier.clearAndSetSemantics { contentDescription = summary }) {
+            SectionCaption("Last 30 days", modifier = Modifier.padding(start = 0.dp))
+            Spacer(Modifier.height(MtSpacing.xs))
+            Row(verticalAlignment = Alignment.Bottom) {
+                MtText(snapshot.painFreeDays.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
+                MtText(
+                    " of $trackedDays",
+                    MtTheme.type.headline,
+                    color = MtColors.TextBody,
+                    modifier = Modifier.padding(bottom = 8.dp),
+                )
+            }
+            MtText("without a logged attack", MtTheme.type.subhead, color = MtColors.TextSecondary)
+            Spacer(Modifier.height(MtSpacing.md))
+            DayStrip(snapshot.days.map { it.toStripDay() })
+            Spacer(Modifier.height(6.dp))
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                MtText(DateText.monthDay(snapshot.days.first().date), MtTheme.type.subhead, color = MtColors.TextSecondary)
+                MtText("Today", MtTheme.type.subhead, color = MtColors.TextSecondary)
+            }
             Spacer(Modifier.height(MtSpacing.sm))
-            MtText(
-                "Counted from the day you started tracking. Days before it are not tracked.",
-                MtTheme.type.subhead,
-                color = MtColors.Caption,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth(),
-            )
+            DayStripLegend()
+            if (snapshot.trackedDays < SummaryCalculator.WINDOW_DAYS) {
+                Spacer(Modifier.height(MtSpacing.sm))
+                MtText(
+                    "Counted from the day you started tracking. Days before it are not tracked.",
+                    MtTheme.type.subhead,
+                    color = MtColors.Caption,
+                )
+            }
+        }
+        if (sleep is SleepCard.Loaded) {
+            Spacer(Modifier.height(MtSpacing.md))
+            Box(Modifier.fillMaxWidth().height(0.5.dp).background(MtColors.BorderSubtle))
+            Spacer(Modifier.height(12.dp))
+            SleepRow(sleep.sleep)
         }
     }
 }
 
 @Composable
-private fun LegendValue(label: String, color: Color, value: String, unit: String?) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.semantics(mergeDescendants = true) {}) {
+private fun SleepRow(sleep: SleepSummary?) {
+    val asleep = sleep?.asleep?.takeIf { it.inWholeMinutes > 0 }
+    Column(Modifier.semantics(mergeDescendants = true) {}) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Dot(color)
-            Spacer(Modifier.width(6.dp))
-            MtText(label, MtTheme.type.subhead, color = MtColors.Caption)
+            Icon(Symbols.BedtimeFilled, tint = MtColors.Green, size = 18.dp)
+            Spacer(Modifier.width(MtSpacing.sm))
+            MtText("Sleep last night", MtTheme.type.body, color = MtColors.TextBody, modifier = Modifier.weight(1f))
+            Spacer(Modifier.width(MtSpacing.sm))
+            MtText(asleep?.let(::formatHoursMinutes) ?: "Not recorded", MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
         }
-        Spacer(Modifier.height(4.dp))
-        Row(verticalAlignment = Alignment.Bottom) {
-            MtText(value, MtTheme.type.title2.copy(fontWeight = FontWeight.Bold), color = MtColors.TextPrimary)
-            if (unit != null) {
-                Spacer(Modifier.width(2.dp))
-                MtText(unit, MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 2.dp))
-            }
+        if (asleep == null) {
+            Spacer(Modifier.height(4.dp))
+            MtText(
+                "Wear Apple Watch to bed or track sleep in the Health app. If you turned off access, enable it in Settings › Health.",
+                MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
+                color = MtColors.TextSecondary,
+            )
         }
     }
 }
@@ -145,56 +161,6 @@ private fun SleepHeader() {
         Icon(Symbols.BedtimeFilled, tint = MtColors.Green, size = 20.dp)
         Spacer(Modifier.width(MtSpacing.xs))
         SectionCaption("Sleep Sync & Depth")
-    }
-}
-
-@Composable
-private fun SleepDepthCard(sleep: SleepSummary?) {
-    Card(color = MtColors.CardRaised) {
-        SleepHeader()
-        Spacer(Modifier.height(MtSpacing.sm))
-        if (sleep == null || sleep.asleep.inWholeMinutes == 0L) {
-            MtText("No sleep recorded for last night", MtTheme.type.headline, color = MtColors.TextPrimary)
-            Spacer(Modifier.height(4.dp))
-            MtText(
-                "Wear Apple Watch to bed or track sleep in the Health app. If you turned off access, enable it in Settings › Health.",
-                MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
-                color = MtColors.TextSecondary,
-            )
-            return@Card
-        }
-        val hours = sleep.asleep.inWholeHours
-        val minutes = sleep.asleep.inWholeMinutes % 60
-        Row(verticalAlignment = Alignment.Bottom) {
-            MtText(hours.toString(), MtTheme.type.hero)
-            MtText(" h ", MtTheme.type.headline, color = MtColors.Caption, modifier = Modifier.padding(bottom = 8.dp))
-            MtText(minutes.toString(), MtTheme.type.hero)
-            MtText(" m", MtTheme.type.headline, color = MtColors.Caption, modifier = Modifier.padding(bottom = 8.dp))
-        }
-        Spacer(Modifier.height(MtSpacing.sm))
-        val stages = listOf(
-            Triple(sleep.deep, MtColors.Green, "Deep"),
-            Triple(sleep.core, MtColors.Cyan, "Core"),
-            Triple(sleep.rem, MtColors.Pink, "REM"),
-        ).filter { it.first.inWholeMinutes > 0 }
-        Row(
-            Modifier.fillMaxWidth().height(12.dp).clip(CircleShape).background(MtColors.Control).padding(2.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-        ) {
-            stages.forEach { (duration, color, _) ->
-                Box(Modifier.weight(duration.inWholeMinutes.toFloat()).height(8.dp).background(color, CircleShape))
-            }
-        }
-        Spacer(Modifier.height(MtSpacing.sm))
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            stages.forEach { (duration, color, label) ->
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Dot(color, size = 8.dp, glow = false)
-                    Spacer(Modifier.width(4.dp))
-                    MtText("${formatHoursMinutes(duration)} $label", MtTheme.type.caption.copy(letterSpacing = MtTheme.type.subhead.letterSpacing), color = MtColors.Caption)
-                }
-            }
-        }
     }
 }
 

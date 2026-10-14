@@ -1,7 +1,7 @@
 import MigraCore
 import SwiftUI
 
-/// The first screen: the 30-day pain-free ring and the way into the logger.
+/// The first screen: the pain-free days of the last 30 days and the way into the logger.
 struct SummaryView: View {
     @Environment(WatchModel.self) private var model
 
@@ -9,7 +9,7 @@ struct SummaryView: View {
         @Bindable var model = model
         NavigationStack {
             VStack(spacing: 4) {
-                PainFreeRing(status: model.status)
+                PainFreeDays(status: model.status)
                 if let status = model.status, !status.isLinked {
                     Text("Open MigraTrack on your iPhone to sync.")
                         .font(.footnote)
@@ -18,6 +18,7 @@ struct SummaryView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .scenePadding(.horizontal)
             .bottomAction {
                 Button("Log Migraine") {
                     model.showLogger()
@@ -34,59 +35,52 @@ struct SummaryView: View {
     }
 }
 
-/// Days without an episode among the tracked days of the window, drawn like an Activity ring.
-struct PainFreeRing: View {
+/// Days without an episode among the tracked days of the window, as a number over a linear gauge.
+struct PainFreeDays: View {
     let status: WatchStatus?
 
     var body: some View {
         let days = status.map { Int($0.painFreeDays) }
         let window = status.map { Int($0.trackedDays) } ?? 30
-        let progress = Double(days ?? 0) / Double(max(window, 1))
-        GeometryReader { geometry in
-            let side = RingMetrics.side(in: geometry.size)
-            let line = RingMetrics.line(side: side)
-            ZStack {
-                Circle()
-                    .stroke(Color.migraGreen.opacity(0.22), lineWidth: line)
-                Circle()
-                    .trim(from: 0, to: progress)
-                    .stroke(Color.migraGreen, style: StrokeStyle(lineWidth: line, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
-                    .shadow(color: .migraGreen.opacity(0.45), radius: line * 0.6)
-                Text(days.map(String.init) ?? "–")
-                    .font(.largeTitle.bold())
-                    .monospacedDigit()
-                    .contentTransition(.numericText())
-                    .lineLimit(1)
+        VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Pain-free days")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
+                    Text(days.map(String.init) ?? "–")
+                        .font(.largeTitle.bold())
+                        .contentTransition(.numericText())
+                    Text(" / \(window)")
+                        .font(.title3)
+                        .foregroundStyle(.secondary)
+                }
+                .monospacedDigit()
+                .lineLimit(1)
                 .minimumScaleFactor(0.5)
-                .frame(width: RingMetrics.textSide(side: side), height: RingMetrics.textSide(side: side))
+                Gauge(value: Double(days ?? 0), in: 0...Double(max(window, 1))) {}
+                    .gaugeStyle(.linearCapacity)
+                    .tint(.migraGreen)
             }
-            .padding(line / 2)
-            .frame(width: side, height: side)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("Pain-free days")
+            .accessibilityValue(days.map { "\($0) of \(window)" } ?? "")
+            if let status {
+                Group {
+                    if let last = status.lastEpisodeStartedAt {
+                        Text("Last attack \(last, format: .dateTime.month(.abbreviated).day())")
+                    } else {
+                        Text("No attacks logged")
+                    }
+                }
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+            }
         }
         .animation(.smooth, value: days)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Pain-free days")
-        .accessibilityValue(days.map { "\($0) of \(window)" } ?? "")
-    }
-}
-
-/// Sizes that the pain-free ring, the intensity gauge and the checkmark share, so that the three screens match.
-enum RingMetrics {
-    /// The same share of the screen width on both screens. 0.33 is the most that the gauge gets on the 49mm watch,
-    /// between the close button and its label.
-    static func side(in size: CGSize) -> CGFloat {
-        min(size.width * 0.33, size.height)
-    }
-
-    static func line(side: CGFloat) -> CGFloat {
-        side * 0.06
-    }
-
-    /// The largest square inside the ring, where large Dynamic Type sizes shrink the text to fit.
-    static func textSide(side: CGFloat) -> CGFloat {
-        (side - 2 * line(side: side)) * 0.7
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
 }
 
