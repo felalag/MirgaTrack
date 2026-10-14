@@ -7,10 +7,10 @@ import kotlin.coroutines.cancellation.CancellationException
  * the watch complication and Control Center control will call the same use case.
  */
 object QuickLogBridge {
-    /** Logs an episode from the baseline preset and returns a short summary for Siri to speak. */
+    /** Logs an episode from the baseline preset and returns a short summary for Siri to speak, or null before onboarding. */
     @Throws(IllegalStateException::class, CancellationException::class)
-    suspend fun logEpisode(): String {
-        val episode = appGraph.quickLog()
+    suspend fun logEpisode(): String? {
+        val episode = appGraph.quickLog() ?: return null
         val medications = episode.medications.joinToString(", ") { it.displayName }
         return buildString {
             append("intensity ${episode.intensity.value} of 10")

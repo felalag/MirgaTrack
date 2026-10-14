@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
 import kotlin.time.Clock
+import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
 /** The on-device SQLite store and the repositories on top of it. */
@@ -30,8 +31,8 @@ class LocalStore(
     val outbox: SyncOutbox = SqlSyncOutbox(database, dispatcher, clock)
     val documents: DocumentStore = SqlDocumentStore(database, dispatcher)
 
-    val eraser: LocalDataEraser = LocalDataEraser {
-        withContext(dispatcher) {
+    val eraser: LocalDataEraser = object : LocalDataEraser {
+        override suspend fun eraseAll() = withContext(dispatcher) {
             database.transaction {
                 with(database.episodeQueries) {
                     deleteAllIntakes()
@@ -47,9 +48,17 @@ class LocalStore(
                 with(database.syncQueries) {
                     clearOutbox()
                     clearDocuments()
+                    upsertDocument(ERASED_AT, clock.now().toEpochMilliseconds().toString())
                 }
             }
         }
+
+        override suspend fun erasedAt(): Instant? =
+            documents.read(ERASED_AT)?.toLongOrNull()?.let(Instant::fromEpochMilliseconds)
+    }
+
+    private companion object {
+        const val ERASED_AT = "erased-at"
     }
 }
 

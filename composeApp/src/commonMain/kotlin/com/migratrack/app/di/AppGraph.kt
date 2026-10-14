@@ -32,11 +32,11 @@ class AppGraph(
     val logEpisode = LogEpisode(episodes, clock)
     val updateEpisode = UpdateEpisode(episodes, clock)
     val loggingPreset = GetLoggingPreset(profiles, catalog)
-    val quickLog = QuickLogEpisode(loggingPreset, logEpisode)
+    val quickLog = QuickLogEpisode(profiles, loggingPreset, logEpisode)
     val completeOnboarding = CompleteOnboarding(profiles, clock, timeZone)
     val loadSampleData = LoadSampleData(episodes, clock)
     val exportReport = ExportReport(episodes, profiles, catalog, clock, timeZone, services.pdfRenderer)
-    val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, services.store.documents, clock)
+    val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, services.store.documents, services.store.eraser, clock)
 
     fun today(): LocalDate = clock.todayIn(timeZone())
 }

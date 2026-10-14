@@ -12,25 +12,35 @@ import com.migratrack.domain.usecase.LogEpisode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
+import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Instant
 
 class SyncTest {
-    private val now = Instant.parse("2026-10-24T09:00:00Z")
+    private var now = Instant.parse("2026-10-24T09:00:00Z")
     private val clock = object : Clock { override fun now() = now }
 
     private val phone = store("phone")
     private val watch = store("watch")
     private val phoneSync = PhoneSync(
         phone.episodes, phone.profiles, phone.catalog,
-        GetLoggingPreset(phone.profiles, phone.catalog), phone.documents, clock,
+        GetLoggingPreset(phone.profiles, phone.catalog), phone.documents, phone.eraser, clock,
     )
     private val watchSync = WatchSync(watch.episodes, watch.outbox, watch.documents)
+
+    @BeforeTest
+    fun setUp() = runTest {
+        onboardPhone()
+        watchSync.applyContext(phoneSync.context())
+    }
 
     @Test
     fun watchTakesThePresetAndRecentEpisodesFromThePhone() = runTest {
@@ -162,6 +172,81 @@ class SyncTest {
         assertEquals(listOf(9), watch.episodes.observeAll().first().map { it.intensity.value })
         assertEquals(listOf(9), phone.episodes.observeAll().first().map { it.intensity.value })
     }
+
+    @Test
+    fun deleteAllDataOnThePhoneAlsoDeletesAnEpisodeTheWatchHasNotSent() = runTest {
+        watchLog()
+        now += 1.minutes
+        phone.eraser.eraseAll()
+
+        watchSync.applyContext(phoneSync.context())
+
+        assertEquals(emptyList(), watch.episodes.observeAll().first())
+        assertNull(watchSync.pendingBatch())
+    }
+
+    @Test
+    fun deleteAllDataOnThePhoneAlsoDeletesAnEpisodeTheContextHasNotConfirmed() = runTest {
+        watchLog()
+        phoneSync.receive(assertNotNullBatch())
+        now += 1.minutes
+        phone.eraser.eraseAll()
+
+        watchSync.applyContext(phoneSync.context())
+        onboardPhone()
+        watchSync.pendingBatch()?.let { phoneSync.receive(it) }
+
+        assertEquals(emptyList(), phone.episodes.observeAll().first())
+        assertEquals(emptyList(), watch.episodes.observeAll().first())
+    }
+
+    @Test
+    fun batchSentBeforeDeleteAllDataDoesNotRestoreTheEpisode() = runTest {
+        // The watch queued the batch before the phone erased, and the batch arrives after the user set up again.
+        watchLog()
+        val inFlight = assertNotNullBatch()
+        now += 1.minutes
+        phone.eraser.eraseAll()
+        onboardPhone()
+
+        assertEquals(0, phoneSync.receive(inFlight))
+        assertEquals(emptyList(), phone.episodes.observeAll().first())
+    }
+
+    @Test
+    fun watchDoesNotLogUntilThePhoneFinishesOnboardingAgain() = runTest {
+        phone.eraser.eraseAll()
+        watchSync.applyContext(phoneSync.context())
+
+        assertFalse(watchSync.isLinked())
+        assertFailsWith<IllegalStateException> { watchSync.draft(intensity = 7) }
+
+        onboardPhone()
+        watchSync.applyContext(phoneSync.context())
+        now += 1.minutes
+        val logged = watchLog()
+
+        assertTrue(watchSync.isLinked())
+        assertEquals(1, phoneSync.receive(assertNotNullBatch()))
+        assertEquals(listOf(logged.id), phone.episodes.observeAll().first().map { it.id })
+    }
+
+    @Test
+    fun episodeLoggedOnTheWatchAfterDeleteAllDataWaitsForOnboarding() = runTest {
+        // The watch has not seen the context from after the erase yet, so it still logs.
+        phone.eraser.eraseAll()
+        now += 1.minutes
+        val logged = watchLog()
+
+        assertEquals(0, phoneSync.receive(assertNotNullBatch()))
+        watchSync.applyContext(phoneSync.context())
+        assertEquals(listOf(logged.id), watch.episodes.observeAll().first().map { it.id })
+
+        onboardPhone()
+        assertEquals(1, phoneSync.receive(assertNotNullBatch()))
+    }
+
+    private suspend fun onboardPhone() = phone.profiles.saveBaseline(BaselineProfile.Initial)
 
     private suspend fun assertNotNullBatch(): String = requireNotNull(watchSync.pendingBatch()) { "expected a batch" }
 

@@ -19,7 +19,7 @@ data class WatchStatus(
     val windowDays: Int,
     /** The intensity the logger starts at: the typical intensity from the phone. */
     val presetIntensity: Int,
-    /** False until the phone sent its first context; the preset is a default until then. */
+    /** False until a context arrives from a phone that finished onboarding; the watch does not log until then. */
     val isLinked: Boolean,
 )
 
