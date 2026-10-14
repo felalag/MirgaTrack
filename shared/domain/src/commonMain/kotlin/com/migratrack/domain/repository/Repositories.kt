@@ -61,8 +61,11 @@ interface CatalogRepository {
 }
 
 /** Deletes every record on this device. Delete All Data uses it because the app has no account server. */
-fun interface LocalDataEraser {
+interface LocalDataEraser {
     suspend fun eraseAll()
+
+    /** When [eraseAll] last ran, so that copies older than that on the watch do not come back. */
+    suspend fun erasedAt(): Instant?
 }
 
 /** Episodes logged on this device that the paired device has not confirmed yet. */

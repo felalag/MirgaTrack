@@ -128,8 +128,13 @@ class GetLoggingPreset(
 
 /** One-tap logging for the iPhone App Shortcut. */
 class QuickLogEpisode(
+    private val profiles: ProfileRepository,
     private val preset: PresetProvider,
     private val logEpisode: LogEpisode,
 ) {
-    suspend operator fun invoke(): Episode = logEpisode(preset.preset(), LogSource.QuickLog)
+    /** @return null before onboarding, when there is no preset to log and the app still shows the welcome screen. */
+    suspend operator fun invoke(): Episode? {
+        if (profiles.baseline() == null) return null
+        return logEpisode(preset.preset(), LogSource.QuickLog)
+    }
 }

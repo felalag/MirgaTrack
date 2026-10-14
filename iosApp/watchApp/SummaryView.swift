@@ -24,6 +24,7 @@ struct SummaryView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.migraPink)
+                .disabled(model.status?.isLinked == false)
             }
             .sheet(isPresented: $model.isLoggerShown) {
                 LoggerSheet()

@@ -17,6 +17,7 @@ import kotlinx.datetime.toInstant
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
 
@@ -61,18 +62,34 @@ class SummaryAndLoggingTest {
         )
         val episodes = InMemoryEpisodes()
         val clock = FixedClock(LocalDateTime(2026, 10, 24, 14, 5).toInstant(UTC))
+        val profiles = InMemoryProfiles(baseline)
         val quickLog = QuickLogEpisode(
-            GetLoggingPreset(InMemoryProfiles(baseline), InMemoryCatalog()),
+            profiles,
+            GetLoggingPreset(profiles, InMemoryCatalog()),
             LogEpisode(episodes, clock) { "fixed-id" },
         )
 
-        val episode = quickLog()
+        val episode = assertNotNull(quickLog())
 
         assertEquals(PainIntensity(6), episode.intensity)
         assertEquals(listOf("ibuprofen-400"), episode.medications.map { it.medicationId })
         assertEquals(LogSource.QuickLog, episode.source)
         assertEquals(clock.instant, episode.medications.single().takenAt)
         assertEquals(listOf(episode), episodes.state.value)
+    }
+
+    @Test
+    fun quickLogSavesNothingBeforeOnboarding() = runTest {
+        val episodes = InMemoryEpisodes()
+        val profiles = InMemoryProfiles()
+        val quickLog = QuickLogEpisode(
+            profiles,
+            GetLoggingPreset(profiles, InMemoryCatalog()),
+            LogEpisode(episodes, FixedClock(LocalDateTime(2026, 10, 24, 14, 5).toInstant(UTC))),
+        )
+
+        assertNull(quickLog())
+        assertEquals(emptyList(), episodes.state.value)
     }
 
     @Test

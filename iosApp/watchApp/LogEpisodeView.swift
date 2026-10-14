@@ -10,6 +10,10 @@ struct LoggerSheet: View {
             if model.logger == .logged {
                 EpisodeLoggedView()
                     .transition(.blurReplace)
+            } else if model.status?.isLinked == false {
+                // The complication opens the logger also before onboarding on the iPhone, when the watch cannot log.
+                Text("Open MigraTrack on your iPhone to sync.")
+                    .multilineTextAlignment(.center)
             } else {
                 LogEpisodeView()
                     .transition(.blurReplace)

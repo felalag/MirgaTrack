@@ -133,6 +133,8 @@ The rules live in `shared/sync`; Swift moves JSON strings over WatchConnectivity
 - **Confirmation:** an episode leaves the outbox only when a phone context lists it. A finished transfer is not proof, because the phone app may not have stored the batch yet. Until then the watch keeps the episode and sends it again, and the phone ignores ids it already has.
 - **Delete requests:** builds before the redesign had Undo, which sent delete requests in `WatchBatch.deletedIds`. The phone still applies them, and the watch still sends a request that an earlier build stored. The current watch app does not delete episodes.
 - **Delete and edit on the phone:** the phone remembers the last 200 ids it received from the watch and lists them in the context as `receivedIds`. A batch that arrives again cannot bring back an episode the user deleted on the phone, and the watch takes the list as confirmation. An edit reaches the watch with the next context.
+- **Delete All Data on the phone:** the erase records its time, and the context sends it as `erasedAt`. The watch deletes its own episodes that started before it, also the ones in the outbox. The phone does not take in such episodes from a batch that was on its way.
+- **Onboarding:** the context sends `isSetUp`. Until the phone finishes onboarding, the watch does not log and the phone takes in no batch. The watch keeps a newer episode in the outbox until then.
 - **Database:** the watch app and the complication extension share one database in the App Group container, which `MigraTrackAppGroup` in Info.plist names.
 
 `SyncTest` covers these cases with two in-memory databases.

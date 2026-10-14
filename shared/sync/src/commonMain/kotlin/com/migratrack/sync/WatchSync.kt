@@ -11,6 +11,7 @@ import com.migratrack.domain.usecase.PresetProvider
 import kotlinx.coroutines.flow.first
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
+import kotlin.time.Instant
 
 /**
  * The watch side. The watch keeps a mirror of the phone's recent episodes plus its own unconfirmed ones,
@@ -25,16 +26,22 @@ class WatchSync(
     override suspend fun preset(): EpisodeDraft =
         storedContext()?.preset?.toDraft() ?: EpisodeDraft(PainIntensity.Default)
 
-    /** The preset with the intensity the user chose on the watch, kept within 1–10. */
-    suspend fun draft(intensity: Int): EpisodeDraft =
-        preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE)))
+    /**
+     * The preset with the intensity the user chose on the watch, kept within 1–10.
+     * @throws IllegalStateException before the watch [isLinked], so that nothing is logged ahead of onboarding on the phone.
+     */
+    suspend fun draft(intensity: Int): EpisodeDraft {
+        check(isLinked()) { "Finish setup in MigraTrack on iPhone first." }
+        return preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE)))
+    }
 
-    /** True once a context from the phone arrived. */
-    suspend fun isLinked(): Boolean = storedContext() != null
+    /** True once a context arrived from a phone that finished onboarding. The watch logs only then. */
+    suspend fun isLinked(): Boolean = storedContext()?.isSetUp == true
 
     /**
      * Mirrors the phone. An episode in the context, or its id in the received list, confirms that the phone
      * took it in, so it leaves the outbox. Episodes the context does not list go away, unless they still wait in the outbox.
+     * Delete All Data on the phone also takes out the waiting episodes that started before it.
      */
     suspend fun applyContext(json: String) {
         val context = SyncJson.decodeFromString(PhoneContext.serializer(), json)
@@ -42,7 +49,11 @@ class WatchSync(
         val incoming = context.episodes.mapNotNull { it.toDomain() }
         val incomingIds = incoming.map { it.id }.toSet()
         val confirmed = incomingIds + context.receivedIds.map(::EpisodeId)
-        outbox.remove(outbox.pending().filter { it in confirmed })
+        val erasedAt = context.erasedAt?.let(Instant::fromEpochMilliseconds)
+        val erased = if (erasedAt == null) emptySet() else {
+            episodes.observeAll().first().filter { it.startedAt < erasedAt }.map { it.id }.toSet()
+        }
+        outbox.remove(outbox.pending().filter { it in confirmed || it in erased })
         val keep = incomingIds + outbox.pending()
         episodes.observeAll().first().filter { it.id !in keep }.forEach { episodes.delete(it.id) }
         incoming.forEach { episodes.add(it) }
