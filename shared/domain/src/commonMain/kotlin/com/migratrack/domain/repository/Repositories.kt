@@ -60,7 +60,7 @@ interface CatalogRepository {
     suspend fun addCustomMedication(name: String, dose: String, role: MedicationRole): Medication
 }
 
-/** Deletes every record on this device. Sign out uses it because the app has no account server. */
+/** Deletes every record on this device. Delete All Data uses it because the app has no account server. */
 fun interface LocalDataEraser {
     suspend fun eraseAll()
 }

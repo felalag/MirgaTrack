@@ -96,12 +96,12 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
         graph.profiles.saveUser(user.copy(name = name.trim()))
     }
 
-    /** No account exists on a server, so signing out erases this device's data and restarts onboarding. */
-    fun signOut() = viewModelScope.launch {
+    /** Erases the data on this device and restarts onboarding. The app has no account server, so no other copy exists. */
+    fun deleteAllData() = viewModelScope.launch {
         val confirmed = graph.services.dialogs.confirm(
-            title = "Sign Out of MigraTrack?",
-            message = "MigraTrack keeps your data only on this iPhone. Signing out permanently deletes every episode and your baseline profile. Export a report first if you need it.",
-            confirmTitle = "Delete Data and Sign Out",
+            title = "Delete All Data?",
+            message = "MigraTrack keeps your data only on this iPhone. This permanently deletes every episode and your baseline profile. Export a report first if you need it.",
+            confirmTitle = "Delete All Data",
             destructive = true,
         )
         if (confirmed) graph.services.store.eraser.eraseAll()
@@ -159,10 +159,10 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
                 .heightIn(min = 56.dp)
                 .clip(RoundedCornerShape(MtRadius.lg))
                 .background(MtColors.Card)
-                .pressable(pressedScale = 1f, onClick = viewModel::signOut),
+                .pressable(pressedScale = 1f, onClick = viewModel::deleteAllData),
             contentAlignment = Alignment.Center,
         ) {
-            MtText("Sign Out of MigraTrack", MtTheme.type.bodyStrong, color = MtColors.Pink)
+            MtText("Delete All Data", MtTheme.type.bodyStrong, color = MtColors.Pink)
         }
     }
 }
