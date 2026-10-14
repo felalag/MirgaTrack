@@ -58,7 +58,7 @@ internal fun strokeIcon(name: String, vararg paths: String): ImageVector =
 private fun circle(cx: Float, cy: Float, r: Float) =
     "M${cx - r} ${cy}a$r $r 0 1 0 ${2 * r} 0a$r $r 0 1 0 ${-2 * r} 0"
 
-/** Icons copied from the inline SVG of the screens: the brand mark, the gear, and the tab bar. */
+/** Icons copied from the inline SVG of the screens (the brand mark, the gear, the tab bar), and Lucide icons in the same style. */
 object AppIcons {
     val Brain: ImageVector by lazy {
         strokeIcon(
@@ -72,6 +72,22 @@ object AppIcons {
             "Settings",
             circle(12f, 12f, 3f),
             "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z",
+        )
+    }
+    val Shield: ImageVector by lazy {
+        strokeIcon(
+            "Shield",
+            "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+        )
+    }
+    val Document: ImageVector by lazy {
+        strokeIcon(
+            "Document",
+            "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z",
+            "M14 2v4a2 2 0 0 0 2 2h4",
+            "M16 13H8",
+            "M16 17H8",
+            "M10 9H8",
         )
     }
     val TabSummary: ImageVector by lazy { strokeIcon("TabSummary", circle(12f, 12f, 9f), "M12 3a9 9 0 0 1 9 9") }

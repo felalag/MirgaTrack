@@ -35,6 +35,8 @@ import com.migratrack.app.feature.episode.EpisodeTarget
 import com.migratrack.app.feature.episode.SAVED_MESSAGE
 import com.migratrack.app.feature.export.ExportScreen
 import com.migratrack.app.feature.insights.InsightsScreen
+import com.migratrack.app.feature.legal.LegalDocument
+import com.migratrack.app.feature.legal.LegalScreen
 import com.migratrack.app.feature.log.LogEpisodeScreen
 import com.migratrack.app.feature.onboarding.BaselineEditor
 import com.migratrack.app.feature.settings.SettingsScreen
@@ -59,6 +61,10 @@ data object SettingsRoute
 
 @Serializable
 data class EditBaselineRoute(val step: Int)
+
+/** [document] is a [LegalDocument] name; navigation on iOS has no built-in argument type for enums. */
+@Serializable
+data class LegalRoute(val document: String)
 
 /** Edit Episode for [episodeId], or Log Episode on [date] (ISO) from the calendar. */
 @Serializable
@@ -117,7 +123,11 @@ fun MainScaffold() {
                     SettingsScreen(
                         onBack = { navController.popBackStack() },
                         onEditBaseline = { step -> navController.navigate(EditBaselineRoute(step)) },
+                        onOpenDocument = { document -> navController.navigate(LegalRoute(document.name)) },
                     )
+                }
+                composable<LegalRoute> { backStackEntry ->
+                    LegalScreen(LegalDocument.valueOf(backStackEntry.toRoute<LegalRoute>().document), onBack = { navController.popBackStack() })
                 }
                 composable<EditBaselineRoute> { backStackEntry ->
                     BaselineEditor(

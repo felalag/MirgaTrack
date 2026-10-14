@@ -34,7 +34,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.feature.legal.LegalDocument
+import com.migratrack.app.feature.legal.LegalScreen
+import com.migratrack.app.feature.welcome.WelcomeScreen
 import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.components.AddRow
 import com.migratrack.app.ui.components.ChoiceChips
@@ -60,21 +64,32 @@ import com.migratrack.domain.model.TriggerCategory
 import com.migratrack.domain.model.TypicalDuration
 import kotlinx.serialization.Serializable
 
+@Serializable private data object WelcomeStep
+@Serializable private data class DocumentStep(val document: String)
 @Serializable private data object DiagnosesStep
 @Serializable private data object TriggersStep
 @Serializable private data object TreatmentStep
 
 private const val STEP_COUNT = 3
 
-/** First-launch flow: diagnoses, triggers, treatment. Each step pushes with the iOS slide and swipe back. */
+/** First-launch flow: welcome, diagnoses, triggers, treatment. Each step pushes with the iOS slide and swipe back. */
 @Composable
 fun OnboardingFlow(session: Int) {
     val graph = LocalAppGraph.current
     val viewModel = viewModel(key = "onboarding-$session") { BaselineFormViewModel(graph, editing = false) }
     val navController = rememberNavController()
-    NavHost(navController, startDestination = DiagnosesStep) {
+    NavHost(navController, startDestination = WelcomeStep) {
+        composable<WelcomeStep> {
+            WelcomeScreen(
+                onGetStarted = { navController.navigate(DiagnosesStep) },
+                onOpenDocument = { navController.navigate(DocumentStep(it.name)) },
+            )
+        }
+        composable<DocumentStep> { entry ->
+            LegalScreen(LegalDocument.valueOf(entry.toRoute<DocumentStep>().document), onBack = { navController.popBackStack() })
+        }
         composable<DiagnosesStep> {
-            DiagnosesStepScreen(viewModel, step = 1, onBack = null, primaryLabel = "Continue to Triggers") {
+            DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popBackStack() }, primaryLabel = "Continue to Triggers") {
                 navController.navigate(TriggersStep)
             }
         }

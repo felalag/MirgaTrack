@@ -120,6 +120,13 @@ The screens do not show complications. The project owner chose the rest:
 - **The control stays and opens the logger.**
 - **Before the first sync, the caption under the ring asks you to open MigraTrack on the iPhone.**
 
+The welcome screen comes from a design of the project owner. It follows `sign_in_registration` of the first Stitch export, but has one **Get Started** button in place of "Continue with Apple" and "Continue with Google". The app has no accounts for now; [the auth and sync proposal](https://github.com/felalag/MirgaTrack/pull/5) gives the reasons.
+
+- **Get Started is the pink primary button.** The design draws it white, but every other main action in the app uses the pink pill of the specification.
+- **The rings are the Summary rings,** in the same pink and green, and they sweep in the same way. The number 88 is an example.
+- **The links open the Terms of Service and the Privacy Policy in the app.** The texts ship with the app, so they open offline. Settings has a Legal section with the same two pages. The texts are drafts: they need a legal review and a contact address before a release.
+- **Get Started pushes step 1 of onboarding.** Step 1 now has a back button, and the edge swipe returns to the welcome screen.
+
 Additions that the screens imply but do not show:
 
 - **Step 3 of onboarding, "Treatment Blueprint".** Step 2 ends with "Continue to Medications", and Settings has a Treatment Blueprint row. The step follows the style of step 2.
@@ -127,7 +134,7 @@ Additions that the screens imply but do not show:
 - **Log a past episode.** Tap an empty day in the calendar, or change **Episode Start** at the bottom of the Log Episode form. The row opens the system date picker. The screens have no time field, but the calendar logs on past days and edits old episodes, so the form needs one.
 - **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.
-- **Sign out.** No account server exists, so Sign Out erases the data on this iPhone after a confirmation.
+- **Sign out.** No account server exists, so Sign Out erases the data on this iPhone after a confirmation. The welcome screen then shows again.
 - **Sleep from Apple Health.** The Sleep card reads last night's stages from HealthKit. The simulator has no sleep data unless you add some in the Health app.
 
 ## Known limits
