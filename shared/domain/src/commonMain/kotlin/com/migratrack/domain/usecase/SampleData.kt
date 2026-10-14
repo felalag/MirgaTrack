@@ -11,6 +11,11 @@ import com.migratrack.domain.model.PainIntensity
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.model.TriggerCatalog
 import com.migratrack.domain.repository.EpisodeRepository
+import com.migratrack.domain.repository.ProfileRepository
+import kotlinx.datetime.DatePeriod
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.minus
+import kotlinx.datetime.todayIn
 import kotlin.random.Random
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
@@ -20,12 +25,19 @@ import kotlin.time.Duration.Companion.minutes
 /**
  * Fills the store with a year of plausible episodes, so a debug build can show
  * the charts as they appear in the design. Release builds do not expose it.
+ * It also moves the tracking start a year back, so the days between the episodes count as pain-free.
  */
 class LoadSampleData(
     private val episodes: EpisodeRepository,
+    private val profiles: ProfileRepository,
     private val clock: Clock,
+    private val timeZone: () -> TimeZone,
 ) {
     suspend operator fun invoke(seed: Int = 24) {
+        profiles.user()?.let { user ->
+            val yearAgo = clock.todayIn(timeZone()).minus(DatePeriod(days = 365))
+            profiles.saveUser(user.copy(memberSince = minOf(user.memberSince, yearAgo)))
+        }
         val random = Random(seed)
         val now = clock.now()
         val ibuprofen = MedicationCatalog.defaults.first { it.id == "ibuprofen-400" }

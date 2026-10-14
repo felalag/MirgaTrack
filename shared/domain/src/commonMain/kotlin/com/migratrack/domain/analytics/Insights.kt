@@ -23,11 +23,13 @@ data class InsightsBar(
     val label: String,
     /** Days of this bucket up to today. Zero means the bucket is in the future. */
     val elapsedDays: Int,
+    /** Elapsed days from the tracking start on, plus migraine days before it. Zero means not tracked. */
+    val trackedDays: Int,
     val migraineDays: Int,
     val peakIntensity: PainIntensity?,
     val isCurrent: Boolean,
 ) {
-    val painFreeDays: Int get() = elapsedDays - migraineDays
+    val painFreeDays: Int get() = trackedDays - migraineDays
 }
 
 data class Insights(
@@ -40,7 +42,8 @@ data class Insights(
     val attackCount: Int,
     /**
      * Change in attacks over 7, 30, 182 or 365 days up to the end of the range (today at most)
-     * against the same span before it. Negative means fewer attacks; null when the earlier span has none.
+     * against the same span before it. Negative means fewer attacks.
+     * Null when the earlier span has no attacks or starts before the tracking start.
      */
     val trendPercent: Int?,
     val bars: List<InsightsBar>,
@@ -61,27 +64,31 @@ object InsightsCalculator {
         period: InsightsPeriod,
         today: LocalDate,
         timeZone: TimeZone,
+        trackedSince: LocalDate,
         month: YearMonth = today.yearMonth,
     ): Insights {
         val shown = minOf(month, today.yearMonth)
         val anchor = if (shown == today.yearMonth) today else shown.lastDay
         val range = period.range(anchor)
         val end = minOf(range.endInclusive, today)
-        val days = MigraineDays(episodes, timeZone)
+        val days = MigraineDays(episodes, timeZone, trackedSince)
         val attackCount = days.attacksIn(range.start..end)
 
         // Rolling spans, not calendar periods: early in a month a calendar comparison sets
         // a few days against a whole month and swings by hundreds of percent.
         val span = period.trendSpanDays
         val recent = days.attacksIn(end.minus(DatePeriod(days = span - 1))..end)
-        val earlier = days.attacksIn(end.minus(DatePeriod(days = 2 * span - 1))..end.minus(DatePeriod(days = span)))
-        val trend = if (earlier == 0) null else ((recent - earlier) * 100.0 / earlier).roundToInt()
+        val earlierStart = end.minus(DatePeriod(days = 2 * span - 1))
+        val earlier = days.attacksIn(earlierStart..end.minus(DatePeriod(days = span)))
+        // A partly tracked earlier span has too few attacks and makes the trend look worse than it is.
+        val trend = if (earlier == 0 || earlierStart < trackedSince) null else ((recent - earlier) * 100.0 / earlier).roundToInt()
 
         val bars = period.buckets(anchor).map { (label, bucket) ->
             val elapsedPart = bucket.start..minOf(bucket.endInclusive, today)
             InsightsBar(
                 label = label,
                 elapsedDays = elapsedPart.length(),
+                trackedDays = days.trackedDaysIn(elapsedPart),
                 migraineDays = days.migraineDaysIn(elapsedPart),
                 peakIntensity = days.peakIn(elapsedPart),
                 isCurrent = today in bucket,

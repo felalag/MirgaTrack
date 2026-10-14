@@ -34,7 +34,7 @@ class CalendarAndEditingTest {
     @Test
     fun calendarStartsOnMondayWithTheTailOfThePreviousMonth() {
         // Oct 1, 2026 is a Thursday.
-        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 10), today, UTC)
+        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 10), today, UTC, LONG_AGO)
 
         assertEquals(LocalDate(2026, 9, 28), calendar.days.first().date)
         assertEquals(3, calendar.days.count { !it.inMonth })
@@ -51,7 +51,7 @@ class CalendarAndEditingTest {
             episodeOn(LocalDate(2026, 10, 18), intensity = 3, hour = 8),
             episodeOn(LocalDate(2026, 10, 18), intensity = 8, hour = 19),
         )
-        val calendar = CalendarBuilder.month(episodes, YearMonth(2026, 10), today, UTC)
+        val calendar = CalendarBuilder.month(episodes, YearMonth(2026, 10), today, UTC, LONG_AGO)
 
         assertEquals(2, calendar.attackDays)
         val eighteenth = calendar.days.single { it.date == LocalDate(2026, 10, 18) }
@@ -62,8 +62,17 @@ class CalendarAndEditingTest {
     }
 
     @Test
+    fun calendarMarksDaysBeforeTheTrackingStartAsNotTracked() {
+        val calendar = CalendarBuilder.month(listOf(episodeOn(LocalDate(2026, 10, 4))), YearMonth(2026, 10), today, UTC, LocalDate(2026, 10, 15))
+        val tracked = calendar.days.filter { it.isTracked && !it.isFuture }.map { it.date.day }
+
+        // The logged Oct 4 is tracked; the other days before Oct 15 are unknown.
+        assertEquals(listOf(4) + (15..22), tracked)
+    }
+
+    @Test
     fun calendarOfAMonthStartingOnMondayHasNoLeadingDays() {
-        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 6), today, UTC)
+        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 6), today, UTC, LONG_AGO)
         assertEquals(LocalDate(2026, 6, 1), calendar.days.first().date)
         assertTrue(calendar.days.all { it.inMonth && !it.isFuture })
     }

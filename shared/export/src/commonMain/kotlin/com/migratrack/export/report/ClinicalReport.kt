@@ -8,6 +8,7 @@ import com.migratrack.domain.model.ExportPreferences
 import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.model.UserProfile
+import com.migratrack.domain.model.trackedSince
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
@@ -23,6 +24,8 @@ data class ClinicalReport(
     val generatedOn: LocalDate,
     val from: LocalDate,
     val to: LocalDate,
+    /** The first tracked day. It can be before [from]. */
+    val trackedSince: LocalDate,
     val rangeTitle: String,
     val options: ExportPreferences,
     val stats: ReportStats,
@@ -30,14 +33,18 @@ data class ClinicalReport(
     val episodes: List<ReportEpisode>,
     /** Possible triggers noted in the episodes of the range. */
     val triggers: TriggerFrequency,
-    /** Peak pain per day of the range, null for a pain-free day. */
-    val dailyPeaks: List<Pair<LocalDate, Int?>>,
+    val days: List<ReportDay>,
 )
+
+/** One day of the range. A tracked day without a [peak] is pain-free. */
+data class ReportDay(val date: LocalDate, val peak: Int?, val isTracked: Boolean)
 
 data class ReportStats(
     val episodes: Int,
     val migraineDays: Int,
     val painFreeDays: Int,
+    /** Days of the range that are not tracked: neither migraine days nor pain-free days. */
+    val untrackedDays: Int,
     val averageIntensity: Double?,
     val medicationIntakes: Int,
 )
@@ -78,20 +85,24 @@ object ClinicalReportBuilder {
         val inRange = episodes
             .filter { it.startedAt.toLocalDateTime(timeZone).date in from..today }
             .sortedBy { it.startedAt }
-        val days = MigraineDays(inRange, timeZone)
+        val trackedSince = user.trackedSince(today)
+        val days = MigraineDays(inRange, timeZone, trackedSince)
         val migraineDays = days.migraineDaysIn(from..today)
+        val trackedDays = days.trackedDaysIn(from..today)
 
         return ClinicalReport(
             patientName = user?.name.orEmpty(),
             generatedOn = today,
             from = from,
             to = today,
+            trackedSince = trackedSince,
             rangeTitle = options.range.title,
             options = options,
             stats = ReportStats(
                 episodes = inRange.size,
                 migraineDays = migraineDays,
-                painFreeDays = options.range.days - migraineDays,
+                painFreeDays = trackedDays - migraineDays,
+                untrackedDays = options.range.days - trackedDays,
                 averageIntensity = inRange.takeIf { it.isNotEmpty() }
                     ?.let { list -> (list.sumOf { it.intensity.value }.toDouble() / list.size * 10).roundToInt() / 10.0 },
                 medicationIntakes = inRange.sumOf { it.medications.size },
@@ -119,9 +130,9 @@ object ClinicalReportBuilder {
                 )
             },
             triggers = TriggerFrequency.of(inRange),
-            dailyPeaks = generateSequence(from) { it.plus(DatePeriod(days = 1)) }
+            days = generateSequence(from) { it.plus(DatePeriod(days = 1)) }
                 .takeWhile { it <= today }
-                .map { it to days.peak(it)?.value }
+                .map { ReportDay(it, days.peak(it)?.value, days.isTracked(it)) }
                 .toList(),
         )
     }

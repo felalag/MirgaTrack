@@ -9,6 +9,7 @@ import com.migratrack.domain.repository.SyncOutbox
 import com.migratrack.domain.usecase.EpisodeDraft
 import com.migratrack.domain.usecase.PresetProvider
 import kotlinx.coroutines.flow.first
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlin.time.Instant
@@ -34,6 +35,10 @@ class WatchSync(
         check(isLinked()) { "Finish setup in MigraTrack on iPhone first." }
         return preset().copy(intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE)))
     }
+
+    /** The first tracked day on the phone, or null before a context with it arrives. */
+    suspend fun trackedSince(): LocalDate? =
+        storedContext()?.trackedSince?.let { runCatching { LocalDate.parse(it) }.getOrNull() }
 
     /** True once a context arrived from a phone that finished onboarding. The watch logs only then. */
     suspend fun isLinked(): Boolean = storedContext()?.isSetUp == true

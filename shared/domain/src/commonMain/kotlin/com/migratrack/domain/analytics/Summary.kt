@@ -13,31 +13,36 @@ import kotlin.time.Duration.Companion.hours
 data class SummarySnapshot(
     val today: LocalDate,
     val painFreeDays: Int,
-    val windowDays: Int,
+    /** Tracked days of the 30-day window. Fewer than 30 while the user tracks for less than 30 days. */
+    val trackedDays: Int,
     val restScore: Int?,
     val balanceScore: Int,
     val lastEpisode: Episode?,
 ) {
-    val painFreeFraction: Float get() = painFreeDays.toFloat() / windowDays
+    val painFreeFraction: Float get() = painFreeDays.toFloat() / trackedDays
 }
 
 object SummaryCalculator {
     const val WINDOW_DAYS: Int = 30
 
+    /** @param trackedSince the first tracked day; a later date than [today] counts as today. */
     fun calculate(
         episodes: List<Episode>,
         sleep: SleepSummary?,
         today: LocalDate,
         timeZone: TimeZone,
+        trackedSince: LocalDate,
     ): SummarySnapshot {
         val window = today.minus(DatePeriod(days = WINDOW_DAYS - 1))..today
-        val painFree = WINDOW_DAYS - MigraineDays(episodes, timeZone).migraineDaysIn(window)
-        val painFreePercent = painFree * 100 / WINDOW_DAYS
+        val days = MigraineDays(episodes, timeZone, minOf(trackedSince, today))
+        val tracked = days.trackedDaysIn(window)
+        val painFree = days.painFreeDaysIn(window)
+        val painFreePercent = painFree * 100 / tracked
         val rest = sleep?.let(RestScore::of)
         return SummarySnapshot(
             today = today,
             painFreeDays = painFree,
-            windowDays = WINDOW_DAYS,
+            trackedDays = tracked,
             restScore = rest,
             balanceScore = if (rest == null) painFreePercent else (painFreePercent + rest) / 2,
             lastEpisode = episodes.maxByOrNull { it.startedAt },

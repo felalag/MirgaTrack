@@ -5,10 +5,10 @@ import WidgetKit
 struct StatusEntry: TimelineEntry {
     let date: Date
     let painFreeDays: Int
-    let windowDays: Int
+    let trackedDays: Int
     let isLinked: Bool
 
-    static let placeholder = StatusEntry(date: .now, painFreeDays: 26, windowDays: 30, isLinked: true)
+    static let placeholder = StatusEntry(date: .now, painFreeDays: 26, trackedDays: 30, isLinked: true)
 }
 
 /// Reads the shared database through MigraCore. Pain-free days change at midnight, so the timeline ends there.
@@ -33,7 +33,7 @@ struct StatusProvider: TimelineProvider {
         return StatusEntry(
             date: .now,
             painFreeDays: Int(status.painFreeDays),
-            windowDays: Int(status.windowDays),
+            trackedDays: Int(status.trackedDays),
             isLinked: status.isLinked
         )
     }
@@ -90,10 +90,10 @@ private struct LogMigraineView: View {
                 .font(.headline)
                 .widgetAccentable()
                 if entry.isLinked {
-                    Gauge(value: Double(entry.painFreeDays), in: 0...Double(max(entry.windowDays, 1))) {}
+                    Gauge(value: Double(entry.painFreeDays), in: 0...Double(max(entry.trackedDays, 1))) {}
                         .gaugeStyle(.accessoryLinearCapacity)
                         .tint(Color.migraGreen)
-                    Text("\(entry.painFreeDays) of \(entry.windowDays) days pain-free")
+                    Text("\(entry.painFreeDays) of \(entry.trackedDays) days pain-free")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else {

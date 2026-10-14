@@ -233,6 +233,7 @@ private fun DayCell(day: CalendarDay, selected: Boolean, onSelect: (LocalDate) -
         day.isFuture -> MtColors.TextSecondary
         selected -> MtColors.TextPrimary
         attack -> MtColors.PinkSoft
+        !day.isTracked -> MtColors.TextSecondary
         else -> MtColors.TextPrimary
     }
     val ring = if (attack) MtColors.Pink else Color.White.copy(alpha = 0.8f)
@@ -297,6 +298,7 @@ private fun CalendarDay.spoken(): String {
     val prefix = if (isToday) "Today, " else ""
     val detail = when {
         !inMonth || isFuture -> "not available"
+        !isTracked -> "not tracked"
         attacks == 0 -> "no attacks"
         else -> "$attacks ${if (attacks == 1) "attack" else "attacks"}, peak ${peak?.value} of 10"
     }

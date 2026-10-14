@@ -16,10 +16,12 @@ import com.migratrack.domain.analytics.MonthCalendar
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.Trigger
+import com.migratrack.domain.model.trackedSince
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -53,21 +55,22 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     private val calendarOpen = MutableStateFlow(false)
     private val selected = MutableStateFlow<LocalDate?>(graph.today())
 
-    private val data = combine(graph.episodes.observeAll(), graph.catalog.observeTriggers()) { episodes, triggers ->
-        episodes to triggers.associateBy { it.id }
-    }
+    private val calendarState = combine(calendarOpen, selected, ::Pair)
+    private val triggerCatalog = graph.catalog.observeTriggers().map { triggers -> triggers.associateBy { it.id } }
+    private val data = combine(graph.episodes.observeAll(), graph.profiles.observeUser(), triggerCatalog, ::Triple)
 
     val state: StateFlow<InsightsUiState?> =
-        combine(data, period, month, calendarOpen, selected) { (episodes, triggerCatalog), period, month, open, day ->
+        combine(data, period, month, calendarState) { (episodes, user, triggerCatalog), period, month, (open, day) ->
             val today = graph.today()
             val zone = graph.timeZone()
-            val insights = InsightsCalculator.calculate(episodes, period, today, zone, month)
+            val trackedSince = user.trackedSince(today)
+            val insights = InsightsCalculator.calculate(episodes, period, today, zone, trackedSince, month)
             val shownDay = day?.takeIf { it.yearMonth == insights.month && it <= today }
             InsightsUiState(
                 period = period,
                 insights = insights,
                 calendarOpen = open,
-                calendar = CalendarBuilder.month(episodes, insights.month, today, zone),
+                calendar = CalendarBuilder.month(episodes, insights.month, today, zone, trackedSince),
                 selected = shownDay,
                 day = shownDay?.let { CalendarBuilder.day(episodes, it, zone) },
                 triggerCatalog = triggerCatalog,

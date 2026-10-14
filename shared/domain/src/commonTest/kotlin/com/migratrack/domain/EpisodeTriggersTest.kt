@@ -96,11 +96,11 @@ class EpisodeTriggersTest {
             episodeOn(LocalDate(2026, 9, 28)).withTriggers(caffeine),
         )
 
-        val month = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC).triggers
+        val month = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO).triggers
         assertEquals(2, month.episodes)
         assertEquals(listOf("poor-sleep" to 2, "bright-light" to 1), month.counts.map { it.triggerId to it.episodes })
 
-        val week = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC).triggers
+        val week = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO).triggers
         assertEquals(1, week.episodes)
     }
 
