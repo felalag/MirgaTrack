@@ -27,7 +27,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSHealthShareUsageDescription</key>
-	<string>MigraTrack reads last night's sleep stages to show how rest relates to your migraine attacks. The data stays on this iPhone.</string>
+	<string>MigraTrack reads last night's sleep from Apple Health and shows it on the Summary. The data stays on this iPhone.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

@@ -9,10 +9,12 @@ import com.migratrack.export.pdf.TextStyle
 import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.ReportWorkbook
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+import kotlin.time.Duration.Companion.hours
 
 class ReportTest {
 
@@ -119,6 +121,21 @@ class ReportTest {
         val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it) }
         assertFalse("Possible Triggers Noted" in off.texts)
         assertFalse("TRIGGERS" in off.texts)
+    }
+
+    @Test
+    fun reportShowsNoMedicationTimeBecauseTheUserNeverEntersOne() {
+        val logged = episode(20)
+        val later = logged.copy(medications = logged.medications.map { it.copy(takenAt = it.takenAt + 2.hours) })
+        val report = report(listOf(later))
+
+        val canvas = RecordingRenderer().also { ReportPdf.render(report, it) }
+        assertTrue("Ibuprofen 400mg" in canvas.texts)
+        assertFalse(canvas.texts.any { it.contains(" at ") && it.startsWith("Ibuprofen") })
+
+        val medications = ReportWorkbook.sheets(report).single { it.name == "Medications" }
+        assertEquals("Episode Started", medications.columns.first().title)
+        assertEquals(Cell.DateTime(LocalDateTime(2026, 10, 20, 9, 30)), medications.rows.single().first())
     }
 
     /** Records draw calls. Text wraps at half the font size per character, 1.2 × font size per line. */

@@ -1,6 +1,6 @@
 package com.migratrack.domain.model
 
-/** A known or suspected migraine trigger from the calibration step. */
+/** A known or suspected migraine trigger from the triggers step of onboarding. */
 data class Trigger(
     val id: String,
     val name: String,

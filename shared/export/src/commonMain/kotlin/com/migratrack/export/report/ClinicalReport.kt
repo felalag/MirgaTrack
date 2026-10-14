@@ -67,7 +67,8 @@ data class ReportEpisode(
     val triggers: List<String>,
 )
 
-data class ReportIntake(val name: String, val dose: String, val takenAt: LocalDateTime)
+/** Has no intake time: the app sets it to the start of the attack, so a time in the report misleads the doctor. */
+data class ReportIntake(val name: String, val dose: String)
 
 object ClinicalReportBuilder {
 
@@ -123,9 +124,7 @@ object ClinicalReportBuilder {
                     intensity = episode.intensity.value,
                     region = episode.region?.title,
                     symptoms = episode.symptoms.sortedBy { it.ordinal }.map { it.title },
-                    medications = episode.medications.map {
-                        ReportIntake(it.name, it.dose, it.takenAt.toLocalDateTime(timeZone))
-                    },
+                    medications = episode.medications.map { ReportIntake(it.name, it.dose) },
                     triggers = episode.triggers.map { it.name },
                 )
             },

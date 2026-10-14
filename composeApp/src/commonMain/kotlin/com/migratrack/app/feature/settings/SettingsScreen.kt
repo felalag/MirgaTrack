@@ -34,7 +34,6 @@ import com.migratrack.app.ui.components.ListRow
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.RowTrailing
-import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Symbols
@@ -77,8 +76,8 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
             diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }?.joinToString(", ") { it.title }.orEmpty().ifEmpty { "Not set" },
             triggers = when (triggerCount) {
                 0 -> "No triggers selected"
-                1 -> "1 active calibrated trigger"
-                else -> "$triggerCount active calibrated triggers"
+                1 -> "1 known trigger"
+                else -> "$triggerCount known triggers"
             },
             treatments = medications.filter { it.id in baseline?.medicationIds.orEmpty() }
                 .joinToString(", ") { it.displayName }.ifEmpty { "No medications selected" },
@@ -96,11 +95,11 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
         graph.profiles.saveUser(user.copy(name = name.trim()))
     }
 
-    /** Erases the data on this device and restarts onboarding. The app has no account server, so no other copy exists. */
+    /** Erases the data on this device and restarts onboarding. The watch drops its copy at the next sync. */
     fun deleteAllData() = viewModelScope.launch {
         val confirmed = graph.services.dialogs.confirm(
             title = "Delete All Data?",
-            message = "MigraTrack keeps your data only on this iPhone. This permanently deletes every episode and your baseline profile. Export a report first if you need it.",
+            message = "MigraTrack keeps your data on this iPhone and a copy on your Apple Watch. This permanently deletes every episode and your baseline profile; the watch deletes its copy at the next sync. Device backups keep their copy. Export a report first if you need it.",
             confirmTitle = "Delete All Data",
             destructive = true,
         )
@@ -178,30 +177,20 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(MtSpacing.sm),
     ) {
-        Box(Modifier.size(84.dp), contentAlignment = Alignment.Center) {
-            Box(
-                Modifier
-                    .size(80.dp)
-                    .clip(CircleShape)
-                    .background(MtColors.ControlHigh)
-                    .border(2.dp, MtColors.Pink.copy(alpha = 0.4f), CircleShape),
-                contentAlignment = Alignment.Center,
-            ) {
-                val initials = state.name.split(' ').filter { it.isNotBlank() }.take(2).joinToString("") { it.first().uppercase() }
-                if (initials.isNotEmpty()) {
-                    MtText(initials, MtTheme.type.title1, color = MtColors.TextPrimary)
-                } else {
-                    com.migratrack.app.ui.icons.Icon(Symbols.Person, tint = MtColors.Caption, size = 40.dp)
-                }
+        Box(
+            Modifier
+                .size(80.dp)
+                .clip(CircleShape)
+                .background(MtColors.ControlHigh)
+                .border(2.dp, MtColors.Pink.copy(alpha = 0.4f), CircleShape),
+            contentAlignment = Alignment.Center,
+        ) {
+            val initials = state.name.split(' ').filter { it.isNotBlank() }.take(2).joinToString("") { it.first().uppercase() }
+            if (initials.isNotEmpty()) {
+                MtText(initials, MtTheme.type.title1, color = MtColors.TextPrimary)
+            } else {
+                com.migratrack.app.ui.icons.Icon(Symbols.Person, tint = MtColors.Caption, size = 40.dp)
             }
-            Box(
-                Modifier
-                    .align(Alignment.BottomEnd)
-                    .size(18.dp)
-                    .glow(MtColors.Lime, 6.dp, alpha = 0.6f)
-                    .background(MtColors.Lime, CircleShape)
-                    .border(2.dp, MtColors.Card, CircleShape),
-            )
         }
         Row(
             Modifier

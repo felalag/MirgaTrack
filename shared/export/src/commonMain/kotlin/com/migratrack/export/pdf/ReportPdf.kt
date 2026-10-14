@@ -306,7 +306,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
         val flexible = buildList {
             if (report.options.includeSymptoms) add("Symptoms" to { e: ReportEpisode -> e.symptoms.joinToString(", ").ifBlank { "–" } })
             if (report.options.includeMedications) add("Medications" to { e: ReportEpisode ->
-                e.medications.joinToString(", ") { "${it.name} ${it.dose}".trim() + " at " + DateText.time(it.takenAt) }.ifBlank { "–" }
+                e.medications.joinToString(", ") { "${it.name} ${it.dose}".trim() }.ifBlank { "–" }
             })
             if (report.options.includeTriggers) add("Triggers" to { e: ReportEpisode -> e.triggers.joinToString(", ").ifBlank { "–" } })
         }

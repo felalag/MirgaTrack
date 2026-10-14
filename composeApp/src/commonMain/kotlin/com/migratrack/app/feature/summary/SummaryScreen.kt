@@ -160,7 +160,7 @@ private fun SleepHeader() {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Icon(Symbols.BedtimeFilled, tint = MtColors.Green, size = 20.dp)
         Spacer(Modifier.width(MtSpacing.xs))
-        SectionCaption("Sleep Sync & Depth")
+        SectionCaption("Sleep")
     }
 }
 
@@ -169,10 +169,10 @@ private fun SleepConnectCard(onConnect: () -> Unit) {
     Card(color = MtColors.CardRaised) {
         SleepHeader()
         Spacer(Modifier.height(MtSpacing.sm))
-        MtText("See how sleep shapes your attacks", MtTheme.type.headline)
+        MtText("See last night's sleep on the Summary", MtTheme.type.headline)
         Spacer(Modifier.height(4.dp))
         MtText(
-            "MigraTrack reads last night's sleep stages from Apple Health. The data stays on this iPhone.",
+            "MigraTrack reads last night's sleep from Apple Health. The data stays on this iPhone.",
             MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
             color = MtColors.TextSecondary,
         )
