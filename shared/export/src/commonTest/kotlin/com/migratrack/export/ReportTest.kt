@@ -6,7 +6,9 @@ import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportCanvas
 import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.pdf.TextStyle
+import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.ReportWorkbook
+import kotlinx.datetime.LocalDate
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -21,8 +23,43 @@ class ReportTest {
 
         assertEquals(2, report.stats.episodes)
         assertEquals(28, report.stats.painFreeDays)
-        assertEquals(30, report.dailyPeaks.size)
+        assertEquals(30, report.days.size)
         assertEquals(listOf("Ibuprofen 400mg", "Riboflavin 400mg"), report.baseline?.treatments)
+    }
+
+    @Test
+    fun freshInstallReportHasOnePainFreeDayNotNinety() {
+        val report = report(emptyList(), trackedSince = TODAY)
+
+        assertEquals(1, report.stats.painFreeDays)
+    }
+
+    @Test
+    fun reportCountsPainFreeDaysOnlyFromTheTrackingStart() {
+        // Tracking started on Oct 20. The user also logged an earlier attack on Oct 10.
+        val report = report(listOf(episode(22), episode(10)), trackedSince = LocalDate(2026, 10, 20))
+
+        assertEquals(2, report.stats.migraineDays)
+        assertEquals(4, report.stats.painFreeDays)
+        assertEquals(84, report.stats.untrackedDays)
+        assertEquals(listOf(false, true), report.days.filter { it.date in LocalDate(2026, 10, 9)..LocalDate(2026, 10, 10) }.map { it.isTracked })
+
+        val daily = ReportWorkbook.sheets(report).single { it.name == "Daily Pain" }.rows
+        assertEquals(84, daily.count { it.last() == Cell.Text("Not Tracked") })
+        assertEquals(4, daily.count { it.last() == Cell.Text("Pain-Free") })
+
+        val canvas = RecordingRenderer()
+        ReportPdf.render(report, canvas)
+        assertTrue(canvas.texts.any { it.startsWith("Tracking started on Oct 20, 2026. 84 earlier days") })
+        assertTrue("Not tracked" in canvas.texts)
+    }
+
+    @Test
+    fun reportOfAFullyTrackedRangeHasNoTrackingNote() {
+        val canvas = RecordingRenderer()
+        ReportPdf.render(report(listOf(episode(20))), canvas)
+
+        assertFalse(canvas.texts.any { it.startsWith("Tracking started") || it == "Not tracked" })
     }
 
     @Test

@@ -16,7 +16,8 @@ import kotlin.time.Clock
 /** What the watch app and the complication show. */
 data class WatchStatus(
     val painFreeDays: Int,
-    val windowDays: Int,
+    /** Tracked days of the 30-day window, fewer than 30 in the first month of tracking. */
+    val trackedDays: Int,
     /** The intensity the logger starts at: the typical intensity from the phone. */
     val presetIntensity: Int,
     /** False until a context arrives from a phone that finished onboarding; the watch does not log until then. */
@@ -48,10 +49,11 @@ object WatchCore {
     suspend fun status(): WatchStatus {
         val zone = TimeZone.currentSystemDefault()
         val all = store.episodes.observeAll().first()
-        val summary = SummaryCalculator.calculate(all, sleep = null, today = clock.todayIn(zone), timeZone = zone)
+        val today = clock.todayIn(zone)
+        val summary = SummaryCalculator.calculate(all, sleep = null, today, zone, trackedSince = sync.trackedSince() ?: today)
         return WatchStatus(
             painFreeDays = summary.painFreeDays,
-            windowDays = summary.windowDays,
+            trackedDays = summary.trackedDays,
             presetIntensity = sync.preset().intensity.value,
             isLinked = sync.isLinked(),
         )

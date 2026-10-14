@@ -7,11 +7,13 @@ import com.migratrack.domain.model.BaselineProfile
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.PainIntensity
+import com.migratrack.domain.model.UserProfile
 import com.migratrack.domain.usecase.GetLoggingPreset
 import com.migratrack.domain.usecase.LogEpisode
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
+import kotlinx.datetime.LocalDate
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -57,6 +59,16 @@ class SyncTest {
         assertEquals(PainIntensity(6), preset.intensity)
         assertEquals(listOf("Ibuprofen 400mg"), preset.medications.map { it.displayName })
         assertTrue(watchSync.isLinked())
+    }
+
+    @Test
+    fun watchTakesTheTrackingStartFromThePhone() = runTest {
+        assertNull(watchSync.trackedSince())
+
+        phone.profiles.saveUser(UserProfile(name = "", memberSince = LocalDate(2026, 10, 20)))
+        watchSync.applyContext(phoneSync.contexts().first())
+
+        assertEquals(LocalDate(2026, 10, 20), watchSync.trackedSince())
     }
 
     @Test

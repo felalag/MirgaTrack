@@ -34,13 +34,13 @@ struct SummaryView: View {
     }
 }
 
-/// Days without an episode in the window, drawn like an Activity ring.
+/// Days without an episode among the tracked days of the window, drawn like an Activity ring.
 struct PainFreeRing: View {
     let status: WatchStatus?
 
     var body: some View {
         let days = status.map { Int($0.painFreeDays) }
-        let window = status.map { Int($0.windowDays) } ?? 30
+        let window = status.map { Int($0.trackedDays) } ?? 30
         let progress = Double(days ?? 0) / Double(max(window, 1))
         GeometryReader { geometry in
             let side = RingMetrics.side(in: geometry.size)

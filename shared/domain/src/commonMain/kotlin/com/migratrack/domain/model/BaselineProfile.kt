@@ -51,5 +51,9 @@ enum class TypicalDuration(val title: String) {
 
 data class UserProfile(
     val name: String,
+    /** The day the user first finished onboarding. Pain-free days count from this day on. */
     val memberSince: LocalDate,
 )
+
+/** The first tracked day. Without a profile, for example during onboarding, it is [today]. */
+fun UserProfile?.trackedSince(today: LocalDate): LocalDate = this?.memberSince ?: today

@@ -58,11 +58,21 @@ object ReportWorkbook {
     }
 
     private fun dailySheet(report: ClinicalReport): Sheet {
-        val rows = report.dailyPeaks.map { (date, peak) ->
+        val rows = report.days.map { day ->
             listOf(
-                Cell.Text(DateText.iso(date)),
-                peak?.let { Cell.Number(it.toDouble()) } ?: Cell.Number(0.0),
-                Cell.Text(if (peak == null) "Pain-Free" else "Migraine"),
+                Cell.Text(DateText.iso(day.date)),
+                when {
+                    day.peak != null -> Cell.Number(day.peak.toDouble())
+                    day.isTracked -> Cell.Number(0.0)
+                    else -> Cell.Empty
+                },
+                Cell.Text(
+                    when {
+                        day.peak != null -> "Migraine"
+                        day.isTracked -> "Pain-Free"
+                        else -> "Not Tracked"
+                    },
+                ),
             )
         }
         return Sheet("Daily Pain", listOf(Column("Date", 14.0), Column("Peak Pain (0-10)", 18.0), Column("Day", 12.0)), rows)
@@ -73,6 +83,7 @@ object ReportWorkbook {
         val rows = listOf(
             "Patient" to report.patientName.ifBlank { "Not set" },
             "Report Range" to "${DateText.iso(report.from)} to ${DateText.iso(report.to)}",
+            "Tracked Since" to DateText.iso(report.trackedSince),
             "Diagnoses" to baseline.diagnoses.joinToString(", ").ifBlank { "Not set" },
             "Monthly Frequency" to baseline.frequency,
             "Typical Duration" to baseline.typicalDuration,

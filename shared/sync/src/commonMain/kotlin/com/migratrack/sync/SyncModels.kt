@@ -40,6 +40,7 @@ data class SyncPreset(val intensity: Int, val medications: List<SyncMedication> 
  * What the phone sends to the watch. The newest one replaces the one before.
  * [receivedIds] lists the newest ids the phone took in from the watch; it confirms an episode the user deleted on the phone.
  * [isSetUp] is false while the phone shows onboarding. [erasedAt] is when the user last deleted all data, in epoch milliseconds.
+ * [trackedSince] is the first tracked day as an ISO date, for example 2026-10-14.
  */
 @Serializable
 data class PhoneContext(
@@ -48,6 +49,7 @@ data class PhoneContext(
     val receivedIds: List<String> = emptyList(),
     val isSetUp: Boolean = true,
     val erasedAt: Long? = null,
+    val trackedSince: String? = null,
 )
 
 /** What the watch sends to the phone: new episodes, and delete requests from earlier builds that had Undo. */

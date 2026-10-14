@@ -10,6 +10,7 @@ import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
+import com.migratrack.domain.model.trackedSince
 import com.migratrack.domain.platform.SleepAccess
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -32,9 +33,10 @@ data class SummaryUiState(val snapshot: SummarySnapshot, val sleep: SleepCard)
 class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
     private val sleepCard = MutableStateFlow<SleepCard>(SleepCard.Loading)
 
-    val state: StateFlow<SummaryUiState?> = combine(graph.episodes.observeAll(), sleepCard) { episodes, sleep ->
+    val state: StateFlow<SummaryUiState?> = combine(graph.episodes.observeAll(), graph.profiles.observeUser(), sleepCard) { episodes, user, sleep ->
         val lastNight = (sleep as? SleepCard.Loaded)?.sleep
-        SummaryUiState(SummaryCalculator.calculate(episodes, lastNight, graph.today(), graph.timeZone()), sleep)
+        val today = graph.today()
+        SummaryUiState(SummaryCalculator.calculate(episodes, lastNight, today, graph.timeZone(), user.trackedSince(today)), sleep)
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     init {

@@ -18,6 +18,8 @@ data class CalendarDay(
     val peak: PainIntensity?,
     val isToday: Boolean,
     val isFuture: Boolean,
+    /** False before the tracking start, unless the user logged an episode on that day. */
+    val isTracked: Boolean,
 ) {
     val isMigraineDay: Boolean get() = attacks > 0
 }
@@ -42,8 +44,8 @@ data class DayEpisodes(val date: LocalDate, val episodes: List<Episode>) {
 
 object CalendarBuilder {
 
-    fun month(episodes: List<Episode>, month: YearMonth, today: LocalDate, timeZone: TimeZone): MonthCalendar {
-        val days = MigraineDays(episodes, timeZone)
+    fun month(episodes: List<Episode>, month: YearMonth, today: LocalDate, timeZone: TimeZone, trackedSince: LocalDate): MonthCalendar {
+        val days = MigraineDays(episodes, timeZone, trackedSince)
         val first = month.firstDay
         val leading = (first.startOfWeek()..first.minus(DatePeriod(days = 1))).days()
         val cells = (leading + (first..month.lastDay).days()).map { date ->
@@ -54,6 +56,7 @@ object CalendarBuilder {
                 peak = days.peak(date),
                 isToday = date == today,
                 isFuture = date > today,
+                isTracked = days.isTracked(date),
             )
         }
         return MonthCalendar(month, cells.toList())

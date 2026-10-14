@@ -32,11 +32,11 @@ class PhoneSync(
     private val receivedChanges = MutableStateFlow(0)
 
     /**
-     * A new context after every change to the episodes, the preset, or the ids received from the watch.
+     * A new context after every change to the episodes, the preset, the tracking start, or the ids received from the watch.
      * Delete All Data changes the episodes and the preset, so its erase time goes out without a trigger of its own.
      */
     fun contexts(): Flow<String> =
-        combine(episodes.observeAll(), profiles.observeBaseline(), catalog.observeMedications(), receivedChanges) { all, _, _, _ -> all }
+        combine(episodes.observeAll(), profiles.observeBaseline(), profiles.observeUser(), catalog.observeMedications(), receivedChanges) { all, _, _, _, _ -> all }
             .map { all -> encode(all) }
             .distinctUntilChanged()
 
@@ -75,6 +75,7 @@ class PhoneSync(
             receivedIds = readReceived(),
             isSetUp = profiles.baseline() != null,
             erasedAt = eraser.erasedAt()?.toEpochMilliseconds(),
+            trackedSince = profiles.user()?.memberSince?.toString(),
         )
         return SyncJson.encodeToString(PhoneContext.serializer(), context)
     }
