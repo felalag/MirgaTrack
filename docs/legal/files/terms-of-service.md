@@ -28,6 +28,10 @@ The app is provided "as is", without a warranty of any kind. The statistics and 
 
 To the extent that the law permits, the developers are not liable for loss of data or for damages that come from the use of the app.
 
+## Contact
+
+Send questions about these terms to iraboboyed@gmail.com.
+
 ## Changes
 
 If these terms change, the new version shows in the app with a new effective date.

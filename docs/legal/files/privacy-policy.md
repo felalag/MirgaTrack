@@ -42,6 +42,10 @@ A PDF or Excel report leaves the app only when you share it from the share sheet
 
 Settings › Delete All Data permanently deletes all MigraTrack data on this iPhone. When you delete the app, its data is deleted too.
 
+## Contact
+
+Send questions about this policy to iraboboyed@gmail.com.
+
 ## Changes
 
 If this policy changes, the new version shows in the app with a new effective date.

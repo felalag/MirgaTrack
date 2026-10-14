@@ -5,8 +5,8 @@ The requirements were checked against the Apple sources in [Sources](#sources) o
 
 ## Before you submit
 
-- [ ] Put the contact email address in `docs/support.md` and in the legal texts in `docs/legal/files/`.
-- [ ] Turn on GitHub Pages: Settings › Pages › Deploy from a branch › `main` › `/docs`. Pages from a private repository needs GitHub Pro, or make the repository public.
+- [x] Put the contact email address in `docs/support.md` and in the legal texts in `docs/legal/files/`.
+- [x] Turn on GitHub Pages: Settings › Pages › Deploy from a branch › `main` › `/docs`. Pages from a private repository needs GitHub Pro, or make the repository public.
 - [ ] Open the three URLs below in a browser and make sure that they load.
 - [ ] Set `TEAM_ID` and `APP_BUNDLE_ID` in `iosApp/Configuration/Config.xcconfig`, archive, and open **Product › Archive › Generate Privacy Report** to see the three privacy manifests.
 - [ ] Complete the declaration in App Information › App Store Regulations & Permits › Declare Regulated Medical Device. The answer is **No**.

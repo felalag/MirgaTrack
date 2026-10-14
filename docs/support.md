@@ -6,7 +6,7 @@ permalink: /support/
 
 ## Contact
 
-Send an email to CONTACT_EMAIL. Tell us your iPhone model, your iOS version, and the steps that cause the problem.
+Send an email to [iraboboyed@gmail.com](mailto:iraboboyed@gmail.com). Tell us your iPhone model, your iOS version, and the steps that cause the problem.
 
 ## Where is my data?
 
