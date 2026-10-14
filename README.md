@@ -80,6 +80,7 @@ The command runs the shared tests on the JVM, the iOS simulator, and the watchOS
 | `iosApp/iosApp` | iPhone app: SwiftUI entry point, App Intent, WatchConnectivity, Info.plist, HealthKit entitlement. |
 | `iosApp/watchApp` | watchOS app in SwiftUI: the summary ring, the logger with the Digital Crown, the confirmation, and WatchConnectivity. |
 | `iosApp/watchComplications` | WidgetKit extension: the Log Migraine complication and the watchOS 26 control. |
+| `docs` | The GitHub Pages site: Support, Privacy Policy, and Terms. `docs/legal/files` holds the legal texts that the app also bundles. [docs/APP_STORE.md](docs/APP_STORE.md) has the App Store metadata and review notes. |
 
 ## Design decisions
 

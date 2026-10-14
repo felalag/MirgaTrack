@@ -84,7 +84,7 @@ fun ListRow(
         IconTile(icon, tint = iconTint, background = iconBackground)
         Spacer(Modifier.width(MtSpacing.md))
         Column(Modifier.weight(1f)) {
-            MtText(title, MtTheme.type.bodyStrong, color = titleColor, maxLines = 1)
+            MtText(title, MtTheme.type.bodyStrong, color = titleColor, maxLines = 2)
             if (subtitle != null) {
                 MtText(subtitle, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary, maxLines = 2)
             }

@@ -7,9 +7,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.migratrack.app.generated.resources.Res
@@ -60,8 +62,24 @@ fun MigraTrackTheme(content: @Composable () -> Unit) {
     )
     val typography = remember(family) { MtTypography(family) }
     CompositionLocalProvider(
+        LocalDensity provides LocalDensity.current.withFontScaleAtMost(MaxFontScale),
         LocalTypography provides typography,
         LocalTextSelectionColors provides TextSelectionColors(MtColors.Pink, MtColors.Pink.copy(alpha = 0.3f)),
         content = content,
     )
 }
+
+/**
+ * The layouts hold up to the largest standard Dynamic Type size, XXXL. The accessibility sizes above it
+ * overflow the fixed rings, chips, and bars, so text stops growing there.
+ */
+private const val MaxFontScale = 1.35f
+
+/** Keeps text at its design size inside fixed-height bars, as UIKit does in navigation and tab bars. */
+@Composable
+fun WithoutFontScaling(content: @Composable () -> Unit) {
+    CompositionLocalProvider(LocalDensity provides LocalDensity.current.withFontScaleAtMost(1f), content = content)
+}
+
+private fun Density.withFontScaleAtMost(max: Float): Density =
+    if (fontScale <= max) this else Density(density, max)

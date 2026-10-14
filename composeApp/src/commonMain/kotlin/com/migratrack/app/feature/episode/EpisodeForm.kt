@@ -5,9 +5,11 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -65,9 +67,10 @@ fun ColumnScope.EpisodeFormFields(
 
     FormSection("Cranial Epicenter", Symbols.CenterFocusStrong, MtColors.Amber, onClear = viewModel::clearRegion) {
         CranialRegion.entries.chunked(2).forEach { pair ->
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
+            // Large text wraps a title to two lines; both tiles of a pair keep the same height.
+            Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                 pair.forEach { region ->
-                    RegionOption(region.title, draft.region == region, { viewModel.selectRegion(region) }, Modifier.weight(1f))
+                    RegionOption(region.title, draft.region == region, { viewModel.selectRegion(region) }, Modifier.weight(1f).fillMaxHeight())
                 }
             }
         }
