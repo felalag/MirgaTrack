@@ -39,4 +39,6 @@ kotlin {
 compose.resources {
     packageOfResClass = "com.migratrack.app.generated.resources"
     publicResClass = false
+    // GitHub Pages publishes the same legal files from docs/, so the website and the app cannot differ.
+    customDirectory("iosMain", provider { layout.projectDirectory.dir("../docs/legal") })
 }

@@ -1,0 +1,8 @@
+# GitHub Pages builds the public website from this folder: Settings › Pages › Deploy from a branch › main › /docs.
+title: MigraTrack
+description: A migraine diary for iPhone and Apple Watch. Your data stays on your devices.
+theme: jekyll-theme-primer
+exclude:
+  - ARCHITECTURE.md
+  - APP_STORE.md
+  - user-journey
