@@ -71,7 +71,7 @@ fun MigraTrackTheme(content: @Composable () -> Unit) {
 
 /**
  * The layouts hold up to the largest standard Dynamic Type size, XXXL. The accessibility sizes above it
- * overflow the fixed rings, chips, and bars, so text stops growing there.
+ * overflow the fixed chips, bars, and day strips, so text stops growing there.
  */
 private const val MaxFontScale = 1.35f
 

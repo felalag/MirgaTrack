@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
@@ -19,6 +20,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.foundation.verticalScroll
@@ -26,6 +28,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
@@ -37,12 +41,15 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.migratrack.app.feature.legal.LegalDocument
-import com.migratrack.app.feature.summary.ActivityRings
+import com.migratrack.app.feature.summary.DayStrip
+import com.migratrack.app.feature.summary.StripDay
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.PrimaryButton
+import com.migratrack.app.ui.components.SectionCaption
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Icon
@@ -57,8 +64,8 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
     val top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
     val bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     BoxWithConstraints(Modifier.fillMaxSize().background(MtColors.Canvas)) {
-        // Smaller rings on short screens keep the button on the first page, without a scroll.
-        val ringSize = if (maxHeight < 720.dp) 168.dp else 208.dp
+        // Narrower strip on short screens keeps the button on the first page, without a scroll.
+        val stripPadding = if (maxHeight < 720.dp) 40.dp else 0.dp
         Column(
             Modifier
                 .fillMaxSize()
@@ -70,27 +77,12 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
         ) {
             Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.lg)) {
                 BrandRow()
-                Card(
-                    Modifier.fillMaxWidth(),
-                    bordered = true,
-                    contentPadding = PaddingValues(vertical = 32.dp),
-                ) {
-                    ActivityRings(
-                        outer = 0.84f,
-                        inner = 0.84f,
-                        outerColor = MtColors.Pink,
-                        innerColor = MtColors.Green,
-                        centre = "88",
-                        description = "Example biometric balance of 88",
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        size = ringSize,
-                    )
-                }
+                SampleStripCard(stripPadding)
                 Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                     BasicText(
                         buildAnnotatedString {
                             append("Understand your patterns.\n")
-                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append("Stay ahead of pain.") }
+                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append("Bring the facts to your doctor.") }
                         },
                         Modifier.fillMaxWidth().semantics { heading() },
                         style = MtTheme.type.largeTitle.copy(textAlign = TextAlign.Center),
@@ -112,6 +104,40 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                 AgreementFooter(onOpenDocument)
             }
         }
+    }
+}
+
+private val SampleDays: List<StripDay> = List(30) { day ->
+    if (day in setOf(3, 9, 14, 15, 22, 27)) StripDay.Attack else StripDay.PainFree
+}
+
+@Composable
+private fun SampleStripCard(stripPadding: Dp) {
+    val painFree = SampleDays.count { it == StripDay.PainFree }
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .clearAndSetSemantics { contentDescription = "Example: $painFree pain-free days in the last 30 days" },
+        color = MtColors.CardRaised,
+        radius = MtRadius.xl,
+        bordered = true,
+        contentPadding = PaddingValues(MtSpacing.md),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            SectionCaption("Last 30 days", Modifier.weight(1f))
+            MtText(
+                "Example",
+                MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold),
+                Modifier.clip(CircleShape).background(MtColors.Control).padding(horizontal = 10.dp, vertical = 3.dp),
+                color = MtColors.TextBody,
+            )
+        }
+        Row(verticalAlignment = Alignment.Bottom) {
+            MtText(painFree.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
+            MtText(" pain-free days", MtTheme.type.headline, color = MtColors.TextBody, modifier = Modifier.padding(bottom = 8.dp))
+        }
+        Spacer(Modifier.height(MtSpacing.sm))
+        DayStrip(SampleDays, Modifier.padding(horizontal = stripPadding))
     }
 }
 

@@ -90,7 +90,6 @@ object AppIcons {
             "M10 9H8",
         )
     }
-    val TabSummary: ImageVector by lazy { strokeIcon("TabSummary", circle(12f, 12f, 9f), "M12 3a9 9 0 0 1 9 9") }
     val TabLog: ImageVector by lazy { strokeIcon("TabLog", circle(12f, 12f, 9f), "M12 8v8", "M8 12h8") }
     val TabInsights: ImageVector by lazy { strokeIcon("TabInsights", "M22 12h-4l-3 9L9 3l-3 9H2") }
     val TabExport: ImageVector by lazy {

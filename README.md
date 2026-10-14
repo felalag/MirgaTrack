@@ -46,7 +46,7 @@ A Debug build has **Settings › Developer › Load Sample Data**. It adds a yea
 
 The watch app has three screens:
 
-1. **Summary.** A ring shows the pain-free days of the last 30, with a **Log Migraine** button below it.
+1. **Summary.** The pain-free days of the last 30 as a number and a bar, the date of the last attack, and a **Log Migraine** button.
 2. **Pain Intensity.** Turn the Digital Crown to set 1–10, then tap **Save Episode**. The logger starts at your typical intensity.
 3. **Episode logged.** A checkmark confirms the save. **Done** or the close button returns to the summary.
 
@@ -78,7 +78,7 @@ The command runs the shared tests on the JVM, the iOS simulator, and the watchOS
 | `shared/watchcore` | `MigraCore.framework` for the watch app and its complications: a Swift facade over the core, without Compose. |
 | `composeApp` | Compose Multiplatform UI, view models, and the iOS platform services. Produces `ComposeApp.framework`. |
 | `iosApp/iosApp` | iPhone app: SwiftUI entry point, App Intent, WatchConnectivity, Info.plist, HealthKit entitlement. |
-| `iosApp/watchApp` | watchOS app in SwiftUI: the summary ring, the logger with the Digital Crown, the confirmation, and WatchConnectivity. |
+| `iosApp/watchApp` | watchOS app in SwiftUI: the summary of pain-free days, the logger with the Digital Crown, the confirmation, and WatchConnectivity. |
 | `iosApp/watchComplications` | WidgetKit extension: the Log Migraine complication and the watchOS 26 control. |
 | `docs` | The GitHub Pages site: Support, Privacy Policy, and Terms. `docs/legal/files` holds the legal texts that the app also bundles. [docs/APP_STORE.md](docs/APP_STORE.md) has the App Store metadata and review notes. |
 
@@ -102,14 +102,15 @@ The fourth Stitch export redraws the Apple Watch app in three screens: `apple_wa
 
 - **The logger and the confirmation are a sheet.** watchOS draws the close button and the time, as the screens show them.
 - **The intensity gauge is a 270° arc that is open at the bottom.** watchOS draws its own circular gauges this way. The HTML has the gap at the upper left.
-- **The watch uses the system fonts of watchOS.** The app uses SF Compact in the system text styles; the numbers in the ring and the gauge are Large Title in its bold weight. WidgetKit sets SF Compact Rounded in the complications. The HTML loads Plus Jakarta Sans.
+- **The watch uses the system fonts of watchOS.** The app uses SF Compact in the system text styles; the numbers in the summary and the gauge are Large Title in its bold weight. WidgetKit sets SF Compact Rounded in the complications. The HTML loads Plus Jakarta Sans.
 - **The backgrounds are dark, with a soft glow of the severity color.** The sheet does not show the summary through it.
 - **Log Migraine, Save Episode and Done are at the bottom of the safe area.** The whole button stays clear of the round corners. The system bottom bar puts it 3 pt from the edge of the 40mm SE display. Each screen fits without scrolling, from the 40mm watch up.
-- **Each screen shows only its main parts.** The summary has no "N of 30 days pain-free" caption, and Log Migraine has no plus icon. VoiceOver reads the ring as the pain-free days.
+- **Each screen shows only its main parts.** Log Migraine has no plus icon. VoiceOver reads the summary as "Pain-free days, 25 of 30".
 - **"Pain Intensity" is a gray footnote under the gauge, in place of the "Turn Digital Crown" hint.** The HTML has a caption above the gauge and the hint below it.
-- **The ring and the gauge show only the number.** The HTML has "/30d" and "out of 10" under it. VoiceOver still reads "25 of 30" and "6 out of 10".
-- **Episode logged shows only a checkmark and Done.** The checkmark has the size of the ring and the gauge, so the three screens match. The HTML also shows the title "Episode logged", the intensity and the medications. VoiceOver reads the checkmark as "Episode logged".
-- **The ring and the gauge have the same size and stroke**, so the summary and the logger match. Both take 33% of the screen width, the most that the gauge gets on the 49mm watch. The HTML draws the ring larger and thicker than the gauge.
+- **The gauge shows only the number.** The HTML has "out of 10" under it. VoiceOver still reads "6 out of 10".
+- **Episode logged shows only a checkmark and Done.** The checkmark has the size of the gauge, so the two screens match. The HTML also shows the title "Episode logged", the intensity and the medications. VoiceOver reads the checkmark as "Episode logged".
+- **The summary is a number over a linear gauge, not the ring of the HTML.** Apple does not allow apps to copy the Activity rings (see [No Activity rings](#no-activity-rings)). The caption "Pain-free days", the number with " / 30", a green `linearCapacity` gauge and "Last attack Oct 12" fit without scrolling from the 40mm watch up, also at the largest accessibility text size.
+- **The gauge takes 33% of the screen width**, the most that it gets on the 49mm watch.
 - **Text uses the system text styles and follows Dynamic Type.**
 
 Removed from the watch, because the screens do not have them: the This month and Last attack rows, the − and + buttons, the medications on the logger, Undo, the separate Pain-Free Days complication, and the Siri command on the watch. The iPhone keeps its App Shortcut.
@@ -119,12 +120,22 @@ The screens do not show complications. The project owner chose the rest:
 - **A complication tap opens the logger and does not save at once.** An accidental tap saves nothing, so Undo is not necessary.
 - **One complication, "Log Migraine".** Its rectangular style also shows the pain-free days, as the summary screen does. The other styles show only the action.
 - **The control stays and opens the logger.**
-- **Before the first sync, the caption under the ring asks you to open MigraTrack on the iPhone.**
+- **Before the first sync, a caption under the summary asks you to open MigraTrack on the iPhone.**
+
+### No Activity rings
+
+The first designs showed the pain-free days in rings like the Apple Activity rings: in the app icon, on the welcome screen, on the Summary and on the watch. App Review guideline 5.2.5 and the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/activity-rings) do not allow this. The project owner chose these replacements:
+
+- **The app icon is a diary of 12 day dots.** Three pink dots are attack days. The iPhone and the watch use the same icon.
+- **The Summary shows a "Last 30 days" card.** It shows the pain-free days as "6 of 13 tracked days" and a strip of 30 day dots, oldest first, with today at the end. Pink is an attack day and green is a pain-free day, as in Insights. Gray is a day before you started tracking. The card also shows last night's sleep.
+- **No combined score.** The "Biometric balance" score mixed the pain-free share with a sleep score that had no stated method, and showed 100 on the first day. The card now shows only counts.
+- **A doctor reminder under Log Migraine Episode**: "MigraTrack is a diary, not medical advice." It follows guideline 1.4.1.
+- **The Summary tab has a calendar icon.**
 
 The welcome screen comes from a design of the project owner. It follows `sign_in_registration` of the first Stitch export, but has one **Get Started** button in place of "Continue with Apple" and "Continue with Google". The app has no accounts for now; [the auth and sync proposal](https://github.com/felalag/MirgaTrack/pull/5) gives the reasons.
 
 - **Get Started is the pink primary button.** The design draws it white, but every other main action in the app uses the pink pill of the specification.
-- **The rings are the Summary rings,** in the same pink and green, and they sweep in the same way. The number 88 is an example.
+- **The card is an example of the Summary card,** with the same 30-day strip and an "Example" label. The headline says "Bring the facts to your doctor." and promises no prediction.
 - **The links open the Terms of Service and the Privacy Policy in the app.** The texts ship with the app, so they open offline. Settings has a Legal section with the same two pages. The texts are drafts: they need a legal review and a contact address before a release.
 - **Get Started pushes step 1 of onboarding.** Step 1 now has a back button, and the edge swipe returns to the welcome screen.
 
@@ -142,7 +153,7 @@ Additions that the screens imply but do not show:
   - The PDF has a **Possible Triggers Noted** section with the share of episodes and the same note. The episode log of the PDF and the Episodes sheet of the XLSX have a column for the triggers. The **Possible Triggers** toggle in Export controls all three.
   - The watch and the iPhone App Shortcut log with one tap during an attack, so their episodes have no triggers. You add them later in Edit Episode. Sync sends the triggers to the watch with the episode, and older builds ignore the field.
   - An episode keeps a copy of the trigger name, as it does for a medication name, so the history stays readable.
-- **Sleep from Apple Health.** The Sleep card reads last night's stages from HealthKit. The simulator has no sleep data unless you add some in the Health app.
+- **Sleep from Apple Health.** The Last 30 days card shows how long you slept last night, from HealthKit. The simulator has no sleep data unless you add some in the Health app.
 
 ## Known limits
 

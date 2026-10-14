@@ -84,8 +84,8 @@ struct LogEpisodeView: View {
     }
 }
 
-/// The dark backdrop of the logger with a soft glow in the middle. An opaque backdrop keeps the summary's ring
-/// and button from showing through the sheet.
+/// The dark backdrop of the logger with a soft glow in the middle. An opaque backdrop keeps the summary from
+/// showing through the sheet.
 struct Glow: View {
     let color: Color
 
@@ -101,8 +101,8 @@ private struct IntensityGauge: View {
     var body: some View {
         let color = Color.severity(level)
         GeometryReader { geometry in
-            let side = RingMetrics.side(in: geometry.size)
-            let line = RingMetrics.line(side: side)
+            let side = DialMetrics.side(in: geometry.size)
+            let line = DialMetrics.line(side: side)
             ZStack {
                 Circle()
                     .trim(from: 0, to: 0.75)
@@ -121,11 +121,29 @@ private struct IntensityGauge: View {
                     .contentTransition(.numericText(value: Double(level)))
                     .lineLimit(1)
                 .minimumScaleFactor(0.5)
-                .frame(width: RingMetrics.textSide(side: side), height: RingMetrics.textSide(side: side))
+                .frame(width: DialMetrics.textSide(side: side), height: DialMetrics.textSide(side: side))
             }
             .padding(line / 2)
             .frame(width: side, height: side)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+    }
+}
+
+/// Sizes that the intensity gauge and the checkmark share, so that the two screens match.
+enum DialMetrics {
+    /// A share of the screen width. 0.33 is the most that the gauge gets on the 49mm watch, between the close button
+    /// and its label.
+    static func side(in size: CGSize) -> CGFloat {
+        min(size.width * 0.33, size.height)
+    }
+
+    static func line(side: CGFloat) -> CGFloat {
+        side * 0.06
+    }
+
+    /// The largest square inside the gauge, where large Dynamic Type sizes shrink the text to fit.
+    static func textSide(side: CGFloat) -> CGFloat {
+        (side - 2 * line(side: side)) * 0.7
     }
 }
