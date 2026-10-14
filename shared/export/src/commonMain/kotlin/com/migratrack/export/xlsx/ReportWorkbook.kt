@@ -43,7 +43,7 @@ object ReportWorkbook {
         val rows = report.episodes.flatMap { episode ->
             episode.medications.map { intake ->
                 listOf(
-                    Cell.DateTime(intake.takenAt),
+                    Cell.DateTime(episode.startedAt),
                     Cell.Text(intake.name),
                     Cell.Text(intake.dose),
                     Cell.Number(episode.intensity.toDouble()),
@@ -51,7 +51,7 @@ object ReportWorkbook {
             }
         }
         val columns = listOf(
-            Column("Taken", 18.0),
+            Column("Episode Started", 18.0),
             Column("Medication", 28.0),
             Column("Dose", 12.0),
             Column("Episode Pain (1-10)", 20.0),

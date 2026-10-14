@@ -172,6 +172,7 @@ private fun DiagnosesStepScreen(
             primaryEnabled = state.canContinueFromDiagnoses && !state.saving,
             onPrimary = onPrimary,
             footnote = if (step != null) "You can update your baseline profile anytime in Settings." else null,
+            forwardArrow = step != null,
         )
     }
 }
@@ -188,7 +189,7 @@ private fun TriggersStepScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     StepPage(
         step = step,
-        title = "Calibrate Triggers",
+        title = "Your Triggers",
         subtitle = "Select your known or suspected triggers. Your report lists them for your clinician.",
         onBack = onBack,
     ) {
@@ -242,7 +243,14 @@ private fun TreatmentStepScreen(
             }
         }
         AddRow("Add custom medication", accent = MtColors.Green, onClick = viewModel::addCustomMedication)
-        StepActions(primaryLabel, primaryEnabled = !state.saving, onPrimary = onPrimary, backLabel = backLabel, onBack = onBack)
+        StepActions(
+            primaryLabel,
+            primaryEnabled = !state.saving,
+            onPrimary = onPrimary,
+            footnote = if (step != null) "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment." else null,
+            backLabel = backLabel,
+            onBack = onBack,
+        )
     }
 }
 
@@ -328,6 +336,7 @@ private fun StepActions(
     primaryEnabled: Boolean,
     onPrimary: () -> Unit,
     footnote: String? = null,
+    forwardArrow: Boolean = false,
     backLabel: String? = null,
     onBack: (() -> Unit)? = null,
 ) {
@@ -336,7 +345,7 @@ private fun StepActions(
         verticalArrangement = Arrangement.spacedBy(MtSpacing.md),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        PrimaryButton(primaryLabel, onClick = onPrimary, enabled = primaryEnabled, trailingIcon = Symbols.ArrowForward.takeIf { footnote != null })
+        PrimaryButton(primaryLabel, onClick = onPrimary, enabled = primaryEnabled, trailingIcon = Symbols.ArrowForward.takeIf { forwardArrow })
         if (footnote != null) {
             MtText(footnote, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary, textAlign = TextAlign.Center)
         }

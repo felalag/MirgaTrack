@@ -4,11 +4,14 @@ import WidgetKit
 
 struct StatusEntry: TimelineEntry {
     let date: Date
-    let painFreeDays: Int
+    /// Nil when the shared database cannot be read.
+    let painFreeDays: Int?
     let trackedDays: Int
     let isLinked: Bool
 
+    /// Sample data for the widget gallery only. A real watch face must not show days that the user never logged.
     static let placeholder = StatusEntry(date: .now, painFreeDays: 26, trackedDays: 30, isLinked: true)
+    static let unavailable = StatusEntry(date: .now, painFreeDays: nil, trackedDays: 30, isLinked: true)
 }
 
 /// Reads the shared database through MigraCore. Pain-free days change at midnight, so the timeline ends there.
@@ -16,6 +19,7 @@ struct StatusProvider: TimelineProvider {
     func placeholder(in context: Context) -> StatusEntry { .placeholder }
 
     func getSnapshot(in context: Context, completion: @escaping (StatusEntry) -> Void) {
+        if context.isPreview { return completion(.placeholder) }
         Task { @MainActor in completion(await Self.load()) }
     }
 
@@ -23,13 +27,14 @@ struct StatusProvider: TimelineProvider {
         Task { @MainActor in
             let entry = await Self.load()
             let tomorrow = Calendar.current.startOfDay(for: .now).addingTimeInterval(24 * 60 * 60 + 60)
-            completion(Timeline(entries: [entry], policy: .after(tomorrow)))
+            let retry = Date.now.addingTimeInterval(15 * 60)
+            completion(Timeline(entries: [entry], policy: .after(entry.painFreeDays == nil ? retry : tomorrow)))
         }
     }
 
     @MainActor
     private static func load() async -> StatusEntry {
-        guard let status = try? await WatchCore.shared.status() else { return .placeholder }
+        guard let status = try? await WatchCore.shared.status() else { return .unavailable }
         return StatusEntry(
             date: .now,
             painFreeDays: Int(status.painFreeDays),
@@ -89,11 +94,15 @@ private struct LogMigraineView: View {
                 }
                 .font(.headline)
                 .widgetAccentable()
-                if entry.isLinked {
-                    Gauge(value: Double(entry.painFreeDays), in: 0...Double(max(entry.trackedDays, 1))) {}
+                if entry.isLinked, let days = entry.painFreeDays {
+                    Gauge(value: Double(days), in: 0...Double(max(entry.trackedDays, 1))) {}
                         .gaugeStyle(.accessoryLinearCapacity)
                         .tint(Color.migraGreen)
-                    Text("\(entry.painFreeDays) of \(entry.trackedDays) days pain-free")
+                    Text("\(days) of \(entry.trackedDays) days pain-free")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                } else if entry.isLinked {
+                    Text("Pain-free days –")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 } else {

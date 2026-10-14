@@ -55,7 +55,7 @@ The episode gets the acute medications of your treatment blueprint, and it goes 
 | Where | What a tap does |
 |---|---|
 | Watch app: **Log Migraine** | Opens Pain Intensity. |
-| Complication "Log Migraine", on the watch face or in the Smart Stack | Opens the watch app on Pain Intensity. The rectangular style also shows your pain-free days. |
+| Complication "Log Migraine", on the watch face or in the Smart Stack | Opens the watch app on Pain Intensity. The rectangular style also shows your pain-free days, or "–" if it cannot read them. |
 | Control "Log Migraine" (watchOS 26 and later) | Opens Pain Intensity from Control Center, the Smart Stack, or the Action button of Apple Watch Ultra. |
 | iPhone: Spotlight, Siri, Shortcuts, Action button | Saves on the iPhone at once with your typical intensity: "Log a migraine in MigraTrack". Before onboarding, Siri says "Finish setup in MigraTrack first." and offers to open the app. |
 
@@ -129,7 +129,7 @@ The first designs showed the pain-free days in rings like the Apple Activity rin
 - **The app icon is a diary of 12 day dots.** Three pink dots are attack days. The iPhone and the watch use the same icon.
 - **The Summary shows a "Last 30 days" card.** It shows the pain-free days as "6 of 13 tracked days" and a strip of 30 day dots, oldest first, with today at the end. Pink is an attack day and green is a pain-free day, as in Insights. Gray is a day before you started tracking. The card also shows last night's sleep.
 - **No combined score.** The "Biometric balance" score mixed the pain-free share with a sleep score that had no stated method, and showed 100 on the first day. The card now shows only counts.
-- **A doctor reminder under Log Migraine Episode**: "MigraTrack is a diary, not medical advice." It follows guideline 1.4.1.
+- **A doctor reminder under Log Migraine Episode and under the button of the last onboarding step**: "MigraTrack is a diary, not medical advice." It follows guideline 1.4.1. Onboarding also does not say "calibrate": step 2 is "Your Triggers".
 - **The Summary tab has a calendar icon.**
 
 The welcome screen comes from a design of the project owner. It follows `sign_in_registration` of the first Stitch export, but has one **Get Started** button in place of "Continue with Apple" and "Continue with Google". The app has no accounts for now; [the auth and sync proposal](https://github.com/felalag/MirgaTrack/pull/5) gives the reasons.
@@ -146,17 +146,18 @@ Additions that the screens imply but do not show:
 - **Log a past episode.** Tap an empty day in the calendar, or change **Episode Start** at the bottom of the Log Episode form. The row opens the system date picker. The screens have no time field, but the calendar logs on past days and edits old episodes, so the form needs one.
 - **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.
-- **Delete all data.** No account server exists, so Delete All Data in Settings erases the data on this iPhone after a confirmation. The welcome screen then shows again. The watch deletes its copies with the next context and does not log until onboarding is complete again.
+- **Delete all data.** No account server exists, so Delete All Data in Settings erases the data on this iPhone after a confirmation. The confirmation names the copy on the watch and the device backups. The welcome screen then shows again. The watch deletes its copies with the next context and does not log until onboarding is complete again.
 - **Possible triggers of an episode.** The welcome screen promises help with triggers, but onboarding records only the known triggers of the profile. Each Insights screen of the Stitch exports has an empty "Top Identified Triggers Breakdown" slot. The `DESIGN.md` of the third export describes trigger badges: capsules that take the category color when chosen, with violet as the accent of trigger categories. The project owner approved this design:
   - The Log Episode and Edit Episode forms have a **Possible Triggers** card after the symptoms. It shows the known triggers of the profile as capsules, but does not select them. If it selected them, every known trigger would be in almost every episode, and the frequency would have no meaning. **Add Trigger** opens the rest of the catalog and a custom entry.
   - Insights has a **Possible Triggers** card below the chart. For the shown period it lists the five triggers that you noted most often, as "5 of 9" with a bar. The card shows how often you noted a trigger, not what causes an attack, and it says so. A last line counts the episodes with no triggers noted.
   - The PDF has a **Possible Triggers Noted** section with the share of episodes and the same note. The episode log of the PDF and the Episodes sheet of the XLSX have a column for the triggers. The **Possible Triggers** toggle in Export controls all three.
   - The watch and the iPhone App Shortcut log with one tap during an attack, so their episodes have no triggers. You add them later in Edit Episode. Sync sends the triggers to the watch with the episode, and older builds ignore the field.
   - An episode keeps a copy of the trigger name, as it does for a medication name, so the history stays readable.
-- **Sleep from Apple Health.** The Last 30 days card shows how long you slept last night, from HealthKit. The simulator has no sleep data unless you add some in the Health app.
+- **Sleep from Apple Health.** The Last 30 days card shows how long you slept last night, from HealthKit. The app does not relate sleep to attacks, so the Health permission text, the Connect card and the App Store description promise only last night's sleep on the Summary. The simulator has no sleep data unless you add some in the Health app.
 
 ## Known limits
 
 - The UI text is English only.
 - An episode has a start time but no end, so the app shows no attack duration.
+- A medication has no time of its own. The app sets it to the start of the attack, so the PDF and the XLSX show no intake time.
 - The project has no linter configured. The build has no compiler warnings.
