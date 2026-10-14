@@ -1,11 +1,68 @@
 # Sign-in and cloud storage: proposal
 
-Status: proposal, not implemented. Research date: 2026-10-14. The project owner's answers of 2026-10-14 are in [Decisions](#decisions).
+Status: **no accounts and no cloud for now**, see [Current decision](#current-decision). The rest of the document is the plan for a later cloud. Research date: 2026-10-14.
 
 This document compares ways to add "Continue with Apple" and "Continue with Google" to MigraTrack and to store the data outside the device.
-It recommends one option, gives an architecture sketch, lists the features that an account opens, and lists the decisions that are still open.
+It records the current decision against it, the laws that apply, and what replaces an account on iOS. Then it gives the cloud option for later: a recommendation, an architecture sketch, the features that an account opens, and the open decisions.
 
-## Summary
+## Current decision
+
+Decided on 2026-10-14: MigraTrack has no accounts and no cloud storage for now. The data stays on the device, in device backups and, as an option, in Apple Health. The developer receives no user data.
+
+Why:
+
+- MigraTrack is a side project without income. Health data in a developer's cloud brings legal duties in many countries, see [Laws that apply](#laws-that-apply).
+- On iOS, the device and Apple give most of the value of an account without a server, see [What replaces an account](#what-replaces-an-account).
+- A sign-in without cloud data gives the user nothing. It still brings duties: the email is personal data, Apple asks for account deletion, and the Apple token revocation needs a server.
+
+### Laws that apply
+
+This is not legal advice. Have a lawyer read the privacy policy once before the release.
+
+| Rule | With accounts and a cloud | Local only (current decision) |
+|---|---|---|
+| HIPAA (United States) | Does not apply. A developer whose app a consumer downloads and fills with their own data is not a business associate ([HHS OCR, Health App Use Scenarios, 2016](https://hhs.gov/sites/default/files/ocr-health-app-developer-scenarios-2-2016.pdf)). HIPAA starts only when a clinic, an insurer or an employer health plan hires or pays the developer to handle its patients' data. | Does not apply. |
+| GDPR and UK GDPR | The developer is the controller of health data, a special category (Article 9): explicit consent, a privacy policy, a record of processing (Article 30(5) removes the small-company exemption), a DPIA, a DPA with the provider, breach notice to the authority within 72 hours, access, export and deletion. | The developer receives no data, so most duties do not start. A short privacy policy stays. |
+| FTC Health Breach Notification Rule (United States) | Applies: the app builds a health record from more than one source (user entries and HealthKit). A breach includes a disclosure without the user's permission, for example to an analytics SDK. Notice within 60 days; to the FTC and the media from 500 people; up to $53,088 per violation ([FTC](https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0)). | The developer holds no records, so nothing can leak from the developer. |
+| Washington My Health My Data Act and similar state laws (Nevada, Connecticut) | Applies with no revenue threshold: a separate consumer health data privacy policy, consent to collect, separate consent to share, deletion also from backups, and private lawsuits ([Washington AG](https://www.atg.wa.gov/protecting-washingtonians-personal-health-data-and-privacy)). | The developer collects no health data. |
+| App Store Review Guidelines | A privacy policy, privacy labels, account deletion in the app, Apple token revocation, no health data for advertising, no health data in iCloud (5.1.3). | A privacy policy (all apps need one; HealthKit apps too) and the label "Data Not Collected". |
+| EU MDR and FDA (medical device software) | A diary is not a medical device. Claims of diagnosis or treatment can make it one ([MDCG 2019-11](https://openregulatory.com/mdcg/mdcg-2019-11), [FDA](https://www.fda.gov/medical-devices/digital-health/mobile-medical-applications)). | The same. |
+
+In both columns:
+
+- No third-party SDK that sends events: no analytics, no ad networks. The first FTC cases on health apps (GoodRx, Premom) were about health data sent to ad SDKs.
+- Careful wording. "Identify hidden triggers" on the welcome screen sounds like a diagnosis. "See how your entries relate to possible triggers" is safer. The medication-overuse warning and any later AI summary give information and send the user to a doctor; they do not diagnose.
+- A minimum age in the Terms, for example 16.
+
+### What replaces an account
+
+| What an account gives | Replacement without a server | Limit |
+|---|---|---|
+| A new iPhone or a reinstall | iCloud Backup, a Finder backup and the iPhone-to-iPhone transfer copy the app sandbox. `AppleDatabase.driver()` keeps the database there and does not exclude it from backups. | Lost if the user makes no backups. Check a restore once on a real device. |
+| iPhone and iPad | Write each episode to HealthKit as a `headache` sample (`HKCategoryTypeIdentifier.headache`, iOS 13.6 and later). Apple syncs Health data between the user's devices with end-to-end encryption, and the episodes also show in the Health app. | The baseline and the custom catalog do not go to HealthKit. The sample severity has four levels; the rest goes in metadata. |
+| A move to Android | A full export and import of all records as one JSON file. The user keeps the file where they want. | A manual step, once. |
+| Sharing with a doctor | Already there: the PDF and XLSX reports through the share sheet. | No live link. |
+| A subscription on all devices | StoreKit without an account: the Apple ID restores purchases on every Apple device. | Does not move to Android. |
+
+Only a server gives sync of all data between iOS and Android, a web version, a live doctor link, caregiver access, and server analytics or AI.
+
+### Changes in the app
+
+1. **Welcome screen.** One "Get Started" button in place of "Continue with Apple" and "Continue with Google". The rest of the design stays.
+2. **Sign Out.** Rename "Sign Out of MigraTrack" to "Delete All Data". It erases the data, and the app has no account to sign out of.
+3. **Export and import.** A full JSON export of all records, and an import that merges by id. The episode and catalog ids are UUIDs, so a merge cannot collide.
+4. **HealthKit, optional.** Write each episode as a `headache` sample. Put the episode id in `HKMetadataKeySyncIdentifier` and a version in `HKMetadataKeySyncVersion`: HealthKit then replaces the old sample when an edit saves a higher version. Put the intensity 1–10, the region, the symptoms and the medications in the metadata. A delete in the app deletes the sample. This needs the share permission and `NSHealthUpdateUsageDescription`.
+5. **Release.** A short privacy policy: the data stays on the device and in Apple Health, the developer receives nothing, no tracking. The privacy label "Data Not Collected". The safer wording on the welcome screen.
+
+### When to come back to the cloud
+
+Come back when one of these becomes a real goal: an Android release with sync, a web version, a live doctor link, caregiver access, or server AI. Then:
+
+- Take the duties of the "With accounts and a cloud" column at once: the privacy policy and the separate consumer health data policy, the consent screen with a consent log, export and deletion, a DPA, a record of processing, a short DPIA, and a breach plan.
+- Choose the platform. The rest of this document recommends Supabase. If a HIPAA BAA becomes necessary, Firebase is cheaper: Google signs the Google Cloud BAA at no cost, through IAM & Admin in the console, and it covers Identity Platform, Firestore and Cloud Run functions ([Google Cloud HIPAA](https://cloud.google.com/security/compliance/hipaa)). Supabase offers HIPAA only on Team, from $599 per month. With a BAA, Firebase Auth must be upgraded to Identity Platform, and no health data or name may go into the auth user profile.
+- The local-first design of this document still fits: the export format of step 3 can become the cloud payload.
+
+## Summary of the cloud option
 
 **Recommendation: Supabase (Auth and Postgres) in an EU region, with a small delta sync that the project writes itself on top of the current local SQLite.**
 
@@ -516,6 +573,8 @@ For [sign-in before cloud storage](#sign-in-before-cloud-storage), do steps 3 an
 
 ## Open questions for the project owner
 
+These questions are for the time when the cloud comes back, see [When to come back to the cloud](#when-to-come-back-to-the-cloud).
+
 The questions of 2026-10-14 are answered in [Decisions](#decisions). These stay open:
 
 1. **Is sign-in required, or optional?** The proposal keeps "Continue without an account": Guideline 5.1.1(v) asks for it, and local-only mode for Russia and China needs it. The welcome screen in the design has only two buttons, so it needs a third, quieter action.
@@ -538,5 +597,8 @@ All accessed on 2026-10-14.
 - Supabase. [Pricing](https://supabase.com/pricing), [Backups](https://supabase.com/docs/guides/platform/backups), [Project pausing](https://supabase.com/docs/guides/platform/free-project-pausing), [Billing](https://supabase.com/docs/guides/platform/billing-on-supabase), [Login with Apple](https://supabase.com/docs/guides/auth/social-login/auth-apple), [Login with Google](https://supabase.com/docs/guides/auth/social-login/auth-google), [Platform security](https://supabase.com/docs/guides/security/platform-security).
 - GitHub releases: [supabase-kt](https://github.com/supabase-community/supabase-kt) 3.8.0, [compose-auth](https://github.com/supabase-community/supabase-kt-plugins/tree/main/ComposeAuth), [firebase-kotlin-sdk](https://github.com/GitLiveApp/firebase-kotlin-sdk) 2.7.0, [powersync-kotlin](https://github.com/powersync-ja/powersync-kotlin) 1.15.2, [GoogleSignIn-iOS](https://github.com/google/GoogleSignIn-iOS) 10.0.0.
 - PowerSync. [Pricing](https://www.powersync.com/pricing).
+- US law. [HHS OCR: Health App Use Scenarios and HIPAA](https://hhs.gov/sites/default/files/ocr-health-app-developer-scenarios-2-2016.pdf) (2016), [FTC: Complying with the Health Breach Notification Rule](https://www.ftc.gov/business-guidance/resources/complying-ftcs-health-breach-notification-rule-0), [Washington AG: My Health My Data Act](https://www.atg.wa.gov/protecting-washingtonians-personal-health-data-and-privacy), [FDA: Device Software Functions](https://www.fda.gov/medical-devices/digital-health/mobile-medical-applications).
+- EU law. [MDCG 2019-11, explained](https://openregulatory.com/mdcg/mdcg-2019-11) (a summary of the Commission guidance).
+- Apple. [HKCategoryTypeIdentifier.headache](https://developer.apple.com/documentation/healthkit/hkcategorytypeidentifier/headache).
 
 Not checked against a primary source in this research: the Apple token revocation endpoint parameters (the Apple page needs JavaScript), the Supabase encryption at rest and DPA terms, and the end date of Atlas Device Sync. Confirm them before implementation.
