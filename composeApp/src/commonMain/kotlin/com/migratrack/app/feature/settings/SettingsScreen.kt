@@ -27,6 +27,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.AppGraph
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.feature.legal.LegalDocument
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
 import com.migratrack.app.ui.components.ListRow
@@ -35,6 +36,7 @@ import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.RowTrailing
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
@@ -109,7 +111,7 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
 }
 
 @Composable
-fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit) {
+fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOpenDocument: (LegalDocument) -> Unit) {
     val graph = LocalAppGraph.current
     val viewModel = viewModel { SettingsViewModel(graph) }
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -131,6 +133,12 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit) {
             ListDivider()
             val info = viewModel.appInfo
             ListRow("Version", Symbols.Info, MtColors.Caption, trailing = RowTrailing.Value("v${info.version} (Build ${info.build})"))
+        }
+
+        GroupedSection("Legal") {
+            ListRow("Privacy Policy", AppIcons.Shield, MtColors.Cyan, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.PrivacyPolicy) }
+            ListDivider()
+            ListRow("Terms of Service", AppIcons.Document, MtColors.Caption, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.TermsOfService) }
         }
 
         if (viewModel.appInfo.isDebug) {
