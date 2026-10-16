@@ -4,7 +4,7 @@ permalink: /privacy/
 
 # Privacy Policy
 
-Effective October 14, 2026
+Effective October 16, 2026
 
 ## Summary
 
@@ -12,11 +12,13 @@ MigraTrack keeps your data on your iPhone and your Apple Watch. We do not collec
 
 The app has no account and no server. It contains no analytics and no advertising.
 
+MigraTrack is developed by Ira Babayed.
+
 ## Data on your iPhone
 
 The app stores your baseline profile, your name if you enter it, and the episodes that you log. The baseline profile contains your diagnoses, triggers, medications, and typical pain intensity.
 
-This data stays in a database inside the app on your iPhone.
+This data stays in a database inside the app on your iPhone. It stays there until you delete it in the app or delete the app.
 
 ## Apple Health
 

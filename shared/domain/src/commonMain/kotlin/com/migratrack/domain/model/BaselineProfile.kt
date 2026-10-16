@@ -29,7 +29,7 @@ data class BaselineProfile(
 enum class Diagnosis(val title: String, val subtitle: String) {
     MigraineWithoutAura("Migraine without aura", "Common migraine pattern"),
     MigraineWithAura("Migraine with aura", "Visual or sensory focal aura"),
-    ChronicMigraine("Chronic Migraine", ">15 headache days per month"),
+    ChronicMigraine("Chronic Migraine", "15 or more headache days a month"),
     TensionType("Tension-type Headache", "Constricting, band-like tension"),
     Cluster("Cluster Headache", "Severe unilateral orbital episodes"),
     NotDiagnosed("Not diagnosed / Exploring", "Observing symptom patterns"),
@@ -38,7 +38,7 @@ enum class Diagnosis(val title: String, val subtitle: String) {
 enum class EpisodeFrequency(val title: String) {
     LessThanOne("< 1 / mo"),
     OneToFour("1–4 / mo"),
-    FiveToEight("5–8 / mo"),
+    FiveToEight("5–7 / mo"),
     EightPlus("8+ / mo"),
 }
 
