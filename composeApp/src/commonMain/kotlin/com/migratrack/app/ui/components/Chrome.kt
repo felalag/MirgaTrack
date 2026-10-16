@@ -105,7 +105,7 @@ fun BrandHeader(
             if (onBack != null) {
                 Icon(Symbols.ArrowBackIosNew, tint = MtColors.BrandLabel, size = 20.dp)
             } else {
-                Icon(AppIcons.Brain, tint = MtColors.PinkSoft, size = 24.dp, modifier = Modifier.glow(MtColors.Pink, 8.dp, alpha = 0.35f))
+                BrandMark()
             }
         }
         Spacer(Modifier.width(12.dp))

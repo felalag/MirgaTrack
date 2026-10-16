@@ -87,7 +87,7 @@ The command runs the shared tests on the JVM, the iOS simulator, and the watchOS
 The screens in the Stitch export and the design specification disagree in some places. The rules were:
 
 - **Tokens come from the specification.** Colors, radii, the type scale, and the font (Plus Jakarta Sans).
-- **Layout comes from the most frequent variant in the screens.** Examples: the 20 pt side margin, the header with the brain mark, the settings gear on every tab.
+- **Layout comes from the most frequent variant in the screens.** Examples: the 20 pt side margin, the header with the brand mark, the settings gear on every tab.
 - **Native behavior wins where the screens are silent.** Settings is pushed under the tab bar with a back button and the edge swipe.
 
 The third Stitch export adds the Edit Episode screen and a calendar in Insights. Three of its images are broken files (`analytics_insights`, `analytics_insights_week_w`, `analytics_insights_year_y`), so their HTML was the reference.

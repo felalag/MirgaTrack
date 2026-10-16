@@ -58,15 +58,8 @@ internal fun strokeIcon(name: String, vararg paths: String): ImageVector =
 private fun circle(cx: Float, cy: Float, r: Float) =
     "M${cx - r} ${cy}a$r $r 0 1 0 ${2 * r} 0a$r $r 0 1 0 ${-2 * r} 0"
 
-/** Icons copied from the inline SVG of the screens (the brand mark, the gear, the tab bar), and Lucide icons in the same style. */
+/** Icons copied from the inline SVG of the screens (the gear and the tab bar), and Lucide icons in the same style. */
 object AppIcons {
-    val Brain: ImageVector by lazy {
-        strokeIcon(
-            "Brain",
-            "M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04",
-            "M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04",
-        )
-    }
     val Settings: ImageVector by lazy {
         strokeIcon(
             "Settings",

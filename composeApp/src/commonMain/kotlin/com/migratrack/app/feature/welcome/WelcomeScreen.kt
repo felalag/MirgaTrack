@@ -46,14 +46,12 @@ import androidx.compose.ui.unit.dp
 import com.migratrack.app.feature.legal.LegalDocument
 import com.migratrack.app.feature.summary.DayStrip
 import com.migratrack.app.feature.summary.StripDay
+import com.migratrack.app.ui.components.BrandMark
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.components.SectionCaption
 import com.migratrack.app.ui.components.contentColumn
-import com.migratrack.app.ui.components.glow
-import com.migratrack.app.ui.icons.AppIcons
-import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -147,10 +145,10 @@ private fun SampleStripCard(stripPadding: Dp) {
 private fun BrandRow() {
     Row(Modifier.semantics(mergeDescendants = true) {}, verticalAlignment = Alignment.CenterVertically) {
         Box(
-            Modifier.size(40.dp).clip(RoundedCornerShape(MtRadius.md)).background(MtColors.Control),
+            Modifier.size(40.dp).clip(RoundedCornerShape(MtRadius.md)).background(MtColors.CanvasDeep),
             contentAlignment = Alignment.Center,
         ) {
-            Icon(AppIcons.Brain, tint = MtColors.PinkSoft, size = 24.dp, modifier = Modifier.glow(MtColors.Pink, 8.dp, alpha = 0.35f))
+            BrandMark(size = 24.dp)
         }
         Spacer(Modifier.width(12.dp))
         Column {
