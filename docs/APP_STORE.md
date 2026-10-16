@@ -214,7 +214,6 @@ xcrun simctl io booted screenshot --type=png summary.png
 These items do not block the submission, but App Review or a user can ask about them.
 
 - **Guideline 5.1.3(ii)** says that apps "may not store personal health information in iCloud". MigraTrack does not use iCloud storage, but an iCloud backup of the iPhone includes the database. The Privacy Policy says this openly. To remove the doubt, exclude the database from backup (`isExcludedFromBackup`); then a new iPhone starts without the data.
-- **Pain-free days before the first launch.** The Summary, Insights, and the PDF report count every day without an episode as pain-free, also the days before the user installed the app. A report made on the first day shows "90 pain-free days". A clinician can misread this.
 - **Guideline 1.4.1** asks medical apps to remind users to check with a doctor. The reminder is in the Terms of Service, in the App Store description, in a short line under Log Migraine Episode on the Summary, and under the button of the last onboarding step.
 
 ## Checks on the simulator
