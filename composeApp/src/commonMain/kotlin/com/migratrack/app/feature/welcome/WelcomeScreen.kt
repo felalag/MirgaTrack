@@ -50,6 +50,7 @@ import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.components.SectionCaption
+import com.migratrack.app.ui.components.contentColumn
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Icon
@@ -72,6 +73,7 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                 .verticalScroll(rememberScrollState())
                 .heightIn(min = maxHeight)
                 .padding(top = top + MtSpacing.md, bottom = bottom + MtSpacing.md)
+                .contentColumn()
                 .padding(horizontal = MtSpacing.screen),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {
