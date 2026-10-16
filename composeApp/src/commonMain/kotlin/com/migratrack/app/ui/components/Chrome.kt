@@ -10,15 +10,22 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -50,8 +57,26 @@ import com.migratrack.app.ui.theme.WithoutFontScaling
 val HeaderHeight = 64.dp
 val TabBarHeight = 60.dp
 
+/** Width of the [TabRail]. On iPhone Duo the rail fills the 84 pt safe-area column under the status bar. */
+val TabRailWidth = 84.dp
+
 /** Space the floating tab bar takes at the bottom of the current screen; zero where it is hidden. */
 val LocalBottomBarInset = compositionLocalOf { 0.dp }
+
+/** Widest a screen's column grows, side margins included. Only the inner display of iPhone Duo is wider. */
+val MaxContentWidth = 520.dp
+
+/**
+ * Centers a column no wider than [MaxContentWidth] and keeps it out of the side safe areas.
+ * On iPhone Duo the status bar is on the right edge, and only `safeDrawing` reports it.
+ */
+@Composable
+fun Modifier.contentColumn(): Modifier = this
+    .fillMaxWidth()
+    .windowInsetsPadding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal))
+    .wrapContentWidth()
+    .widthIn(max = MaxContentWidth)
+    .fillMaxWidth()
 
 /** "MIGRATRACK / Summary" header with the brain mark, or a back button on pushed screens. */
 @Composable
@@ -123,6 +148,7 @@ fun Page(
                 .fillMaxSize()
                 .verticalScroll(scrollState)
                 .padding(top = top + HeaderHeight + MtSpacing.xs, bottom = bottom + MtSpacing.lg)
+                .contentColumn()
                 .padding(horizontal = MtSpacing.screen),
             verticalArrangement = Arrangement.spacedBy(spacing),
             content = content,
@@ -131,7 +157,7 @@ fun Page(
             title = title,
             onBack = onBack,
             onSettings = onSettings,
-            modifier = Modifier.background(MtColors.Canvas).padding(top = top),
+            modifier = Modifier.background(MtColors.Canvas).padding(top = top).contentColumn(),
         )
     }
 }
@@ -149,34 +175,55 @@ fun TabBar(selected: Tab, onSelect: (Tab) -> Unit, modifier: Modifier = Modifier
     Column(modifier.fillMaxWidth().background(MtColors.Canvas)) {
         Box(Modifier.fillMaxWidth().height(0.5.dp).background(Color.White.copy(alpha = 0.1f)))
         Row(
-            modifier = Modifier.fillMaxWidth().height(TabBarHeight).padding(horizontal = MtSpacing.xs),
+            modifier = Modifier.contentColumn().height(TabBarHeight).padding(horizontal = MtSpacing.xs),
             horizontalArrangement = Arrangement.SpaceAround,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Tab.entries.forEach { tab ->
-                val active = tab == selected
-                val color = if (active) MtColors.Pink else MtColors.TextSecondary
-                Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .height(TabBarHeight)
-                        .semantics { this.selected = active }
-                        .pressable(role = Role.Tab, pressedScale = 0.92f) { onSelect(tab) },
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                ) {
-                    Icon(
-                        tab.icon,
-                        tint = color,
-                        size = 24.dp,
-                        modifier = if (active) Modifier.glow(MtColors.Pink, radius = 10.dp, alpha = 0.35f) else Modifier,
-                    )
-                    Spacer(Modifier.height(4.dp))
-                    WithoutFontScaling { MtText(tab.title, MtTheme.type.tabLabel, color = color) }
-                }
+                TabItem(tab, active = tab == selected, onSelect = onSelect, modifier = Modifier.weight(1f).height(TabBarHeight))
             }
         }
         Spacer(Modifier.height(bottom))
+    }
+}
+
+/**
+ * The tab bar as a column on the trailing edge, for windows wider than tall: the inner display of iPhone Duo.
+ * iOS 27.1 shows system tab bars there vertically below the status bar, so the items are centered to stay clear of it.
+ */
+@Composable
+fun TabRail(selected: Tab, onSelect: (Tab) -> Unit, modifier: Modifier = Modifier) {
+    Row(modifier.fillMaxHeight().background(MtColors.Canvas)) {
+        Box(Modifier.fillMaxHeight().width(0.5.dp).background(Color.White.copy(alpha = 0.1f)))
+        Column(
+            modifier = Modifier.fillMaxHeight().weight(1f),
+            verticalArrangement = Arrangement.spacedBy(MtSpacing.sm, Alignment.CenterVertically),
+        ) {
+            Tab.entries.forEach { tab ->
+                TabItem(tab, active = tab == selected, onSelect = onSelect, modifier = Modifier.fillMaxWidth().height(TabBarHeight))
+            }
+        }
+    }
+}
+
+@Composable
+private fun TabItem(tab: Tab, active: Boolean, onSelect: (Tab) -> Unit, modifier: Modifier) {
+    val color = if (active) MtColors.Pink else MtColors.TextSecondary
+    Column(
+        modifier = modifier
+            .semantics { this.selected = active }
+            .pressable(role = Role.Tab, pressedScale = 0.92f) { onSelect(tab) },
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Icon(
+            tab.icon,
+            tint = color,
+            size = 24.dp,
+            modifier = if (active) Modifier.glow(MtColors.Pink, radius = 10.dp, alpha = 0.35f) else Modifier,
+        )
+        Spacer(Modifier.height(4.dp))
+        WithoutFontScaling { MtText(tab.title, MtTheme.type.tabLabel, color = color) }
     }
 }
 
@@ -185,7 +232,7 @@ fun TabBar(selected: Tab, onSelect: (Tab) -> Unit, modifier: Modifier = Modifier
 fun Banner(text: String, icon: ImageVector, tint: Color, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
-            .fillMaxWidth()
+            .contentColumn()
             .padding(horizontal = MtSpacing.screen)
             .clip(RoundedCornerShape(14.dp))
             .background(MtColors.ControlHigh)

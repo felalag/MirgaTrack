@@ -48,6 +48,7 @@ import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.components.SectionCaption
 import com.migratrack.app.ui.components.SelectionCard
 import com.migratrack.app.ui.components.SelectionStyle
+import com.migratrack.app.ui.components.contentColumn
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icon
@@ -271,6 +272,7 @@ private fun StepPage(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState())
                 .padding(top = top + 56.dp, bottom = bottom + MtSpacing.lg)
+                .contentColumn()
                 .padding(horizontal = MtSpacing.screen),
             verticalArrangement = Arrangement.spacedBy(MtSpacing.lg),
         ) {
@@ -286,6 +288,7 @@ private fun StepPage(
                 .fillMaxWidth()
                 .background(MtColors.Canvas)
                 .padding(top = top)
+                .contentColumn()
                 .height(56.dp)
                 .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically,

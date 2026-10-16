@@ -3,15 +3,22 @@ package com.migratrack.app.navigation
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +30,7 @@ import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.NavHost
@@ -46,6 +54,8 @@ import com.migratrack.app.ui.components.LocalBottomBarInset
 import com.migratrack.app.ui.components.Tab
 import com.migratrack.app.ui.components.TabBar
 import com.migratrack.app.ui.components.TabBarHeight
+import com.migratrack.app.ui.components.TabRail
+import com.migratrack.app.ui.components.TabRailWidth
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.domain.model.EpisodeId
@@ -77,6 +87,7 @@ data class EpisodeRoute(val episodeId: String? = null, val date: String? = null)
  * Tabs with a shared push stack, as a UITabBarController hosting navigation controllers.
  * The tab bar floats over the NavHost, so a pushed screen slides in under it and the
  * system edge swipe pops it. Baseline editors hide the bar, like hidesBottomBarWhenPushed.
+ * In a window wider than tall the bar is a [TabRail] beside the NavHost instead.
  */
 @Composable
 fun MainScaffold() {
@@ -86,6 +97,7 @@ fun MainScaffold() {
     val entry by navController.currentBackStackEntryAsState()
     val tabBarVisible = entry?.destination?.hasRoute<EditBaselineRoute>() != true
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val endInset = WindowInsets.safeDrawing.asPaddingValues().calculateEndPadding(LocalLayoutDirection.current)
 
     LaunchedEffect(banner) {
         if (banner != null) {
@@ -94,9 +106,23 @@ fun MainScaffold() {
         }
     }
 
-    Box(Modifier.fillMaxSize()) {
-        CompositionLocalProvider(LocalBottomBarInset provides if (tabBarVisible) TabBarHeight + bottomInset else 0.dp) {
-            NavHost(navController, startDestination = MainRoute) {
+    BoxWithConstraints(Modifier.fillMaxSize()) {
+        val useRail = maxWidth > maxHeight
+        val railSpace = maxOf(TabRailWidth, endInset)
+        val railWidth = if (useRail && tabBarVisible) railSpace else 0.dp
+        val bottomBarInset = if (!useRail && tabBarVisible) TabBarHeight + bottomInset else 0.dp
+        val railInsets = PaddingValues(end = railWidth)
+        val selectTab: (Tab) -> Unit = { tab ->
+            selectedTab = tab
+            navController.popBackStack(MainRoute, inclusive = false)
+        }
+
+        CompositionLocalProvider(LocalBottomBarInset provides bottomBarInset) {
+            NavHost(
+                navController,
+                startDestination = MainRoute,
+                modifier = Modifier.padding(railInsets).consumeWindowInsets(railInsets),
+            ) {
                 composable<MainRoute> {
                     TabContent(
                         tab = selectedTab,
@@ -139,18 +165,21 @@ fun MainScaffold() {
         }
 
         AnimatedVisibility(
-            visible = tabBarVisible,
+            visible = tabBarVisible && !useRail,
             enter = slideInVertically { it },
             exit = slideOutVertically { it },
             modifier = Modifier.align(Alignment.BottomCenter),
         ) {
-            TabBar(
-                selected = selectedTab,
-                onSelect = { tab ->
-                    selectedTab = tab
-                    navController.popBackStack(MainRoute, inclusive = false)
-                },
-            )
+            TabBar(selected = selectedTab, onSelect = selectTab)
+        }
+
+        AnimatedVisibility(
+            visible = tabBarVisible && useRail,
+            enter = slideInHorizontally { it },
+            exit = slideOutHorizontally { it },
+            modifier = Modifier.align(Alignment.CenterEnd),
+        ) {
+            TabRail(selected = selectedTab, onSelect = selectTab, modifier = Modifier.width(railSpace))
         }
 
         AnimatedVisibility(
@@ -158,6 +187,8 @@ fun MainScaffold() {
             enter = slideInVertically { -it } + fadeIn(),
             exit = slideOutVertically { -it } + fadeOut(),
             modifier = Modifier.align(Alignment.TopCenter)
+                .padding(railInsets)
+                .consumeWindowInsets(railInsets)
                 .padding(top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + 8.dp),
         ) {
             Banner(banner.orEmpty(), Symbols.CheckCircle, MtColors.Cyan)
