@@ -126,7 +126,7 @@ The screens do not show complications. The project owner chose the rest:
 
 The first designs showed the pain-free days in rings like the Apple Activity rings: in the app icon, on the welcome screen, on the Summary and on the watch. App Review guideline 5.2.5 and the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/activity-rings) do not allow this. The project owner chose these replacements:
 
-- **The app icon is a diary of 12 day dots.** Three pink dots are attack days. The iPhone and the watch use the same icon.
+- **The app icon is a diary of 25 day dots in a 5 × 5 grid.** One bright pink dot with a glow is an attack day. The iPhone, the watch and the website use the same icon.
 - **The Summary shows a "Last 30 days" card.** It shows the pain-free days as "6 of 13 tracked days" and a strip of 30 day dots, oldest first, with today at the end. Pink is an attack day and green is a pain-free day, as in Insights. Gray is a day before you started tracking. The card also shows last night's sleep.
 - **No combined score.** The "Biometric balance" score mixed the pain-free share with a sleep score that had no stated method, and showed 100 on the first day. The card now shows only counts.
 - **A doctor reminder under Log Migraine Episode and under the button of the last onboarding step**: "MigraTrack is a diary, not medical advice." It follows guideline 1.4.1. Onboarding also does not say "calibrate": step 2 is "Your Triggers".

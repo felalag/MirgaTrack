@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" rx="224" fill="#0f0f0f"/>
+  <defs>
+    <filter id="glow" x="-200%" y="-200%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <g fill="#FF8093">
+    <circle cx="292" cy="292" r="44"/>
+    <circle cx="402" cy="292" r="44"/>
+    <circle cx="512" cy="292" r="44"/>
+    <circle cx="622" cy="292" r="44"/>
+    <circle cx="732" cy="292" r="44"/>
+    <circle cx="292" cy="402" r="44"/>
+    <circle cx="402" cy="402" r="44"/>
+    <circle cx="512" cy="402" r="44"/>
+    <circle cx="622" cy="402" r="44"/>
+    <circle cx="732" cy="402" r="44"/>
+    <circle cx="292" cy="512" r="44"/>
+    <circle cx="402" cy="512" r="44"/>
+    <circle cx="512" cy="512" r="44"/>
+    <circle cx="622" cy="512" r="44"/>
+    <circle cx="732" cy="512" r="44"/>
+    <circle cx="292" cy="622" r="44"/>
+    <circle cx="402" cy="622" r="44"/>
+    <circle cx="512" cy="622" r="44"/>
+    <circle cx="622" cy="622" r="44"/>
+    <circle cx="732" cy="622" r="44"/>
+    <circle cx="292" cy="732" r="44"/>
+    <circle cx="402" cy="732" r="44"/>
+    <circle cx="512" cy="732" r="44"/>
+    <circle cx="622" cy="732" r="44"/>
+    <circle cx="732" cy="732" r="44"/>
+  </g>
+  <circle cx="622" cy="402" r="70" fill="#FF2D55" opacity="0.22" filter="url(#glow)"/>
+  <circle cx="622" cy="402" r="44" fill="#FF2D55"/>
+</svg>
