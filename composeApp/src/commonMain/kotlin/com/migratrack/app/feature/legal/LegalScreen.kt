@@ -9,12 +9,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.legal_privacy_policy
+import com.migratrack.app.generated.resources.legal_terms_of_service
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 /** A document that the welcome screen and Settings link to. The text ships with the app, so it opens offline. */
 @Composable
@@ -22,7 +26,7 @@ fun LegalScreen(document: LegalDocument, onBack: () -> Unit) {
     val text by produceState<LegalText?>(null, document) {
         value = parseLegalMarkdown(Res.readBytes(document.resourcePath).decodeToString())
     }
-    Page(title = document.title, onBack = onBack, spacing = MtSpacing.md) {
+    Page(title = stringResource(document.title), onBack = onBack, spacing = MtSpacing.md) {
         val loaded = text ?: return@Page
         loaded.intro.forEach { MtText(it, MtTheme.type.subhead, color = MtColors.TextSecondary) }
         loaded.sections.forEach { section ->
@@ -37,9 +41,9 @@ fun LegalScreen(document: LegalDocument, onBack: () -> Unit) {
 }
 
 /** The texts live in docs/legal, which GitHub Pages also publishes, so the app and the website show the same words. */
-enum class LegalDocument(val title: String, val resourcePath: String) {
-    PrivacyPolicy("Privacy Policy", "files/privacy-policy.md"),
-    TermsOfService("Terms of Service", "files/terms-of-service.md"),
+enum class LegalDocument(val title: StringResource, val resourcePath: String) {
+    PrivacyPolicy(Res.string.legal_privacy_policy, "files/privacy-policy.md"),
+    TermsOfService(Res.string.legal_terms_of_service, "files/terms-of-service.md"),
 }
 
 class LegalSection(val heading: String, val paragraphs: List<String>)

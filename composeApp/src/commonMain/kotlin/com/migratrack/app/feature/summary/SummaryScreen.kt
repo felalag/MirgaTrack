@@ -32,6 +32,27 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_intensity_of_ten
+import com.migratrack.app.generated.resources.common_last_30_days
+import com.migratrack.app.generated.resources.common_log_migraine_episode
+import com.migratrack.app.generated.resources.common_medical_disclaimer
+import com.migratrack.app.generated.resources.common_today
+import com.migratrack.app.generated.resources.summary_last_episode
+import com.migratrack.app.generated.resources.summary_last_episode_none
+import com.migratrack.app.generated.resources.summary_of_tracked_days
+import com.migratrack.app.generated.resources.summary_pain_free_a11y
+import com.migratrack.app.generated.resources.summary_sleep_caption
+import com.migratrack.app.generated.resources.summary_sleep_connect_body
+import com.migratrack.app.generated.resources.summary_sleep_connect_button
+import com.migratrack.app.generated.resources.summary_sleep_connect_title
+import com.migratrack.app.generated.resources.summary_sleep_hint
+import com.migratrack.app.generated.resources.summary_sleep_last_night
+import com.migratrack.app.generated.resources.summary_sleep_not_recorded
+import com.migratrack.app.generated.resources.summary_today_date
+import com.migratrack.app.generated.resources.summary_tracking_start_note
+import com.migratrack.app.generated.resources.summary_without_logged_episode
+import com.migratrack.app.generated.resources.tab_summary
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
@@ -55,6 +76,8 @@ import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEpisode: (EpisodeId) -> Unit) {
@@ -68,15 +91,15 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
         lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) { viewModel.refreshSleep() }
     }
 
-    Page(title = "Summary", onSettings = onOpenSettings) {
+    Page(title = stringResource(Res.string.tab_summary), onSettings = onOpenSettings) {
         val current = state ?: return@Page
         val snapshot = current.snapshot
-        SectionCaption("Today, ${DateText.monthDay(snapshot.today)}")
+        SectionCaption(stringResource(Res.string.summary_today_date, DateText.monthDay(snapshot.today)))
         LastThirtyDaysCard(snapshot, current.sleep)
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
-            PrimaryButton("Log Migraine Episode", onClick = onLogEpisode, icon = Symbols.AddCircle)
+            PrimaryButton(stringResource(Res.string.common_log_migraine_episode), onClick = onLogEpisode, icon = Symbols.AddCircle)
             MtText(
-                "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment.",
+                stringResource(Res.string.common_medical_disclaimer),
                 MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
                 Modifier.fillMaxWidth().padding(horizontal = MtSpacing.sm),
                 color = MtColors.TextSecondary,
@@ -91,34 +114,38 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
 @Composable
 private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
     Card(color = MtColors.CardRaised, radius = MtRadius.xl, contentPadding = PaddingValues(MtSpacing.md)) {
-        val trackedDays = "${snapshot.trackedDays} tracked ${if (snapshot.trackedDays == 1) "day" else "days"}"
-        val summary = "${snapshot.painFreeDays} of $trackedDays without a logged episode in the last 30 days"
+        val summary = pluralStringResource(
+            Res.plurals.summary_pain_free_a11y,
+            snapshot.trackedDays,
+            snapshot.painFreeDays,
+            snapshot.trackedDays,
+        )
         Column(Modifier.clearAndSetSemantics { contentDescription = summary }) {
-            SectionCaption("Last 30 days", modifier = Modifier.padding(start = 0.dp))
+            SectionCaption(stringResource(Res.string.common_last_30_days), modifier = Modifier.padding(start = 0.dp))
             Spacer(Modifier.height(MtSpacing.xs))
             Row(verticalAlignment = Alignment.Bottom) {
                 MtText(snapshot.painFreeDays.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
                 MtText(
-                    " of $trackedDays",
+                    " " + pluralStringResource(Res.plurals.summary_of_tracked_days, snapshot.trackedDays, snapshot.trackedDays),
                     MtTheme.type.headline,
                     color = MtColors.TextBody,
                     modifier = Modifier.padding(bottom = 8.dp),
                 )
             }
-            MtText("without a logged episode", MtTheme.type.subhead, color = MtColors.TextSecondary)
+            MtText(stringResource(Res.string.summary_without_logged_episode), MtTheme.type.subhead, color = MtColors.TextSecondary)
             Spacer(Modifier.height(MtSpacing.md))
             DayStrip(snapshot.days.map { it.toStripDay() })
             Spacer(Modifier.height(6.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 MtText(DateText.monthDay(snapshot.days.first().date), MtTheme.type.subhead, color = MtColors.TextSecondary)
-                MtText("Today", MtTheme.type.subhead, color = MtColors.TextSecondary)
+                MtText(stringResource(Res.string.common_today), MtTheme.type.subhead, color = MtColors.TextSecondary)
             }
             Spacer(Modifier.height(MtSpacing.sm))
             DayStripLegend()
             if (snapshot.trackedDays < SummaryCalculator.WINDOW_DAYS) {
                 Spacer(Modifier.height(MtSpacing.sm))
                 MtText(
-                    "Counted from the day you started tracking. Days before it are not tracked.",
+                    stringResource(Res.string.summary_tracking_start_note),
                     MtTheme.type.subhead,
                     color = MtColors.Caption,
                 )
@@ -140,14 +167,14 @@ private fun SleepRow(sleep: SleepSummary?) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.BedtimeFilled, tint = MtColors.Green, size = 18.dp)
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText("Sleep last night", MtTheme.type.body, color = MtColors.TextBody, modifier = Modifier.weight(1f))
+            MtText(stringResource(Res.string.summary_sleep_last_night), MtTheme.type.body, color = MtColors.TextBody, modifier = Modifier.weight(1f))
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText(asleep?.let(::formatHoursMinutes) ?: "Not recorded", MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
+            MtText(asleep?.let { formatHoursMinutes(it) } ?: stringResource(Res.string.summary_sleep_not_recorded), MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
         }
         if (asleep == null) {
             Spacer(Modifier.height(4.dp))
             MtText(
-                "Wear Apple Watch to bed or track sleep in the Health app. If you turned off access, enable it in Settings › Health.",
+                stringResource(Res.string.summary_sleep_hint),
                 MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
                 color = MtColors.TextSecondary,
             )
@@ -160,7 +187,7 @@ private fun SleepHeader() {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Icon(Symbols.BedtimeFilled, tint = MtColors.Green, size = 20.dp)
         Spacer(Modifier.width(MtSpacing.xs))
-        SectionCaption("Sleep")
+        SectionCaption(stringResource(Res.string.summary_sleep_caption))
     }
 }
 
@@ -169,15 +196,15 @@ private fun SleepConnectCard(onConnect: () -> Unit) {
     Card(color = MtColors.CardRaised) {
         SleepHeader()
         Spacer(Modifier.height(MtSpacing.sm))
-        MtText("See last night's sleep on the Summary", MtTheme.type.headline)
+        MtText(stringResource(Res.string.summary_sleep_connect_title), MtTheme.type.headline)
         Spacer(Modifier.height(4.dp))
         MtText(
-            "MigraTrack reads last night's sleep from Apple Health. The data stays on this iPhone.",
+            stringResource(Res.string.summary_sleep_connect_body),
             MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal),
             color = MtColors.TextSecondary,
         )
         Spacer(Modifier.height(MtSpacing.md))
-        SecondaryButton("Connect Apple Health", onClick = onConnect, icon = Symbols.BedtimeFilled, iconTint = MtColors.Green)
+        SecondaryButton(stringResource(Res.string.summary_sleep_connect_button), onClick = onConnect, icon = Symbols.BedtimeFilled, iconTint = MtColors.Green)
     }
 }
 
@@ -197,15 +224,15 @@ private fun LastEventCard(episode: Episode?, timeZone: TimeZone, onClick: (Episo
         }
         Spacer(Modifier.width(MtSpacing.sm))
         Column(Modifier.weight(1f)) {
-            SectionCaption("Last Episode", modifier = Modifier.padding(start = 0.dp))
+            SectionCaption(stringResource(Res.string.summary_last_episode), modifier = Modifier.padding(start = 0.dp))
             val date = episode?.startedAt?.toLocalDateTime(timeZone)?.date
-            MtText(date?.let(DateText::monthDay) ?: "None yet", MtTheme.type.headline, color = MtColors.TextPrimary)
+            MtText(date?.let(DateText::monthDay) ?: stringResource(Res.string.summary_last_episode_none), MtTheme.type.headline, color = MtColors.TextPrimary)
         }
         if (episode != null) {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 val symptom = episode.symptoms.minByOrNull { it.ordinal }
                 if (symptom != null) EventChip(symptom.shortTitle, symptom.icon)
-                EventChip("Intensity ${episode.intensity.value}/10", null)
+                EventChip(stringResource(Res.string.common_intensity_of_ten, episode.intensity.value), null)
             }
         }
     }

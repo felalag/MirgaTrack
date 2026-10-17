@@ -29,10 +29,17 @@ import androidx.compose.ui.semantics.setProgress
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.pain_scale_high
+import com.migratrack.app.generated.resources.pain_scale_label
+import com.migratrack.app.generated.resources.pain_scale_low
+import com.migratrack.app.generated.resources.pain_scale_middle
+import com.migratrack.app.generated.resources.pain_scale_value
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.model.PainIntensity
 import kotlin.math.roundToInt
+import org.jetbrains.compose.resources.stringResource
 
 private val DimGreen = Color(0xFF3C5222)
 private val DimSlate = Color(0xFF34464A)
@@ -55,14 +62,16 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
         }
     }
 
+    val label = stringResource(Res.string.pain_scale_label)
+    val state = stringResource(Res.string.pain_scale_value, value.value)
     Column(modifier, verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
                 .semantics {
-                    contentDescription = "Pain intensity"
-                    stateDescription = "${value.value} of 10"
+                    contentDescription = label
+                    stateDescription = state
                     setProgress { target ->
                         select(target.roundToInt())
                         true
@@ -84,7 +93,11 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
             }
         }
         Row(Modifier.fillMaxWidth().padding(horizontal = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-            listOf("1 Subdued", "5 Noticeable", "10 Disabling").forEach {
+            listOf(
+                stringResource(Res.string.pain_scale_low, 1),
+                stringResource(Res.string.pain_scale_middle, 5),
+                stringResource(Res.string.pain_scale_high, 10),
+            ).forEach {
                 MtText(it, MtTheme.type.subhead, color = MtColors.TextSecondary)
             }
         }

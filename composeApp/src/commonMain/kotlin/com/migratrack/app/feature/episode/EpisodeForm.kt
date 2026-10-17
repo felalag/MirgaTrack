@@ -22,6 +22,18 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_add_trigger
+import com.migratrack.app.generated.resources.common_clear
+import com.migratrack.app.generated.resources.common_possible_triggers
+import com.migratrack.app.generated.resources.episode_acute_therapy
+import com.migratrack.app.generated.resources.episode_add_medication_row
+import com.migratrack.app.generated.resources.episode_aura_symptoms
+import com.migratrack.app.generated.resources.episode_cranial_epicenter
+import com.migratrack.app.generated.resources.episode_pain_intensity_index
+import com.migratrack.app.generated.resources.episode_start
+import com.migratrack.app.generated.resources.episode_start_now
+import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.components.AddRow
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MedicationCard
@@ -32,7 +44,6 @@ import com.migratrack.app.ui.components.SelectableCapsule
 import com.migratrack.app.ui.components.TextAction
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
-import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
@@ -47,6 +58,7 @@ import com.migratrack.domain.usecase.EpisodeDraft
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.stringResource
 
 /** The cards of the Log Episode and Edit Episode screens, without the buttons under them. */
 @OptIn(ExperimentalLayoutApi::class)
@@ -62,13 +74,13 @@ fun ColumnScope.EpisodeFormFields(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.E911Emergency, tint = MtColors.BrandLabel, size = 20.dp)
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText("PAIN INTENSITY INDEX", MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption)
+            MtText(stringResource(Res.string.episode_pain_intensity_index).uppercase(), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption)
         }
         Spacer(Modifier.height(MtSpacing.md))
         PainScale(draft.intensity, viewModel::setIntensity)
     }
 
-    FormSection("Cranial Epicenter", Symbols.CenterFocusStrong, MtColors.Amber, onClear = viewModel::clearRegion) {
+    FormSection(stringResource(Res.string.episode_cranial_epicenter), Symbols.CenterFocusStrong, MtColors.Amber, onClear = viewModel::clearRegion) {
         CranialRegion.entries.chunked(2).forEach { pair ->
             // Large text wraps a title to two lines; both tiles of a pair keep the same height.
             Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
@@ -79,7 +91,7 @@ fun ColumnScope.EpisodeFormFields(
         }
     }
 
-    FormSection("Aura & Sensory Phenotypes", Symbols.Sensors, MtColors.Cyan, onClear = viewModel::clearSymptoms) {
+    FormSection(stringResource(Res.string.episode_aura_symptoms), Symbols.Sensors, MtColors.Cyan, onClear = viewModel::clearSymptoms) {
         FlowRow(horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm), verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             Symptom.entries.forEach { symptom ->
                 SelectableCapsule(symptom.title, symptom.icon, symptom in draft.symptoms, { viewModel.toggleSymptom(symptom) })
@@ -88,7 +100,7 @@ fun ColumnScope.EpisodeFormFields(
     }
 
     // Violet is the specification's accent for trigger categorization; a chosen capsule takes its category color.
-    FormSection("Possible Triggers", Symbols.Bolt, MtColors.Purple, onClear = viewModel::clearTriggers) {
+    FormSection(stringResource(Res.string.common_possible_triggers), Symbols.Bolt, MtColors.Purple, onClear = viewModel::clearTriggers) {
         val noted = draft.triggers.map { it.id }.toSet()
         val shown = baselineTriggers + draft.triggers.filterNot { trigger -> baselineTriggers.any { it.id == trigger.id } }
         if (shown.isNotEmpty()) {
@@ -98,17 +110,17 @@ fun ColumnScope.EpisodeFormFields(
                 }
             }
         }
-        AddRow("Add Trigger", MtColors.Purple, onClick = viewModel::addTrigger)
+        AddRow(stringResource(Res.string.common_add_trigger), MtColors.Purple, onClick = viewModel::addTrigger)
     }
 
-    FormSection("Acute Abortive Therapy", Symbols.Pill, MtColors.Green, onClear = viewModel::clearMedications) {
+    FormSection(stringResource(Res.string.episode_acute_therapy), Symbols.Pill, MtColors.Green, onClear = viewModel::clearMedications) {
         draft.medications.forEach { medication ->
             MedicationCard(medication.displayName, medication.drugClass, onRemove = { viewModel.removeMedication(medication) })
         }
-        AddRow("Add Medication / Hydration Electrolytes", MtColors.Green, onClick = viewModel::addMedication)
+        AddRow(stringResource(Res.string.episode_add_medication_row), MtColors.Green, onClick = viewModel::addMedication)
     }
 
-    val start = draft.startedAt?.let { DateText.dayAndTime(it.toLocalDateTime(timeZone), today) } ?: "Now"
+    val start = draft.startedAt?.let { DateText.dayAndTime(it.toLocalDateTime(timeZone), today) } ?: stringResource(Res.string.episode_start_now)
     StartRow(start, onClick = viewModel::pickStart)
 }
 
@@ -125,7 +137,7 @@ private fun FormSection(
             Icon(icon, tint = accent, size = 20.dp, modifier = Modifier.glow(accent, 8.dp, alpha = 0.5f))
             Spacer(Modifier.width(MtSpacing.sm))
             MtText(title, MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.weight(1f).semantics { heading() })
-            TextAction("Clear", accent, onClear)
+            TextAction(stringResource(Res.string.common_clear), accent, onClear)
         }
         Spacer(Modifier.height(MtSpacing.sm))
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm), content = content)
@@ -145,7 +157,7 @@ private fun StartRow(value: String, onClick: () -> Unit) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.Schedule, tint = MtColors.Purple, size = 20.dp, modifier = Modifier.glow(MtColors.Purple, 8.dp, alpha = 0.5f))
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText("Episode Start", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.weight(1f))
+            MtText(stringResource(Res.string.episode_start), MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.weight(1f))
             MtText(value, MtTheme.type.subhead, color = MtColors.TextSecondary, maxLines = 1)
             Icon(Symbols.ChevronRight, tint = MtColors.TextSecondary.copy(alpha = 0.6f), size = 22.dp)
         }

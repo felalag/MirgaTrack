@@ -1,10 +1,34 @@
 package com.migratrack.app.ui
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.AnnotatedString
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.duration_hours_minutes
+import com.migratrack.app.generated.resources.duration_minutes
 import kotlin.time.Duration
+import org.jetbrains.compose.resources.stringResource
 
 /** "7 h 20 min", or "45 min" under an hour. */
+@Composable
 fun formatHoursMinutes(duration: Duration): String {
     val hours = duration.inWholeHours
     val minutes = duration.inWholeMinutes % 60
-    return if (hours == 0L) "$minutes min" else "$hours h $minutes min"
+    return if (hours == 0L) {
+        stringResource(Res.string.duration_minutes, minutes)
+    } else {
+        stringResource(Res.string.duration_hours_minutes, hours, minutes)
+    }
 }
+
+/** Appends [template] and lets [placeholder] fill each "%N$s", so a translation can move a link or a styled part. */
+fun AnnotatedString.Builder.appendWithPlaceholders(template: String, placeholder: AnnotatedString.Builder.(index: Int) -> Unit) {
+    var start = 0
+    for (match in PlaceholderPattern.findAll(template)) {
+        append(template.substring(start, match.range.first))
+        placeholder(match.groupValues[1].toInt())
+        start = match.range.last + 1
+    }
+    append(template.substring(start))
+}
+
+private val PlaceholderPattern = Regex("%(\\d+)\\\$s")

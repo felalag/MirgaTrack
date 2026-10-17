@@ -40,7 +40,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.migratrack.app.feature.episode.EpisodeEditorScreen
 import com.migratrack.app.feature.episode.EpisodeTarget
-import com.migratrack.app.feature.episode.SAVED_MESSAGE
 import com.migratrack.app.feature.export.ExportScreen
 import com.migratrack.app.feature.insights.InsightsScreen
 import com.migratrack.app.feature.legal.LegalDocument
@@ -49,6 +48,8 @@ import com.migratrack.app.feature.log.LogEpisodeScreen
 import com.migratrack.app.feature.onboarding.BaselineEditor
 import com.migratrack.app.feature.settings.SettingsScreen
 import com.migratrack.app.feature.summary.SummaryScreen
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.episode_saved_banner
 import com.migratrack.app.ui.components.Banner
 import com.migratrack.app.ui.components.LocalBottomBarInset
 import com.migratrack.app.ui.components.Tab
@@ -62,6 +63,8 @@ import com.migratrack.domain.model.EpisodeId
 import kotlinx.coroutines.delay
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 @Serializable
 data object MainRoute
@@ -93,7 +96,7 @@ data class EpisodeRoute(val episodeId: String? = null, val date: String? = null)
 fun MainScaffold() {
     val navController = rememberNavController()
     var selectedTab by rememberSaveable { mutableStateOf(Tab.Summary) }
-    var banner by remember { mutableStateOf<String?>(null) }
+    var banner by remember { mutableStateOf<StringResource?>(null) }
     val entry by navController.currentBackStackEntryAsState()
     val tabBarVisible = entry?.destination?.hasRoute<EditBaselineRoute>() != true
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
@@ -131,7 +134,7 @@ fun MainScaffold() {
                         openEpisode = { route -> navController.navigate(route) },
                         onEpisodeSaved = {
                             selectedTab = Tab.Summary
-                            banner = SAVED_MESSAGE
+                            banner = Res.string.episode_saved_banner
                         },
                     )
                 }
@@ -191,7 +194,7 @@ fun MainScaffold() {
                 .consumeWindowInsets(railInsets)
                 .padding(top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + 8.dp),
         ) {
-            Banner(banner.orEmpty(), Symbols.CheckCircle, MtColors.Cyan)
+            Banner(banner?.let { stringResource(it) }.orEmpty(), Symbols.CheckCircle, MtColors.Cyan)
         }
     }
 }

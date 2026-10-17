@@ -31,12 +31,15 @@ import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.medication_remove
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import org.jetbrains.compose.resources.stringResource
 
 enum class SelectionStyle {
     /** Step 1: round icon that fills with the accent, small check on the right. */
@@ -200,6 +203,7 @@ fun SelectableCapsule(
 @Composable
 fun MedicationCard(name: String, detail: String, onRemove: () -> Unit, modifier: Modifier = Modifier) {
     val shape = RoundedCornerShape(MtRadius.md)
+    val removeLabel = stringResource(Res.string.medication_remove, name)
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -219,7 +223,7 @@ fun MedicationCard(name: String, detail: String, onRemove: () -> Unit, modifier:
             MtText(detail, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary, maxLines = 1)
         }
         Box(
-            Modifier.size(MtSpacing.minTouch).semantics { contentDescription = "Remove $name" }.pressable(onClick = onRemove),
+            Modifier.size(MtSpacing.minTouch).semantics { contentDescription = removeLabel }.pressable(onClick = onRemove),
             contentAlignment = Alignment.Center,
         ) {
             Icon(Symbols.Close, tint = MtColors.TextSecondary, size = 18.dp)

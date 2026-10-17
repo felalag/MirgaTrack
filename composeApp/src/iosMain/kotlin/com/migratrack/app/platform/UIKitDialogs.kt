@@ -1,8 +1,15 @@
 package com.migratrack.app.platform
 
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_cancel
+import com.migratrack.app.generated.resources.common_ok
+import com.migratrack.app.generated.resources.common_save
+import kotlin.coroutines.resume
+import kotlin.time.Instant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
+import org.jetbrains.compose.resources.getString
 import platform.Foundation.NSDate
 import platform.Foundation.dateWithTimeIntervalSince1970
 import platform.Foundation.timeIntervalSince1970
@@ -30,58 +37,74 @@ import platform.UIKit.modalInPresentation
 import platform.UIKit.navigationItem
 import platform.UIKit.sheetPresentationController
 import platform.UIKit.systemGroupedBackgroundColor
-import kotlin.coroutines.resume
-import kotlin.time.Instant
 
 /** Alerts, prompts, and action sheets with UIAlertController, so they match the system exactly. */
 class UIKitDialogs : SystemDialogs {
 
-    override suspend fun confirm(title: String, message: String?, confirmTitle: String, destructive: Boolean): Boolean =
-        present { resume ->
+    override suspend fun confirm(title: String, message: String?, confirmTitle: String, destructive: Boolean): Boolean {
+        val cancel = getString(Res.string.common_cancel)
+        return present { resume ->
             UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleAlert).apply {
                 val confirmAction = UIAlertAction.actionWithTitle(
                     confirmTitle,
                     if (destructive) UIAlertActionStyleDestructive else UIAlertActionStyleDefault,
                 ) { resume(true) }
-                if (destructive || confirmTitle != "OK") {
-                    addAction(UIAlertAction.actionWithTitle("Cancel", UIAlertActionStyleCancel) { resume(false) })
-                }
+                addAction(UIAlertAction.actionWithTitle(cancel, UIAlertActionStyleCancel) { resume(false) })
                 addAction(confirmAction)
                 if (!destructive) preferredAction = confirmAction
             }
         } ?: false
+    }
+
+    override suspend fun alert(title: String, message: String?) {
+        val ok = getString(Res.string.common_ok)
+        present<Unit> { resume ->
+            UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleAlert).apply {
+                val okAction = UIAlertAction.actionWithTitle(ok, UIAlertActionStyleDefault) { resume(Unit) }
+                addAction(okAction)
+                preferredAction = okAction
+            }
+        }
+    }
 
     override suspend fun prompt(
         title: String,
         message: String?,
         placeholder: String,
         initialValue: String,
-        confirmTitle: String,
-    ): String? = present { resume ->
-        UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleAlert).apply {
-            addTextFieldWithConfigurationHandler { field ->
-                field?.placeholder = placeholder
-                field?.text = initialValue
-                field?.autocapitalizationType = UITextAutocapitalizationType.UITextAutocapitalizationTypeSentences
-                field?.clearButtonMode = UITextFieldViewMode.UITextFieldViewModeWhileEditing
+        confirmTitle: String?,
+    ): String? {
+        val cancel = getString(Res.string.common_cancel)
+        val confirm = confirmTitle ?: getString(Res.string.common_save)
+        return present { resume ->
+            UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleAlert).apply {
+                addTextFieldWithConfigurationHandler { field ->
+                    field?.placeholder = placeholder
+                    field?.text = initialValue
+                    field?.autocapitalizationType = UITextAutocapitalizationType.UITextAutocapitalizationTypeSentences
+                    field?.clearButtonMode = UITextFieldViewMode.UITextFieldViewModeWhileEditing
+                }
+                addAction(UIAlertAction.actionWithTitle(cancel, UIAlertActionStyleCancel) { resume(null) })
+                val save = UIAlertAction.actionWithTitle(confirm, UIAlertActionStyleDefault) {
+                    val field = textFields?.firstOrNull() as? platform.UIKit.UITextField
+                    resume(field?.text.orEmpty())
+                }
+                addAction(save)
+                preferredAction = save
             }
-            addAction(UIAlertAction.actionWithTitle("Cancel", UIAlertActionStyleCancel) { resume(null) })
-            val save = UIAlertAction.actionWithTitle(confirmTitle, UIAlertActionStyleDefault) {
-                val field = textFields?.firstOrNull() as? platform.UIKit.UITextField
-                resume(field?.text.orEmpty())
-            }
-            addAction(save)
-            preferredAction = save
         }
     }
 
-    override suspend fun chooseAction(title: String?, message: String?, actions: List<SheetAction>): Int? = present { resume ->
-        UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleActionSheet).apply {
-            actions.forEachIndexed { index, action ->
-                val style = if (action.destructive) UIAlertActionStyleDestructive else UIAlertActionStyleDefault
-                addAction(UIAlertAction.actionWithTitle(action.title, style) { resume(index) })
+    override suspend fun chooseAction(title: String?, message: String?, actions: List<SheetAction>): Int? {
+        val cancel = getString(Res.string.common_cancel)
+        return present { resume ->
+            UIAlertController.alertControllerWithTitle(title, message, UIAlertControllerStyleActionSheet).apply {
+                actions.forEachIndexed { index, action ->
+                    val style = if (action.destructive) UIAlertActionStyleDestructive else UIAlertActionStyleDefault
+                    addAction(UIAlertAction.actionWithTitle(action.title, style) { resume(index) })
+                }
+                addAction(UIAlertAction.actionWithTitle(cancel, UIAlertActionStyleCancel) { resume(null) })
             }
-            addAction(UIAlertAction.actionWithTitle("Cancel", UIAlertActionStyleCancel) { resume(null) })
         }
     }
 

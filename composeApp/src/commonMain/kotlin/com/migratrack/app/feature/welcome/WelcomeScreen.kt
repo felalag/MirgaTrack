@@ -35,17 +35,29 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.migratrack.app.feature.legal.LegalDocument
 import com.migratrack.app.feature.summary.DayStrip
 import com.migratrack.app.feature.summary.StripDay
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_last_30_days
+import com.migratrack.app.generated.resources.welcome_agreement
+import com.migratrack.app.generated.resources.welcome_body
+import com.migratrack.app.generated.resources.welcome_example
+import com.migratrack.app.generated.resources.welcome_example_a11y
+import com.migratrack.app.generated.resources.welcome_get_started
+import com.migratrack.app.generated.resources.welcome_headline_doctor
+import com.migratrack.app.generated.resources.welcome_headline_patterns
+import com.migratrack.app.generated.resources.welcome_pain_free_days
+import com.migratrack.app.generated.resources.welcome_tagline
+import com.migratrack.app.ui.appendWithPlaceholders
 import com.migratrack.app.ui.components.BrandMark
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
@@ -56,6 +68,8 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
 /** First screen before onboarding. The app has no accounts, so one button starts the setup. */
 @Composable
@@ -81,14 +95,15 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                 Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                     BasicText(
                         buildAnnotatedString {
-                            append("Understand your patterns.\n")
-                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append("Bring the facts to your doctor.") }
+                            append(stringResource(Res.string.welcome_headline_patterns))
+                            append("\n")
+                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append(stringResource(Res.string.welcome_headline_doctor)) }
                         },
                         Modifier.fillMaxWidth().semantics { heading() },
                         style = MtTheme.type.largeTitle.copy(textAlign = TextAlign.Center),
                     )
                     MtText(
-                        "Track symptoms, spot possible triggers, and export your personal reports anytime.",
+                        stringResource(Res.string.welcome_body),
                         MtTheme.type.body,
                         Modifier.fillMaxWidth().padding(horizontal = MtSpacing.sm),
                         color = MtColors.TextSecondary,
@@ -100,7 +115,7 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                 Modifier.padding(top = MtSpacing.lg),
                 verticalArrangement = Arrangement.spacedBy(MtSpacing.md),
             ) {
-                PrimaryButton("Get Started", onClick = onGetStarted)
+                PrimaryButton(stringResource(Res.string.welcome_get_started), onClick = onGetStarted)
                 AgreementFooter(onOpenDocument)
             }
         }
@@ -114,19 +129,20 @@ private val SampleDays: List<StripDay> = List(30) { day ->
 @Composable
 private fun SampleStripCard(stripPadding: Dp) {
     val painFree = SampleDays.count { it == StripDay.PainFree }
+    val description = pluralStringResource(Res.plurals.welcome_example_a11y, painFree, painFree)
     Card(
         Modifier
             .fillMaxWidth()
-            .clearAndSetSemantics { contentDescription = "Example: $painFree pain-free days in the last 30 days" },
+            .clearAndSetSemantics { contentDescription = description },
         color = MtColors.CardRaised,
         radius = MtRadius.xl,
         bordered = true,
         contentPadding = PaddingValues(MtSpacing.md),
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            SectionCaption("Last 30 days", Modifier.weight(1f))
+            SectionCaption(stringResource(Res.string.common_last_30_days), Modifier.weight(1f))
             MtText(
-                "Example",
+                stringResource(Res.string.welcome_example),
                 MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold),
                 Modifier.clip(CircleShape).background(MtColors.Control).padding(horizontal = 10.dp, vertical = 3.dp),
                 color = MtColors.TextBody,
@@ -134,7 +150,7 @@ private fun SampleStripCard(stripPadding: Dp) {
         }
         Row(verticalAlignment = Alignment.Bottom) {
             MtText(painFree.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
-            MtText(" pain-free days", MtTheme.type.headline, color = MtColors.TextBody, modifier = Modifier.padding(bottom = 8.dp))
+            MtText(" " + pluralStringResource(Res.plurals.welcome_pain_free_days, painFree), MtTheme.type.headline, color = MtColors.TextBody, modifier = Modifier.padding(bottom = 8.dp))
         }
         Spacer(Modifier.height(MtSpacing.sm))
         DayStrip(SampleDays, Modifier.padding(horizontal = stripPadding))
@@ -153,7 +169,7 @@ private fun BrandRow() {
         Spacer(Modifier.width(12.dp))
         Column {
             MtText("MigraTrack", MtTheme.type.title2, color = MtColors.TextPrimary)
-            MtText("Personal Migraine & Trigger Tracker", MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
+            MtText(stringResource(Res.string.welcome_tagline), MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
         }
     }
 }
@@ -161,17 +177,22 @@ private fun BrandRow() {
 @Composable
 private fun AgreementFooter(onOpenDocument: (LegalDocument) -> Unit) {
     val linkStyles = TextLinkStyles(SpanStyle(color = MtColors.TextBody, textDecoration = TextDecoration.Underline))
+    val template = stringResource(Res.string.welcome_agreement)
+    val terms = stringResource(LegalDocument.TermsOfService.title)
+    val privacy = stringResource(LegalDocument.PrivacyPolicy.title)
     BasicText(
         buildAnnotatedString {
-            append("By continuing, you agree to ")
-            withLink(LinkAnnotation.Clickable("terms", linkStyles) { onOpenDocument(LegalDocument.TermsOfService) }) {
-                append(LegalDocument.TermsOfService.title)
+            // One sentence with placeholders, so a translation can put the two links in any order.
+            appendWithPlaceholders(template) { index ->
+                when (index) {
+                    1 -> withLink(LinkAnnotation.Clickable("terms", linkStyles) { onOpenDocument(LegalDocument.TermsOfService) }) {
+                        append(terms)
+                    }
+                    2 -> withLink(LinkAnnotation.Clickable("privacy", linkStyles) { onOpenDocument(LegalDocument.PrivacyPolicy) }) {
+                        append(privacy)
+                    }
+                }
             }
-            append(" and ")
-            withLink(LinkAnnotation.Clickable("privacy", linkStyles) { onOpenDocument(LegalDocument.PrivacyPolicy) }) {
-                append(LegalDocument.PrivacyPolicy.title)
-            }
-            append(".")
         },
         Modifier.fillMaxWidth().padding(horizontal = MtSpacing.md),
         style = MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal, color = MtColors.TextSecondary, textAlign = TextAlign.Center),
