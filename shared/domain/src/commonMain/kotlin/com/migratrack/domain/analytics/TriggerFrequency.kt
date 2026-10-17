@@ -15,6 +15,11 @@ data class TriggerFrequency(
     /** Most often noted first; ties in name order. */
     val counts: List<TriggerCount>,
 ) {
+    /** "1 of 3 episodes has no triggers noted": the noun follows the total, the verb the first number. */
+    val withoutTriggersText: String
+        get() = "$withoutTriggers of $episodes ${if (episodes == 1) "episode" else "episodes"} " +
+            "${if (withoutTriggers == 1) "has" else "have"} no triggers noted"
+
     companion object {
         fun of(episodes: List<Episode>): TriggerFrequency {
             // The newest episode gives the name, in case an older copy has an outdated one.

@@ -8,8 +8,11 @@ import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.pdf.TextStyle
 import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.ReportWorkbook
+import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.minus
+import kotlinx.datetime.number
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -93,6 +96,19 @@ class ReportTest {
     }
 
     @Test
+    fun disclaimerNeverFillsTheLastPageAlone() {
+        val days = (0 until 80).map { TODAY.minus(it, DateTimeUnit.DAY) }
+        for (count in 1..days.size) {
+            val canvas = RecordingRenderer()
+            ReportPdf.render(report(days.take(count).map { episode(it.day, it.month.number) }), canvas)
+
+            val lastPage = canvas.pageTexts.last().filterNot { it.startsWith("MigraTrack · Page") }
+            assertTrue(lastPage.size > 1, "$count episodes: the last page has only $lastPage")
+            assertTrue(canvas.maxContentBottom <= ReportPdf.PAGE_HEIGHT - 40f, "$count episodes: content ran into the footer")
+        }
+    }
+
+    @Test
     fun pdfLeavesOutTheChartWhenItIsSwitchedOff() {
         val canvas = RecordingRenderer()
         ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas)
@@ -115,7 +131,7 @@ class ReportTest {
         val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it) }
         assertTrue("Possible Triggers Noted" in on.texts)
         assertTrue("1 of 2 episodes (50%)" in on.texts)
-        assertTrue(on.texts.any { it.contains("do not show a cause") && it.contains("1 of 2 episodes have no triggers noted") })
+        assertTrue(on.texts.any { it.contains("do not show a cause") && it.contains("1 of 2 episodes has no triggers noted") })
         assertTrue("TRIGGERS" in on.texts)
 
         val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it) }
@@ -145,13 +161,17 @@ class ReportTest {
         var pages = 0
         var maxContentBottom = 0f
         val texts = mutableListOf<String>()
+        val pageTexts = mutableListOf<MutableList<String>>()
 
         override fun render(pageWidth: Float, pageHeight: Float, draw: (ReportCanvas) -> Unit): ByteArray {
             draw(this)
             return ByteArray(0)
         }
 
-        override fun beginPage() { pages++ }
+        override fun beginPage() {
+            pages++
+            pageTexts += mutableListOf<String>()
+        }
 
         override fun measureHeight(text: String, style: TextStyle, maxWidth: Float): Float {
             val charsPerLine = (maxWidth / (style.size * 0.5f)).toInt().coerceAtLeast(1)
@@ -160,6 +180,7 @@ class ReportTest {
 
         override fun drawText(text: String, style: TextStyle, x: Float, y: Float, maxWidth: Float) {
             texts += text
+            pageTexts.last() += text
             // The footer sits in the bottom margin on purpose.
             if (!text.startsWith("MigraTrack · Page")) {
                 maxContentBottom = maxOf(maxContentBottom, y + measureHeight(text, style, maxWidth))
