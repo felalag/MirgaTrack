@@ -62,6 +62,7 @@ import com.migratrack.app.generated.resources.onboarding_treatment_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_title
 import com.migratrack.app.generated.resources.onboarding_update_later
+import com.migratrack.app.navigation.navigateFrom
 import com.migratrack.app.navigation.popFrom
 import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.accent
@@ -112,10 +113,10 @@ fun OnboardingFlow(session: Int) {
     val viewModel = viewModel(key = "onboarding-$session") { BaselineFormViewModel(graph, editing = false) }
     val navController = rememberNavController()
     NavHost(navController, startDestination = WelcomeStep) {
-        composable<WelcomeStep> {
+        composable<WelcomeStep> { entry ->
             WelcomeScreen(
-                onGetStarted = { navController.navigate(DiagnosesStep) },
-                onOpenDocument = { navController.navigate(DocumentStep(it.name)) },
+                onGetStarted = { navController.navigateFrom(entry, DiagnosesStep) },
+                onOpenDocument = { navController.navigateFrom(entry, DocumentStep(it.name)) },
             )
         }
         composable<DocumentStep> { entry ->
@@ -123,7 +124,7 @@ fun OnboardingFlow(session: Int) {
         }
         composable<DiagnosesStep> { entry ->
             DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popFrom(entry) }, primaryLabel = stringResource(Res.string.onboarding_continue_to_triggers)) {
-                navController.navigate(TriggersStep)
+                navController.navigateFrom(entry, TriggersStep)
             }
         }
         composable<TriggersStep> { entry ->
@@ -133,7 +134,7 @@ fun OnboardingFlow(session: Int) {
                 onBack = { navController.popFrom(entry) },
                 primaryLabel = stringResource(Res.string.onboarding_continue_to_medications),
                 backLabel = stringResource(Res.string.onboarding_back_to_diagnoses),
-            ) { navController.navigate(TreatmentStep) }
+            ) { navController.navigateFrom(entry, TreatmentStep) }
         }
         composable<TreatmentStep> { entry ->
             TreatmentStepScreen(

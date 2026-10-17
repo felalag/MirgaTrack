@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-class PopFromTest {
+class EntryNavigationTest {
     @Serializable private data object Root
     @Serializable private data object First
     @Serializable private data object Second
@@ -55,5 +55,27 @@ class PopFromTest {
         nav.popFrom(nav.currentBackStackEntry!!)
 
         assertTrue(nav.currentDestination?.hasRoute<Root>() == true)
+    }
+
+    @Test
+    fun secondTapOnTheLeavingScreenDoesNotPushTwice() {
+        val nav = navController()
+        val root = nav.currentBackStackEntry!!
+
+        nav.navigateFrom(root, First)
+        nav.navigateFrom(root, First)
+        nav.popFrom(nav.currentBackStackEntry!!)
+
+        assertTrue(nav.currentDestination?.hasRoute<Root>() == true)
+    }
+
+    @Test
+    fun tapOnTheTopScreenPushes() {
+        val nav = navController()
+
+        nav.navigateFrom(nav.currentBackStackEntry!!, First)
+        nav.navigateFrom(nav.currentBackStackEntry!!, Second)
+
+        assertTrue(nav.currentDestination?.hasRoute<Second>() == true)
     }
 }

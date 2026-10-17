@@ -132,12 +132,12 @@ fun MainScaffold() {
                 startDestination = MainRoute,
                 modifier = Modifier.padding(railInsets).consumeWindowInsets(railInsets),
             ) {
-                composable<MainRoute> {
+                composable<MainRoute> { backStackEntry ->
                     TabContent(
                         tab = selectedTab,
-                        openSettings = { navController.navigate(SettingsRoute) },
+                        openSettings = { navController.navigateFrom(backStackEntry, SettingsRoute) },
                         openLog = { selectedTab = Tab.Log },
-                        openEpisode = { route -> navController.navigate(route) },
+                        openEpisode = { route -> navController.navigateFrom(backStackEntry, route) },
                         onEpisodeSaved = {
                             selectedTab = Tab.Summary
                             banner = Res.string.episode_saved_banner
@@ -157,8 +157,8 @@ fun MainScaffold() {
                 composable<SettingsRoute> { backStackEntry ->
                     SettingsScreen(
                         onBack = { navController.popFrom(backStackEntry) },
-                        onEditBaseline = { step -> navController.navigate(EditBaselineRoute(step)) },
-                        onOpenDocument = { document -> navController.navigate(LegalRoute(document.name)) },
+                        onEditBaseline = { step -> navController.navigateFrom(backStackEntry, EditBaselineRoute(step)) },
+                        onOpenDocument = { document -> navController.navigateFrom(backStackEntry, LegalRoute(document.name)) },
                     )
                 }
                 composable<LegalRoute> { backStackEntry ->
