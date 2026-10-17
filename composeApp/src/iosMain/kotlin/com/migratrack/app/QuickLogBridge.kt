@@ -7,14 +7,13 @@ import kotlin.coroutines.cancellation.CancellationException
  * the watch complication and Control Center control will call the same use case.
  */
 object QuickLogBridge {
-    /** Logs an episode from the baseline preset and returns a short summary for Siri to speak, or null before onboarding. */
+    /** Logs an episode from the baseline preset and returns what Siri reports, or null before onboarding. */
     @Throws(IllegalStateException::class, CancellationException::class)
-    suspend fun logEpisode(): String? {
+    suspend fun logEpisode(): QuickLogSummary? {
         val episode = appGraph.quickLog() ?: return null
-        val medications = episode.medications.joinToString(", ") { it.displayName }
-        return buildString {
-            append("intensity ${episode.intensity.value} of 10")
-            if (medications.isNotEmpty()) append(", with $medications")
-        }
+        return QuickLogSummary(episode.intensity.value, episode.medications.map { it.displayName })
     }
 }
+
+/** The facts of a quick log. Swift makes the sentence, so the String Catalog holds its translations. */
+class QuickLogSummary(val intensity: Int, val medications: List<String>)

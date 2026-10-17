@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%lld of %lld days pain-free" : {
+      "comment" : "Rectangular complication. %1$lld = pain-free days. %2$lld = tracked days; the plural form follows it. Max 24 characters.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld of %2$#@tracked@ pain-free"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg day"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "LOG" : {
+      "comment" : "Text under the plus in the small round complication. A verb. Max 4 characters."
+    },
+    "Log Migraine" : {
+      "comment" : "Name of the complication and the control in the watch face gallery, and their VoiceOver label. Max 14 characters."
+    },
+    "Open MigraTrack on iPhone" : {
+      "comment" : "Rectangular complication before the iPhone app sent its data. Max 24 characters."
+    },
+    "Opens the logger." : {
+      "comment" : "Description of the control in Control Center."
+    },
+    "Opens the logger. The rectangular style also shows your pain-free days." : {
+      "comment" : "Description of the complication in the watch face gallery."
+    },
+    "Pain-free days –" : {
+      "comment" : "Rectangular complication before the first sync. The dash stands for a missing number."
+    }
+  },
+  "version" : "1.0"
+}
