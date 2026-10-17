@@ -137,7 +137,7 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
                 Row(verticalAlignment = Alignment.Bottom) {
                     MtText(current.episodeCount.toString(), MtTheme.type.largeTitle)
                     Spacer(Modifier.width(MtSpacing.xs))
-                    MtText("events", MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 5.dp))
+                    MtText("episodes", MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 5.dp))
                 }
                 MtText("Episodes recorded", MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
             }
@@ -153,7 +153,7 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
         GroupedSection("Include in Export", background = MtColors.CardRaised) {
             val preferences = current.preferences
             ListRow(
-                title = "Medication Logs",
+                title = "Medication Intakes",
                 subtitle = "Dosages and usage totals",
                 icon = Symbols.Medication,
                 iconTint = MtColors.BrandLabel,
@@ -180,8 +180,8 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             )
             ListDivider(inset = false)
             ListRow(
-                title = "Pain Level Charts",
-                subtitle = "VAS 0–10 intensity timeline",
+                title = "Pain Intensity Charts",
+                subtitle = "Pain intensity timeline, 1–10",
                 icon = Symbols.StackedLineChart,
                 iconTint = MtColors.Pink,
                 iconBackground = MtColors.Control,

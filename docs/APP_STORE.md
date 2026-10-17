@@ -152,7 +152,7 @@ ONBOARDING (iPhone)
 4. Step 3: select an acute medication. Tap Finish Setup.
 
 LOG AN EPISODE
-On the Summary, tap Log Migraine Episode (or open the Log tab), change any field, and tap Save Episode Log. The Summary and Insights update at once. In Insights, tap the month button (for example "Oct 2026") to open the calendar, then tap a day to edit its episode.
+On the Summary, tap Log Migraine Episode (or open the Log tab), change any field, and tap Save Episode. The Summary and Insights update at once. In Insights, tap the month button (for example "Oct 2026") to open the calendar, then tap a day to edit its episode.
 
 HEALTHKIT
 On the Summary, tap Connect Apple Health and allow Sleep. The app only reads sleep analysis. It writes nothing to HealthKit. The sleep card shows last night's sleep. In the simulator, add a sleep sample in the Health app first.

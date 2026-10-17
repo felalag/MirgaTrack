@@ -142,7 +142,7 @@ The welcome screen comes from a design of the project owner. It follows `sign_in
 Additions that the screens imply but do not show:
 
 - **Step 3 of onboarding, "Treatment Blueprint".** Step 2 ends with "Continue to Medications", and Settings has a Treatment Blueprint row. The step follows the style of step 2.
-- **Edit and delete an episode.** Open the calendar in Insights and tap a day, or tap the Last Event card on Summary. A day with two episodes asks which one.
+- **Edit and delete an episode.** Open the calendar in Insights and tap a day, or tap the Last Episode card on Summary. A day with two episodes asks which one.
 - **Log a past episode.** Tap an empty day in the calendar, or change **Episode Start** at the bottom of the Log Episode form. The row opens the system date picker. The screens have no time field, but the calendar logs on past days and edits old episodes, so the form needs one.
 - **Move between months.** Swipe the calendar grid sideways, or tap the month title for month and year wheels.
 - **Edit your name.** Tap the name on the Settings profile card. The avatar shows initials, not a photo.

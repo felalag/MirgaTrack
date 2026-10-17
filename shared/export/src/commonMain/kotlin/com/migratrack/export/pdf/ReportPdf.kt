@@ -90,7 +90,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
             Triple(stats.episodes.toString(), "Episodes recorded", Palette.PINK),
             Triple(stats.migraineDays.toString(), "Migraine days", Palette.PINK),
             Triple(stats.painFreeDays.toString(), "Pain-free days", Palette.GREEN),
-            Triple(stats.averageIntensity?.toString() ?: "–", "Average pain /10", Palette.ORANGE),
+            Triple(stats.averageIntensity?.toString() ?: "–", "Average intensity /10", Palette.ORANGE),
         )
         val gap = 10f
         val tileWidth = (width - gap * (tiles.size - 1)) / tiles.size
@@ -152,7 +152,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
     fun painChart(report: ClinicalReport) {
         val chartHeight = 120f
         val axisWidth = 22f
-        sectionTitle("Pain Intensity Timeline (VAS 0–10)", Palette.PINK)
+        sectionTitle("Pain Intensity Timeline (1–10)", Palette.PINK)
         ensure(chartHeight + 44f)
         val chartLeft = left + axisWidth
         val chartWidth = width - axisWidth
@@ -266,7 +266,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
     }
 
     fun episodeLog(report: ClinicalReport) {
-        sectionTitle("Episode Log", Palette.ORANGE)
+        sectionTitle("Episodes", Palette.ORANGE)
         if (report.episodes.isEmpty()) {
             y += text("No episodes recorded in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
             return

@@ -217,7 +217,7 @@ suspend fun confirmDelete(graph: AppGraph, episode: Episode): Boolean {
     val choice = graph.services.dialogs.chooseAction(
         title = "${DateText.fullDate(dateTime.date)} at ${DateText.time(dateTime)}",
         message = "Intensity ${episode.intensity.value}/10. The episode leaves your history and reports.",
-        actions = listOf(SheetAction("Delete Episode Log", destructive = true)),
+        actions = listOf(SheetAction("Delete Episode", destructive = true)),
     )
     return choice == 0
 }

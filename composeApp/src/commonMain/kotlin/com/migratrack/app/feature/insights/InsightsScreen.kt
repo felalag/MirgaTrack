@@ -209,7 +209,7 @@ private val InsightsPeriod.shortLabel: String
     }
 
 private fun Insights.headline(): String {
-    val noun = if (attackCount == 1) "Attack" else "Attacks"
+    val noun = if (attackCount == 1) "Episode" else "Episodes"
     return when (period) {
         InsightsPeriod.Week -> if (includesToday) "$noun this Week" else "$noun in Week of ${DateText.monthDay(range.start)}"
         InsightsPeriod.Month -> "$noun in ${DateText.shortMonth(month.month)}"
@@ -282,7 +282,7 @@ private fun TrendBadge(percent: Int) {
             .background(MtColors.ControlHigh.copy(alpha = 0.8f))
             .padding(horizontal = 10.dp, vertical = 5.dp)
             .semantics(mergeDescendants = true) {
-                contentDescription = "${abs(percent)} percent ${if (fewer) "fewer" else "more"} attacks than the previous period"
+                contentDescription = "${abs(percent)} percent ${if (fewer) "fewer" else "more"} episodes than the previous period"
             },
         verticalAlignment = Alignment.CenterVertically,
     ) {

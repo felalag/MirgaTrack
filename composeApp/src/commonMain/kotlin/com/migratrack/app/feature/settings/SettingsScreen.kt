@@ -214,7 +214,7 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
                 .padding(MtSpacing.sm),
         ) {
             ProfileStat("Member", state.memberSince, MtColors.TextPrimary, Modifier.weight(1f))
-            ProfileStat("Logs", "${state.logCount} Logged", MtColors.BrandLabel, Modifier.weight(1f))
+            ProfileStat("Episodes", "${state.logCount} Logged", MtColors.BrandLabel, Modifier.weight(1f))
         }
     }
 }

@@ -194,7 +194,7 @@ private fun AttackDaysPill(count: Int) {
         Dot(MtColors.Pink, size = 8.dp)
         Spacer(Modifier.width(6.dp))
         MtText(
-            "$count Attack ${if (count == 1) "Day" else "Days"}",
+            "$count Migraine ${if (count == 1) "Day" else "Days"}",
             MtTheme.type.caption.copy(fontWeight = FontWeight.SemiBold, letterSpacing = MtTheme.type.subhead.letterSpacing),
             color = MtColors.TextPrimary,
             maxLines = 1,
@@ -299,8 +299,8 @@ private fun CalendarDay.spoken(): String {
     val detail = when {
         !inMonth || isFuture -> "not available"
         !isTracked -> "not tracked"
-        attacks == 0 -> "no attacks"
-        else -> "$attacks ${if (attacks == 1) "attack" else "attacks"}, peak ${peak?.value} of 10"
+        attacks == 0 -> "no episodes"
+        else -> "$attacks ${if (attacks == 1) "episode" else "episodes"}, peak ${peak?.value} of 10"
     }
     return "$prefix$name, $detail"
 }
@@ -349,7 +349,7 @@ private fun DayPreview(
             MtText(day.medications.joinToString(", ").ifEmpty { "None" }, MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
         }
         PrimaryButton("Edit Episode Details", onClick = { onEdit(day) }, icon = Symbols.Edit, height = 56.dp)
-        DestructiveButton("Delete Episode Log", onClick = { onDelete(day) })
+        DestructiveButton("Delete Episode", onClick = { onDelete(day) })
     }
 }
 

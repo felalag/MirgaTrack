@@ -93,7 +93,7 @@ class BaselineFormViewModel(private val graph: AppGraph, private val editing: Bo
         val roleIndex = dialogs.chooseAction(
             title = name,
             message = "When do you take it?",
-            actions = listOf(SheetAction("During an attack (acute)"), SheetAction("Every day (preventive)")),
+            actions = listOf(SheetAction("During an episode (acute)"), SheetAction("Every day (preventive)")),
         ) ?: return@launch
         val role = if (roleIndex == 0) MedicationRole.Acute else MedicationRole.Preventive
         val medication = graph.catalog.addCustomMedication(name, dose = "", role = role)

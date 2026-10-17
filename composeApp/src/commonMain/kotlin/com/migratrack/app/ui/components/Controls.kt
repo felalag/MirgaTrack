@@ -45,7 +45,7 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 
-/** Full-width pink pill: "Log Migraine Episode", "Save Episode Log", "Export PDF Report". */
+/** Full-width pink pill: "Log Migraine Episode", "Save Episode", "Export PDF Report". */
 @Composable
 fun PrimaryButton(
     text: String,
@@ -111,7 +111,7 @@ fun SecondaryButton(
     }
 }
 
-/** Dark pill with pink text that deletes something: "Delete Episode Log". */
+/** Dark pill with pink text that deletes something: "Delete Episode". */
 @Composable
 fun DestructiveButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, enabled: Boolean = true) {
     Box(

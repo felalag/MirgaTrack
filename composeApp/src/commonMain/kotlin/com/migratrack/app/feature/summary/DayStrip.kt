@@ -71,7 +71,7 @@ fun DayStripLegend(modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.spacedBy(MtSpacing.md),
         verticalArrangement = Arrangement.spacedBy(MtSpacing.xs),
     ) {
-        LegendItem("Attack", StripDay.Attack.color)
+        LegendItem("Migraine", StripDay.Attack.color)
         LegendItem("Pain-free", StripDay.PainFree.color)
         LegendItem("Not tracked", StripDay.NotTracked.color)
     }

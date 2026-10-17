@@ -62,7 +62,7 @@ class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
         val choice = graph.services.dialogs.chooseAction(
             title = "${DateText.fullDate(dateTime.date)} at ${DateText.time(dateTime)}",
             message = "Intensity ${episode.intensity.value}/10",
-            actions = listOf(SheetAction("Edit Episode"), SheetAction("Delete Episode Log", destructive = true)),
+            actions = listOf(SheetAction("Edit Episode"), SheetAction("Delete Episode", destructive = true)),
         )
         when (choice) {
             0 -> onEdit(episode.id)
