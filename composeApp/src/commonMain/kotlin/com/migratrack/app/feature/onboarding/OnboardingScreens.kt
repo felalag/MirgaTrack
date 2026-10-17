@@ -62,6 +62,7 @@ import com.migratrack.app.generated.resources.onboarding_treatment_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_title
 import com.migratrack.app.generated.resources.onboarding_update_later
+import com.migratrack.app.navigation.popFrom
 import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.classText
@@ -118,27 +119,27 @@ fun OnboardingFlow(session: Int) {
             )
         }
         composable<DocumentStep> { entry ->
-            LegalScreen(LegalDocument.valueOf(entry.toRoute<DocumentStep>().document), onBack = { navController.popBackStack() })
+            LegalScreen(LegalDocument.valueOf(entry.toRoute<DocumentStep>().document), onBack = { navController.popFrom(entry) })
         }
-        composable<DiagnosesStep> {
-            DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popBackStack() }, primaryLabel = stringResource(Res.string.onboarding_continue_to_triggers)) {
+        composable<DiagnosesStep> { entry ->
+            DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popFrom(entry) }, primaryLabel = stringResource(Res.string.onboarding_continue_to_triggers)) {
                 navController.navigate(TriggersStep)
             }
         }
-        composable<TriggersStep> {
+        composable<TriggersStep> { entry ->
             TriggersStepScreen(
                 viewModel,
                 step = 2,
-                onBack = { navController.popBackStack() },
+                onBack = { navController.popFrom(entry) },
                 primaryLabel = stringResource(Res.string.onboarding_continue_to_medications),
                 backLabel = stringResource(Res.string.onboarding_back_to_diagnoses),
             ) { navController.navigate(TreatmentStep) }
         }
-        composable<TreatmentStep> {
+        composable<TreatmentStep> { entry ->
             TreatmentStepScreen(
                 viewModel,
                 step = 3,
-                onBack = { navController.popBackStack() },
+                onBack = { navController.popFrom(entry) },
                 primaryLabel = stringResource(Res.string.onboarding_finish_setup),
                 backLabel = stringResource(Res.string.onboarding_back_to_triggers),
             ) { viewModel.finishOnboarding() }
