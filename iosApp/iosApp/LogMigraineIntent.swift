@@ -15,7 +15,12 @@ struct LogMigraineIntent: ForegroundContinuableIntent {
         guard let summary = try await QuickLogBridge.shared.logEpisode() else {
             throw needsToContinueInForegroundError("Finish setup in MigraTrack first.")
         }
-        return .result(dialog: "Logged a migraine episode: \(summary).")
+        let intensity = Int(summary.intensity)
+        if summary.medications.isEmpty {
+            return .result(dialog: "Logged a migraine episode: intensity \(intensity) of 10.")
+        }
+        let medications = summary.medications.joined(separator: ", ")
+        return .result(dialog: "Logged a migraine episode: intensity \(intensity) of 10, with \(medications).")
     }
 }
 

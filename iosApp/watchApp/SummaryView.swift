@@ -64,7 +64,7 @@ struct PainFreeDays: View {
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel("Pain-free days")
-            .accessibilityValue(days.map { "\($0) of \(window)" } ?? "")
+            .accessibilityValue(days.map { String(localized: "\($0) of \(window)") } ?? "")
             if let status {
                 Group {
                     if let last = status.lastEpisodeStartedAt {

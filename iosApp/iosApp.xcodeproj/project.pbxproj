@@ -29,6 +29,11 @@
 		7A0000000000000000000107 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7A000000000000000000000A /* PrivacyInfo.xcprivacy */; };
 		7B000000000000000000010E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000010 /* PrivacyInfo.xcprivacy */; };
 		7C0000000000000000000105 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7C0000000000000000000005 /* PrivacyInfo.xcprivacy */; };
+		7A0000000000000000000108 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7A000000000000000000000B /* Localizable.xcstrings */; };
+		7A0000000000000000000109 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7A000000000000000000000C /* InfoPlist.xcstrings */; };
+		7A000000000000000000010A /* AppShortcuts.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7A000000000000000000000D /* AppShortcuts.xcstrings */; };
+		7B000000000000000000010F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7B0000000000000000000011 /* Localizable.xcstrings */; };
+		7C0000000000000000000106 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7C0000000000000000000006 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +107,11 @@
 		7A000000000000000000000A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7B0000000000000000000010 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7C0000000000000000000005 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7A000000000000000000000B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		7A000000000000000000000C /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		7A000000000000000000000D /* AppShortcuts.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = AppShortcuts.xcstrings; sourceTree = "<group>"; };
+		7B0000000000000000000011 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		7C0000000000000000000006 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +161,9 @@
 				7A0000000000000000000005 /* Info.plist */,
 				7A0000000000000000000006 /* iosApp.entitlements */,
 				7A000000000000000000000A /* PrivacyInfo.xcprivacy */,
+				7A000000000000000000000B /* Localizable.xcstrings */,
+				7A000000000000000000000C /* InfoPlist.xcstrings */,
+				7A000000000000000000000D /* AppShortcuts.xcstrings */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 				7B0000000000000000000008 /* Info.plist */,
 				7B0000000000000000000009 /* MigraTrackWatch.entitlements */,
 				7B0000000000000000000010 /* PrivacyInfo.xcprivacy */,
+				7B0000000000000000000011 /* Localizable.xcstrings */,
 			);
 			path = watchApp;
 			sourceTree = "<group>";
@@ -199,6 +213,7 @@
 				7C0000000000000000000002 /* Info.plist */,
 				7C0000000000000000000003 /* MigraTrackComplications.entitlements */,
 				7C0000000000000000000005 /* PrivacyInfo.xcprivacy */,
+				7C0000000000000000000006 /* Localizable.xcstrings */,
 			);
 			path = watchComplications;
 			sourceTree = "<group>";
@@ -312,6 +327,9 @@
 			files = (
 				7A0000000000000000000104 /* Assets.xcassets in Resources */,
 				7A0000000000000000000107 /* PrivacyInfo.xcprivacy in Resources */,
+				7A0000000000000000000108 /* Localizable.xcstrings in Resources */,
+				7A0000000000000000000109 /* InfoPlist.xcstrings in Resources */,
+				7A000000000000000000010A /* AppShortcuts.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +339,7 @@
 			files = (
 				7B0000000000000000000107 /* Assets.xcassets in Resources */,
 				7B000000000000000000010E /* PrivacyInfo.xcprivacy in Resources */,
+				7B000000000000000000010F /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0000000000000000000105 /* PrivacyInfo.xcprivacy in Resources */,
+				7C0000000000000000000106 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

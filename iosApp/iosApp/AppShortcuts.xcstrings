@@ -1,0 +1,21 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Log a migraine in ${applicationName}" : {
+      "comment" : "Siri phrases. Keep ${applicationName}; Siri puts the app name there. Translate only for languages that Siri supports.",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Log a migraine in ${applicationName}",
+              "Log migraine with ${applicationName}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
