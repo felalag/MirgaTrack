@@ -148,8 +148,7 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
             ) {
                 Icon(Symbols.Info, tint = MtColors.TextSecondary, size = 16.dp)
                 Spacer(Modifier.width(6.dp))
-                val noun = if (frequency.withoutTriggers == 1) "episode has" else "episodes have"
-                MtText("${frequency.withoutTriggers} of ${frequency.episodes} $noun no triggers noted", MtTheme.type.subhead, color = MtColors.TextSecondary)
+                MtText(frequency.withoutTriggersText, MtTheme.type.subhead, color = MtColors.TextSecondary)
             }
         }
     }
@@ -325,14 +324,19 @@ private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifi
                 GreenPill(Modifier.weight(1f))
             }
             else -> {
-                // A floor keeps a single migraine day visible in a month-long bar.
-                val pink = share.coerceIn(0.14f, 0.86f)
+                val pink = pinkWeight(share)
                 Box(Modifier.fillMaxWidth().weight(pink).background(MtColors.Pink, CircleShape))
-                GreenPill(Modifier.weight(1f - pink))
+                if (pink < 1f) GreenPill(Modifier.weight(1f - pink))
             }
         }
     }
 }
+
+/**
+ * The pink part of a bar that has migraine days. A floor keeps a single migraine day visible in a month-long bar,
+ * and a ceiling keeps one pain-free day visible, but a bucket with only migraine days gets no green at all.
+ */
+internal fun pinkWeight(share: Float): Float = if (share >= 1f) 1f else share.coerceIn(0.14f, 0.86f)
 
 @Composable
 private fun GreenPill(modifier: Modifier) {

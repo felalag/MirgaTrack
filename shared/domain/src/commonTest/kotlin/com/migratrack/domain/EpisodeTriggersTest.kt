@@ -80,6 +80,15 @@ class EpisodeTriggersTest {
     }
 
     @Test
+    fun episodesWithoutTriggersReadAsCorrectEnglish() {
+        fun text(without: Int, episodes: Int) = TriggerFrequency(episodes, without, emptyList()).withoutTriggersText
+
+        assertEquals("1 of 3 episodes has no triggers noted", text(1, 3))
+        assertEquals("2 of 3 episodes have no triggers noted", text(2, 3))
+        assertEquals("1 of 1 episode has no triggers noted", text(1, 1))
+    }
+
+    @Test
     fun frequencyCountsATriggerOncePerEpisodeAndTakesTheNewestName() {
         val older = episodeOn(LocalDate(2026, 10, 1)).copy(triggers = listOf(NotedTrigger("custom-1", "Perfum"), NotedTrigger("custom-1", "Perfum")))
         val newer = episodeOn(LocalDate(2026, 10, 2)).copy(triggers = listOf(NotedTrigger("custom-1", "Perfume")))

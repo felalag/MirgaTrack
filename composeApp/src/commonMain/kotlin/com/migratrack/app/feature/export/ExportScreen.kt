@@ -154,7 +154,7 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             val preferences = current.preferences
             ListRow(
                 title = "Medication Logs",
-                subtitle = "Dosages, intake times, usage totals",
+                subtitle = "Dosages and usage totals",
                 icon = Symbols.Medication,
                 iconTint = MtColors.BrandLabel,
                 iconBackground = MtColors.Control,

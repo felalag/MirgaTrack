@@ -42,6 +42,7 @@ private object Palette {
 
 private const val MARGIN = 40f
 private const val FOOTER_SPACE = 28f
+private const val DISCLAIMER = "Self-reported data logged in MigraTrack. This report supports, and does not replace, a clinical assessment."
 
 private class PageCursor(private val canvas: ReportCanvas) {
     var y = 0f
@@ -257,7 +258,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
         val note = buildString {
             append("Counts show how often the patient noted a trigger with an episode. They do not show a cause.")
             if (frequency.withoutTriggers > 0) {
-                append(" ${frequency.withoutTriggers} of ${frequency.episodes} episodes have no triggers noted.")
+                append(" ${frequency.withoutTriggersText}.")
             }
         }
         ensure(24f)
@@ -331,11 +332,11 @@ private class PageCursor(private val canvas: ReportCanvas) {
     }
 
     fun disclaimer() {
-        ensure(30f)
-        text(
-            "Self-reported data logged in MigraTrack. This report supports, and does not replace, a clinical assessment.",
-            TextStyle(8f, color = Palette.SECONDARY),
-        )
+        val style = TextStyle(8f, color = Palette.SECONDARY)
+        val height = canvas.measureHeight(DISCLAIMER, style, width)
+        // The line may go into the footer space above the page number, so it never fills a page alone.
+        y = minOf(y, bottom + FOOTER_SPACE - height - 6f)
+        text(DISCLAIMER, style)
     }
 }
 

@@ -169,9 +169,9 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     <span class="eyebrow">End-to-end test · 4 October 2026 · run again 16–17 October</span>
     <h1>The <em>MigraTrack</em> user journey on iPhone and Apple Watch</h1>
     <p>The test starts with a clean install on both devices. The user meets Siri before setup, reads the welcome screen and the terms, and completes onboarding. Then the user logs attacks on the iPhone, on the watch and with Spotlight, opens the watch logger from the watch face and from the Smart Stack, reads the charts, and exports a report. Steps 19–24 show the Insights calendar, Edit Episode and logging on a past day. Step 25 deletes all data. After each action I compared the SQLite databases on both devices. Click a screenshot to enlarge it.</p>
-    <p>On 16 and 17 October I ran all 25 steps again on the build of main at 9cf4720. Since the last run, the app got a dot-grid mark in the header, a new icon, ICHD-3 onboarding texts, Health texts for last night's sleep only, and a doctor reminder on the last onboarding step. Possible triggers are new in the Log form, in Insights and in the report. The run started at 23:30 on 16 October and continued after midnight, so some steps happen on 17 October. The screenshots of the complications (step 12) and of the Control tap stay from 13 October, because these screens did not change.</p>
+    <p>On 16 and 17 October I ran all 25 steps again on the build of main at 9cf4720. Since the last run, the app got a dot-grid mark in the header, a new icon, ICHD-3 onboarding texts, Health texts for last night's sleep only, and a doctor reminder on the last onboarding step. Possible triggers are new in the Log form, in Insights and in the report. The run started at 23:30 on 16 October and continued after midnight, so some steps happen on 17 October. The screenshots of the complications (step 12) and of the Control tap stay from 13 October, because these screens did not change. The run found four small faults. After their fix, I took the Export screen, the first day in Insights and page 2 of the PDF again on 17 October.</p>
     <div class="facts">
-      <div class="fact"><b class="ok">25 of 25</b><span>steps passed, four small findings</span></div>
+      <div class="fact"><b class="ok">25 of 25</b><span>steps passed, four small faults fixed</span></div>
       <div class="fact"><b>iPhone 18 Pro Max</b><span>simulator, iOS 27.0</span></div>
       <div class="fact"><b>Watch Series 12</b><span>46 mm, watchOS 27.0, paired with the iPhone</span></div>
       <div class="fact"><b>73</b><span>screenshots, Debug 1.0.0 (1)</span></div>
@@ -417,11 +417,11 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Insights on the first day</h2>
-        <p>Insights counts only from the day tracking started. Weeks 1 and 2 of October are gray, and the legend adds <strong>Not Tracked</strong>.</p>
-        <p>Under the chart, the Possible Triggers card lists the triggers that the user noted, as "1 of 2" with a bar. The card says that it shows how often a trigger was noted, not a cause. A last line counts the episodes with no triggers: the watch log has none.</p>
+        <p>Insights counts only from the day tracking started. Weeks 1 and 2 of October are gray, and the legend adds <strong>Not Tracked</strong>. Week 3 has one tracked day, and it is an attack day, so its bar is all pink.</p>
+        <p>Under the chart, the Possible Triggers card lists the triggers that the user noted, as "1 of 2" with a bar. The card says that it shows how often a trigger was noted, not a cause. A last line counts the episodes with no triggers: "1 of 2 episodes has no triggers noted". The watch log has none.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p56-insights-first-day.jpg" alt="Insights for October on the first day: 2 attacks, weeks 1 and 2 gray, legend with Not Tracked, Possible Triggers card with three triggers at 1 of 2" loading="lazy" width="560" height="1216"></button><figcaption>Not Tracked and Possible Triggers</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p56-insights-first-day.jpg" alt="Insights for October on the first day: 2 attacks, weeks 1 and 2 gray, week 3 all pink, legend with Not Tracked, Possible Triggers card with two triggers at 1 of 2, and 1 of 2 episodes has no triggers noted" loading="lazy" width="560" height="1216"></button><figcaption>Not Tracked and Possible Triggers</figcaption></figure>
       </div>
     </article>
 
@@ -477,15 +477,15 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="story">
         <span class="device phone">iPhone</span>
         <h2>Export to PDF and Excel</h2>
-        <p>Export shows the number of episodes and the report range. An action sheet changes the range. The toggles select the sections, and <strong>Possible Triggers</strong> is a new toggle.</p>
-        <p>The PDF opens in Quick Look. Page 1 has the profile, the pain chart, the medications and the symptoms. Page 2 has the "Possible Triggers Noted" section and the episode log with a Triggers column. The report shows no time of intake. Excel goes through the system share sheet.</p>
+        <p>Export shows the number of episodes and the report range. An action sheet changes the range. The toggles select the sections, and <strong>Possible Triggers</strong> is a new toggle. Medication Logs says "Dosages and usage totals", because the report shows no time of intake.</p>
+        <p>The PDF opens in Quick Look. Page 1 has the profile, the pain chart, the medications and the symptoms. Page 2 has the "Possible Triggers Noted" section and the episode log with a Triggers column. The disclaimer line ends the last page with content and does not start a page of its own. Excel goes through the system share sheet.</p>
         <div class="check">.xlsx on the Mac: <code>unzip -t</code> without errors, 11 rows for 90 days, dates as real dates, a Possible Triggers column</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Export: 11 events in the last 90 days, toggles Medication Logs, Aura and Warning Symptoms, Possible Triggers, Pain Level Charts" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Export: 11 events in the last 90 days, toggles Medication Logs with Dosages and usage totals, Aura and Warning Symptoms, Possible Triggers, Pain Level Charts" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p30-export-range.jpg" alt="Action sheet Report Range" loading="lazy" width="560" height="1216"></button><figcaption>Report range</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p31-pdf-preview.jpg" alt="PDF report page 1 in Quick Look: Patient Alex Morgan, 11 episodes, 10 migraine days, 80 pain-free days, baseline profile, chart, medications" loading="lazy" width="560" height="1216"></button><figcaption>PDF page 1</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p58-pdf-triggers-log.jpg" alt="PDF page 2: Possible Triggers Noted with shares of episodes, and the episode log with a Triggers column" loading="lazy" width="560" height="1216"></button><figcaption>PDF page 2: triggers and log</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p58-pdf-triggers-log.jpg" alt="PDF page 2 of 2: Possible Triggers Noted with shares of episodes, the episode log with a Triggers column, and the disclaimer line above the page number" loading="lazy" width="560" height="1216"></button><figcaption>PDF page 2: triggers and log</figcaption></figure>
         <figure><button class="shot" type="button"><img src="img/p32-xlsx-share.jpg" alt="Share sheet with MigraTrack-Report-2026-10-17.xlsx" loading="lazy" width="560" height="1216"></button><figcaption>Share sheet with .xlsx</figcaption></figure>
         <figure class="wide"><button class="shot" type="button"><img src="img/x01-xlsx-quicklook.jpg" alt="Episodes sheet of the xlsx file in Quick Look on the Mac, with the column Possible Triggers" loading="lazy" width="1200" height="192"></button><figcaption>Episodes sheet of the same file on the Mac</figcaption></figure>
       </div>
@@ -642,24 +642,21 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
     <div class="section-head">
       <span class="eyebrow">Notes</span>
       <h2 id="notes">What I noticed</h2>
-      <p>No step failed, and no data was lost. Below are four small findings of this run, two design notes, one platform limit and the simulator details.</p>
+      <p>No step failed, and no data was lost. Below are the four faults that this run found and that are now fixed, two design notes, one platform limit and the simulator details.</p>
     </div>
     <div class="notes">
       <div class="note">
-        <h3><span class="pill note">Text</span>Export promises intake times</h3>
-        <p>The Medication Logs toggle says "Dosages, intake times, usage totals". Since PR #15 the PDF and the XLSX show no intake time. The subtitle needs a new text.</p>
+        <h3><span class="pill pass">Fixed</span>Four small faults of this run</h3>
+        <ul>
+          <li>The Medication Logs toggle in Export promised intake times. It now says "Dosages and usage totals".</li>
+          <li>The PDF of 11 episodes had a page 3 with only the disclaimer. The line now uses the footer space of the last page.</li>
+          <li>Insights said "1 of 3 episode has no triggers noted". It now says "1 of 3 episodes has", and the PDF uses the same text.</li>
+          <li>A bar with only attack days showed a green part. It is now all pink.</li>
+        </ul>
       </div>
       <div class="note">
-        <h3><span class="pill note">PDF</span>A page with only the disclaimer</h3>
-        <p>The 90-day report with 11 episodes has three pages. Page 3 has only the line "Self-reported data logged in MigraTrack…". The line can go on page 2, or the log can leave space for it.</p>
-      </div>
-      <div class="note">
-        <h3><span class="pill note">Text</span>"1 of 3 episode has"</h3>
-        <p>The last line of Possible Triggers chooses the noun from the first number. With 1 it says "1 of 3 episode has no triggers noted". The correct text is "1 of 3 episodes has".</p>
-      </div>
-      <div class="note">
-        <h3><span class="pill note">Chart</span>A bar with only attack days shows green</h3>
-        <p>The pink part of a bar stays between 14% and 86%. On the first day, week 3 of October had one tracked day, and it was an attack day. The bar still shows a green part. The 14% minimum also makes months with 1 and 4 migraine days look the same in 6M and Y.</p>
+        <h3><span class="pill note">Design</span>Months in 6M and Y look similar</h3>
+        <p>The pink part of a bar stays at 14% or more, so that one migraine day stays visible. Thus months with 1 and with 4 migraine days look the same. A smaller minimum or the number of days above the bar can help.</p>
       </div>
       <div class="note">
         <h3><span class="pill note">Design</span>The calendar mockups do not show all behavior</h3>
