@@ -7,4 +7,5 @@ exclude:
   - APP_STORE.md
   - user-journey
   - REVIEW_READINESS.md
+  - LOCALIZATION_PLAN.md
   - review-readiness
