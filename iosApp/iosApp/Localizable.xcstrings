@@ -1,0 +1,32 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Finish setup in MigraTrack first." : {
+      "comment" : "Siri says this when the user has not finished onboarding; Siri then offers to open the app."
+    },
+    "Log Migraine" : {
+      "comment" : "Short title of the App Shortcut in Spotlight and the Shortcuts app. Max 20 characters."
+    },
+    "Log Migraine Episode" : {
+      "comment" : "Title of the App Intent in Shortcuts and Spotlight. Use the glossary term for episode."
+    },
+    "Logged a migraine episode: intensity %lld of 10, with %@." : {
+      "comment" : "Siri says this after a quick log. %1$lld = pain intensity, 1 to 10. %2$@ = medication names and doses, separated by commas.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Logged a migraine episode: intensity %1$lld of 10, with %2$@."
+          }
+        }
+      }
+    },
+    "Logged a migraine episode: intensity %lld of 10." : {
+      "comment" : "Siri says this after a quick log without medications. %lld = pain intensity, 1 to 10."
+    },
+    "Logs an episode now with your typical pain intensity and acute medications from MigraTrack." : {
+      "comment" : "Description of the App Intent in the Shortcuts app."
+    }
+  },
+  "version" : "1.0"
+}

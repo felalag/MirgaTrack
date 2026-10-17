@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    " / %lld" : {
+      "comment" : "After the large number of pain-free days, for example \"25 / 30\". %lld = tracked days in the last 30 days."
+    },
+    "%lld" : {
+      "comment" : "The intensity number in the gauge.",
+      "shouldTranslate" : false
+    },
+    "%lld of %lld" : {
+      "comment" : "VoiceOver value of the pain-free days. %1$lld = pain-free days, %2$lld = tracked days.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld of %2$lld"
+          }
+        }
+      }
+    },
+    "%lld out of 10" : {
+      "comment" : "VoiceOver value of the intensity gauge. %lld = intensity, 1 to 10."
+    },
+    "Done" : {
+      "comment" : "Button after a save. It closes the logger."
+    },
+    "Episode logged" : {
+      "comment" : "VoiceOver label of the checkmark after a save."
+    },
+    "Last episode %@" : {
+      "comment" : "Watch summary line. %@ = short date of the last episode, for example \"Oct 12\". Max 22 characters."
+    },
+    "Log Migraine" : {
+      "comment" : "Main button of the watch app and title of the control intent. Max 14 characters on a 40 mm watch."
+    },
+    "No episodes logged" : {
+      "comment" : "Watch summary line before the first episode. Max 22 characters."
+    },
+    "Open MigraTrack on your iPhone to sync." : {
+      "comment" : "Watch hint before the iPhone app sent its data."
+    },
+    "Pain Intensity" : {
+      "comment" : "Caption under the intensity gauge. Max 16 characters."
+    },
+    "Pain intensity" : {
+      "comment" : "VoiceOver label of the intensity gauge."
+    },
+    "Pain-free days" : {
+      "comment" : "Watch summary caption over the large number, and its VoiceOver label. Max 16 characters on a 40 mm watch."
+    },
+    "Save Episode" : {
+      "comment" : "Button of the logger. Max 14 characters on a 40 mm watch."
+    }
+  },
+  "version" : "1.0"
+}
