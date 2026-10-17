@@ -25,10 +25,11 @@ data class Column(val title: String, val width: Double)
  */
 object XlsxWriter {
 
-    fun write(sheets: List<Sheet>): ByteArray {
+    /** With [rightToLeft], Excel and Numbers show each sheet from right to left, with column A on the right. */
+    fun write(sheets: List<Sheet>, rightToLeft: Boolean = false): ByteArray {
         require(sheets.isNotEmpty()) { "A workbook needs at least one sheet" }
         val strings = SharedStrings()
-        val worksheets = sheets.map { worksheet(it, strings) }
+        val worksheets = sheets.map { worksheet(it, strings, rightToLeft) }
         val zip = StoredZip()
         zip.add("[Content_Types].xml", contentTypes(sheets.size).encodeToByteArray())
         zip.add("_rels/.rels", ROOT_RELS.encodeToByteArray())
@@ -93,10 +94,11 @@ object XlsxWriter {
         append("</Relationships>")
     }
 
-    private fun worksheet(sheet: Sheet, strings: SharedStrings) = buildString {
+    private fun worksheet(sheet: Sheet, strings: SharedStrings, rightToLeft: Boolean) = buildString {
         append(XML_HEADER)
         append("""<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">""")
-        append("""<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>""")
+        val direction = if (rightToLeft) """ rightToLeft="1"""" else ""
+        append("""<sheetViews><sheetView$direction workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>""")
         append("<cols>")
         sheet.columns.forEachIndexed { index, column ->
             append("""<col min="${index + 1}" max="${index + 1}" width="${column.width}" customWidth="1"/>""")

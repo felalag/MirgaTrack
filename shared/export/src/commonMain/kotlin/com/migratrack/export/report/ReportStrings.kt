@@ -6,6 +6,14 @@ package com.migratrack.export.report
  * dates come in already formatted. The examples are the English texts.
  */
 interface ReportStrings {
+    // Language
+
+    /** Whether the language reads from right to left. The PDF then mirrors its layout, and the XLSX its sheets. */
+    val rightToLeft: Boolean
+
+    /** [text] in upper case by the rules of the language: Turkish "i" becomes "İ". */
+    fun uppercase(text: String): String
+
     // PDF: header and footer
 
     /** "Clinical Migraine Report" */

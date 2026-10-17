@@ -8,6 +8,10 @@
 <resources>
     <!-- Shared -->
 
+    <!-- Do not translate. The font of the app: "brand" for a Latin script, "system" for every other script.
+         "system" gives the iOS system font, which has the letters of the script. The build checks it. -->
+    <string name="font_family">brand</string>
+
     <!-- VoiceOver label of the back chevron at the top left of a pushed screen. -->
     <string name="common_back">Back</string>
     <!-- VoiceOver label of the gear button in the page header, and the title of the Settings screen. -->
@@ -84,11 +88,11 @@
     <string name="pain_scale_label">Pain intensity</string>
     <!-- VoiceOver value of the pain scale. %1$s = the selected intensity, 1 to 10. -->
     <string name="pain_scale_value">%1$s of 10</string>
-    <!-- Label under the left end of the pain scale. %1$s = 1. Max 14 characters. -->
+    <!-- Label under the low end of the pain scale. %1$s = 1. Max 14 characters. -->
     <string name="pain_scale_low">%1$s Subdued</string>
     <!-- Label under the middle of the pain scale. %1$s = 5. Max 14 characters. -->
     <string name="pain_scale_middle">%1$s Noticeable</string>
-    <!-- Label under the right end of the pain scale. %1$s = 10. Max 14 characters. -->
+    <!-- Label under the high end of the pain scale. %1$s = 10. Max 14 characters. -->
     <string name="pain_scale_high">%1$s Disabling</string>
     <!-- VoiceOver label of the x button on a medication card. %1$s = medication name and dose. -->
     <string name="medication_remove">Remove %1$s</string>

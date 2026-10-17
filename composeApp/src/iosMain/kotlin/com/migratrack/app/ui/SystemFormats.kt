@@ -1,7 +1,10 @@
 package com.migratrack.app.ui
 
+import androidx.compose.ui.text.intl.Locale
 import com.migratrack.export.format.DateFormats
 import com.migratrack.export.format.NumberFormats
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
@@ -27,11 +30,22 @@ import platform.Foundation.NSNumberFormatterDecimalStyle
 import platform.Foundation.NSNumberFormatterPercentStyle
 import platform.Foundation.NSTimeZone
 import platform.Foundation.currentLocale
+import platform.Foundation.languageCode
 import platform.Foundation.systemTimeZone
+import platform.UIKit.UIApplication
+import platform.UIKit.UIUserInterfaceLayoutDirection
 
 actual val Dates: DateFormats = SystemDateFormats()
 
 actual val Numbers: NumberFormats = SystemNumberFormats()
+
+// iOS limits the language of currentLocale to the localizations of the bundle, so it is the language on the screen.
+actual val TextLocale: Locale = Locale(NSLocale.currentLocale.languageCode)
+
+// UIKit takes the direction from the language of the bundle; NSForceRightToLeftWritingDirection forces it for tests.
+actual suspend fun appReadsRightToLeft(): Boolean = withContext(Dispatchers.Main) {
+    UIApplication.sharedApplication.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.UIUserInterfaceLayoutDirectionRightToLeft
+}
 
 /**
  * The system date formats of [locale]. The [calendar] gives the first day of the week.

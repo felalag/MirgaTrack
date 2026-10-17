@@ -1,5 +1,6 @@
 package com.migratrack.export
 
+import com.migratrack.export.report.ReportStrings
 import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.Column
 import com.migratrack.export.xlsx.ReportWorkbook
@@ -16,6 +17,7 @@ import kotlin.io.path.createTempFile
 import kotlin.io.path.writeBytes
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 /** Reads the generated package back with java.util.zip, which checks every CRC and size we wrote. */
@@ -61,6 +63,20 @@ class XlsxPackageTest {
         val sheet = unzip(bytes).getValue("xl/worksheets/sheet1.xml").decodeToString()
         // 2026-10-24 is day 46319 after 1899-12-30; noon adds half a day.
         assertTrue("""<c r="A2" s="2"><v>46319.5</v></c>""" in sheet, sheet)
+    }
+
+    @Test
+    fun rightToLeftWorkbookShowsEverySheetFromTheRight() {
+        val arabic = object : ReportStrings by EnglishReportStrings {
+            override val rightToLeft = true
+        }
+        val rtl = unzip(ReportWorkbook.write(report(listOf(episode(20))), arabic))
+        val ltr = unzip(ReportWorkbook.write(report(listOf(episode(20))), EnglishReportStrings))
+
+        val sheets = rtl.keys.filter { it.startsWith("xl/worksheets/") }
+        assertEquals(4, sheets.size)
+        sheets.forEach { assertTrue("""<sheetView rightToLeft="1" workbookViewId="0">""" in rtl.getValue(it).decodeToString(), it) }
+        sheets.forEach { assertFalse("rightToLeft" in ltr.getValue(it).decodeToString(), it) }
     }
 
     private fun unzip(bytes: ByteArray): Map<String, ByteArray> = buildMap {

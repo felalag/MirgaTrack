@@ -196,6 +196,36 @@ class ReportTest {
         assertTrue(canvas.texts.any { it.endsWith("They do not show a cause. 2 of 3 episodes have no triggers noted.") })
     }
 
+    @Test
+    fun rightToLeftPdfMirrorsTheLayoutButNotTheText() {
+        val arabic = object : ReportStrings by EnglishReportStrings {
+            override val rightToLeft = true
+        }
+        val episodes = listOf(episode(20, intensity = 9))
+        val ltr = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }
+        val rtl = RecordingRenderer().also { ReportPdf.render(report(episodes), it, arabic, EnglishDateFormats, EnglishNumberFormats) }
+
+        assertEquals(ltr.texts, rtl.texts)
+        val tile = ltr.boxes.getValue("Episodes recorded")
+        val mirrored = rtl.boxes.getValue("Episodes recorded")
+        assertEquals(ReportPdf.PAGE_WIDTH - tile.first - tile.second, mirrored.first)
+        assertTrue(mirrored.first > ReportPdf.PAGE_WIDTH / 2)
+        assertTrue(rtl.styles.values.all { it.rightToLeft })
+        assertFalse(ltr.styles.values.any { it.rightToLeft })
+    }
+
+    @Test
+    fun tableHeadersUseTheUpperCaseOfTheLanguage() {
+        val turkish = object : ReportStrings by EnglishReportStrings {
+            override val columnSymptoms = "Belirtiler"
+            override fun uppercase(text: String) = text.replace('i', 'İ').uppercase()
+        }
+        val canvas = RecordingRenderer().also {
+            ReportPdf.render(report(listOf(episode(20))), it, turkish, EnglishDateFormats, EnglishNumberFormats)
+        }
+        assertTrue("BELİRTİLER" in canvas.texts)
+    }
+
     /** Records draw calls. Text wraps at half the font size per character, 1.2 × font size per line. */
     private class RecordingRenderer : PdfRenderer, ReportCanvas {
         override val pageWidth = ReportPdf.PAGE_WIDTH
@@ -204,6 +234,8 @@ class ReportTest {
         var maxContentBottom = 0f
         val texts = mutableListOf<String>()
         val styles = mutableMapOf<String, TextStyle>()
+        /** The x and the width of the box of each text. */
+        val boxes = mutableMapOf<String, Pair<Float, Float>>()
         val pageTexts = mutableListOf<MutableList<String>>()
 
         override fun render(pageWidth: Float, pageHeight: Float, draw: (ReportCanvas) -> Unit): ByteArray {
@@ -224,6 +256,7 @@ class ReportTest {
         override fun drawText(text: String, style: TextStyle, x: Float, y: Float, maxWidth: Float) {
             texts += text
             styles[text] = style
+            boxes[text] = x to maxWidth
             pageTexts.last() += text
             // The footer sits in the bottom margin on purpose.
             if (!text.startsWith("MigraTrack · Page")) {

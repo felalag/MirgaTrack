@@ -279,7 +279,7 @@ Plus Jakarta Sans does not get Cyrillic later. Google Fonts gives it a "cyrillic
 
 - The license on [Apple Fonts](https://developer.apple.com/fonts/) applies to the font files that a developer downloads there. It allows mock-ups only and forbids embedding these files in an app. The app does not bundle an SF file.
 - The SF fonts on the device are part of iOS. The [iOS 26 license](https://www.apple.com/legal/sla/docs/iOS26_iPadOS26.pdf) names fonts as part of the Apple Software. Apps draw text with them through the system API, and the HIG tells apps to do this and not to embed the fonts.
-- `.AppleSystemUIFont` is the family name that the system font API itself reports. On macOS 26, Core Text resolves it to SF without a warning; a private name such as `.SFUI-Regular` gets Times New Roman and a warning. Stage 1g confirms the same on the iOS simulator, and checks that the other scripts come from the system fallback fonts.
+- `.AppleSystemUIFont` is the family name that the system font API itself reports. On macOS 26, Core Text resolves it to SF without a warning; a private name such as `.SFUI-Regular` gets Times New Roman and a warning. On the iOS simulator, `FontFamily.Default` draws in SF, and the other scripts come from the system fallback fonts (stage 1g).
 - The PDF already uses `UIFont.systemFontOfSize`, and the PDF context embeds subsets of the glyphs. The SF font files allow this: their OS/2 `fsType` is 0 (installable embedding).
 - Not allowed: an SF file in `composeResources/font`, and SF on the website.
 
@@ -301,7 +301,9 @@ Plus Jakarta Sans does not get Cyrillic later. Google Fonts gives it a "cyrillic
 <string name="font_family">system</string>
 ```
 
-`MigraTrackTheme` reads `font_family` and uses `FontFamily.Default` for `system`. With `system`, the theme also drops the negative letter spacing and uses the line height of the font (section 4.6). The completeness test (section 5.2) checks that this key has the correct value for the script of each language. Stage 1g checks the line heights and the tabular digits (`tnum`) on each screen.
+`MigraTrackTheme` reads `font_family` and uses `FontFamily.Default` for `system`. With `system`, the theme also drops the letter spacing and uses the line height of the font (section 4.6). The letter spacing goes completely, also the positive spacing of the captions, because spacing splits the joined letters of Arabic. The completeness test (section 5.2) checks that this key has the correct value for the script of each language.
+
+Stage 1g checked this on the iOS 27 simulator with the pseudo-locales `ru-XC` and `th-XT`. With `system`, the Latin and Cyrillic letters and the digits come from SF, and the Thai letters from the Thai system font. The tabular digits (`tnum`) stay. The lines get taller. The chips, pills and buttons have a minimum height in place of a fixed height (`heightIn`), so a taller line makes them grow.
 
 The PDF ([UIKitPdfRenderer.kt:37](../shared/export/src/iosMain/kotlin/com/migratrack/export/pdf/UIKitPdfRenderer.kt#L37)), the watch app and the complications use the system font already. They need no change.
 
@@ -325,7 +327,7 @@ The Apple HIG ([Right to left](https://developer.apple.com/design/human-interfac
 | XLSX report | Excel shows the sheet from left to right | `rightToLeft="1"` in the `sheetView` of each sheet |
 | Watch and complications | SwiftUI mirrors them | Check the gauge and "Last attack" |
 
-A Compose run with `-AppleLanguages "(ar)"` mirrors the layout before an Arabic translation exists, because the direction comes from the locale. Stage 1g uses this.
+Compose takes the direction from UIKit, and UIKit takes it from the localizations of the bundle. Before an Arabic translation exists, a run with `-AppleLanguages "(ar)"` therefore stays left to right. The launch argument `-NSForceRightToLeftWritingDirection YES` mirrors the app with the English text; `scripts/l10n-screenshots.sh` adds it for Arabic, Hebrew, Urdu and Persian. The report takes the same direction as the app (`appReadsRightToLeft`).
 
 ### 4.9 Language choice and the default language
 
@@ -361,7 +363,7 @@ The Compose resources are not in `.lproj` folders. Without a String Catalog, iOS
 
 - **Swift:** Xcode schemes have pseudolanguages under Run › Options › App Language: double length, accented, bounded string, right to left. They change only the text from String Catalogs.
 - **Compose:** Compose resources have no pseudo-locale. The Gradle task `pseudoLocalize` writes `values-en-rXA/strings.xml` from `values/strings.xml`: accented letters, 40% longer text, and brackets at both ends, for example `[Ļöĝ Ṁîĝŕåîñé Éþîšöðé ~~~~~~~~]`. It also writes `values-ru-rXC` (Cyrillic letters) and `values-th-rXT` (Thai letters with marks). The task runs only with `-Pmigratrack.pseudo=true` or the environment variable `MIGRATRACK_PSEUDO=true` (Xcode starts Gradle itself), so a normal or Release build never contains it. Run the app with `-AppleLanguages "(en-XA)"`.
-- Three runs come before any translation exists. `-AppleLanguages "(ar)"` shows the mirrored layout (section 4.8). A pseudo-locale with Cyrillic letters and one with Thai marks show the system font and the line heights (sections 4.6 and 4.7).
+- Three runs come before any translation exists. `-AppleLanguages "(ar)" -NSForceRightToLeftWritingDirection YES` shows the mirrored layout (section 4.8). A pseudo-locale with Cyrillic letters and one with Thai marks show the system font and the line heights (sections 4.6 and 4.7).
 - Check each screen at the default text size and at XXXL, which is the largest size that the app supports ([Theme.kt:76](../composeApp/src/commonMain/kotlin/com/migratrack/app/ui/theme/Theme.kt#L76)).
 - Watch: check the 40 mm SE and the 49 mm Ultra, also at the largest accessibility size. The watch simulator takes the text size from a launch argument: `-UIPreferredContentSizeCategoryName UICTContentSizeCategoryAccessibilityXXXL`.
 

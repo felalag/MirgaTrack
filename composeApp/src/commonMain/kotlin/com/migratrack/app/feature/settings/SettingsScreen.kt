@@ -78,6 +78,7 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
+import com.migratrack.app.ui.uppercaseInAppLanguage
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.UserProfile
@@ -242,7 +243,7 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
                 .border(2.dp, MtColors.Pink.copy(alpha = 0.4f), CircleShape),
             contentAlignment = Alignment.Center,
         ) {
-            val initials = state.name.split(' ').filter { it.isNotBlank() }.take(2).joinToString("") { it.first().uppercase() }
+            val initials = state.name.split(' ').filter { it.isNotBlank() }.take(2).joinToString("") { it.take(1).uppercaseInAppLanguage() }
             if (initials.isNotEmpty()) {
                 MtText(initials, MtTheme.type.title1, color = MtColors.TextPrimary)
             } else {
@@ -284,7 +285,7 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
 @Composable
 private fun ProfileStat(label: String, value: String, valueColor: androidx.compose.ui.graphics.Color, modifier: Modifier) {
     Column(modifier.semantics(mergeDescendants = true) {}, horizontalAlignment = Alignment.CenterHorizontally) {
-        MtText(label.uppercase(), MtTheme.type.caption, color = MtColors.Caption)
+        MtText(label.uppercaseInAppLanguage(), MtTheme.type.caption, color = MtColors.Caption)
         MtText(value, MtTheme.type.bodyStrong, color = valueColor)
     }
 }

@@ -1,5 +1,7 @@
 package com.migratrack.app.ui
 
+import androidx.compose.ui.text.intl.Locale
+import androidx.compose.ui.text.toUpperCase
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -19,6 +21,14 @@ import platform.Foundation.NSLocale
 class SystemFormatsTest {
     private val saturday = LocalDate(2026, 10, 24)
     private val morning = LocalDateTime(2026, 10, 16, 9, 5)
+
+    @Test
+    fun upperCaseFollowsTheRulesOfTheLanguage() {
+        assertEquals("INCLUDE İN EXPORT", "Include in export".toUpperCase(Locale("tr")))
+        assertEquals("INCLUDE IN EXPORT", "Include in export".toUpperCase(Locale("en")))
+        // A test run has only the English localization, as version 1.0 does.
+        assertEquals("en", TextLocale.language)
+    }
 
     @Test
     fun usEnglishWritesMonthFirstWithA12HourClockAndStartsTheWeekOnSunday() {
