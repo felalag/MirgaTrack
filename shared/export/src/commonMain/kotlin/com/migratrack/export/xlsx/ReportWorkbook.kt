@@ -1,6 +1,7 @@
 package com.migratrack.export.xlsx
 
 import com.migratrack.export.report.ClinicalReport
+import com.migratrack.export.report.ReportStrings
 
 /**
  * Lays the report out as sheets: Episodes, then Medications and Profile when they apply.
@@ -8,23 +9,23 @@ import com.migratrack.export.report.ClinicalReport
  */
 object ReportWorkbook {
 
-    fun write(report: ClinicalReport): ByteArray = XlsxWriter.write(sheets(report))
+    fun write(report: ClinicalReport, strings: ReportStrings): ByteArray = XlsxWriter.write(sheets(report, strings))
 
-    internal fun sheets(report: ClinicalReport): List<Sheet> = buildList {
-        add(episodesSheet(report))
-        if (report.options.includeMedications) add(medicationsSheet(report))
-        if (report.options.includePainCharts) add(dailySheet(report))
-        report.baseline?.let { add(profileSheet(report)) }
+    internal fun sheets(report: ClinicalReport, strings: ReportStrings): List<Sheet> = buildList {
+        add(episodesSheet(report, strings))
+        if (report.options.includeMedications) add(medicationsSheet(report, strings))
+        if (report.options.includePainCharts) add(dailySheet(report, strings))
+        report.baseline?.let { add(profileSheet(report, strings)) }
     }
 
-    private fun episodesSheet(report: ClinicalReport): Sheet {
+    private fun episodesSheet(report: ClinicalReport, strings: ReportStrings): Sheet {
         val columns = buildList {
-            add(Column("Started", 18.0))
-            add(Column("Pain Intensity (1–10)", 20.0))
-            add(Column("Cranial Epicenter", 26.0))
-            if (report.options.includeSymptoms) add(Column("Aura & Sensory Symptoms", 48.0))
-            if (report.options.includeMedications) add(Column("Medications", 36.0))
-            if (report.options.includeTriggers) add(Column("Possible Triggers", 40.0))
+            add(Column(strings.headerStarted, 18.0))
+            add(Column(strings.headerPainIntensity, 20.0))
+            add(Column(strings.headerEpicenter, 26.0))
+            if (report.options.includeSymptoms) add(Column(strings.headerSymptoms, 48.0))
+            if (report.options.includeMedications) add(Column(strings.headerMedications, 36.0))
+            if (report.options.includeTriggers) add(Column(strings.headerTriggers, 40.0))
         }
         val rows = report.episodes.map { episode ->
             buildList {
@@ -38,10 +39,10 @@ object ReportWorkbook {
                 if (report.options.includeTriggers) add(Cell.Text(episode.triggers.joinToString(", ")))
             }
         }
-        return Sheet("Episodes", columns, rows)
+        return Sheet(strings.sheetEpisodes, columns, rows)
     }
 
-    private fun medicationsSheet(report: ClinicalReport): Sheet {
+    private fun medicationsSheet(report: ClinicalReport, strings: ReportStrings): Sheet {
         val rows = report.episodes.flatMap { episode ->
             episode.medications.map { intake ->
                 listOf(
@@ -53,15 +54,15 @@ object ReportWorkbook {
             }
         }
         val columns = listOf(
-            Column("Episode Started", 18.0),
-            Column("Medication", 28.0),
-            Column("Dose", 12.0),
-            Column("Pain Intensity (1–10)", 20.0),
+            Column(strings.headerEpisodeStarted, 18.0),
+            Column(strings.headerMedication, 28.0),
+            Column(strings.headerDose, 12.0),
+            Column(strings.headerPainIntensity, 20.0),
         )
-        return Sheet("Medications", columns, rows)
+        return Sheet(strings.sheetMedications, columns, rows)
     }
 
-    private fun dailySheet(report: ClinicalReport): Sheet {
+    private fun dailySheet(report: ClinicalReport, strings: ReportStrings): Sheet {
         val rows = report.days.map { day ->
             listOf(
                 Cell.Text(day.date.toString()),
@@ -72,29 +73,30 @@ object ReportWorkbook {
                 },
                 Cell.Text(
                     when {
-                        day.peak != null -> "Migraine"
-                        day.isTracked -> "Pain-Free"
-                        else -> "Not Tracked"
+                        day.peak != null -> strings.dayMigraine
+                        day.isTracked -> strings.dayPainFree
+                        else -> strings.dayNotTracked
                     },
                 ),
             )
         }
-        return Sheet("Daily Pain", listOf(Column("Date", 14.0), Column("Peak Pain Intensity (1–10, 0 = pain-free)", 18.0), Column("Day", 12.0)), rows)
+        val columns = listOf(Column(strings.headerDate, 14.0), Column(strings.headerPeakPain, 18.0), Column(strings.headerDay, 12.0))
+        return Sheet(strings.sheetDailyPain, columns, rows)
     }
 
-    private fun profileSheet(report: ClinicalReport): Sheet {
+    private fun profileSheet(report: ClinicalReport, strings: ReportStrings): Sheet {
         val baseline = requireNotNull(report.baseline)
         val rows = listOf(
-            "Patient" to report.patientName.ifBlank { "Not set" },
-            "Report Range" to "${report.from} to ${report.to}",
-            "Tracked Since" to report.trackedSince.toString(),
-            "Diagnoses" to baseline.diagnoses.joinToString(", ").ifBlank { "Not set" },
-            "Monthly Frequency" to baseline.frequency,
-            "Typical Duration" to baseline.typicalDuration,
-            "Typical Intensity" to "${baseline.typicalIntensity}/10",
-            "Known Triggers" to baseline.triggers.joinToString(", ").ifBlank { "None" },
-            "Treatment Blueprint" to baseline.treatments.joinToString(", ").ifBlank { "None" },
+            strings.profilePatient to report.patientName.ifBlank { strings.notSet },
+            strings.profileRange to strings.isoRange(report.from.toString(), report.to.toString()),
+            strings.profileTrackedSince to report.trackedSince.toString(),
+            strings.profileDiagnoses to baseline.diagnoses.joinToString(", ").ifBlank { strings.notSet },
+            strings.profileFrequency to baseline.frequency,
+            strings.profileDuration to baseline.typicalDuration,
+            strings.profileIntensity to strings.intensityOfTen(baseline.typicalIntensity),
+            strings.profileTriggers to baseline.triggers.joinToString(", ").ifBlank { strings.none },
+            strings.profileTreatments to baseline.treatments.joinToString(", ").ifBlank { strings.none },
         ).map { (key, value) -> listOf(Cell.Text(key), Cell.Text(value)) }
-        return Sheet("Profile", listOf(Column("Field", 22.0), Column("Value", 70.0)), rows)
+        return Sheet(strings.sheetProfile, listOf(Column(strings.headerField, 22.0), Column(strings.headerValue, 70.0)), rows)
     }
 }

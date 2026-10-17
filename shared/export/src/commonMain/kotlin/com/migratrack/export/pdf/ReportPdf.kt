@@ -6,6 +6,7 @@ import com.migratrack.export.pdf.TextStyle.Align
 import com.migratrack.export.pdf.TextStyle.Weight
 import com.migratrack.export.report.ClinicalReport
 import com.migratrack.export.report.ReportEpisode
+import com.migratrack.export.report.ReportStrings
 import kotlin.math.roundToInt
 
 /** Lays out the clinical report on A4 pages, light theme, for printing and sharing with a clinician. */
@@ -13,9 +14,9 @@ object ReportPdf {
     const val PAGE_WIDTH = 595f
     const val PAGE_HEIGHT = 842f
 
-    fun render(report: ClinicalReport, renderer: PdfRenderer, dates: DateFormats, numbers: NumberFormats): ByteArray =
+    fun render(report: ClinicalReport, renderer: PdfRenderer, strings: ReportStrings, dates: DateFormats, numbers: NumberFormats): ByteArray =
         renderer.render(PAGE_WIDTH, PAGE_HEIGHT) { canvas ->
-            val page = PageCursor(canvas, dates, numbers)
+            val page = PageCursor(canvas, strings, dates, numbers)
             page.newPage()
             page.header(report)
             page.statTiles(report)
@@ -43,10 +44,10 @@ private object Palette {
 
 private const val MARGIN = 40f
 private const val FOOTER_SPACE = 28f
-private const val DISCLAIMER = "Self-reported data logged in MigraTrack. This report supports, and does not replace, a clinical assessment."
 
 private class PageCursor(
     private val canvas: ReportCanvas,
+    private val strings: ReportStrings,
     private val dates: DateFormats,
     private val numbers: NumberFormats,
 ) {
@@ -61,7 +62,7 @@ private class PageCursor(
         pageNumber++
         y = MARGIN
         canvas.drawText(
-            "MigraTrack · Page $pageNumber",
+            strings.page(pageNumber),
             TextStyle(8f, color = Palette.SECONDARY, align = Align.Center),
             left, canvas.pageHeight - MARGIN, width,
         )
@@ -79,12 +80,13 @@ private class PageCursor(
 
     fun header(report: ClinicalReport) {
         canvas.fillRect(0f, 0f, canvas.pageWidth, 6f, Palette.PINK)
+        // The brand name stays the same in every language.
         y += text("MIGRATRACK", TextStyle(9f, Weight.Bold, Palette.PINK)) + 4f
-        y += text("Clinical Migraine Report", TextStyle(22f, Weight.Bold)) + 6f
+        y += text(strings.title, TextStyle(22f, Weight.Bold)) + 6f
         val details = buildList {
-            if (report.patientName.isNotBlank()) add("Patient: ${report.patientName}")
-            add("${dates.range(report.from, report.to)} (${report.rangeTitle})")
-            add("Generated ${dates.fullDate(report.generatedOn)}")
+            if (report.patientName.isNotBlank()) add(strings.patient(report.patientName))
+            add(strings.rangeWithTitle(dates.range(report.from, report.to), report.rangeTitle))
+            add(strings.generated(dates.fullDate(report.generatedOn)))
         }.joinToString("  ·  ")
         y += text(details, TextStyle(10f, color = Palette.SECONDARY)) + 18f
     }
@@ -92,10 +94,10 @@ private class PageCursor(
     fun statTiles(report: ClinicalReport) {
         val stats = report.stats
         val tiles = listOf(
-            Triple(numbers.integer(stats.episodes), "Episodes recorded", Palette.PINK),
-            Triple(numbers.integer(stats.migraineDays), "Migraine days", Palette.PINK),
-            Triple(numbers.integer(stats.painFreeDays), "Pain-free days", Palette.GREEN),
-            Triple(stats.averageIntensity?.let(numbers::decimal) ?: "–", "Average intensity /10", Palette.ORANGE),
+            Triple(numbers.integer(stats.episodes), strings.statEpisodes, Palette.PINK),
+            Triple(numbers.integer(stats.migraineDays), strings.statMigraineDays, Palette.PINK),
+            Triple(numbers.integer(stats.painFreeDays), strings.statPainFreeDays, Palette.GREEN),
+            Triple(stats.averageIntensity?.let(numbers::decimal) ?: "–", strings.statAverageIntensity, Palette.ORANGE),
         )
         val gap = 10f
         val tileWidth = (width - gap * (tiles.size - 1)) / tiles.size
@@ -109,9 +111,7 @@ private class PageCursor(
         }
         y += tileHeight
         if (stats.untrackedDays > 0) {
-            val days = if (stats.untrackedDays == 1) "1 earlier day" else "${stats.untrackedDays} earlier days"
-            val note = "Tracking started on ${dates.fullDate(report.trackedSince)}. " +
-                "$days of this range have no records and do not count as pain-free days."
+            val note = strings.untrackedNote(dates.fullDate(report.trackedSince), stats.untrackedDays)
             y += 14f + text(note, TextStyle(9.5f, color = Palette.SECONDARY))
         }
         y += 22f
@@ -125,14 +125,14 @@ private class PageCursor(
 
     fun baseline(report: ClinicalReport) {
         val baseline = report.baseline ?: return
-        sectionTitle("Baseline Profile", Palette.CYAN)
+        sectionTitle(strings.baselineTitle, Palette.CYAN)
         val rows = listOf(
-            "Diagnoses" to baseline.diagnoses.joinToString(", ").ifBlank { "Not set" },
-            "Monthly frequency" to baseline.frequency,
-            "Typical duration" to baseline.typicalDuration,
-            "Typical intensity" to "${baseline.typicalIntensity}/10",
-            "Known triggers" to baseline.triggers.joinToString(", ").ifBlank { "None" },
-            "Treatment blueprint" to baseline.treatments.joinToString(", ").ifBlank { "None" },
+            strings.baselineDiagnoses to baseline.diagnoses.joinToString(", ").ifBlank { strings.notSet },
+            strings.baselineFrequency to baseline.frequency,
+            strings.baselineDuration to baseline.typicalDuration,
+            strings.baselineIntensity to strings.intensityOfTen(baseline.typicalIntensity),
+            strings.baselineTriggers to baseline.triggers.joinToString(", ").ifBlank { strings.none },
+            strings.baselineTreatments to baseline.treatments.joinToString(", ").ifBlank { strings.none },
         )
         keyValueRows(rows)
         y += 14f
@@ -157,7 +157,7 @@ private class PageCursor(
     fun painChart(report: ClinicalReport) {
         val chartHeight = 120f
         val axisWidth = 22f
-        sectionTitle("Pain Intensity Timeline (1–10)", Palette.PINK)
+        sectionTitle(strings.painChartTitle, Palette.PINK)
         ensure(chartHeight + 44f)
         val chartLeft = left + axisWidth
         val chartWidth = width - axisWidth
@@ -197,10 +197,10 @@ private class PageCursor(
         y += 16f
         legend(
             buildList {
-                add("Mild 1–3" to Palette.GREEN)
-                add("Moderate 4–7" to Palette.ORANGE)
-                add("Severe 8–10" to Palette.PINK)
-                if (days.any { !it.isTracked }) add("Not tracked" to Palette.DIVIDER)
+                add(strings.legendMild(1, 3) to Palette.GREEN)
+                add(strings.legendModerate(4, 7) to Palette.ORANGE)
+                add(strings.legendSevere(8, 10) to Palette.PINK)
+                if (days.any { !it.isTracked }) add(strings.legendNotTracked to Palette.DIVIDER)
             },
         )
         y += 20f
@@ -223,12 +223,12 @@ private class PageCursor(
             .groupingBy { (it.name + " " + it.dose).trim() }
             .eachCount()
             .entries.sortedByDescending { it.value }
-        sectionTitle("Medication Use", Palette.GREEN)
+        sectionTitle(strings.medicationTitle, Palette.GREEN)
         if (counts.isEmpty()) {
-            y += text("No medication intakes logged in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
+            y += text(strings.noMedications, TextStyle(10f, color = Palette.SECONDARY)) + 16f
             return
         }
-        keyValueRows(counts.map { (name, count) -> name to "$count ${if (count == 1) "intake" else "intakes"}" })
+        keyValueRows(counts.map { (name, count) -> name to strings.intakes(count) })
         y += 14f
     }
 
@@ -239,41 +239,39 @@ private class PageCursor(
             .groupingBy { it }
             .eachCount()
             .entries.sortedByDescending { it.value }
-        sectionTitle("Aura & Warning Symptoms", Palette.CYAN)
+        sectionTitle(strings.symptomsTitle, Palette.CYAN)
         if (counts.isEmpty()) {
-            y += text("No aura or sensory symptoms logged in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
+            y += text(strings.noSymptoms, TextStyle(10f, color = Palette.SECONDARY)) + 16f
             return
         }
         keyValueRows(counts.map { (symptom, count) ->
-            symptom to "$count of $total episodes (${(count * 100f / total).roundToInt()}%)"
+            symptom to strings.shareOfEpisodes(count, total, (count * 100f / total).roundToInt())
         })
         y += 14f
     }
 
     fun triggerFrequency(report: ClinicalReport) {
         val frequency = report.triggers
-        sectionTitle("Possible Triggers Noted", Palette.PURPLE)
+        sectionTitle(strings.triggersTitle, Palette.PURPLE)
         if (frequency.counts.isEmpty()) {
-            y += text("No triggers noted in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
+            y += text(strings.noTriggers, TextStyle(10f, color = Palette.SECONDARY)) + 16f
             return
         }
         keyValueRows(frequency.counts.map { count ->
-            count.name to "${count.episodes} of ${frequency.episodes} episodes (${(count.episodes * 100f / frequency.episodes).roundToInt()}%)"
+            count.name to strings.shareOfEpisodes(count.episodes, frequency.episodes, (count.episodes * 100f / frequency.episodes).roundToInt())
         })
         val note = buildString {
-            append("Counts show how often the patient noted a trigger with an episode. They do not show a cause.")
-            if (frequency.withoutTriggers > 0) {
-                append(" ${withoutTriggersText(frequency.withoutTriggers, frequency.episodes)}.")
-            }
+            append(strings.triggersNote)
+            if (frequency.withoutTriggers > 0) append(" ").append(strings.withoutTriggers(frequency.withoutTriggers, frequency.episodes))
         }
         ensure(24f)
         y += text(note, TextStyle(8.5f, color = Palette.SECONDARY)) + 18f
     }
 
     fun episodeLog(report: ClinicalReport) {
-        sectionTitle("Episodes", Palette.ORANGE)
+        sectionTitle(strings.episodesTitle, Palette.ORANGE)
         if (report.episodes.isEmpty()) {
-            y += text("No episodes recorded in this range.", TextStyle(10f, color = Palette.SECONDARY)) + 16f
+            y += text(strings.noEpisodes, TextStyle(10f, color = Palette.SECONDARY)) + 16f
             return
         }
         val columns = tableColumns(report)
@@ -291,7 +289,7 @@ private class PageCursor(
             if (index % 2 == 1) canvas.fillRect(left, y, width, rowHeight, Palette.TILE)
             var x = left
             columns.zip(values).forEach { (column, value) ->
-                val style = if (column.title == "Pain") cellStyle.copy(weight = Weight.Bold, color = severityColor(episode.intensity)) else cellStyle
+                val style = if (column.id == ColumnId.Pain) cellStyle.copy(weight = Weight.Bold, color = severityColor(episode.intensity)) else cellStyle
                 canvas.drawText(value, style, x + 4f, y + 5f, column.width - 8f)
                 x += column.width
             }
@@ -301,26 +299,28 @@ private class PageCursor(
         y += 18f
     }
 
-    private class TableColumn(val title: String, val width: Float, val value: (ReportEpisode) -> String)
+    private enum class ColumnId { DateTime, Pain, Epicenter, Symptoms, Medications, Triggers }
+
+    private class TableColumn(val id: ColumnId, val title: String, val width: Float, val value: (ReportEpisode) -> String)
 
     private fun tableColumns(report: ClinicalReport): List<TableColumn> {
         val fixed = listOf(
-            TableColumn("Date & Time", 92f) { "${dates.fullDate(it.startedAt.date)}\n${dates.time(it.startedAt)}" },
-            TableColumn("Pain", 36f) { "${it.intensity}/10" },
-            TableColumn("Epicenter", 96f) { it.region ?: "–" },
+            TableColumn(ColumnId.DateTime, strings.columnDateTime, 92f) { "${dates.fullDate(it.startedAt.date)}\n${dates.time(it.startedAt)}" },
+            TableColumn(ColumnId.Pain, strings.columnPain, 36f) { strings.intensityOfTen(it.intensity) },
+            TableColumn(ColumnId.Epicenter, strings.columnEpicenter, 96f) { it.region ?: "–" },
         )
         val flexible = buildList {
-            if (report.options.includeSymptoms) add("Symptoms" to { e: ReportEpisode -> e.symptoms.joinToString(", ").ifBlank { "–" } })
-            if (report.options.includeMedications) add("Medications" to { e: ReportEpisode ->
+            if (report.options.includeSymptoms) add(Triple(ColumnId.Symptoms, strings.columnSymptoms) { e: ReportEpisode -> e.symptoms.joinToString(", ").ifBlank { "–" } })
+            if (report.options.includeMedications) add(Triple(ColumnId.Medications, strings.columnMedications) { e: ReportEpisode ->
                 e.medications.joinToString(", ") { "${it.name} ${it.dose}".trim() }.ifBlank { "–" }
             })
-            if (report.options.includeTriggers) add("Triggers" to { e: ReportEpisode -> e.triggers.joinToString(", ").ifBlank { "–" } })
+            if (report.options.includeTriggers) add(Triple(ColumnId.Triggers, strings.columnTriggers) { e: ReportEpisode -> e.triggers.joinToString(", ").ifBlank { "–" } })
         }
         val remaining = width - fixed.sumOf { it.width.toDouble() }.toFloat()
         val fixedColumns = if (flexible.isEmpty()) {
-            fixed.dropLast(1) + TableColumn(fixed.last().title, fixed.last().width + remaining, fixed.last().value)
+            fixed.last().let { last -> fixed.dropLast(1) + TableColumn(last.id, last.title, last.width + remaining, last.value) }
         } else fixed
-        return fixedColumns + flexible.map { (title, value) -> TableColumn(title, remaining / flexible.size, value) }
+        return fixedColumns + flexible.map { (id, title, value) -> TableColumn(id, title, remaining / flexible.size, value) }
     }
 
     private fun tableHeader(columns: List<TableColumn>) {
@@ -338,10 +338,10 @@ private class PageCursor(
 
     fun disclaimer() {
         val style = TextStyle(8f, color = Palette.SECONDARY)
-        val height = canvas.measureHeight(DISCLAIMER, style, width)
+        val height = canvas.measureHeight(strings.disclaimer, style, width)
         // The line may go into the footer space above the page number, so it never fills a page alone.
         y = minOf(y, bottom + FOOTER_SPACE - height - 6f)
-        text(DISCLAIMER, style)
+        text(strings.disclaimer, style)
     }
 }
 
@@ -350,8 +350,3 @@ private fun severityColor(intensity: Int): Long = when (intensity) {
     in 4..7 -> Palette.ORANGE
     else -> Palette.PINK
 }
-
-/** "1 of 3 episodes has no triggers noted": the noun follows the total, the verb the first number. Stage 1d translates it. */
-internal fun withoutTriggersText(withoutTriggers: Int, episodes: Int): String =
-    "$withoutTriggers of $episodes ${if (episodes == 1) "episode" else "episodes"} " +
-        "${if (withoutTriggers == 1) "has" else "have"} no triggers noted"

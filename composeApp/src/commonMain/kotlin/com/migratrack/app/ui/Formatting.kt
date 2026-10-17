@@ -39,4 +39,8 @@ fun AnnotatedString.Builder.appendWithPlaceholders(template: String, placeholder
     append(template.substring(start))
 }
 
+/** Fills each "%N$s" of [template] with the Nth of [args], for texts that are loaded before they are needed. */
+internal fun fillPlaceholders(template: String, args: Array<out String>): String =
+    PlaceholderPattern.replace(template) { args[it.groupValues[1].toInt() - 1] }
+
 private val PlaceholderPattern = Regex("%(\\d+)\\\$s")
