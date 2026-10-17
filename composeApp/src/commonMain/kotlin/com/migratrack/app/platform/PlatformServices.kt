@@ -60,4 +60,10 @@ interface FileSharing {
     suspend fun share(files: List<ExportFile>, text: String? = null)
 }
 
-data class AppInfo(val version: String, val build: String, val isDebug: Boolean)
+data class AppInfo(
+    val version: String,
+    val build: String,
+    val isDebug: Boolean,
+    /** A tab name or "Settings" to open first, for the screenshot script; only Debug builds read it. */
+    val startScreen: String? = null,
+)

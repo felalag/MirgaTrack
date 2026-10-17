@@ -41,7 +41,7 @@
       "comment" : "Name of the complication and the control in the watch face gallery, and their VoiceOver label. Max 14 characters."
     },
     "Open MigraTrack on iPhone" : {
-      "comment" : "Rectangular complication before the iPhone app sent its data. Max 24 characters."
+      "comment" : "Rectangular complication before the iPhone app sent its data. Max 25 characters."
     },
     "Opens the logger." : {
       "comment" : "Description of the control in Control Center."

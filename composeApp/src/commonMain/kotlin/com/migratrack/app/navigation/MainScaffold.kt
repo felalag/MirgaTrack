@@ -38,6 +38,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.migratrack.app.di.LocalAppGraph
 import com.migratrack.app.feature.episode.EpisodeEditorScreen
 import com.migratrack.app.feature.episode.EpisodeTarget
 import com.migratrack.app.feature.export.ExportScreen
@@ -95,12 +96,17 @@ data class EpisodeRoute(val episodeId: String? = null, val date: String? = null)
 @Composable
 fun MainScaffold() {
     val navController = rememberNavController()
-    var selectedTab by rememberSaveable { mutableStateOf(Tab.Summary) }
+    val startScreen = LocalAppGraph.current.services.appInfo.startScreen
+    var selectedTab by rememberSaveable { mutableStateOf(Tab.entries.firstOrNull { it.name == startScreen } ?: Tab.Summary) }
     var banner by remember { mutableStateOf<StringResource?>(null) }
     val entry by navController.currentBackStackEntryAsState()
     val tabBarVisible = entry?.destination?.hasRoute<EditBaselineRoute>() != true
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val endInset = WindowInsets.safeDrawing.asPaddingValues().calculateEndPadding(LocalLayoutDirection.current)
+
+    LaunchedEffect(Unit) {
+        if (startScreen == "Settings") navController.navigate(SettingsRoute)
+    }
 
     LaunchedEffect(banner) {
         if (banner != null) {

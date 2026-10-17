@@ -1,0 +1,6 @@
+			knownRegions = (
+				en,
+				Base,
+				pl,
+				de,
+			);

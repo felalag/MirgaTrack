@@ -1,0 +1,14 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Log in" : {
+      "comment" : "Button. Max 3 characters."
+    },
+    "Hello" : {
+      "localizations" : {
+        "pl" : { "stringUnit" : { "state" : "needs_review", "value" : "Cześć" } }
+      }
+    }
+  },
+  "version" : "1.0"
+}
