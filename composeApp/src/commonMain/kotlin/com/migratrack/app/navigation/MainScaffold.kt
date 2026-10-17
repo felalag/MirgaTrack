@@ -141,27 +141,27 @@ fun MainScaffold() {
                 composable<EpisodeRoute> { backStackEntry ->
                     EpisodeEditorScreen(
                         target = backStackEntry.toRoute<EpisodeRoute>().target(),
-                        onBack = { navController.popBackStack() },
+                        onBack = { navController.popFrom(backStackEntry) },
                         onDone = { message ->
-                            navController.popBackStack()
+                            navController.popFrom(backStackEntry)
                             banner = message
                         },
                     )
                 }
-                composable<SettingsRoute> {
+                composable<SettingsRoute> { backStackEntry ->
                     SettingsScreen(
-                        onBack = { navController.popBackStack() },
+                        onBack = { navController.popFrom(backStackEntry) },
                         onEditBaseline = { step -> navController.navigate(EditBaselineRoute(step)) },
                         onOpenDocument = { document -> navController.navigate(LegalRoute(document.name)) },
                     )
                 }
                 composable<LegalRoute> { backStackEntry ->
-                    LegalScreen(LegalDocument.valueOf(backStackEntry.toRoute<LegalRoute>().document), onBack = { navController.popBackStack() })
+                    LegalScreen(LegalDocument.valueOf(backStackEntry.toRoute<LegalRoute>().document), onBack = { navController.popFrom(backStackEntry) })
                 }
                 composable<EditBaselineRoute> { backStackEntry ->
                     BaselineEditor(
                         step = backStackEntry.toRoute<EditBaselineRoute>().step,
-                        onClose = { navController.popBackStack() },
+                        onClose = { navController.popFrom(backStackEntry) },
                     )
                 }
             }
