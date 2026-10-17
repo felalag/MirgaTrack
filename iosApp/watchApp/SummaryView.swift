@@ -68,9 +68,9 @@ struct PainFreeDays: View {
             if let status {
                 Group {
                     if let last = status.lastEpisodeStartedAt {
-                        Text("Last attack \(last, format: .dateTime.month(.abbreviated).day())")
+                        Text("Last episode \(last, format: .dateTime.month(.abbreviated).day())")
                     } else {
-                        Text("No attacks logged")
+                        Text("No episodes logged")
                     }
                 }
                 .font(.caption)

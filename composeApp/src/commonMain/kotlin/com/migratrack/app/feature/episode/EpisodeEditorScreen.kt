@@ -37,7 +37,7 @@ fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (mess
         EpisodeFormFields(draft, state.baselineTriggers, viewModel, graph.today(), graph.timeZone())
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             PrimaryButton(
-                text = if (editing) "Update Episode Log" else "Save Episode Log",
+                text = if (editing) "Update Episode" else "Save Episode",
                 icon = Symbols.Save,
                 enabled = !state.saving,
                 height = 56.dp,
@@ -47,7 +47,7 @@ fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (mess
                 },
             )
             if (editing) {
-                DestructiveButton("Delete Episode Log", enabled = !state.saving, onClick = {
+                DestructiveButton("Delete Episode", enabled = !state.saving, onClick = {
                     viewModel.delete { onDone("Episode deleted.") }
                 })
             }

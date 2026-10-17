@@ -8,3 +8,4 @@ exclude:
   - user-journey
   - REVIEW_READINESS.md
   - review-readiness
+  - LOCALIZATION_GLOSSARY.md

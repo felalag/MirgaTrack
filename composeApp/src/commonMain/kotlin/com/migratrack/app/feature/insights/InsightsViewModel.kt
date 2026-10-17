@@ -114,7 +114,7 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
         val episode = if (day.episodes.size == 1) {
             day.episodes.single().takeIf { confirmDelete(graph, it) }
         } else {
-            chooseEpisode(day, "Delete Episode Log", destructive = true)
+            chooseEpisode(day, "Delete Episode", destructive = true)
         }
         episode?.let { graph.episodes.delete(it.id) }
     }

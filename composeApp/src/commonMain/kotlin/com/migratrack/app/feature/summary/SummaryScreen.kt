@@ -92,7 +92,7 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
 private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
     Card(color = MtColors.CardRaised, radius = MtRadius.xl, contentPadding = PaddingValues(MtSpacing.md)) {
         val trackedDays = "${snapshot.trackedDays} tracked ${if (snapshot.trackedDays == 1) "day" else "days"}"
-        val summary = "${snapshot.painFreeDays} of $trackedDays without a logged attack in the last 30 days"
+        val summary = "${snapshot.painFreeDays} of $trackedDays without a logged episode in the last 30 days"
         Column(Modifier.clearAndSetSemantics { contentDescription = summary }) {
             SectionCaption("Last 30 days", modifier = Modifier.padding(start = 0.dp))
             Spacer(Modifier.height(MtSpacing.xs))
@@ -105,7 +105,7 @@ private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
                     modifier = Modifier.padding(bottom = 8.dp),
                 )
             }
-            MtText("without a logged attack", MtTheme.type.subhead, color = MtColors.TextSecondary)
+            MtText("without a logged episode", MtTheme.type.subhead, color = MtColors.TextSecondary)
             Spacer(Modifier.height(MtSpacing.md))
             DayStrip(snapshot.days.map { it.toStripDay() })
             Spacer(Modifier.height(6.dp))
@@ -197,7 +197,7 @@ private fun LastEventCard(episode: Episode?, timeZone: TimeZone, onClick: (Episo
         }
         Spacer(Modifier.width(MtSpacing.sm))
         Column(Modifier.weight(1f)) {
-            SectionCaption("Last Event", modifier = Modifier.padding(start = 0.dp))
+            SectionCaption("Last Episode", modifier = Modifier.padding(start = 0.dp))
             val date = episode?.startedAt?.toLocalDateTime(timeZone)?.date
             MtText(date?.let(DateText::monthDay) ?: "None yet", MtTheme.type.headline, color = MtColors.TextPrimary)
         }

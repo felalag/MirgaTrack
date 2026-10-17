@@ -141,7 +141,7 @@ private fun DiagnosesStepScreen(
     StepPage(
         step = step,
         title = "Diagnoses & History",
-        subtitle = "Set up your headache profile. Your logs and reports start from it.",
+        subtitle = "Set up your baseline profile. Your episodes and reports start from it.",
         onBack = onBack,
     ) {
         StepSection("Primary Diagnosis") {
@@ -226,7 +226,7 @@ private fun TreatmentStepScreen(
     StepPage(
         step = step,
         title = "Treatment Blueprint",
-        subtitle = "Choose what you take. Acute medications pre-fill every new episode log, so logging takes one tap.",
+        subtitle = "Choose what you take. Acute medications pre-fill every new episode, so logging takes one tap.",
         onBack = onBack,
     ) {
         MedicationRole.entries.forEach { role ->

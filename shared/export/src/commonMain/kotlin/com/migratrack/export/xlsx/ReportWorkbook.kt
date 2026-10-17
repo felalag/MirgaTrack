@@ -18,7 +18,7 @@ object ReportWorkbook {
     private fun episodesSheet(report: ClinicalReport): Sheet {
         val columns = buildList {
             add(Column("Started", 18.0))
-            add(Column("Pain Intensity (1-10)", 20.0))
+            add(Column("Pain Intensity (1–10)", 20.0))
             add(Column("Cranial Epicenter", 26.0))
             if (report.options.includeSymptoms) add(Column("Aura & Sensory Symptoms", 48.0))
             if (report.options.includeMedications) add(Column("Medications", 36.0))
@@ -54,7 +54,7 @@ object ReportWorkbook {
             Column("Episode Started", 18.0),
             Column("Medication", 28.0),
             Column("Dose", 12.0),
-            Column("Episode Pain (1-10)", 20.0),
+            Column("Pain Intensity (1–10)", 20.0),
         )
         return Sheet("Medications", columns, rows)
     }
@@ -77,7 +77,7 @@ object ReportWorkbook {
                 ),
             )
         }
-        return Sheet("Daily Pain", listOf(Column("Date", 14.0), Column("Peak Pain (0-10)", 18.0), Column("Day", 12.0)), rows)
+        return Sheet("Daily Pain", listOf(Column("Date", 14.0), Column("Peak Pain Intensity (1–10, 0 = pain-free)", 18.0), Column("Day", 12.0)), rows)
     }
 
     private fun profileSheet(report: ClinicalReport): Sheet {

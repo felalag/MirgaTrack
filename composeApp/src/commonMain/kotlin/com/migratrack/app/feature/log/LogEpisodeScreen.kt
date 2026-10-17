@@ -26,7 +26,7 @@ fun LogEpisodeScreen(onOpenSettings: () -> Unit, onSaved: () -> Unit) {
         val draft = state.draft ?: return@Page
         EpisodeFormFields(draft, state.baselineTriggers, viewModel, graph.today(), graph.timeZone())
         PrimaryButton(
-            text = "Save Episode Log",
+            text = "Save Episode",
             icon = Symbols.Save,
             enabled = !state.saving,
             height = 56.dp,
