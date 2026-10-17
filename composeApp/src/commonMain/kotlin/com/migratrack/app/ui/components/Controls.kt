@@ -39,11 +39,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_off
+import com.migratrack.app.generated.resources.common_on
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import org.jetbrains.compose.resources.stringResource
 
 /** Full-width pink pill: "Log Migraine Episode", "Save Episode", "Export PDF Report". */
 @Composable
@@ -145,6 +149,7 @@ fun TextAction(text: String, color: Color, onClick: () -> Unit, modifier: Modifi
 @Composable
 fun IosSwitch(checked: Boolean, onCheckedChange: (Boolean) -> Unit, modifier: Modifier = Modifier) {
     val haptics = LocalHapticFeedback.current
+    val state = stringResource(if (checked) Res.string.common_on else Res.string.common_off)
     val track by animateColorAsState(if (checked) MtColors.Green else MtColors.SwitchOff)
     val offset by animateDpAsState(
         targetValue = if (checked) 22.dp else 2.dp,
@@ -157,7 +162,7 @@ fun IosSwitch(checked: Boolean, onCheckedChange: (Boolean) -> Unit, modifier: Mo
             .background(track)
             .semantics {
                 role = Role.Switch
-                stateDescription = if (checked) "On" else "Off"
+                stateDescription = state
             }
             .pressable(role = Role.Switch, pressedScale = 1f) {
                 haptics.performHapticFeedback(if (checked) HapticFeedbackType.ToggleOff else HapticFeedbackType.ToggleOn)

@@ -1,6 +1,7 @@
 package com.migratrack.domain.analytics
 
 import com.migratrack.domain.model.Episode
+import com.migratrack.domain.model.MedicationIntake
 import com.migratrack.domain.model.PainIntensity
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
@@ -38,8 +39,8 @@ data class DayEpisodes(val date: LocalDate, val episodes: List<Episode>) {
     val peak: PainIntensity? get() = episodes.maxByOrNull { it.intensity.value }?.intensity
 
     /** Each medication once, in the order the user took them. */
-    val medications: List<String>
-        get() = episodes.flatMap { it.medications }.sortedBy { it.takenAt }.map { it.displayName }.distinct()
+    val medications: List<MedicationIntake>
+        get() = episodes.flatMap { it.medications }.sortedBy { it.takenAt }.distinctBy { it.displayName }
 }
 
 object CalendarBuilder {

@@ -96,5 +96,5 @@ internal fun EpisodeDraft.toSync() = SyncPreset(
 
 internal fun SyncPreset.toDraft() = EpisodeDraft(
     intensity = PainIntensity(intensity.coerceIn(PainIntensity.RANGE)),
-    medications = medications.map { Medication(it.id, it.name, it.dose, MedicationRole.Acute, drugClass = "") },
+    medications = medications.map { Medication(it.id, it.name, it.dose, MedicationRole.Acute) },
 )

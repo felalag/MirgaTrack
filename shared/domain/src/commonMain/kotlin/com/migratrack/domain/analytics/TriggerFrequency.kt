@@ -2,7 +2,7 @@ package com.migratrack.domain.analytics
 
 import com.migratrack.domain.model.Episode
 
-/** One trigger and the number of episodes that noted it. */
+/** One trigger and the number of episodes that noted it. [name] is the stored copy of the newest episode. */
 data class TriggerCount(val triggerId: String, val name: String, val episodes: Int)
 
 /**
@@ -12,14 +12,9 @@ data class TriggerCount(val triggerId: String, val name: String, val episodes: I
 data class TriggerFrequency(
     val episodes: Int,
     val withoutTriggers: Int,
-    /** Most often noted first; ties in name order. */
+    /** Most often noted first. The UI orders ties by the shown name, which depends on the language. */
     val counts: List<TriggerCount>,
 ) {
-    /** "1 of 3 episodes has no triggers noted": the noun follows the total, the verb the first number. */
-    val withoutTriggersText: String
-        get() = "$withoutTriggers of $episodes ${if (episodes == 1) "episode" else "episodes"} " +
-            "${if (withoutTriggers == 1) "has" else "have"} no triggers noted"
-
     companion object {
         fun of(episodes: List<Episode>): TriggerFrequency {
             // The newest episode gives the name, in case an older copy has an outdated one.
@@ -29,7 +24,7 @@ data class TriggerFrequency(
                 .groupingBy { it }
                 .eachCount()
                 .map { (id, count) -> TriggerCount(id, names.getValue(id), count) }
-                .sortedWith(compareByDescending<TriggerCount> { it.episodes }.thenBy { it.name })
+                .sortedWith(compareByDescending<TriggerCount> { it.episodes }.thenBy { it.triggerId })
             return TriggerFrequency(episodes.size, episodes.count { it.triggers.isEmpty() }, counts)
         }
     }

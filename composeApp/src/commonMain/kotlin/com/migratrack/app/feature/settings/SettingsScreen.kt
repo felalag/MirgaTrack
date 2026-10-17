@@ -28,6 +28,38 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.AppGraph
 import com.migratrack.app.di.LocalAppGraph
 import com.migratrack.app.feature.legal.LegalDocument
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_not_set
+import com.migratrack.app.generated.resources.common_settings
+import com.migratrack.app.generated.resources.common_treatment_blueprint
+import com.migratrack.app.generated.resources.legal_privacy_policy
+import com.migratrack.app.generated.resources.legal_terms_of_service
+import com.migratrack.app.generated.resources.settings_add_name
+import com.migratrack.app.generated.resources.settings_appearance
+import com.migratrack.app.generated.resources.settings_appearance_value
+import com.migratrack.app.generated.resources.settings_baseline_diagnoses
+import com.migratrack.app.generated.resources.settings_delete_all
+import com.migratrack.app.generated.resources.settings_delete_message
+import com.migratrack.app.generated.resources.settings_delete_title
+import com.migratrack.app.generated.resources.settings_edit_name_a11y
+import com.migratrack.app.generated.resources.settings_episodes
+import com.migratrack.app.generated.resources.settings_episodes_logged
+import com.migratrack.app.generated.resources.settings_known_triggers
+import com.migratrack.app.generated.resources.settings_known_triggers_count
+import com.migratrack.app.generated.resources.settings_load_sample_data
+import com.migratrack.app.generated.resources.settings_load_sample_data_subtitle
+import com.migratrack.app.generated.resources.settings_member
+import com.migratrack.app.generated.resources.settings_name_message
+import com.migratrack.app.generated.resources.settings_name_placeholder
+import com.migratrack.app.generated.resources.settings_name_title
+import com.migratrack.app.generated.resources.settings_no_medications
+import com.migratrack.app.generated.resources.settings_no_triggers
+import com.migratrack.app.generated.resources.settings_section_baseline
+import com.migratrack.app.generated.resources.settings_section_developer
+import com.migratrack.app.generated.resources.settings_section_legal
+import com.migratrack.app.generated.resources.settings_section_preferences
+import com.migratrack.app.generated.resources.settings_version
+import com.migratrack.app.generated.resources.settings_version_value
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
 import com.migratrack.app.ui.components.ListRow
@@ -37,25 +69,34 @@ import com.migratrack.app.ui.components.RowTrailing
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.resolve
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.analytics.DateText
+import com.migratrack.domain.model.Diagnosis
+import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.UserProfile
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
+/** [diagnoses] and [treatments] are empty when nothing is selected; the screen then shows a hint. */
 data class SettingsUiState(
     val name: String,
     val memberSince: String,
     val logCount: Int,
-    val diagnoses: String,
-    val triggers: String,
-    val treatments: String,
+    val diagnoses: List<Diagnosis>,
+    val triggerCount: Int,
+    val treatments: List<Medication>,
 )
 
 class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
@@ -73,23 +114,18 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
             name = user?.name.orEmpty(),
             memberSince = user?.memberSince?.let { "${DateText.shortMonth(it.month)} ${it.year}" } ?: "–",
             logCount = episodes.size,
-            diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }?.joinToString(", ") { it.title }.orEmpty().ifEmpty { "Not set" },
-            triggers = when (triggerCount) {
-                0 -> "No triggers selected"
-                1 -> "1 known trigger"
-                else -> "$triggerCount known triggers"
-            },
-            treatments = medications.filter { it.id in baseline?.medicationIds.orEmpty() }
-                .joinToString(", ") { it.displayName }.ifEmpty { "No medications selected" },
+            diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }.orEmpty(),
+            triggerCount = triggerCount,
+            treatments = medications.filter { it.id in baseline?.medicationIds.orEmpty() },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
     fun editName() = viewModelScope.launch {
         val user = graph.profiles.user() ?: UserProfile("", graph.today())
         val name = graph.services.dialogs.prompt(
-            title = "Your Name",
-            message = "It appears on the reports you export.",
-            placeholder = "Name",
+            title = getString(Res.string.settings_name_title),
+            message = getString(Res.string.settings_name_message),
+            placeholder = getString(Res.string.settings_name_placeholder),
             initialValue = user.name,
         ) ?: return@launch
         graph.profiles.saveUser(user.copy(name = name.trim()))
@@ -98,9 +134,9 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
     /** Erases the data on this device and restarts onboarding. The watch drops its copy at the next sync. */
     fun deleteAllData() = viewModelScope.launch {
         val confirmed = graph.services.dialogs.confirm(
-            title = "Delete All Data?",
-            message = "MigraTrack keeps your data on this iPhone and a copy on your Apple Watch. This permanently deletes every episode and your baseline profile; the watch deletes its copy at the next sync. Device backups keep their copy. Export a report first if you need it.",
-            confirmTitle = "Delete All Data",
+            title = getString(Res.string.settings_delete_title),
+            message = getString(Res.string.settings_delete_message),
+            confirmTitle = getString(Res.string.settings_delete_all),
             destructive = true,
         )
         if (confirmed) graph.services.store.eraser.eraseAll()
@@ -115,38 +151,56 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
     val viewModel = viewModel { SettingsViewModel(graph) }
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Page(title = "Settings", onBack = onBack) {
+    Page(title = stringResource(Res.string.common_settings), onBack = onBack) {
         val current = state ?: return@Page
         ProfileCard(current, onEditName = viewModel::editName)
 
-        GroupedSection("Clinical Baseline & Protocol") {
-            ListRow("Baseline Diagnoses", Symbols.Psychology, MtColors.Cyan, subtitle = current.diagnoses, trailing = RowTrailing.Chevron) { onEditBaseline(1) }
+        val diagnoses = current.diagnoses.map { stringResource(it.title) }.joinToString(", ").ifEmpty { stringResource(Res.string.common_not_set) }
+        val triggers = if (current.triggerCount == 0) {
+            stringResource(Res.string.settings_no_triggers)
+        } else {
+            pluralStringResource(Res.plurals.settings_known_triggers_count, current.triggerCount, current.triggerCount)
+        }
+        val treatments = current.treatments.map { it.nameText.resolve() }.joinToString(", ")
+            .ifEmpty { stringResource(Res.string.settings_no_medications) }
+        GroupedSection(stringResource(Res.string.settings_section_baseline)) {
+            ListRow(stringResource(Res.string.settings_baseline_diagnoses), Symbols.Psychology, MtColors.Cyan, subtitle = diagnoses, trailing = RowTrailing.Chevron) { onEditBaseline(1) }
             ListDivider()
-            ListRow("Known Triggers", Symbols.Bolt, MtColors.Pink, subtitle = current.triggers, trailing = RowTrailing.Chevron) { onEditBaseline(2) }
+            ListRow(stringResource(Res.string.settings_known_triggers), Symbols.Bolt, MtColors.Pink, subtitle = triggers, trailing = RowTrailing.Chevron) { onEditBaseline(2) }
             ListDivider()
-            ListRow("Treatment Blueprint", Symbols.Medication, MtColors.Green, subtitle = current.treatments, trailing = RowTrailing.Chevron) { onEditBaseline(3) }
+            ListRow(stringResource(Res.string.common_treatment_blueprint), Symbols.Medication, MtColors.Green, subtitle = treatments, trailing = RowTrailing.Chevron) { onEditBaseline(3) }
         }
 
-        GroupedSection("Preferences") {
-            ListRow("Appearance", Symbols.DarkMode, MtColors.Caption, trailing = RowTrailing.Value("Dark (Locked)"))
+        GroupedSection(stringResource(Res.string.settings_section_preferences)) {
+            ListRow(
+                stringResource(Res.string.settings_appearance),
+                Symbols.DarkMode,
+                MtColors.Caption,
+                trailing = RowTrailing.Value(stringResource(Res.string.settings_appearance_value)),
+            )
             ListDivider()
             val info = viewModel.appInfo
-            ListRow("Version", Symbols.Info, MtColors.Caption, trailing = RowTrailing.Value("v${info.version} (Build ${info.build})"))
+            ListRow(
+                stringResource(Res.string.settings_version),
+                Symbols.Info,
+                MtColors.Caption,
+                trailing = RowTrailing.Value(stringResource(Res.string.settings_version_value, info.version, info.build)),
+            )
         }
 
-        GroupedSection("Legal") {
-            ListRow("Privacy Policy", AppIcons.Shield, MtColors.Cyan, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.PrivacyPolicy) }
+        GroupedSection(stringResource(Res.string.settings_section_legal)) {
+            ListRow(stringResource(Res.string.legal_privacy_policy), AppIcons.Shield, MtColors.Cyan, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.PrivacyPolicy) }
             ListDivider()
-            ListRow("Terms of Service", AppIcons.Document, MtColors.Caption, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.TermsOfService) }
+            ListRow(stringResource(Res.string.legal_terms_of_service), AppIcons.Document, MtColors.Caption, trailing = RowTrailing.Chevron) { onOpenDocument(LegalDocument.TermsOfService) }
         }
 
         if (viewModel.appInfo.isDebug) {
-            GroupedSection("Developer") {
+            GroupedSection(stringResource(Res.string.settings_section_developer)) {
                 ListRow(
-                    "Load Sample Data",
+                    stringResource(Res.string.settings_load_sample_data),
                     Symbols.Science,
                     MtColors.Orange,
-                    subtitle = "Adds a year of generated episodes to preview the charts",
+                    subtitle = stringResource(Res.string.settings_load_sample_data_subtitle),
                     onClick = viewModel::loadSampleData,
                 )
             }
@@ -161,13 +215,14 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
                 .pressable(pressedScale = 1f, onClick = viewModel::deleteAllData),
             contentAlignment = Alignment.Center,
         ) {
-            MtText("Delete All Data", MtTheme.type.bodyStrong, color = MtColors.Pink)
+            MtText(stringResource(Res.string.settings_delete_all), MtTheme.type.bodyStrong, color = MtColors.Pink)
         }
     }
 }
 
 @Composable
 private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
+    val editNameLabel = stringResource(Res.string.settings_edit_name_a11y)
     Column(
         Modifier
             .fillMaxWidth()
@@ -195,12 +250,12 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
         Row(
             Modifier
                 .heightIn(min = MtSpacing.minTouch)
-                .semantics { contentDescription = "Edit name" }
+                .semantics { contentDescription = editNameLabel }
                 .pressable(onClick = onEditName),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             MtText(
-                state.name.ifBlank { "Add Your Name" },
+                state.name.ifBlank { stringResource(Res.string.settings_add_name) },
                 MtTheme.type.title2.copy(fontWeight = FontWeight.Bold),
                 color = if (state.name.isBlank()) MtColors.TextSecondary else MtColors.TextPrimary,
             )
@@ -213,8 +268,13 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
                 .background(MtColors.CardRaised)
                 .padding(MtSpacing.sm),
         ) {
-            ProfileStat("Member", state.memberSince, MtColors.TextPrimary, Modifier.weight(1f))
-            ProfileStat("Episodes", "${state.logCount} Logged", MtColors.BrandLabel, Modifier.weight(1f))
+            ProfileStat(stringResource(Res.string.settings_member), state.memberSince, MtColors.TextPrimary, Modifier.weight(1f))
+            ProfileStat(
+                stringResource(Res.string.settings_episodes),
+                pluralStringResource(Res.plurals.settings_episodes_logged, state.logCount, state.logCount),
+                MtColors.BrandLabel,
+                Modifier.weight(1f),
+            )
         }
     }
 }

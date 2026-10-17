@@ -21,15 +21,19 @@ class PlatformServices(
 
 /** Native alerts and action sheets, so prompts look like the platform and not like Material. */
 interface SystemDialogs {
+    /** Asks with Cancel and [confirmTitle]; returns true for [confirmTitle]. */
     suspend fun confirm(title: String, message: String?, confirmTitle: String, destructive: Boolean = false): Boolean
 
-    /** Returns the entered text, or null when the user cancels. */
+    /** Reports something with an OK button only. */
+    suspend fun alert(title: String, message: String?)
+
+    /** Returns the entered text, or null when the user cancels. A null [confirmTitle] shows "Save". */
     suspend fun prompt(
         title: String,
         message: String? = null,
         placeholder: String = "",
         initialValue: String = "",
-        confirmTitle: String = "Save",
+        confirmTitle: String? = null,
     ): String?
 
     /** Shows an action sheet and returns the index of the chosen action, or null on cancel. */

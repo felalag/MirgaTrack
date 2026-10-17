@@ -25,6 +25,7 @@ enum class LogSource { App, QuickLog }
 /**
  * A medication taken during an episode.
  * Name and dose are copied from the catalog, so history stays readable after the user edits the catalog.
+ * The UI shows a built-in medication by its ID instead; the copy is the fallback.
  */
 data class MedicationIntake(
     val medicationId: String,
@@ -38,20 +39,6 @@ data class MedicationIntake(
 /** A trigger noted for an episode. The name is a copy, like the name of a [MedicationIntake]. */
 data class NotedTrigger(val triggerId: String, val name: String)
 
-enum class CranialRegion(val title: String) {
-    LeftTemple("Left Temple"),
-    RightTemple("Right Temple"),
-    FrontalBrow("Frontal / Brow"),
-    RetroOrbital("Retro-Orbital"),
-    OccipitalNeck("Occipital & Cervical Neck"),
-}
+enum class CranialRegion { LeftTemple, RightTemple, FrontalBrow, RetroOrbital, OccipitalNeck }
 
-enum class Symptom(val title: String, val shortTitle: String) {
-    ScintillatingScotoma("Scintillating Scotoma (Visual)", "Visual Aura"),
-    NeckStiffness("Neck Stiffness", "Neck Stiffness"),
-    Photophobia("Photophobia (Light)", "Light"),
-    Nausea("Nausea", "Nausea"),
-    Phonophobia("Phonophobia (Sound)", "Sound"),
-    Aphasia("Aphasia / Brain Fog", "Brain Fog"),
-    Paresthesia("Tingling / Paresthesia", "Tingling"),
-}
+enum class Symptom { ScintillatingScotoma, NeckStiffness, Photophobia, Nausea, Phonophobia, Aphasia, Paresthesia }

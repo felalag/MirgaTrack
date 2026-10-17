@@ -39,7 +39,31 @@ import com.migratrack.app.di.LocalAppGraph
 import com.migratrack.app.feature.legal.LegalDocument
 import com.migratrack.app.feature.legal.LegalScreen
 import com.migratrack.app.feature.welcome.WelcomeScreen
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_back
+import com.migratrack.app.generated.resources.common_medical_disclaimer
+import com.migratrack.app.generated.resources.common_treatment_blueprint
+import com.migratrack.app.generated.resources.onboarding_add_custom_medication
+import com.migratrack.app.generated.resources.onboarding_add_custom_trigger
+import com.migratrack.app.generated.resources.onboarding_back_to_diagnoses
+import com.migratrack.app.generated.resources.onboarding_back_to_triggers
+import com.migratrack.app.generated.resources.onboarding_continue_to_medications
+import com.migratrack.app.generated.resources.onboarding_continue_to_triggers
+import com.migratrack.app.generated.resources.onboarding_diagnoses_subtitle
+import com.migratrack.app.generated.resources.onboarding_diagnoses_title
+import com.migratrack.app.generated.resources.onboarding_episode_duration
+import com.migratrack.app.generated.resources.onboarding_episode_frequency
+import com.migratrack.app.generated.resources.onboarding_finish_setup
+import com.migratrack.app.generated.resources.onboarding_intensity_baseline
+import com.migratrack.app.generated.resources.onboarding_primary_diagnosis
+import com.migratrack.app.generated.resources.onboarding_save_changes
+import com.migratrack.app.generated.resources.onboarding_step
+import com.migratrack.app.generated.resources.onboarding_treatment_subtitle
+import com.migratrack.app.generated.resources.onboarding_triggers_subtitle
+import com.migratrack.app.generated.resources.onboarding_triggers_title
+import com.migratrack.app.generated.resources.onboarding_update_later
 import com.migratrack.app.ui.accent
+import com.migratrack.app.ui.classText
 import com.migratrack.app.ui.components.AddRow
 import com.migratrack.app.ui.components.ChoiceChips
 import com.migratrack.app.ui.components.MtText
@@ -51,19 +75,25 @@ import com.migratrack.app.ui.components.SelectionStyle
 import com.migratrack.app.ui.components.contentColumn
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.descriptionText
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.subtitle
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.EpisodeFrequency
 import com.migratrack.domain.model.MedicationRole
 import com.migratrack.domain.model.TriggerCategory
 import com.migratrack.domain.model.TypicalDuration
 import kotlinx.serialization.Serializable
+import org.jetbrains.compose.resources.stringResource
 
 @Serializable private data object WelcomeStep
 @Serializable private data class DocumentStep(val document: String)
@@ -90,7 +120,7 @@ fun OnboardingFlow(session: Int) {
             LegalScreen(LegalDocument.valueOf(entry.toRoute<DocumentStep>().document), onBack = { navController.popBackStack() })
         }
         composable<DiagnosesStep> {
-            DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popBackStack() }, primaryLabel = "Continue to Triggers") {
+            DiagnosesStepScreen(viewModel, step = 1, onBack = { navController.popBackStack() }, primaryLabel = stringResource(Res.string.onboarding_continue_to_triggers)) {
                 navController.navigate(TriggersStep)
             }
         }
@@ -99,8 +129,8 @@ fun OnboardingFlow(session: Int) {
                 viewModel,
                 step = 2,
                 onBack = { navController.popBackStack() },
-                primaryLabel = "Continue to Medications",
-                backLabel = "Back to Diagnoses",
+                primaryLabel = stringResource(Res.string.onboarding_continue_to_medications),
+                backLabel = stringResource(Res.string.onboarding_back_to_diagnoses),
             ) { navController.navigate(TreatmentStep) }
         }
         composable<TreatmentStep> {
@@ -108,8 +138,8 @@ fun OnboardingFlow(session: Int) {
                 viewModel,
                 step = 3,
                 onBack = { navController.popBackStack() },
-                primaryLabel = "Finish Setup",
-                backLabel = "Back to Triggers",
+                primaryLabel = stringResource(Res.string.onboarding_finish_setup),
+                backLabel = stringResource(Res.string.onboarding_back_to_triggers),
             ) { viewModel.finishOnboarding() }
         }
     }
@@ -121,10 +151,11 @@ fun BaselineEditor(step: Int, onClose: () -> Unit) {
     val graph = LocalAppGraph.current
     val viewModel = viewModel { BaselineFormViewModel(graph, editing = true) }
     val save: () -> Unit = { viewModel.saveEdits(onClose) }
+    val saveLabel = stringResource(Res.string.onboarding_save_changes)
     when (step) {
-        1 -> DiagnosesStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = "Save Changes", onPrimary = save)
-        2 -> TriggersStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = "Save Changes", backLabel = null, onPrimary = save)
-        else -> TreatmentStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = "Save Changes", backLabel = null, onPrimary = save)
+        1 -> DiagnosesStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = saveLabel, onPrimary = save)
+        2 -> TriggersStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = saveLabel, backLabel = null, onPrimary = save)
+        else -> TreatmentStepScreen(viewModel, step = null, onBack = onClose, primaryLabel = saveLabel, backLabel = null, onPrimary = save)
     }
 }
 
@@ -140,15 +171,15 @@ private fun DiagnosesStepScreen(
     val draft = state.draft
     StepPage(
         step = step,
-        title = "Diagnoses & History",
-        subtitle = "Set up your baseline profile. Your episodes and reports start from it.",
+        title = stringResource(Res.string.onboarding_diagnoses_title),
+        subtitle = stringResource(Res.string.onboarding_diagnoses_subtitle),
         onBack = onBack,
     ) {
-        StepSection("Primary Diagnosis") {
+        StepSection(stringResource(Res.string.onboarding_primary_diagnosis)) {
             Diagnosis.entries.forEach { diagnosis ->
                 SelectionCard(
-                    title = diagnosis.title,
-                    subtitle = diagnosis.subtitle,
+                    title = stringResource(diagnosis.title),
+                    subtitle = stringResource(diagnosis.subtitle),
                     icon = diagnosis.icon,
                     selected = diagnosis in draft.diagnoses,
                     accent = MtColors.Pink,
@@ -157,13 +188,15 @@ private fun DiagnosesStepScreen(
                 )
             }
         }
-        StepSection("Monthly Episode Frequency") {
-            ChoiceChips(EpisodeFrequency.entries, draft.frequency, { it.title }, viewModel::setFrequency, grouped = true)
+        StepSection(stringResource(Res.string.onboarding_episode_frequency)) {
+            val labels = EpisodeFrequency.entries.associateWith { stringResource(it.title) }
+            ChoiceChips(EpisodeFrequency.entries, draft.frequency, { labels.getValue(it) }, viewModel::setFrequency, grouped = true)
         }
-        StepSection("Typical Episode Duration") {
-            ChoiceChips(TypicalDuration.entries, draft.typicalDuration, { it.title }, viewModel::setDuration)
+        StepSection(stringResource(Res.string.onboarding_episode_duration)) {
+            val labels = TypicalDuration.entries.associateWith { stringResource(it.title) }
+            ChoiceChips(TypicalDuration.entries, draft.typicalDuration, { labels.getValue(it) }, viewModel::setDuration)
         }
-        StepSection("Typical Pain Intensity Baseline") {
+        StepSection(stringResource(Res.string.onboarding_intensity_baseline)) {
             Box(Modifier.fillMaxWidth().background(MtColors.CardRaised, androidx.compose.foundation.shape.RoundedCornerShape(MtRadius.lg)).padding(12.dp)) {
                 PainScale(draft.typicalIntensity, viewModel::setIntensity)
             }
@@ -172,7 +205,7 @@ private fun DiagnosesStepScreen(
             primaryLabel = primaryLabel,
             primaryEnabled = state.canContinueFromDiagnoses && !state.saving,
             onPrimary = onPrimary,
-            footnote = if (step != null) "You can update your baseline profile anytime in Settings." else null,
+            footnote = if (step != null) stringResource(Res.string.onboarding_update_later) else null,
             forwardArrow = step != null,
         )
     }
@@ -190,16 +223,16 @@ private fun TriggersStepScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     StepPage(
         step = step,
-        title = "Your Triggers",
-        subtitle = "Select your known or suspected triggers. Your report lists them for your clinician.",
+        title = stringResource(Res.string.onboarding_triggers_title),
+        subtitle = stringResource(Res.string.onboarding_triggers_subtitle),
         onBack = onBack,
     ) {
         state.triggers.groupBy { it.category }.entries.sortedBy { it.key.ordinal }.forEach { (category, triggers) ->
-            StepSection(category.title) {
+            StepSection(stringResource(category.title)) {
                 triggers.forEach { trigger ->
                     SelectionCard(
-                        title = trigger.name,
-                        subtitle = trigger.description,
+                        title = trigger.nameText.resolve(),
+                        subtitle = trigger.descriptionText.resolve(),
                         icon = trigger.icon,
                         selected = trigger.id in state.draft.triggerIds,
                         accent = category.accent,
@@ -208,7 +241,7 @@ private fun TriggersStepScreen(
                 }
             }
         }
-        AddRow("Add custom trigger", accent = TriggerCategory.Custom.accent, onClick = viewModel::addCustomTrigger)
+        AddRow(stringResource(Res.string.onboarding_add_custom_trigger), accent = TriggerCategory.Custom.accent, onClick = viewModel::addCustomTrigger)
         StepActions(primaryLabel, primaryEnabled = !state.saving, onPrimary = onPrimary, backLabel = backLabel, onBack = onBack)
     }
 }
@@ -225,16 +258,16 @@ private fun TreatmentStepScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
     StepPage(
         step = step,
-        title = "Treatment Blueprint",
-        subtitle = "Choose what you take. Acute medications pre-fill every new episode, so logging takes one tap.",
+        title = stringResource(Res.string.common_treatment_blueprint),
+        subtitle = stringResource(Res.string.onboarding_treatment_subtitle),
         onBack = onBack,
     ) {
         MedicationRole.entries.forEach { role ->
-            StepSection(role.title) {
+            StepSection(stringResource(role.title)) {
                 state.medications.filter { it.role == role }.forEach { medication ->
                     SelectionCard(
-                        title = medication.displayName,
-                        subtitle = medication.drugClass,
+                        title = medication.nameText.resolve(),
+                        subtitle = medication.classText.resolve(),
                         icon = medication.icon,
                         selected = medication.id in state.draft.medicationIds,
                         accent = MtColors.Green,
@@ -243,12 +276,12 @@ private fun TreatmentStepScreen(
                 }
             }
         }
-        AddRow("Add custom medication", accent = MtColors.Green, onClick = viewModel::addCustomMedication)
+        AddRow(stringResource(Res.string.onboarding_add_custom_medication), accent = MtColors.Green, onClick = viewModel::addCustomMedication)
         StepActions(
             primaryLabel,
             primaryEnabled = !state.saving,
             onPrimary = onPrimary,
-            footnote = if (step != null) "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment." else null,
+            footnote = if (step != null) stringResource(Res.string.common_medical_disclaimer) else null,
             backLabel = backLabel,
             onBack = onBack,
         )
@@ -266,6 +299,7 @@ private fun StepPage(
 ) {
     val top = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
     val bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val backLabel = stringResource(Res.string.common_back)
     Box(Modifier.fillMaxSize().background(MtColors.Canvas)) {
         Column(
             Modifier
@@ -295,7 +329,7 @@ private fun StepPage(
         ) {
             if (onBack != null) {
                 Box(
-                    Modifier.size(MtSpacing.minTouch).semantics { contentDescription = "Back" }.pressable(onClick = onBack),
+                    Modifier.size(MtSpacing.minTouch).semantics { contentDescription = backLabel }.pressable(onClick = onBack),
                     contentAlignment = Alignment.Center,
                 ) {
                     Icon(Symbols.ArrowBackIosNew, tint = MtColors.BrandLabel, size = 24.dp)
@@ -303,7 +337,7 @@ private fun StepPage(
             }
             Spacer(Modifier.weight(1f))
             if (step != null) {
-                MtText("STEP $step/$STEP_COUNT", MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
+                MtText(stringResource(Res.string.onboarding_step, step, STEP_COUNT).uppercase(), MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
             }
         }
     }

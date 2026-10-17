@@ -81,7 +81,7 @@ class InMemoryCatalog : CatalogRepository {
     override fun observeMedications() = medications
     override suspend fun medications() = medications.value
     override suspend fun addCustomTrigger(name: String) =
-        Trigger("custom-$name", name, "Custom trigger", TriggerCategory.Custom, isCustom = true).also { triggers.value += it }
+        Trigger("custom-$name", name, TriggerCategory.Custom, isCustom = true).also { triggers.value += it }
     override suspend fun addCustomMedication(name: String, dose: String, role: MedicationRole) =
-        Medication("custom-$name", name, dose, role, "Custom medication", isCustom = true).also { medications.value += it }
+        Medication("custom-$name", name, dose, role, isCustom = true).also { medications.value += it }
 }

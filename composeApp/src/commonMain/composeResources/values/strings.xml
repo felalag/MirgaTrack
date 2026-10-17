@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  English source strings of the iPhone UI. docs/LOCALIZATION_GLOSSARY.md gives the terms.
+  Each comment says where the text shows, what each placeholder means, and the maximum length where space is tight.
+  A "Max N characters." limit counts the text after the placeholders are filled in.
+-->
+<resources>
+    <!-- Shared -->
+
+    <!-- VoiceOver label of the back chevron at the top left of a pushed screen. -->
+    <string name="common_back">Back</string>
+    <!-- VoiceOver label of the gear button in the page header, and the title of the Settings screen. -->
+    <string name="common_settings">Settings</string>
+    <!-- Cancel button of the system alerts and action sheets. -->
+    <string name="common_cancel">Cancel</string>
+    <!-- Only button of an alert that reports something, for example a failed export. -->
+    <string name="common_ok">OK</string>
+    <!-- Default confirm button of a text prompt, for example the name prompt in Settings. -->
+    <string name="common_save">Save</string>
+    <!-- Confirm button of the prompts for a custom trigger or medication. -->
+    <string name="common_add">Add</string>
+    <!-- Confirm button of the custom medication prompt in onboarding; a second question follows. -->
+    <string name="common_next">Next</string>
+    <!-- VoiceOver state of a switch that is on. -->
+    <string name="common_on">On</string>
+    <!-- VoiceOver state of a switch that is off. -->
+    <string name="common_off">Off</string>
+    <!-- Small text button in a card header of the episode form. It removes the choices of that card. Max 10 characters. -->
+    <string name="common_clear">Clear</string>
+    <!-- Value when a list is empty, for example no medications on a day. -->
+    <string name="common_none">None</string>
+    <!-- Label under the last dot of the 30-day strip on Summary. -->
+    <string name="common_today">Today</string>
+    <!-- Value of a profile field without data, for example no diagnoses. -->
+    <string name="common_not_set">Not set</string>
+    <!-- VoiceOver state of the calendar button on Insights when the calendar is open. -->
+    <string name="common_expanded">Expanded</string>
+    <!-- VoiceOver state of the calendar button on Insights when the calendar is closed. -->
+    <string name="common_collapsed">Collapsed</string>
+    <!-- Caption above the 30-day card on Summary and on the welcome screen. -->
+    <string name="common_last_30_days">Last 30 days</string>
+    <!-- Note under the main button on Summary and at the end of onboarding. Keep the meaning exact: the app gives no medical advice. -->
+    <string name="common_medical_disclaimer">MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment.</string>
+    <!-- Main pink button on Summary and in the calendar for a day without an episode. Max 28 characters. -->
+    <string name="common_log_migraine_episode">Log Migraine Episode</string>
+    <!-- Main button of the episode form for a new episode. Max 28 characters. -->
+    <string name="common_save_episode">Save Episode</string>
+    <!-- Title of the screen and action that edits an episode. -->
+    <string name="common_edit_episode">Edit Episode</string>
+    <!-- Button and action sheet entry that deletes an episode. Max 28 characters. -->
+    <string name="common_delete_episode">Delete Episode</string>
+    <!-- Pain intensity of one episode. %1$d = intensity, a whole number from 1 to 10. Max 16 characters. -->
+    <string name="common_intensity_of_ten">Intensity %1$d/10</string>
+    <!-- Title of the action sheet of one episode. %1$s = date, for example "Oct 16, 2026". %2$s = time, for example "23:41". -->
+    <string name="common_date_at_time">%1$s at %2$s</string>
+    <!-- Title of the episode form card, the onboarding section and the report option for possible triggers. -->
+    <string name="common_possible_triggers">Possible Triggers</string>
+    <!-- Row under the triggers of the episode form, and the title of its action sheet. -->
+    <string name="common_add_trigger">Add Trigger</string>
+    <!-- Title of the action sheet and the prompt that add a medication. -->
+    <string name="common_add_medication">Add Medication</string>
+    <!-- Title of the third onboarding step and of its row in Settings: the medications that the user takes. -->
+    <string name="common_treatment_blueprint">Treatment Blueprint</string>
+    <!-- Message of the prompt for a custom medication. -->
+    <string name="common_medication_name_and_dose">Enter the name and dose.</string>
+    <!-- Example in the empty text field of the custom medication prompt. Use a migraine medication and dose of your market. -->
+    <string name="common_medication_placeholder">For example, Eletriptan 40mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <!-- Tab bar item and page title. Max 10 characters. -->
+    <string name="tab_summary">Summary</string>
+    <!-- Tab bar item that opens the episode form. A verb: record. Max 10 characters. -->
+    <string name="tab_log">Log</string>
+    <!-- Tab bar item and page title. Max 10 characters. -->
+    <string name="tab_insights">Insights</string>
+    <!-- Tab bar item and page title. Max 10 characters. -->
+    <string name="tab_export">Export</string>
+
+    <!-- Shared controls -->
+
+    <!-- VoiceOver label of the 1–10 pain scale. -->
+    <string name="pain_scale_label">Pain intensity</string>
+    <!-- VoiceOver value of the pain scale. %1$d = the selected intensity, 1 to 10. -->
+    <string name="pain_scale_value">%1$d of 10</string>
+    <!-- Label under the left end of the pain scale. %1$d = 1. Max 14 characters. -->
+    <string name="pain_scale_low">%1$d Subdued</string>
+    <!-- Label under the middle of the pain scale. %1$d = 5. Max 14 characters. -->
+    <string name="pain_scale_middle">%1$d Noticeable</string>
+    <!-- Label under the right end of the pain scale. %1$d = 10. Max 14 characters. -->
+    <string name="pain_scale_high">%1$d Disabling</string>
+    <!-- VoiceOver label of the x button on a medication card. %1$s = medication name and dose. -->
+    <string name="medication_remove">Remove %1$s</string>
+    <!-- Sleep time under one hour. %1$d = minutes. -->
+    <string name="duration_minutes">%1$d min</string>
+    <!-- Sleep time. %1$d = hours, %2$d = minutes. -->
+    <string name="duration_hours_minutes">%1$d h %2$d min</string>
+
+    <!-- Summary -->
+
+    <!-- Caption under the page title. %1$s = today's date, for example "Oct 17". -->
+    <string name="summary_today_date">Today, %1$s</string>
+    <!-- Text after the large number of pain-free days, with a space before it. %1$d = tracked days in the last 30 days. Example: "26" + " of 30 tracked days". -->
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">of %1$d tracked day</item>
+        <item quantity="other">of %1$d tracked days</item>
+    </plurals>
+    <!-- Line under "26 of 30 tracked days" on Summary. -->
+    <string name="summary_without_logged_episode">without a logged episode</string>
+    <!-- VoiceOver text of the 30-day card. %1$d = pain-free days. %2$d = tracked days; the plural form follows it. -->
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$d of %2$d tracked day without a logged episode in the last 30 days</item>
+        <item quantity="other">%1$d of %2$d tracked days without a logged episode in the last 30 days</item>
+    </plurals>
+    <!-- Note under the 30-day strip while the user has tracked for fewer than 30 days. -->
+    <string name="summary_tracking_start_note">Counted from the day you started tracking. Days before it are not tracked.</string>
+    <!-- Legend of the 30-day strip: a day with one or more episodes. Max 14 characters. -->
+    <string name="strip_legend_migraine">Migraine</string>
+    <!-- Legend of the 30-day strip: a tracked day without an episode. Max 14 characters. -->
+    <string name="strip_legend_pain_free">Pain-free</string>
+    <!-- Legend of the 30-day strip: a day before the user started tracking. Max 14 characters. -->
+    <string name="strip_legend_not_tracked">Not tracked</string>
+    <!-- Row label in the 30-day card. -->
+    <string name="summary_sleep_last_night">Sleep last night</string>
+    <!-- Value of the sleep row when Apple Health has no sleep for last night. -->
+    <string name="summary_sleep_not_recorded">Not recorded</string>
+    <!-- Hint under the sleep row without data. "Settings › Health" is the path in the iOS Settings app; use the names of iOS in your language. -->
+    <string name="summary_sleep_hint">Wear Apple Watch to bed or track sleep in the Health app. If you turned off access, enable it in Settings › Health.</string>
+    <!-- Caption of the card that asks for Apple Health access. -->
+    <string name="summary_sleep_caption">Sleep</string>
+    <!-- Title of the card that asks for Apple Health access. -->
+    <string name="summary_sleep_connect_title">See last night's sleep on the Summary</string>
+    <!-- Text of the card that asks for Apple Health access. -->
+    <string name="summary_sleep_connect_body">MigraTrack reads last night's sleep from Apple Health. The data stays on this iPhone.</string>
+    <!-- Button of the card that asks for Apple Health access. "Apple Health" is a product name. -->
+    <string name="summary_sleep_connect_button">Connect Apple Health</string>
+    <!-- Caption of the card with the date of the last episode. -->
+    <string name="summary_last_episode">Last Episode</string>
+    <!-- Value of the last episode card before the first episode. -->
+    <string name="summary_last_episode_none">None yet</string>
+
+    <!-- Episode form -->
+
+    <!-- Title of the Log tab and of the form for a day picked in the calendar. -->
+    <string name="episode_log_title">Log Episode</string>
+    <!-- Main button of the episode form when it edits an episode. Max 28 characters. -->
+    <string name="episode_update">Update Episode</string>
+    <!-- Banner at the top after an edit. -->
+    <string name="episode_updated_banner">Episode updated.</string>
+    <!-- Banner at the top after a delete. -->
+    <string name="episode_deleted_banner">Episode deleted.</string>
+    <!-- Banner at the top after a new episode. The second sentence is a kind tip for a person with a migraine. -->
+    <string name="episode_saved_banner">Episode saved. Take it easy and stay in low light.</string>
+    <!-- Caption of the pain scale card. The app shows it in upper case. -->
+    <string name="episode_pain_intensity_index">Pain Intensity Index</string>
+    <!-- Card title: where the pain is in the head. -->
+    <string name="episode_cranial_epicenter">Cranial Epicenter</string>
+    <!-- Card title: aura and other sensory symptoms. -->
+    <string name="episode_aura_symptoms">Aura &amp; Sensory Phenotypes</string>
+    <!-- Card title: acute medications taken for this episode. -->
+    <string name="episode_acute_therapy">Acute Abortive Therapy</string>
+    <!-- Row under the medications of the episode form. -->
+    <string name="episode_add_medication_row">Add Medication / Hydration Electrolytes</string>
+    <!-- Row title and date picker title: when the episode started. -->
+    <string name="episode_start">Episode Start</string>
+    <!-- Value of the Episode Start row when the episode starts at the moment of saving. -->
+    <string name="episode_start_now">Now</string>
+    <!-- Message of the Add Trigger action sheet. -->
+    <string name="episode_add_trigger_message">What came before this episode?</string>
+    <!-- Last entry of the Add Trigger action sheet. It opens a prompt. -->
+    <string name="episode_other_trigger_action">Other Trigger…</string>
+    <!-- Title of the prompt for a trigger that is not in the list. -->
+    <string name="episode_other_trigger_title">Other Trigger</string>
+    <!-- Message of the prompt for a trigger that is not in the list. -->
+    <string name="episode_other_trigger_message">Name something that came before this episode.</string>
+    <!-- Example in the empty text field of the trigger prompt. -->
+    <string name="episode_other_trigger_placeholder">For example, strong perfume</string>
+    <!-- Message of the Add Medication action sheet. -->
+    <string name="episode_add_medication_message">What did you take for this episode?</string>
+    <!-- Last entry of the Add Medication action sheet. It opens a prompt. -->
+    <string name="episode_other_medication_action">Other Medication…</string>
+    <!-- Title of the prompt for a medication that is not in the list. -->
+    <string name="episode_other_medication_title">Other Medication</string>
+    <!-- Title of the alert when another device deleted the episode during an edit. -->
+    <string name="episode_missing_title">Episode Deleted</string>
+    <!-- Message of the alert when another device deleted the episode during an edit. -->
+    <string name="episode_missing_message">This episode was deleted on another device, so the changes cannot be saved.</string>
+    <!-- Message of the delete confirmation. %1$d = intensity, 1 to 10. -->
+    <string name="episode_delete_message">Intensity %1$d/10. The episode leaves your history and reports.</string>
+
+    <!-- Insights -->
+
+    <!-- Period switch: week. Max 3 characters. -->
+    <string name="insights_period_week">W</string>
+    <!-- Period switch: month. Max 3 characters. -->
+    <string name="insights_period_month">M</string>
+    <!-- Period switch: six months. Max 3 characters. -->
+    <string name="insights_period_six_months">6M</string>
+    <!-- Period switch: year. Max 3 characters. -->
+    <string name="insights_period_year">Y</string>
+    <!-- Text after the large number of episodes, for the current week. The plural form follows the number before it. -->
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">Episode this Week</item>
+        <item quantity="other">Episodes this Week</item>
+    </plurals>
+    <!-- Text after the large number of episodes, for an earlier week. %1$s = first day of the week, for example "Oct 5". -->
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">Episode in Week of %1$s</item>
+        <item quantity="other">Episodes in Week of %1$s</item>
+    </plurals>
+    <!-- Text after the large number of episodes, for one month. %1$s = short month name, for example "Oct". -->
+    <plurals name="insights_headline_month">
+        <item quantity="one">Episode in %1$s</item>
+        <item quantity="other">Episodes in %1$s</item>
+    </plurals>
+    <!-- Text after the large number of episodes, for the last six months. "Mos" is short for months. -->
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">Episode in 6 Mos</item>
+        <item quantity="other">Episodes in 6 Mos</item>
+    </plurals>
+    <!-- Text after the large number of episodes, for one year. %1$d = the year, for example 2026. -->
+    <plurals name="insights_headline_year">
+        <item quantity="one">Episode in %1$d</item>
+        <item quantity="other">Episodes in %1$d</item>
+    </plurals>
+    <!-- VoiceOver text of the trend badge when the number went down. %1$d = percent. -->
+    <string name="insights_trend_fewer">%1$d percent fewer episodes than the previous period</string>
+    <!-- VoiceOver text of the trend badge when the number went up. %1$d = percent. -->
+    <string name="insights_trend_more">%1$d percent more episodes than the previous period</string>
+    <!-- Legend of the chart: a day with an episode. Max 16 characters. -->
+    <string name="insights_legend_migraine_day">Migraine Day</string>
+    <!-- Legend of the chart: a tracked day without an episode. Max 16 characters. -->
+    <string name="insights_legend_pain_free_day">Pain-Free Day</string>
+    <!-- Legend of the chart: a period before the user started tracking. Max 16 characters. -->
+    <string name="insights_legend_not_tracked">Not Tracked</string>
+    <!-- VoiceOver text of a chart bar in the future. %1$s = bar label, for example "W3" or "Mon". -->
+    <string name="insights_bar_no_data">%1$s: no data yet</string>
+    <!-- VoiceOver text of a chart bar before tracking started. %1$s = bar label. -->
+    <string name="insights_bar_not_tracked">%1$s: not tracked</string>
+    <!-- VoiceOver text of a chart bar without episodes. %1$s = bar label. -->
+    <string name="insights_bar_pain_free">%1$s: pain-free</string>
+    <!-- VoiceOver text of a chart bar. %1$s = bar label. %2$d = migraine days; the plural form follows it. %3$d = highest intensity, 1 to 10. -->
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$d migraine day, peak %3$d of 10</item>
+        <item quantity="other">%1$s: %2$d migraine days, peak %3$d of 10</item>
+    </plurals>
+    <!-- Text of the trigger card before the user noted any trigger. -->
+    <string name="insights_triggers_empty">Note possible triggers when you log or edit an episode. This card then shows how often you noted each one.</string>
+    <!-- Text of the trigger card. It must say that a count does not show a cause. -->
+    <string name="insights_triggers_hint">How often you noted each trigger with an episode. This does not show a cause.</string>
+    <!-- VoiceOver text of one trigger row. %1$s = trigger name. %2$d = episodes with this trigger. %3$d = all episodes; the plural form follows it. -->
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, noted in %2$d of %3$d episode</item>
+        <item quantity="other">%1$s, noted in %2$d of %3$d episodes</item>
+    </plurals>
+    <!-- Count at the end of a trigger row. %1$d = episodes with this trigger, %2$d = all episodes. Max 10 characters. -->
+    <string name="insights_trigger_row_count">%1$d of %2$d</string>
+    <!-- VoiceOver label of the month button that opens the calendar. %1$s = month and year, for example "October 2026". -->
+    <string name="insights_calendar_a11y">Calendar, %1$s</string>
+    <!-- Title of the action sheet when a day has more than one episode. Its message: %1$s = weekday and date, %2$d = episodes on that day. -->
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s has %2$d episode.</item>
+        <item quantity="other">%1$s has %2$d episodes.</item>
+    </plurals>
+    <!-- One entry of that action sheet. %1$s = start time, %2$d = intensity, 1 to 10. -->
+    <string name="insights_episode_option">%1$s · Intensity %2$d/10</string>
+    <!-- Title of the month and year picker. -->
+    <string name="insights_month_picker_title">Month</string>
+
+    <!-- Insights calendar -->
+
+    <!-- VoiceOver action of the calendar. -->
+    <string name="calendar_previous_month">Previous Month</string>
+    <!-- VoiceOver action of the calendar. -->
+    <string name="calendar_next_month">Next Month</string>
+    <!-- VoiceOver label of the month title in the calendar. %1$s = month and year. -->
+    <string name="calendar_choose_month_a11y">%1$s, choose another month</string>
+    <!-- Pill in the calendar header. %1$d = days with an episode in the month. Max 18 characters. -->
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$d Migraine Day</item>
+        <item quantity="other">%1$d Migraine Days</item>
+    </plurals>
+    <!-- VoiceOver text of a calendar day. %1$s = weekday and date. %2$s = its state, one of the calendar_day_* texts. -->
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <!-- VoiceOver text of today in the calendar. %1$s = weekday and date. %2$s = its state. -->
+    <string name="calendar_day_today_a11y">Today, %1$s, %2$s</string>
+    <!-- State of a calendar day outside the month or in the future. -->
+    <string name="calendar_day_not_available">not available</string>
+    <!-- State of a calendar day before tracking started. -->
+    <string name="calendar_day_not_tracked">not tracked</string>
+    <!-- State of a tracked calendar day without an episode. -->
+    <string name="calendar_day_no_episodes">no episodes</string>
+    <!-- State of a calendar day with episodes. %1$d = episodes; the plural form follows it. %2$d = highest intensity, 1 to 10. -->
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$d episode, peak %2$d of 10</item>
+        <item quantity="other">%1$d episodes, peak %2$d of 10</item>
+    </plurals>
+    <!-- Part of the day card caption when a day has more than one episode. %1$d = episodes. The app shows it in upper case. -->
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$d Episode</item>
+        <item quantity="other">%1$d Episodes</item>
+    </plurals>
+    <!-- Caption of the day card, shown in upper case. %1$s = weekday and date. %2$s = start time, or the number of episodes. -->
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <!-- Tile title in the day card: the highest intensity of the day. -->
+    <string name="calendar_peak_intensity">Peak Intensity</string>
+    <!-- Small text after the peak intensity number in the day card. -->
+    <string name="calendar_out_of_ten">/10</string>
+    <!-- Tile title in the day card: medications of the day. -->
+    <string name="calendar_medication">Medication</string>
+    <!-- Main button of the day card. Max 28 characters. -->
+    <string name="calendar_edit_episode_details">Edit Episode Details</string>
+
+    <!-- Export -->
+
+    <!-- Main button while the PDF is made. Max 28 characters. -->
+    <string name="export_preparing_pdf">Preparing PDF…</string>
+    <!-- Excel button while the XLSX file is made. Max 28 characters. -->
+    <string name="export_preparing_excel">Preparing Excel…</string>
+    <!-- Share button while the report is made. Max 28 characters. -->
+    <string name="export_preparing_report">Preparing Report…</string>
+    <!-- Small word after the large number of episodes in the report range. The plural form follows that number. Max 12 characters. -->
+    <plurals name="export_episodes_unit">
+        <item quantity="one">episode</item>
+        <item quantity="other">episodes</item>
+    </plurals>
+    <!-- Line under the number of episodes. -->
+    <string name="export_episodes_recorded">Episodes recorded</string>
+    <!-- Caption of the report options. The app shows it in upper case. -->
+    <string name="export_include">Include in Export</string>
+    <!-- Report option. -->
+    <string name="export_medications">Medication Intakes</string>
+    <!-- Subtitle of the medications option. -->
+    <string name="export_medications_subtitle">Dosages and usage totals</string>
+    <!-- Report option. -->
+    <string name="export_symptoms">Aura &amp; Warning Symptoms</string>
+    <!-- Subtitle of the symptoms option. -->
+    <string name="export_symptoms_subtitle">Aura types and their frequency</string>
+    <!-- Subtitle of the triggers option. -->
+    <string name="export_triggers_subtitle">Noted triggers and their frequency</string>
+    <!-- Report option. -->
+    <string name="export_pain_charts">Pain Intensity Charts</string>
+    <!-- Subtitle of the chart option. Write the scale as in the glossary. -->
+    <string name="export_pain_charts_subtitle">Pain intensity timeline, 1–10</string>
+    <!-- Main button. Max 28 characters. -->
+    <string name="export_pdf">Export PDF Report</string>
+    <!-- Second button. "Excel" is a product name. Max 28 characters. -->
+    <string name="export_excel">Export as Excel (.xlsx)</string>
+    <!-- Third button. It opens the share sheet. Max 28 characters. -->
+    <string name="export_share">Share</string>
+    <!-- Title of the action sheet that picks the date range of the report. -->
+    <string name="export_range_title">Report Range</string>
+    <!-- Text that goes with the PDF in the share sheet, for example into a message. %1$d = episodes; the plural form follows it. %2$s = date range, for example "Jul 20 – Oct 17". -->
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack report: %1$d episode, %2$s.</item>
+        <item quantity="other">MigraTrack report: %1$d episodes, %2$s.</item>
+    </plurals>
+    <!-- Title of the alert when the report fails. -->
+    <string name="export_failed_title">Export Failed</string>
+    <!-- Message of the alert when the report fails for an unknown reason. -->
+    <string name="export_failed_message">The report could not be created.</string>
+    <!-- Message of the alert when the report file cannot be saved. %1$s = file name, for example "MigraTrack-Report-2026-10-24.pdf". -->
+    <string name="export_write_failed">Could not write %1$s</string>
+
+    <!-- Settings -->
+
+    <!-- Subtitle of the Known Triggers row. %1$d = selected triggers, 1 or more. -->
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$d known trigger</item>
+        <item quantity="other">%1$d known triggers</item>
+    </plurals>
+    <!-- Subtitle of the Known Triggers row without a selection. -->
+    <string name="settings_no_triggers">No triggers selected</string>
+    <!-- Subtitle of the Treatment Blueprint row without a selection. -->
+    <string name="settings_no_medications">No medications selected</string>
+    <!-- Title of the name prompt. -->
+    <string name="settings_name_title">Your Name</string>
+    <!-- Message of the name prompt. -->
+    <string name="settings_name_message">It appears on the reports you export.</string>
+    <!-- Empty text field of the name prompt. -->
+    <string name="settings_name_placeholder">Name</string>
+    <!-- Title of the delete confirmation. -->
+    <string name="settings_delete_title">Delete All Data?</string>
+    <!-- Message of the delete confirmation. Keep every fact: the watch copy, the device backups, and the advice to export first. -->
+    <string name="settings_delete_message">MigraTrack keeps your data on this iPhone and a copy on your Apple Watch. This permanently deletes every episode and your baseline profile; the watch deletes its copy at the next sync. Device backups keep their copy. Export a report first if you need it.</string>
+    <!-- Button at the end of Settings and the destructive button of its confirmation. -->
+    <string name="settings_delete_all">Delete All Data</string>
+    <!-- Section caption. The app shows it in upper case. -->
+    <string name="settings_section_baseline">Clinical Baseline &amp; Protocol</string>
+    <!-- Row that opens the first onboarding step. -->
+    <string name="settings_baseline_diagnoses">Baseline Diagnoses</string>
+    <!-- Row that opens the second onboarding step. -->
+    <string name="settings_known_triggers">Known Triggers</string>
+    <!-- Section caption. The app shows it in upper case. -->
+    <string name="settings_section_preferences">Preferences</string>
+    <!-- Row label. -->
+    <string name="settings_appearance">Appearance</string>
+    <!-- Value of the Appearance row: the app has only a dark design. -->
+    <string name="settings_appearance_value">Dark (Locked)</string>
+    <!-- Row label. -->
+    <string name="settings_version">Version</string>
+    <!-- Value of the Version row. %1$s = version, for example "1.0.0". %2$s = build number. -->
+    <string name="settings_version_value">v%1$s (Build %2$s)</string>
+    <!-- Section caption. The app shows it in upper case. -->
+    <string name="settings_section_legal">Legal</string>
+    <!-- Section caption, only in debug builds. -->
+    <string name="settings_section_developer">Developer</string>
+    <!-- Row in debug builds. -->
+    <string name="settings_load_sample_data">Load Sample Data</string>
+    <!-- Subtitle of the sample data row. -->
+    <string name="settings_load_sample_data_subtitle">Adds a year of generated episodes to preview the charts</string>
+    <!-- VoiceOver label of the name in the profile card. -->
+    <string name="settings_edit_name_a11y">Edit name</string>
+    <!-- Profile card text before the user entered a name. -->
+    <string name="settings_add_name">Add Your Name</string>
+    <!-- Caption of the profile stat with the first tracked month. The app shows it in upper case. Max 12 characters. -->
+    <string name="settings_member">Member</string>
+    <!-- Caption of the profile stat with the number of episodes. The app shows it in upper case. Max 12 characters. -->
+    <string name="settings_episodes">Episodes</string>
+    <!-- Value of the profile stat. %1$d = all episodes. Max 14 characters. -->
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$d Logged</item>
+        <item quantity="other">%1$d Logged</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <!-- Title of the Privacy Policy screen, its Settings row, and a link on the welcome screen. -->
+    <string name="legal_privacy_policy">Privacy Policy</string>
+    <!-- Title of the Terms of Service screen, its Settings row, and a link on the welcome screen. -->
+    <string name="legal_terms_of_service">Terms of Service</string>
+
+    <!-- Onboarding -->
+
+    <!-- Main button of onboarding step 1. Max 28 characters. -->
+    <string name="onboarding_continue_to_triggers">Continue to Triggers</string>
+    <!-- Main button of onboarding step 2. Max 28 characters. -->
+    <string name="onboarding_continue_to_medications">Continue to Medications</string>
+    <!-- Main button of onboarding step 3. Max 28 characters. -->
+    <string name="onboarding_finish_setup">Finish Setup</string>
+    <!-- Second button of onboarding step 2. Max 28 characters. -->
+    <string name="onboarding_back_to_diagnoses">Back to Diagnoses</string>
+    <!-- Second button of onboarding step 3. Max 28 characters. -->
+    <string name="onboarding_back_to_triggers">Back to Triggers</string>
+    <!-- Main button of a step opened from Settings. Max 28 characters. -->
+    <string name="onboarding_save_changes">Save Changes</string>
+    <!-- Progress caption, shown in upper case. %1$d = this step, %2$d = all steps. Max 10 characters. -->
+    <string name="onboarding_step">Step %1$d/%2$d</string>
+    <!-- Title of step 1. -->
+    <string name="onboarding_diagnoses_title">Diagnoses &amp; History</string>
+    <!-- Text under the title of step 1. -->
+    <string name="onboarding_diagnoses_subtitle">Set up your baseline profile. Your episodes and reports start from it.</string>
+    <!-- Section caption of step 1. -->
+    <string name="onboarding_primary_diagnosis">Primary Diagnosis</string>
+    <!-- Section caption of step 1. -->
+    <string name="onboarding_episode_frequency">Monthly Episode Frequency</string>
+    <!-- Section caption of step 1. -->
+    <string name="onboarding_episode_duration">Typical Episode Duration</string>
+    <!-- Section caption of step 1. -->
+    <string name="onboarding_intensity_baseline">Typical Pain Intensity Baseline</string>
+    <!-- Note under the button of step 1. -->
+    <string name="onboarding_update_later">You can update your baseline profile anytime in Settings.</string>
+    <!-- Title of step 2. -->
+    <string name="onboarding_triggers_title">Your Triggers</string>
+    <!-- Text under the title of step 2. -->
+    <string name="onboarding_triggers_subtitle">Select your known or suspected triggers. Your report lists them for your clinician.</string>
+    <!-- Row under the trigger list of step 2. -->
+    <string name="onboarding_add_custom_trigger">Add custom trigger</string>
+    <!-- Text under the title of step 3. -->
+    <string name="onboarding_treatment_subtitle">Choose what you take. Acute medications pre-fill every new episode, so logging takes one tap.</string>
+    <!-- Row under the medication list of step 3. -->
+    <string name="onboarding_add_custom_medication">Add custom medication</string>
+    <!-- Title of the custom trigger prompt in step 2. -->
+    <string name="onboarding_custom_trigger_title">Add Custom Trigger</string>
+    <!-- Message of the custom trigger prompt in step 2. -->
+    <string name="onboarding_custom_trigger_message">Name something that tends to set off your migraines.</string>
+    <!-- Example in the empty text field of the custom trigger prompt. -->
+    <string name="onboarding_custom_trigger_placeholder">For example, flashing lights</string>
+    <!-- Message of the action sheet after a custom medication name. Its title is that name. -->
+    <string name="onboarding_medication_role_message">When do you take it?</string>
+    <!-- Action sheet entry: an acute medication. -->
+    <string name="onboarding_medication_role_acute">During an episode (acute)</string>
+    <!-- Action sheet entry: a preventive medication. -->
+    <string name="onboarding_medication_role_preventive">Every day (preventive)</string>
+
+    <!-- Welcome -->
+
+    <!-- Line under the app name "MigraTrack". -->
+    <string name="welcome_tagline">Personal Migraine &amp; Trigger Tracker</string>
+    <!-- Badge on the sample card. It says that the data is not real. -->
+    <string name="welcome_example">Example</string>
+    <!-- Text after the large number on the sample card, with a space before it. The plural form follows that number. -->
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">pain-free day</item>
+        <item quantity="other">pain-free days</item>
+    </plurals>
+    <!-- VoiceOver text of the sample card. %1$d = pain-free days. -->
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Example: %1$d pain-free day in the last 30 days</item>
+        <item quantity="other">Example: %1$d pain-free days in the last 30 days</item>
+    </plurals>
+    <!-- First line of the large heading. -->
+    <string name="welcome_headline_patterns">Understand your patterns.</string>
+    <!-- Second line of the large heading, in pink. -->
+    <string name="welcome_headline_doctor">Bring the facts to your doctor.</string>
+    <!-- Text under the heading. -->
+    <string name="welcome_body">Track symptoms, spot possible triggers, and export your personal reports anytime.</string>
+    <!-- Main button. Max 28 characters. -->
+    <string name="welcome_get_started">Get Started</string>
+    <!-- Line under the button. %1$s = link "Terms of Service", %2$s = link "Privacy Policy". Keep both placeholders; their order can change. -->
+    <string name="welcome_agreement">By continuing, you agree to %1$s and %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details. The glossary and section 6.1 of the plan give the medical sources. -->
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_migraine_without_aura">Migraine without aura</string>
+    <!-- Short explanation under "Migraine without aura" in onboarding step 1. -->
+    <string name="diagnosis_migraine_without_aura_subtitle">Common migraine pattern</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_migraine_with_aura">Migraine with aura</string>
+    <!-- Short explanation under "Migraine with aura" in onboarding step 1. -->
+    <string name="diagnosis_migraine_with_aura_subtitle">Visual or sensory focal aura</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_chronic_migraine">Chronic Migraine</string>
+    <!-- Short explanation under "Chronic Migraine" in onboarding step 1. -->
+    <string name="diagnosis_chronic_migraine_subtitle">15 or more headache days a month</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_tension_type">Tension-type Headache</string>
+    <!-- Short explanation under "Tension-type Headache" in onboarding step 1. -->
+    <string name="diagnosis_tension_type_subtitle">Constricting, band-like tension</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_cluster">Cluster Headache</string>
+    <!-- Short explanation under "Cluster Headache" in onboarding step 1. -->
+    <string name="diagnosis_cluster_subtitle">Severe unilateral orbital episodes</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_not_diagnosed">Not diagnosed / Exploring</string>
+    <!-- Short explanation under "Not diagnosed / Exploring" in onboarding step 1. -->
+    <string name="diagnosis_not_diagnosed_subtitle">Observing symptom patterns</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_less_than_one">&lt; 1 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_one_to_four">1–4 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_five_to_eight">5–7 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_eight_plus">8+ / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_two_to_four">2–4h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_four_to_twelve">4–12h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_twelve_to_twenty_four">12–24h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_one_to_three_days">24–72h</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_left_temple">Left Temple</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_right_temple">Right Temple</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_frontal_brow">Frontal / Brow</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_retro_orbital">Retro-Orbital</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_occipital_neck">Occipital &amp; Cervical Neck</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_scintillating_scotoma">Scintillating Scotoma (Visual)</string>
+    <!-- Short form of "Scintillating Scotoma (Visual)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_scintillating_scotoma_short">Visual Aura</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_neck_stiffness">Neck Stiffness</string>
+    <!-- Short form of "Neck Stiffness" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_neck_stiffness_short">Neck Stiffness</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_photophobia">Photophobia (Light)</string>
+    <!-- Short form of "Photophobia (Light)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_photophobia_short">Light</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_nausea">Nausea</string>
+    <!-- Short form of "Nausea" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_nausea_short">Nausea</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_phonophobia">Phonophobia (Sound)</string>
+    <!-- Short form of "Phonophobia (Sound)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_phonophobia_short">Sound</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_aphasia">Aphasia / Brain Fog</string>
+    <!-- Short form of "Aphasia / Brain Fog" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_aphasia_short">Brain Fog</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_paresthesia">Tingling / Paresthesia</string>
+    <!-- Short form of "Tingling / Paresthesia" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_paresthesia_short">Tingling</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_weather_environment">Weather &amp; Environment</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_sleep_physical">Sleep &amp; Physical Routine</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_stress_emotions">Stress &amp; Emotions</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_hormonal">Hormonal</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_diet_consumption">Diet &amp; Consumption</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_custom">Custom</string>
+    <!-- Section caption in onboarding step 3: medications taken during an episode. Shown in upper case. -->
+    <string name="medication_role_acute">Acute / Abortive</string>
+    <!-- Section caption in onboarding step 3: medications taken every day. Shown in upper case. -->
+    <string name="medication_role_preventive">Preventive &amp; Supplements</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_30_days">Last 30 Days</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_90_days">Last 90 Days</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_6_months">Last 6 Months</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_12_months">Last 12 Months</string>
+
+    <!-- Catalog: built-in triggers. The app shows these by ID, also for episodes logged in another language. -->
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_barometric_pressure">Barometric Pressure Drop</string>
+    <!-- Explanation under the trigger "Barometric Pressure Drop" in onboarding step 2. -->
+    <string name="trigger_barometric_pressure_description">Weather fronts, altitude shifts</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_bright_light">Bright Lights &amp; Sunlight</string>
+    <!-- Explanation under the trigger "Bright Lights & Sunlight" in onboarding step 2. -->
+    <string name="trigger_bright_light_description">Glare, strobe, photophobia</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_heat_humidity">Extreme Heat / Humidity</string>
+    <!-- Explanation under the trigger "Extreme Heat / Humidity" in onboarding step 2. -->
+    <string name="trigger_heat_humidity_description">Thermal fluctuations</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_loud_noise">Loud Noise</string>
+    <!-- Explanation under the trigger "Loud Noise" in onboarding step 2. -->
+    <string name="trigger_loud_noise_description">Phonophobia, acoustic peaks</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_poor_sleep">Poor / Irregular Sleep</string>
+    <!-- Explanation under the trigger "Poor / Irregular Sleep" in onboarding step 2. -->
+    <string name="trigger_poor_sleep_description">Sleep debt, REM deficits</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_dehydration">Dehydration</string>
+    <!-- Explanation under the trigger "Dehydration" in onboarding step 2. -->
+    <string name="trigger_dehydration_description">Electrolyte depletion</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_skipped_meals">Skipped Meals / Fasting</string>
+    <!-- Explanation under the trigger "Skipped Meals / Fasting" in onboarding step 2. -->
+    <string name="trigger_skipped_meals_description">Hypoglycemia threshold</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_overexertion">Physical Overexertion</string>
+    <!-- Explanation under the trigger "Physical Overexertion" in onboarding step 2. -->
+    <string name="trigger_overexertion_description">Exertional vascular strain</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_emotional_stress">Emotional Stress / Letdown</string>
+    <!-- Explanation under the trigger "Emotional Stress / Letdown" in onboarding step 2. -->
+    <string name="trigger_emotional_stress_description">Post-work decompression lag</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_screen_fatigue">Screen Fatigue</string>
+    <!-- Explanation under the trigger "Screen Fatigue" in onboarding step 2. -->
+    <string name="trigger_screen_fatigue_description">Blue-light overload, convergence</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_hormonal_cycle">Hormonal Shifts / Cycle</string>
+    <!-- Explanation under the trigger "Hormonal Shifts / Cycle" in onboarding step 2. -->
+    <string name="trigger_hormonal_cycle_description">Monthly cycle variation</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_caffeine">Caffeine Withdrawal / Excess</string>
+    <!-- Explanation under the trigger "Caffeine Withdrawal / Excess" in onboarding step 2. -->
+    <string name="trigger_caffeine_description">Adenosine receptor shifts</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_aged_cheese">Aged Cheese / Tyramine</string>
+    <!-- Explanation under the trigger "Aged Cheese / Tyramine" in onboarding step 2. -->
+    <string name="trigger_aged_cheese_description">Fermented amine sensitivity</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_alcohol">Alcohol / Red Wine</string>
+    <!-- Explanation under the trigger "Alcohol / Red Wine" in onboarding step 2. -->
+    <string name="trigger_alcohol_description">Tannins, histamine</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_sweeteners">Artificial Sweeteners</string>
+    <!-- Explanation under the trigger "Artificial Sweeteners" in onboarding step 2. -->
+    <string name="trigger_sweeteners_description">Aspartame, sucralose</string>
+    <!-- Explanation under a trigger that the user added. -->
+    <string name="trigger_custom_description">Custom trigger</string>
+
+    <!-- Catalog: built-in medications. Use the local name of the active substance, not a brand (plan, section 6.1). -->
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <!-- Drug class or note under "Ibuprofen" in onboarding step 3 and the episode form. -->
+    <string name="medication_ibuprofen_400_class">Anti-inflammatory Adjuvant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <!-- Drug class or note under "Sumatriptan" in onboarding step 3 and the episode form. -->
+    <string name="medication_sumatriptan_50_class">Triptan, serotonin agonist</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <!-- Drug class or note under "Rizatriptan" in onboarding step 3 and the episode form. -->
+    <string name="medication_rizatriptan_10_class">Triptan, orally dissolving</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_naproxen_500">Naproxen</string>
+    <!-- Drug class or note under "Naproxen" in onboarding step 3 and the episode form. -->
+    <string name="medication_naproxen_500_class">Long-acting NSAID</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_acetaminophen_1000">Acetaminophen</string>
+    <!-- Drug class or note under "Acetaminophen" in onboarding step 3 and the episode form. -->
+    <string name="medication_acetaminophen_1000_class">Analgesic</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <!-- Drug class or note under "Ubrogepant" in onboarding step 3 and the episode form. -->
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP antagonist</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_metoclopramide_10">Metoclopramide</string>
+    <!-- Drug class or note under "Metoclopramide" in onboarding step 3 and the episode form. -->
+    <string name="medication_metoclopramide_10_class">Antiemetic</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_electrolytes">Hydration Electrolytes</string>
+    <!-- Drug class or note under "Hydration Electrolytes" in onboarding step 3 and the episode form. -->
+    <string name="medication_electrolytes_class">Oral rehydration</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <!-- Drug class or note under "Riboflavin" in onboarding step 3 and the episode form. -->
+    <string name="medication_riboflavin_400_class">Vitamin B2</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_magnesium_400">Magnesium</string>
+    <!-- Drug class or note under "Magnesium" in onboarding step 3 and the episode form. -->
+    <string name="medication_magnesium_400_class">Mineral supplement</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_propranolol_40">Propranolol</string>
+    <!-- Drug class or note under "Propranolol" in onboarding step 3 and the episode form. -->
+    <string name="medication_propranolol_40_class">Beta blocker</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_topiramate_50">Topiramate</string>
+    <!-- Drug class or note under "Topiramate" in onboarding step 3 and the episode form. -->
+    <string name="medication_topiramate_50_class">Anticonvulsant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_amitriptyline_10">Amitriptyline</string>
+    <!-- Drug class or note under "Amitriptyline" in onboarding step 3 and the episode form. -->
+    <string name="medication_amitriptyline_10_class">Tricyclic antidepressant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_erenumab_70">Erenumab</string>
+    <!-- Drug class or note under "Erenumab" in onboarding step 3 and the episode form. -->
+    <string name="medication_erenumab_70_class">CGRP antibody, monthly</string>
+    <!-- Note under a medication that the user added. -->
+    <string name="medication_custom_class">Custom medication</string>
+    <!-- Dose of a built-in medication. %1$d = milligrams. Write the unit as your language does; a space before it is fine. -->
+    <string name="medication_dose_milligrams">%1$dmg</string>
+    <!-- A medication with its dose, for example "Ibuprofen 400mg". %1$s = name, %2$s = dose. -->
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <!-- Label under a bar of the month chart: week number in the month, 1 to 4. Max 3 characters. -->
+    <string name="insights_bar_week">W%1$d</string>
+    <!-- Line under the trigger list in Insights: %1$d = episodes without a trigger; the verb form follows it.
+         %2$s = the number of all episodes with its noun, from insights_episode_count. -->
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$d of %2$s has no triggers noted</item>
+        <item quantity="other">%1$d of %2$s have no triggers noted</item>
+    </plurals>
+    <!-- Part of insights_without_triggers: all episodes of the period. %1$d = that number. -->
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$d episode</item>
+        <item quantity="other">%1$d episodes</item>
+    </plurals>
+</resources>

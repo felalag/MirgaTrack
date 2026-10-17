@@ -62,4 +62,5 @@ fun report(
     options = options,
     today = TODAY,
     timeZone = TimeZone.UTC,
+    names = EnglishCatalogNames,
 )

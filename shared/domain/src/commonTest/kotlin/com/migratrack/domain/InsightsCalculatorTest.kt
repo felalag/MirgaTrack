@@ -1,8 +1,11 @@
 package com.migratrack.domain
 
+import com.migratrack.domain.analytics.InsightsBarKey
 import com.migratrack.domain.analytics.InsightsCalculator
 import com.migratrack.domain.analytics.InsightsPeriod
+import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.Month
 import kotlinx.datetime.YearMonth
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -19,7 +22,7 @@ class InsightsCalculatorTest {
         val episodes = listOf(episodeOn(LocalDate(2026, 10, 20), intensity = 6))
         val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO)
 
-        assertEquals(listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"), insights.bars.map { it.label })
+        assertEquals(DayOfWeek.entries, insights.bars.map { (it.key as InsightsBarKey.Day).date.dayOfWeek })
         assertEquals(1, insights.attackCount)
         assertEquals(6, insights.bars[1].peakIntensity?.value)
         assertTrue(insights.bars[3].isCurrent)
@@ -32,7 +35,7 @@ class InsightsCalculatorTest {
         val episodes = listOf(episodeOn(LocalDate(2026, 10, 30)), episodeOn(LocalDate(2026, 10, 3)))
         val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, octoberEnd, UTC, LONG_AGO)
 
-        assertEquals(listOf("W1", "W2", "W3", "W4"), insights.bars.map { it.label })
+        assertEquals((1..4).map { InsightsBarKey.WeekOfMonth(it) }, insights.bars.map { it.key })
         assertEquals(10, insights.bars[3].elapsedDays)
         assertEquals(1, insights.bars[3].migraineDays)
         assertEquals(1, insights.bars[0].migraineDays)
@@ -110,14 +113,14 @@ class InsightsCalculatorTest {
     @Test
     fun sixMonthsEndsWithTheCurrentMonth() {
         val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, LONG_AGO)
-        assertEquals(listOf("May", "Jun", "Jul", "Aug", "Sep", "Oct"), insights.bars.map { it.label })
+        assertEquals(months(Month.MAY, Month.OCTOBER), insights.bars.map { it.key })
         assertTrue(insights.bars.last().isCurrent)
     }
 
     @Test
     fun yearLabelsMonthsWithTheirInitials() {
         val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, LONG_AGO)
-        assertEquals("JFMAMJJASOND", insights.bars.joinToString("") { it.label })
+        assertEquals(months(Month.JANUARY, Month.DECEMBER), insights.bars.map { it.key })
         assertEquals(0, insights.bars[11].elapsedDays)
     }
 
@@ -149,7 +152,7 @@ class InsightsCalculatorTest {
 
         // Sep 30, 2026 is a Wednesday; its week runs into October.
         assertEquals(LocalDate(2026, 9, 28)..LocalDate(2026, 10, 4), week.range)
-        assertEquals(listOf("Apr", "May", "Jun", "Jul", "Aug", "Sep"), sixMonths.bars.map { it.label })
+        assertEquals(months(Month.APRIL, Month.SEPTEMBER), sixMonths.bars.map { it.key })
         assertEquals(LocalDate(2025, 1, 1)..LocalDate(2025, 12, 31), lastYear.range)
         assertEquals(31, lastYear.bars[11].elapsedDays)
     }
@@ -160,4 +163,6 @@ class InsightsCalculatorTest {
         assertEquals(YearMonth(2026, 10), insights.month)
         assertTrue(insights.includesToday)
     }
+
+    private fun months(first: Month, last: Month) = (first.ordinal..last.ordinal).map { InsightsBarKey.MonthOfYear(Month.entries[it]) }
 }

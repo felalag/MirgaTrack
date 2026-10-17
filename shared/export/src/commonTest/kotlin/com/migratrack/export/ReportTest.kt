@@ -6,18 +6,19 @@ import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportCanvas
 import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.pdf.TextStyle
+import com.migratrack.export.pdf.withoutTriggersText
 import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.ReportWorkbook
-import kotlinx.datetime.DateTimeUnit
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
-import kotlinx.datetime.minus
-import kotlinx.datetime.number
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.hours
+import kotlinx.datetime.DateTimeUnit
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.minus
+import kotlinx.datetime.number
 
 class ReportTest {
 
@@ -192,5 +193,12 @@ class ReportTest {
         }
 
         override fun strokeLine(x1: Float, y1: Float, x2: Float, y2: Float, color: Long, width: Float) = Unit
+    }
+
+    @Test
+    fun episodesWithoutTriggersReadAsCorrectEnglish() {
+        assertEquals("1 of 3 episodes has no triggers noted", withoutTriggersText(1, 3))
+        assertEquals("2 of 3 episodes have no triggers noted", withoutTriggersText(2, 3))
+        assertEquals("1 of 1 episode has no triggers noted", withoutTriggersText(1, 1))
     }
 }

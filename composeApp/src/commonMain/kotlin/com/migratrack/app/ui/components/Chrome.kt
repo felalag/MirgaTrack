@@ -46,6 +46,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_back
+import com.migratrack.app.generated.resources.common_settings
+import com.migratrack.app.generated.resources.tab_export
+import com.migratrack.app.generated.resources.tab_insights
+import com.migratrack.app.generated.resources.tab_log
+import com.migratrack.app.generated.resources.tab_summary
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
@@ -53,6 +60,8 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.theme.WithoutFontScaling
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 val HeaderHeight = 64.dp
 val TabBarHeight = 60.dp
@@ -86,6 +95,8 @@ fun BrandHeader(
     onBack: (() -> Unit)? = null,
     onSettings: (() -> Unit)? = null,
 ) {
+    val backLabel = stringResource(Res.string.common_back)
+    val settingsLabel = stringResource(Res.string.common_settings)
     Row(
         modifier = modifier.fillMaxWidth().height(HeaderHeight).padding(horizontal = MtSpacing.screen),
         verticalAlignment = Alignment.CenterVertically,
@@ -97,7 +108,7 @@ fun BrandHeader(
                 .background(MtColors.Card)
                 .border(1.dp, Color.White.copy(alpha = 0.1f), CircleShape)
                 .then(
-                    if (onBack != null) Modifier.semantics { contentDescription = "Back" }.pressable(onClick = onBack)
+                    if (onBack != null) Modifier.semantics { contentDescription = backLabel }.pressable(onClick = onBack)
                     else Modifier,
                 ),
             contentAlignment = Alignment.Center,
@@ -117,7 +128,7 @@ fun BrandHeader(
         }
         if (onSettings != null) {
             Box(
-                Modifier.size(MtSpacing.minTouch).semantics { contentDescription = "Settings" }.pressable(onClick = onSettings),
+                Modifier.size(MtSpacing.minTouch).semantics { contentDescription = settingsLabel }.pressable(onClick = onSettings),
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(AppIcons.Settings, tint = Color(0xFFA1A1AA), size = 24.dp)
@@ -162,11 +173,11 @@ fun Page(
     }
 }
 
-enum class Tab(val title: String, val icon: ImageVector) {
-    Summary("Summary", Symbols.CalendarMonth),
-    Log("Log", AppIcons.TabLog),
-    Insights("Insights", AppIcons.TabInsights),
-    Export("Export", AppIcons.TabExport),
+enum class Tab(val title: StringResource, val icon: ImageVector) {
+    Summary(Res.string.tab_summary, Symbols.CalendarMonth),
+    Log(Res.string.tab_log, AppIcons.TabLog),
+    Insights(Res.string.tab_insights, AppIcons.TabInsights),
+    Export(Res.string.tab_export, AppIcons.TabExport),
 }
 
 @Composable
@@ -223,7 +234,7 @@ private fun TabItem(tab: Tab, active: Boolean, onSelect: (Tab) -> Unit, modifier
             modifier = if (active) Modifier.glow(MtColors.Pink, radius = 10.dp, alpha = 0.35f) else Modifier,
         )
         Spacer(Modifier.height(4.dp))
-        WithoutFontScaling { MtText(tab.title, MtTheme.type.tabLabel, color = color) }
+        WithoutFontScaling { MtText(stringResource(tab.title), MtTheme.type.tabLabel, color = color) }
     }
 }
 

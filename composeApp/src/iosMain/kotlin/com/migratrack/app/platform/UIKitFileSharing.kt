@@ -1,5 +1,7 @@
 package com.migratrack.app.platform
 
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.export_write_failed
 import com.migratrack.export.ExportFile
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -8,6 +10,7 @@ import kotlinx.cinterop.usePinned
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
+import org.jetbrains.compose.resources.getString
 import platform.Foundation.NSData
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSTemporaryDirectory
@@ -55,7 +58,7 @@ class UIKitFileSharing : FileSharing {
         NSFileManager.defaultManager.createDirectoryAtPath(folder, withIntermediateDirectories = true, attributes = null, error = null)
         val url = NSURL.fileURLWithPath("$folder/${file.fileName}")
         val data = file.bytes.usePinned { pinned -> NSData.create(bytes = pinned.addressOf(0), length = file.bytes.size.toULong()) }
-        check(data.writeToURL(url, atomically = true)) { "Could not write ${file.fileName}" }
+        check(data.writeToURL(url, atomically = true)) { getString(Res.string.export_write_failed, file.fileName) }
         url
     }
 

@@ -258,7 +258,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
         val note = buildString {
             append("Counts show how often the patient noted a trigger with an episode. They do not show a cause.")
             if (frequency.withoutTriggers > 0) {
-                append(" ${frequency.withoutTriggersText}.")
+                append(" ${withoutTriggersText(frequency.withoutTriggers, frequency.episodes)}.")
             }
         }
         ensure(24f)
@@ -345,3 +345,8 @@ private fun severityColor(intensity: Int): Long = when (intensity) {
     in 4..7 -> Palette.ORANGE
     else -> Palette.PINK
 }
+
+/** "1 of 3 episodes has no triggers noted": the noun follows the total, the verb the first number. Stage 1d translates it. */
+internal fun withoutTriggersText(withoutTriggers: Int, episodes: Int): String =
+    "$withoutTriggers of $episodes ${if (episodes == 1) "episode" else "episodes"} " +
+        "${if (withoutTriggers == 1) "has" else "have"} no triggers noted"

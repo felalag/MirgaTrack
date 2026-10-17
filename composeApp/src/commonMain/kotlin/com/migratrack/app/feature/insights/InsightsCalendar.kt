@@ -47,6 +47,26 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.calendar_choose_month_a11y
+import com.migratrack.app.generated.resources.calendar_day_a11y
+import com.migratrack.app.generated.resources.calendar_day_episode_count
+import com.migratrack.app.generated.resources.calendar_day_episodes
+import com.migratrack.app.generated.resources.calendar_day_header
+import com.migratrack.app.generated.resources.calendar_day_no_episodes
+import com.migratrack.app.generated.resources.calendar_day_not_available
+import com.migratrack.app.generated.resources.calendar_day_not_tracked
+import com.migratrack.app.generated.resources.calendar_day_today_a11y
+import com.migratrack.app.generated.resources.calendar_edit_episode_details
+import com.migratrack.app.generated.resources.calendar_medication
+import com.migratrack.app.generated.resources.calendar_migraine_days
+import com.migratrack.app.generated.resources.calendar_next_month
+import com.migratrack.app.generated.resources.calendar_out_of_ten
+import com.migratrack.app.generated.resources.calendar_peak_intensity
+import com.migratrack.app.generated.resources.calendar_previous_month
+import com.migratrack.app.generated.resources.common_delete_episode
+import com.migratrack.app.generated.resources.common_log_migraine_episode
+import com.migratrack.app.generated.resources.common_none
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.DestructiveButton
 import com.migratrack.app.ui.components.Dot
@@ -56,6 +76,8 @@ import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.text
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -70,6 +92,8 @@ import kotlinx.datetime.YearMonth
 import kotlinx.datetime.minusMonth
 import kotlinx.datetime.plusMonth
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
 private val WEEKDAY_INITIALS = listOf("M", "T", "W", "T", "F", "S", "S")
 private val CellGap = 6.dp
@@ -92,6 +116,8 @@ fun CalendarCard(
     onDelete: (DayEpisodes) -> Unit,
     onLog: (LocalDate) -> Unit,
 ) {
+    val previousMonth = stringResource(Res.string.calendar_previous_month)
+    val nextMonth = stringResource(Res.string.calendar_next_month)
     Card(bordered = true, contentPadding = PaddingValues(MtSpacing.md)) {
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.md)) {
             CalendarHeader(calendar, onPickMonth)
@@ -99,8 +125,8 @@ fun CalendarCard(
                 Modifier
                     .semantics {
                         customActions = buildList {
-                            add(CustomAccessibilityAction("Previous Month") { onShowMonth(calendar.month.minusMonth()); true })
-                            if (canShowNextMonth) add(CustomAccessibilityAction("Next Month") { onShowMonth(calendar.month.plusMonth()); true })
+                            add(CustomAccessibilityAction(previousMonth) { onShowMonth(calendar.month.minusMonth()); true })
+                            if (canShowNextMonth) add(CustomAccessibilityAction(nextMonth) { onShowMonth(calendar.month.plusMonth()); true })
                         }
                     }
                     .pointerInput(calendar.month, canShowNextMonth) {
@@ -152,13 +178,14 @@ fun CalendarCard(
 
 @Composable
 private fun CalendarHeader(calendar: MonthCalendar, onPickMonth: () -> Unit) {
+    val description = stringResource(Res.string.calendar_choose_month_a11y, DateText.monthYear(calendar.month))
     Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.xs)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(
                 Modifier
                     .weight(1f)
                     .semantics(mergeDescendants = true) {
-                        contentDescription = "${DateText.monthYear(calendar.month)}, choose another month"
+                        contentDescription = description
                         role = Role.Button
                     }
                     .pressable(pressedScale = 0.97f, onClick = onPickMonth),
@@ -194,7 +221,7 @@ private fun AttackDaysPill(count: Int) {
         Dot(MtColors.Pink, size = 8.dp)
         Spacer(Modifier.width(6.dp))
         MtText(
-            "$count Migraine ${if (count == 1) "Day" else "Days"}",
+            pluralStringResource(Res.plurals.calendar_migraine_days, count, count),
             MtTheme.type.caption.copy(fontWeight = FontWeight.SemiBold, letterSpacing = MtTheme.type.subhead.letterSpacing),
             color = MtColors.TextPrimary,
             maxLines = 1,
@@ -237,6 +264,7 @@ private fun DayCell(day: CalendarDay, selected: Boolean, onSelect: (LocalDate) -
         else -> MtColors.TextPrimary
     }
     val ring = if (attack) MtColors.Pink else Color.White.copy(alpha = 0.8f)
+    val spoken = day.spoken()
     Box(
         modifier
             .height(36.dp)
@@ -244,7 +272,7 @@ private fun DayCell(day: CalendarDay, selected: Boolean, onSelect: (LocalDate) -
                 if (selectable) {
                     Modifier
                         .semantics(mergeDescendants = true) {
-                            contentDescription = day.spoken()
+                            contentDescription = spoken
                             this.selected = selected
                         }
                         .pressable(pressedScale = 0.95f) {
@@ -252,7 +280,7 @@ private fun DayCell(day: CalendarDay, selected: Boolean, onSelect: (LocalDate) -
                             onSelect(day.date)
                         }
                 } else {
-                    Modifier.semantics { contentDescription = day.spoken() }
+                    Modifier.semantics { contentDescription = spoken }
                 },
             )
             .then(if (selected) Modifier.ring(ring) else Modifier)
@@ -293,16 +321,16 @@ private fun Modifier.ring(color: Color): Modifier = drawBehind {
     )
 }
 
+@Composable
 private fun CalendarDay.spoken(): String {
     val name = DateText.weekdayMonthDay(date)
-    val prefix = if (isToday) "Today, " else ""
     val detail = when {
-        !inMonth || isFuture -> "not available"
-        !isTracked -> "not tracked"
-        attacks == 0 -> "no episodes"
-        else -> "$attacks ${if (attacks == 1) "episode" else "episodes"}, peak ${peak?.value} of 10"
+        !inMonth || isFuture -> stringResource(Res.string.calendar_day_not_available)
+        !isTracked -> stringResource(Res.string.calendar_day_not_tracked)
+        attacks == 0 -> stringResource(Res.string.calendar_day_no_episodes)
+        else -> pluralStringResource(Res.plurals.calendar_day_episodes, attacks, attacks, peak?.value ?: 0)
     }
-    return "$prefix$name, $detail"
+    return stringResource(if (isToday) Res.string.calendar_day_today_a11y else Res.string.calendar_day_a11y, name, detail)
 }
 
 /** The picked day: its episodes with Edit and Delete, or Log for a day without one. */
@@ -316,7 +344,7 @@ private fun DayPreview(
 ) {
     if (day.episodes.isEmpty()) {
         PrimaryButton(
-            "Log Migraine Episode",
+            stringResource(Res.string.common_log_migraine_episode),
             onClick = { onLog(day.date) },
             icon = Symbols.Add,
             height = 56.dp,
@@ -336,20 +364,20 @@ private fun DayPreview(
     ) {
         val detail = day.episodes.singleOrNull()
             ?.let { DateText.time(it.startedAt.toLocalDateTime(timeZone)) }
-            ?: "${day.episodes.size} Episodes"
-        MtText("${DateText.weekdayMonthDay(day.date)} · $detail".uppercase(), MtTheme.type.caption, color = MtColors.BrandLabel)
-        PreviewTile(Symbols.Bolt, "Peak Intensity") {
+            ?: pluralStringResource(Res.plurals.calendar_day_episode_count, day.episodes.size, day.episodes.size)
+        MtText(stringResource(Res.string.calendar_day_header, DateText.weekdayMonthDay(day.date), detail).uppercase(), MtTheme.type.caption, color = MtColors.BrandLabel)
+        PreviewTile(Symbols.Bolt, stringResource(Res.string.calendar_peak_intensity)) {
             Row(verticalAlignment = Alignment.Bottom) {
                 MtText(day.peak?.value?.toString() ?: "–", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), color = MtColors.PinkSoft)
                 Spacer(Modifier.width(MtSpacing.xs))
-                MtText("/10", MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
+                MtText(stringResource(Res.string.calendar_out_of_ten), MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
             }
         }
-        PreviewTile(Symbols.Medication, "Medication") {
-            MtText(day.medications.joinToString(", ").ifEmpty { "None" }, MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
+        PreviewTile(Symbols.Medication, stringResource(Res.string.calendar_medication)) {
+            MtText(day.medications.map { it.text.resolve() }.joinToString(", ").ifEmpty { stringResource(Res.string.common_none) }, MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
         }
-        PrimaryButton("Edit Episode Details", onClick = { onEdit(day) }, icon = Symbols.Edit, height = 56.dp)
-        DestructiveButton("Delete Episode", onClick = { onDelete(day) })
+        PrimaryButton(stringResource(Res.string.calendar_edit_episode_details), onClick = { onEdit(day) }, icon = Symbols.Edit, height = 56.dp)
+        DestructiveButton(stringResource(Res.string.common_delete_episode), onClick = { onDelete(day) })
     }
 }
 

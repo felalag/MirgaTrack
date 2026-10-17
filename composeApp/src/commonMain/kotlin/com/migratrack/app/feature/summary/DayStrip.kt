@@ -19,12 +19,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.strip_legend_migraine
+import com.migratrack.app.generated.resources.strip_legend_not_tracked
+import com.migratrack.app.generated.resources.strip_legend_pain_free
 import com.migratrack.app.ui.components.Dot
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.SummaryDay
+import org.jetbrains.compose.resources.stringResource
 
 enum class StripDay(val color: Color) {
     Attack(MtColors.Pink),
@@ -71,9 +76,9 @@ fun DayStripLegend(modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.spacedBy(MtSpacing.md),
         verticalArrangement = Arrangement.spacedBy(MtSpacing.xs),
     ) {
-        LegendItem("Migraine", StripDay.Attack.color)
-        LegendItem("Pain-free", StripDay.PainFree.color)
-        LegendItem("Not tracked", StripDay.NotTracked.color)
+        LegendItem(stringResource(Res.string.strip_legend_migraine), StripDay.Attack.color)
+        LegendItem(stringResource(Res.string.strip_legend_pain_free), StripDay.PainFree.color)
+        LegendItem(stringResource(Res.string.strip_legend_not_tracked), StripDay.NotTracked.color)
     }
 }
 
