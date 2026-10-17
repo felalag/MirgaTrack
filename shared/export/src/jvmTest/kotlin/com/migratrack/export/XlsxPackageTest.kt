@@ -23,7 +23,7 @@ class XlsxPackageTest {
 
     @Test
     fun packageHasEveryPartAsWellFormedXml() {
-        val bytes = ReportWorkbook.write(report(listOf(episode(20), episode(21))))
+        val bytes = ReportWorkbook.write(report(listOf(episode(20), episode(21))), EnglishReportStrings)
         val parts = unzip(bytes)
 
         val expected = setOf(

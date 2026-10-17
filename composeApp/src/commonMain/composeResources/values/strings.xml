@@ -757,4 +757,176 @@
         <item quantity="one">%1$s episode</item>
         <item quantity="other">%1$s episodes</item>
     </plurals>
+
+    <!-- PDF report. The report uses the language of the app. A4 page, small type: keep the length limits. -->
+    <!-- Title at the top of the first page. Max 40 characters. -->
+    <string name="report_title">Clinical Migraine Report</string>
+    <!-- Footer of each page. MigraTrack is the app name; do not translate it. %1$s = page number. -->
+    <string name="report_page">MigraTrack · Page %1$s</string>
+    <!-- Header line. %1$s = the name that the user entered. -->
+    <string name="report_patient">Patient: %1$s</string>
+    <!-- Header line. %1$s = date range, for example "Jul 20 – Oct 17". %2$s = range name, for example "Last 90 Days". -->
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <!-- Header line. %1$s = date of the export, for example "Oct 17, 2026". -->
+    <string name="report_generated">Generated %1$s</string>
+    <!-- Last line of the report. -->
+    <string name="report_disclaimer">Self-reported data logged in MigraTrack. This report supports, and does not replace, a clinical assessment.</string>
+    <!-- Label under a large number in a stat tile. One line, max 22 characters. -->
+    <string name="report_stat_episodes">Episodes recorded</string>
+    <!-- Label under a large number in a stat tile. Glossary: migraine day. One line, max 22 characters. -->
+    <string name="report_stat_migraine_days">Migraine days</string>
+    <!-- Label under a large number in a stat tile. Glossary: pain-free day. One line, max 22 characters. -->
+    <string name="report_stat_pain_free_days">Pain-free days</string>
+    <!-- Label under the average intensity, for example "5.4", on the scale 1 to 10. One line, max 22 characters. -->
+    <string name="report_stat_average_intensity">Average intensity /10</string>
+    <!-- Note under the stat tiles when the range starts before the tracking start. %1$s = first tracked date. %2$s = days of the range before it; the plural form follows it. -->
+    <plurals name="report_untracked_note">
+        <item quantity="one">Tracking started on %1$s. %2$s earlier day of this range has no records and does not count as a pain-free day.</item>
+        <item quantity="other">Tracking started on %1$s. %2$s earlier days of this range have no records and do not count as pain-free days.</item>
+    </plurals>
+    <!-- Section title. Glossary: baseline profile. -->
+    <string name="report_baseline_title">Baseline Profile</string>
+    <!-- Row label in the baseline section. Max 24 characters. -->
+    <string name="report_baseline_diagnoses">Diagnoses</string>
+    <!-- Row label in the baseline section: episodes per month. Max 24 characters. -->
+    <string name="report_baseline_frequency">Monthly frequency</string>
+    <!-- Row label in the baseline section: how long an episode usually lasts. Max 24 characters. -->
+    <string name="report_baseline_duration">Typical duration</string>
+    <!-- Row label in the baseline section. Max 24 characters. -->
+    <string name="report_baseline_intensity">Typical intensity</string>
+    <!-- Row label in the baseline section. Max 24 characters. -->
+    <string name="report_baseline_triggers">Known triggers</string>
+    <!-- Row label in the baseline section: the medications that the user takes. Glossary: treatment blueprint. Max 24 characters. -->
+    <string name="report_baseline_treatments">Treatment blueprint</string>
+    <!-- Section title of the bar chart: highest pain of each day on the scale 1 to 10. -->
+    <string name="report_pain_chart_title">Pain Intensity Timeline (1–10)</string>
+    <!-- Chart legend: green bars. %1$s = 1, %2$s = 3. Max 16 characters. -->
+    <string name="report_legend_mild">Mild %1$s–%2$s</string>
+    <!-- Chart legend: orange bars. %1$s = 4, %2$s = 7. Max 16 characters. -->
+    <string name="report_legend_moderate">Moderate %1$s–%2$s</string>
+    <!-- Chart legend: pink bars. %1$s = 8, %2$s = 10. Max 16 characters. -->
+    <string name="report_legend_severe">Severe %1$s–%2$s</string>
+    <!-- Chart legend: grey days before the tracking start. Max 16 characters. -->
+    <string name="report_legend_not_tracked">Not tracked</string>
+    <!-- Section title: how often each medication was taken. -->
+    <string name="report_medication_title">Medication Use</string>
+    <!-- Text of the medication section when the range has no intakes. -->
+    <string name="report_no_medications">No medication intakes logged in this range.</string>
+    <!-- Value next to a medication name. %1$s = how often the user took it; the plural form follows it. -->
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s intake</item>
+        <item quantity="other">%1$s intakes</item>
+    </plurals>
+    <!-- Section title: aura and other symptoms before or during an episode. -->
+    <string name="report_symptoms_title">Aura &amp; Warning Symptoms</string>
+    <!-- Text of the symptoms section when the range has no symptoms. -->
+    <string name="report_no_symptoms">No aura or sensory symptoms logged in this range.</string>
+    <!-- Value next to a symptom or a trigger. %1$s = episodes with it. %2$s = all episodes; the plural form follows it. %3$s = the share, for example "27%". -->
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s of %2$s episode (%3$s)</item>
+        <item quantity="other">%1$s of %2$s episodes (%3$s)</item>
+    </plurals>
+    <!-- Section title. Glossary: possible trigger. -->
+    <string name="report_triggers_title">Possible Triggers Noted</string>
+    <!-- Text of the triggers section when the range has no triggers. -->
+    <string name="report_no_triggers">No triggers noted in this range.</string>
+    <!-- Note under the trigger list. It must not say that a trigger causes the episodes. -->
+    <string name="report_triggers_note">Counts show how often the patient noted a trigger with an episode. They do not show a cause.</string>
+    <!-- Sentence after report_triggers_note. %1$s = episodes without a trigger; the verb form follows it.
+         %2$s = the number of all episodes with its noun, from report_episode_count. -->
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s of %2$s has no triggers noted.</item>
+        <item quantity="other">%1$s of %2$s have no triggers noted.</item>
+    </plurals>
+    <!-- Part of report_without_triggers: all episodes of the range. %1$s = that number. -->
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s episode</item>
+        <item quantity="other">%1$s episodes</item>
+    </plurals>
+    <!-- Section title: the table of all episodes. Glossary: episode. -->
+    <string name="report_episodes_title">Episodes</string>
+    <!-- Text of the episode section when the range has no episodes. -->
+    <string name="report_no_episodes">No episodes recorded in this range.</string>
+    <!-- Column header of the episode table, shown in upper case: start date and time. One line, max 15 characters. -->
+    <string name="report_column_date_time">Date &amp; Time</string>
+    <!-- Column header of the episode table, shown in upper case: intensity, for example "6/10". The column is narrow: one line, max 5 characters. -->
+    <string name="report_column_pain">Pain</string>
+    <!-- Column header of the episode table, shown in upper case: where the pain is in the head. One line, max 15 characters. -->
+    <string name="report_column_epicenter">Epicenter</string>
+    <!-- Column header of the episode table, shown in upper case. One line, max 15 characters. -->
+    <string name="report_column_symptoms">Symptoms</string>
+    <!-- Column header of the episode table, shown in upper case. One line, max 15 characters. -->
+    <string name="report_column_medications">Medications</string>
+    <!-- Column header of the episode table, shown in upper case. Glossary: possible trigger. One line, max 15 characters. -->
+    <string name="report_column_triggers">Triggers</string>
+    <!-- Pain intensity in the PDF and the spreadsheet. %1$s = intensity, 1 to 10. Max 5 characters. -->
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <!-- Value when the user entered no name or no diagnosis. -->
+    <string name="report_not_set">Not set</string>
+    <!-- Value when the user chose no triggers or no treatment. -->
+    <string name="report_none">None</string>
+
+    <!-- Spreadsheet report. Sheet names: max 31 characters, and none of these characters: : \ / ? * [ ] -->
+    <!-- Sheet name: one row for each episode. -->
+    <string name="report_sheet_episodes">Episodes</string>
+    <!-- Sheet name: one row for each medication intake. -->
+    <string name="report_sheet_medications">Medications</string>
+    <!-- Sheet name: one row for each day of the range. -->
+    <string name="report_sheet_daily_pain">Daily Pain</string>
+    <!-- Sheet name: the baseline profile of the user. -->
+    <string name="report_sheet_profile">Profile</string>
+    <!-- Column header: start date and time of the episode. -->
+    <string name="report_header_started">Started</string>
+    <!-- Column header: intensity of the episode. -->
+    <string name="report_header_pain_intensity">Pain Intensity (1–10)</string>
+    <!-- Column header: where the pain is in the head. -->
+    <string name="report_header_epicenter">Cranial Epicenter</string>
+    <!-- Column header. -->
+    <string name="report_header_symptoms">Aura &amp; Sensory Symptoms</string>
+    <!-- Column header in the Episodes sheet. -->
+    <string name="report_header_medications">Medications</string>
+    <!-- Column header. Glossary: possible trigger. -->
+    <string name="report_header_triggers">Possible Triggers</string>
+    <!-- Column header in the Medications sheet: start of the episode of the intake. -->
+    <string name="report_header_episode_started">Episode Started</string>
+    <!-- Column header in the Medications sheet: name of one medication. -->
+    <string name="report_header_medication">Medication</string>
+    <!-- Column header in the Medications sheet. -->
+    <string name="report_header_dose">Dose</string>
+    <!-- Column header in the Daily Pain sheet. -->
+    <string name="report_header_date">Date</string>
+    <!-- Column header in the Daily Pain sheet: highest intensity of the day; a pain-free day has 0. -->
+    <string name="report_header_peak_pain">Peak Pain Intensity (1–10, 0 = pain-free)</string>
+    <!-- Column header in the Daily Pain sheet: the kind of day. -->
+    <string name="report_header_day">Day</string>
+    <!-- Column header in the Profile sheet: the name of a field. -->
+    <string name="report_header_field">Field</string>
+    <!-- Column header in the Profile sheet: the value of a field. -->
+    <string name="report_header_value">Value</string>
+    <!-- Kind of day in the Daily Pain sheet. Glossary: migraine day. -->
+    <string name="report_day_migraine">Migraine</string>
+    <!-- Kind of day in the Daily Pain sheet. Glossary: pain-free day. -->
+    <string name="report_day_pain_free">Pain-Free</string>
+    <!-- Kind of day in the Daily Pain sheet: a day before the tracking start. -->
+    <string name="report_day_not_tracked">Not Tracked</string>
+    <!-- Field in the Profile sheet. -->
+    <string name="report_profile_patient">Patient</string>
+    <!-- Field in the Profile sheet. -->
+    <string name="report_profile_range">Report Range</string>
+    <!-- Field in the Profile sheet: the first tracked day. -->
+    <string name="report_profile_tracked_since">Tracked Since</string>
+    <!-- Field in the Profile sheet. -->
+    <string name="report_profile_diagnoses">Diagnoses</string>
+    <!-- Field in the Profile sheet: episodes per month. -->
+    <string name="report_profile_frequency">Monthly Frequency</string>
+    <!-- Field in the Profile sheet: how long an episode usually lasts. -->
+    <string name="report_profile_duration">Typical Duration</string>
+    <!-- Field in the Profile sheet. -->
+    <string name="report_profile_intensity">Typical Intensity</string>
+    <!-- Field in the Profile sheet. -->
+    <string name="report_profile_triggers">Known Triggers</string>
+    <!-- Field in the Profile sheet. Glossary: treatment blueprint. -->
+    <string name="report_profile_treatments">Treatment Blueprint</string>
+    <!-- Value of Report Range. %1$s and %2$s = first and last day in ISO format, for example "2026-07-20". -->
+    <string name="report_iso_range">%1$s to %2$s</string>
 </resources>

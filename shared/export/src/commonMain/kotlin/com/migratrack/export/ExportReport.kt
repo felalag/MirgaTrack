@@ -10,6 +10,7 @@ import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.report.CatalogNames
 import com.migratrack.export.report.ClinicalReport
 import com.migratrack.export.report.ClinicalReportBuilder
+import com.migratrack.export.report.ReportStrings
 import com.migratrack.export.xlsx.ReportWorkbook
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +33,8 @@ class ExportReport(
     private val pdfRenderer: PdfRenderer,
     /** Loads the names in the language of the app; it runs before each export, so a language change applies. */
     private val names: suspend () -> CatalogNames,
+    /** Loads the report texts in the language of the app, before each export like [names]. */
+    private val strings: suspend () -> ReportStrings,
     private val dates: DateFormats,
     private val numbers: NumberFormats,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
@@ -53,7 +56,7 @@ class ExportReport(
 
     suspend fun pdf(): ExportFile = withContext(dispatcher) {
         val report = report()
-        ExportFile(fileName(report, "pdf"), "application/pdf", ReportPdf.render(report, pdfRenderer, dates, numbers))
+        ExportFile(fileName(report, "pdf"), "application/pdf", ReportPdf.render(report, pdfRenderer, strings(), dates, numbers))
     }
 
     suspend fun xlsx(): ExportFile = withContext(dispatcher) {
@@ -61,7 +64,7 @@ class ExportReport(
         ExportFile(
             fileName(report, "xlsx"),
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            ReportWorkbook.write(report),
+            ReportWorkbook.write(report, strings()),
         )
     }
 

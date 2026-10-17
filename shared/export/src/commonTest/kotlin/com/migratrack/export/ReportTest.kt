@@ -8,7 +8,7 @@ import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportCanvas
 import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.pdf.TextStyle
-import com.migratrack.export.pdf.withoutTriggersText
+import com.migratrack.export.report.ReportStrings
 import com.migratrack.export.xlsx.Cell
 import com.migratrack.export.xlsx.ReportWorkbook
 import kotlin.test.Test
@@ -52,12 +52,12 @@ class ReportTest {
         assertEquals(84, report.stats.untrackedDays)
         assertEquals(listOf(false, true), report.days.filter { it.date in LocalDate(2026, 10, 9)..LocalDate(2026, 10, 10) }.map { it.isTracked })
 
-        val daily = ReportWorkbook.sheets(report).single { it.name == "Daily Pain" }.rows
+        val daily = ReportWorkbook.sheets(report, EnglishReportStrings).single { it.name == "Daily Pain" }.rows
         assertEquals(84, daily.count { it.last() == Cell.Text("Not Tracked") })
         assertEquals(4, daily.count { it.last() == Cell.Text("Pain-Free") })
 
         val canvas = RecordingRenderer()
-        ReportPdf.render(report, canvas, EnglishDateFormats, EnglishNumberFormats)
+        ReportPdf.render(report, canvas, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
         assertTrue(canvas.texts.any { it.startsWith("Tracking started on Oct 20, 2026. 84 earlier days") })
         assertTrue("Not tracked" in canvas.texts)
     }
@@ -65,14 +65,14 @@ class ReportTest {
     @Test
     fun reportOfAFullyTrackedRangeHasNoTrackingNote() {
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(listOf(episode(20))), canvas, EnglishDateFormats, EnglishNumberFormats)
+        ReportPdf.render(report(listOf(episode(20))), canvas, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
 
         assertFalse(canvas.texts.any { it.startsWith("Tracking started") || it == "Not tracked" })
     }
 
     @Test
     fun workbookDropsSheetsAndColumnsThatTheTogglesExclude() {
-        val all = ReportWorkbook.sheets(report(listOf(episode(20))))
+        val all = ReportWorkbook.sheets(report(listOf(episode(20))), EnglishReportStrings)
         assertEquals(listOf("Episodes", "Medications", "Daily Pain", "Profile"), all.map { it.name })
         assertEquals("Possible Triggers", all.first().columns.last().title)
         assertEquals(6, all.first().columns.size)
@@ -82,6 +82,7 @@ class ReportTest {
                 listOf(episode(20)),
                 ExportPreferences(includeMedications = false, includeSymptoms = false, includePainCharts = false, includeTriggers = false),
             ),
+            EnglishReportStrings,
         )
         assertEquals(listOf("Episodes", "Profile"), bare.map { it.name })
         assertEquals(3, bare.first().columns.size)
@@ -91,7 +92,7 @@ class ReportTest {
     fun longEpisodeLogBreaksOntoNewPagesInsideTheMargins() {
         val episodes = (1..24).map { episode(it) } + (1..30).map { episode(it, month = 9) }
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(episodes), canvas, EnglishDateFormats, EnglishNumberFormats)
+        ReportPdf.render(report(episodes), canvas, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
 
         assertTrue(canvas.pages >= 2, "expected several pages, got ${canvas.pages}")
         assertTrue(canvas.maxContentBottom <= ReportPdf.PAGE_HEIGHT - 40f, "content ran into the bottom margin")
@@ -103,7 +104,7 @@ class ReportTest {
         val days = (0 until 80).map { TODAY.minus(it, DateTimeUnit.DAY) }
         for (count in 1..days.size) {
             val canvas = RecordingRenderer()
-            ReportPdf.render(report(days.take(count).map { episode(it.day, it.month.number) }), canvas, EnglishDateFormats, EnglishNumberFormats)
+            ReportPdf.render(report(days.take(count).map { episode(it.day, it.month.number) }), canvas, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
 
             val lastPage = canvas.pageTexts.last().filterNot { it.startsWith("MigraTrack · Page") }
             assertTrue(lastPage.size > 1, "$count episodes: the last page has only $lastPage")
@@ -114,7 +115,7 @@ class ReportTest {
     @Test
     fun pdfLeavesOutTheChartWhenItIsSwitchedOff() {
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas, EnglishDateFormats, EnglishNumberFormats)
+        ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
         assertFalse(canvas.texts.any { it.startsWith("Pain Intensity Timeline") })
     }
 
@@ -131,13 +132,13 @@ class ReportTest {
     @Test
     fun pdfShowsTriggerFrequencyAsAShareOfEpisodesOnlyWhenSwitchedOn() {
         val episodes = listOf(episode(20), episode(21, triggers = emptyList()))
-        val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishDateFormats, EnglishNumberFormats) }
+        val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }
         assertTrue("Possible Triggers Noted" in on.texts)
         assertTrue("1 of 2 episodes (50%)" in on.texts)
         assertTrue(on.texts.any { it.contains("do not show a cause") && it.contains("1 of 2 episodes has no triggers noted") })
         assertTrue("TRIGGERS" in on.texts)
 
-        val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it, EnglishDateFormats, EnglishNumberFormats) }
+        val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }
         assertFalse("Possible Triggers Noted" in off.texts)
         assertFalse("TRIGGERS" in off.texts)
     }
@@ -148,11 +149,11 @@ class ReportTest {
         val later = logged.copy(medications = logged.medications.map { it.copy(takenAt = it.takenAt + 2.hours) })
         val report = report(listOf(later))
 
-        val canvas = RecordingRenderer().also { ReportPdf.render(report, it, EnglishDateFormats, EnglishNumberFormats) }
+        val canvas = RecordingRenderer().also { ReportPdf.render(report, it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }
         assertTrue("Ibuprofen 400mg" in canvas.texts)
         assertFalse(canvas.texts.any { it.contains(" at ") && it.startsWith("Ibuprofen") })
 
-        val medications = ReportWorkbook.sheets(report).single { it.name == "Medications" }
+        val medications = ReportWorkbook.sheets(report, EnglishReportStrings).single { it.name == "Medications" }
         assertEquals("Episode Started", medications.columns.first().title)
         assertEquals(Cell.DateTime(LocalDateTime(2026, 10, 20, 9, 30)), medications.rows.single().first())
     }
@@ -166,11 +167,33 @@ class ReportTest {
             override fun decimal(value: Double) = EnglishNumberFormats.decimal(value).replace('.', ',')
         }
         val episodes = listOf(episode(20, intensity = 5), episode(21, intensity = 6))
-        val canvas = RecordingRenderer().also { ReportPdf.render(report(episodes), it, dayFirst, decimalComma) }
+        val canvas = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishReportStrings, dayFirst, decimalComma) }
 
         assertTrue("5,5" in canvas.texts)
         assertTrue(canvas.texts.any { it.contains("Generated 24 Oct 2026") })
         assertTrue(canvas.texts.any { it.startsWith("20 Oct 2026\n") })
+    }
+
+    @Test
+    fun pdfColorsThePainColumnByItsIdAlsoWhenTheTitleIsTranslated() {
+        val polishTitle = object : ReportStrings by EnglishReportStrings {
+            override val columnPain = "Ból"
+        }
+        val canvas = RecordingRenderer().also {
+            ReportPdf.render(report(listOf(episode(20, intensity = 9))), it, polishTitle, EnglishDateFormats, EnglishNumberFormats)
+        }
+
+        val painCell = canvas.styles.getValue("9/10")
+        assertEquals(TextStyle.Weight.Bold, painCell.weight)
+        assertTrue("BÓL" in canvas.texts)
+    }
+
+    @Test
+    fun triggerNoteEndsWithTheEpisodesThatHaveNoTriggers() {
+        val canvas = RecordingRenderer().also {
+            ReportPdf.render(report(listOf(episode(20), episode(21, triggers = emptyList()), episode(22, triggers = emptyList()))), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats)
+        }
+        assertTrue(canvas.texts.any { it.endsWith("They do not show a cause. 2 of 3 episodes have no triggers noted.") })
     }
 
     /** Records draw calls. Text wraps at half the font size per character, 1.2 × font size per line. */
@@ -180,6 +203,7 @@ class ReportTest {
         var pages = 0
         var maxContentBottom = 0f
         val texts = mutableListOf<String>()
+        val styles = mutableMapOf<String, TextStyle>()
         val pageTexts = mutableListOf<MutableList<String>>()
 
         override fun render(pageWidth: Float, pageHeight: Float, draw: (ReportCanvas) -> Unit): ByteArray {
@@ -199,6 +223,7 @@ class ReportTest {
 
         override fun drawText(text: String, style: TextStyle, x: Float, y: Float, maxWidth: Float) {
             texts += text
+            styles[text] = style
             pageTexts.last() += text
             // The footer sits in the bottom margin on purpose.
             if (!text.startsWith("MigraTrack · Page")) {
@@ -211,12 +236,5 @@ class ReportTest {
         }
 
         override fun strokeLine(x1: Float, y1: Float, x2: Float, y2: Float, color: Long, width: Float) = Unit
-    }
-
-    @Test
-    fun episodesWithoutTriggersReadAsCorrectEnglish() {
-        assertEquals("1 of 3 episodes has no triggers noted", withoutTriggersText(1, 3))
-        assertEquals("2 of 3 episodes have no triggers noted", withoutTriggersText(2, 3))
-        assertEquals("1 of 1 episode has no triggers noted", withoutTriggersText(1, 1))
     }
 }
