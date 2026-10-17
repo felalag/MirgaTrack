@@ -11,3 +11,8 @@ import androidx.navigation.NavController
 fun NavController.popFrom(entry: NavBackStackEntry) {
     if (currentBackStackEntry == entry && previousBackStackEntry != null) popBackStack()
 }
+
+/** Pushes [route] only while [entry] is the top screen, so a fast second tap on a row does not push it twice. */
+fun <T : Any> NavController.navigateFrom(entry: NavBackStackEntry, route: T) {
+    if (currentBackStackEntry == entry) navigate(route)
+}
