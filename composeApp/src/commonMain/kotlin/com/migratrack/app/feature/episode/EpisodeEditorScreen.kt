@@ -11,17 +11,28 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_delete_episode
+import com.migratrack.app.generated.resources.common_edit_episode
+import com.migratrack.app.generated.resources.common_save_episode
+import com.migratrack.app.generated.resources.episode_deleted_banner
+import com.migratrack.app.generated.resources.episode_log_title
+import com.migratrack.app.generated.resources.episode_saved_banner
+import com.migratrack.app.generated.resources.episode_update
+import com.migratrack.app.generated.resources.episode_updated_banner
 import com.migratrack.app.ui.components.DestructiveButton
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.icons.Symbols
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Edit Episode, or Log Episode for a day picked in the calendar. Pushed under the tab bar with a back button,
  * like Settings. [onDone] gets the confirmation for the banner.
  */
 @Composable
-fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (message: String) -> Unit) {
+fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (message: StringResource) -> Unit) {
     val graph = LocalAppGraph.current
     val viewModel = viewModel(key = target.toString()) { EpisodeFormViewModel(graph, target) }
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -32,27 +43,25 @@ fun EpisodeEditorScreen(target: EpisodeTarget, onBack: () -> Unit, onDone: (mess
         if (state.missing) onBack()
     }
 
-    Page(title = if (editing) "Edit Episode" else "Log Episode", onBack = onBack) {
+    Page(title = stringResource(if (editing) Res.string.common_edit_episode else Res.string.episode_log_title), onBack = onBack) {
         val draft = state.draft ?: return@Page
         EpisodeFormFields(draft, state.baselineTriggers, viewModel, graph.today(), graph.timeZone())
         Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             PrimaryButton(
-                text = if (editing) "Update Episode" else "Save Episode",
+                text = stringResource(if (editing) Res.string.episode_update else Res.string.common_save_episode),
                 icon = Symbols.Save,
                 enabled = !state.saving,
                 height = 56.dp,
                 onClick = {
                     haptics.performHapticFeedback(HapticFeedbackType.Confirm)
-                    viewModel.save { onDone(if (editing) "Episode updated." else SAVED_MESSAGE) }
+                    viewModel.save { onDone(if (editing) Res.string.episode_updated_banner else Res.string.episode_saved_banner) }
                 },
             )
             if (editing) {
-                DestructiveButton("Delete Episode", enabled = !state.saving, onClick = {
-                    viewModel.delete { onDone("Episode deleted.") }
+                DestructiveButton(stringResource(Res.string.common_delete_episode), enabled = !state.saving, onClick = {
+                    viewModel.delete { onDone(Res.string.episode_deleted_banner) }
                 })
             }
         }
     }
 }
-
-const val SAVED_MESSAGE = "Episode saved. Take it easy and stay in low light."

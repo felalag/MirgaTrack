@@ -26,6 +26,29 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.AppGraph
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_possible_triggers
+import com.migratrack.app.generated.resources.export_episodes_recorded
+import com.migratrack.app.generated.resources.export_episodes_unit
+import com.migratrack.app.generated.resources.export_excel
+import com.migratrack.app.generated.resources.export_failed_message
+import com.migratrack.app.generated.resources.export_failed_title
+import com.migratrack.app.generated.resources.export_include
+import com.migratrack.app.generated.resources.export_medications
+import com.migratrack.app.generated.resources.export_medications_subtitle
+import com.migratrack.app.generated.resources.export_pain_charts
+import com.migratrack.app.generated.resources.export_pain_charts_subtitle
+import com.migratrack.app.generated.resources.export_pdf
+import com.migratrack.app.generated.resources.export_preparing_excel
+import com.migratrack.app.generated.resources.export_preparing_pdf
+import com.migratrack.app.generated.resources.export_preparing_report
+import com.migratrack.app.generated.resources.export_range_title
+import com.migratrack.app.generated.resources.export_share
+import com.migratrack.app.generated.resources.export_share_text
+import com.migratrack.app.generated.resources.export_symptoms
+import com.migratrack.app.generated.resources.export_symptoms_subtitle
+import com.migratrack.app.generated.resources.export_triggers_subtitle
+import com.migratrack.app.generated.resources.tab_export
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
@@ -54,8 +77,17 @@ import kotlinx.coroutines.launch
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.minus
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.getPluralString
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
-enum class ExportJob(val progressLabel: String) { Pdf("Preparing PDF…"), Excel("Preparing Excel…"), Share("Preparing Report…") }
+enum class ExportJob(val progressLabel: StringResource) {
+    Pdf(Res.string.export_preparing_pdf),
+    Excel(Res.string.export_preparing_excel),
+    Share(Res.string.export_preparing_report),
+}
 
 data class ExportUiState(
     val episodeCount: Int,
@@ -91,7 +123,7 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
     fun chooseRange() = viewModelScope.launch {
         val ranges = ExportRange.entries
         val index = graph.services.dialogs.chooseAction(
-            title = "Report Range",
+            title = getString(Res.string.export_range_title),
             actions = ranges.map { SheetAction(it.title) },
         ) ?: return@launch
         update { it.copy(range = ranges[index]) }
@@ -103,7 +135,9 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
 
     fun share() = run(ExportJob.Share) {
         val pdf: ExportFile = graph.exportReport.pdf()
-        val summary = state.value?.let { "MigraTrack report: ${it.episodeCount} episodes, ${it.dateRange}." }
+        val summary = state.value?.let {
+            getPluralString(Res.plurals.export_share_text, it.episodeCount, it.episodeCount, it.dateRange)
+        }
         graph.services.files.share(listOf(pdf), summary)
     }
 
@@ -113,10 +147,9 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
         try {
             block()
         } catch (failure: Exception) {
-            graph.services.dialogs.confirm(
-                title = "Export Failed",
-                message = failure.message ?: "The report could not be created.",
-                confirmTitle = "OK",
+            graph.services.dialogs.alert(
+                title = getString(Res.string.export_failed_title),
+                message = failure.message ?: getString(Res.string.export_failed_message),
             )
         } finally {
             running.value = null
@@ -130,16 +163,16 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
     val viewModel = viewModel { ExportViewModel(graph) }
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Page(title = "Export", onSettings = onOpenSettings) {
+    Page(title = stringResource(Res.string.tab_export), onSettings = onOpenSettings) {
         val current = state ?: return@Page
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             StatTile(Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.Bottom) {
                     MtText(current.episodeCount.toString(), MtTheme.type.largeTitle)
                     Spacer(Modifier.width(MtSpacing.xs))
-                    MtText("episodes", MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 5.dp))
+                    MtText(pluralStringResource(Res.plurals.export_episodes_unit, current.episodeCount), MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 5.dp))
                 }
-                MtText("Episodes recorded", MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
+                MtText(stringResource(Res.string.export_episodes_recorded), MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
             }
             StatTile(Modifier.weight(1f).pressable(role = Role.Button, pressedScale = 0.97f, onClick = viewModel::chooseRange)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -150,11 +183,11 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             }
         }
 
-        GroupedSection("Include in Export", background = MtColors.CardRaised) {
+        GroupedSection(stringResource(Res.string.export_include), background = MtColors.CardRaised) {
             val preferences = current.preferences
             ListRow(
-                title = "Medication Intakes",
-                subtitle = "Dosages and usage totals",
+                title = stringResource(Res.string.export_medications),
+                subtitle = stringResource(Res.string.export_medications_subtitle),
                 icon = Symbols.Medication,
                 iconTint = MtColors.BrandLabel,
                 iconBackground = MtColors.Control,
@@ -162,8 +195,8 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             )
             ListDivider(inset = false)
             ListRow(
-                title = "Aura & Warning Symptoms",
-                subtitle = "Aura types and their frequency",
+                title = stringResource(Res.string.export_symptoms),
+                subtitle = stringResource(Res.string.export_symptoms_subtitle),
                 icon = Symbols.Visibility,
                 iconTint = MtColors.Cyan,
                 iconBackground = MtColors.Control,
@@ -171,8 +204,8 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             )
             ListDivider(inset = false)
             ListRow(
-                title = "Possible Triggers",
-                subtitle = "Noted triggers and their frequency",
+                title = stringResource(Res.string.common_possible_triggers),
+                subtitle = stringResource(Res.string.export_triggers_subtitle),
                 icon = Symbols.Bolt,
                 iconTint = MtColors.Purple,
                 iconBackground = MtColors.Control,
@@ -180,8 +213,8 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             )
             ListDivider(inset = false)
             ListRow(
-                title = "Pain Intensity Charts",
-                subtitle = "Pain intensity timeline, 1–10",
+                title = stringResource(Res.string.export_pain_charts),
+                subtitle = stringResource(Res.string.export_pain_charts_subtitle),
                 icon = Symbols.StackedLineChart,
                 iconTint = MtColors.Pink,
                 iconBackground = MtColors.Control,
@@ -192,20 +225,20 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             val running = current.running
             PrimaryButton(
-                text = if (running == ExportJob.Pdf) running.progressLabel else "Export PDF Report",
+                text = stringResource(if (running == ExportJob.Pdf) running.progressLabel else Res.string.export_pdf),
                 icon = Symbols.Download,
                 enabled = running == null,
                 onClick = viewModel::exportPdf,
             )
             SecondaryButton(
-                text = if (running == ExportJob.Excel) running.progressLabel else "Export as Excel (.xlsx)",
+                text = stringResource(if (running == ExportJob.Excel) running.progressLabel else Res.string.export_excel),
                 icon = Symbols.TableView,
                 iconTint = MtColors.Green,
                 enabled = running == null,
                 onClick = viewModel::exportExcel,
             )
             SecondaryButton(
-                text = if (running == ExportJob.Share) running.progressLabel else "Share",
+                text = stringResource(if (running == ExportJob.Share) running.progressLabel else Res.string.export_share),
                 icon = Symbols.IosShare,
                 iconTint = MtColors.Cyan,
                 outlined = true,

@@ -3,6 +3,26 @@ package com.migratrack.app.feature.episode
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.migratrack.app.di.AppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_add
+import com.migratrack.app.generated.resources.common_add_medication
+import com.migratrack.app.generated.resources.common_add_trigger
+import com.migratrack.app.generated.resources.common_date_at_time
+import com.migratrack.app.generated.resources.common_delete_episode
+import com.migratrack.app.generated.resources.common_medication_name_and_dose
+import com.migratrack.app.generated.resources.common_medication_placeholder
+import com.migratrack.app.generated.resources.episode_add_medication_message
+import com.migratrack.app.generated.resources.episode_add_trigger_message
+import com.migratrack.app.generated.resources.episode_delete_message
+import com.migratrack.app.generated.resources.episode_missing_message
+import com.migratrack.app.generated.resources.episode_missing_title
+import com.migratrack.app.generated.resources.episode_other_medication_action
+import com.migratrack.app.generated.resources.episode_other_medication_title
+import com.migratrack.app.generated.resources.episode_other_trigger_action
+import com.migratrack.app.generated.resources.episode_other_trigger_message
+import com.migratrack.app.generated.resources.episode_other_trigger_placeholder
+import com.migratrack.app.generated.resources.episode_other_trigger_title
+import com.migratrack.app.generated.resources.episode_start
 import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.domain.analytics.DateText
@@ -16,9 +36,11 @@ import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.usecase.EpisodeDraft
 import com.migratrack.domain.usecase.toDraft
+import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Instant
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -27,8 +49,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
-import kotlin.time.Duration.Companion.minutes
-import kotlin.time.Instant
+import org.jetbrains.compose.resources.getString
 
 /** What the episode form works on. */
 sealed interface EpisodeTarget {
@@ -112,18 +133,18 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         val candidates = graph.catalog.triggers().filter { it.id !in shown }
         val dialogs = graph.services.dialogs
         val choice = dialogs.chooseAction(
-            title = "Add Trigger",
-            message = "What came before this episode?",
-            actions = candidates.map { SheetAction(it.name) } + SheetAction("Other Trigger…"),
+            title = getString(Res.string.common_add_trigger),
+            message = getString(Res.string.episode_add_trigger_message),
+            actions = candidates.map { SheetAction(it.name) } + SheetAction(getString(Res.string.episode_other_trigger_action)),
         ) ?: return@launch
         val trigger = if (choice < candidates.size) {
             candidates[choice]
         } else {
             val name = dialogs.prompt(
-                title = "Other Trigger",
-                message = "Name something that came before this episode.",
-                placeholder = "For example, strong perfume",
-                confirmTitle = "Add",
+                title = getString(Res.string.episode_other_trigger_title),
+                message = getString(Res.string.episode_other_trigger_message),
+                placeholder = getString(Res.string.episode_other_trigger_placeholder),
+                confirmTitle = getString(Res.string.common_add),
             )?.trim()
             if (name.isNullOrEmpty()) return@launch
             graph.catalog.addCustomTrigger(name)
@@ -146,18 +167,18 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
             .sortedWith(compareBy({ it.id !in blueprint }, { it.role != MedicationRole.Acute }))
         val dialogs = graph.services.dialogs
         val choice = dialogs.chooseAction(
-            title = "Add Medication",
-            message = "What did you take for this episode?",
-            actions = candidates.map { SheetAction(it.displayName) } + SheetAction("Other Medication…"),
+            title = getString(Res.string.common_add_medication),
+            message = getString(Res.string.episode_add_medication_message),
+            actions = candidates.map { SheetAction(it.displayName) } + SheetAction(getString(Res.string.episode_other_medication_action)),
         ) ?: return@launch
         val medication = if (choice < candidates.size) {
             candidates[choice]
         } else {
             val name = dialogs.prompt(
-                title = "Other Medication",
-                message = "Enter the name and dose.",
-                placeholder = "For example, Eletriptan 40mg",
-                confirmTitle = "Add",
+                title = getString(Res.string.episode_other_medication_title),
+                message = getString(Res.string.common_medication_name_and_dose),
+                placeholder = getString(Res.string.common_medication_placeholder),
+                confirmTitle = getString(Res.string.common_add),
             )?.trim()
             if (name.isNullOrEmpty()) return@launch
             graph.catalog.addCustomMedication(name, dose = "", role = MedicationRole.Acute)
@@ -169,7 +190,7 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         val draft = _state.value.draft ?: return@launch
         val now = graph.clock.now()
         val picked = graph.services.dialogs.pickDate(
-            title = "Episode Start",
+            title = getString(Res.string.episode_start),
             initial = draft.startedAt ?: now,
             latest = now,
             mode = DatePickerMode.DateAndTime,
@@ -188,10 +209,9 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         when {
             original == null -> graph.logEpisode(draft)
             graph.episodes.find(original.id) == null -> {
-                graph.services.dialogs.confirm(
-                    title = "Episode Deleted",
-                    message = "This episode was deleted on another device, so the changes cannot be saved.",
-                    confirmTitle = "OK",
+                graph.services.dialogs.alert(
+                    title = getString(Res.string.episode_missing_title),
+                    message = getString(Res.string.episode_missing_message),
                 )
                 _state.update { it.copy(missing = true) }
                 return@launch
@@ -215,9 +235,9 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
 suspend fun confirmDelete(graph: AppGraph, episode: Episode): Boolean {
     val dateTime = episode.startedAt.toLocalDateTime(graph.timeZone())
     val choice = graph.services.dialogs.chooseAction(
-        title = "${DateText.fullDate(dateTime.date)} at ${DateText.time(dateTime)}",
-        message = "Intensity ${episode.intensity.value}/10. The episode leaves your history and reports.",
-        actions = listOf(SheetAction("Delete Episode", destructive = true)),
+        title = getString(Res.string.common_date_at_time, DateText.fullDate(dateTime.date), DateText.time(dateTime)),
+        message = getString(Res.string.episode_delete_message, episode.intensity.value),
+        actions = listOf(SheetAction(getString(Res.string.common_delete_episode), destructive = true)),
     )
     return choice == 0
 }

@@ -4,6 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.migratrack.app.di.AppGraph
 import com.migratrack.app.feature.episode.confirmDelete
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_delete_episode
+import com.migratrack.app.generated.resources.common_edit_episode
+import com.migratrack.app.generated.resources.insights_choose_episode_message
+import com.migratrack.app.generated.resources.insights_episode_option
+import com.migratrack.app.generated.resources.insights_month_picker_title
 import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.domain.analytics.CalendarBuilder
@@ -32,6 +38,8 @@ import kotlinx.datetime.YearMonth
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.yearMonth
+import org.jetbrains.compose.resources.getPluralString
+import org.jetbrains.compose.resources.getString
 
 data class InsightsUiState(
     val period: InsightsPeriod,
@@ -98,7 +106,7 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     fun pickMonth() = viewModelScope.launch {
         val zone = graph.timeZone()
         val picked = graph.services.dialogs.pickDate(
-            title = "Month",
+            title = getString(Res.string.insights_month_picker_title),
             initial = LocalDateTime(month.value.firstDay, LocalTime(12, 0)).toInstant(zone),
             latest = graph.clock.now(),
             mode = DatePickerMode.MonthAndYear,
@@ -107,14 +115,14 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
     }
 
     fun editEpisode(day: DayEpisodes, open: (EpisodeId) -> Unit) = viewModelScope.launch {
-        chooseEpisode(day, "Edit Episode", destructive = false)?.let { open(it.id) }
+        chooseEpisode(day, getString(Res.string.common_edit_episode), destructive = false)?.let { open(it.id) }
     }
 
     fun deleteEpisode(day: DayEpisodes) = viewModelScope.launch {
         val episode = if (day.episodes.size == 1) {
             day.episodes.single().takeIf { confirmDelete(graph, it) }
         } else {
-            chooseEpisode(day, "Delete Episode", destructive = true)
+            chooseEpisode(day, getString(Res.string.common_delete_episode), destructive = true)
         }
         episode?.let { graph.episodes.delete(it.id) }
     }
@@ -125,9 +133,15 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
         val zone = graph.timeZone()
         val index = graph.services.dialogs.chooseAction(
             title = title,
-            message = "${DateText.weekdayMonthDay(day.date)} has ${day.episodes.size} episodes.",
+            message = getPluralString(
+                Res.plurals.insights_choose_episode_message,
+                day.episodes.size,
+                DateText.weekdayMonthDay(day.date),
+                day.episodes.size,
+            ),
             actions = day.episodes.map {
-                SheetAction("${DateText.time(it.startedAt.toLocalDateTime(zone))} · Intensity ${it.intensity.value}/10", destructive)
+                val time = DateText.time(it.startedAt.toLocalDateTime(zone))
+                SheetAction(getString(Res.string.insights_episode_option, time, it.intensity.value), destructive)
             },
         ) ?: return null
         return day.episodes[index]

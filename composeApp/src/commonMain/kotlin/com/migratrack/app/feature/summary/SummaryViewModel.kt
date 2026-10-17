@@ -3,6 +3,11 @@ package com.migratrack.app.feature.summary
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.migratrack.app.di.AppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_date_at_time
+import com.migratrack.app.generated.resources.common_delete_episode
+import com.migratrack.app.generated.resources.common_edit_episode
+import com.migratrack.app.generated.resources.common_intensity_of_ten
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.SummaryCalculator
@@ -19,6 +24,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.getString
 
 sealed interface SleepCard {
     data object Loading : SleepCard
@@ -60,9 +66,12 @@ class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
     fun manageEpisode(episode: Episode, onEdit: (EpisodeId) -> Unit) = viewModelScope.launch {
         val dateTime = episode.startedAt.toLocalDateTime(graph.timeZone())
         val choice = graph.services.dialogs.chooseAction(
-            title = "${DateText.fullDate(dateTime.date)} at ${DateText.time(dateTime)}",
-            message = "Intensity ${episode.intensity.value}/10",
-            actions = listOf(SheetAction("Edit Episode"), SheetAction("Delete Episode", destructive = true)),
+            title = getString(Res.string.common_date_at_time, DateText.fullDate(dateTime.date), DateText.time(dateTime)),
+            message = getString(Res.string.common_intensity_of_ten, episode.intensity.value),
+            actions = listOf(
+                SheetAction(getString(Res.string.common_edit_episode)),
+                SheetAction(getString(Res.string.common_delete_episode), destructive = true),
+            ),
         )
         when (choice) {
             0 -> onEdit(episode.id)

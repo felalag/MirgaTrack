@@ -41,6 +41,35 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.migratrack.app.di.LocalAppGraph
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_collapsed
+import com.migratrack.app.generated.resources.common_expanded
+import com.migratrack.app.generated.resources.common_possible_triggers
+import com.migratrack.app.generated.resources.insights_bar_migraine_days
+import com.migratrack.app.generated.resources.insights_bar_no_data
+import com.migratrack.app.generated.resources.insights_bar_not_tracked
+import com.migratrack.app.generated.resources.insights_bar_pain_free
+import com.migratrack.app.generated.resources.insights_calendar_a11y
+import com.migratrack.app.generated.resources.insights_headline_month
+import com.migratrack.app.generated.resources.insights_headline_six_months
+import com.migratrack.app.generated.resources.insights_headline_this_week
+import com.migratrack.app.generated.resources.insights_headline_week_of
+import com.migratrack.app.generated.resources.insights_headline_year
+import com.migratrack.app.generated.resources.insights_legend_migraine_day
+import com.migratrack.app.generated.resources.insights_legend_not_tracked
+import com.migratrack.app.generated.resources.insights_legend_pain_free_day
+import com.migratrack.app.generated.resources.insights_period_month
+import com.migratrack.app.generated.resources.insights_period_six_months
+import com.migratrack.app.generated.resources.insights_period_week
+import com.migratrack.app.generated.resources.insights_period_year
+import com.migratrack.app.generated.resources.insights_trend_fewer
+import com.migratrack.app.generated.resources.insights_trend_more
+import com.migratrack.app.generated.resources.insights_trigger_row_a11y
+import com.migratrack.app.generated.resources.insights_trigger_row_count
+import com.migratrack.app.generated.resources.insights_triggers_empty
+import com.migratrack.app.generated.resources.insights_triggers_hint
+import com.migratrack.app.generated.resources.tab_insights
+import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.Dot
 import com.migratrack.app.ui.components.MtText
@@ -48,7 +77,6 @@ import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.SegmentedControl
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
-import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.theme.MtColors
@@ -64,9 +92,12 @@ import com.migratrack.domain.analytics.TriggerFrequency
 import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.Trigger
 import com.migratrack.domain.model.TriggerCategory
+import kotlin.math.abs
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.YearMonth
-import kotlin.math.abs
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.pluralStringResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun InsightsScreen(
@@ -78,13 +109,14 @@ fun InsightsScreen(
     val viewModel = viewModel { InsightsViewModel(graph) }
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    Page(title = "Insights", onSettings = onOpenSettings) {
+    Page(title = stringResource(Res.string.tab_insights), onSettings = onOpenSettings) {
         val current = state ?: return@Page
+        val periodLabels = InsightsPeriod.entries.associateWith { stringResource(it.shortLabel) }
         Row(verticalAlignment = Alignment.CenterVertically) {
             SegmentedControl(
                 options = InsightsPeriod.entries,
                 selected = current.period,
-                label = { it.shortLabel },
+                label = { periodLabels.getValue(it) },
                 onSelect = viewModel::selectPeriod,
                 modifier = Modifier.weight(1f),
             )
@@ -127,14 +159,12 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.Bolt, tint = MtColors.Purple, size = 20.dp, modifier = Modifier.glow(MtColors.Purple, 8.dp, alpha = 0.5f))
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText("Possible Triggers", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.semantics { heading() })
+            MtText(stringResource(Res.string.common_possible_triggers), MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), modifier = Modifier.semantics { heading() })
         }
         Spacer(Modifier.height(MtSpacing.xs))
-        val caption = if (frequency.counts.isEmpty()) {
-            "Note possible triggers when you log or edit an episode. This card then shows how often you noted each one."
-        } else {
-            "How often you noted each trigger with an episode. This does not show a cause."
-        }
+        val caption = stringResource(
+            if (frequency.counts.isEmpty()) Res.string.insights_triggers_empty else Res.string.insights_triggers_hint,
+        )
         MtText(caption, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
         frequency.counts.take(MAX_TRIGGER_ROWS).forEach { count ->
             Spacer(Modifier.height(MtSpacing.md))
@@ -157,11 +187,12 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
 @Composable
 private fun TriggerRow(count: TriggerCount, episodes: Int, accent: Color) {
     val share by animateFloatAsState(count.episodes.toFloat() / episodes, tween(600))
-    Column(Modifier.semantics(mergeDescendants = true) { contentDescription = "${count.name}, noted in ${count.episodes} of $episodes episodes" }) {
+    val description = pluralStringResource(Res.plurals.insights_trigger_row_a11y, episodes, count.name, count.episodes, episodes)
+    Column(Modifier.semantics(mergeDescendants = true) { contentDescription = description }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             MtText(count.name, MtTheme.type.body.copy(fontWeight = FontWeight.SemiBold), maxLines = 2, modifier = Modifier.weight(1f))
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText("${count.episodes} of $episodes", MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
+            MtText(stringResource(Res.string.insights_trigger_row_count, count.episodes, episodes), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
         }
         Spacer(Modifier.height(6.dp))
         Box(Modifier.fillMaxWidth().height(6.dp).clip(CircleShape).background(MtColors.ControlHigh.copy(alpha = 0.4f))) {
@@ -177,6 +208,8 @@ private const val MAX_TRIGGER_ROWS = 5
 private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) {
     val rotation by animateFloatAsState(if (expanded) 180f else 0f)
     val background by animateColorAsState(if (expanded) MtColors.ControlHigh else MtColors.Card)
+    val description = stringResource(Res.string.insights_calendar_a11y, DateText.monthYear(month))
+    val state = stringResource(if (expanded) Res.string.common_expanded else Res.string.common_collapsed)
     Row(
         Modifier
             .height(40.dp)
@@ -184,8 +217,8 @@ private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) 
             .background(background)
             .border(1.dp, Color.White.copy(alpha = 0.1f), CircleShape)
             .semantics(mergeDescendants = true) {
-                contentDescription = "Calendar, ${DateText.monthYear(month)}"
-                stateDescription = if (expanded) "Expanded" else "Collapsed"
+                contentDescription = description
+                stateDescription = state
                 role = Role.Button
             }
             .pressable(pressedScale = 0.95f, onClick = onClick)
@@ -200,22 +233,25 @@ private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) 
     }
 }
 
-private val InsightsPeriod.shortLabel: String
+private val InsightsPeriod.shortLabel: StringResource
     get() = when (this) {
-        InsightsPeriod.Week -> "W"
-        InsightsPeriod.Month -> "M"
-        InsightsPeriod.SixMonths -> "6M"
-        InsightsPeriod.Year -> "Y"
+        InsightsPeriod.Week -> Res.string.insights_period_week
+        InsightsPeriod.Month -> Res.string.insights_period_month
+        InsightsPeriod.SixMonths -> Res.string.insights_period_six_months
+        InsightsPeriod.Year -> Res.string.insights_period_year
     }
 
-private fun Insights.headline(): String {
-    val noun = if (attackCount == 1) "Episode" else "Episodes"
-    return when (period) {
-        InsightsPeriod.Week -> if (includesToday) "$noun this Week" else "$noun in Week of ${DateText.monthDay(range.start)}"
-        InsightsPeriod.Month -> "$noun in ${DateText.shortMonth(month.month)}"
-        InsightsPeriod.SixMonths -> "$noun in 6 Mos"
-        InsightsPeriod.Year -> "$noun in ${range.start.year}"
+/** The text after the large episode count, so the plural form follows that count. */
+@Composable
+private fun Insights.headline(): String = when (period) {
+    InsightsPeriod.Week -> if (includesToday) {
+        pluralStringResource(Res.plurals.insights_headline_this_week, attackCount)
+    } else {
+        pluralStringResource(Res.plurals.insights_headline_week_of, attackCount, DateText.monthDay(range.start))
     }
+    InsightsPeriod.Month -> pluralStringResource(Res.plurals.insights_headline_month, attackCount, DateText.shortMonth(month.month))
+    InsightsPeriod.SixMonths -> pluralStringResource(Res.plurals.insights_headline_six_months, attackCount)
+    InsightsPeriod.Year -> pluralStringResource(Res.plurals.insights_headline_year, attackCount, range.start.year)
 }
 
 @Composable
@@ -256,9 +292,11 @@ private fun AttackCard(insights: Insights) {
             horizontalArrangement = Arrangement.spacedBy(MtSpacing.lg, Alignment.CenterHorizontally),
             verticalArrangement = Arrangement.spacedBy(MtSpacing.xs),
         ) {
-            LegendItem("Migraine Day", MtColors.Pink)
-            LegendItem("Pain-Free Day", MtColors.Green)
-            if (insights.bars.any { it.elapsedDays > 0 && it.trackedDays == 0 }) LegendItem("Not Tracked", MtColors.TextTertiary)
+            LegendItem(stringResource(Res.string.insights_legend_migraine_day), MtColors.Pink)
+            LegendItem(stringResource(Res.string.insights_legend_pain_free_day), MtColors.Green)
+            if (insights.bars.any { it.elapsedDays > 0 && it.trackedDays == 0 }) {
+                LegendItem(stringResource(Res.string.insights_legend_not_tracked), MtColors.TextTertiary)
+            }
         }
     }
 }
@@ -276,13 +314,14 @@ private fun LegendItem(text: String, color: androidx.compose.ui.graphics.Color) 
 private fun TrendBadge(percent: Int) {
     val fewer = percent <= 0
     val color = if (fewer) MtColors.Green else MtColors.Pink
+    val description = stringResource(if (fewer) Res.string.insights_trend_fewer else Res.string.insights_trend_more, abs(percent))
     Row(
         Modifier
             .clip(CircleShape)
             .background(MtColors.ControlHigh.copy(alpha = 0.8f))
             .padding(horizontal = 10.dp, vertical = 5.dp)
             .semantics(mergeDescendants = true) {
-                contentDescription = "${abs(percent)} percent ${if (fewer) "fewer" else "more"} episodes than the previous period"
+                contentDescription = description
             },
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -306,10 +345,16 @@ private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifi
     }
     val share by animateFloatAsState(target, tween(600))
     val description = when {
-        bar.elapsedDays == 0 -> "${bar.label}: no data yet"
-        bar.trackedDays == 0 -> "${bar.label}: not tracked"
-        bar.migraineDays == 0 -> "${bar.label}: pain-free"
-        else -> "${bar.label}: ${bar.migraineDays} migraine ${if (bar.migraineDays == 1) "day" else "days"}, peak ${bar.peakIntensity?.value} of 10"
+        bar.elapsedDays == 0 -> stringResource(Res.string.insights_bar_no_data, bar.label)
+        bar.trackedDays == 0 -> stringResource(Res.string.insights_bar_not_tracked, bar.label)
+        bar.migraineDays == 0 -> stringResource(Res.string.insights_bar_pain_free, bar.label)
+        else -> pluralStringResource(
+            Res.plurals.insights_bar_migraine_days,
+            bar.migraineDays,
+            bar.label,
+            bar.migraineDays,
+            bar.peakIntensity?.value ?: 0,
+        )
     }
     Column(
         modifier.widthIn(max = 28.dp).fillMaxWidth().semantics { contentDescription = description },

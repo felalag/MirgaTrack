@@ -11,9 +11,13 @@ import com.migratrack.app.di.LocalAppGraph
 import com.migratrack.app.feature.episode.EpisodeFormFields
 import com.migratrack.app.feature.episode.EpisodeFormViewModel
 import com.migratrack.app.feature.episode.EpisodeTarget
+import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.common_save_episode
+import com.migratrack.app.generated.resources.episode_log_title
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.icons.Symbols
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun LogEpisodeScreen(onOpenSettings: () -> Unit, onSaved: () -> Unit) {
@@ -22,11 +26,11 @@ fun LogEpisodeScreen(onOpenSettings: () -> Unit, onSaved: () -> Unit) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val haptics = LocalHapticFeedback.current
 
-    Page(title = "Log Episode", onSettings = onOpenSettings) {
+    Page(title = stringResource(Res.string.episode_log_title), onSettings = onOpenSettings) {
         val draft = state.draft ?: return@Page
         EpisodeFormFields(draft, state.baselineTriggers, viewModel, graph.today(), graph.timeZone())
         PrimaryButton(
-            text = "Save Episode",
+            text = stringResource(Res.string.common_save_episode),
             icon = Symbols.Save,
             enabled = !state.saving,
             height = 56.dp,
