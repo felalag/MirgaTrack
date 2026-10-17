@@ -2,6 +2,8 @@ package com.migratrack.app.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.intl.Locale
+import androidx.compose.ui.text.toUpperCase
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.duration_hours_minutes
 import com.migratrack.app.generated.resources.duration_minutes
@@ -15,6 +17,18 @@ expect val Dates: DateFormats
 
 /** Numbers in the language and region of the device. Every number on the screen goes through it. */
 expect val Numbers: NumberFormats
+
+/**
+ * The language that the app shows, for its letter case. `Locale.current` follows the language list of the phone,
+ * so English text on a Turkish phone would get Turkish case rules.
+ */
+expect val TextLocale: Locale
+
+/** Whether the app runs right to left, as in Arabic, Hebrew and Urdu. The report uses the same direction. */
+expect suspend fun appReadsRightToLeft(): Boolean
+
+/** Upper case by the rules of the app language: Turkish "i" becomes "İ", not "I". */
+fun String.uppercaseInAppLanguage(): String = toUpperCase(TextLocale)
 
 /** "7 h 20 min", or "45 min" under an hour. */
 @Composable

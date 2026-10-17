@@ -90,6 +90,7 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
+import com.migratrack.app.ui.uppercaseInAppLanguage
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.EpisodeFrequency
 import com.migratrack.domain.model.MedicationRole
@@ -340,7 +341,7 @@ private fun StepPage(
             }
             Spacer(Modifier.weight(1f))
             if (step != null) {
-                MtText(stringResource(Res.string.onboarding_step, Numbers.integer(step), Numbers.integer(STEP_COUNT)).uppercase(), MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
+                MtText(stringResource(Res.string.onboarding_step, Numbers.integer(step), Numbers.integer(STEP_COUNT)).uppercaseInAppLanguage(), MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
             }
         }
     }

@@ -9,15 +9,19 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -64,7 +68,7 @@ fun PrimaryButton(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(height)
+            .heightIn(min = height)
             .then(if (enabled) Modifier.glow(MtColors.Pink, radius = 24.dp, alpha = 0.4f) else Modifier)
             .clip(CircleShape)
             .background(background)
@@ -99,7 +103,7 @@ fun SecondaryButton(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(48.dp)
+            .heightIn(min = 48.dp)
             .clip(CircleShape)
             .background(if (outlined) MtColors.Control.copy(alpha = 0.6f) else MtColors.Control)
             .then(if (outlined) Modifier.border(1.dp, MtColors.BorderSubtle.copy(alpha = 0.12f), CircleShape) else Modifier)
@@ -121,7 +125,7 @@ fun DestructiveButton(text: String, onClick: () -> Unit, modifier: Modifier = Mo
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(56.dp)
+            .heightIn(min = 56.dp)
             .clip(CircleShape)
             .background(MtColors.Card)
             .border(1.dp, Color.White.copy(alpha = 0.1f), CircleShape)
@@ -137,7 +141,7 @@ fun DestructiveButton(text: String, onClick: () -> Unit, modifier: Modifier = Mo
 fun TextAction(text: String, color: Color, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
-            .size(width = 56.dp, height = MtSpacing.minTouch)
+            .sizeIn(minWidth = 56.dp, minHeight = MtSpacing.minTouch)
             .pressable(onClick = onClick),
         contentAlignment = Alignment.CenterEnd,
     ) {
@@ -192,7 +196,7 @@ fun <T> SegmentedControl(
     BoxWithConstraints(
         modifier = modifier
             .fillMaxWidth()
-            .height(44.dp)
+            .heightIn(min = 44.dp)
             .clip(CircleShape)
             .background(MtColors.Card)
             .padding(4.dp),
@@ -202,21 +206,24 @@ fun <T> SegmentedControl(
             targetValue = segmentWidth * options.indexOf(selected),
             animationSpec = spring(dampingRatio = 0.8f, stiffness = Spring.StiffnessMediumLow),
         )
+        // The row sets the height, so a tall script can grow the control; the indicator then takes the height of the row.
         Box(
             Modifier
+                .matchParentSize()
+                .wrapContentWidth(Alignment.Start)
                 .offset(x = indicatorOffset)
                 .width(segmentWidth)
-                .fillMaxHeight()
                 .shadow(4.dp, CircleShape)
                 .background(MtColors.ControlHigh, CircleShape),
         )
-        Row(Modifier.fillMaxWidth().fillMaxHeight()) {
+        Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
             options.forEach { option ->
                 val isSelected = option == selected
                 Box(
                     modifier = Modifier
                         .width(segmentWidth)
                         .fillMaxHeight()
+                        .heightIn(min = 36.dp)
                         .semantics { this.selected = isSelected; role = Role.Tab }
                         .pressable(role = Role.Tab, pressedScale = 0.95f) {
                             if (!isSelected) {
@@ -254,7 +261,8 @@ fun <T> ChoiceChips(
             .then(
                 if (grouped) Modifier.clip(RoundedCornerShape(MtRadius.md)).background(MtColors.CardRaised).padding(4.dp)
                 else Modifier,
-            ),
+            )
+            .height(IntrinsicSize.Min),
         horizontalArrangement = Arrangement.spacedBy(if (grouped) 4.dp else MtSpacing.sm),
     ) {
         options.forEach { option ->
@@ -269,7 +277,8 @@ fun <T> ChoiceChips(
             Box(
                 modifier = Modifier
                     .weight(1f)
-                    .height(42.dp)
+                    .fillMaxHeight()
+                    .heightIn(min = 42.dp)
                     .then(if (isSelected) Modifier.glow(MtColors.Pink, radius = 12.dp, cornerRadius = MtRadius.md, alpha = 0.5f) else Modifier)
                     .clip(RoundedCornerShape(if (grouped) MtRadius.sm else MtRadius.md))
                     .background(background)

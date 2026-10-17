@@ -9,7 +9,7 @@ import com.migratrack.export.report.ReportStrings
  */
 object ReportWorkbook {
 
-    fun write(report: ClinicalReport, strings: ReportStrings): ByteArray = XlsxWriter.write(sheets(report, strings))
+    fun write(report: ClinicalReport, strings: ReportStrings): ByteArray = XlsxWriter.write(sheets(report, strings), strings.rightToLeft)
 
     internal fun sheets(report: ClinicalReport, strings: ReportStrings): List<Sheet> = buildList {
         add(episodesSheet(report, strings))

@@ -40,6 +40,7 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.uppercaseInAppLanguage
 
 @Composable
 fun MtText(
@@ -63,7 +64,7 @@ fun MtText(
 /** Uppercase caption above sections, as in "CLINICAL BASELINE & PROTOCOL". */
 @Composable
 fun SectionCaption(text: String, modifier: Modifier = Modifier, color: Color = MtColors.Caption) {
-    MtText(text.uppercase(), MtTheme.type.caption, modifier.padding(horizontal = MtSpacing.xs), color = color)
+    MtText(text.uppercaseInAppLanguage(), MtTheme.type.caption, modifier.padding(horizontal = MtSpacing.xs), color = color)
 }
 
 /**

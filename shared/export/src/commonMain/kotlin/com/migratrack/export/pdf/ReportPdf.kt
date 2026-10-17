@@ -15,7 +15,8 @@ object ReportPdf {
     const val PAGE_HEIGHT = 842f
 
     fun render(report: ClinicalReport, renderer: PdfRenderer, strings: ReportStrings, dates: DateFormats, numbers: NumberFormats): ByteArray =
-        renderer.render(PAGE_WIDTH, PAGE_HEIGHT) { canvas ->
+        renderer.render(PAGE_WIDTH, PAGE_HEIGHT) { platformCanvas ->
+            val canvas = if (strings.rightToLeft) MirroredCanvas(platformCanvas) else platformCanvas
             val page = PageCursor(canvas, strings, dates, numbers)
             page.newPage()
             page.header(report)
@@ -330,7 +331,7 @@ private class PageCursor(
         canvas.fillRect(left, y, width, height, Palette.DIVIDER, cornerRadius = 4f)
         var x = left
         for (column in columns) {
-            canvas.drawText(column.title.uppercase(), style, x + 4f, y + 5.5f, column.width - 8f)
+            canvas.drawText(strings.uppercase(column.title), style, x + 4f, y + 5.5f, column.width - 8f)
             x += column.width
         }
         y += height

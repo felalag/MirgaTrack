@@ -23,11 +23,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.setProgress
 import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.pain_scale_high
@@ -63,6 +65,7 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
         }
     }
 
+    val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
     val label = stringResource(Res.string.pain_scale_label)
     val state = stringResource(Res.string.pain_scale_value, Numbers.integer(value.value))
     Column(modifier, verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -78,12 +81,12 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
                         true
                     }
                 }
-                .pointerInput(Unit) {
-                    detectTapGestures { offset -> select((offset.x / size.width * 10).toInt() + 1) }
+                .pointerInput(rtl) {
+                    detectTapGestures { offset -> select(levelAt(offset.x, size.width, rtl)) }
                 }
-                .pointerInput(Unit) {
+                .pointerInput(rtl) {
                     detectHorizontalDragGestures { change, _ ->
-                        select((change.position.x / size.width * 10).toInt() + 1)
+                        select(levelAt(change.position.x, size.width, rtl))
                     }
                 },
             horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -93,16 +96,23 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
                 Segment(level, value.value, Modifier.weight(1f))
             }
         }
+        // Each label gets at most a third of the row, so a long translation wraps and does not squeeze the last one.
         Row(Modifier.fillMaxWidth().padding(horizontal = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             listOf(
                 stringResource(Res.string.pain_scale_low, Numbers.integer(1)),
                 stringResource(Res.string.pain_scale_middle, Numbers.integer(5)),
                 stringResource(Res.string.pain_scale_high, Numbers.integer(10)),
             ).forEach {
-                MtText(it, MtTheme.type.subhead, color = MtColors.TextSecondary)
+                MtText(it, MtTheme.type.subhead, Modifier.weight(1f, fill = false), color = MtColors.TextSecondary)
             }
         }
     }
+}
+
+/** The pointer sees the x axis from the left edge, but the mirrored row puts level 1 on the right. */
+internal fun levelAt(x: Float, width: Int, rtl: Boolean): Int {
+    val fromStart = if (rtl) width - x else x
+    return (fromStart / width * 10).toInt() + 1
 }
 
 @Composable

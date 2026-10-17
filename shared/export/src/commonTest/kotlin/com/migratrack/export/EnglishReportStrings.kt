@@ -4,6 +4,9 @@ import com.migratrack.export.report.ReportStrings
 
 /** The English report texts of version 1.0, so the report tests keep their text. */
 object EnglishReportStrings : ReportStrings {
+    override val rightToLeft = false
+    override fun uppercase(text: String) = text.uppercase()
+
     override val title = "Clinical Migraine Report"
     override fun page(number: Int) = "MigraTrack · Page $number"
     override fun patient(name: String) = "Patient: $name"

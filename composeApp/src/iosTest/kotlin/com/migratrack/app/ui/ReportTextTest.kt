@@ -9,7 +9,7 @@ class ReportTextTest {
 
     @Test
     fun reportTextsComeFromTheResourcesWithTheirPluralForms() = runTest {
-        val strings = loadReportStrings(SystemNumberFormats(NSLocale("en_US")))
+        val strings = loadReportStrings(rightToLeft = false, SystemNumberFormats(NSLocale("en_US")))
 
         assertEquals("Clinical Migraine Report", strings.title)
         assertEquals("MigraTrack · Page 2", strings.page(2))
@@ -27,7 +27,7 @@ class ReportTextTest {
 
     @Test
     fun countsAboveTheLoadedSamplesKeepTheirPluralForm() = runTest {
-        val strings = loadReportStrings(SystemNumberFormats(NSLocale("en_US")))
+        val strings = loadReportStrings(rightToLeft = false, SystemNumberFormats(NSLocale("en_US")))
 
         assertEquals("1 intake", strings.intakes(1))
         assertEquals("1,201 intakes", strings.intakes(1201))

@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
@@ -229,7 +230,7 @@ private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) 
     val state = stringResource(if (expanded) Res.string.common_expanded else Res.string.common_collapsed)
     Row(
         Modifier
-            .height(40.dp)
+            .heightIn(min = 40.dp)
             .clip(CircleShape)
             .background(background)
             .border(1.dp, Color.White.copy(alpha = 0.1f), CircleShape)

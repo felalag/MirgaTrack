@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.CustomAccessibilityAction
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -46,6 +47,7 @@ import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.calendar_choose_month_a11y
@@ -84,6 +86,7 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.uppercaseInAppLanguage
 import com.migratrack.domain.analytics.CalendarDay
 import com.migratrack.domain.analytics.DayEpisodes
 import com.migratrack.domain.analytics.MonthCalendar
@@ -118,6 +121,7 @@ fun CalendarCard(
 ) {
     val previousMonth = stringResource(Res.string.calendar_previous_month)
     val nextMonth = stringResource(Res.string.calendar_next_month)
+    val rtl = LocalLayoutDirection.current == LayoutDirection.Rtl
     Card(bordered = true, contentPadding = PaddingValues(MtSpacing.md)) {
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.md)) {
             CalendarHeader(calendar, onPickMonth)
@@ -129,7 +133,8 @@ fun CalendarCard(
                             if (canShowNextMonth) add(CustomAccessibilityAction(nextMonth) { onShowMonth(calendar.month.plusMonth()); true })
                         }
                     }
-                    .pointerInput(calendar.month, canShowNextMonth) {
+                    .pointerInput(calendar.month, canShowNextMonth, rtl) {
+                        // Travel toward the reading start shows the next month: to the left in English, to the right in Arabic.
                         var travel = 0f
                         detectHorizontalDragGestures(
                             onDragStart = { travel = 0f },
@@ -141,7 +146,7 @@ fun CalendarCard(
                                 }
                             },
                         ) { change, amount ->
-                            travel += amount
+                            travel += if (rtl) -amount else amount
                             change.consume()
                         }
                     },
@@ -162,7 +167,8 @@ fun CalendarCard(
                     targetState = calendar,
                     contentKey = { it.month },
                     transitionSpec = {
-                        val forward = targetState.month > initialState.month
+                        // The slide offsets are screen x values, so the mirrored grid needs the opposite sign.
+                        val forward = (targetState.month > initialState.month) != rtl
                         (slideInHorizontally { width -> if (forward) width else -width } + fadeIn()) togetherWith
                             (slideOutHorizontally { width -> if (forward) -width else width } + fadeOut()) using
                             SizeTransform(clip = false)
@@ -365,7 +371,7 @@ private fun DayPreview(
         val detail = day.episodes.singleOrNull()
             ?.let { Dates.time(it.startedAt.toLocalDateTime(timeZone)) }
             ?: pluralStringResource(Res.plurals.calendar_day_episode_count, day.episodes.size, Numbers.integer(day.episodes.size))
-        MtText(stringResource(Res.string.calendar_day_header, Dates.weekdayMonthDay(day.date), detail).uppercase(), MtTheme.type.caption, color = MtColors.BrandLabel)
+        MtText(stringResource(Res.string.calendar_day_header, Dates.weekdayMonthDay(day.date), detail).uppercaseInAppLanguage(), MtTheme.type.caption, color = MtColors.BrandLabel)
         PreviewTile(Symbols.Bolt, stringResource(Res.string.calendar_peak_intensity)) {
             Row(verticalAlignment = Alignment.Bottom) {
                 MtText(day.peak?.value?.let(Numbers::integer) ?: "–", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), color = MtColors.PinkSoft)

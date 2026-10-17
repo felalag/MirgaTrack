@@ -55,6 +55,7 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
+import com.migratrack.app.ui.uppercaseInAppLanguage
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.model.Trigger
@@ -78,7 +79,7 @@ fun ColumnScope.EpisodeFormFields(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Symbols.E911Emergency, tint = MtColors.BrandLabel, size = 20.dp)
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText(stringResource(Res.string.episode_pain_intensity_index).uppercase(), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption)
+            MtText(stringResource(Res.string.episode_pain_intensity_index).uppercaseInAppLanguage(), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.Caption)
         }
         Spacer(Modifier.height(MtSpacing.md))
         PainScale(draft.intensity, viewModel::setIntensity)

@@ -12,36 +12,54 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.migratrack.app.generated.resources.Res
+import com.migratrack.app.generated.resources.font_family
 import com.migratrack.app.generated.resources.plus_jakarta_sans_bold
 import com.migratrack.app.generated.resources.plus_jakarta_sans_extra_bold
 import com.migratrack.app.generated.resources.plus_jakarta_sans_medium
 import com.migratrack.app.generated.resources.plus_jakarta_sans_regular
 import com.migratrack.app.generated.resources.plus_jakarta_sans_semi_bold
 import org.jetbrains.compose.resources.Font
+import org.jetbrains.compose.resources.stringResource
 
-/** Type scale of the specification, set in Plus Jakarta Sans. */
+/**
+ * Type scale of the specification, set in Plus Jakarta Sans.
+ * With [systemFont], the scripts that Plus Jakarta Sans does not have use the iOS system font (plan, section 4.7).
+ */
 @Immutable
-class MtTypography(family: FontFamily) {
-    private val base = TextStyle(fontFamily = family, color = MtColors.TextPrimary)
+class MtTypography(brandFamily: FontFamily, private val systemFont: Boolean) {
+    private val base = TextStyle(fontFamily = if (systemFont) FontFamily.Default else brandFamily, color = MtColors.TextPrimary)
     private val numbers = base.copy(fontFeatureSettings = "tnum")
 
     /** Big statistics: attack counts, sleep hours. */
-    val hero = numbers.copy(fontSize = 40.sp, lineHeight = 48.sp, fontWeight = FontWeight.ExtraBold, letterSpacing = (-0.02).em)
-    val display = numbers.copy(fontSize = 34.sp, lineHeight = 40.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.02).em)
+    val hero = numbers.scaled(40.sp, 48.sp, FontWeight.ExtraBold, (-0.02).em)
+    val display = numbers.scaled(34.sp, 40.sp, FontWeight.Bold, (-0.02).em)
     /** Onboarding page titles. */
-    val largeTitle = base.copy(fontSize = 28.sp, lineHeight = 34.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.01).em)
-    val title1 = base.copy(fontSize = 24.sp, lineHeight = 28.sp, fontWeight = FontWeight.Bold, letterSpacing = (-0.01).em)
-    val title2 = base.copy(fontSize = 20.sp, lineHeight = 24.sp, fontWeight = FontWeight.SemiBold)
-    val headline = base.copy(fontSize = 17.sp, lineHeight = 22.sp, fontWeight = FontWeight.SemiBold)
-    val body = base.copy(fontSize = 15.sp, lineHeight = 20.sp, fontWeight = FontWeight.Normal)
+    val largeTitle = base.scaled(28.sp, 34.sp, FontWeight.Bold, (-0.01).em)
+    val title1 = base.scaled(24.sp, 28.sp, FontWeight.Bold, (-0.01).em)
+    val title2 = base.scaled(20.sp, 24.sp, FontWeight.SemiBold)
+    val headline = base.scaled(17.sp, 22.sp, FontWeight.SemiBold)
+    val body = base.scaled(15.sp, 20.sp, FontWeight.Normal)
     val bodyStrong = body.copy(fontWeight = FontWeight.SemiBold)
-    val subhead = base.copy(fontSize = 13.sp, lineHeight = 18.sp, fontWeight = FontWeight.Medium)
-    val caption = base.copy(fontSize = 11.sp, lineHeight = 14.sp, fontWeight = FontWeight.Bold, letterSpacing = 0.06.em)
-    val tabLabel = base.copy(fontSize = 11.sp, lineHeight = 14.sp, fontWeight = FontWeight.Medium)
+    val subhead = base.scaled(13.sp, 18.sp, FontWeight.Medium)
+    val caption = base.scaled(11.sp, 14.sp, FontWeight.Bold, 0.06.em)
+    val tabLabel = base.scaled(11.sp, 14.sp, FontWeight.Medium)
     val number = numbers
+
+    /**
+     * The fixed line heights and the letter spacing suit Plus Jakarta Sans only. Thai, Indic and Arabic marks
+     * need the line height of the font, and letter spacing breaks the joined letters of Arabic.
+     */
+    private fun TextStyle.scaled(size: TextUnit, lineHeight: TextUnit, weight: FontWeight, letterSpacing: TextUnit = TextUnit.Unspecified) =
+        copy(
+            fontSize = size,
+            lineHeight = if (systemFont) TextUnit.Unspecified else lineHeight,
+            fontWeight = weight,
+            letterSpacing = if (systemFont) TextUnit.Unspecified else letterSpacing,
+        )
 }
 
 private val LocalTypography = staticCompositionLocalOf<MtTypography> { error("MigraTrackTheme is missing") }
@@ -60,7 +78,8 @@ fun MigraTrackTheme(content: @Composable () -> Unit) {
         Font(Res.font.plus_jakarta_sans_bold, FontWeight.Bold),
         Font(Res.font.plus_jakarta_sans_extra_bold, FontWeight.ExtraBold),
     )
-    val typography = remember(family) { MtTypography(family) }
+    val systemFont = stringResource(Res.string.font_family) == "system"
+    val typography = remember(family, systemFont) { MtTypography(family, systemFont) }
     CompositionLocalProvider(
         LocalDensity provides LocalDensity.current.withFontScaleAtMost(MaxFontScale),
         LocalTypography provides typography,

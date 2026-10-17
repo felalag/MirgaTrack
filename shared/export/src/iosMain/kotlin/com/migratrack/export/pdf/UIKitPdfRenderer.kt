@@ -18,6 +18,7 @@ import platform.UIKit.NSMutableParagraphStyle
 import platform.UIKit.NSParagraphStyleAttributeName
 import platform.UIKit.NSStringDrawingUsesLineFragmentOrigin
 import platform.UIKit.NSTextAlignmentCenter
+import platform.UIKit.NSTextAlignmentLeft
 import platform.UIKit.NSTextAlignmentNatural
 import platform.UIKit.NSTextAlignmentRight
 import platform.UIKit.UIBezierPath
@@ -105,9 +106,10 @@ private class UIKitCanvas(
             setLineBreakMode(NSLineBreakByWordWrapping)
             setAlignment(
                 when (style.align) {
-                    TextStyle.Align.Start -> NSTextAlignmentNatural
+                    // Natural follows the script of the text, so a mirrored layout needs the edges by name.
+                    TextStyle.Align.Start -> if (style.rightToLeft) NSTextAlignmentRight else NSTextAlignmentNatural
                     TextStyle.Align.Center -> NSTextAlignmentCenter
-                    TextStyle.Align.End -> NSTextAlignmentRight
+                    TextStyle.Align.End -> if (style.rightToLeft) NSTextAlignmentLeft else NSTextAlignmentRight
                 },
             )
         }

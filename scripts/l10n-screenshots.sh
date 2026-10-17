@@ -19,16 +19,20 @@ for spec in "$@"; do
   language=${spec%%:*}
   locale=${spec#*:}
   [[ $locale == "$spec" ]] && locale=${language//-/_}
+  # UIKit takes the direction from the localizations of the bundle, so a right-to-left language without its own
+  # .lproj folder runs left to right. The flag mirrors the app, also before the translation exists.
+  direction=()
+  [[ ${language%%-*} == (ar|he|ur|fa) ]] && direction=(-NSForceRightToLeftWritingDirection YES)
   mkdir -p "$out/$language"
   for screen in $screens; do
     xcrun simctl terminate "$udid" com.migratrack.app 2>/dev/null || true
-    xcrun simctl launch "$udid" com.migratrack.app -AppleLanguages "($language)" -AppleLocale "$locale" -MigraTrackScreen "$screen" >/dev/null
+    xcrun simctl launch "$udid" com.migratrack.app -AppleLanguages "($language)" -AppleLocale "$locale" $direction -MigraTrackScreen "$screen" >/dev/null
     sleep 3
     xcrun simctl io "$udid" screenshot "$out/$language/$screen.png" >/dev/null 2>&1
   done
   if [[ -n ${WATCH:-} ]]; then
     xcrun simctl terminate "$WATCH" com.migratrack.app.watchkitapp 2>/dev/null || true
-    xcrun simctl launch "$WATCH" com.migratrack.app.watchkitapp -AppleLanguages "($language)" -AppleLocale "$locale" >/dev/null
+    xcrun simctl launch "$WATCH" com.migratrack.app.watchkitapp -AppleLanguages "($language)" -AppleLocale "$locale" $direction >/dev/null
     sleep 3
     xcrun simctl io "$WATCH" screenshot "$out/$language/Watch.png" >/dev/null 2>&1
   fi

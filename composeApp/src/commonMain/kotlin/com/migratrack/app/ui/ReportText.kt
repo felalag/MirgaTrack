@@ -87,13 +87,13 @@ import org.jetbrains.compose.resources.getPluralString
 import org.jetbrains.compose.resources.getString
 
 /** Loads every report text in the current language, so the PDF and the XLSX can use them without suspending. */
-suspend fun loadReportStrings(numbers: NumberFormats = Numbers): ReportStrings {
+suspend fun loadReportStrings(rightToLeft: Boolean, numbers: NumberFormats = Numbers): ReportStrings {
     val reportKeys = { key: String -> key.startsWith("report_") }
     val texts = Res.allStringResources.filterKeys(reportKeys).values.associateWith { getString(it) }
     val plurals = Res.allPluralStringResources.filterKeys(reportKeys).values.associateWith { resource ->
         List(PLURAL_SAMPLES) { count -> getPluralString(resource, count) }
     }
-    return ResourceReportStrings(texts, plurals, numbers)
+    return ResourceReportStrings(texts, plurals, numbers, rightToLeft)
 }
 
 // Compose resources pick a plural form only in a suspend call. The CLDR rules for whole numbers look at n % 100
@@ -106,6 +106,7 @@ private class ResourceReportStrings(
     private val texts: Map<StringResource, String>,
     private val plurals: Map<PluralStringResource, List<String>>,
     private val numbers: NumberFormats,
+    override val rightToLeft: Boolean,
 ) : ReportStrings {
     private fun text(id: StringResource, vararg args: String) = fillPlaceholders(texts.getValue(id), args)
 
@@ -113,6 +114,8 @@ private class ResourceReportStrings(
         fillPlaceholders(plurals.getValue(id)[pluralSample(count)], args)
 
     private fun n(value: Int) = numbers.integer(value)
+
+    override fun uppercase(text: String) = text.uppercaseInAppLanguage()
 
     override val title = text(Res.string.report_title)
     override fun page(number: Int) = text(Res.string.report_page, n(number))

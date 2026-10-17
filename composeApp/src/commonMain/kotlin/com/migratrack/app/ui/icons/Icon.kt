@@ -32,9 +32,12 @@ fun Icon(
     )
 }
 
-/** Material Symbols draw in a 960 × 960 box whose y axis starts at -960. */
-internal fun materialSymbol(name: String, pathData: String): ImageVector =
-    ImageVector.Builder(name, 24.dp, 24.dp, viewportWidth = 960f, viewportHeight = 960f)
+/**
+ * Material Symbols draw in a 960 × 960 box whose y axis starts at -960.
+ * Only direction icons set [autoMirror]: they flip in a right-to-left language, other icons keep their shape.
+ */
+internal fun materialSymbol(name: String, pathData: String, autoMirror: Boolean = false): ImageVector =
+    ImageVector.Builder(name, 24.dp, 24.dp, viewportWidth = 960f, viewportHeight = 960f, autoMirror = autoMirror)
         .group(translationY = 960f) {
             addPath(addPathNodes(pathData), fill = SolidColor(Color.Black))
         }
