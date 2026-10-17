@@ -1,4 +1,5 @@
-<title>Путь пользователя MigraTrack</title>
+<meta charset="utf-8">
+<title>MigraTrack User Journey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -162,60 +163,64 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 @media (prefers-reduced-motion: reduce) { .shot { transition: none; } .shot:hover { transform: none; } }
 </style>
 
+
 <main class="page">
   <header class="intro">
-    <span class="eyebrow">Сквозной тест · 4 октября 2026 · переснят 14 октября</span>
-    <h1>Путь пользователя <em>MigraTrack</em> на iPhone и Apple Watch</h1>
-    <p>Тест начался с чистой установки на обоих устройствах. Пользователь проходит онбординг, логирует приступы на iPhone и на часах, открывает логгер часов с циферблата и из Smart Stack, смотрит аналитику и экспортирует отчёт. После каждого действия я проверял базу SQLite на обоих устройствах. Шаги 16–21 показывают календарь Insights, правку приступа и лог в прошлый день. Нажмите на снимок, чтобы увеличить его.</p>
-    <p>14 октября я прошёл все 21 шаг заново на новой паре симуляторов. Перед этим сменился дизайн сводки. Иконка теперь — сетка из точек дней. Summary показывает карточку «Last 30 days» с полосой из 30 дней. Часы показывают число дней без приступа, линейную шкалу и дату последнего приступа. Снимки компликаций и Smart Stack в шагах 10 и 11 остались от 13 октября: эти экраны не изменились. 16 октября иконка стала сеткой 5 × 5 с одним ярким днём приступа. Снимки домашнего экрана, доступа к Health и Spotlight я переснял на iPhone 18 Pro.</p>
+    <span class="eyebrow">End-to-end test · 4 October 2026 · run again 16–17 October</span>
+    <h1>The <em>MigraTrack</em> user journey on iPhone and Apple Watch</h1>
+    <p>The test starts with a clean install on both devices. The user meets Siri before setup, reads the welcome screen and the terms, and completes onboarding. Then the user logs attacks on the iPhone, on the watch and with Spotlight, opens the watch logger from the watch face and from the Smart Stack, reads the charts, and exports a report. Steps 19–24 show the Insights calendar, Edit Episode and logging on a past day. Step 25 deletes all data. After each action I compared the SQLite databases on both devices. Click a screenshot to enlarge it.</p>
+    <p>On 16 and 17 October I ran all 25 steps again on the build of main at 9cf4720. Since the last run, the app got a dot-grid mark in the header, a new icon, ICHD-3 onboarding texts, Health texts for last night's sleep only, and a doctor reminder on the last onboarding step. Possible triggers are new in the Log form, in Insights and in the report. The run started at 23:30 on 16 October and continued after midnight, so some steps happen on 17 October. The screenshots of the complications (step 12) and of the Control tap stay from 13 October, because these screens did not change.</p>
     <div class="facts">
-      <div class="fact"><b class="ok">21 из 21</b><span>шага пройден, ошибок приложения нет</span></div>
-      <div class="fact"><b>iPhone 18 Pro Max</b><span>симулятор, iOS 27.0</span></div>
-      <div class="fact"><b>Watch Series 12</b><span>46 мм, watchOS 27.0, в паре с iPhone</span></div>
-      <div class="fact"><b>66</b><span>снимков экрана, Debug 1.0.0 (1)</span></div>
+      <div class="fact"><b class="ok">25 of 25</b><span>steps passed, four small findings</span></div>
+      <div class="fact"><b>iPhone 18 Pro Max</b><span>simulator, iOS 27.0</span></div>
+      <div class="fact"><b>Watch Series 12</b><span>46 mm, watchOS 27.0, paired with the iPhone</span></div>
+      <div class="fact"><b>73</b><span>screenshots, Debug 1.0.0 (1)</span></div>
     </div>
   </header>
 
-  <nav class="toc" aria-label="Шаги">
-    <span class="eyebrow">Шаги</span>
+  <nav class="toc" aria-label="Steps">
+    <span class="eyebrow">Steps</span>
     <ol>
-      <li><a href="#s1"><span class="n">1</span><span class="d" style="background:var(--green)"></span>Часы до связи</a></li>
-      <li><a href="#s2"><span class="n">2</span><span class="d" style="background:var(--pink)"></span>Диагнозы</a></li>
-      <li><a href="#s3"><span class="n">3</span><span class="d" style="background:var(--pink)"></span>Триггеры</a></li>
-      <li><a href="#s4"><span class="n">4</span><span class="d" style="background:var(--pink)"></span>Лечение</a></li>
-      <li><a href="#s5"><span class="n">5</span><span class="d" style="background:var(--pink)"></span>Summary и Health</a></li>
-      <li><a href="#s6"><span class="n">6</span><span class="d" style="background:var(--pink)"></span>Лог на iPhone</a></li>
-      <li><a href="#s7"><span class="n">7</span><span class="d" style="background:var(--pink)"></span>Сохранение</a></li>
-      <li><a href="#s8"><span class="n">8</span><span class="d" style="background:var(--green)"></span>Часы получают данные</a></li>
-      <li><a href="#s9"><span class="n">9</span><span class="d" style="background:var(--green)"></span>Лог на часах</a></li>
-      <li><a href="#s10"><span class="n">10</span><span class="d" style="background:var(--green)"></span>Компликация</a></li>
-      <li><a href="#s11"><span class="n">11</span><span class="d" style="background:var(--green)"></span>Smart Stack и Control</a></li>
-      <li><a href="#s12"><span class="n">12</span><span class="d" style="background:var(--pink)"></span>Эпизод и профиль</a></li>
-      <li><a href="#s13"><span class="n">13</span><span class="d" style="background:var(--pink)"></span>Insights</a></li>
-      <li><a href="#s14"><span class="n">14</span><span class="d" style="background:var(--pink)"></span>Export</a></li>
-      <li><a href="#s15"><span class="n">15</span><span class="d" style="background:var(--pink)"></span>Spotlight и Siri</a></li>
-      <li><a href="#s16"><span class="n">16</span><span class="d" style="background:var(--pink)"></span>Календарь</a></li>
-      <li><a href="#s17"><span class="n">17</span><span class="d" style="background:var(--pink)"></span>Edit Episode</a></li>
-      <li><a href="#s18"><span class="n">18</span><span class="d" style="background:var(--pink)"></span>Лог в прошлый день</a></li>
-      <li><a href="#s19"><span class="n">19</span><span class="d" style="background:var(--pink)"></span>Период графика</a></li>
-      <li><a href="#s20"><span class="n">20</span><span class="d" style="background:var(--pink)"></span>Несколько приступов</a></li>
-      <li><a href="#s21"><span class="n">21</span><span class="d" style="background:var(--green)"></span>Правка на часах</a></li>
+      <li><a href="#s1"><span class="n">1</span><span class="d" style="background:var(--green)"></span>Watch before the link</a></li>
+      <li><a href="#s2"><span class="n">2</span><span class="d" style="background:var(--pink)"></span>Siri before setup</a></li>
+      <li><a href="#s3"><span class="n">3</span><span class="d" style="background:var(--pink)"></span>Welcome and terms</a></li>
+      <li><a href="#s4"><span class="n">4</span><span class="d" style="background:var(--pink)"></span>Diagnoses</a></li>
+      <li><a href="#s5"><span class="n">5</span><span class="d" style="background:var(--pink)"></span>Triggers</a></li>
+      <li><a href="#s6"><span class="n">6</span><span class="d" style="background:var(--pink)"></span>Treatment</a></li>
+      <li><a href="#s7"><span class="n">7</span><span class="d" style="background:var(--pink)"></span>Summary and Health</a></li>
+      <li><a href="#s8"><span class="n">8</span><span class="d" style="background:var(--pink)"></span>Log on the iPhone</a></li>
+      <li><a href="#s9"><span class="n">9</span><span class="d" style="background:var(--pink)"></span>Save</a></li>
+      <li><a href="#s10"><span class="n">10</span><span class="d" style="background:var(--green)"></span>Watch gets the data</a></li>
+      <li><a href="#s11"><span class="n">11</span><span class="d" style="background:var(--green)"></span>Log on the watch</a></li>
+      <li><a href="#s12"><span class="n">12</span><span class="d" style="background:var(--green)"></span>Complication</a></li>
+      <li><a href="#s13"><span class="n">13</span><span class="d" style="background:var(--green)"></span>Smart Stack and Control</a></li>
+      <li><a href="#s14"><span class="n">14</span><span class="d" style="background:var(--pink)"></span>First day in Insights</a></li>
+      <li><a href="#s15"><span class="n">15</span><span class="d" style="background:var(--pink)"></span>Episode and profile</a></li>
+      <li><a href="#s16"><span class="n">16</span><span class="d" style="background:var(--pink)"></span>Spotlight and Siri</a></li>
+      <li><a href="#s17"><span class="n">17</span><span class="d" style="background:var(--pink)"></span>Insights</a></li>
+      <li><a href="#s18"><span class="n">18</span><span class="d" style="background:var(--pink)"></span>Export</a></li>
+      <li><a href="#s19"><span class="n">19</span><span class="d" style="background:var(--pink)"></span>Calendar</a></li>
+      <li><a href="#s20"><span class="n">20</span><span class="d" style="background:var(--pink)"></span>Edit Episode</a></li>
+      <li><a href="#s21"><span class="n">21</span><span class="d" style="background:var(--pink)"></span>Log on a past day</a></li>
+      <li><a href="#s22"><span class="n">22</span><span class="d" style="background:var(--pink)"></span>Chart period</a></li>
+      <li><a href="#s23"><span class="n">23</span><span class="d" style="background:var(--pink)"></span>Several episodes</a></li>
+      <li><a href="#s24"><span class="n">24</span><span class="d" style="background:var(--green)"></span>Edit reaches the watch</a></li>
+      <li><a href="#s25"><span class="n">25</span><span class="d" style="background:var(--pink)"></span>Delete All Data</a></li>
     </ol>
   </nav>
 
-  <section class="journey" aria-label="Путь пользователя">
+  <section class="journey" aria-label="User journey">
 
     <article class="step watch" id="s1">
       <div class="num">1</div>
       <div class="story">
         <span class="device watch">Apple Watch</span>
-        <h2>Первый запуск часов, до связи с iPhone</h2>
-        <p>Приложение на часах ставится вместе с приложением на iPhone. Пока iPhone не прислал данные, часы считают только сегодняшний день: <strong>1 / 1</strong> день без боли и «No attacks logged». Под шкалой подсказка «Open MigraTrack on your iPhone to sync».</p>
-        <p>Кнопка Log Migraine неактивна, пока iPhone не прислал профиль. Так часы не сохраняют приступ до онбординга.</p>
-        <p>Снимок сделан на часах основной пары до первого запуска приложения на iPhone.</p>
+        <h2>First launch on the watch, before the iPhone link</h2>
+        <p>The watch app installs together with the iPhone app. Until the iPhone sends data, the watch counts only today: <strong>1 / 1</strong> pain-free day and "No attacks logged". A hint under the gauge says "Open MigraTrack on your iPhone to sync."</p>
+        <p>Log Migraine stays gray until the iPhone sends a profile. Thus the watch saves no attack before onboarding.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Главный экран часов: Pain-free days 1 / 1, полная зелёная шкала, No attacks logged, подсказка Open MigraTrack on your iPhone to sync и неактивная кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>1 / 1 и подсказка о связи</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w01-watch-not-linked.jpg" alt="Watch summary: Pain-free days 1 / 1, full green gauge, No attacks logged, the hint Open MigraTrack on your iPhone to sync, and a gray Log Migraine button" loading="lazy" width="416" height="496"></button><figcaption>1 / 1 and the link hint</figcaption></figure>
       </div>
     </article>
 
@@ -223,16 +228,13 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">2</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Онбординг, шаг 1: диагнозы и базовый профиль</h2>
-        <p>Пользователь открывает MigraTrack. Экран приветствия показывает пример: полосу из 30 дней с плашкой «Example» и 24 днями без боли. «Get Started» открывает онбординг. Три шага онбординга задают базовый профиль. Выбираем <strong>Migraine with aura</strong> и <strong>Chronic Migraine</strong>, частоту 5–8 в месяц, длительность 4–12 ч и типичную интенсивность 6.</p>
-        <p>Кнопка «Continue» неактивна, пока не выбран ни один диагноз.</p>
+        <h2>Siri and Spotlight before setup</h2>
+        <p>The user searches "Log Migraine" in Spotlight before the first app launch. The App Shortcut is the top hit. Before onboarding, the app has no preset to log, so the shortcut saves nothing.</p>
+        <p>Spotlight shows <strong>"Finish setup in MigraTrack first."</strong> with Continue. Continue opens the app on the welcome screen. Siri and the Action button give the same answer.</p>
+        <div class="check">SQLite iPhone: no episode from the shortcut</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p00-home-screen.jpg" alt="Иконка MigraTrack на домашнем экране: сетка 5 × 5 из точек дней, одна точка ярко-розовая" loading="lazy" width="560" height="1216"></button><figcaption>Иконка: сетка 5 × 5 из точек дней</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p51-welcome.jpg" alt="Экран приветствия: карточка Last 30 days с плашкой Example, 24 pain-free days, полоса из 30 точек и кнопка Get Started" loading="lazy" width="560" height="1216"></button><figcaption>Экран приветствия с примером</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p01-onboarding-diagnoses.jpg" alt="Шаг 1 онбординга: список диагнозов" loading="lazy" width="560" height="1216"></button><figcaption>Шаг 1: диагнозы</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p02-onboarding-diagnoses-selected.jpg" alt="Выбраны два диагноза" loading="lazy" width="560" height="1216"></button><figcaption>Выбраны два диагноза</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p03-onboarding-baseline.jpg" alt="Частота 5–8 в месяц, длительность 4–12 часов, интенсивность 6" loading="lazy" width="560" height="1216"></button><figcaption>Частота, длительность, интенсивность 6</figcaption></figure>
+        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p52-siri-before-setup.jpg" alt="Spotlight answer: Finish setup in MigraTrack first, with Cancel and Continue" loading="lazy" width="560" height="373"></button><figcaption>The shortcut before onboarding</figcaption></figure>
       </div>
     </article>
 
@@ -240,14 +242,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">3</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Шаг 2: триггеры, включая свой</h2>
-        <p>Цвет отметки зависит от категории, как в спецификации: погода бирюзовая, питание оранжевое. Выбраны падение давления, яркий свет, плохой сон и кофеин.</p>
-        <p>«Add custom trigger» открывает системный алерт с полем ввода. Новый триггер <strong>Flashing neon signs</strong> появляется в разделе Custom и сразу отмечен.</p>
+        <h2>Welcome screen and legal texts</h2>
+        <p>The icon is a 5 × 5 grid of day dots with one bright attack day. The welcome screen shows the same dot grid as the brand mark. An example card shows a 30-day strip with the label "Example" and <strong>24 pain-free days</strong>.</p>
+        <p>The links under Get Started open the Terms of Service and the Privacy Policy in the app. The texts ship with the app, so they open offline. The Terms start with "Not medical advice".</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p04-onboarding-triggers.jpg" alt="Шаг 2: выбраны триггеры погоды" loading="lazy" width="560" height="1216"></button><figcaption>Погода и окружение</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p05-custom-trigger-alert.jpg" alt="Системный алерт Add Custom Trigger с текстом Flashing neon signs" loading="lazy" width="560" height="1216"></button><figcaption>Системный алерт для своего триггера</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p06-onboarding-triggers-custom.jpg" alt="Свой триггер в разделе Custom" loading="lazy" width="560" height="1216"></button><figcaption>Кофеин и свой триггер</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p00-home-screen.jpg" alt="MigraTrack icon on the home screen: a 5 by 5 grid of day dots with one bright pink dot" loading="lazy" width="560" height="1216"></button><figcaption>Icon: 5 × 5 day dots</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p51-welcome.jpg" alt="Welcome screen: dot-grid mark, Last 30 days card with the Example label, 24 pain-free days, a strip of 30 dots, Get Started, and links to the Terms of Service and the Privacy Policy" loading="lazy" width="560" height="1216"></button><figcaption>Welcome screen with the example</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p53-terms.jpg" alt="Terms of Service in the app: Not medical advice, Your data, Use of the app, No warranty, Limitation of liability, Contact" loading="lazy" width="560" height="1216"></button><figcaption>Terms of Service in the app</figcaption></figure>
       </div>
     </article>
 
@@ -255,13 +257,15 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">4</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Шаг 3: схема лечения</h2>
-        <p>Острые препараты, <strong>Ibuprofen 400mg</strong> и <strong>Sumatriptan 50mg</strong>, становятся пресетом. Они подставляются в каждый новый лог на iPhone и на часах.</p>
-        <p>Профилактический Riboflavin 400mg входит в профиль и в отчёт. «Finish Setup» сохраняет профиль.</p>
+        <h2>Onboarding step 1: diagnoses and baseline</h2>
+        <p>Get Started opens step 1 of 3. A back button and the edge swipe return to the welcome screen. The user selects <strong>Migraine with aura</strong> and <strong>Chronic Migraine</strong>.</p>
+        <p>Chronic Migraine uses the ICHD-3 text "15 or more headache days a month". The frequency ranges do not overlap: &lt;1, 1–4, 5–7 and 8+ a month. The user selects 5–7 a month, 4–12 h and a typical intensity of 6.</p>
+        <p>Continue stays inactive until the user selects one diagnosis.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p07-onboarding-treatment.jpg" alt="Шаг 3: выбраны два острых препарата" loading="lazy" width="560" height="1216"></button><figcaption>Острые препараты</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p08-onboarding-treatment-finish.jpg" alt="Профилактические препараты и кнопка Finish Setup" loading="lazy" width="560" height="1216"></button><figcaption>Профилактика и Finish Setup</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p01-onboarding-diagnoses.jpg" alt="Onboarding step 1: Diagnoses and History with six diagnoses, Chronic Migraine described as 15 or more headache days a month" loading="lazy" width="560" height="1216"></button><figcaption>Step 1: diagnoses</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p02-onboarding-diagnoses-selected.jpg" alt="Migraine with aura and Chronic Migraine selected" loading="lazy" width="560" height="1216"></button><figcaption>Two diagnoses selected</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p03-onboarding-baseline.jpg" alt="Frequency 5–7 a month, duration 4–12 hours, typical intensity 6, and Continue to Triggers" loading="lazy" width="560" height="1216"></button><figcaption>5–7 / mo, 4–12 h, intensity 6</figcaption></figure>
       </div>
     </article>
 
@@ -269,14 +273,14 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">5</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Summary и подключение Apple Health</h2>
-        <p>После онбординга открывается Summary. Карточка «Last 30 days» показывает <strong>1 из 1</strong> отслеживаемого дня без приступа. Полоса из 30 точек начинается 15 сентября, дни до начала учёта серые. Карточка сна предлагает подключить Apple Health.</p>
-        <p>Системный лист HealthKit показывает наше объяснение: приложение только читает данные сна. Затем iOS 27 спрашивает период данных, я выбрал 30 дней. После разрешения карточка «Last 30 days» получает строку «Sleep last night». В симуляторе данных сна нет, поэтому строка показывает «Not recorded» с подсказкой.</p>
+        <h2>Step 2: Your Triggers, with a custom one</h2>
+        <p>The step is "Your Triggers". The check mark takes the color of the category: weather is cyan, sleep is green, diet is orange. The user selects pressure drop, bright light, poor sleep and caffeine.</p>
+        <p>"Add custom trigger" opens a system alert with a text field. The new trigger <strong>Flashing neon signs</strong> appears in the Custom section and is selected.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p09-summary-empty.jpg" alt="Summary нового пользователя: 1 of 1 tracked day, полоса из 30 точек, зелёная точка Today" loading="lazy" width="560" height="1216"></button><figcaption>Summary нового пользователя: 1 из 1</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p10-health-permission.jpg" alt="Системный лист доступа к Apple Health с иконкой MigraTrack" loading="lazy" width="560" height="1216"></button><figcaption>Доступ к Health: только чтение сна</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p11-summary-health-connected.jpg" alt="Строка Sleep last night: Not recorded, Last Event None yet" loading="lazy" width="560" height="1216"></button><figcaption>Сна нет: Not recorded</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p04-onboarding-triggers.jpg" alt="Step 2, Your Triggers: Barometric Pressure Drop, Bright Lights and Poor Sleep selected" loading="lazy" width="560" height="1216"></button><figcaption>Weather and sleep</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p05-custom-trigger-alert.jpg" alt="System alert Add Custom Trigger with the text Flashing neon signs" loading="lazy" width="560" height="1216"></button><figcaption>System alert for a custom trigger</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p06-onboarding-triggers-custom.jpg" alt="Caffeine selected and Flashing neon signs in the Custom section" loading="lazy" width="560" height="1216"></button><figcaption>Caffeine and the custom trigger</figcaption></figure>
       </div>
     </article>
 
@@ -284,16 +288,13 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">6</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Лог приступа на iPhone</h2>
-        <p>Вкладка Log уже заполнена пресетом: интенсивность 6 и два острых препарата. Пользователь ставит <strong>9</strong>, выбирает Left Temple, светобоязнь и тошноту.</p>
-        <p>Строка «Episode Start» внизу формы показывает Now. «Add Medication» открывает системный action sheet. В нём весь каталог и «Other Medication…». Добавляем Hydration Electrolytes.</p>
+        <h2>Step 3: Treatment Blueprint</h2>
+        <p>The acute medications <strong>Ibuprofen 400mg</strong> and <strong>Sumatriptan 50mg</strong> become the preset. Each new log on the iPhone and on the watch gets them.</p>
+        <p>The preventive Riboflavin 400mg goes into the profile and the report. Under Finish Setup, a reminder says: "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment."</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p12-log-preset.jpg" alt="Форма лога с интенсивностью 6 из пресета" loading="lazy" width="560" height="1216"></button><figcaption>Форма открывается с пресетом</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p13-log-filled.jpg" alt="Интенсивность 9, Left Temple, светобоязнь и тошнота" loading="lazy" width="560" height="1216"></button><figcaption>Интенсивность 9, локализация, симптомы</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p14-log-medications.jpg" alt="Препараты из профиля в карточке Acute Abortive Therapy" loading="lazy" width="560" height="1216"></button><figcaption>Препараты из профиля уже на месте</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p15-add-medication-sheet.jpg" alt="Action sheet со списком препаратов" loading="lazy" width="560" height="1216"></button><figcaption>Action sheet: добавить препарат</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p16-log-ready.jpg" alt="Три препарата, Episode Start Now и кнопка Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Готово к сохранению</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p07-onboarding-treatment.jpg" alt="Step 3: Ibuprofen 400mg and Sumatriptan 50mg selected" loading="lazy" width="560" height="1216"></button><figcaption>Acute medications</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p08-onboarding-treatment-finish.jpg" alt="Riboflavin 400mg selected, Finish Setup, and the reminder MigraTrack is a diary, not medical advice" loading="lazy" width="560" height="1216"></button><figcaption>Prevention and the doctor reminder</figcaption></figure>
       </div>
     </article>
 
@@ -301,43 +302,48 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">7</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Сохранение и обновлённая сводка</h2>
-        <p>«Save Episode Log» сохраняет приступ, даёт тактильный отклик и возвращает на Summary с баннером. Теперь <strong>0 из 1</strong> дня без приступа: точка Today стала розовой. Карточка Last Event показывает симптом и интенсивность 9/10.</p>
-        <div class="check">SQLite iPhone: <code>9 | App | Ibuprofen, Sumatriptan, Hydration Electrolytes</code></div>
+        <h2>Summary and Apple Health</h2>
+        <p>Finish Setup opens the Summary. The "Last 30 days" card shows <strong>1 of 1 tracked day</strong> without an attack. The strip of 30 dots starts on 17 September. The days before onboarding are gray, and a note says that they are not tracked. The doctor reminder is under Log Migraine Episode.</p>
+        <p>The Sleep card offers Apple Health. The HealthKit sheet shows our text: MigraTrack reads only last night's sleep and shows it on the Summary. After the sheet, the card shows the row "Sleep last night". The simulator has no sleep data, so the row shows "Not recorded" with a hint.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p17-saved-banner.jpg" alt="Баннер Episode saved над Summary" loading="lazy" width="560" height="1216"></button><figcaption>Баннер подтверждения</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p18-summary-after-log.jpg" alt="Summary: 0 of 1 tracked day, розовая точка Today, Last Event Oct 14, Light, Intensity 9/10" loading="lazy" width="560" height="1216"></button><figcaption>Summary: 0 из 1, Last Event 9/10</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p09-summary-empty.jpg" alt="Summary of a new user: 1 of 1 tracked day, gray days before tracking, green Today dot, the doctor reminder, and the Sleep card with Connect Apple Health" loading="lazy" width="560" height="1216"></button><figcaption>New user: 1 of 1, Not tracked</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p10-health-permission.jpg" alt="Apple Health access sheet: MigraTrack reads last night's sleep from Apple Health and shows it on the Summary" loading="lazy" width="560" height="1216"></button><figcaption>Health: last night's sleep only</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p11-summary-health-connected.jpg" alt="Row Sleep last night: Not recorded, with a hint, and Last Event None yet" loading="lazy" width="560" height="1216"></button><figcaption>No sleep data: Not recorded</figcaption></figure>
       </div>
     </article>
 
-    <article class="step watch" id="s8">
+    <article class="step" id="s8">
       <div class="num">8</div>
       <div class="story">
-        <span class="device watch">Apple Watch</span>
-        <h2>Часы получают пресет и приступы</h2>
-        <p>iPhone отправляет на часы пресет и приступы за 60 дней через WatchConnectivity. Подсказка о связи исчезла, кнопка Log Migraine стала активной. Часы показывают <strong>0 / 1</strong>: сегодня уже был приступ. Под шкалой строка «Last attack 14 Oct».</p>
+        <span class="device phone">iPhone</span>
+        <h2>Log an attack on the iPhone</h2>
+        <p>The Log tab opens with the preset: intensity 6 and the two acute medications. The user sets <strong>9</strong> and selects Left Temple, photophobia and nausea.</p>
+        <p>The new <strong>Possible Triggers</strong> card shows the five known triggers, but selects none of them. The user selects Bright Lights and Flashing neon signs. Add Trigger opens the rest of the catalog, and the user adds Skipped Meals.</p>
+        <p>Add Medication opens a system action sheet with the catalog and "Other Medication…". The user adds Hydration Electrolytes. "Episode Start" at the bottom shows Now.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Часы: Pain-free days 0 / 1, пустая шкала, Last attack 14 Oct и кнопка Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>0 / 1 с данными iPhone</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p12-log-preset.jpg" alt="Log form with intensity 6 from the preset" loading="lazy" width="560" height="1216"></button><figcaption>The form opens with the preset</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p13-log-filled.jpg" alt="Intensity 9, Left Temple, photophobia and nausea" loading="lazy" width="560" height="1216"></button><figcaption>Intensity 9, location, symptoms</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p54-log-triggers.jpg" alt="Possible Triggers card: Bright Lights, Flashing neon signs and Skipped Meals selected, Add Trigger" loading="lazy" width="560" height="1216"></button><figcaption>Possible Triggers in the form</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p55-add-trigger-sheet.jpg" alt="Action sheet Add Trigger: What came before this episode, with the rest of the catalog and Other Trigger" loading="lazy" width="560" height="1216"></button><figcaption>Add Trigger: the rest of the catalog</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p14-log-medications.jpg" alt="Medications of the profile in the Acute Abortive Therapy card" loading="lazy" width="560" height="1216"></button><figcaption>Medications of the profile</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p15-add-medication-sheet.jpg" alt="Action sheet Add Medication with the medication catalog" loading="lazy" width="560" height="1216"></button><figcaption>Add Medication</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p16-log-ready.jpg" alt="Three medications, Episode Start Now, and Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Ready to save</figcaption></figure>
       </div>
     </article>
 
-    <article class="step watch" id="s9">
+    <article class="step" id="s9">
       <div class="num">9</div>
       <div class="story">
-        <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
-        <h2>Лог в приложении на часах</h2>
-        <p>«Log Migraine» открывает экран Pain Intensity. Значение пришло из пресета iPhone (6), цвет шкалы следует тяжести. Его меняют колёсиком Digital Crown.</p>
-        <p>«Save Episode» сохраняет приступ. Тот же лист показывает зелёную галочку. Приступ получает интенсивность и препараты из профиля. «Done» возвращает на главный экран. Число остаётся <strong>0 / 1</strong>: 14 октября уже был днём приступа.</p>
-        <p>Карточка дня в календаре iPhone показывает оба приступа: лог с iPhone и лог с часов.</p>
-        <div class="check">SQLite iPhone: <code>6 | App | Ibuprofen, Sumatriptan</code> в 22:25, очередь часов <code>0</code></div>
+        <span class="device phone">iPhone</span>
+        <h2>Save and the new Summary</h2>
+        <p>"Save Episode Log" saves the attack, gives a haptic, and returns to the Summary with the banner "Episode saved. Take it easy and stay in low light." Now the card shows <strong>0 of 1</strong> tracked day: the Today dot is pink. Last Event shows the symptom and 9/10.</p>
+        <div class="check">SQLite iPhone: <code>9 | App | Ibuprofen, Sumatriptan, Hydration Electrolytes | Bright Lights, Flashing neon signs, Skipped Meals</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w04-watch-pain-intensity.jpg" alt="Шкала Pain Intensity с числом 6 и кнопка Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Пресет с iPhone: 6/10</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w05-watch-episode-logged.jpg" alt="Episode logged: зелёная галочка и кнопка Done" loading="lazy" width="416" height="496"></button><figcaption>Episode logged: галочка</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Часы после лога: Pain-free days 0 / 1, Last attack 14 Oct" loading="lazy" width="416" height="496"></button><figcaption>После лога: 0 / 1</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p49-watch-episodes-on-iphone.jpg" alt="Календарь iPhone: Wednesday, Oct 14, 2 episodes, пик 9 из 10, Ibuprofen 400mg, Sumatriptan 50mg и Hydration Electrolytes" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 14 октября, 2 приступа</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p17-saved-banner.jpg" alt="Banner Episode saved. Take it easy and stay in low light, over the Summary" loading="lazy" width="560" height="1216"></button><figcaption>The banner</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p18-summary-after-log.jpg" alt="Summary: 0 of 1 tracked day, pink Today dot, Last Event Oct 16, Light, Intensity 9/10" loading="lazy" width="560" height="1216"></button><figcaption>Summary: 0 of 1, Last Event 9/10</figcaption></figure>
       </div>
     </article>
 
@@ -345,67 +351,64 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">10</div>
       <div class="story">
         <span class="device watch">Apple Watch</span>
-        <h2>Компликация Log Migraine на циферблате</h2>
-        <p>В редакторе циферблата у MigraTrack одна компликация, «Log Migraine». У неё четыре формы: круг, угол, прямоугольник и строка. На Infograph ставим её в угол и в круг справа.</p>
-        <p>Тап по компликации открывает приложение на экране Pain Intensity. watchOS разрешает компликации на циферблате только открыть приложение. Сам тап ничего не сохраняет, приступ сохраняет только «Save Episode». Поэтому случайный тап отменять не нужно, и кнопки Undo нет.</p>
-        <p>Снимки шагов 10 и 11 сделаны 13 октября на часах основной пары прошлого прогона. Эти экраны с тех пор не изменились.</p>
-        <div class="check">Тап по LOG: открыт Pain Intensity, число приступов в SQLite на обоих устройствах не изменилось</div>
+        <h2>The watch gets the preset and the attacks</h2>
+        <p>The iPhone sends the preset and the attacks of 60 days through WatchConnectivity. The link hint is gone and Log Migraine is active. The watch shows <strong>0 / 1</strong>: today already had an attack. Under the gauge: "Last attack 16 Oct".</p>
+        <p>The watch copy also has the triggers of the attack.</p>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w07-complication-circular.jpg" alt="Галерея компликаций MigraTrack: круглая компликация LOG" loading="lazy" width="416" height="496"></button><figcaption>Галерея: круг</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w08-complication-corner.jpg" alt="Галерея компликаций MigraTrack: угловая компликация Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Галерея: угол</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w09-watch-face.jpg" alt="Циферблат Infograph: Log Migraine в углу и LOG в круге справа" loading="lazy" width="416" height="496"></button><figcaption>Угол и круг на Infograph</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w10-complication-tap.jpg" alt="Pain Intensity 6 из 10 после тапа по компликации" loading="lazy" width="416" height="496"></button><figcaption>Тап открывает Pain Intensity</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w03-watch-linked.jpg" alt="Watch: Pain-free days 0 / 1, empty gauge, Last attack 16 Oct and Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>0 / 1 with the iPhone data</figcaption></figure>
       </div>
     </article>
 
     <article class="step watch" id="s11">
       <div class="num">11</div>
       <div class="story">
-        <span class="device watch">Apple Watch</span>
-        <h2>Smart Stack и Control</h2>
-        <p>В Smart Stack та же компликация показана прямоугольником: «Log Migraine» и полоса <strong>25 of 30 days pain-free</strong>. Галерея Smart Stack предлагает и Control «Log Migraine» для watchOS 26.</p>
-        <p>Тап по виджету или по Control тоже открывает Pain Intensity и ничего не сохраняет. Каждый лог проходит через приложение, поэтому приступ сразу уходит на iPhone.</p>
-        <div class="check">Тап по Control: открыт Pain Intensity, число приступов в SQLite на обоих устройствах не изменилось</div>
+        <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
+        <h2>Log in the watch app</h2>
+        <p>"Log Migraine" opens Pain Intensity. The value comes from the iPhone preset (6), and the gauge color follows the severity. The Digital Crown changes it.</p>
+        <p>"Save Episode" saves the attack, and the same sheet shows a green check mark. The attack gets the intensity and the medications of the profile, but no triggers. "Done" returns to the summary. The number stays <strong>0 / 1</strong>, because 16 October already was an attack day.</p>
+        <p>The day card in the iPhone calendar shows both attacks: the log from the iPhone and the log from the watch.</p>
+        <div class="check">SQLite iPhone: <code>6 | App | Ibuprofen, Sumatriptan</code> at 23:41, watch queue <code>0</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w11-smartstack-gallery.jpg" alt="Галерея Smart Stack: виджет Log Migraine с полосой 25 of 30 days pain-free и Control Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Виджет и Control в галерее</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w12-smartstack-widget.jpg" alt="Smart Stack с виджетом Log Migraine: 25 of 30 days pain-free" loading="lazy" width="416" height="496"></button><figcaption>Виджет: 25 из 30 дней без боли</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w13-smartstack-control.jpg" alt="Smart Stack с Control Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Control в Smart Stack</figcaption></figure>
-        <figure class="watch"><button class="shot" type="button"><img src="img/w14-control-tap.jpg" alt="Pain Intensity 6 из 10 после тапа по Control" loading="lazy" width="416" height="496"></button><figcaption>Тап по Control открывает Pain Intensity</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w04-watch-pain-intensity.jpg" alt="Pain Intensity gauge with 6 and Save Episode" loading="lazy" width="416" height="496"></button><figcaption>Preset from the iPhone: 6/10</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w05-watch-episode-logged.jpg" alt="Episode logged: green check mark and Done" loading="lazy" width="416" height="496"></button><figcaption>Episode logged</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w06-watch-after-log.jpg" alt="Watch after the log: Pain-free days 0 / 1, Last attack 16 Oct" loading="lazy" width="416" height="496"></button><figcaption>After the log: 0 / 1</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p49-watch-episodes-on-iphone.jpg" alt="iPhone calendar: Friday, Oct 16, 2 episodes, peak 9 of 10, Ibuprofen 400mg, Sumatriptan 50mg and Hydration Electrolytes" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 16 October, 2 episodes</figcaption></figure>
       </div>
     </article>
 
-    <article class="step" id="s12">
+    <article class="step watch" id="s12">
       <div class="num">12</div>
       <div class="story">
-        <span class="device phone">iPhone</span>
-        <h2>Управление приступом и профилем</h2>
-        <p>Тап по Last Event открывает системный лист с кнопками Edit Episode и Delete Episode Log. Settings сводит профиль: дату регистрации, число логов, диагнозы, 5 триггеров и препараты.</p>
-        <p>Имя вводится в системном алерте и попадает в отчёт. Delete All Data предупреждает, что данные есть только на этом iPhone, и удаляет их после подтверждения. В тесте я нажал Cancel.</p>
+        <span class="device watch">Apple Watch</span>
+        <h2>The Log Migraine complication on the watch face</h2>
+        <p>The watch face editor has one MigraTrack complication, "Log Migraine", in four styles: circular, corner, rectangular and inline. On Infograph it is in the corner and in the right circle.</p>
+        <p>A tap opens the app on Pain Intensity. On the watch face, watchOS lets a complication only open its app. The tap saves nothing; only "Save Episode" saves. Thus an accidental tap needs no Undo.</p>
+        <p>These screenshots are from 13 October. The complication did not change since then, and it stayed on the face after the new install.</p>
+        <div class="check">Tap on LOG: Pain Intensity opens, the number of attacks on both devices does not change</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p20-delete-episode-sheet.jpg" alt="Лист Last Event: Oct 14, 2026 at 22:25, Intensity 6/10, Edit Episode и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Лист Last Event</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p21-settings.jpg" alt="Settings: профиль и базовые параметры" loading="lazy" width="560" height="1216"></button><figcaption>Settings</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p22-name-prompt.jpg" alt="Алерт ввода имени Alex Morgan" loading="lazy" width="560" height="1216"></button><figcaption>Ввод имени</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p23-settings-bottom.jpg" alt="Нижняя часть Settings: Legal, Load Sample Data и кнопка Delete All Data" loading="lazy" width="560" height="1216"></button><figcaption>Legal, Load Sample Data, Delete All Data</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p24-delete-data-alert.jpg" alt="Алерт Delete All Data" loading="lazy" width="560" height="1216"></button><figcaption>Подтверждение Delete All Data</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w07-complication-circular.jpg" alt="MigraTrack complication gallery: circular LOG complication" loading="lazy" width="416" height="496"></button><figcaption>Gallery: circular</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w08-complication-corner.jpg" alt="MigraTrack complication gallery: corner Log Migraine complication" loading="lazy" width="416" height="496"></button><figcaption>Gallery: corner</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w09-watch-face.jpg" alt="Infograph face: Log Migraine in the corner and LOG in the right circle" loading="lazy" width="416" height="496"></button><figcaption>Corner and circle on Infograph</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w10-complication-tap.jpg" alt="Pain Intensity 6 of 10 after a tap on the complication" loading="lazy" width="416" height="496"></button><figcaption>A tap opens Pain Intensity</figcaption></figure>
       </div>
     </article>
 
-    <article class="step" id="s13">
+    <article class="step watch" id="s13">
       <div class="num">13</div>
       <div class="story">
-        <span class="device phone">iPhone</span>
-        <h2>Insights за неделю, месяц, полгода и год</h2>
-        <p>Для графиков я загрузил демо-данные за год (Settings › Developer). Столбец делится на дни мигрени (розовый) и дни без боли (зелёный). В недельном виде розовая часть показывает пиковую боль дня.</p>
-        <p>Значок тренда сравнивает последние 7, 30, 182 или 365 дней с таким же периодом раньше. Без приступов в прошлом периоде значка нет. Под графиком карточка Possible Triggers считает, как часто отмечен каждый триггер.</p>
+        <span class="device watch">Apple Watch</span>
+        <h2>Smart Stack and Control</h2>
+        <p>In the Smart Stack the same complication is rectangular: "Log Migraine" with a bar and the real count, here <strong>24 of 30 days pain-free</strong> after step 24. Above it is the Control "Log Migraine" for watchOS 26.</p>
+        <p>A tap on the widget or on the Control also opens Pain Intensity and saves nothing. Each log goes through the app, so the attack goes to the iPhone at once.</p>
+        <div class="check">Tap on the Control (13 October): Pain Intensity opens, the number of attacks on both devices does not change</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p25-insights-month.jpg" alt="Месяц: 3 приступа, тренд 150 процентов" loading="lazy" width="560" height="1216"></button><figcaption>Месяц: 3 приступа, +150%</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p26-insights-week.jpg" alt="Неделя: 3 приступа, пик боли по дням" loading="lazy" width="560" height="1216"></button><figcaption>Неделя: 3 приступа, пик боли по дням</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p27-insights-6m.jpg" alt="6 месяцев: 16 приступов, тренд 0 процентов" loading="lazy" width="560" height="1216"></button><figcaption>6 месяцев: 16 приступов, 0%</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p28-insights-year.jpg" alt="Год: 26 приступов" loading="lazy" width="560" height="1216"></button><figcaption>Год: 26 приступов</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w12-smartstack-widget.jpg" alt="Smart Stack: Control Log Migraine and the widget Log Migraine with a bar, 24 of 30 days pain-free" loading="lazy" width="416" height="496"></button><figcaption>Control and widget: 24 of 30</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w13-smartstack-control.jpg" alt="Smart Stack under the clock with the Control Log Migraine on top" loading="lazy" width="416" height="496"></button><figcaption>Control in the Smart Stack</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w14-control-tap.jpg" alt="Pain Intensity 6 of 10 after a tap on the Control" loading="lazy" width="416" height="496"></button><figcaption>A tap on the Control opens Pain Intensity</figcaption></figure>
       </div>
     </article>
 
@@ -413,17 +416,12 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">14</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Экспорт в PDF и Excel</h2>
-        <p>Export показывает число приступов и диапазон отчёта. Диапазон меняется в action sheet, переключатели решают, что войдёт в отчёт.</p>
-        <p>PDF открывается в Quick Look: две страницы с профилем, графиком боли, препаратами, симптомами, триггерами и журналом. Excel уходит через системный share sheet.</p>
-        <div class="check">.xlsx на Mac: <code>unzip -t</code> без ошибок, 10 строк, даты как настоящие даты</div>
+        <h2>Insights on the first day</h2>
+        <p>Insights counts only from the day tracking started. Weeks 1 and 2 of October are gray, and the legend adds <strong>Not Tracked</strong>.</p>
+        <p>Under the chart, the Possible Triggers card lists the triggers that the user noted, as "1 of 2" with a bar. The card says that it shows how often a trigger was noted, not a cause. A last line counts the episodes with no triggers: the watch log has none.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Экран Export: 10 приступов за 90 дней" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p30-export-range.jpg" alt="Action sheet выбора диапазона отчёта" loading="lazy" width="560" height="1216"></button><figcaption>Выбор диапазона</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p31-pdf-preview.jpg" alt="PDF-отчёт в Quick Look" loading="lazy" width="560" height="1216"></button><figcaption>PDF в Quick Look</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p32-xlsx-share.jpg" alt="Share sheet с файлом xlsx" loading="lazy" width="560" height="1216"></button><figcaption>Share sheet с .xlsx</figcaption></figure>
-        <figure class="wide"><button class="shot" type="button"><img src="img/x01-xlsx-quicklook.jpg" alt="Лист Episodes файла xlsx в Quick Look на Mac" loading="lazy" width="1200" height="390"></button><figcaption>Лист Episodes того же файла, открытый на Mac</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p56-insights-first-day.jpg" alt="Insights for October on the first day: 2 attacks, weeks 1 and 2 gray, legend with Not Tracked, Possible Triggers card with three triggers at 1 of 2" loading="lazy" width="560" height="1216"></button><figcaption>Not Tracked and Possible Triggers</figcaption></figure>
       </div>
     </article>
 
@@ -431,37 +429,30 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">15</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Spotlight и Siri</h2>
-        <p>Поиск «Log Migraine» показывает App Shortcut первым результатом. Тап сохранил приступ с пресетом, приложение не открылось. Spotlight показал ответ «Logged a migraine episode: intensity 6 of 10». Та же команда работает в Siri и на кнопке Action.</p>
-        <div class="check">SQLite iPhone: новый <code>6 | QuickLog</code> в 22:32</div>
+        <h2>Manage the episode and the profile</h2>
+        <p>A tap on Last Event opens a system sheet with Edit Episode and Delete Episode Log. Settings shows the profile: member since, the number of logs, the diagnoses, "5 known triggers" and the treatment.</p>
+        <p>The name goes into a system alert and onto the report. The avatar then shows the initials. The Legal section opens the Privacy Policy and the Terms. Delete All Data says that the data is on this iPhone with a copy on the watch, and that device backups keep their copy. Here the user taps Cancel; step 25 deletes the data.</p>
       </div>
       <div class="shots">
-        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p33-spotlight.jpg" alt="Spotlight: App Shortcut Log Migraine в Top Hit с иконкой MigraTrack" loading="lazy" width="560" height="373"></button><figcaption>App Shortcut в Spotlight</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p20-delete-episode-sheet.jpg" alt="Last Event sheet: Oct 16, 2026 at 23:41, Intensity 6/10, Edit Episode and Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Last Event sheet</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p21-settings.jpg" alt="Settings: Add Your Name, member Oct 2026, 2 logged, diagnoses, 5 known triggers and treatment" loading="lazy" width="560" height="1216"></button><figcaption>Settings</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p22-name-prompt.jpg" alt="Alert Your Name with Alex Morgan" loading="lazy" width="560" height="1216"></button><figcaption>Enter the name</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p23-settings-bottom.jpg" alt="Lower part of Settings: Legal with Privacy Policy and Terms of Service, Developer with Load Sample Data, and Delete All Data" loading="lazy" width="560" height="1216"></button><figcaption>Legal, Load Sample Data, Delete All Data</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p24-delete-data-alert.jpg" alt="Alert Delete All Data: the data is on this iPhone and a copy on the Apple Watch, the watch deletes its copy at the next sync, device backups keep their copy" loading="lazy" width="560" height="1216"></button><figcaption>Delete All Data confirmation</figcaption></figure>
       </div>
     </article>
-  </section>
-
-  <section aria-labelledby="update">
-    <div class="section-head">
-      <span class="eyebrow">Календарь и правка · 14 октября 2026</span>
-      <h2 id="update">Календарь Insights и правка приступа</h2>
-      <p>Шаги 16–21 используют данные шагов 1–15 и демо-данные. Пользователь открывает календарь, правит и удаляет приступы и логирует приступ в прошлый день. Итог я сверил с SQLite на iPhone и на часах.</p>
-    </div>
-    <div class="journey">
 
     <article class="step" id="s16">
       <div class="num">16</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Плашка месяца открывает календарь</h2>
-        <p>Рядом с переключателем W, M, 6M и Y стоит плашка месяца. Тап по ней открывает календарь под графиком, второй тап закрывает его.</p>
-        <p>Неделя начинается с понедельника. Дни приступов розовые, с точкой в углу. Плашка <strong>2 Attack Days</strong> считает такие дни в месяце. Тап по дню без приступа выделяет его и показывает кнопку «Log Migraine Episode».</p>
-        <p>Месяц меняется свайпом по сетке. Тап по названию месяца открывает системное колесо месяца и года.</p>
+        <h2>Spotlight and Siri after setup</h2>
+        <p>Spotlight shows the App Shortcut "Log Migraine" as the top hit. A tap saves an attack with the preset, and the app does not open. Spotlight answers "Logged a migraine episode: intensity 6 of 10, with Ibuprofen 400mg, Sumatriptan 50mg." The same command works in Siri and on the Action button. The attack has no triggers until the user edits it.</p>
+        <div class="check">SQLite iPhone: new <code>6 | QuickLog</code> on 17 October at 03:16</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p34-insights-month-pill.jpg" alt="Insights за месяц: 4 приступа, тренд 200 процентов, плашка Oct 2026 рядом с W, M, 6M и Y" loading="lazy" width="560" height="1216"></button><figcaption>Плашка месяца, календарь закрыт</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p35-calendar-empty-day.jpg" alt="Календарь октября: выбран 13 октября без приступа, кнопка Log Migraine Episode" loading="lazy" width="560" height="1216"></button><figcaption>День без приступа: Log Migraine Episode</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p36-month-year-wheel.jpg" alt="Системное колесо месяца и года на September 2026" loading="lazy" width="560" height="1216"></button><figcaption>Колесо месяца и года</figcaption></figure>
+        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p33-spotlight.jpg" alt="Spotlight: App Shortcut Log Migraine as Top Hit with the MigraTrack icon" loading="lazy" width="560" height="373"></button><figcaption>App Shortcut in Spotlight</figcaption></figure>
+        <figure class="wide flat" style="width:min(320px,100%)"><button class="shot" type="button"><img src="img/p57-quicklog-done.jpg" alt="Spotlight answer: Logged a migraine episode, intensity 6 of 10, with Ibuprofen 400mg, Sumatriptan 50mg, and Done" loading="lazy" width="560" height="373"></button><figcaption>The answer after the log</figcaption></figure>
       </div>
     </article>
 
@@ -469,18 +460,15 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">17</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Карточка дня и Edit Episode</h2>
-        <p>Тап по дню приступа показывает карточку дня: дату и время, пиковую интенсивность и препараты. Под ними кнопки «Edit Episode Details» и «Delete Episode Log».</p>
-        <p>Edit Episode открывает форму вкладки Log с данными приступа. Строка «Episode Start» открывает системный выбор даты и времени. Будущее время выбрать нельзя.</p>
-        <p>Переносим приступ с 26 на <strong>25 сентября</strong> и нажимаем «Update Episode Log». Баннер подтверждает правку, календарь показывает новый день. Лист Last Event на Summary теперь тоже предлагает Edit Episode.</p>
-        <div class="check">SQLite iPhone и часов: <code>sample-18 | 2026-09-25 12:17</code></div>
+        <h2>Insights for a week, a month, six months and a year</h2>
+        <p>For the charts I loaded a year of sample data (Settings › Developer). A bar has migraine days (pink) and pain-free days (green). In the week view, the pink part shows the peak pain of the day.</p>
+        <p>The trend badge compares the last 7, 30, 182 or 365 days with the same span before. Without attacks in the earlier span, there is no badge. The Possible Triggers card follows the period: the year view counts 27 episodes.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p37-calendar-attack-day.jpg" alt="Карточка 26 сентября, 12:17: пик 5 из 10, Ibuprofen 400mg, кнопки Edit и Delete" loading="lazy" width="560" height="1216"></button><figcaption>Карточка дня: пик 5/10, Ibuprofen</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p38-edit-episode-top.jpg" alt="Edit Episode: интенсивность 5, Right Temple, Nausea" loading="lazy" width="560" height="1216"></button><figcaption>Форма с данными приступа</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p39-edit-episode-bottom.jpg" alt="Episode Start Sep 26, 12:17, кнопки Update Episode Log и Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Episode Start, Update и Delete</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p40-episode-start-picker.jpg" alt="Системный выбор даты: сентябрь 2026, выбрано 26, время 12:17" loading="lazy" width="560" height="1216"></button><figcaption>Выбор даты и времени</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p41-episode-updated.jpg" alt="Баннер Episode updated, дни приступов 2, 19 и 25 сентября" loading="lazy" width="560" height="1216"></button><figcaption>Episode updated: приступ на 25 сентября</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p26-insights-week.jpg" alt="Week: 4 attacks, peak pain per day, no trend badge" loading="lazy" width="560" height="1216"></button><figcaption>Week: 4 attacks</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p25-insights-month.jpg" alt="Month: 4 attacks, trend 200 percent, Possible Triggers" loading="lazy" width="560" height="1216"></button><figcaption>Month: 4 attacks, +200%</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p27-insights-6m.jpg" alt="Six months: 17 attacks, trend 6 percent, five triggers" loading="lazy" width="560" height="1216"></button><figcaption>6 months: 17 attacks, +6%</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p28-insights-year.jpg" alt="Year 2026: 27 attacks, November and December empty" loading="lazy" width="560" height="1216"></button><figcaption>Year: 27 attacks</figcaption></figure>
       </div>
     </article>
 
@@ -488,29 +476,43 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">18</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Лог в прошлый день и удаление</h2>
-        <p>Форма вкладки Log тоже получила строку «Episode Start». По умолчанию строка показывает <strong>Now</strong>, и приступ получает время сохранения.</p>
-        <p>На прошлом дне без приступа «Log Migraine Episode» открывает форму Log Episode. Время начала — этот день и текущее время суток: <strong>Sep 26, 22:35</strong>. Форма берёт пресет, как вкладка Log. Раньше приступ получал только текущее время.</p>
-        <p>«Delete Episode Log» в карточке дня спрашивает подтверждение. Алерт показывает дату, время и интенсивность приступа.</p>
-        <div class="check">SQLite iPhone и часов: приступа <code>2026-09-26 22:35</code> нет</div>
+        <h2>Export to PDF and Excel</h2>
+        <p>Export shows the number of episodes and the report range. An action sheet changes the range. The toggles select the sections, and <strong>Possible Triggers</strong> is a new toggle.</p>
+        <p>The PDF opens in Quick Look. Page 1 has the profile, the pain chart, the medications and the symptoms. Page 2 has the "Possible Triggers Noted" section and the episode log with a Triggers column. The report shows no time of intake. Excel goes through the system share sheet.</p>
+        <div class="check">.xlsx on the Mac: <code>unzip -t</code> without errors, 11 rows for 90 days, dates as real dates, a Possible Triggers column</div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p42-log-tab-start-now.jpg" alt="Вкладка Log: Episode Start Now над кнопкой Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Вкладка Log: Episode Start · Now</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p43-log-past-day.jpg" alt="Log Episode на прошлый день: Episode Start Sep 26, 22:35" loading="lazy" width="560" height="1216"></button><figcaption>Лог на 26 сентября, 22:35</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p44-delete-confirm.jpg" alt="Алерт удаления: Sep 26, 2026 at 22:35, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>Подтверждение удаления</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p29-export.jpg" alt="Export: 11 events in the last 90 days, toggles Medication Logs, Aura and Warning Symptoms, Possible Triggers, Pain Level Charts" loading="lazy" width="560" height="1216"></button><figcaption>Export</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p30-export-range.jpg" alt="Action sheet Report Range" loading="lazy" width="560" height="1216"></button><figcaption>Report range</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p31-pdf-preview.jpg" alt="PDF report page 1 in Quick Look: Patient Alex Morgan, 11 episodes, 10 migraine days, 80 pain-free days, baseline profile, chart, medications" loading="lazy" width="560" height="1216"></button><figcaption>PDF page 1</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p58-pdf-triggers-log.jpg" alt="PDF page 2: Possible Triggers Noted with shares of episodes, and the episode log with a Triggers column" loading="lazy" width="560" height="1216"></button><figcaption>PDF page 2: triggers and log</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p32-xlsx-share.jpg" alt="Share sheet with MigraTrack-Report-2026-10-17.xlsx" loading="lazy" width="560" height="1216"></button><figcaption>Share sheet with .xlsx</figcaption></figure>
+        <figure class="wide"><button class="shot" type="button"><img src="img/x01-xlsx-quicklook.jpg" alt="Episodes sheet of the xlsx file in Quick Look on the Mac, with the column Possible Triggers" loading="lazy" width="1200" height="192"></button><figcaption>Episodes sheet of the same file on the Mac</figcaption></figure>
       </div>
     </article>
+  </section>
+
+  <section aria-labelledby="update">
+    <div class="section-head">
+      <span class="eyebrow">Calendar and editing</span>
+      <h2 id="update">The Insights calendar and episode edits</h2>
+      <p>Steps 19–25 use the data of steps 1–18 and the sample data. The user opens the calendar, edits and deletes attacks, logs an attack on a past day, and at the end deletes all data. I compared the result with SQLite on the iPhone and on the watch.</p>
+    </div>
+    <div class="journey">
 
     <article class="step" id="s19">
       <div class="num">19</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Месяц плашки задаёт период графика</h2>
-        <p>M показывает месяц плашки, 6M — шесть месяцев до него включительно, Y — его год. W показывает неделю с последним днём месяца. Для текущего месяца это неделя с сегодняшним днём.</p>
-        <p>При Sep 2026 график W показывает неделю с 28 сентября по 4 октября: <strong>0 приступов</strong>. Значок тренда сравнивает 7, 30, 182 или 365 дней до конца периода с таким же отрезком раньше. Здесь он показывает −100%: неделей раньше был приступ 25 сентября.</p>
+        <h2>The month pill opens the calendar</h2>
+        <p>Next to W, M, 6M and Y is a month pill. A tap on it opens the calendar under the chart, and a second tap closes it.</p>
+        <p>The week starts on Monday. Attack days are pink with a dot in the corner. The pill <strong>3 Attack Days</strong> counts them in the month. A tap on a day without an attack selects it and shows "Log Migraine Episode".</p>
+        <p>A swipe on the grid changes the month. A tap on the month name opens the system month and year wheels.</p>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p45-insights-week-past-month.jpg" alt="Неделя с 28 сентября при плашке Sep 2026: 0 приступов, тренд минус 100 процентов" loading="lazy" width="560" height="1216"></button><figcaption>W при Sep 2026: неделя с 28 сентября</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p34-insights-month-pill.jpg" alt="Insights for October: 4 attacks, trend 200 percent, calendar open with attack days 14, 16 and 17" loading="lazy" width="560" height="1216"></button><figcaption>Calendar under the chart</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p35-calendar-empty-day.jpg" alt="October calendar: 13 October selected without an attack, Log Migraine Episode" loading="lazy" width="560" height="1216"></button><figcaption>Day without an attack</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p36-month-year-wheel.jpg" alt="System month and year wheels on September 2026" loading="lazy" width="560" height="1216"></button><figcaption>Month and year wheels</figcaption></figure>
       </div>
     </article>
 
@@ -518,30 +520,93 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
       <div class="num">20</div>
       <div class="story">
         <span class="device phone">iPhone</span>
-        <h2>Несколько приступов в один день</h2>
-        <p>14 октября было три приступа: лог на iPhone, лог с часов и QuickLog из Spotlight. Карточка дня показывает пик дня и все препараты дня. «Edit Episode Details» и «Delete Episode Log» сначала спрашивают, какой приступ открыть.</p>
-        <p>Переносим QuickLog 22:32 на <strong>13 октября</strong>. Календарь показывает три дня приступов: 12, 13 и 14 октября. У 14 октября остаются два приступа с пиком 9/10.</p>
-        <div class="check">SQLite iPhone и часов: <code>2026-10-13 22:32 | 6 | QuickLog</code></div>
+        <h2>Day card and Edit Episode</h2>
+        <p>A tap on an attack day shows the day card: date and time, peak intensity and medications. Under them are "Edit Episode Details" and "Delete Episode Log".</p>
+        <p>Edit Episode opens the Log form with the data of the attack, also its triggers. "Episode Start" opens the system date and time picker. A future time is not available.</p>
+        <p>The user moves the attack from 28 to <strong>27 September</strong> and taps "Update Episode Log". A banner confirms the edit, and the calendar shows the new day.</p>
+        <div class="check">SQLite iPhone and watch: <code>sample-18 | 2026-09-27 17:05</code></div>
       </div>
       <div class="shots">
-        <figure><button class="shot" type="button"><img src="img/p46-several-episodes-chooser.jpg" alt="Алерт Edit Episode: Wednesday, Oct 14 has 3 episodes, три приступа с временем и интенсивностью" loading="lazy" width="560" height="1216"></button><figcaption>Выбор из трёх приступов</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p47-calendar-after-move.jpg" alt="Календарь октября: дни приступов 12, 13 и 14 октября" loading="lazy" width="560" height="1216"></button><figcaption>После переноса: 13 октября в календаре</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p48-several-episodes-preview.jpg" alt="Карточка 14 октября: 2 приступа, пик 9 из 10, три препарата" loading="lazy" width="560" height="1216"></button><figcaption>14 октября: 2 приступа, пик 9/10</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p37-calendar-attack-day.jpg" alt="Day card Monday, Sep 28, 17:05: peak 5 of 10, Ibuprofen 400mg, Edit and Delete" loading="lazy" width="560" height="1216"></button><figcaption>Day card: peak 5/10</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p38-edit-episode-top.jpg" alt="Edit Episode: intensity 5, Right Temple, Nausea" loading="lazy" width="560" height="1216"></button><figcaption>The form with the attack data</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p39-edit-episode-bottom.jpg" alt="Triggers Bright Lights and Poor Sleep, Episode Start Sep 28, 17:05, Update Episode Log and Delete Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Triggers, Episode Start, Update</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p40-episode-start-picker.jpg" alt="System date picker: September 2026, 28 selected, time 17:05" loading="lazy" width="560" height="1216"></button><figcaption>Date and time picker</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p41-episode-updated.jpg" alt="Banner Episode updated, attack days 5, 22 and 27 September" loading="lazy" width="560" height="1216"></button><figcaption>Episode updated: now 27 September</figcaption></figure>
       </div>
     </article>
 
-    <article class="step watch" id="s21">
+    <article class="step" id="s21">
       <div class="num">21</div>
       <div class="story">
-        <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
-        <h2>Часы получают правку с iPhone</h2>
-        <p>После каждой правки iPhone отправляет на часы приступы за 60 дней. Часы считают дни без приступа по тем же данным, что и карточка «Last 30 days» на iPhone. Оба устройства показывают <strong>25 из 30</strong>: приступы были 19 и 25 сентября и 12, 13 и 14 октября.</p>
-        <p>iPhone помнит приступы, которые уже пришли с часов. Поэтому повторный пакет с часов не возвращает приступ, удалённый на iPhone. Это проверяют тесты синхронизации.</p>
-        <div class="check">SQLite часов, как на iPhone: <code>sample-18 | 2026-09-25 12:17</code> и <code>2026-10-13 22:32 | 6 | QuickLog</code></div>
+        <span class="device phone">iPhone</span>
+        <h2>Log on a past day and delete</h2>
+        <p>On a past day without an attack, "Log Migraine Episode" opens Log Episode. The start is that day at the current time of day: <strong>Sep 28, 03:33</strong>. The form takes the preset, as the Log tab does (step 8).</p>
+        <p>The calendar shows the new attack at once. "Delete Episode Log" on the day card asks for a confirmation. The alert shows the date, the time and the intensity, and says that the episode leaves the history and the reports.</p>
+        <div class="check">SQLite iPhone and watch: no attack on <code>2026-09-28</code></div>
       </div>
       <div class="shots">
-        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Часы: Pain-free days 25 / 30, шкала, Last attack 14 Oct" loading="lazy" width="416" height="496"></button><figcaption>Часы: 25 / 30</figcaption></figure>
-        <figure><button class="shot" type="button"><img src="img/p50-summary-after-phone-edit.jpg" alt="Summary на iPhone: 25 of 30 tracked days, полоса с пятью розовыми точками, Last Event Oct 14, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 25 из 30</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p43-log-past-day.jpg" alt="Log Episode on a past day: Episode Start Sep 28, 03:33, Save Episode Log" loading="lazy" width="560" height="1216"></button><figcaption>Log on 28 September, 03:33</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p42-past-day-saved.jpg" alt="Banner Episode saved, day card Monday, Sep 28, 03:33, peak 6 of 10" loading="lazy" width="560" height="1216"></button><figcaption>Saved on 28 September</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p44-delete-confirm.jpg" alt="Delete alert: Sep 28, 2026 at 03:33, Intensity 6/10, the episode leaves your history and reports" loading="lazy" width="560" height="1216"></button><figcaption>Delete confirmation</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s22">
+      <div class="num">22</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>The pill month sets the chart period</h2>
+        <p>M shows the pill month, 6M the six months that end with it, and Y its year. W shows the week with the last day of the month. For the current month, it is the week with today.</p>
+        <p>With Sep 2026, W shows the week from 28 September to 4 October: <strong>0 attacks</strong>. The badge shows −100%, because the week before had the attack of 27 September. A period without episodes has no Possible Triggers card.</p>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p45-insights-week-past-month.jpg" alt="Week of Sep 28 with the pill Sep 2026: 0 attacks, trend minus 100 percent" loading="lazy" width="560" height="1216"></button><figcaption>W with Sep 2026: week of 28 September</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s23">
+      <div class="num">23</div>
+      <div class="story">
+        <span class="device phone">iPhone</span>
+        <h2>Several attacks on one day</h2>
+        <p>16 October has two attacks: the iPhone log and the watch log. The day card shows the peak of the day and all medications of the day (step 11). "Edit Episode Details" and "Delete Episode Log" first ask which attack to open.</p>
+        <p>The user opens the watch log, adds the trigger Poor / Irregular Sleep, and moves it to <strong>15 October</strong>. The form shows the old start as "Yesterday, 23:41". The calendar then shows attack days 14, 15, 16 and 17 October.</p>
+        <div class="check">SQLite iPhone and watch: <code>2026-10-15 23:41 | 6 | Poor / Irregular Sleep</code></div>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p46-several-episodes-chooser.jpg" alt="Alert Edit Episode: Friday, Oct 16 has 2 episodes, 23:38 intensity 9 and 23:41 intensity 6" loading="lazy" width="560" height="1216"></button><figcaption>Choose one of two attacks</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p48-edit-watch-episode.jpg" alt="Edit Episode of the watch log: Poor / Irregular Sleep selected, Episode Start Oct 15, 23:41" loading="lazy" width="560" height="1216"></button><figcaption>Watch log: trigger added, moved</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p47-calendar-after-move.jpg" alt="October calendar: attack days 14, 15, 16 and 17, day card Friday, Oct 16, 23:38, peak 9 of 10" loading="lazy" width="560" height="1216"></button><figcaption>After the move: 15 October</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step watch" id="s24">
+      <div class="num">24</div>
+      <div class="story">
+        <span class="device watch">Apple Watch</span><span class="device phone">iPhone</span>
+        <h2>The watch gets the edits from the iPhone</h2>
+        <p>After each edit the iPhone sends the attacks of 60 days to the watch. The watch counts the pain-free days from the same data as the "Last 30 days" card. Both devices show <strong>24 of 30</strong>: attacks on 22 and 27 September and on 14, 15, 16 and 17 October.</p>
+        <p>The iPhone keeps the ids of the attacks that came from the watch. Thus a repeated batch from the watch does not bring back an attack that the iPhone deleted. The sync tests check this.</p>
+        <div class="check">SQLite watch, as on the iPhone: <code>sample-18 | 2026-09-27 17:05</code> and <code>2026-10-15 23:41 | 6</code></div>
+      </div>
+      <div class="shots">
+        <figure class="watch"><button class="shot" type="button"><img src="img/w15-watch-after-phone-edit.jpg" alt="Watch: Pain-free days 24 / 30, gauge, Last attack 17 Oct" loading="lazy" width="416" height="496"></button><figcaption>Watch: 24 / 30</figcaption></figure>
+        <figure><button class="shot" type="button"><img src="img/p50-summary-after-phone-edit.jpg" alt="Summary on the iPhone: 24 of 30 tracked days, strip with six pink dots, Last Event Oct 17, Intensity 6/10" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: 24 of 30</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="step" id="s25">
+      <div class="num">25</div>
+      <div class="story">
+        <span class="device phone">iPhone</span><span class="device watch">Apple Watch</span>
+        <h2>Delete All Data</h2>
+        <p>The app has no account server. Delete All Data in Settings erases every episode and the profile on this iPhone after the confirmation of step 15. The iPhone then shows the welcome screen of step 3 again.</p>
+        <p>The watch deletes its copy at the next sync. It shows <strong>1 / 1</strong> and the link hint again, and Log Migraine is gray until a new onboarding.</p>
+        <div class="check">SQLite iPhone and watch: <code>0</code> episodes</div>
+      </div>
+      <div class="shots">
+        <figure><button class="shot" type="button"><img src="img/p51-welcome.jpg" alt="Welcome screen after Delete All Data" loading="lazy" width="560" height="1216"></button><figcaption>iPhone: the welcome screen again</figcaption></figure>
+        <figure class="watch"><button class="shot" type="button"><img src="img/w16-watch-after-delete.jpg" alt="Watch after Delete All Data: Pain-free days 1 / 1, No attacks logged, Open MigraTrack on your iPhone to sync, gray Log Migraine" loading="lazy" width="416" height="496"></button><figcaption>Watch: the copy is deleted</figcaption></figure>
       </div>
     </article>
     </div>
@@ -549,24 +614,25 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 
   <section aria-labelledby="checks">
     <div class="section-head">
-      <span class="eyebrow">Данные</span>
-      <h2 id="checks">Что проверено в базах</h2>
-      <p>Каждое действие я сверял с SQLite на iPhone и в App Group на часах. Синхронизация завершена, когда очередь часов пуста. Для шагов 16–21 я сверил итоговое состояние обеих баз. 14 октября я повторил все проверки на новой паре симуляторов.</p>
+      <span class="eyebrow">Data</span>
+      <h2 id="checks">What the databases show</h2>
+      <p>I compared each action with SQLite on the iPhone and in the App Group on the watch. A sync is complete when the watch queue is empty. For steps 19–25 I compared the final state of both databases.</p>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Действие</th><th>Где сохранено</th><th>Что в базе</th><th>Итог</th></tr></thead>
+        <thead><tr><th>Action</th><th>Where saved</th><th>What the database has</th><th>Result</th></tr></thead>
         <tbody>
-          <tr><td>Лог на iPhone, 9/10</td><td>iPhone</td><td><code>9 | App</code>, три препарата</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Лог в приложении на часах, 6/10</td><td>часы → iPhone</td><td><code>6 | App</code> на iPhone в 22:25, очередь часов 0</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Тап по компликации на циферблате</td><td>часы</td><td>Открыт Pain Intensity, новых приступов нет</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Тап по Control в Smart Stack</td><td>часы</td><td>Открыт Pain Intensity, новых приступов нет</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Перезагрузка часов</td><td>часы</td><td>Данные на месте, 25 / 30</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>App Shortcut из Spotlight</td><td>iPhone</td><td>Новый <code>6 | QuickLog</code></td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Экспорт .xlsx</td><td>файл</td><td>Архив без ошибок, 10 строк за 90 дней</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Edit Episode: перенос на 25 сентября</td><td>iPhone → часы</td><td><code>sample-18 | 2026-09-25 12:17</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Лог на 26 сентября, затем Delete</td><td>iPhone → часы</td><td>Приступа <code>2026-09-26 22:35</code> нет на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
-          <tr><td>Перенос приступа 14 октября 22:32</td><td>iPhone → часы</td><td><code>2026-10-13 22:32 | 6 | QuickLog</code> на обоих</td><td><span class="pill pass">Пройдено</span></td></tr>
+          <tr><td>App Shortcut before onboarding</td><td>iPhone</td><td>No episode</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Log on the iPhone, 9/10</td><td>iPhone</td><td><code>9 | App</code>, three medications, three triggers</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Log in the watch app, 6/10</td><td>watch → iPhone</td><td><code>6 | App</code> on the iPhone at 23:41, watch queue 0</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Tap on the face complication</td><td>watch</td><td>Pain Intensity opens, no new episode</td><td><span class="pill pass">Passed 13 Oct</span></td></tr>
+          <tr><td>Tap on the Control in the Smart Stack</td><td>watch</td><td>Pain Intensity opens, no new episode</td><td><span class="pill pass">Passed 13 Oct</span></td></tr>
+          <tr><td>App Shortcut from Spotlight</td><td>iPhone</td><td>New <code>6 | QuickLog</code> at 03:16</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Export .xlsx</td><td>file</td><td>Archive without errors, 11 rows for 90 days</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Edit Episode: move to 27 September</td><td>iPhone → watch</td><td><code>sample-18 | 2026-09-27 17:05</code> on both</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Log on 28 September, then Delete</td><td>iPhone → watch</td><td>No attack on <code>2026-09-28</code> on both</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Move the watch log to 15 October, add a trigger</td><td>iPhone → watch</td><td><code>2026-10-15 23:41 | 6 | Poor / Irregular Sleep</code> on both</td><td><span class="pill pass">Passed</span></td></tr>
+          <tr><td>Delete All Data</td><td>iPhone → watch</td><td>0 episodes on both, the watch shows the link hint</td><td><span class="pill pass">Passed</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -574,47 +640,59 @@ dialog p { color: #f4f1f2; text-align: center; font-size: 14px; margin-top: 10px
 
   <section aria-labelledby="notes">
     <div class="section-head">
-      <span class="eyebrow">Замечания</span>
-      <h2 id="notes">Что заметил по ходу</h2>
-      <p>Ошибок приложения во всех прогонах нет. Ниже два наблюдения по дизайну, одно ограничение платформы и особенности симулятора.</p>
+      <span class="eyebrow">Notes</span>
+      <h2 id="notes">What I noticed</h2>
+      <p>No step failed, and no data was lost. Below are four small findings of this run, two design notes, one platform limit and the simulator details.</p>
     </div>
     <div class="notes">
       <div class="note">
-        <h3><span class="pill note">Дизайн</span>Месяцы на графике 6M и Y похожи</h3>
-        <p>Розовая часть столбца не опускается ниже 14%, чтобы один день мигрени оставался видимым. Поэтому месяцы с 1 и с 4 днями мигрени выглядят одинаково. Можно уменьшить минимум или подписать число дней над столбцом.</p>
+        <h3><span class="pill note">Text</span>Export promises intake times</h3>
+        <p>The Medication Logs toggle says "Dosages, intake times, usage totals". Since PR #15 the PDF and the XLSX show no intake time. The subtitle needs a new text.</p>
       </div>
       <div class="note">
-        <h3><span class="pill note">Дизайн</span>Макеты календаря молчат о части поведения</h3>
-        <p>Макеты не показывают время начала, смену месяца и день с несколькими приступами. Приложение берёт системные элементы: выбор даты в строке «Episode Start», колесо месяца и алерт выбора приступа. Длительности в карточке дня нет: приложение не хранит время конца приступа.</p>
+        <h3><span class="pill note">PDF</span>A page with only the disclaimer</h3>
+        <p>The 90-day report with 11 episodes has three pages. Page 3 has only the line "Self-reported data logged in MigraTrack…". The line can go on page 2, or the log can leave space for it.</p>
       </div>
       <div class="note">
-        <h3><span class="pill note">watchOS</span>Компликация и Control только открывают приложение</h3>
-        <p>На циферблате watchOS не выполняет действие кнопки, а только открывает приложение. Действие в Smart Stack выполнялось бы в расширении, а расширение не может связаться с iPhone. Поэтому все тапы открывают Pain Intensity, и лог всегда сразу уходит на iPhone.</p>
+        <h3><span class="pill note">Text</span>"1 of 3 episode has"</h3>
+        <p>The last line of Possible Triggers chooses the noun from the first number. With 1 it says "1 of 3 episode has no triggers noted". The correct text is "1 of 3 episodes has".</p>
       </div>
       <div class="note">
-        <h3><span class="pill sim">Симулятор</span>Не связано с приложением</h3>
+        <h3><span class="pill note">Chart</span>A bar with only attack days shows green</h3>
+        <p>The pink part of a bar stays between 14% and 86%. On the first day, week 3 of October had one tracked day, and it was an attack day. The bar still shows a green part. The 14% minimum also makes months with 1 and 4 migraine days look the same in 6M and Y.</p>
+      </div>
+      <div class="note">
+        <h3><span class="pill note">Design</span>The calendar mockups do not show all behavior</h3>
+        <p>The mockups do not show the start time, the month change and a day with several attacks. The app uses system controls: the date picker in "Episode Start", the month wheels and the alert that asks for the attack. The day card has no duration, because the app does not record an end time.</p>
+      </div>
+      <div class="note">
+        <h3><span class="pill note">watchOS</span>The complication and the Control only open the app</h3>
+        <p>On the watch face, watchOS does not run a button action, it only opens the app. An action in the Smart Stack runs in the extension, and the extension cannot reach the iPhone. Thus each tap opens Pain Intensity, and the log goes to the iPhone at once.</p>
+      </div>
+      <div class="note">
+        <h3><span class="pill sim">Simulator</span>Not related to the app</h3>
         <ul>
-          <li>Переключатель в листе HealthKit не реагирует на тап, сработал «Select All».</li>
-          <li>После переустановки приложения на часах компликации пропали с циферблата до перезагрузки симулятора.</li>
-          <li>В режиме Always On часы не принимают тапы.</li>
-          <li>Приложение Fitness я убрал с домашнего экрана в App Library, чтобы его иконка не стояла рядом с иконкой MigraTrack.</li>
-          <li><code>simctl openurl</code> на часах не работает, поэтому ссылку компликации я проверял тапом по циферблату.</li>
+          <li>After <code>simctl install</code> on the watch, the iPhone saw the watch app as not installed. A second install of the iPhone app fixed it, and the data came at once.</li>
+          <li>The Sleep switch in the HealthKit sheet does not react to a tap, and Select All did not help in this run. Read access stays hidden from the app, so the row shows "Not recorded" in both cases.</li>
+          <li>In Always On mode, the watch does not take taps.</li>
+          <li>The home screen and the Spotlight result (steps 3 and 16) are from the iPhone 18 Pro of 16 October, without the Fitness icon near MigraTrack.</li>
+          <li><code>simctl openurl</code> does not work on the watch, so I checked the complication link with a tap on the face.</li>
         </ul>
       </div>
       <div class="note">
-        <h3><span class="pill sim">Не проверено</span>Нужно реальное устройство</h3>
+        <h3><span class="pill sim">Not checked</span>Needs a real device</h3>
         <ul>
-          <li>Control в Control Center часов: симулятор его не открывает. В Smart Stack Control проверен, шаг 11.</li>
-          <li>Поворот Digital Crown: мой инструмент не поворачивает колёсико. Логи с часов сохранены с интенсивностью пресета 6.</li>
-          <li>Реальные данные сна из Apple Health.</li>
-          <li>Передача через очередь <code>transferUserInfo</code>: в симуляторе она не доходит, проверена прямая отправка.</li>
+          <li>The Control in the watch Control Center: the simulator does not open it. The Smart Stack Control works, step 13.</li>
+          <li>The Digital Crown: my tool cannot turn it. The watch logs have the preset intensity 6.</li>
+          <li>Real sleep data from Apple Health.</li>
+          <li>The <code>transferUserInfo</code> queue: it does not arrive in the simulator, so I checked the direct message.</li>
         </ul>
       </div>
     </div>
   </section>
 </main>
 
-<dialog id="zoom" aria-label="Увеличенный снимок">
+<dialog id="zoom" aria-label="Enlarged screenshot">
   <img id="zoom-img" alt="">
   <p id="zoom-caption"></p>
 </dialog>
