@@ -430,6 +430,9 @@
     <string name="legal_privacy_policy">Privacy Policy</string>
     <!-- Title of the Terms of Service screen, its Settings row, and a link on the welcome screen. -->
     <string name="legal_terms_of_service">Terms of Service</string>
+    <!-- Do not translate. The folder of the legal texts of this language in docs/legal/files: the language code of this
+         values folder, for example "pl" or "zh-Hans". Empty in English. The build checks it. -->
+    <string name="legal_folder"></string>
 
     <!-- Onboarding -->
 

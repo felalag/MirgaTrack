@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Greeting. %1$s = name. Max 12 characters. -->
+    <string name="greeting">Hello %1$s</string>
+    <!-- Count. %1$s = items. -->
+    <plurals name="count">
+        <item quantity="one">%1$s item</item>
+        <item quantity="other">%1$s items</item>
+    </plurals>
+    <string name="farewell">Bye</string>
+    <string name="font_family">brand</string>
+    <string name="legal_folder"></string>
+</resources>

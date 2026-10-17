@@ -11,6 +11,7 @@ import com.migratrack.data.AppleDatabase
 import com.migratrack.data.LocalStore
 import com.migratrack.export.pdf.UIKitPdfRenderer
 import platform.Foundation.NSBundle
+import platform.Foundation.NSUserDefaults
 import platform.UIKit.UIViewController
 import kotlin.experimental.ExperimentalNativeApi
 
@@ -38,5 +39,7 @@ private fun bundleAppInfo(): AppInfo {
         version = info["CFBundleShortVersionString"] as? String ?: "1.0",
         build = info["CFBundleVersion"] as? String ?: "1",
         isDebug = Platform.isDebugBinary,
+        // A launch argument "-MigraTrackScreen Insights" lands in the user defaults (scripts/l10n-screenshots.sh).
+        startScreen = NSUserDefaults.standardUserDefaults.stringForKey("MigraTrackScreen").takeIf { Platform.isDebugBinary },
     )
 }

@@ -1,0 +1,21 @@
+values-pl_PL: Compose resources cannot read this folder name. Use values-xx, values-xx-rYY or values-b+xx+Scrp.
+values-de-rAT: legal_folder belongs in the folder of the language, not of a region.
+values-en-rXA: pseudo-locales are build output. Do not commit them.
+values-pl: key farewell is missing.
+values-pl: key unused is not in values.
+values-pl: key greeting has a placeholder other than %N$s.
+values-pl: key greeting uses [], values uses [%1$s].
+values-pl: plurals count has no "few" form.
+values-pl: plurals count has no "many" form.
+values-pl: plurals count has a "two" form, which pl does not use.
+values-pl: key greeting has 14 characters, the limit is 12: "Dzień dobry %1$d".
+values-pl: font_family must be "brand" for the script of pl.
+App.xcstrings: "Log in" in en has 6 characters, the limit is 3: "Log in".
+App.xcstrings: "Log in" has no pl translation.
+App.xcstrings: "Hello" in pl is not in the state "translated".
+InfoPlist.xcstrings languages: pl is missing; the Compose resources have it.
+knownRegions in app.xcodeproj/project.pbxproj: de has no folder in the Compose resources.
+docs/legal/files/pl: privacy.md is missing.
+docs/_config.yml: exclude legal/files/pl, so the website stays English.
+Glossary term in en: strings:greeting is "Hello %1$s", App.xcstrings:Hello is "Hello".
+Glossary term in pl: strings:greeting is "Dzień dobry %1$d", App.xcstrings:Hello is "Cześć".

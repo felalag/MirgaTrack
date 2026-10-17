@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="greeting">Dzień dobry %1$d</string>
+    <plurals name="count">
+        <item quantity="one">%1$s element</item>
+        <item quantity="two">%1$s elementy</item>
+        <item quantity="other">%1$s elementów</item>
+    </plurals>
+    <string name="unused">Nie</string>
+    <string name="font_family">system</string>
+    <string name="legal_folder">pl</string>
+</resources>

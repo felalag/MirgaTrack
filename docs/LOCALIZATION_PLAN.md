@@ -169,7 +169,7 @@ The view models build strings now (for example `SettingsViewModel`, `EpisodeForm
 
 **For `shared/export`: option C.** The report gets a `ReportStrings` interface (titles, column headers, plurals as functions) and a `DateFormats` interface (section 4.5). `composeApp` implements both with `getString` and `NSDateFormatter`. The JVM tests use an English implementation, so the current tests keep their text. The report also needs the language of the UI for its catalog names, so it gets the resolved names, not the IDs.
 
-**Legal texts.** The English files stay in `docs/legal/files/`. Each translation goes into a folder for its language, for example `docs/legal/files/pl/privacy-policy.md`. `LegalScreen` selects the file for the current language and falls back to English. The website stays English only, so `docs/_config.yml` excludes the language folders from GitHub Pages. The Privacy Policy URL in App Store Connect points to the English page for each language. Each translation starts with one sentence: the English text is the binding text, and the translation is for convenience.
+**Legal texts.** The English files stay in `docs/legal/files/`. Each translation goes into a folder for its language, for example `docs/legal/files/pl/privacy-policy.md`. `LegalScreen` reads the folder name from the string `legal_folder`, so the legal text and the UI strings always have the same language, and it falls back to English when the file is missing. The website stays English only, so `docs/_config.yml` excludes the language folders from GitHub Pages. The Privacy Policy URL in App Store Connect points to the English page for each language. Each translation starts with one sentence: the English text is the binding text, and the translation is for convenience.
 
 ### 4.3 Swift: String Catalogs
 
@@ -235,7 +235,7 @@ The plural forms that each language needs for whole numbers, after the CLDR rule
 | one, two, few, other | Slovenian |
 | zero, one, two, few, many, other | Arabic |
 
-- The table is a summary. The completeness test (section 5.2) takes the forms from the CLDR data of the Compose version in use, not from this table.
+- The completeness test (section 5.2) takes the forms from `PLURAL_CATEGORIES` in `buildSrc/src/main/kotlin/l10n/Languages.kt`, which has the CLDR categories of this table. Compose resources keep their CLDR rules in internal code that a Gradle task cannot read. A new language needs a row there.
 - Polish "few" is 2–4, 22–24 and so on, but not 12–14. Arabic uses "two" for 2 and "zero" for 0.
 - Many languages change the form of a noun after a number or a preposition, and many put the verb at the end. A placeholder for a noun ("$noun this Week") does not work. Each sentence is one complete string with numbered placeholders.
 - German, Finnish and Hungarian text is often 30–40% longer than English. CJK text is shorter but taller. The tight places are:
@@ -360,14 +360,14 @@ The Compose resources are not in `.lproj` folders. Without a String Catalog, iOS
 ### 5.1 Pseudolocalization and long text
 
 - **Swift:** Xcode schemes have pseudolanguages under Run › Options › App Language: double length, accented, bounded string, right to left. They change only the text from String Catalogs.
-- **Compose:** Compose resources have no pseudo-locale. A Gradle task writes `values-en-rXA/strings.xml` from `values/strings.xml`: accented letters, 40% longer text, and brackets at both ends, for example `[Ŀöğ Ṁîğŕåîñé Éþîšöðé ~~~~]`. The task runs only with `-Pmigratrack.pseudo=true`, so a Release build never contains it. Run the app with `-AppleLanguages "(en-XA)"`. Stage 1 must check that iOS passes this locale to `NSLocale.preferredLanguages`.
+- **Compose:** Compose resources have no pseudo-locale. The Gradle task `pseudoLocalize` writes `values-en-rXA/strings.xml` from `values/strings.xml`: accented letters, 40% longer text, and brackets at both ends, for example `[Ļöĝ Ṁîĝŕåîñé Éþîšöðé ~~~~~~~~]`. It also writes `values-ru-rXC` (Cyrillic letters) and `values-th-rXT` (Thai letters with marks). The task runs only with `-Pmigratrack.pseudo=true` or the environment variable `MIGRATRACK_PSEUDO=true` (Xcode starts Gradle itself), so a normal or Release build never contains it. Run the app with `-AppleLanguages "(en-XA)"`.
 - Three runs come before any translation exists. `-AppleLanguages "(ar)"` shows the mirrored layout (section 4.8). A pseudo-locale with Cyrillic letters and one with Thai marks show the system font and the line heights (sections 4.6 and 4.7).
 - Check each screen at the default text size and at XXXL, which is the largest size that the app supports ([Theme.kt:76](../composeApp/src/commonMain/kotlin/com/migratrack/app/ui/theme/Theme.kt#L76)).
 - Watch: check the 40 mm SE and the 49 mm Ultra, also at the largest accessibility size. The watch simulator takes the text size from a launch argument: `-UIPreferredContentSizeCategoryName UICTContentSizeCategoryAccessibilityXXXL`.
 
 ### 5.2 Completeness tests
 
-One Gradle task `verifyTranslations`, part of `./gradlew check`. It uses only the JVM XML parser and the Groovy JSON parser of Gradle, so it needs no new dependency. It fails when:
+One Gradle task `verifyTranslations`, part of `./gradlew check`. It lives in `buildSrc/src/main/kotlin/l10n` and uses only the JVM XML parser and the Groovy JSON parser of Gradle, so it needs no new dependency. `verifyTranslationsSelfTest` runs it on broken files in `buildSrc/src/fixtures/l10n` and expects exactly their problems. It fails when:
 
 - a key of `values/` is missing in a language, or a language has a key that `values/` does not have;
 - the placeholders differ (`%1$s` in English, `%1$d` or nothing in the translation);
@@ -375,23 +375,25 @@ One Gradle task `verifyTranslations`, part of `./gradlew check`. It uses only th
 - `font_family` does not match the script of the language (section 4.7);
 - a string in an `.xcstrings` file is not in the state "translated" for each language;
 - a string is longer than the maximum in its comment;
-- the languages of the Compose resources, of `InfoPlist.xcstrings` and of the legal files differ;
+- the languages of the Compose resources, of `InfoPlist.xcstrings`, of `knownRegions` in the Xcode project and of the legal files differ;
+- a legal folder lacks a document, `docs/_config.yml` does not exclude it, or `legal_folder` does not name the folder of its language;
 - a term pair from the glossary has different translations on the iPhone and on the watch (section 4.4).
 
 A unit test also checks that each built-in trigger and medication ID has a name resource. The exhaustive `when` (section 4.2) already guards the enums.
 
 ### 5.3 Screenshots in each language
 
-The screenshots in `docs/user-journey` and in the notes come from the simulator. A script repeats them for each language:
+The screenshots in `docs/user-journey` and in the notes come from the simulator. `scripts/l10n-screenshots.sh` repeats them for each language. It launches a Debug build with `-AppleLanguages`, `-AppleLocale` and `-MigraTrackScreen <tab or Settings>`, which only Debug builds read, and saves Summary, Log, Insights, Export, Settings and, with `WATCH=<udid>`, the watch summary:
 
 ```bash
-xcrun simctl launch <udid> com.migratrack.app -AppleLanguages "(pl)" -AppleLocale pl_PL
-xcrun simctl io <udid> screenshot summary-pl.png
+WATCH=<watch-udid> scripts/l10n-screenshots.sh <udid> build/l10n-screenshots pl:pl_PL en-XA
 ```
 
-The same launch arguments work for the watch app. Use the sample data of the Debug build (Settings › Developer › Load Sample Data), so the charts have data.
+Use the sample data of the Debug build (Settings › Developer › Load Sample Data), so the charts have data.
 
-For 48 languages with English, 8 iPhone screens and 3 watch screens, the script makes about 530 images. They do not go into Git. Claude reads them for cut, overlapping or untranslated text before each batch merges, and the project owner looks at Russian, Belarusian and English. The App Store images go to App Store Connect.
+[LOCALIZATION_CHECKLIST.md](LOCALIZATION_CHECKLIST.md) lists the files, the back-translation and the checks of each batch.
+
+For 48 languages with English, 5 iPhone screens and 1 watch screen, the script makes about 290 images. They do not go into Git. Claude reads them for cut, overlapping or untranslated text before each batch merges, and the project owner looks at Russian, Belarusian and English. The App Store images go to App Store Connect.
 
 ### 5.4 App Store
 
