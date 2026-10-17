@@ -62,6 +62,7 @@ import com.migratrack.app.generated.resources.onboarding_treatment_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_title
 import com.migratrack.app.generated.resources.onboarding_update_later
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.classText
 import com.migratrack.app.ui.components.AddRow
@@ -337,7 +338,7 @@ private fun StepPage(
             }
             Spacer(Modifier.weight(1f))
             if (step != null) {
-                MtText(stringResource(Res.string.onboarding_step, step, STEP_COUNT).uppercase(), MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
+                MtText(stringResource(Res.string.onboarding_step, Numbers.integer(step), Numbers.integer(STEP_COUNT)).uppercase(), MtTheme.type.caption, color = MtColors.Pink, modifier = Modifier.padding(end = 8.dp))
             }
         }
     }

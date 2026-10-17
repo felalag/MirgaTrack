@@ -319,7 +319,8 @@ val Medication.classText: UiText
 
 val Dose.text: UiText
     get() = when (unit) {
-        DoseUnit.Milligram -> UiText.Resource(Res.string.medication_dose_milligrams, amount)
+        // A grouping separator reads as a decimal point in many regions: "1.000mg" would look like 1 mg.
+        DoseUnit.Milligram -> UiText.Resource(Res.string.medication_dose_milligrams, Numbers.integer(amount, grouping = false))
     }
 
 /** Loads every catalog name in the current language, so the report can name things without suspending. */

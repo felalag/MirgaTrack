@@ -1,7 +1,6 @@
 package com.migratrack.domain
 
 import com.migratrack.domain.analytics.CalendarBuilder
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.LogSource
 import com.migratrack.domain.model.MedicationCatalog
@@ -14,6 +13,9 @@ import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.domain.usecase.UpdateEpisode
 import com.migratrack.domain.usecase.toDraft
 import kotlinx.coroutines.test.runTest
+import kotlinx.datetime.DayOfWeek
+import kotlinx.datetime.DayOfWeek.MONDAY
+import kotlinx.datetime.DayOfWeek.SUNDAY
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.YearMonth
@@ -34,13 +36,24 @@ class CalendarAndEditingTest {
     @Test
     fun calendarStartsOnMondayWithTheTailOfThePreviousMonth() {
         // Oct 1, 2026 is a Thursday.
-        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 10), today, UTC, LONG_AGO)
+        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 10), today, UTC, LONG_AGO, MONDAY)
 
         assertEquals(LocalDate(2026, 9, 28), calendar.days.first().date)
         assertEquals(3, calendar.days.count { !it.inMonth })
         assertEquals(31, calendar.days.count { it.inMonth })
         assertTrue(calendar.days.single { it.date == today }.isToday)
         assertEquals(9, calendar.days.count { it.isFuture })
+        assertEquals(DayOfWeek.entries, calendar.weekdays)
+    }
+
+    @Test
+    fun calendarStartsOnSundayWhereTheRegionDoes() {
+        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 10), today, UTC, LONG_AGO, SUNDAY)
+
+        assertEquals(LocalDate(2026, 9, 27), calendar.days.first().date)
+        assertEquals(4, calendar.days.count { !it.inMonth })
+        assertEquals(listOf(SUNDAY) + DayOfWeek.entries.dropLast(1), calendar.weekdays)
+        assertTrue(calendar.days.chunked(7).all { week -> week.first().date.dayOfWeek == SUNDAY })
     }
 
     @Test
@@ -51,7 +64,7 @@ class CalendarAndEditingTest {
             episodeOn(LocalDate(2026, 10, 18), intensity = 3, hour = 8),
             episodeOn(LocalDate(2026, 10, 18), intensity = 8, hour = 19),
         )
-        val calendar = CalendarBuilder.month(episodes, YearMonth(2026, 10), today, UTC, LONG_AGO)
+        val calendar = CalendarBuilder.month(episodes, YearMonth(2026, 10), today, UTC, LONG_AGO, MONDAY)
 
         assertEquals(2, calendar.attackDays)
         val eighteenth = calendar.days.single { it.date == LocalDate(2026, 10, 18) }
@@ -63,7 +76,7 @@ class CalendarAndEditingTest {
 
     @Test
     fun calendarMarksDaysBeforeTheTrackingStartAsNotTracked() {
-        val calendar = CalendarBuilder.month(listOf(episodeOn(LocalDate(2026, 10, 4))), YearMonth(2026, 10), today, UTC, LocalDate(2026, 10, 15))
+        val calendar = CalendarBuilder.month(listOf(episodeOn(LocalDate(2026, 10, 4))), YearMonth(2026, 10), today, UTC, LocalDate(2026, 10, 15), MONDAY)
         val tracked = calendar.days.filter { it.isTracked && !it.isFuture }.map { it.date.day }
 
         // The logged Oct 4 is tracked; the other days before Oct 15 are unknown.
@@ -71,10 +84,15 @@ class CalendarAndEditingTest {
     }
 
     @Test
-    fun calendarOfAMonthStartingOnMondayHasNoLeadingDays() {
-        val calendar = CalendarBuilder.month(emptyList(), YearMonth(2026, 6), today, UTC, LONG_AGO)
-        assertEquals(LocalDate(2026, 6, 1), calendar.days.first().date)
-        assertTrue(calendar.days.all { it.inMonth && !it.isFuture })
+    fun calendarOfAMonthStartingOnTheFirstDayOfTheWeekHasNoLeadingDays() {
+        val june = CalendarBuilder.month(emptyList(), YearMonth(2026, 6), today, UTC, LONG_AGO, MONDAY)
+        assertEquals(LocalDate(2026, 6, 1), june.days.first().date)
+        assertTrue(june.days.all { it.inMonth && !it.isFuture })
+
+        // Nov 1, 2026 is a Sunday.
+        val november = CalendarBuilder.month(emptyList(), YearMonth(2026, 11), today, UTC, LONG_AGO, SUNDAY)
+        assertEquals(LocalDate(2026, 11, 1), november.days.first().date)
+        assertEquals(30, november.days.size)
     }
 
     @Test
@@ -152,16 +170,6 @@ class CalendarAndEditingTest {
         assertEquals(listOf("Ibuprofen 200mg", "Eletriptan 40mg"), draft.medications.map { it.displayName })
         assertEquals(listOf(ibuprofen.catalogDose, null), draft.medications.map { it.catalogDose })
         assertFalse(draft.medications.first().isCustom)
-    }
-
-    @Test
-    fun dayAndTimeNamesRecentDaysAndAddsTheYearOnlyWhenItDiffers() {
-        assertEquals("Today, 09:05", DateText.dayAndTime(LocalDateTime(2026, 10, 22, 9, 5), today))
-        assertEquals("Yesterday, 22:40", DateText.dayAndTime(LocalDateTime(2026, 10, 21, 22, 40), today))
-        assertEquals("Oct 16, 17:55", DateText.dayAndTime(LocalDateTime(2026, 10, 16, 17, 55), today))
-        assertEquals("Dec 30, 2025, 08:00", DateText.dayAndTime(LocalDateTime(2025, 12, 30, 8, 0), today))
-        assertEquals("Thursday, Oct 22", DateText.weekdayMonthDay(today))
-        assertEquals("October 2026", DateText.monthYear(YearMonth(2026, 10)))
     }
 
     private fun at(date: LocalDate, hour: Int, minute: Int) =

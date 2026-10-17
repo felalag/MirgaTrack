@@ -20,7 +20,7 @@ class CatalogTextTest {
     @Test
     fun theCatalogDoseIsShownInTheLanguageOfTheApp() {
         val text = assertIs<UiText.Resource>(medicationText("ibuprofen-400", "Ibuprofen", "400mg"))
-        assertEquals(listOf(400), assertIs<UiText.Resource>(text.args[1]).args.toList())
+        assertEquals(listOf("400"), assertIs<UiText.Resource>(text.args[1]).args.toList())
     }
 
     @Test

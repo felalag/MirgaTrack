@@ -2,6 +2,8 @@ package com.migratrack.export
 
 import com.migratrack.domain.model.ExportPreferences
 import com.migratrack.domain.model.ExportRange
+import com.migratrack.export.format.DateFormats
+import com.migratrack.export.format.NumberFormats
 import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportCanvas
 import com.migratrack.export.pdf.ReportPdf
@@ -55,7 +57,7 @@ class ReportTest {
         assertEquals(4, daily.count { it.last() == Cell.Text("Pain-Free") })
 
         val canvas = RecordingRenderer()
-        ReportPdf.render(report, canvas)
+        ReportPdf.render(report, canvas, EnglishDateFormats, EnglishNumberFormats)
         assertTrue(canvas.texts.any { it.startsWith("Tracking started on Oct 20, 2026. 84 earlier days") })
         assertTrue("Not tracked" in canvas.texts)
     }
@@ -63,7 +65,7 @@ class ReportTest {
     @Test
     fun reportOfAFullyTrackedRangeHasNoTrackingNote() {
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(listOf(episode(20))), canvas)
+        ReportPdf.render(report(listOf(episode(20))), canvas, EnglishDateFormats, EnglishNumberFormats)
 
         assertFalse(canvas.texts.any { it.startsWith("Tracking started") || it == "Not tracked" })
     }
@@ -89,7 +91,7 @@ class ReportTest {
     fun longEpisodeLogBreaksOntoNewPagesInsideTheMargins() {
         val episodes = (1..24).map { episode(it) } + (1..30).map { episode(it, month = 9) }
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(episodes), canvas)
+        ReportPdf.render(report(episodes), canvas, EnglishDateFormats, EnglishNumberFormats)
 
         assertTrue(canvas.pages >= 2, "expected several pages, got ${canvas.pages}")
         assertTrue(canvas.maxContentBottom <= ReportPdf.PAGE_HEIGHT - 40f, "content ran into the bottom margin")
@@ -101,7 +103,7 @@ class ReportTest {
         val days = (0 until 80).map { TODAY.minus(it, DateTimeUnit.DAY) }
         for (count in 1..days.size) {
             val canvas = RecordingRenderer()
-            ReportPdf.render(report(days.take(count).map { episode(it.day, it.month.number) }), canvas)
+            ReportPdf.render(report(days.take(count).map { episode(it.day, it.month.number) }), canvas, EnglishDateFormats, EnglishNumberFormats)
 
             val lastPage = canvas.pageTexts.last().filterNot { it.startsWith("MigraTrack · Page") }
             assertTrue(lastPage.size > 1, "$count episodes: the last page has only $lastPage")
@@ -112,7 +114,7 @@ class ReportTest {
     @Test
     fun pdfLeavesOutTheChartWhenItIsSwitchedOff() {
         val canvas = RecordingRenderer()
-        ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas)
+        ReportPdf.render(report(listOf(episode(20)), ExportPreferences(includePainCharts = false)), canvas, EnglishDateFormats, EnglishNumberFormats)
         assertFalse(canvas.texts.any { it.startsWith("Pain Intensity Timeline") })
     }
 
@@ -129,13 +131,13 @@ class ReportTest {
     @Test
     fun pdfShowsTriggerFrequencyAsAShareOfEpisodesOnlyWhenSwitchedOn() {
         val episodes = listOf(episode(20), episode(21, triggers = emptyList()))
-        val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it) }
+        val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishDateFormats, EnglishNumberFormats) }
         assertTrue("Possible Triggers Noted" in on.texts)
         assertTrue("1 of 2 episodes (50%)" in on.texts)
         assertTrue(on.texts.any { it.contains("do not show a cause") && it.contains("1 of 2 episodes has no triggers noted") })
         assertTrue("TRIGGERS" in on.texts)
 
-        val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it) }
+        val off = RecordingRenderer().also { ReportPdf.render(report(episodes, ExportPreferences(includeTriggers = false)), it, EnglishDateFormats, EnglishNumberFormats) }
         assertFalse("Possible Triggers Noted" in off.texts)
         assertFalse("TRIGGERS" in off.texts)
     }
@@ -146,13 +148,29 @@ class ReportTest {
         val later = logged.copy(medications = logged.medications.map { it.copy(takenAt = it.takenAt + 2.hours) })
         val report = report(listOf(later))
 
-        val canvas = RecordingRenderer().also { ReportPdf.render(report, it) }
+        val canvas = RecordingRenderer().also { ReportPdf.render(report, it, EnglishDateFormats, EnglishNumberFormats) }
         assertTrue("Ibuprofen 400mg" in canvas.texts)
         assertFalse(canvas.texts.any { it.contains(" at ") && it.startsWith("Ibuprofen") })
 
         val medications = ReportWorkbook.sheets(report).single { it.name == "Medications" }
         assertEquals("Episode Started", medications.columns.first().title)
         assertEquals(Cell.DateTime(LocalDateTime(2026, 10, 20, 9, 30)), medications.rows.single().first())
+    }
+
+    @Test
+    fun pdfWritesDatesAndNumbersInTheFormatsOfTheRegion() {
+        val dayFirst = object : DateFormats by EnglishDateFormats {
+            override fun fullDate(date: LocalDate) = "${date.day} ${shortMonth(date.month)} ${date.year}"
+        }
+        val decimalComma = object : NumberFormats by EnglishNumberFormats {
+            override fun decimal(value: Double) = EnglishNumberFormats.decimal(value).replace('.', ',')
+        }
+        val episodes = listOf(episode(20, intensity = 5), episode(21, intensity = 6))
+        val canvas = RecordingRenderer().also { ReportPdf.render(report(episodes), it, dayFirst, decimalComma) }
+
+        assertTrue("5,5" in canvas.texts)
+        assertTrue(canvas.texts.any { it.contains("Generated 24 Oct 2026") })
+        assertTrue(canvas.texts.any { it.startsWith("20 Oct 2026\n") })
     }
 
     /** Records draw calls. Text wraps at half the font size per character, 1.2 × font size per line. */

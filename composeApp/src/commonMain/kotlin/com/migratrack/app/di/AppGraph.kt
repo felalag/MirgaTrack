@@ -2,6 +2,8 @@ package com.migratrack.app.di
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.migratrack.app.platform.PlatformServices
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.loadCatalogNames
 import com.migratrack.domain.repository.CatalogRepository
 import com.migratrack.domain.repository.EpisodeRepository
@@ -36,7 +38,7 @@ class AppGraph(
     val quickLog = QuickLogEpisode(profiles, loggingPreset, logEpisode)
     val completeOnboarding = CompleteOnboarding(profiles, clock, timeZone)
     val loadSampleData = LoadSampleData(episodes, profiles, clock, timeZone)
-    val exportReport = ExportReport(episodes, profiles, catalog, clock, timeZone, services.pdfRenderer, names = ::loadCatalogNames)
+    val exportReport = ExportReport(episodes, profiles, catalog, clock, timeZone, services.pdfRenderer, ::loadCatalogNames, Dates, Numbers)
     val phoneSync = PhoneSync(episodes, profiles, catalog, loggingPreset, services.store.documents, services.store.eraser, clock)
 
     fun today(): LocalDate = clock.todayIn(timeZone())

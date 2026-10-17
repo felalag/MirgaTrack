@@ -66,6 +66,7 @@ data class Insights(
 object InsightsCalculator {
 
     /**
+     * @param firstDayOfWeek the first day of the week in the region of the device, for the week view.
      * @param month the browsed month; a later month than today's is clamped to today's.
      *   For a past month the week view shows the week of its last day.
      */
@@ -75,11 +76,12 @@ object InsightsCalculator {
         today: LocalDate,
         timeZone: TimeZone,
         trackedSince: LocalDate,
+        firstDayOfWeek: DayOfWeek,
         month: YearMonth = today.yearMonth,
     ): Insights {
         val shown = minOf(month, today.yearMonth)
         val anchor = if (shown == today.yearMonth) today else shown.lastDay
-        val range = period.range(anchor)
+        val range = period.range(anchor, firstDayOfWeek)
         val end = minOf(range.endInclusive, today)
         val days = MigraineDays(episodes, timeZone, trackedSince)
         val attackCount = days.attacksIn(range.start..end)
@@ -93,7 +95,7 @@ object InsightsCalculator {
         // A partly tracked earlier span has too few attacks and makes the trend look worse than it is.
         val trend = if (earlier == 0 || earlierStart < trackedSince) null else ((recent - earlier) * 100.0 / earlier).roundToInt()
 
-        val bars = period.buckets(anchor).map { (key, bucket) ->
+        val bars = period.buckets(anchor, firstDayOfWeek).map { (key, bucket) ->
             val elapsedPart = bucket.start..minOf(bucket.endInclusive, today)
             InsightsBar(
                 key = key,
@@ -109,8 +111,8 @@ object InsightsCalculator {
     }
 }
 
-private fun InsightsPeriod.range(anchor: LocalDate): ClosedRange<LocalDate> = when (this) {
-    InsightsPeriod.Week -> anchor.startOfWeek().let { it..it.plus(DatePeriod(days = 6)) }
+private fun InsightsPeriod.range(anchor: LocalDate, firstDayOfWeek: DayOfWeek): ClosedRange<LocalDate> = when (this) {
+    InsightsPeriod.Week -> anchor.startOfWeek(firstDayOfWeek).let { it..it.plus(DatePeriod(days = 6)) }
     InsightsPeriod.Month -> anchor.startOfMonth().let { it..it.endOfMonth() }
     InsightsPeriod.SixMonths -> anchor.startOfMonth().minus(DatePeriod(months = 5))..anchor.startOfMonth().endOfMonth()
     InsightsPeriod.Year -> LocalDate(anchor.year, Month.JANUARY, 1)..LocalDate(anchor.year, Month.DECEMBER, 31)
@@ -124,11 +126,11 @@ private val InsightsPeriod.trendSpanDays: Int
         InsightsPeriod.Year -> 365
     }
 
-private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<InsightsBarKey, ClosedRange<LocalDate>>> = when (this) {
+private fun InsightsPeriod.buckets(anchor: LocalDate, firstDayOfWeek: DayOfWeek): List<Pair<InsightsBarKey, ClosedRange<LocalDate>>> = when (this) {
     InsightsPeriod.Week -> {
-        val monday = anchor.startOfWeek()
+        val first = anchor.startOfWeek(firstDayOfWeek)
         DayOfWeek.entries.indices.map { index ->
-            val date = monday.plus(DatePeriod(days = index))
+            val date = first.plus(DatePeriod(days = index))
             InsightsBarKey.Day(date) to date..date
         }
     }
@@ -152,8 +154,8 @@ private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<InsightsBarKey,
     }
 }
 
-internal fun LocalDate.startOfWeek(): LocalDate =
-    minus(DatePeriod(days = dayOfWeek.isoDayNumber - DayOfWeek.MONDAY.isoDayNumber))
+internal fun LocalDate.startOfWeek(firstDayOfWeek: DayOfWeek): LocalDate =
+    minus(DatePeriod(days = (dayOfWeek.isoDayNumber - firstDayOfWeek.isoDayNumber).mod(7)))
 
 internal fun LocalDate.startOfMonth(): LocalDate = LocalDate(year, month.number, 1)
 

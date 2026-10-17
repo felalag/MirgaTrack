@@ -72,6 +72,8 @@ import com.migratrack.app.generated.resources.insights_triggers_empty
 import com.migratrack.app.generated.resources.insights_triggers_hint
 import com.migratrack.app.generated.resources.insights_without_triggers
 import com.migratrack.app.generated.resources.tab_insights
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.compareForDisplay
 import com.migratrack.app.ui.components.Card
@@ -89,7 +91,6 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.triggerName
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.Insights
 import com.migratrack.domain.analytics.InsightsBar
 import com.migratrack.domain.analytics.InsightsBarKey
@@ -189,9 +190,9 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
             ) {
                 Icon(Symbols.Info, tint = MtColors.TextSecondary, size = 16.dp)
                 Spacer(Modifier.width(6.dp))
-                val all = pluralStringResource(Res.plurals.insights_episode_count, frequency.episodes, frequency.episodes)
+                val all = pluralStringResource(Res.plurals.insights_episode_count, frequency.episodes, Numbers.integer(frequency.episodes))
                 MtText(
-                    pluralStringResource(Res.plurals.insights_without_triggers, frequency.withoutTriggers, frequency.withoutTriggers, all),
+                    pluralStringResource(Res.plurals.insights_without_triggers, frequency.withoutTriggers, Numbers.integer(frequency.withoutTriggers), all),
                     MtTheme.type.subhead,
                     color = MtColors.TextSecondary,
                 )
@@ -203,12 +204,12 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
 @Composable
 private fun TriggerRow(name: String, count: TriggerCount, episodes: Int, accent: Color) {
     val share by animateFloatAsState(count.episodes.toFloat() / episodes, tween(600))
-    val description = pluralStringResource(Res.plurals.insights_trigger_row_a11y, episodes, name, count.episodes, episodes)
+    val description = pluralStringResource(Res.plurals.insights_trigger_row_a11y, episodes, name, Numbers.integer(count.episodes), Numbers.integer(episodes))
     Column(Modifier.semantics(mergeDescendants = true) { contentDescription = description }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             MtText(name, MtTheme.type.body.copy(fontWeight = FontWeight.SemiBold), maxLines = 2, modifier = Modifier.weight(1f))
             Spacer(Modifier.width(MtSpacing.sm))
-            MtText(stringResource(Res.string.insights_trigger_row_count, count.episodes, episodes), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
+            MtText(stringResource(Res.string.insights_trigger_row_count, Numbers.integer(count.episodes), Numbers.integer(episodes)), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
         }
         Spacer(Modifier.height(6.dp))
         Box(Modifier.fillMaxWidth().height(6.dp).clip(CircleShape).background(MtColors.ControlHigh.copy(alpha = 0.4f))) {
@@ -224,7 +225,7 @@ private const val MAX_TRIGGER_ROWS = 5
 private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) {
     val rotation by animateFloatAsState(if (expanded) 180f else 0f)
     val background by animateColorAsState(if (expanded) MtColors.ControlHigh else MtColors.Card)
-    val description = stringResource(Res.string.insights_calendar_a11y, DateText.monthYear(month))
+    val description = stringResource(Res.string.insights_calendar_a11y, Dates.monthYear(month))
     val state = stringResource(if (expanded) Res.string.common_expanded else Res.string.common_collapsed)
     Row(
         Modifier
@@ -243,7 +244,7 @@ private fun MonthPill(month: YearMonth, expanded: Boolean, onClick: () -> Unit) 
     ) {
         Icon(Symbols.CalendarToday, tint = MtColors.PinkSoft, size = 18.dp)
         Spacer(Modifier.width(6.dp))
-        MtText(DateText.shortMonthYear(month), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextPrimary, maxLines = 1)
+        MtText(Dates.shortMonthYear(month), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextPrimary, maxLines = 1)
         Spacer(Modifier.width(6.dp))
         Icon(Symbols.ExpandMore, tint = MtColors.TextSecondary, size = 16.dp, modifier = Modifier.rotate(rotation))
     }
@@ -263,19 +264,19 @@ private fun Insights.headline(): String = when (period) {
     InsightsPeriod.Week -> if (includesToday) {
         pluralStringResource(Res.plurals.insights_headline_this_week, attackCount)
     } else {
-        pluralStringResource(Res.plurals.insights_headline_week_of, attackCount, DateText.monthDay(range.start))
+        pluralStringResource(Res.plurals.insights_headline_week_of, attackCount, Dates.monthDay(range.start))
     }
-    InsightsPeriod.Month -> pluralStringResource(Res.plurals.insights_headline_month, attackCount, DateText.shortMonth(month.month))
+    InsightsPeriod.Month -> pluralStringResource(Res.plurals.insights_headline_month, attackCount, Dates.shortMonth(month.month))
     InsightsPeriod.SixMonths -> pluralStringResource(Res.plurals.insights_headline_six_months, attackCount)
-    InsightsPeriod.Year -> pluralStringResource(Res.plurals.insights_headline_year, attackCount, range.start.year)
+    InsightsPeriod.Year -> pluralStringResource(Res.plurals.insights_headline_year, attackCount, Dates.year(range.start.year))
 }
 
-/** The label under a bar: a weekday, a week of the month, or a month; the year view keeps only its first letter. */
+/** The label under a bar: a weekday, a week of the month, or a month; the year view uses the narrow month name. */
 @Composable
 private fun InsightsBar.label(period: InsightsPeriod): String = when (val key = key) {
-    is InsightsBarKey.Day -> DateText.shortWeekday(key.date.dayOfWeek)
-    is InsightsBarKey.WeekOfMonth -> stringResource(Res.string.insights_bar_week, key.number)
-    is InsightsBarKey.MonthOfYear -> DateText.shortMonth(key.month).let { if (period == InsightsPeriod.Year) it.take(1) else it }
+    is InsightsBarKey.Day -> Dates.shortWeekday(key.date.dayOfWeek)
+    is InsightsBarKey.WeekOfMonth -> stringResource(Res.string.insights_bar_week, Numbers.integer(key.number))
+    is InsightsBarKey.MonthOfYear -> if (period == InsightsPeriod.Year) Dates.narrowMonth(key.month) else Dates.shortMonth(key.month)
 }
 
 @Composable
@@ -286,7 +287,7 @@ private fun AttackCard(insights: Insights) {
                 Modifier.weight(1f).semantics(mergeDescendants = true) {},
                 verticalAlignment = Alignment.Bottom,
             ) {
-                MtText(insights.attackCount.toString(), MtTheme.type.hero)
+                MtText(Numbers.integer(insights.attackCount), MtTheme.type.hero)
                 Spacer(Modifier.width(MtSpacing.xs))
                 MtText(insights.headline(), MtTheme.type.headline, color = MtColors.Caption, modifier = Modifier.padding(bottom = 8.dp))
             }
@@ -338,7 +339,7 @@ private fun LegendItem(text: String, color: androidx.compose.ui.graphics.Color) 
 private fun TrendBadge(percent: Int) {
     val fewer = percent <= 0
     val color = if (fewer) MtColors.Green else MtColors.Pink
-    val description = stringResource(if (fewer) Res.string.insights_trend_fewer else Res.string.insights_trend_more, abs(percent))
+    val description = stringResource(if (fewer) Res.string.insights_trend_fewer else Res.string.insights_trend_more, Numbers.integer(abs(percent)))
     Row(
         Modifier
             .clip(CircleShape)
@@ -351,7 +352,7 @@ private fun TrendBadge(percent: Int) {
     ) {
         Icon(if (fewer) Symbols.TrendingDown else Symbols.TrendingUp, tint = color, size = 16.dp)
         Spacer(Modifier.width(4.dp))
-        MtText("${abs(percent)}%", MtTheme.type.subhead.copy(fontWeight = FontWeight.Bold), color = color)
+        MtText(Numbers.percent(abs(percent)), MtTheme.type.subhead.copy(fontWeight = FontWeight.Bold), color = color)
     }
 }
 
@@ -377,8 +378,8 @@ private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifi
             Res.plurals.insights_bar_migraine_days,
             bar.migraineDays,
             label,
-            bar.migraineDays,
-            bar.peakIntensity?.value ?: 0,
+            Numbers.integer(bar.migraineDays),
+            Numbers.integer(bar.peakIntensity?.value ?: 0),
         )
     }
     Column(

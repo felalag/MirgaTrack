@@ -1,9 +1,10 @@
 package com.migratrack.export
 
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.repository.CatalogRepository
 import com.migratrack.domain.repository.EpisodeRepository
 import com.migratrack.domain.repository.ProfileRepository
+import com.migratrack.export.format.DateFormats
+import com.migratrack.export.format.NumberFormats
 import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportPdf
 import com.migratrack.export.report.CatalogNames
@@ -31,6 +32,8 @@ class ExportReport(
     private val pdfRenderer: PdfRenderer,
     /** Loads the names in the language of the app; it runs before each export, so a language change applies. */
     private val names: suspend () -> CatalogNames,
+    private val dates: DateFormats,
+    private val numbers: NumberFormats,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     suspend fun report(): ClinicalReport {
@@ -50,7 +53,7 @@ class ExportReport(
 
     suspend fun pdf(): ExportFile = withContext(dispatcher) {
         val report = report()
-        ExportFile(fileName(report, "pdf"), "application/pdf", ReportPdf.render(report, pdfRenderer))
+        ExportFile(fileName(report, "pdf"), "application/pdf", ReportPdf.render(report, pdfRenderer, dates, numbers))
     }
 
     suspend fun xlsx(): ExportFile = withContext(dispatcher) {
@@ -63,5 +66,5 @@ class ExportReport(
     }
 
     private fun fileName(report: ClinicalReport, extension: String) =
-        "MigraTrack-Report-${DateText.iso(report.to)}.$extension"
+        "MigraTrack-Report-${report.to}.$extension"
 }

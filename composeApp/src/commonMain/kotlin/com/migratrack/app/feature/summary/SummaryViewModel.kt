@@ -9,7 +9,8 @@ import com.migratrack.app.generated.resources.common_delete_episode
 import com.migratrack.app.generated.resources.common_edit_episode
 import com.migratrack.app.generated.resources.common_intensity_of_ten
 import com.migratrack.app.platform.SheetAction
-import com.migratrack.domain.analytics.DateText
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
@@ -66,8 +67,8 @@ class SummaryViewModel(private val graph: AppGraph) : ViewModel() {
     fun manageEpisode(episode: Episode, onEdit: (EpisodeId) -> Unit) = viewModelScope.launch {
         val dateTime = episode.startedAt.toLocalDateTime(graph.timeZone())
         val choice = graph.services.dialogs.chooseAction(
-            title = getString(Res.string.common_date_at_time, DateText.fullDate(dateTime.date), DateText.time(dateTime)),
-            message = getString(Res.string.common_intensity_of_ten, episode.intensity.value),
+            title = getString(Res.string.common_date_at_time, Dates.fullDate(dateTime.date), Dates.time(dateTime)),
+            message = getString(Res.string.common_intensity_of_ten, Numbers.integer(episode.intensity.value)),
             actions = listOf(
                 SheetAction(getString(Res.string.common_edit_episode)),
                 SheetAction(getString(Res.string.common_delete_episode), destructive = true),

@@ -4,6 +4,8 @@ import com.migratrack.domain.analytics.InsightsBarKey
 import com.migratrack.domain.analytics.InsightsCalculator
 import com.migratrack.domain.analytics.InsightsPeriod
 import kotlinx.datetime.DayOfWeek
+import kotlinx.datetime.DayOfWeek.MONDAY
+import kotlinx.datetime.DayOfWeek.SUNDAY
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.Month
 import kotlinx.datetime.YearMonth
@@ -20,7 +22,7 @@ class InsightsCalculatorTest {
     @Test
     fun weekHasSevenDaysFromMondayAndMarksFutureDays() {
         val episodes = listOf(episodeOn(LocalDate(2026, 10, 20), intensity = 6))
-        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO, MONDAY)
 
         assertEquals(DayOfWeek.entries, insights.bars.map { (it.key as InsightsBarKey.Day).date.dayOfWeek })
         assertEquals(1, insights.attackCount)
@@ -30,10 +32,30 @@ class InsightsCalculatorTest {
     }
 
     @Test
+    fun weekStartsOnSundayWhereTheRegionDoes() {
+        val episodes = listOf(episodeOn(LocalDate(2026, 10, 18), intensity = 4), episodeOn(LocalDate(2026, 10, 17)))
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO, SUNDAY)
+
+        assertEquals(LocalDate(2026, 10, 18)..LocalDate(2026, 10, 24), insights.range)
+        assertEquals(listOf(SUNDAY) + DayOfWeek.entries.dropLast(1), insights.bars.map { (it.key as InsightsBarKey.Day).date.dayOfWeek })
+        assertEquals(1, insights.attackCount)
+        assertEquals(4, insights.bars[0].peakIntensity?.value)
+        assertTrue(insights.bars[4].isCurrent)
+        assertEquals(listOf(1, 1, 1, 1, 1, 0, 0), insights.bars.map { it.elapsedDays })
+    }
+
+    @Test
+    fun weekOfASundayStartsSixDaysEarlierWhenTheRegionStartsOnMonday() {
+        val sunday = LocalDate(2026, 10, 25)
+        assertEquals(LocalDate(2026, 10, 19), InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, sunday, UTC, LONG_AGO, MONDAY).range.start)
+        assertEquals(sunday, InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, sunday, UTC, LONG_AGO, SUNDAY).range.start)
+    }
+
+    @Test
     fun monthFoldsDaysAfterTheTwentyEighthIntoTheFourthWeek() {
         val octoberEnd = LocalDate(2026, 10, 31)
         val episodes = listOf(episodeOn(LocalDate(2026, 10, 30)), episodeOn(LocalDate(2026, 10, 3)))
-        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, octoberEnd, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, octoberEnd, UTC, LONG_AGO, MONDAY)
 
         assertEquals((1..4).map { InsightsBarKey.WeekOfMonth(it) }, insights.bars.map { it.key })
         assertEquals(10, insights.bars[3].elapsedDays)
@@ -46,7 +68,7 @@ class InsightsCalculatorTest {
     fun twoAttacksOnOneDayCountAsTwoAttacksButOneMigraineDay() {
         val day = LocalDate(2026, 10, 5)
         val episodes = listOf(episodeOn(day, hour = 8), episodeOn(day, hour = 20, intensity = 9))
-        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO, MONDAY)
 
         assertEquals(2, insights.attackCount)
         assertEquals(1, insights.bars[0].migraineDays)
@@ -58,7 +80,7 @@ class InsightsCalculatorTest {
         // Aug 17 – Sep 15 has 4 attacks, Sep 16 – Oct 15 has 2.
         val earlier = listOf(LocalDate(2026, 8, 20), LocalDate(2026, 8, 25), LocalDate(2026, 9, 1), LocalDate(2026, 9, 10))
         val recent = listOf(LocalDate(2026, 9, 20), LocalDate(2026, 10, 2))
-        val insights = InsightsCalculator.calculate((earlier + recent).map { episodeOn(it) }, InsightsPeriod.Month, LocalDate(2026, 10, 15), UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate((earlier + recent).map { episodeOn(it) }, InsightsPeriod.Month, LocalDate(2026, 10, 15), UTC, LONG_AGO, MONDAY)
 
         assertEquals(-50, insights.trendPercent)
     }
@@ -68,7 +90,7 @@ class InsightsCalculatorTest {
         val earlier = listOf(LocalDate(2026, 9, 5), LocalDate(2026, 9, 10))
         val recent = listOf(LocalDate(2026, 9, 20), LocalDate(2026, 10, 2), LocalDate(2026, 10, 9))
         val insights = InsightsCalculator.calculate(
-            (earlier + recent).map { episodeOn(it) }, InsightsPeriod.Month, LocalDate(2026, 10, 15), UTC, trackedSince = LocalDate(2026, 9, 1),
+            (earlier + recent).map { episodeOn(it) }, InsightsPeriod.Month, LocalDate(2026, 10, 15), UTC, trackedSince = LocalDate(2026, 9, 1), firstDayOfWeek = MONDAY,
         )
 
         // Aug 17 – Aug 31 is not tracked, so "+50%" would compare 30 days against 15.
@@ -79,16 +101,16 @@ class InsightsCalculatorTest {
     fun barsBeforeTheTrackingStartAreNotTracked() {
         // Tracking started on Tuesday, Oct 20; today is Thursday, Oct 22.
         val trackedSince = LocalDate(2026, 10, 20)
-        val month = InsightsCalculator.calculate(listOf(episodeOn(LocalDate(2026, 10, 21))), InsightsPeriod.Month, today, UTC, trackedSince)
+        val month = InsightsCalculator.calculate(listOf(episodeOn(LocalDate(2026, 10, 21))), InsightsPeriod.Month, today, UTC, trackedSince, MONDAY)
 
         assertEquals(listOf(7, 7, 7, 1), month.bars.map { it.elapsedDays })
         assertEquals(listOf(0, 0, 2, 1), month.bars.map { it.trackedDays })
         assertEquals(listOf(0, 0, 1, 1), month.bars.map { it.painFreeDays })
 
-        val week = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, trackedSince)
+        val week = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, trackedSince, MONDAY)
         assertEquals(listOf(0, 1, 1, 1, 0, 0, 0), week.bars.map { it.trackedDays })
 
-        val sixMonths = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, trackedSince)
+        val sixMonths = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, trackedSince, MONDAY)
         assertEquals(listOf(0, 0, 0, 0, 0, 3), sixMonths.bars.map { it.painFreeDays })
     }
 
@@ -99,27 +121,27 @@ class InsightsCalculatorTest {
             LocalDate(2026, 8, 15), LocalDate(2026, 8, 25), LocalDate(2026, 9, 4),
             LocalDate(2026, 9, 14), LocalDate(2026, 9, 24), LocalDate(2026, 10, 2),
         ).map { episodeOn(it) }
-        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, LocalDate(2026, 10, 4), UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, LocalDate(2026, 10, 4), UTC, LONG_AGO, MONDAY)
 
         assertEquals(0, insights.trendPercent)
     }
 
     @Test
     fun trendIsNullWithoutAttacksInThePreviousPeriod() {
-        val insights = InsightsCalculator.calculate(listOf(episodeOn(today)), InsightsPeriod.Year, today, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(listOf(episodeOn(today)), InsightsPeriod.Year, today, UTC, LONG_AGO, MONDAY)
         assertNull(insights.trendPercent)
     }
 
     @Test
     fun sixMonthsEndsWithTheCurrentMonth() {
-        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, LONG_AGO, MONDAY)
         assertEquals(months(Month.MAY, Month.OCTOBER), insights.bars.map { it.key })
         assertTrue(insights.bars.last().isCurrent)
     }
 
     @Test
     fun yearLabelsMonthsWithTheirInitials() {
-        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, LONG_AGO)
+        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, LONG_AGO, MONDAY)
         assertEquals(months(Month.JANUARY, Month.DECEMBER), insights.bars.map { it.key })
         assertEquals(0, insights.bars[11].elapsedDays)
     }
@@ -131,7 +153,7 @@ class InsightsCalculatorTest {
             LocalDate(2026, 8, 5), LocalDate(2026, 8, 12), LocalDate(2026, 8, 30),
             LocalDate(2026, 9, 3), LocalDate(2026, 9, 20), LocalDate(2026, 10, 2),
         ).map { episodeOn(it) }
-        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO, YearMonth(2026, 9))
+        val insights = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO, MONDAY, YearMonth(2026, 9))
 
         assertEquals(YearMonth(2026, 9), insights.month)
         assertEquals(LocalDate(2026, 9, 1)..LocalDate(2026, 9, 30), insights.range)
@@ -146,12 +168,14 @@ class InsightsCalculatorTest {
     @Test
     fun pastMonthAnchorsTheOtherPeriodsAtItsLastDay() {
         val september = YearMonth(2026, 9)
-        val week = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, LONG_AGO, september)
-        val sixMonths = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, LONG_AGO, september)
-        val lastYear = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, LONG_AGO, YearMonth(2025, 3))
+        val week = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, LONG_AGO, MONDAY, september)
+        val sixMonths = InsightsCalculator.calculate(emptyList(), InsightsPeriod.SixMonths, today, UTC, LONG_AGO, MONDAY, september)
+        val lastYear = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Year, today, UTC, LONG_AGO, MONDAY, YearMonth(2025, 3))
 
         // Sep 30, 2026 is a Wednesday; its week runs into October.
         assertEquals(LocalDate(2026, 9, 28)..LocalDate(2026, 10, 4), week.range)
+        val sundayWeek = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Week, today, UTC, LONG_AGO, SUNDAY, september)
+        assertEquals(LocalDate(2026, 9, 27)..LocalDate(2026, 10, 3), sundayWeek.range)
         assertEquals(months(Month.APRIL, Month.SEPTEMBER), sixMonths.bars.map { it.key })
         assertEquals(LocalDate(2025, 1, 1)..LocalDate(2025, 12, 31), lastYear.range)
         assertEquals(31, lastYear.bars[11].elapsedDays)
@@ -159,7 +183,7 @@ class InsightsCalculatorTest {
 
     @Test
     fun futureMonthFallsBackToTheCurrentOne() {
-        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Month, today, UTC, LONG_AGO, YearMonth(2027, 1))
+        val insights = InsightsCalculator.calculate(emptyList(), InsightsPeriod.Month, today, UTC, LONG_AGO, MONDAY, YearMonth(2027, 1))
         assertEquals(YearMonth(2026, 10), insights.month)
         assertTrue(insights.includesToday)
     }

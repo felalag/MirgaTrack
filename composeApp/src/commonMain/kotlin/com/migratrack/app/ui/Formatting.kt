@@ -5,8 +5,16 @@ import androidx.compose.ui.text.AnnotatedString
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.duration_hours_minutes
 import com.migratrack.app.generated.resources.duration_minutes
+import com.migratrack.export.format.DateFormats
+import com.migratrack.export.format.NumberFormats
 import kotlin.time.Duration
 import org.jetbrains.compose.resources.stringResource
+
+/** Dates in the language and region of the device, for the UI and the report. */
+expect val Dates: DateFormats
+
+/** Numbers in the language and region of the device. Every number on the screen goes through it. */
+expect val Numbers: NumberFormats
 
 /** "7 h 20 min", or "45 min" under an hour. */
 @Composable
@@ -14,9 +22,9 @@ fun formatHoursMinutes(duration: Duration): String {
     val hours = duration.inWholeHours
     val minutes = duration.inWholeMinutes % 60
     return if (hours == 0L) {
-        stringResource(Res.string.duration_minutes, minutes)
+        stringResource(Res.string.duration_minutes, Numbers.integer(minutes.toInt()))
     } else {
-        stringResource(Res.string.duration_hours_minutes, hours, minutes)
+        stringResource(Res.string.duration_hours_minutes, Numbers.integer(hours.toInt()), Numbers.integer(minutes.toInt()))
     }
 }
 
