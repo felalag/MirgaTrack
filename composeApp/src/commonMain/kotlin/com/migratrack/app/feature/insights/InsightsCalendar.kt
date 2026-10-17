@@ -67,6 +67,8 @@ import com.migratrack.app.generated.resources.calendar_previous_month
 import com.migratrack.app.generated.resources.common_delete_episode
 import com.migratrack.app.generated.resources.common_log_migraine_episode
 import com.migratrack.app.generated.resources.common_none
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.DestructiveButton
 import com.migratrack.app.ui.components.Dot
@@ -83,7 +85,6 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.CalendarDay
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.DayEpisodes
 import com.migratrack.domain.analytics.MonthCalendar
 import kotlinx.datetime.LocalDate
@@ -95,7 +96,6 @@ import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
-private val WEEKDAY_INITIALS = listOf("M", "T", "W", "T", "F", "S", "S")
 private val CellGap = 6.dp
 
 /**
@@ -148,9 +148,9 @@ fun CalendarCard(
                 verticalArrangement = Arrangement.spacedBy(MtSpacing.xs),
             ) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(CellGap)) {
-                    WEEKDAY_INITIALS.forEach { initial ->
+                    calendar.weekdays.forEach { weekday ->
                         MtText(
-                            initial,
+                            Dates.narrowWeekday(weekday),
                             MtTheme.type.caption,
                             color = MtColors.TextSecondary,
                             textAlign = TextAlign.Center,
@@ -178,7 +178,7 @@ fun CalendarCard(
 
 @Composable
 private fun CalendarHeader(calendar: MonthCalendar, onPickMonth: () -> Unit) {
-    val description = stringResource(Res.string.calendar_choose_month_a11y, DateText.monthYear(calendar.month))
+    val description = stringResource(Res.string.calendar_choose_month_a11y, Dates.monthYear(calendar.month))
     Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.xs)) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Row(
@@ -194,7 +194,7 @@ private fun CalendarHeader(calendar: MonthCalendar, onPickMonth: () -> Unit) {
                 Icon(Symbols.CalendarMonth, tint = MtColors.PinkSoft, size = 20.dp)
                 Spacer(Modifier.width(MtSpacing.sm))
                 MtText(
-                    DateText.monthYear(calendar.month),
+                    Dates.monthYear(calendar.month),
                     MtTheme.type.title2.copy(fontWeight = FontWeight.Bold),
                     maxLines = 1,
                     modifier = Modifier.weight(1f, fill = false),
@@ -221,7 +221,7 @@ private fun AttackDaysPill(count: Int) {
         Dot(MtColors.Pink, size = 8.dp)
         Spacer(Modifier.width(6.dp))
         MtText(
-            pluralStringResource(Res.plurals.calendar_migraine_days, count, count),
+            pluralStringResource(Res.plurals.calendar_migraine_days, count, Numbers.integer(count)),
             MtTheme.type.caption.copy(fontWeight = FontWeight.SemiBold, letterSpacing = MtTheme.type.subhead.letterSpacing),
             color = MtColors.TextPrimary,
             maxLines = 1,
@@ -291,7 +291,7 @@ private fun DayCell(day: CalendarDay, selected: Boolean, onSelect: (LocalDate) -
         contentAlignment = Alignment.Center,
     ) {
         MtText(
-            day.date.day.toString(),
+            Numbers.integer(day.date.day),
             MtTheme.type.subhead.copy(fontWeight = if (attack || selected) FontWeight.Bold else FontWeight.SemiBold),
             color = textColor,
         )
@@ -323,12 +323,12 @@ private fun Modifier.ring(color: Color): Modifier = drawBehind {
 
 @Composable
 private fun CalendarDay.spoken(): String {
-    val name = DateText.weekdayMonthDay(date)
+    val name = Dates.weekdayMonthDay(date)
     val detail = when {
         !inMonth || isFuture -> stringResource(Res.string.calendar_day_not_available)
         !isTracked -> stringResource(Res.string.calendar_day_not_tracked)
         attacks == 0 -> stringResource(Res.string.calendar_day_no_episodes)
-        else -> pluralStringResource(Res.plurals.calendar_day_episodes, attacks, attacks, peak?.value ?: 0)
+        else -> pluralStringResource(Res.plurals.calendar_day_episodes, attacks, Numbers.integer(attacks), Numbers.integer(peak?.value ?: 0))
     }
     return stringResource(if (isToday) Res.string.calendar_day_today_a11y else Res.string.calendar_day_a11y, name, detail)
 }
@@ -363,12 +363,12 @@ private fun DayPreview(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         val detail = day.episodes.singleOrNull()
-            ?.let { DateText.time(it.startedAt.toLocalDateTime(timeZone)) }
-            ?: pluralStringResource(Res.plurals.calendar_day_episode_count, day.episodes.size, day.episodes.size)
-        MtText(stringResource(Res.string.calendar_day_header, DateText.weekdayMonthDay(day.date), detail).uppercase(), MtTheme.type.caption, color = MtColors.BrandLabel)
+            ?.let { Dates.time(it.startedAt.toLocalDateTime(timeZone)) }
+            ?: pluralStringResource(Res.plurals.calendar_day_episode_count, day.episodes.size, Numbers.integer(day.episodes.size))
+        MtText(stringResource(Res.string.calendar_day_header, Dates.weekdayMonthDay(day.date), detail).uppercase(), MtTheme.type.caption, color = MtColors.BrandLabel)
         PreviewTile(Symbols.Bolt, stringResource(Res.string.calendar_peak_intensity)) {
             Row(verticalAlignment = Alignment.Bottom) {
-                MtText(day.peak?.value?.toString() ?: "–", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), color = MtColors.PinkSoft)
+                MtText(day.peak?.value?.let(Numbers::integer) ?: "–", MtTheme.type.bodyStrong.copy(fontWeight = FontWeight.Bold), color = MtColors.PinkSoft)
                 Spacer(Modifier.width(MtSpacing.xs))
                 MtText(stringResource(Res.string.calendar_out_of_ten), MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
             }

@@ -12,8 +12,9 @@ import com.migratrack.app.generated.resources.insights_episode_option
 import com.migratrack.app.generated.resources.insights_month_picker_title
 import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.domain.analytics.CalendarBuilder
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.DayEpisodes
 import com.migratrack.domain.analytics.Insights
 import com.migratrack.domain.analytics.InsightsCalculator
@@ -72,13 +73,13 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
             val today = graph.today()
             val zone = graph.timeZone()
             val trackedSince = user.trackedSince(today)
-            val insights = InsightsCalculator.calculate(episodes, period, today, zone, trackedSince, month)
+            val insights = InsightsCalculator.calculate(episodes, period, today, zone, trackedSince, Dates.firstDayOfWeek, month)
             val shownDay = day?.takeIf { it.yearMonth == insights.month && it <= today }
             InsightsUiState(
                 period = period,
                 insights = insights,
                 calendarOpen = open,
-                calendar = CalendarBuilder.month(episodes, insights.month, today, zone, trackedSince),
+                calendar = CalendarBuilder.month(episodes, insights.month, today, zone, trackedSince, Dates.firstDayOfWeek),
                 selected = shownDay,
                 day = shownDay?.let { CalendarBuilder.day(episodes, it, zone) },
                 triggerCatalog = triggerCatalog,
@@ -136,12 +137,12 @@ class InsightsViewModel(private val graph: AppGraph) : ViewModel() {
             message = getPluralString(
                 Res.plurals.insights_choose_episode_message,
                 day.episodes.size,
-                DateText.weekdayMonthDay(day.date),
-                day.episodes.size,
+                Dates.weekdayMonthDay(day.date),
+                Numbers.integer(day.episodes.size),
             ),
             actions = day.episodes.map {
-                val time = DateText.time(it.startedAt.toLocalDateTime(zone))
-                SheetAction(getString(Res.string.insights_episode_option, time, it.intensity.value), destructive)
+                val time = Dates.time(it.startedAt.toLocalDateTime(zone))
+                SheetAction(getString(Res.string.insights_episode_option, time, Numbers.integer(it.intensity.value)), destructive)
             },
         ) ?: return null
         return day.episodes[index]

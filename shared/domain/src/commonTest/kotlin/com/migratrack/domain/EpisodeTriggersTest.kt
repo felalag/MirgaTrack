@@ -16,6 +16,7 @@ import com.migratrack.domain.usecase.LogEpisode
 import com.migratrack.domain.usecase.UpdateEpisode
 import com.migratrack.domain.usecase.toDraft
 import kotlinx.coroutines.test.runTest
+import kotlinx.datetime.DayOfWeek.MONDAY
 import kotlinx.datetime.LocalDate
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -96,11 +97,11 @@ class EpisodeTriggersTest {
             episodeOn(LocalDate(2026, 9, 28)).withTriggers(caffeine),
         )
 
-        val month = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO).triggers
+        val month = InsightsCalculator.calculate(episodes, InsightsPeriod.Month, today, UTC, LONG_AGO, MONDAY).triggers
         assertEquals(2, month.episodes)
         assertEquals(listOf("poor-sleep" to 2, "bright-light" to 1), month.counts.map { it.triggerId to it.episodes })
 
-        val week = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO).triggers
+        val week = InsightsCalculator.calculate(episodes, InsightsPeriod.Week, today, UTC, LONG_AGO, MONDAY).triggers
         assertEquals(1, week.episodes)
     }
 

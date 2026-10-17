@@ -25,9 +25,10 @@ import com.migratrack.app.generated.resources.episode_other_trigger_title
 import com.migratrack.app.generated.resources.episode_start
 import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.load
 import com.migratrack.app.ui.nameText
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.EpisodeId
@@ -237,8 +238,8 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
 suspend fun confirmDelete(graph: AppGraph, episode: Episode): Boolean {
     val dateTime = episode.startedAt.toLocalDateTime(graph.timeZone())
     val choice = graph.services.dialogs.chooseAction(
-        title = getString(Res.string.common_date_at_time, DateText.fullDate(dateTime.date), DateText.time(dateTime)),
-        message = getString(Res.string.episode_delete_message, episode.intensity.value),
+        title = getString(Res.string.common_date_at_time, Dates.fullDate(dateTime.date), Dates.time(dateTime)),
+        message = getString(Res.string.episode_delete_message, Numbers.integer(episode.intensity.value)),
         actions = listOf(SheetAction(getString(Res.string.common_delete_episode), destructive = true)),
     )
     return choice == 0

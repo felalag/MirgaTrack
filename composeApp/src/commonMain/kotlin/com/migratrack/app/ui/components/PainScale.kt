@@ -35,6 +35,7 @@ import com.migratrack.app.generated.resources.pain_scale_label
 import com.migratrack.app.generated.resources.pain_scale_low
 import com.migratrack.app.generated.resources.pain_scale_middle
 import com.migratrack.app.generated.resources.pain_scale_value
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.model.PainIntensity
@@ -63,7 +64,7 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
     }
 
     val label = stringResource(Res.string.pain_scale_label)
-    val state = stringResource(Res.string.pain_scale_value, value.value)
+    val state = stringResource(Res.string.pain_scale_value, Numbers.integer(value.value))
     Column(modifier, verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Row(
             modifier = Modifier
@@ -94,9 +95,9 @@ fun PainScale(value: PainIntensity, onValueChange: (PainIntensity) -> Unit, modi
         }
         Row(Modifier.fillMaxWidth().padding(horizontal = 4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
             listOf(
-                stringResource(Res.string.pain_scale_low, 1),
-                stringResource(Res.string.pain_scale_middle, 5),
-                stringResource(Res.string.pain_scale_high, 10),
+                stringResource(Res.string.pain_scale_low, Numbers.integer(1)),
+                stringResource(Res.string.pain_scale_middle, Numbers.integer(5)),
+                stringResource(Res.string.pain_scale_high, Numbers.integer(10)),
             ).forEach {
                 MtText(it, MtTheme.type.subhead, color = MtColors.TextSecondary)
             }
@@ -137,7 +138,7 @@ private fun Segment(level: Int, selected: Int, modifier: Modifier) {
     ) {
         if (isSelected) {
             MtText(
-                level.toString(),
+                Numbers.integer(level),
                 MtTheme.type.number.copy(fontWeight = FontWeight.Bold, fontSize = MtTheme.type.body.fontSize),
                 color = if (level <= 5) MtColors.CanvasDeep else MtColors.TextPrimary,
             )

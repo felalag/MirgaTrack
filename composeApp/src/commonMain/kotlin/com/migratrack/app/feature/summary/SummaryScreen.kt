@@ -53,6 +53,8 @@ import com.migratrack.app.generated.resources.summary_today_date
 import com.migratrack.app.generated.resources.summary_tracking_start_note
 import com.migratrack.app.generated.resources.summary_without_logged_episode
 import com.migratrack.app.generated.resources.tab_summary
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
@@ -69,7 +71,6 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
@@ -95,7 +96,7 @@ fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEp
     Page(title = stringResource(Res.string.tab_summary), onSettings = onOpenSettings) {
         val current = state ?: return@Page
         val snapshot = current.snapshot
-        SectionCaption(stringResource(Res.string.summary_today_date, DateText.monthDay(snapshot.today)))
+        SectionCaption(stringResource(Res.string.summary_today_date, Dates.monthDay(snapshot.today)))
         LastThirtyDaysCard(snapshot, current.sleep)
         Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             PrimaryButton(stringResource(Res.string.common_log_migraine_episode), onClick = onLogEpisode, icon = Symbols.AddCircle)
@@ -118,16 +119,16 @@ private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
         val summary = pluralStringResource(
             Res.plurals.summary_pain_free_a11y,
             snapshot.trackedDays,
-            snapshot.painFreeDays,
-            snapshot.trackedDays,
+            Numbers.integer(snapshot.painFreeDays),
+            Numbers.integer(snapshot.trackedDays),
         )
         Column(Modifier.clearAndSetSemantics { contentDescription = summary }) {
             SectionCaption(stringResource(Res.string.common_last_30_days), modifier = Modifier.padding(start = 0.dp))
             Spacer(Modifier.height(MtSpacing.xs))
             Row(verticalAlignment = Alignment.Bottom) {
-                MtText(snapshot.painFreeDays.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
+                MtText(Numbers.integer(snapshot.painFreeDays), MtTheme.type.hero, color = MtColors.TextPrimary)
                 MtText(
-                    " " + pluralStringResource(Res.plurals.summary_of_tracked_days, snapshot.trackedDays, snapshot.trackedDays),
+                    " " + pluralStringResource(Res.plurals.summary_of_tracked_days, snapshot.trackedDays, Numbers.integer(snapshot.trackedDays)),
                     MtTheme.type.headline,
                     color = MtColors.TextBody,
                     modifier = Modifier.padding(bottom = 8.dp),
@@ -138,7 +139,7 @@ private fun LastThirtyDaysCard(snapshot: SummarySnapshot, sleep: SleepCard) {
             DayStrip(snapshot.days.map { it.toStripDay() })
             Spacer(Modifier.height(6.dp))
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                MtText(DateText.monthDay(snapshot.days.first().date), MtTheme.type.subhead, color = MtColors.TextSecondary)
+                MtText(Dates.monthDay(snapshot.days.first().date), MtTheme.type.subhead, color = MtColors.TextSecondary)
                 MtText(stringResource(Res.string.common_today), MtTheme.type.subhead, color = MtColors.TextSecondary)
             }
             Spacer(Modifier.height(MtSpacing.sm))
@@ -227,13 +228,13 @@ private fun LastEventCard(episode: Episode?, timeZone: TimeZone, onClick: (Episo
         Column(Modifier.weight(1f)) {
             SectionCaption(stringResource(Res.string.summary_last_episode), modifier = Modifier.padding(start = 0.dp))
             val date = episode?.startedAt?.toLocalDateTime(timeZone)?.date
-            MtText(date?.let(DateText::monthDay) ?: stringResource(Res.string.summary_last_episode_none), MtTheme.type.headline, color = MtColors.TextPrimary)
+            MtText(date?.let(Dates::monthDay) ?: stringResource(Res.string.summary_last_episode_none), MtTheme.type.headline, color = MtColors.TextPrimary)
         }
         if (episode != null) {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 val symptom = episode.symptoms.minByOrNull { it.ordinal }
                 if (symptom != null) EventChip(stringResource(symptom.shortTitle), symptom.icon)
-                EventChip(stringResource(Res.string.common_intensity_of_ten, episode.intensity.value), null)
+                EventChip(stringResource(Res.string.common_intensity_of_ten, Numbers.integer(episode.intensity.value)), null)
             }
         }
     }

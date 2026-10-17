@@ -50,6 +50,8 @@ import com.migratrack.app.generated.resources.export_symptoms_subtitle
 import com.migratrack.app.generated.resources.export_triggers_subtitle
 import com.migratrack.app.generated.resources.tab_export
 import com.migratrack.app.platform.SheetAction
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
 import com.migratrack.app.ui.components.ListRow
@@ -65,7 +67,6 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.ExportPreferences
 import com.migratrack.domain.model.ExportRange
 import com.migratrack.export.ExportFile
@@ -110,7 +111,7 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
         val zone = graph.timeZone()
         ExportUiState(
             episodeCount = episodes.count { it.startedAt.toLocalDateTime(zone).date in from..today },
-            dateRange = DateText.range(from, today),
+            dateRange = Dates.range(from, today),
             preferences = preferences,
             running = job,
         )
@@ -137,7 +138,7 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
     fun share() = run(ExportJob.Share) {
         val pdf: ExportFile = graph.exportReport.pdf()
         val summary = state.value?.let {
-            getPluralString(Res.plurals.export_share_text, it.episodeCount, it.episodeCount, it.dateRange)
+            getPluralString(Res.plurals.export_share_text, it.episodeCount, Numbers.integer(it.episodeCount), it.dateRange)
         }
         graph.services.files.share(listOf(pdf), summary)
     }
@@ -169,7 +170,7 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             StatTile(Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.Bottom) {
-                    MtText(current.episodeCount.toString(), MtTheme.type.largeTitle)
+                    MtText(Numbers.integer(current.episodeCount), MtTheme.type.largeTitle)
                     Spacer(Modifier.width(MtSpacing.xs))
                     MtText(pluralStringResource(Res.plurals.export_episodes_unit, current.episodeCount), MtTheme.type.subhead, color = MtColors.Caption, modifier = Modifier.padding(bottom = 5.dp))
                 }

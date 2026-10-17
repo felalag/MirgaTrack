@@ -60,6 +60,8 @@ import com.migratrack.app.generated.resources.settings_section_legal
 import com.migratrack.app.generated.resources.settings_section_preferences
 import com.migratrack.app.generated.resources.settings_version
 import com.migratrack.app.generated.resources.settings_version_value
+import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
 import com.migratrack.app.ui.components.ListRow
@@ -76,7 +78,6 @@ import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.UserProfile
@@ -85,6 +86,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.datetime.yearMonth
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
@@ -112,7 +114,7 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
         val triggerCount = triggers.count { it.id in baseline?.triggerIds.orEmpty() }
         SettingsUiState(
             name = user?.name.orEmpty(),
-            memberSince = user?.memberSince?.let { "${DateText.shortMonth(it.month)} ${it.year}" } ?: "–",
+            memberSince = user?.memberSince?.let { Dates.shortMonthYear(it.yearMonth) } ?: "–",
             logCount = episodes.size,
             diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }.orEmpty(),
             triggerCount = triggerCount,
@@ -159,7 +161,7 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
         val triggers = if (current.triggerCount == 0) {
             stringResource(Res.string.settings_no_triggers)
         } else {
-            pluralStringResource(Res.plurals.settings_known_triggers_count, current.triggerCount, current.triggerCount)
+            pluralStringResource(Res.plurals.settings_known_triggers_count, current.triggerCount, Numbers.integer(current.triggerCount))
         }
         val treatments = current.treatments.map { it.nameText.resolve() }.joinToString(", ")
             .ifEmpty { stringResource(Res.string.settings_no_medications) }
@@ -271,7 +273,7 @@ private fun ProfileCard(state: SettingsUiState, onEditName: () -> Unit) {
             ProfileStat(stringResource(Res.string.settings_member), state.memberSince, MtColors.TextPrimary, Modifier.weight(1f))
             ProfileStat(
                 stringResource(Res.string.settings_episodes),
-                pluralStringResource(Res.plurals.settings_episodes_logged, state.logCount, state.logCount),
+                pluralStringResource(Res.plurals.settings_episodes_logged, state.logCount, Numbers.integer(state.logCount)),
                 MtColors.BrandLabel,
                 Modifier.weight(1f),
             )

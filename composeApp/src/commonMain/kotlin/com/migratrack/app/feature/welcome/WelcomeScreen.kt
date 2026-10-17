@@ -57,6 +57,7 @@ import com.migratrack.app.generated.resources.welcome_headline_doctor
 import com.migratrack.app.generated.resources.welcome_headline_patterns
 import com.migratrack.app.generated.resources.welcome_pain_free_days
 import com.migratrack.app.generated.resources.welcome_tagline
+import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.appendWithPlaceholders
 import com.migratrack.app.ui.components.BrandMark
 import com.migratrack.app.ui.components.Card
@@ -129,7 +130,7 @@ private val SampleDays: List<StripDay> = List(30) { day ->
 @Composable
 private fun SampleStripCard(stripPadding: Dp) {
     val painFree = SampleDays.count { it == StripDay.PainFree }
-    val description = pluralStringResource(Res.plurals.welcome_example_a11y, painFree, painFree)
+    val description = pluralStringResource(Res.plurals.welcome_example_a11y, painFree, Numbers.integer(painFree))
     Card(
         Modifier
             .fillMaxWidth()
@@ -149,7 +150,7 @@ private fun SampleStripCard(stripPadding: Dp) {
             )
         }
         Row(verticalAlignment = Alignment.Bottom) {
-            MtText(painFree.toString(), MtTheme.type.hero, color = MtColors.TextPrimary)
+            MtText(Numbers.integer(painFree), MtTheme.type.hero, color = MtColors.TextPrimary)
             MtText(" " + pluralStringResource(Res.plurals.welcome_pain_free_days, painFree), MtTheme.type.headline, color = MtColors.TextBody, modifier = Modifier.padding(bottom = 8.dp))
         }
         Spacer(Modifier.height(MtSpacing.sm))

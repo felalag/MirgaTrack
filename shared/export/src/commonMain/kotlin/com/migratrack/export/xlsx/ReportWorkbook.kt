@@ -1,9 +1,11 @@
 package com.migratrack.export.xlsx
 
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.export.report.ClinicalReport
 
-/** Lays the report out as sheets: Episodes, then Medications and Profile when they apply. */
+/**
+ * Lays the report out as sheets: Episodes, then Medications and Profile when they apply.
+ * Dates stay ISO 8601 (`LocalDate.toString()`) in every language, so a spreadsheet can sort and parse them.
+ */
 object ReportWorkbook {
 
     fun write(report: ClinicalReport): ByteArray = XlsxWriter.write(sheets(report))
@@ -62,7 +64,7 @@ object ReportWorkbook {
     private fun dailySheet(report: ClinicalReport): Sheet {
         val rows = report.days.map { day ->
             listOf(
-                Cell.Text(DateText.iso(day.date)),
+                Cell.Text(day.date.toString()),
                 when {
                     day.peak != null -> Cell.Number(day.peak.toDouble())
                     day.isTracked -> Cell.Number(0.0)
@@ -84,8 +86,8 @@ object ReportWorkbook {
         val baseline = requireNotNull(report.baseline)
         val rows = listOf(
             "Patient" to report.patientName.ifBlank { "Not set" },
-            "Report Range" to "${DateText.iso(report.from)} to ${DateText.iso(report.to)}",
-            "Tracked Since" to DateText.iso(report.trackedSince),
+            "Report Range" to "${report.from} to ${report.to}",
+            "Tracked Since" to report.trackedSince.toString(),
             "Diagnoses" to baseline.diagnoses.joinToString(", ").ifBlank { "Not set" },
             "Monthly Frequency" to baseline.frequency,
             "Typical Duration" to baseline.typicalDuration,

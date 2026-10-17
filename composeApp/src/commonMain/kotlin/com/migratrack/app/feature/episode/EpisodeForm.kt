@@ -33,6 +33,7 @@ import com.migratrack.app.generated.resources.episode_cranial_epicenter
 import com.migratrack.app.generated.resources.episode_pain_intensity_index
 import com.migratrack.app.generated.resources.episode_start
 import com.migratrack.app.generated.resources.episode_start_now
+import com.migratrack.app.ui.Dates
 import com.migratrack.app.ui.accent
 import com.migratrack.app.ui.classText
 import com.migratrack.app.ui.components.AddRow
@@ -54,7 +55,6 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.title
-import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Symptom
 import com.migratrack.domain.model.Trigger
@@ -124,7 +124,7 @@ fun ColumnScope.EpisodeFormFields(
         AddRow(stringResource(Res.string.episode_add_medication_row), MtColors.Green, onClick = viewModel::addMedication)
     }
 
-    val start = draft.startedAt?.let { DateText.dayAndTime(it.toLocalDateTime(timeZone), today) } ?: stringResource(Res.string.episode_start_now)
+    val start = draft.startedAt?.let { Dates.dayAndTime(it.toLocalDateTime(timeZone), today) } ?: stringResource(Res.string.episode_start_now)
     StartRow(start, onClick = viewModel::pickStart)
 }
 

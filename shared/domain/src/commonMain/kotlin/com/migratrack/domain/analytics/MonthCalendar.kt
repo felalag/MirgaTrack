@@ -4,9 +4,11 @@ import com.migratrack.domain.model.Episode
 import com.migratrack.domain.model.MedicationIntake
 import com.migratrack.domain.model.PainIntensity
 import kotlinx.datetime.DatePeriod
+import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.YearMonth
+import kotlinx.datetime.isoDayNumber
 import kotlinx.datetime.minus
 import kotlinx.datetime.toLocalDateTime
 
@@ -25,11 +27,13 @@ data class CalendarDay(
     val isMigraineDay: Boolean get() = attacks > 0
 }
 
-/** A month grid that starts on Monday, as the Insights calendar draws it. */
+/** A month grid that starts on the first day of the week of the region, as the Insights calendar draws it. */
 data class MonthCalendar(
     val month: YearMonth,
     /** Days of the previous month that fill the first week, then every day of [month]. */
     val days: List<CalendarDay>,
+    /** The column order of the grid. */
+    val weekdays: List<DayOfWeek>,
 ) {
     val attackDays: Int get() = days.count { it.inMonth && it.isMigraineDay }
 }
@@ -45,10 +49,17 @@ data class DayEpisodes(val date: LocalDate, val episodes: List<Episode>) {
 
 object CalendarBuilder {
 
-    fun month(episodes: List<Episode>, month: YearMonth, today: LocalDate, timeZone: TimeZone, trackedSince: LocalDate): MonthCalendar {
+    fun month(
+        episodes: List<Episode>,
+        month: YearMonth,
+        today: LocalDate,
+        timeZone: TimeZone,
+        trackedSince: LocalDate,
+        firstDayOfWeek: DayOfWeek,
+    ): MonthCalendar {
         val days = MigraineDays(episodes, timeZone, trackedSince)
         val first = month.firstDay
-        val leading = (first.startOfWeek()..first.minus(DatePeriod(days = 1))).days()
+        val leading = (first.startOfWeek(firstDayOfWeek)..first.minus(DatePeriod(days = 1))).days()
         val cells = (leading + (first..month.lastDay).days()).map { date ->
             CalendarDay(
                 date = date,
@@ -60,7 +71,8 @@ object CalendarBuilder {
                 isTracked = days.isTracked(date),
             )
         }
-        return MonthCalendar(month, cells.toList())
+        val weekdays = List(7) { DayOfWeek((firstDayOfWeek.isoDayNumber + it - 1) % 7 + 1) }
+        return MonthCalendar(month, cells.toList(), weekdays)
     }
 
     fun day(episodes: List<Episode>, date: LocalDate, timeZone: TimeZone): DayEpisodes =

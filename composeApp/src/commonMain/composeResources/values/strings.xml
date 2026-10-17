@@ -3,6 +3,7 @@
   English source strings of the iPhone UI. docs/LOCALIZATION_GLOSSARY.md gives the terms.
   Each comment says where the text shows, what each placeholder means, and the maximum length where space is tight.
   A "Max N characters." limit counts the text after the placeholders are filled in.
+  Every placeholder is %N$s: the app formats numbers for the region first, for example "1,234" or "1 234".
 -->
 <resources>
     <!-- Shared -->
@@ -49,8 +50,8 @@
     <string name="common_edit_episode">Edit Episode</string>
     <!-- Button and action sheet entry that deletes an episode. Max 28 characters. -->
     <string name="common_delete_episode">Delete Episode</string>
-    <!-- Pain intensity of one episode. %1$d = intensity, a whole number from 1 to 10. Max 16 characters. -->
-    <string name="common_intensity_of_ten">Intensity %1$d/10</string>
+    <!-- Pain intensity of one episode. %1$s = intensity, a whole number from 1 to 10. Max 16 characters. -->
+    <string name="common_intensity_of_ten">Intensity %1$s/10</string>
     <!-- Title of the action sheet of one episode. %1$s = date, for example "Oct 16, 2026". %2$s = time, for example "23:41". -->
     <string name="common_date_at_time">%1$s at %2$s</string>
     <!-- Title of the episode form card, the onboarding section and the report option for possible triggers. -->
@@ -81,36 +82,36 @@
 
     <!-- VoiceOver label of the 1–10 pain scale. -->
     <string name="pain_scale_label">Pain intensity</string>
-    <!-- VoiceOver value of the pain scale. %1$d = the selected intensity, 1 to 10. -->
-    <string name="pain_scale_value">%1$d of 10</string>
-    <!-- Label under the left end of the pain scale. %1$d = 1. Max 14 characters. -->
-    <string name="pain_scale_low">%1$d Subdued</string>
-    <!-- Label under the middle of the pain scale. %1$d = 5. Max 14 characters. -->
-    <string name="pain_scale_middle">%1$d Noticeable</string>
-    <!-- Label under the right end of the pain scale. %1$d = 10. Max 14 characters. -->
-    <string name="pain_scale_high">%1$d Disabling</string>
+    <!-- VoiceOver value of the pain scale. %1$s = the selected intensity, 1 to 10. -->
+    <string name="pain_scale_value">%1$s of 10</string>
+    <!-- Label under the left end of the pain scale. %1$s = 1. Max 14 characters. -->
+    <string name="pain_scale_low">%1$s Subdued</string>
+    <!-- Label under the middle of the pain scale. %1$s = 5. Max 14 characters. -->
+    <string name="pain_scale_middle">%1$s Noticeable</string>
+    <!-- Label under the right end of the pain scale. %1$s = 10. Max 14 characters. -->
+    <string name="pain_scale_high">%1$s Disabling</string>
     <!-- VoiceOver label of the x button on a medication card. %1$s = medication name and dose. -->
     <string name="medication_remove">Remove %1$s</string>
-    <!-- Sleep time under one hour. %1$d = minutes. -->
-    <string name="duration_minutes">%1$d min</string>
-    <!-- Sleep time. %1$d = hours, %2$d = minutes. -->
-    <string name="duration_hours_minutes">%1$d h %2$d min</string>
+    <!-- Sleep time under one hour. %1$s = minutes. -->
+    <string name="duration_minutes">%1$s min</string>
+    <!-- Sleep time. %1$s = hours, %2$s = minutes. -->
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
 
     <!-- Summary -->
 
     <!-- Caption under the page title. %1$s = today's date, for example "Oct 17". -->
     <string name="summary_today_date">Today, %1$s</string>
-    <!-- Text after the large number of pain-free days, with a space before it. %1$d = tracked days in the last 30 days. Example: "26" + " of 30 tracked days". -->
+    <!-- Text after the large number of pain-free days, with a space before it. %1$s = tracked days in the last 30 days. Example: "26" + " of 30 tracked days". -->
     <plurals name="summary_of_tracked_days">
-        <item quantity="one">of %1$d tracked day</item>
-        <item quantity="other">of %1$d tracked days</item>
+        <item quantity="one">of %1$s tracked day</item>
+        <item quantity="other">of %1$s tracked days</item>
     </plurals>
     <!-- Line under "26 of 30 tracked days" on Summary. -->
     <string name="summary_without_logged_episode">without a logged episode</string>
-    <!-- VoiceOver text of the 30-day card. %1$d = pain-free days. %2$d = tracked days; the plural form follows it. -->
+    <!-- VoiceOver text of the 30-day card. %1$s = pain-free days. %2$s = tracked days; the plural form follows it. -->
     <plurals name="summary_pain_free_a11y">
-        <item quantity="one">%1$d of %2$d tracked day without a logged episode in the last 30 days</item>
-        <item quantity="other">%1$d of %2$d tracked days without a logged episode in the last 30 days</item>
+        <item quantity="one">%1$s of %2$s tracked day without a logged episode in the last 30 days</item>
+        <item quantity="other">%1$s of %2$s tracked days without a logged episode in the last 30 days</item>
     </plurals>
     <!-- Note under the 30-day strip while the user has tracked for fewer than 30 days. -->
     <string name="summary_tracking_start_note">Counted from the day you started tracking. Days before it are not tracked.</string>
@@ -185,8 +186,8 @@
     <string name="episode_missing_title">Episode Deleted</string>
     <!-- Message of the alert when another device deleted the episode during an edit. -->
     <string name="episode_missing_message">This episode was deleted on another device, so the changes cannot be saved.</string>
-    <!-- Message of the delete confirmation. %1$d = intensity, 1 to 10. -->
-    <string name="episode_delete_message">Intensity %1$d/10. The episode leaves your history and reports.</string>
+    <!-- Message of the delete confirmation. %1$s = intensity, 1 to 10. -->
+    <string name="episode_delete_message">Intensity %1$s/10. The episode leaves your history and reports.</string>
 
     <!-- Insights -->
 
@@ -218,15 +219,15 @@
         <item quantity="one">Episode in 6 Mos</item>
         <item quantity="other">Episodes in 6 Mos</item>
     </plurals>
-    <!-- Text after the large number of episodes, for one year. %1$d = the year, for example 2026. -->
+    <!-- Text after the large number of episodes, for one year. %1$s = the year, for example 2026. -->
     <plurals name="insights_headline_year">
-        <item quantity="one">Episode in %1$d</item>
-        <item quantity="other">Episodes in %1$d</item>
+        <item quantity="one">Episode in %1$s</item>
+        <item quantity="other">Episodes in %1$s</item>
     </plurals>
-    <!-- VoiceOver text of the trend badge when the number went down. %1$d = percent. -->
-    <string name="insights_trend_fewer">%1$d percent fewer episodes than the previous period</string>
-    <!-- VoiceOver text of the trend badge when the number went up. %1$d = percent. -->
-    <string name="insights_trend_more">%1$d percent more episodes than the previous period</string>
+    <!-- VoiceOver text of the trend badge when the number went down. %1$s = percent. -->
+    <string name="insights_trend_fewer">%1$s percent fewer episodes than the previous period</string>
+    <!-- VoiceOver text of the trend badge when the number went up. %1$s = percent. -->
+    <string name="insights_trend_more">%1$s percent more episodes than the previous period</string>
     <!-- Legend of the chart: a day with an episode. Max 16 characters. -->
     <string name="insights_legend_migraine_day">Migraine Day</string>
     <!-- Legend of the chart: a tracked day without an episode. Max 16 characters. -->
@@ -239,31 +240,31 @@
     <string name="insights_bar_not_tracked">%1$s: not tracked</string>
     <!-- VoiceOver text of a chart bar without episodes. %1$s = bar label. -->
     <string name="insights_bar_pain_free">%1$s: pain-free</string>
-    <!-- VoiceOver text of a chart bar. %1$s = bar label. %2$d = migraine days; the plural form follows it. %3$d = highest intensity, 1 to 10. -->
+    <!-- VoiceOver text of a chart bar. %1$s = bar label. %2$s = migraine days; the plural form follows it. %3$s = highest intensity, 1 to 10. -->
     <plurals name="insights_bar_migraine_days">
-        <item quantity="one">%1$s: %2$d migraine day, peak %3$d of 10</item>
-        <item quantity="other">%1$s: %2$d migraine days, peak %3$d of 10</item>
+        <item quantity="one">%1$s: %2$s migraine day, peak %3$s of 10</item>
+        <item quantity="other">%1$s: %2$s migraine days, peak %3$s of 10</item>
     </plurals>
     <!-- Text of the trigger card before the user noted any trigger. -->
     <string name="insights_triggers_empty">Note possible triggers when you log or edit an episode. This card then shows how often you noted each one.</string>
     <!-- Text of the trigger card. It must say that a count does not show a cause. -->
     <string name="insights_triggers_hint">How often you noted each trigger with an episode. This does not show a cause.</string>
-    <!-- VoiceOver text of one trigger row. %1$s = trigger name. %2$d = episodes with this trigger. %3$d = all episodes; the plural form follows it. -->
+    <!-- VoiceOver text of one trigger row. %1$s = trigger name. %2$s = episodes with this trigger. %3$s = all episodes; the plural form follows it. -->
     <plurals name="insights_trigger_row_a11y">
-        <item quantity="one">%1$s, noted in %2$d of %3$d episode</item>
-        <item quantity="other">%1$s, noted in %2$d of %3$d episodes</item>
+        <item quantity="one">%1$s, noted in %2$s of %3$s episode</item>
+        <item quantity="other">%1$s, noted in %2$s of %3$s episodes</item>
     </plurals>
-    <!-- Count at the end of a trigger row. %1$d = episodes with this trigger, %2$d = all episodes. Max 10 characters. -->
-    <string name="insights_trigger_row_count">%1$d of %2$d</string>
+    <!-- Count at the end of a trigger row. %1$s = episodes with this trigger, %2$s = all episodes. Max 10 characters. -->
+    <string name="insights_trigger_row_count">%1$s of %2$s</string>
     <!-- VoiceOver label of the month button that opens the calendar. %1$s = month and year, for example "October 2026". -->
     <string name="insights_calendar_a11y">Calendar, %1$s</string>
-    <!-- Title of the action sheet when a day has more than one episode. Its message: %1$s = weekday and date, %2$d = episodes on that day. -->
+    <!-- Title of the action sheet when a day has more than one episode. Its message: %1$s = weekday and date, %2$s = episodes on that day. -->
     <plurals name="insights_choose_episode_message">
-        <item quantity="one">%1$s has %2$d episode.</item>
-        <item quantity="other">%1$s has %2$d episodes.</item>
+        <item quantity="one">%1$s has %2$s episode.</item>
+        <item quantity="other">%1$s has %2$s episodes.</item>
     </plurals>
-    <!-- One entry of that action sheet. %1$s = start time, %2$d = intensity, 1 to 10. -->
-    <string name="insights_episode_option">%1$s · Intensity %2$d/10</string>
+    <!-- One entry of that action sheet. %1$s = start time, %2$s = intensity, 1 to 10. -->
+    <string name="insights_episode_option">%1$s · Intensity %2$s/10</string>
     <!-- Title of the month and year picker. -->
     <string name="insights_month_picker_title">Month</string>
 
@@ -275,10 +276,10 @@
     <string name="calendar_next_month">Next Month</string>
     <!-- VoiceOver label of the month title in the calendar. %1$s = month and year. -->
     <string name="calendar_choose_month_a11y">%1$s, choose another month</string>
-    <!-- Pill in the calendar header. %1$d = days with an episode in the month. Max 18 characters. -->
+    <!-- Pill in the calendar header. %1$s = days with an episode in the month. Max 18 characters. -->
     <plurals name="calendar_migraine_days">
-        <item quantity="one">%1$d Migraine Day</item>
-        <item quantity="other">%1$d Migraine Days</item>
+        <item quantity="one">%1$s Migraine Day</item>
+        <item quantity="other">%1$s Migraine Days</item>
     </plurals>
     <!-- VoiceOver text of a calendar day. %1$s = weekday and date. %2$s = its state, one of the calendar_day_* texts. -->
     <string name="calendar_day_a11y">%1$s, %2$s</string>
@@ -290,15 +291,15 @@
     <string name="calendar_day_not_tracked">not tracked</string>
     <!-- State of a tracked calendar day without an episode. -->
     <string name="calendar_day_no_episodes">no episodes</string>
-    <!-- State of a calendar day with episodes. %1$d = episodes; the plural form follows it. %2$d = highest intensity, 1 to 10. -->
+    <!-- State of a calendar day with episodes. %1$s = episodes; the plural form follows it. %2$s = highest intensity, 1 to 10. -->
     <plurals name="calendar_day_episodes">
-        <item quantity="one">%1$d episode, peak %2$d of 10</item>
-        <item quantity="other">%1$d episodes, peak %2$d of 10</item>
+        <item quantity="one">%1$s episode, peak %2$s of 10</item>
+        <item quantity="other">%1$s episodes, peak %2$s of 10</item>
     </plurals>
-    <!-- Part of the day card caption when a day has more than one episode. %1$d = episodes. The app shows it in upper case. -->
+    <!-- Part of the day card caption when a day has more than one episode. %1$s = episodes. The app shows it in upper case. -->
     <plurals name="calendar_day_episode_count">
-        <item quantity="one">%1$d Episode</item>
-        <item quantity="other">%1$d Episodes</item>
+        <item quantity="one">%1$s Episode</item>
+        <item quantity="other">%1$s Episodes</item>
     </plurals>
     <!-- Caption of the day card, shown in upper case. %1$s = weekday and date. %2$s = start time, or the number of episodes. -->
     <string name="calendar_day_header">%1$s · %2$s</string>
@@ -350,10 +351,10 @@
     <string name="export_share">Share</string>
     <!-- Title of the action sheet that picks the date range of the report. -->
     <string name="export_range_title">Report Range</string>
-    <!-- Text that goes with the PDF in the share sheet, for example into a message. %1$d = episodes; the plural form follows it. %2$s = date range, for example "Jul 20 – Oct 17". -->
+    <!-- Text that goes with the PDF in the share sheet, for example into a message. %1$s = episodes; the plural form follows it. %2$s = date range, for example "Jul 20 – Oct 17". -->
     <plurals name="export_share_text">
-        <item quantity="one">MigraTrack report: %1$d episode, %2$s.</item>
-        <item quantity="other">MigraTrack report: %1$d episodes, %2$s.</item>
+        <item quantity="one">MigraTrack report: %1$s episode, %2$s.</item>
+        <item quantity="other">MigraTrack report: %1$s episodes, %2$s.</item>
     </plurals>
     <!-- Title of the alert when the report fails. -->
     <string name="export_failed_title">Export Failed</string>
@@ -364,10 +365,10 @@
 
     <!-- Settings -->
 
-    <!-- Subtitle of the Known Triggers row. %1$d = selected triggers, 1 or more. -->
+    <!-- Subtitle of the Known Triggers row. %1$s = selected triggers, 1 or more. -->
     <plurals name="settings_known_triggers_count">
-        <item quantity="one">%1$d known trigger</item>
-        <item quantity="other">%1$d known triggers</item>
+        <item quantity="one">%1$s known trigger</item>
+        <item quantity="other">%1$s known triggers</item>
     </plurals>
     <!-- Subtitle of the Known Triggers row without a selection. -->
     <string name="settings_no_triggers">No triggers selected</string>
@@ -417,10 +418,10 @@
     <string name="settings_member">Member</string>
     <!-- Caption of the profile stat with the number of episodes. The app shows it in upper case. Max 12 characters. -->
     <string name="settings_episodes">Episodes</string>
-    <!-- Value of the profile stat. %1$d = all episodes. Max 14 characters. -->
+    <!-- Value of the profile stat. %1$s = all episodes. Max 14 characters. -->
     <plurals name="settings_episodes_logged">
-        <item quantity="one">%1$d Logged</item>
-        <item quantity="other">%1$d Logged</item>
+        <item quantity="one">%1$s Logged</item>
+        <item quantity="other">%1$s Logged</item>
     </plurals>
 
     <!-- Legal -->
@@ -444,8 +445,8 @@
     <string name="onboarding_back_to_triggers">Back to Triggers</string>
     <!-- Main button of a step opened from Settings. Max 28 characters. -->
     <string name="onboarding_save_changes">Save Changes</string>
-    <!-- Progress caption, shown in upper case. %1$d = this step, %2$d = all steps. Max 10 characters. -->
-    <string name="onboarding_step">Step %1$d/%2$d</string>
+    <!-- Progress caption, shown in upper case. %1$s = this step, %2$s = all steps. Max 10 characters. -->
+    <string name="onboarding_step">Step %1$s/%2$s</string>
     <!-- Title of step 1. -->
     <string name="onboarding_diagnoses_title">Diagnoses &amp; History</string>
     <!-- Text under the title of step 1. -->
@@ -494,10 +495,10 @@
         <item quantity="one">pain-free day</item>
         <item quantity="other">pain-free days</item>
     </plurals>
-    <!-- VoiceOver text of the sample card. %1$d = pain-free days. -->
+    <!-- VoiceOver text of the sample card. %1$s = pain-free days. -->
     <plurals name="welcome_example_a11y">
-        <item quantity="one">Example: %1$d pain-free day in the last 30 days</item>
-        <item quantity="other">Example: %1$d pain-free days in the last 30 days</item>
+        <item quantity="one">Example: %1$s pain-free day in the last 30 days</item>
+        <item quantity="other">Example: %1$s pain-free days in the last 30 days</item>
     </plurals>
     <!-- First line of the large heading. -->
     <string name="welcome_headline_patterns">Understand your patterns.</string>
@@ -737,23 +738,23 @@
     <string name="medication_erenumab_70_class">CGRP antibody, monthly</string>
     <!-- Note under a medication that the user added. -->
     <string name="medication_custom_class">Custom medication</string>
-    <!-- Dose of a built-in medication. %1$d = milligrams. Write the unit as your language does; a space before it is fine. -->
-    <string name="medication_dose_milligrams">%1$dmg</string>
+    <!-- Dose of a built-in medication. %1$s = milligrams, a whole number without a thousands separator. Write the unit as your language does; a space before it is fine. -->
+    <string name="medication_dose_milligrams">%1$smg</string>
     <!-- A medication with its dose, for example "Ibuprofen 400mg". %1$s = name, %2$s = dose. -->
     <string name="medication_name_and_dose">%1$s %2$s</string>
 
     <!-- Insights, catalog related -->
     <!-- Label under a bar of the month chart: week number in the month, 1 to 4. Max 3 characters. -->
-    <string name="insights_bar_week">W%1$d</string>
-    <!-- Line under the trigger list in Insights: %1$d = episodes without a trigger; the verb form follows it.
+    <string name="insights_bar_week">W%1$s</string>
+    <!-- Line under the trigger list in Insights: %1$s = episodes without a trigger; the verb form follows it.
          %2$s = the number of all episodes with its noun, from insights_episode_count. -->
     <plurals name="insights_without_triggers">
-        <item quantity="one">%1$d of %2$s has no triggers noted</item>
-        <item quantity="other">%1$d of %2$s have no triggers noted</item>
+        <item quantity="one">%1$s of %2$s has no triggers noted</item>
+        <item quantity="other">%1$s of %2$s have no triggers noted</item>
     </plurals>
-    <!-- Part of insights_without_triggers: all episodes of the period. %1$d = that number. -->
+    <!-- Part of insights_without_triggers: all episodes of the period. %1$s = that number. -->
     <plurals name="insights_episode_count">
-        <item quantity="one">%1$d episode</item>
-        <item quantity="other">%1$d episodes</item>
+        <item quantity="one">%1$s episode</item>
+        <item quantity="other">%1$s episodes</item>
     </plurals>
 </resources>

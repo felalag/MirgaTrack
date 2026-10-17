@@ -1,6 +1,7 @@
 package com.migratrack.export.pdf
 
-import com.migratrack.domain.analytics.DateText
+import com.migratrack.export.format.DateFormats
+import com.migratrack.export.format.NumberFormats
 import com.migratrack.export.pdf.TextStyle.Align
 import com.migratrack.export.pdf.TextStyle.Weight
 import com.migratrack.export.report.ClinicalReport
@@ -12,9 +13,9 @@ object ReportPdf {
     const val PAGE_WIDTH = 595f
     const val PAGE_HEIGHT = 842f
 
-    fun render(report: ClinicalReport, renderer: PdfRenderer): ByteArray =
+    fun render(report: ClinicalReport, renderer: PdfRenderer, dates: DateFormats, numbers: NumberFormats): ByteArray =
         renderer.render(PAGE_WIDTH, PAGE_HEIGHT) { canvas ->
-            val page = PageCursor(canvas)
+            val page = PageCursor(canvas, dates, numbers)
             page.newPage()
             page.header(report)
             page.statTiles(report)
@@ -44,7 +45,11 @@ private const val MARGIN = 40f
 private const val FOOTER_SPACE = 28f
 private const val DISCLAIMER = "Self-reported data logged in MigraTrack. This report supports, and does not replace, a clinical assessment."
 
-private class PageCursor(private val canvas: ReportCanvas) {
+private class PageCursor(
+    private val canvas: ReportCanvas,
+    private val dates: DateFormats,
+    private val numbers: NumberFormats,
+) {
     var y = 0f
     private var pageNumber = 0
     private val left = MARGIN
@@ -78,8 +83,8 @@ private class PageCursor(private val canvas: ReportCanvas) {
         y += text("Clinical Migraine Report", TextStyle(22f, Weight.Bold)) + 6f
         val details = buildList {
             if (report.patientName.isNotBlank()) add("Patient: ${report.patientName}")
-            add("${DateText.range(report.from, report.to)} (${report.rangeTitle})")
-            add("Generated ${DateText.fullDate(report.generatedOn)}")
+            add("${dates.range(report.from, report.to)} (${report.rangeTitle})")
+            add("Generated ${dates.fullDate(report.generatedOn)}")
         }.joinToString("  ·  ")
         y += text(details, TextStyle(10f, color = Palette.SECONDARY)) + 18f
     }
@@ -87,10 +92,10 @@ private class PageCursor(private val canvas: ReportCanvas) {
     fun statTiles(report: ClinicalReport) {
         val stats = report.stats
         val tiles = listOf(
-            Triple(stats.episodes.toString(), "Episodes recorded", Palette.PINK),
-            Triple(stats.migraineDays.toString(), "Migraine days", Palette.PINK),
-            Triple(stats.painFreeDays.toString(), "Pain-free days", Palette.GREEN),
-            Triple(stats.averageIntensity?.toString() ?: "–", "Average intensity /10", Palette.ORANGE),
+            Triple(numbers.integer(stats.episodes), "Episodes recorded", Palette.PINK),
+            Triple(numbers.integer(stats.migraineDays), "Migraine days", Palette.PINK),
+            Triple(numbers.integer(stats.painFreeDays), "Pain-free days", Palette.GREEN),
+            Triple(stats.averageIntensity?.let(numbers::decimal) ?: "–", "Average intensity /10", Palette.ORANGE),
         )
         val gap = 10f
         val tileWidth = (width - gap * (tiles.size - 1)) / tiles.size
@@ -105,7 +110,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
         y += tileHeight
         if (stats.untrackedDays > 0) {
             val days = if (stats.untrackedDays == 1) "1 earlier day" else "${stats.untrackedDays} earlier days"
-            val note = "Tracking started on ${DateText.fullDate(report.trackedSince)}. " +
+            val note = "Tracking started on ${dates.fullDate(report.trackedSince)}. " +
                 "$days of this range have no records and do not count as pain-free days."
             y += 14f + text(note, TextStyle(9.5f, color = Palette.SECONDARY))
         }
@@ -173,7 +178,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
         for (level in listOf(0, 5, 10)) {
             val lineY = y + chartHeight - chartHeight * level / 10f
             canvas.strokeLine(chartLeft, lineY, chartLeft + chartWidth, lineY, Palette.DIVIDER, 0.5f)
-            canvas.drawText(level.toString(), axisStyle.copy(align = Align.End), left, lineY - 5f, axisWidth - 6f)
+            canvas.drawText(numbers.integer(level), axisStyle.copy(align = Align.End), left, lineY - 5f, axisWidth - 6f)
         }
         val barWidth = (slot * 0.7f).coerceIn(1f, 10f)
         days.forEachIndexed { index, day ->
@@ -185,9 +190,9 @@ private class PageCursor(private val canvas: ReportCanvas) {
         y += chartHeight + 4f
         if (days.isNotEmpty()) {
             val labelWidth = 70f
-            canvas.drawText(DateText.monthDay(days.first().date), axisStyle, chartLeft, y, labelWidth)
-            canvas.drawText(DateText.monthDay(days[days.size / 2].date), axisStyle.copy(align = Align.Center), chartLeft + chartWidth / 2 - labelWidth / 2, y, labelWidth)
-            canvas.drawText(DateText.monthDay(days.last().date), axisStyle.copy(align = Align.End), chartLeft + chartWidth - labelWidth, y, labelWidth)
+            canvas.drawText(dates.monthDay(days.first().date), axisStyle, chartLeft, y, labelWidth)
+            canvas.drawText(dates.monthDay(days[days.size / 2].date), axisStyle.copy(align = Align.Center), chartLeft + chartWidth / 2 - labelWidth / 2, y, labelWidth)
+            canvas.drawText(dates.monthDay(days.last().date), axisStyle.copy(align = Align.End), chartLeft + chartWidth - labelWidth, y, labelWidth)
         }
         y += 16f
         legend(
@@ -300,7 +305,7 @@ private class PageCursor(private val canvas: ReportCanvas) {
 
     private fun tableColumns(report: ClinicalReport): List<TableColumn> {
         val fixed = listOf(
-            TableColumn("Date & Time", 92f) { "${DateText.fullDate(it.startedAt.date)}\n${DateText.time(it.startedAt)}" },
+            TableColumn("Date & Time", 92f) { "${dates.fullDate(it.startedAt.date)}\n${dates.time(it.startedAt)}" },
             TableColumn("Pain", 36f) { "${it.intensity}/10" },
             TableColumn("Epicenter", 96f) { it.region ?: "–" },
         )
