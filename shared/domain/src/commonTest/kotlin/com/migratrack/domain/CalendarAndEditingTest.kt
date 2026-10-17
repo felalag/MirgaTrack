@@ -93,7 +93,7 @@ class CalendarAndEditingTest {
 
         assertEquals(listOf(morning, evening), preview.episodes)
         assertEquals(PainIntensity(7), preview.peak)
-        assertEquals(listOf("Ibuprofen 400mg", "Sumatriptan 50mg"), preview.medications)
+        assertEquals(listOf("Ibuprofen 400mg", "Sumatriptan 50mg"), preview.medications.map { it.displayName })
     }
 
     @Test
@@ -139,7 +139,7 @@ class CalendarAndEditingTest {
     }
 
     @Test
-    fun draftOfAnEpisodeKeepsTheLoggedNameAndAddsTheCatalogClass() {
+    fun draftOfAnEpisodeKeepsTheLoggedNameAndAddsTheCatalogDose() {
         val episode = episodeOn(LocalDate(2026, 10, 18)).copy(
             medications = listOf(
                 MedicationIntake(ibuprofen.id, "Ibuprofen", "200mg", now),
@@ -150,7 +150,7 @@ class CalendarAndEditingTest {
 
         assertEquals(episode.startedAt, draft.startedAt)
         assertEquals(listOf("Ibuprofen 200mg", "Eletriptan 40mg"), draft.medications.map { it.displayName })
-        assertEquals(listOf(ibuprofen.drugClass, ""), draft.medications.map { it.drugClass })
+        assertEquals(listOf(ibuprofen.catalogDose, null), draft.medications.map { it.catalogDose })
         assertFalse(draft.medications.first().isCustom)
     }
 

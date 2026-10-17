@@ -26,28 +26,14 @@ data class BaselineProfile(
     }
 }
 
-enum class Diagnosis(val title: String, val subtitle: String) {
-    MigraineWithoutAura("Migraine without aura", "Common migraine pattern"),
-    MigraineWithAura("Migraine with aura", "Visual or sensory focal aura"),
-    ChronicMigraine("Chronic Migraine", "15 or more headache days a month"),
-    TensionType("Tension-type Headache", "Constricting, band-like tension"),
-    Cluster("Cluster Headache", "Severe unilateral orbital episodes"),
-    NotDiagnosed("Not diagnosed / Exploring", "Observing symptom patterns"),
-}
+/** The UI and the report name the entries of these enums in the language of the app. */
+enum class Diagnosis { MigraineWithoutAura, MigraineWithAura, ChronicMigraine, TensionType, Cluster, NotDiagnosed }
 
-enum class EpisodeFrequency(val title: String) {
-    LessThanOne("< 1 / mo"),
-    OneToFour("1–4 / mo"),
-    FiveToEight("5–7 / mo"),
-    EightPlus("8+ / mo"),
-}
+/** Episodes a month: fewer than 1, 1–4, 5–7, 8 or more. */
+enum class EpisodeFrequency { LessThanOne, OneToFour, FiveToEight, EightPlus }
 
-enum class TypicalDuration(val title: String) {
-    TwoToFourHours("2–4h"),
-    FourToTwelveHours("4–12h"),
-    TwelveToTwentyFour("12–24h"),
-    OneToThreeDays("24–72h"),
-}
+/** 2–4 hours, 4–12 hours, 12–24 hours, 24–72 hours. */
+enum class TypicalDuration { TwoToFourHours, FourToTwelveHours, TwelveToTwentyFour, OneToThreeDays }
 
 data class UserProfile(
     val name: String,

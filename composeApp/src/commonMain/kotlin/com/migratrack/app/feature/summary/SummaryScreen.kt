@@ -64,6 +64,7 @@ import com.migratrack.app.ui.formatHoursMinutes
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.shortTitle
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -231,7 +232,7 @@ private fun LastEventCard(episode: Episode?, timeZone: TimeZone, onClick: (Episo
         if (episode != null) {
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 val symptom = episode.symptoms.minByOrNull { it.ordinal }
-                if (symptom != null) EventChip(symptom.shortTitle, symptom.icon)
+                if (symptom != null) EventChip(stringResource(symptom.shortTitle), symptom.icon)
                 EventChip(stringResource(Res.string.common_intensity_of_ten, episode.intensity.value), null)
             }
         }

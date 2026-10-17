@@ -509,4 +509,251 @@
     <string name="welcome_get_started">Get Started</string>
     <!-- Line under the button. %1$s = link "Terms of Service", %2$s = link "Privacy Policy". Keep both placeholders; their order can change. -->
     <string name="welcome_agreement">By continuing, you agree to %1$s and %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details. The glossary and section 6.1 of the plan give the medical sources. -->
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_migraine_without_aura">Migraine without aura</string>
+    <!-- Short explanation under "Migraine without aura" in onboarding step 1. -->
+    <string name="diagnosis_migraine_without_aura_subtitle">Common migraine pattern</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_migraine_with_aura">Migraine with aura</string>
+    <!-- Short explanation under "Migraine with aura" in onboarding step 1. -->
+    <string name="diagnosis_migraine_with_aura_subtitle">Visual or sensory focal aura</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_chronic_migraine">Chronic Migraine</string>
+    <!-- Short explanation under "Chronic Migraine" in onboarding step 1. -->
+    <string name="diagnosis_chronic_migraine_subtitle">15 or more headache days a month</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_tension_type">Tension-type Headache</string>
+    <!-- Short explanation under "Tension-type Headache" in onboarding step 1. -->
+    <string name="diagnosis_tension_type_subtitle">Constricting, band-like tension</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_cluster">Cluster Headache</string>
+    <!-- Short explanation under "Cluster Headache" in onboarding step 1. -->
+    <string name="diagnosis_cluster_subtitle">Severe unilateral orbital episodes</string>
+    <!-- Diagnosis in onboarding step 1, Settings and the report. Use the term of the national ICHD-3 edition. -->
+    <string name="diagnosis_not_diagnosed">Not diagnosed / Exploring</string>
+    <!-- Short explanation under "Not diagnosed / Exploring" in onboarding step 1. -->
+    <string name="diagnosis_not_diagnosed_subtitle">Observing symptom patterns</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_less_than_one">&lt; 1 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_one_to_four">1–4 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_five_to_eight">5–7 / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: episodes a month. "mo" is short for month. Max 9 characters. -->
+    <string name="frequency_eight_plus">8+ / mo</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_two_to_four">2–4h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_four_to_twelve">4–12h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_twelve_to_twenty_four">12–24h</string>
+    <!-- Chip in onboarding step 1 and a report field: typical length of an episode in hours. Max 7 characters. -->
+    <string name="duration_one_to_three_days">24–72h</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_left_temple">Left Temple</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_right_temple">Right Temple</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_frontal_brow">Frontal / Brow</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_retro_orbital">Retro-Orbital</string>
+    <!-- Where the pain is in the head: a tile of the episode form and a report column. -->
+    <string name="region_occipital_neck">Occipital &amp; Cervical Neck</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_scintillating_scotoma">Scintillating Scotoma (Visual)</string>
+    <!-- Short form of "Scintillating Scotoma (Visual)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_scintillating_scotoma_short">Visual Aura</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_neck_stiffness">Neck Stiffness</string>
+    <!-- Short form of "Neck Stiffness" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_neck_stiffness_short">Neck Stiffness</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_photophobia">Photophobia (Light)</string>
+    <!-- Short form of "Photophobia (Light)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_photophobia_short">Light</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_nausea">Nausea</string>
+    <!-- Short form of "Nausea" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_nausea_short">Nausea</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_phonophobia">Phonophobia (Sound)</string>
+    <!-- Short form of "Phonophobia (Sound)" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_phonophobia_short">Sound</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_aphasia">Aphasia / Brain Fog</string>
+    <!-- Short form of "Aphasia / Brain Fog" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_aphasia_short">Brain Fog</string>
+    <!-- Symptom in the episode form and the report: the clinical term and the common word in brackets. -->
+    <string name="symptom_paresthesia">Tingling / Paresthesia</string>
+    <!-- Short form of "Tingling / Paresthesia" in the chip of the last episode card on Summary. Max 14 characters. -->
+    <string name="symptom_paresthesia_short">Tingling</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_weather_environment">Weather &amp; Environment</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_sleep_physical">Sleep &amp; Physical Routine</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_stress_emotions">Stress &amp; Emotions</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_hormonal">Hormonal</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_diet_consumption">Diet &amp; Consumption</string>
+    <!-- Section caption of the trigger list in onboarding step 2. The app shows it in upper case. -->
+    <string name="trigger_category_custom">Custom</string>
+    <!-- Section caption in onboarding step 3: medications taken during an episode. Shown in upper case. -->
+    <string name="medication_role_acute">Acute / Abortive</string>
+    <!-- Section caption in onboarding step 3: medications taken every day. Shown in upper case. -->
+    <string name="medication_role_preventive">Preventive &amp; Supplements</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_30_days">Last 30 Days</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_90_days">Last 90 Days</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_6_months">Last 6 Months</string>
+    <!-- Date range of the report: the Export tile, its action sheet and the PDF header. Max 16 characters. -->
+    <string name="export_range_last_12_months">Last 12 Months</string>
+
+    <!-- Catalog: built-in triggers. The app shows these by ID, also for episodes logged in another language. -->
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_barometric_pressure">Barometric Pressure Drop</string>
+    <!-- Explanation under the trigger "Barometric Pressure Drop" in onboarding step 2. -->
+    <string name="trigger_barometric_pressure_description">Weather fronts, altitude shifts</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_bright_light">Bright Lights &amp; Sunlight</string>
+    <!-- Explanation under the trigger "Bright Lights & Sunlight" in onboarding step 2. -->
+    <string name="trigger_bright_light_description">Glare, strobe, photophobia</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_heat_humidity">Extreme Heat / Humidity</string>
+    <!-- Explanation under the trigger "Extreme Heat / Humidity" in onboarding step 2. -->
+    <string name="trigger_heat_humidity_description">Thermal fluctuations</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_loud_noise">Loud Noise</string>
+    <!-- Explanation under the trigger "Loud Noise" in onboarding step 2. -->
+    <string name="trigger_loud_noise_description">Phonophobia, acoustic peaks</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_poor_sleep">Poor / Irregular Sleep</string>
+    <!-- Explanation under the trigger "Poor / Irregular Sleep" in onboarding step 2. -->
+    <string name="trigger_poor_sleep_description">Sleep debt, REM deficits</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_dehydration">Dehydration</string>
+    <!-- Explanation under the trigger "Dehydration" in onboarding step 2. -->
+    <string name="trigger_dehydration_description">Electrolyte depletion</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_skipped_meals">Skipped Meals / Fasting</string>
+    <!-- Explanation under the trigger "Skipped Meals / Fasting" in onboarding step 2. -->
+    <string name="trigger_skipped_meals_description">Hypoglycemia threshold</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_overexertion">Physical Overexertion</string>
+    <!-- Explanation under the trigger "Physical Overexertion" in onboarding step 2. -->
+    <string name="trigger_overexertion_description">Exertional vascular strain</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_emotional_stress">Emotional Stress / Letdown</string>
+    <!-- Explanation under the trigger "Emotional Stress / Letdown" in onboarding step 2. -->
+    <string name="trigger_emotional_stress_description">Post-work decompression lag</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_screen_fatigue">Screen Fatigue</string>
+    <!-- Explanation under the trigger "Screen Fatigue" in onboarding step 2. -->
+    <string name="trigger_screen_fatigue_description">Blue-light overload, convergence</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_hormonal_cycle">Hormonal Shifts / Cycle</string>
+    <!-- Explanation under the trigger "Hormonal Shifts / Cycle" in onboarding step 2. -->
+    <string name="trigger_hormonal_cycle_description">Monthly cycle variation</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_caffeine">Caffeine Withdrawal / Excess</string>
+    <!-- Explanation under the trigger "Caffeine Withdrawal / Excess" in onboarding step 2. -->
+    <string name="trigger_caffeine_description">Adenosine receptor shifts</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_aged_cheese">Aged Cheese / Tyramine</string>
+    <!-- Explanation under the trigger "Aged Cheese / Tyramine" in onboarding step 2. -->
+    <string name="trigger_aged_cheese_description">Fermented amine sensitivity</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_alcohol">Alcohol / Red Wine</string>
+    <!-- Explanation under the trigger "Alcohol / Red Wine" in onboarding step 2. -->
+    <string name="trigger_alcohol_description">Tannins, histamine</string>
+    <!-- Built-in trigger: onboarding step 2, the episode form, Insights and the report. -->
+    <string name="trigger_sweeteners">Artificial Sweeteners</string>
+    <!-- Explanation under the trigger "Artificial Sweeteners" in onboarding step 2. -->
+    <string name="trigger_sweeteners_description">Aspartame, sucralose</string>
+    <!-- Explanation under a trigger that the user added. -->
+    <string name="trigger_custom_description">Custom trigger</string>
+
+    <!-- Catalog: built-in medications. Use the local name of the active substance, not a brand (plan, section 6.1). -->
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <!-- Drug class or note under "Ibuprofen" in onboarding step 3 and the episode form. -->
+    <string name="medication_ibuprofen_400_class">Anti-inflammatory Adjuvant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <!-- Drug class or note under "Sumatriptan" in onboarding step 3 and the episode form. -->
+    <string name="medication_sumatriptan_50_class">Triptan, serotonin agonist</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <!-- Drug class or note under "Rizatriptan" in onboarding step 3 and the episode form. -->
+    <string name="medication_rizatriptan_10_class">Triptan, orally dissolving</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_naproxen_500">Naproxen</string>
+    <!-- Drug class or note under "Naproxen" in onboarding step 3 and the episode form. -->
+    <string name="medication_naproxen_500_class">Long-acting NSAID</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_acetaminophen_1000">Acetaminophen</string>
+    <!-- Drug class or note under "Acetaminophen" in onboarding step 3 and the episode form. -->
+    <string name="medication_acetaminophen_1000_class">Analgesic</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <!-- Drug class or note under "Ubrogepant" in onboarding step 3 and the episode form. -->
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP antagonist</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_metoclopramide_10">Metoclopramide</string>
+    <!-- Drug class or note under "Metoclopramide" in onboarding step 3 and the episode form. -->
+    <string name="medication_metoclopramide_10_class">Antiemetic</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_electrolytes">Hydration Electrolytes</string>
+    <!-- Drug class or note under "Hydration Electrolytes" in onboarding step 3 and the episode form. -->
+    <string name="medication_electrolytes_class">Oral rehydration</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <!-- Drug class or note under "Riboflavin" in onboarding step 3 and the episode form. -->
+    <string name="medication_riboflavin_400_class">Vitamin B2</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_magnesium_400">Magnesium</string>
+    <!-- Drug class or note under "Magnesium" in onboarding step 3 and the episode form. -->
+    <string name="medication_magnesium_400_class">Mineral supplement</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_propranolol_40">Propranolol</string>
+    <!-- Drug class or note under "Propranolol" in onboarding step 3 and the episode form. -->
+    <string name="medication_propranolol_40_class">Beta blocker</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_topiramate_50">Topiramate</string>
+    <!-- Drug class or note under "Topiramate" in onboarding step 3 and the episode form. -->
+    <string name="medication_topiramate_50_class">Anticonvulsant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_amitriptyline_10">Amitriptyline</string>
+    <!-- Drug class or note under "Amitriptyline" in onboarding step 3 and the episode form. -->
+    <string name="medication_amitriptyline_10_class">Tricyclic antidepressant</string>
+    <!-- Built-in medication: active substance name. -->
+    <string name="medication_erenumab_70">Erenumab</string>
+    <!-- Drug class or note under "Erenumab" in onboarding step 3 and the episode form. -->
+    <string name="medication_erenumab_70_class">CGRP antibody, monthly</string>
+    <!-- Note under a medication that the user added. -->
+    <string name="medication_custom_class">Custom medication</string>
+    <!-- Dose of a built-in medication. %1$d = milligrams. Write the unit as your language does; a space before it is fine. -->
+    <string name="medication_dose_milligrams">%1$dmg</string>
+    <!-- A medication with its dose, for example "Ibuprofen 400mg". %1$s = name, %2$s = dose. -->
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <!-- Label under a bar of the month chart: week number in the month, 1 to 4. Max 3 characters. -->
+    <string name="insights_bar_week">W%1$d</string>
+    <!-- Line under the trigger list in Insights: %1$d = episodes without a trigger; the verb form follows it.
+         %2$s = the number of all episodes with its noun, from insights_episode_count. -->
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$d of %2$s has no triggers noted</item>
+        <item quantity="other">%1$d of %2$s have no triggers noted</item>
+    </plurals>
+    <!-- Part of insights_without_triggers: all episodes of the period. %1$d = that number. -->
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$d episode</item>
+        <item quantity="other">%1$d episodes</item>
+    </plurals>
 </resources>

@@ -56,13 +56,12 @@ internal class SqlCatalogRepository(
 }
 
 private fun Custom_trigger.toDomain() =
-    Trigger(id = id, name = name, description = "Custom trigger", category = TriggerCategory.Custom, isCustom = true)
+    Trigger(id = id, name = name, category = TriggerCategory.Custom, isCustom = true)
 
 private fun Custom_medication.toDomain() = Medication(
     id = id,
     name = name,
     dose = dose,
     role = enumOrNull<MedicationRole>(role) ?: MedicationRole.Acute,
-    drugClass = "Custom medication",
     isCustom = true,
 )

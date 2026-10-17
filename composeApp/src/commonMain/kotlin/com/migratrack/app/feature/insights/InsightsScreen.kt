@@ -49,7 +49,9 @@ import com.migratrack.app.generated.resources.insights_bar_migraine_days
 import com.migratrack.app.generated.resources.insights_bar_no_data
 import com.migratrack.app.generated.resources.insights_bar_not_tracked
 import com.migratrack.app.generated.resources.insights_bar_pain_free
+import com.migratrack.app.generated.resources.insights_bar_week
 import com.migratrack.app.generated.resources.insights_calendar_a11y
+import com.migratrack.app.generated.resources.insights_episode_count
 import com.migratrack.app.generated.resources.insights_headline_month
 import com.migratrack.app.generated.resources.insights_headline_six_months
 import com.migratrack.app.generated.resources.insights_headline_this_week
@@ -68,8 +70,10 @@ import com.migratrack.app.generated.resources.insights_trigger_row_a11y
 import com.migratrack.app.generated.resources.insights_trigger_row_count
 import com.migratrack.app.generated.resources.insights_triggers_empty
 import com.migratrack.app.generated.resources.insights_triggers_hint
+import com.migratrack.app.generated.resources.insights_without_triggers
 import com.migratrack.app.generated.resources.tab_insights
 import com.migratrack.app.ui.accent
+import com.migratrack.app.ui.compareForDisplay
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.Dot
 import com.migratrack.app.ui.components.MtText
@@ -79,13 +83,16 @@ import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.resolve
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.triggerName
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.analytics.Insights
 import com.migratrack.domain.analytics.InsightsBar
+import com.migratrack.domain.analytics.InsightsBarKey
 import com.migratrack.domain.analytics.InsightsPeriod
 import com.migratrack.domain.analytics.TriggerCount
 import com.migratrack.domain.analytics.TriggerFrequency
@@ -166,9 +173,13 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
             if (frequency.counts.isEmpty()) Res.string.insights_triggers_empty else Res.string.insights_triggers_hint,
         )
         MtText(caption, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)
-        frequency.counts.take(MAX_TRIGGER_ROWS).forEach { count ->
+        val names = frequency.counts.associate { it.triggerId to triggerName(it.triggerId, it.name).resolve() }
+        val ordered = frequency.counts.sortedWith(
+            compareByDescending<TriggerCount> { it.episodes }.then { a, b -> compareForDisplay(names.getValue(a.triggerId), names.getValue(b.triggerId)) },
+        )
+        ordered.take(MAX_TRIGGER_ROWS).forEach { count ->
             Spacer(Modifier.height(MtSpacing.md))
-            TriggerRow(count, frequency.episodes, catalog[count.triggerId]?.category?.accent ?: TriggerCategory.Custom.accent)
+            TriggerRow(names.getValue(count.triggerId), count, frequency.episodes, catalog[count.triggerId]?.category?.accent ?: TriggerCategory.Custom.accent)
         }
         if (frequency.counts.isNotEmpty() && frequency.withoutTriggers > 0) {
             Spacer(Modifier.height(MtSpacing.md))
@@ -178,19 +189,24 @@ private fun TriggerCard(frequency: TriggerFrequency, catalog: Map<String, Trigge
             ) {
                 Icon(Symbols.Info, tint = MtColors.TextSecondary, size = 16.dp)
                 Spacer(Modifier.width(6.dp))
-                MtText(frequency.withoutTriggersText, MtTheme.type.subhead, color = MtColors.TextSecondary)
+                val all = pluralStringResource(Res.plurals.insights_episode_count, frequency.episodes, frequency.episodes)
+                MtText(
+                    pluralStringResource(Res.plurals.insights_without_triggers, frequency.withoutTriggers, frequency.withoutTriggers, all),
+                    MtTheme.type.subhead,
+                    color = MtColors.TextSecondary,
+                )
             }
         }
     }
 }
 
 @Composable
-private fun TriggerRow(count: TriggerCount, episodes: Int, accent: Color) {
+private fun TriggerRow(name: String, count: TriggerCount, episodes: Int, accent: Color) {
     val share by animateFloatAsState(count.episodes.toFloat() / episodes, tween(600))
-    val description = pluralStringResource(Res.plurals.insights_trigger_row_a11y, episodes, count.name, count.episodes, episodes)
+    val description = pluralStringResource(Res.plurals.insights_trigger_row_a11y, episodes, name, count.episodes, episodes)
     Column(Modifier.semantics(mergeDescendants = true) { contentDescription = description }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            MtText(count.name, MtTheme.type.body.copy(fontWeight = FontWeight.SemiBold), maxLines = 2, modifier = Modifier.weight(1f))
+            MtText(name, MtTheme.type.body.copy(fontWeight = FontWeight.SemiBold), maxLines = 2, modifier = Modifier.weight(1f))
             Spacer(Modifier.width(MtSpacing.sm))
             MtText(stringResource(Res.string.insights_trigger_row_count, count.episodes, episodes), MtTheme.type.subhead.copy(fontWeight = FontWeight.SemiBold), color = MtColors.TextSecondary, maxLines = 1)
         }
@@ -254,6 +270,14 @@ private fun Insights.headline(): String = when (period) {
     InsightsPeriod.Year -> pluralStringResource(Res.plurals.insights_headline_year, attackCount, range.start.year)
 }
 
+/** The label under a bar: a weekday, a week of the month, or a month; the year view keeps only its first letter. */
+@Composable
+private fun InsightsBar.label(period: InsightsPeriod): String = when (val key = key) {
+    is InsightsBarKey.Day -> DateText.shortWeekday(key.date.dayOfWeek)
+    is InsightsBarKey.WeekOfMonth -> stringResource(Res.string.insights_bar_week, key.number)
+    is InsightsBarKey.MonthOfYear -> DateText.shortMonth(key.month).let { if (period == InsightsPeriod.Year) it.take(1) else it }
+}
+
 @Composable
 private fun AttackCard(insights: Insights) {
     Card {
@@ -278,7 +302,7 @@ private fun AttackCard(insights: Insights) {
                     AttackBar(bar, insights.period, Modifier.weight(1f))
                     Spacer(Modifier.height(6.dp))
                     MtText(
-                        bar.label,
+                        bar.label(insights.period),
                         MtTheme.type.subhead.copy(fontWeight = if (bar.isCurrent) FontWeight.Bold else FontWeight.Medium),
                         color = if (bar.isCurrent) MtColors.TextPrimary else MtColors.Caption,
                         maxLines = 1,
@@ -344,14 +368,15 @@ private fun AttackBar(bar: InsightsBar, period: InsightsPeriod, modifier: Modifi
         else -> bar.migraineDays.toFloat() / bar.trackedDays
     }
     val share by animateFloatAsState(target, tween(600))
+    val label = bar.label(period)
     val description = when {
-        bar.elapsedDays == 0 -> stringResource(Res.string.insights_bar_no_data, bar.label)
-        bar.trackedDays == 0 -> stringResource(Res.string.insights_bar_not_tracked, bar.label)
-        bar.migraineDays == 0 -> stringResource(Res.string.insights_bar_pain_free, bar.label)
+        bar.elapsedDays == 0 -> stringResource(Res.string.insights_bar_no_data, label)
+        bar.trackedDays == 0 -> stringResource(Res.string.insights_bar_not_tracked, label)
+        bar.migraineDays == 0 -> stringResource(Res.string.insights_bar_pain_free, label)
         else -> pluralStringResource(
             Res.plurals.insights_bar_migraine_days,
             bar.migraineDays,
-            bar.label,
+            label,
             bar.migraineDays,
             bar.peakIntensity?.value ?: 0,
         )

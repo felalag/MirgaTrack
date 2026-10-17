@@ -102,13 +102,13 @@ fun Episode.toDraft(catalog: List<Medication>, triggerCatalog: List<Trigger>): E
                 name = intake.name,
                 dose = intake.dose,
                 role = known?.role ?: MedicationRole.Acute,
-                drugClass = known?.drugClass.orEmpty(),
                 isCustom = known?.isCustom ?: false,
+                catalogDose = known?.catalogDose,
             )
         },
         triggers = triggers.map { noted ->
             triggersById[noted.triggerId]?.copy(name = noted.name)
-                ?: Trigger(noted.triggerId, noted.name, description = "", category = TriggerCategory.Custom, isCustom = true)
+                ?: Trigger(noted.triggerId, noted.name, category = TriggerCategory.Custom, isCustom = true)
         },
         startedAt = startedAt,
     )

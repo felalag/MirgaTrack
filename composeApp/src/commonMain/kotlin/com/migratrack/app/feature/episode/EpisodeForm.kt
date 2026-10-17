@@ -34,6 +34,7 @@ import com.migratrack.app.generated.resources.episode_pain_intensity_index
 import com.migratrack.app.generated.resources.episode_start
 import com.migratrack.app.generated.resources.episode_start_now
 import com.migratrack.app.ui.accent
+import com.migratrack.app.ui.classText
 import com.migratrack.app.ui.components.AddRow
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MedicationCard
@@ -47,9 +48,12 @@ import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.resolve
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Symptom
@@ -85,7 +89,7 @@ fun ColumnScope.EpisodeFormFields(
             // Large text wraps a title to two lines; both tiles of a pair keep the same height.
             Row(Modifier.fillMaxWidth().height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                 pair.forEach { region ->
-                    RegionOption(region.title, draft.region == region, { viewModel.selectRegion(region) }, Modifier.weight(1f).fillMaxHeight())
+                    RegionOption(stringResource(region.title), draft.region == region, { viewModel.selectRegion(region) }, Modifier.weight(1f).fillMaxHeight())
                 }
             }
         }
@@ -94,7 +98,7 @@ fun ColumnScope.EpisodeFormFields(
     FormSection(stringResource(Res.string.episode_aura_symptoms), Symbols.Sensors, MtColors.Cyan, onClear = viewModel::clearSymptoms) {
         FlowRow(horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm), verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
             Symptom.entries.forEach { symptom ->
-                SelectableCapsule(symptom.title, symptom.icon, symptom in draft.symptoms, { viewModel.toggleSymptom(symptom) })
+                SelectableCapsule(stringResource(symptom.title), symptom.icon, symptom in draft.symptoms, { viewModel.toggleSymptom(symptom) })
             }
         }
     }
@@ -106,7 +110,7 @@ fun ColumnScope.EpisodeFormFields(
         if (shown.isNotEmpty()) {
             FlowRow(horizontalArrangement = Arrangement.spacedBy(MtSpacing.sm), verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                 shown.forEach { trigger ->
-                    SelectableCapsule(trigger.name, trigger.icon, trigger.id in noted, { viewModel.toggleTrigger(trigger) }, accent = trigger.category.accent)
+                    SelectableCapsule(trigger.nameText.resolve(), trigger.icon, trigger.id in noted, { viewModel.toggleTrigger(trigger) }, accent = trigger.category.accent)
                 }
             }
         }
@@ -115,7 +119,7 @@ fun ColumnScope.EpisodeFormFields(
 
     FormSection(stringResource(Res.string.episode_acute_therapy), Symbols.Pill, MtColors.Green, onClear = viewModel::clearMedications) {
         draft.medications.forEach { medication ->
-            MedicationCard(medication.displayName, medication.drugClass, onRemove = { viewModel.removeMedication(medication) })
+            MedicationCard(medication.nameText.resolve(), medication.classText.resolve(), onRemove = { viewModel.removeMedication(medication) })
         }
         AddRow(stringResource(Res.string.episode_add_medication_row), MtColors.Green, onClick = viewModel::addMedication)
     }

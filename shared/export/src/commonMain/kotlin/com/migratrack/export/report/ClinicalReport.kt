@@ -1,6 +1,7 @@
 package com.migratrack.export.report
 
 import com.migratrack.domain.analytics.MigraineDays
+import com.migratrack.domain.analytics.TriggerCount
 import com.migratrack.domain.analytics.TriggerFrequency
 import com.migratrack.domain.model.BaselineProfile
 import com.migratrack.domain.model.Episode
@@ -81,6 +82,7 @@ object ClinicalReportBuilder {
         options: ExportPreferences,
         today: LocalDate,
         timeZone: TimeZone,
+        names: CatalogNames,
     ): ClinicalReport {
         val from = today.minus(DatePeriod(days = options.range.days - 1))
         val inRange = episodes
@@ -97,7 +99,7 @@ object ClinicalReportBuilder {
             from = from,
             to = today,
             trackedSince = trackedSince,
-            rangeTitle = options.range.title,
+            rangeTitle = names.range(options.range),
             options = options,
             stats = ReportStats(
                 episodes = inRange.size,
@@ -110,29 +112,42 @@ object ClinicalReportBuilder {
             ),
             baseline = baseline?.let { profile ->
                 ReportBaseline(
-                    diagnoses = profile.diagnoses.sortedBy { it.ordinal }.map { it.title },
-                    frequency = profile.frequency.title,
-                    typicalDuration = profile.typicalDuration.title,
+                    diagnoses = profile.diagnoses.sortedBy { it.ordinal }.map(names::diagnosis),
+                    frequency = names.frequency(profile.frequency),
+                    typicalDuration = names.duration(profile.typicalDuration),
                     typicalIntensity = profile.typicalIntensity.value,
-                    triggers = triggers.filter { it.id in profile.triggerIds }.map { it.name },
-                    treatments = medications.filter { it.id in profile.medicationIds }.map { it.displayName },
+                    triggers = triggers.filter { it.id in profile.triggerIds }.map { names.trigger(it.id, it.name) },
+                    treatments = medications.filter { it.id in profile.medicationIds }.map { medication ->
+                        val intake = names.intake(medication.id, medication.name, medication.dose)
+                        "${intake.name} ${intake.dose}".trim()
+                    },
                 )
             },
             episodes = inRange.map { episode ->
                 ReportEpisode(
                     startedAt = episode.startedAt.toLocalDateTime(timeZone),
                     intensity = episode.intensity.value,
-                    region = episode.region?.title,
-                    symptoms = episode.symptoms.sortedBy { it.ordinal }.map { it.title },
-                    medications = episode.medications.map { ReportIntake(it.name, it.dose) },
-                    triggers = episode.triggers.map { it.name },
+                    region = episode.region?.let(names::region),
+                    symptoms = episode.symptoms.sortedBy { it.ordinal }.map(names::symptom),
+                    medications = episode.medications.map { names.intake(it.medicationId, it.name, it.dose) },
+                    triggers = episode.triggers.map { names.trigger(it.triggerId, it.name) },
                 )
             },
-            triggers = TriggerFrequency.of(inRange),
+            triggers = TriggerFrequency.of(inRange).named(names),
             days = generateSequence(from) { it.plus(DatePeriod(days = 1)) }
                 .takeWhile { it <= today }
                 .map { ReportDay(it, days.peak(it)?.value, days.isTracked(it)) }
                 .toList(),
         )
     }
+
+    private fun CatalogNames.intake(id: String, name: String, dose: String) =
+        ReportIntake(medicationName(id, name), medicationDose(id, dose))
+
+    /** Shows the names in the language of the report, and orders equal counts by those names. */
+    private fun TriggerFrequency.named(names: CatalogNames) = copy(
+        counts = counts
+            .map { it.copy(name = names.trigger(it.triggerId, it.name)) }
+            .sortedWith(compareByDescending<TriggerCount> { it.episodes }.then { a, b -> names.compare(a.name, b.name) }),
+    )
 }

@@ -6,6 +6,7 @@ import com.migratrack.domain.repository.EpisodeRepository
 import com.migratrack.domain.repository.ProfileRepository
 import com.migratrack.export.pdf.PdfRenderer
 import com.migratrack.export.pdf.ReportPdf
+import com.migratrack.export.report.CatalogNames
 import com.migratrack.export.report.ClinicalReport
 import com.migratrack.export.report.ClinicalReportBuilder
 import com.migratrack.export.xlsx.ReportWorkbook
@@ -28,6 +29,8 @@ class ExportReport(
     private val clock: Clock,
     private val timeZone: () -> TimeZone,
     private val pdfRenderer: PdfRenderer,
+    /** Loads the names in the language of the app; it runs before each export, so a language change applies. */
+    private val names: suspend () -> CatalogNames,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     suspend fun report(): ClinicalReport {
@@ -41,6 +44,7 @@ class ExportReport(
             options = profiles.observeExportPreferences().first(),
             today = clock.todayIn(zone),
             timeZone = zone,
+            names = names(),
         )
     }
 
