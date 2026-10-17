@@ -64,6 +64,7 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.ExportPreferences
 import com.migratrack.domain.model.ExportRange
@@ -124,7 +125,7 @@ class ExportViewModel(private val graph: AppGraph) : ViewModel() {
         val ranges = ExportRange.entries
         val index = graph.services.dialogs.chooseAction(
             title = getString(Res.string.export_range_title),
-            actions = ranges.map { SheetAction(it.title) },
+            actions = ranges.map { SheetAction(getString(it.title)) },
         ) ?: return@launch
         update { it.copy(range = ranges[index]) }
     }
@@ -176,7 +177,7 @@ fun ExportScreen(onOpenSettings: () -> Unit) {
             }
             StatTile(Modifier.weight(1f).pressable(role = Role.Button, pressedScale = 0.97f, onClick = viewModel::chooseRange)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    MtText(current.preferences.range.title, MtTheme.type.headline.copy(fontWeight = FontWeight.Bold), modifier = Modifier.weight(1f, fill = false))
+                    MtText(stringResource(current.preferences.range.title), MtTheme.type.headline.copy(fontWeight = FontWeight.Bold), modifier = Modifier.weight(1f, fill = false))
                     com.migratrack.app.ui.icons.Icon(Symbols.ChevronRight, tint = MtColors.TextSecondary, size = 18.dp)
                 }
                 MtText(current.dateRange, MtTheme.type.subhead.copy(fontWeight = FontWeight.Normal), color = MtColors.TextSecondary)

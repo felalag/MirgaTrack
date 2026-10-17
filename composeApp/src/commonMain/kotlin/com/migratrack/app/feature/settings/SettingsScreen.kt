@@ -69,11 +69,16 @@ import com.migratrack.app.ui.components.RowTrailing
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.resolve
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.analytics.DateText
+import com.migratrack.domain.model.Diagnosis
+import com.migratrack.domain.model.Medication
 import com.migratrack.domain.model.UserProfile
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -89,9 +94,9 @@ data class SettingsUiState(
     val name: String,
     val memberSince: String,
     val logCount: Int,
-    val diagnoses: String,
+    val diagnoses: List<Diagnosis>,
     val triggerCount: Int,
-    val treatments: String,
+    val treatments: List<Medication>,
 )
 
 class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
@@ -109,9 +114,9 @@ class SettingsViewModel(private val graph: AppGraph) : ViewModel() {
             name = user?.name.orEmpty(),
             memberSince = user?.memberSince?.let { "${DateText.shortMonth(it.month)} ${it.year}" } ?: "–",
             logCount = episodes.size,
-            diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }?.joinToString(", ") { it.title }.orEmpty(),
+            diagnoses = baseline?.diagnoses?.sortedBy { it.ordinal }.orEmpty(),
             triggerCount = triggerCount,
-            treatments = medications.filter { it.id in baseline?.medicationIds.orEmpty() }.joinToString(", ") { it.displayName },
+            treatments = medications.filter { it.id in baseline?.medicationIds.orEmpty() },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
@@ -150,13 +155,14 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
         val current = state ?: return@Page
         ProfileCard(current, onEditName = viewModel::editName)
 
-        val diagnoses = current.diagnoses.ifEmpty { stringResource(Res.string.common_not_set) }
+        val diagnoses = current.diagnoses.map { stringResource(it.title) }.joinToString(", ").ifEmpty { stringResource(Res.string.common_not_set) }
         val triggers = if (current.triggerCount == 0) {
             stringResource(Res.string.settings_no_triggers)
         } else {
             pluralStringResource(Res.plurals.settings_known_triggers_count, current.triggerCount, current.triggerCount)
         }
-        val treatments = current.treatments.ifEmpty { stringResource(Res.string.settings_no_medications) }
+        val treatments = current.treatments.map { it.nameText.resolve() }.joinToString(", ")
+            .ifEmpty { stringResource(Res.string.settings_no_medications) }
         GroupedSection(stringResource(Res.string.settings_section_baseline)) {
             ListRow(stringResource(Res.string.settings_baseline_diagnoses), Symbols.Psychology, MtColors.Cyan, subtitle = diagnoses, trailing = RowTrailing.Chevron) { onEditBaseline(1) }
             ListDivider()

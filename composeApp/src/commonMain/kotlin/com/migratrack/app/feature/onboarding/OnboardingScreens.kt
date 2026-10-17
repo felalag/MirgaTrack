@@ -63,6 +63,7 @@ import com.migratrack.app.generated.resources.onboarding_triggers_subtitle
 import com.migratrack.app.generated.resources.onboarding_triggers_title
 import com.migratrack.app.generated.resources.onboarding_update_later
 import com.migratrack.app.ui.accent
+import com.migratrack.app.ui.classText
 import com.migratrack.app.ui.components.AddRow
 import com.migratrack.app.ui.components.ChoiceChips
 import com.migratrack.app.ui.components.MtText
@@ -74,13 +75,18 @@ import com.migratrack.app.ui.components.SelectionStyle
 import com.migratrack.app.ui.components.contentColumn
 import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.descriptionText
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.subtitle
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.title
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.EpisodeFrequency
 import com.migratrack.domain.model.MedicationRole
@@ -172,8 +178,8 @@ private fun DiagnosesStepScreen(
         StepSection(stringResource(Res.string.onboarding_primary_diagnosis)) {
             Diagnosis.entries.forEach { diagnosis ->
                 SelectionCard(
-                    title = diagnosis.title,
-                    subtitle = diagnosis.subtitle,
+                    title = stringResource(diagnosis.title),
+                    subtitle = stringResource(diagnosis.subtitle),
                     icon = diagnosis.icon,
                     selected = diagnosis in draft.diagnoses,
                     accent = MtColors.Pink,
@@ -183,10 +189,12 @@ private fun DiagnosesStepScreen(
             }
         }
         StepSection(stringResource(Res.string.onboarding_episode_frequency)) {
-            ChoiceChips(EpisodeFrequency.entries, draft.frequency, { it.title }, viewModel::setFrequency, grouped = true)
+            val labels = EpisodeFrequency.entries.associateWith { stringResource(it.title) }
+            ChoiceChips(EpisodeFrequency.entries, draft.frequency, { labels.getValue(it) }, viewModel::setFrequency, grouped = true)
         }
         StepSection(stringResource(Res.string.onboarding_episode_duration)) {
-            ChoiceChips(TypicalDuration.entries, draft.typicalDuration, { it.title }, viewModel::setDuration)
+            val labels = TypicalDuration.entries.associateWith { stringResource(it.title) }
+            ChoiceChips(TypicalDuration.entries, draft.typicalDuration, { labels.getValue(it) }, viewModel::setDuration)
         }
         StepSection(stringResource(Res.string.onboarding_intensity_baseline)) {
             Box(Modifier.fillMaxWidth().background(MtColors.CardRaised, androidx.compose.foundation.shape.RoundedCornerShape(MtRadius.lg)).padding(12.dp)) {
@@ -220,11 +228,11 @@ private fun TriggersStepScreen(
         onBack = onBack,
     ) {
         state.triggers.groupBy { it.category }.entries.sortedBy { it.key.ordinal }.forEach { (category, triggers) ->
-            StepSection(category.title) {
+            StepSection(stringResource(category.title)) {
                 triggers.forEach { trigger ->
                     SelectionCard(
-                        title = trigger.name,
-                        subtitle = trigger.description,
+                        title = trigger.nameText.resolve(),
+                        subtitle = trigger.descriptionText.resolve(),
                         icon = trigger.icon,
                         selected = trigger.id in state.draft.triggerIds,
                         accent = category.accent,
@@ -255,11 +263,11 @@ private fun TreatmentStepScreen(
         onBack = onBack,
     ) {
         MedicationRole.entries.forEach { role ->
-            StepSection(role.title) {
+            StepSection(stringResource(role.title)) {
                 state.medications.filter { it.role == role }.forEach { medication ->
                     SelectionCard(
-                        title = medication.displayName,
-                        subtitle = medication.drugClass,
+                        title = medication.nameText.resolve(),
+                        subtitle = medication.classText.resolve(),
                         icon = medication.icon,
                         selected = medication.id in state.draft.medicationIds,
                         accent = MtColors.Green,

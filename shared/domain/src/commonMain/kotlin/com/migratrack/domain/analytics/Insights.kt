@@ -18,9 +18,19 @@ import kotlin.math.roundToInt
 
 enum class InsightsPeriod { Week, Month, SixMonths, Year }
 
+/** What a bar of the Insights chart stands for. The UI makes its label. */
+sealed interface InsightsBarKey {
+    data class Day(val date: LocalDate) : InsightsBarKey
+
+    /** The weeks of a month, from 1 to 4; the fourth also holds days 29–31. */
+    data class WeekOfMonth(val number: Int) : InsightsBarKey
+
+    data class MonthOfYear(val month: Month) : InsightsBarKey
+}
+
 /** One bar of the Insights chart: a day for the week view, a week or a month otherwise. */
 data class InsightsBar(
-    val label: String,
+    val key: InsightsBarKey,
     /** Days of this bucket up to today. Zero means the bucket is in the future. */
     val elapsedDays: Int,
     /** Elapsed days from the tracking start on, plus migraine days before it. Zero means not tracked. */
@@ -83,10 +93,10 @@ object InsightsCalculator {
         // A partly tracked earlier span has too few attacks and makes the trend look worse than it is.
         val trend = if (earlier == 0 || earlierStart < trackedSince) null else ((recent - earlier) * 100.0 / earlier).roundToInt()
 
-        val bars = period.buckets(anchor).map { (label, bucket) ->
+        val bars = period.buckets(anchor).map { (key, bucket) ->
             val elapsedPart = bucket.start..minOf(bucket.endInclusive, today)
             InsightsBar(
-                label = label,
+                key = key,
                 elapsedDays = elapsedPart.length(),
                 trackedDays = days.trackedDaysIn(elapsedPart),
                 migraineDays = days.migraineDaysIn(elapsedPart),
@@ -114,12 +124,12 @@ private val InsightsPeriod.trendSpanDays: Int
         InsightsPeriod.Year -> 365
     }
 
-private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<String, ClosedRange<LocalDate>>> = when (this) {
+private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<InsightsBarKey, ClosedRange<LocalDate>>> = when (this) {
     InsightsPeriod.Week -> {
         val monday = anchor.startOfWeek()
-        DayOfWeek.entries.mapIndexed { index, day ->
+        DayOfWeek.entries.indices.map { index ->
             val date = monday.plus(DatePeriod(days = index))
-            DateText.shortWeekday(day) to date..date
+            InsightsBarKey.Day(date) to date..date
         }
     }
     InsightsPeriod.Month -> {
@@ -129,16 +139,16 @@ private fun InsightsPeriod.buckets(anchor: LocalDate): List<Pair<String, ClosedR
         (0 until 4).map { week ->
             val start = first.plus(DatePeriod(days = week * 7))
             val end = if (week == 3) last else start.plus(DatePeriod(days = 6))
-            "W${week + 1}" to start..end
+            InsightsBarKey.WeekOfMonth(week + 1) to start..end
         }
     }
     InsightsPeriod.SixMonths -> (5 downTo 0).map { back ->
         val start = anchor.startOfMonth().minus(DatePeriod(months = back))
-        DateText.shortMonth(start.month) to start..start.endOfMonth()
+        InsightsBarKey.MonthOfYear(start.month) to start..start.endOfMonth()
     }
     InsightsPeriod.Year -> Month.entries.map { month ->
         val start = LocalDate(anchor.year, month, 1)
-        DateText.shortMonth(month).take(1) to start..start.endOfMonth()
+        InsightsBarKey.MonthOfYear(month) to start..start.endOfMonth()
     }
 }
 

@@ -25,6 +25,8 @@ import com.migratrack.app.generated.resources.episode_other_trigger_title
 import com.migratrack.app.generated.resources.episode_start
 import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
+import com.migratrack.app.ui.load
+import com.migratrack.app.ui.nameText
 import com.migratrack.domain.analytics.DateText
 import com.migratrack.domain.model.CranialRegion
 import com.migratrack.domain.model.Episode
@@ -135,7 +137,7 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         val choice = dialogs.chooseAction(
             title = getString(Res.string.common_add_trigger),
             message = getString(Res.string.episode_add_trigger_message),
-            actions = candidates.map { SheetAction(it.name) } + SheetAction(getString(Res.string.episode_other_trigger_action)),
+            actions = candidates.map { SheetAction(it.nameText.load()) } + SheetAction(getString(Res.string.episode_other_trigger_action)),
         ) ?: return@launch
         val trigger = if (choice < candidates.size) {
             candidates[choice]
@@ -169,7 +171,7 @@ class EpisodeFormViewModel(private val graph: AppGraph, private val target: Epis
         val choice = dialogs.chooseAction(
             title = getString(Res.string.common_add_medication),
             message = getString(Res.string.episode_add_medication_message),
-            actions = candidates.map { SheetAction(it.displayName) } + SheetAction(getString(Res.string.episode_other_medication_action)),
+            actions = candidates.map { SheetAction(it.nameText.load()) } + SheetAction(getString(Res.string.episode_other_medication_action)),
         ) ?: return@launch
         val medication = if (choice < candidates.size) {
             candidates[choice]

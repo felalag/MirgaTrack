@@ -76,6 +76,8 @@ import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.text
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -372,7 +374,7 @@ private fun DayPreview(
             }
         }
         PreviewTile(Symbols.Medication, stringResource(Res.string.calendar_medication)) {
-            MtText(day.medications.joinToString(", ").ifEmpty { stringResource(Res.string.common_none) }, MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
+            MtText(day.medications.map { it.text.resolve() }.joinToString(", ").ifEmpty { stringResource(Res.string.common_none) }, MtTheme.type.bodyStrong, color = MtColors.TextPrimary)
         }
         PrimaryButton(stringResource(Res.string.calendar_edit_episode_details), onClick = { onEdit(day) }, icon = Symbols.Edit, height = 56.dp)
         DestructiveButton(stringResource(Res.string.common_delete_episode), onClick = { onDelete(day) })

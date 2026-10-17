@@ -39,7 +39,7 @@ class EpisodeTriggersTest {
     @Test
     fun editReplacesTheTriggersAndKeepsTheNameTheEpisodeWasLoggedWith() = runTest {
         val episodes = InMemoryEpisodes()
-        val custom = Trigger("custom-trigger-1", "Perfume", "Custom trigger", TriggerCategory.Custom, isCustom = true)
+        val custom = Trigger("custom-trigger-1", "Perfume", TriggerCategory.Custom, isCustom = true)
         val original = LogEpisode(episodes, clock)(EpisodeDraft(PainIntensity(6), triggers = listOf(sleep, custom)))
         // A later catalog renames one trigger and no longer has the custom one.
         val catalog = TriggerCatalog.defaults.map { if (it.id == sleep.id) it.copy(name = "Poor Sleep") else it }
@@ -77,15 +77,6 @@ class EpisodeTriggersTest {
             listOf(TriggerCount("poor-sleep", sleep.name, 3), TriggerCount("bright-light", light.name, 1), TriggerCount("caffeine", caffeine.name, 1)),
             frequency.counts,
         )
-    }
-
-    @Test
-    fun episodesWithoutTriggersReadAsCorrectEnglish() {
-        fun text(without: Int, episodes: Int) = TriggerFrequency(episodes, without, emptyList()).withoutTriggersText
-
-        assertEquals("1 of 3 episodes has no triggers noted", text(1, 3))
-        assertEquals("2 of 3 episodes have no triggers noted", text(2, 3))
-        assertEquals("1 of 1 episode has no triggers noted", text(1, 1))
     }
 
     @Test
