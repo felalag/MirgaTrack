@@ -12,6 +12,14 @@ exclude:
   - LOCALIZATION_GLOSSARY.md
   - LOCALIZATION_CHECKLIST.md
   - legal/files/be
+  - legal/files/ca
+  - legal/files/de
+  - legal/files/es
+  - legal/files/fr
+  - legal/files/it
+  - legal/files/nl
+  - legal/files/pt
+  - legal/files/pt-PT
   - legal/files/ru
   - app-store
   - LOCALIZATION_BACKTRANSLATION.md

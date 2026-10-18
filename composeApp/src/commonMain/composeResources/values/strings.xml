@@ -452,7 +452,7 @@
     <string name="onboarding_back_to_triggers">Back to Triggers</string>
     <!-- Main button of a step opened from Settings. Max 28 characters. -->
     <string name="onboarding_save_changes">Save Changes</string>
-    <!-- Progress caption, shown in upper case. %1$s = this step, %2$s = all steps. Max 10 characters. -->
+    <!-- Progress caption, shown in upper case at the right of the top bar. %1$s = this step, %2$s = all steps. Max 16 characters. -->
     <string name="onboarding_step">Step %1$s/%2$s</string>
     <!-- Title of step 1. -->
     <string name="onboarding_diagnoses_title">Diagnoses &amp; History</string>

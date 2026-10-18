@@ -11,10 +11,70 @@
             "value" : "MigraTrack счытвае сон мінулай ночы з Apple Health і паказвае яго ў зводцы. Даныя застаюцца на гэтым iPhone."
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack llegeix la son d’aquesta nit de l’app Salut i la mostra al resum. Les dades es queden en aquest iPhone."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack liest den Schlaf der letzten Nacht aus Apple Health und zeigt ihn in der Übersicht. Die Daten bleiben auf diesem iPhone."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack reads last night's sleep from Apple Health and shows it on the Summary. The data stays on this iPhone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack lee el sueño de anoche de la app Salud y lo muestra en el resumen. Los datos se quedan en este iPhone."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack lee el sueño de anoche de la app Salud y lo muestra en el resumen. Los datos se quedan en este iPhone."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack lit le sommeil de la nuit dernière dans l’app Santé et l’affiche dans le résumé. Les données restent sur cet iPhone."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack lit le sommeil de la nuit dernière dans l’app Santé et l’affiche dans le résumé. Les données restent sur cet iPhone."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack legge il sonno di stanotte dall’app Salute e lo mostra nel riepilogo. I dati restano su questo iPhone."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack leest de slaap van vannacht uit de Gezondheid-app en toont die in het overzicht. De gegevens blijven op deze iPhone."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O MigraTrack lê o sono da última noite no app Saúde e o mostra no resumo. Os dados ficam neste iPhone."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O MigraTrack lê o sono da última noite na app Saúde e mostra-o no resumo. Os dados ficam neste iPhone."
           }
         },
         "ru" : {

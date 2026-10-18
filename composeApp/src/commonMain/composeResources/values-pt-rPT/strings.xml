@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Portuguese (Portugal) strings: only the keys that differ from values-pt, which holds the Brazilian text.
+  European Portuguese spelling and words ("registar", "guardar", "Definições", "desencadeante", "doente"),
+  impersonal polite address ("o seu"), and the names of the Portuguese formulary (INFARMED).
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="common_settings">Definições</string>
+    <string name="common_save">Guardar</string>
+    <string name="common_next">Seguinte</string>
+    <string name="common_not_set">Não indicado</string>
+    <string name="common_medical_disclaimer">O MigraTrack é um diário, não um aconselhamento médico. Fale com o seu médico antes de alterar o seu tratamento.</string>
+    <string name="common_log_migraine_episode">Registar crise de enxaqueca</string>
+    <string name="common_save_episode">Guardar</string>
+    <string name="common_possible_triggers">Possíveis desencadeantes</string>
+    <string name="common_add_trigger">Adicionar desencadeante</string>
+    <string name="common_medication_name_and_dose">Introduza o nome e a dose.</string>
+    <string name="common_medication_placeholder">Por exemplo, eletriptano 40 mg</string>
+    <string name="tab_log">Registar</string>
+    <string name="pain_scale_middle">%1$s Percetível</string>
+
+    <!-- Summary -->
+
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">de %1$s dia monitorizado</item>
+        <item quantity="many">de %1$s dias monitorizados</item>
+        <item quantity="other">de %1$s dias monitorizados</item>
+    </plurals>
+    <string name="summary_without_logged_episode">sem crise registada</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s de %2$s dia monitorizado sem crise registada nos últimos 30 dias</item>
+        <item quantity="many">%1$s de %2$s dias monitorizados sem crise registada nos últimos 30 dias</item>
+        <item quantity="other">%1$s de %2$s dias monitorizados sem crise registada nos últimos 30 dias</item>
+    </plurals>
+    <string name="summary_tracking_start_note">A contagem começa no dia em que iniciou a monitorização. Os dias anteriores não são monitorizados.</string>
+    <string name="strip_legend_not_tracked">Sem dados</string>
+    <string name="summary_sleep_not_recorded">Sem registo</string>
+    <string name="summary_sleep_hint">Use o Apple Watch para dormir ou registe o sono na app Saúde. Se desativou o acesso, ative-o em Definições › Saúde.</string>
+    <string name="summary_sleep_connect_body">O MigraTrack lê o sono da última noite na app Saúde. Os dados ficam neste iPhone.</string>
+    <string name="summary_sleep_connect_button">Ligar à app Saúde</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Registar crise</string>
+    <string name="episode_saved_banner">Crise guardada. Descanse e fique num local com pouca luz.</string>
+    <string name="episode_other_trigger_action">Outro desencadeante…</string>
+    <string name="episode_other_trigger_title">Outro desencadeante</string>
+    <string name="episode_add_medication_message">O que tomou nesta crise?</string>
+    <string name="episode_missing_message">Esta crise foi apagada noutro dispositivo, por isso não é possível guardar as alterações.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_legend_not_tracked">Não monitorizado</string>
+    <string name="insights_bar_not_tracked">%1$s: não monitorizado</string>
+    <string name="insights_triggers_empty">Anote possíveis desencadeantes ao registar ou editar uma crise. Este cartão vai mostrar quantas vezes anotou cada um.</string>
+    <string name="insights_triggers_hint">Quantas vezes anotou cada desencadeante juntamente com uma crise. Isto não indica uma causa.</string>
+    <string name="calendar_next_month">Mês seguinte</string>
+    <string name="calendar_day_not_tracked">não monitorizado</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">A preparar o PDF…</string>
+    <string name="export_preparing_excel">A preparar o Excel…</string>
+    <string name="export_preparing_report">A preparar o relatório…</string>
+    <string name="export_episodes_recorded">Crises registadas</string>
+    <string name="export_medications">Tomas de medicamentos</string>
+    <string name="export_symptoms_subtitle">Tipos de aura e a sua frequência</string>
+    <string name="export_triggers_subtitle">Desencadeantes anotados e a sua frequência</string>
+    <string name="export_share">Partilhar</string>
+    <string name="export_write_failed">Não foi possível guardar %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s desencadeante conhecido</item>
+        <item quantity="many">%1$s desencadeantes conhecidos</item>
+        <item quantity="other">%1$s desencadeantes conhecidos</item>
+    </plurals>
+    <string name="settings_no_triggers">Nenhum desencadeante selecionado</string>
+    <string name="settings_name_title">O seu nome</string>
+    <string name="settings_name_message">Aparece nos relatórios que exporta.</string>
+    <string name="settings_delete_message">O MigraTrack guarda os seus dados neste iPhone e uma cópia no seu Apple Watch. Esta ação apaga definitivamente todas as crises e o seu perfil inicial; o relógio apaga a cópia dele na próxima sincronização. As cópias de segurança do dispositivo mantêm a sua cópia. Se precisar de um relatório, exporte-o antes.</string>
+    <string name="settings_known_triggers">Desencadeantes conhecidos</string>
+    <string name="settings_section_developer">Programador</string>
+    <string name="settings_add_name">Adicione o seu nome</string>
+
+    <!-- Legal -->
+
+    <string name="legal_folder">pt-PT</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Avançar para desencadeantes</string>
+    <string name="onboarding_back_to_triggers">Voltar aos desencadeantes</string>
+    <string name="onboarding_save_changes">Guardar alterações</string>
+    <string name="onboarding_diagnoses_subtitle">Configure o seu perfil inicial. As suas crises e relatórios partem dele.</string>
+    <string name="onboarding_update_later">Pode alterar o seu perfil inicial a qualquer momento nas Definições.</string>
+    <string name="onboarding_triggers_title">Os seus desencadeantes</string>
+    <string name="onboarding_triggers_subtitle">Escolha os desencadeantes conhecidos ou suspeitos. O seu relatório mostra-os ao seu médico.</string>
+    <string name="onboarding_add_custom_trigger">Adicionar desencadeante próprio</string>
+    <string name="onboarding_treatment_subtitle">Escolha o que toma. Os medicamentos para a crise já vêm preenchidos em cada nova crise, por isso registar leva um toque.</string>
+    <string name="onboarding_custom_trigger_title">Desencadeante próprio</string>
+    <string name="onboarding_custom_trigger_placeholder">Por exemplo, luzes intermitentes</string>
+    <string name="onboarding_medication_role_message">Quando o toma?</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Diário pessoal de enxaqueca e desencadeantes</string>
+    <string name="welcome_headline_patterns">Compreenda os seus padrões.</string>
+    <string name="welcome_headline_doctor">Leve os factos ao seu médico.</string>
+    <string name="welcome_body">Registe sintomas, identifique possíveis desencadeantes e exporte os seus relatórios quando quiser.</string>
+    <string name="welcome_agreement">Ao continuar, aceita os %1$s e a %2$s.</string>
+
+    <!-- Catalog -->
+
+    <string name="diagnosis_chronic_migraine">Enxaqueca crónica</string>
+    <string name="diagnosis_tension_type">Cefaleia tipo tensão</string>
+    <string name="diagnosis_cluster_subtitle">Crises fortes de um lado, à volta do olho</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Observação de padrões de sintomas</string>
+    <string name="symptom_aphasia">Afasia / mente turva</string>
+    <string name="symptom_aphasia_short">Mente turva</string>
+    <string name="symptom_paresthesia">Formigueiro / parestesia</string>
+    <string name="symptom_paresthesia_short">Formigueiro</string>
+    <string name="trigger_category_stress_emotions">Stress e emoções</string>
+    <string name="trigger_category_hormonal">Hormonas</string>
+    <string name="trigger_barometric_pressure_description">Frentes meteorológicas, mudanças de altitude</string>
+    <string name="trigger_bright_light_description">Encandeamento, luz intermitente, fotofobia</string>
+    <string name="trigger_heat_humidity">Calor / humidade extremos</string>
+    <string name="trigger_loud_noise">Ruído forte</string>
+    <string name="trigger_skipped_meals">Refeições saltadas / jejum</string>
+    <string name="trigger_emotional_stress">Stress emocional / relaxamento depois</string>
+    <string name="trigger_screen_fatigue">Cansaço por ecrãs</string>
+    <string name="trigger_sweeteners">Edulcorantes artificiais</string>
+    <string name="trigger_custom_description">Desencadeante próprio</string>
+    <string name="medication_sumatriptan_50">Sumatriptano</string>
+    <string name="medication_rizatriptan_10">Rizatriptano</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_propranolol_40_class">Betabloqueante</string>
+    <string name="medication_topiramate_50_class">Antiepilético</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s de %2$s não tem desencadeantes anotados</item>
+        <item quantity="many">%1$s de %2$s não têm desencadeantes anotados</item>
+        <item quantity="other">%1$s de %2$s não têm desencadeantes anotados</item>
+    </plurals>
+
+    <!-- Report -->
+
+    <string name="report_patient">Doente: %1$s</string>
+    <string name="report_disclaimer">Dados registados pelo próprio doente no MigraTrack. Este relatório apoia uma avaliação clínica e não a substitui.</string>
+    <string name="report_stat_episodes">Crises registadas</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">A monitorização começou em %1$s. %2$s dia anterior deste período não tem registos e não conta como dia sem dor.</item>
+        <item quantity="many">A monitorização começou em %1$s. %2$s dias anteriores deste período não têm registos e não contam como dias sem dor.</item>
+        <item quantity="other">A monitorização começou em %1$s. %2$s dias anteriores deste período não têm registos e não contam como dias sem dor.</item>
+    </plurals>
+    <string name="report_baseline_triggers">Desencadeantes</string>
+    <string name="report_legend_not_tracked">Não monitorizado</string>
+    <string name="report_medication_title">Toma de medicamentos</string>
+    <string name="report_no_medications">Nenhuma toma de medicamentos registada neste período.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s toma</item>
+        <item quantity="many">%1$s tomas</item>
+        <item quantity="other">%1$s tomas</item>
+    </plurals>
+    <string name="report_no_symptoms">Nenhuma aura ou sintoma sensorial registado neste período.</string>
+    <string name="report_triggers_title">Possíveis desencadeantes anotados</string>
+    <string name="report_no_triggers">Nenhum desencadeante anotado neste período.</string>
+    <string name="report_triggers_note">Os números mostram quantas vezes o doente anotou um desencadeante juntamente com uma crise. Não indicam uma causa.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s de %2$s não tem desencadeantes anotados.</item>
+        <item quantity="many">%1$s de %2$s não têm desencadeantes anotados.</item>
+        <item quantity="other">%1$s de %2$s não têm desencadeantes anotados.</item>
+    </plurals>
+    <string name="report_no_episodes">Nenhuma crise registada neste período.</string>
+    <string name="report_column_triggers">Desencadeantes</string>
+    <string name="report_header_triggers">Possíveis desencadeantes</string>
+    <string name="report_day_not_tracked">Não monitorizado</string>
+    <string name="report_profile_patient">Doente</string>
+    <string name="report_profile_tracked_since">Monitorizado desde</string>
+    <string name="report_profile_triggers">Desencadeantes conhecidos</string>
+</resources>

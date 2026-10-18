@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Catalan strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences address the user with "vós"; buttons use the imperative of the Catalan software convention.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Enrere</string>
+    <string name="common_settings">Configuració</string>
+    <string name="common_cancel">Cancel·la</string>
+    <string name="common_ok">D’acord</string>
+    <string name="common_save">Desa</string>
+    <string name="common_add">Afegeix</string>
+    <string name="common_next">Següent</string>
+    <string name="common_on">Activat</string>
+    <string name="common_off">Desactivat</string>
+    <string name="common_clear">Esborra</string>
+    <string name="common_none">Cap</string>
+    <string name="common_today">Avui</string>
+    <string name="common_not_set">Sense indicar</string>
+    <string name="common_expanded">Desplegat</string>
+    <string name="common_collapsed">Plegat</string>
+    <string name="common_last_30_days">Últims 30 dies</string>
+    <string name="common_medical_disclaimer">MigraTrack és un diari, no un consell mèdic. Parleu amb el vostre metge abans de canviar el tractament.</string>
+    <string name="common_log_migraine_episode">Anota una crisi de migranya</string>
+    <string name="common_save_episode">Desa</string>
+    <string name="common_edit_episode">Edita la crisi</string>
+    <string name="common_delete_episode">Elimina la crisi</string>
+    <string name="common_intensity_of_ten">Intensitat %1$s/10</string>
+    <string name="common_date_at_time">%1$s a les %2$s</string>
+    <string name="common_possible_triggers">Possibles desencadenants</string>
+    <string name="common_add_trigger">Afegeix un desencadenant</string>
+    <string name="common_add_medication">Afegeix un medicament</string>
+    <string name="common_treatment_blueprint">Pla de tractament</string>
+    <string name="common_medication_name_and_dose">Introduïu el nom i la dosi.</string>
+    <string name="common_medication_placeholder">Per exemple, eletriptan 40 mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Resum</string>
+    <string name="tab_log">Anota</string>
+    <string name="tab_insights">Anàlisi</string>
+    <string name="tab_export">Exporta</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Intensitat del dolor</string>
+    <string name="pain_scale_value">%1$s de 10</string>
+    <string name="pain_scale_low">%1$s Lleu</string>
+    <string name="pain_scale_middle">%1$s Notable</string>
+    <string name="pain_scale_high">%1$s Invalidant</string>
+    <string name="medication_remove">Treu %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Avui, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">de %1$s dia amb seguiment</item>
+        <item quantity="many">de %1$s dies amb seguiment</item>
+        <item quantity="other">de %1$s dies amb seguiment</item>
+    </plurals>
+    <string name="summary_without_logged_episode">sense cap crisi anotada</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s de %2$s dia amb seguiment sense cap crisi anotada en els últims 30 dies</item>
+        <item quantity="many">%1$s de %2$s dies amb seguiment sense cap crisi anotada en els últims 30 dies</item>
+        <item quantity="other">%1$s de %2$s dies amb seguiment sense cap crisi anotada en els últims 30 dies</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Es compta des del dia que vau començar el seguiment. Els dies anteriors no tenen seguiment.</string>
+    <string name="strip_legend_migraine">Migranya</string>
+    <string name="strip_legend_pain_free">Sense dolor</string>
+    <string name="strip_legend_not_tracked">Sense dades</string>
+    <string name="summary_sleep_last_night">Son d’aquesta nit</string>
+    <string name="summary_sleep_not_recorded">Sense registre</string>
+    <string name="summary_sleep_hint">Porteu l’Apple Watch mentre dormiu o registreu la son a l’app Salut. Si heu desactivat l’accés, activeu-lo a Configuració › Salut.</string>
+    <string name="summary_sleep_caption">Son</string>
+    <string name="summary_sleep_connect_title">Vegeu la son d’aquesta nit al resum</string>
+    <string name="summary_sleep_connect_body">MigraTrack llegeix la son d’aquesta nit de l’app Salut. Les dades es queden en aquest iPhone.</string>
+    <string name="summary_sleep_connect_button">Connecta amb Salut</string>
+    <string name="summary_last_episode">Última crisi</string>
+    <string name="summary_last_episode_none">Encara cap</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Anota una crisi</string>
+    <string name="episode_update">Actualitza la crisi</string>
+    <string name="episode_updated_banner">S’ha actualitzat la crisi.</string>
+    <string name="episode_deleted_banner">S’ha eliminat la crisi.</string>
+    <string name="episode_saved_banner">S’ha desat la crisi. Descanseu i quedeu-vos amb poca llum.</string>
+    <string name="episode_pain_intensity_index">Intensitat del dolor</string>
+    <string name="episode_cranial_epicenter">Localització del dolor</string>
+    <string name="episode_aura_symptoms">Aura i símptomes sensorials</string>
+    <string name="episode_acute_therapy">Tractament de la crisi</string>
+    <string name="episode_add_medication_row">Afegeix un medicament o electròlits</string>
+    <string name="episode_start">Inici de la crisi</string>
+    <string name="episode_start_now">Ara</string>
+    <string name="episode_add_trigger_message">Què va passar abans d’aquesta crisi?</string>
+    <string name="episode_other_trigger_action">Un altre desencadenant…</string>
+    <string name="episode_other_trigger_title">Un altre desencadenant</string>
+    <string name="episode_other_trigger_message">Indiqueu alguna cosa que va passar abans d’aquesta crisi.</string>
+    <string name="episode_other_trigger_placeholder">Per exemple, un perfum fort</string>
+    <string name="episode_add_medication_message">Què vau prendre per a aquesta crisi?</string>
+    <string name="episode_other_medication_action">Un altre medicament…</string>
+    <string name="episode_other_medication_title">Un altre medicament</string>
+    <string name="episode_missing_title">S’ha eliminat la crisi</string>
+    <string name="episode_missing_message">Aquesta crisi s’ha eliminat en un altre dispositiu, per això no es poden desar els canvis.</string>
+    <string name="episode_delete_message">Intensitat %1$s/10. La crisi desapareix de l’historial i dels informes.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">S</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">A</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">crisi aquesta setmana</item>
+        <item quantity="many">crisis aquesta setmana</item>
+        <item quantity="other">crisis aquesta setmana</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">crisi la setmana del %1$s</item>
+        <item quantity="many">crisis la setmana del %1$s</item>
+        <item quantity="other">crisis la setmana del %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">crisi a %1$s</item>
+        <item quantity="many">crisis a %1$s</item>
+        <item quantity="other">crisis a %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">crisi en 6 mesos</item>
+        <item quantity="many">crisis en 6 mesos</item>
+        <item quantity="other">crisis en 6 mesos</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">crisi el %1$s</item>
+        <item quantity="many">crisis el %1$s</item>
+        <item quantity="other">crisis el %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">Un %1$s per cent menys de crisis que el període anterior</string>
+    <string name="insights_trend_more">Un %1$s per cent més de crisis que el període anterior</string>
+    <string name="insights_legend_migraine_day">Dia amb migranya</string>
+    <string name="insights_legend_pain_free_day">Dia sense dolor</string>
+    <string name="insights_legend_not_tracked">Sense seguiment</string>
+    <string name="insights_bar_no_data">%1$s: encara sense dades</string>
+    <string name="insights_bar_not_tracked">%1$s: sense seguiment</string>
+    <string name="insights_bar_pain_free">%1$s: sense dolor</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s dia amb migranya, màxim %3$s de 10</item>
+        <item quantity="many">%1$s: %2$s dies amb migranya, màxim %3$s de 10</item>
+        <item quantity="other">%1$s: %2$s dies amb migranya, màxim %3$s de 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Anoteu els possibles desencadenants quan anoteu o editeu una crisi. Aquesta targeta mostrarà quantes vegades n’heu anotat cadascun.</string>
+    <string name="insights_triggers_hint">Quantes vegades heu anotat cada desencadenant amb una crisi. Això no indica una causa.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, anotat en %2$s de %3$s crisi</item>
+        <item quantity="many">%1$s, anotat en %2$s de %3$s crisis</item>
+        <item quantity="other">%1$s, anotat en %2$s de %3$s crisis</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s de %2$s</string>
+    <string name="insights_calendar_a11y">Calendari, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s crisi.</item>
+        <item quantity="many">%1$s: %2$s crisis.</item>
+        <item quantity="other">%1$s: %2$s crisis.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Intensitat %2$s/10</string>
+    <string name="insights_month_picker_title">Mes</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Mes anterior</string>
+    <string name="calendar_next_month">Mes següent</string>
+    <string name="calendar_choose_month_a11y">%1$s, tria un altre mes</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">Migranya: %1$s dia</item>
+        <item quantity="many">Migranya: %1$s dies</item>
+        <item quantity="other">Migranya: %1$s dies</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Avui, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">no disponible</string>
+    <string name="calendar_day_not_tracked">sense seguiment</string>
+    <string name="calendar_day_no_episodes">cap crisi</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s crisi, màxim %2$s de 10</item>
+        <item quantity="many">%1$s crisis, màxim %2$s de 10</item>
+        <item quantity="other">%1$s crisis, màxim %2$s de 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s crisi</item>
+        <item quantity="many">%1$s crisis</item>
+        <item quantity="other">%1$s crisis</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Intensitat màxima</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Medicaments</string>
+    <string name="calendar_edit_episode_details">Edita els detalls</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">S’està preparant el PDF…</string>
+    <string name="export_preparing_excel">S’està preparant l’Excel…</string>
+    <string name="export_preparing_report">S’està preparant l’informe…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">crisi</item>
+        <item quantity="many">crisis</item>
+        <item quantity="other">crisis</item>
+    </plurals>
+    <string name="export_episodes_recorded">Crisis registrades</string>
+    <string name="export_include">Inclou a l’exportació</string>
+    <string name="export_medications">Preses de medicaments</string>
+    <string name="export_medications_subtitle">Dosis i totals d’ús</string>
+    <string name="export_symptoms">Aura i símptomes d’avís</string>
+    <string name="export_symptoms_subtitle">Tipus d’aura i la seva freqüència</string>
+    <string name="export_triggers_subtitle">Desencadenants anotats i la seva freqüència</string>
+    <string name="export_pain_charts">Gràfics d’intensitat del dolor</string>
+    <string name="export_pain_charts_subtitle">Evolució de la intensitat del dolor, 1–⁠10</string>
+    <string name="export_pdf">Exporta l’informe PDF</string>
+    <string name="export_excel">Exporta a Excel (.xlsx)</string>
+    <string name="export_share">Comparteix</string>
+    <string name="export_range_title">Període de l’informe</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Informe de MigraTrack: %1$s crisi, %2$s.</item>
+        <item quantity="many">Informe de MigraTrack: %1$s crisis, %2$s.</item>
+        <item quantity="other">Informe de MigraTrack: %1$s crisis, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">No s’ha pogut exportar</string>
+    <string name="export_failed_message">No s’ha pogut crear l’informe.</string>
+    <string name="export_write_failed">No s’ha pogut desar %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s desencadenant conegut</item>
+        <item quantity="many">%1$s desencadenants coneguts</item>
+        <item quantity="other">%1$s desencadenants coneguts</item>
+    </plurals>
+    <string name="settings_no_triggers">Cap desencadenant seleccionat</string>
+    <string name="settings_no_medications">Cap medicament seleccionat</string>
+    <string name="settings_name_title">El vostre nom</string>
+    <string name="settings_name_message">Apareix als informes que exporteu.</string>
+    <string name="settings_name_placeholder">Nom</string>
+    <string name="settings_delete_title">Voleu eliminar totes les dades?</string>
+    <string name="settings_delete_message">MigraTrack desa les vostres dades en aquest iPhone i una còpia al vostre Apple Watch. Aquesta acció elimina per sempre totes les crisis i el perfil inicial; el rellotge elimina la seva còpia en la sincronització següent. Les còpies de seguretat del dispositiu conserven la seva còpia. Si necessiteu un informe, exporteu-lo abans.</string>
+    <string name="settings_delete_all">Elimina totes les dades</string>
+    <string name="settings_section_baseline">Perfil inicial i tractament</string>
+    <string name="settings_baseline_diagnoses">Diagnòstics</string>
+    <string name="settings_known_triggers">Desencadenants coneguts</string>
+    <string name="settings_section_preferences">Preferències</string>
+    <string name="settings_appearance">Aspecte</string>
+    <string name="settings_appearance_value">Fosc (fix)</string>
+    <string name="settings_version">Versió</string>
+    <string name="settings_version_value">v%1$s (compilació %2$s)</string>
+    <string name="settings_section_legal">Avís legal</string>
+    <string name="settings_section_developer">Desenvolupament</string>
+    <string name="settings_load_sample_data">Carrega dades d’exemple</string>
+    <string name="settings_load_sample_data_subtitle">Afegeix un any de crisis generades per veure els gràfics</string>
+    <string name="settings_edit_name_a11y">Edita el nom</string>
+    <string name="settings_add_name">Afegiu el vostre nom</string>
+    <string name="settings_member">Diari des de</string>
+    <string name="settings_episodes">Crisis</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s anotada</item>
+        <item quantity="many">%1$s anotades</item>
+        <item quantity="other">%1$s anotades</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Política de privadesa</string>
+    <string name="legal_terms_of_service">Condicions del servei</string>
+    <string name="legal_folder">ca</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Ves als desencadenants</string>
+    <string name="onboarding_continue_to_medications">Ves als medicaments</string>
+    <string name="onboarding_finish_setup">Acaba la configuració</string>
+    <string name="onboarding_back_to_diagnoses">Torna als diagnòstics</string>
+    <string name="onboarding_back_to_triggers">Torna als desencadenants</string>
+    <string name="onboarding_save_changes">Desa els canvis</string>
+    <string name="onboarding_step">Pas %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnòstics i antecedents</string>
+    <string name="onboarding_diagnoses_subtitle">Configureu el vostre perfil inicial. Les crisis i els informes en parteixen.</string>
+    <string name="onboarding_primary_diagnosis">Diagnòstic principal</string>
+    <string name="onboarding_episode_frequency">Crisis al mes</string>
+    <string name="onboarding_episode_duration">Durada habitual d’una crisi</string>
+    <string name="onboarding_intensity_baseline">Intensitat habitual del dolor</string>
+    <string name="onboarding_update_later">Podeu canviar el perfil inicial en qualsevol moment a la configuració.</string>
+    <string name="onboarding_triggers_title">Els vostres desencadenants</string>
+    <string name="onboarding_triggers_subtitle">Trieu els desencadenants coneguts o sospitats. L’informe els mostra al vostre metge.</string>
+    <string name="onboarding_add_custom_trigger">Afegeix un desencadenant propi</string>
+    <string name="onboarding_treatment_subtitle">Trieu què preneu. Els medicaments per a la crisi ja apareixen en cada crisi nova, i anotar-la només requereix un toc.</string>
+    <string name="onboarding_add_custom_medication">Afegeix un medicament propi</string>
+    <string name="onboarding_custom_trigger_title">Desencadenant propi</string>
+    <string name="onboarding_custom_trigger_message">Indiqueu alguna cosa que sovint us provoca migranya.</string>
+    <string name="onboarding_custom_trigger_placeholder">Per exemple, llums intermitents</string>
+    <string name="onboarding_medication_role_message">Quan el preneu?</string>
+    <string name="onboarding_medication_role_acute">Durant una crisi (agut)</string>
+    <string name="onboarding_medication_role_preventive">Cada dia (preventiu)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Diari personal de migranya i desencadenants</string>
+    <string name="welcome_example">Exemple</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">dia sense dolor</item>
+        <item quantity="many">dies sense dolor</item>
+        <item quantity="other">dies sense dolor</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Exemple: %1$s dia sense dolor en els últims 30 dies</item>
+        <item quantity="many">Exemple: %1$s dies sense dolor en els últims 30 dies</item>
+        <item quantity="other">Exemple: %1$s dies sense dolor en els últims 30 dies</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Enteneu els vostres patrons.</string>
+    <string name="welcome_headline_doctor">Porteu els fets al vostre metge.</string>
+    <string name="welcome_body">Registreu els símptomes, detecteu possibles desencadenants i exporteu els informes quan vulgueu.</string>
+    <string name="welcome_get_started">Comença</string>
+    <string name="welcome_agreement">Si continueu, accepteu les %1$s i la %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migranya sense aura</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Forma freqüent de migranya</string>
+    <string name="diagnosis_migraine_with_aura">Migranya amb aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Aura focal visual o sensitiva</string>
+    <string name="diagnosis_chronic_migraine">Migranya crònica</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 dies o més de cefalea al mes</string>
+    <string name="diagnosis_tension_type">Cefalea tensional</string>
+    <string name="diagnosis_tension_type_subtitle">Tensió opressiva, com una banda</string>
+    <string name="diagnosis_cluster">Cefalea en raïms</string>
+    <string name="diagnosis_cluster_subtitle">Crisis intenses d’un costat, al voltant de l’ull</string>
+    <string name="diagnosis_not_diagnosed">Sense diagnòstic / en estudi</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Observació dels símptomes</string>
+    <string name="frequency_less_than_one">&lt; 1/mes</string>
+    <string name="frequency_one_to_four">1–4/mes</string>
+    <string name="frequency_five_to_eight">5–7/mes</string>
+    <string name="frequency_eight_plus">8+/mes</string>
+    <string name="duration_two_to_four">2–4 h</string>
+    <string name="duration_four_to_twelve">4–12 h</string>
+    <string name="duration_twelve_to_twenty_four">12–24 h</string>
+    <string name="duration_one_to_three_days">24–72 h</string>
+    <string name="region_left_temple">Templa esquerra</string>
+    <string name="region_right_temple">Templa dreta</string>
+    <string name="region_frontal_brow">Front / celles</string>
+    <string name="region_retro_orbital">Darrere l’ull</string>
+    <string name="region_occipital_neck">Clatell i coll</string>
+    <string name="symptom_scintillating_scotoma">Escotoma centellejant (visual)</string>
+    <string name="symptom_scintillating_scotoma_short">Aura visual</string>
+    <string name="symptom_neck_stiffness">Rigidesa al coll</string>
+    <string name="symptom_neck_stiffness_short">Coll rígid</string>
+    <string name="symptom_photophobia">Fotofòbia (llum)</string>
+    <string name="symptom_photophobia_short">Llum</string>
+    <string name="symptom_nausea">Nàusees</string>
+    <string name="symptom_nausea_short">Nàusees</string>
+    <string name="symptom_phonophobia">Fonofòbia (soroll)</string>
+    <string name="symptom_phonophobia_short">Soroll</string>
+    <string name="symptom_aphasia">Afàsia / boira mental</string>
+    <string name="symptom_aphasia_short">Boira mental</string>
+    <string name="symptom_paresthesia">Formigueig / parestèsies</string>
+    <string name="symptom_paresthesia_short">Formigueig</string>
+    <string name="trigger_category_weather_environment">Temps i entorn</string>
+    <string name="trigger_category_sleep_physical">Son i rutina física</string>
+    <string name="trigger_category_stress_emotions">Estrès i emocions</string>
+    <string name="trigger_category_hormonal">Hormones</string>
+    <string name="trigger_category_diet_consumption">Alimentació i consum</string>
+    <string name="trigger_category_custom">Propis</string>
+    <string name="medication_role_acute">Tractament de la crisi</string>
+    <string name="medication_role_preventive">Preventius i suplements</string>
+    <string name="export_range_last_30_days">Últims 30 dies</string>
+    <string name="export_range_last_90_days">Últims 90 dies</string>
+    <string name="export_range_last_6_months">Últims 6 mesos</string>
+    <string name="export_range_last_12_months">Últims 12 mesos</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Baixada de pressió atmosfèrica</string>
+    <string name="trigger_barometric_pressure_description">Fronts, canvis d’altitud</string>
+    <string name="trigger_bright_light">Llum intensa i sol</string>
+    <string name="trigger_bright_light_description">Enlluernament, llum estroboscòpica, fotofòbia</string>
+    <string name="trigger_heat_humidity">Calor / humitat extremes</string>
+    <string name="trigger_heat_humidity_description">Canvis de temperatura</string>
+    <string name="trigger_loud_noise">Soroll fort</string>
+    <string name="trigger_loud_noise_description">Fonofòbia, pics de soroll</string>
+    <string name="trigger_poor_sleep">Son escassa / irregular</string>
+    <string name="trigger_poor_sleep_description">Manca de son, poca son REM</string>
+    <string name="trigger_dehydration">Deshidratació</string>
+    <string name="trigger_dehydration_description">Pèrdua d’electròlits</string>
+    <string name="trigger_skipped_meals">Àpats saltats / dejuni</string>
+    <string name="trigger_skipped_meals_description">Llindar d’hipoglucèmia</string>
+    <string name="trigger_overexertion">Esforç físic excessiu</string>
+    <string name="trigger_overexertion_description">Càrrega vascular per l’esforç</string>
+    <string name="trigger_emotional_stress">Estrès emocional / relaxació posterior</string>
+    <string name="trigger_emotional_stress_description">Descompressió després de la feina</string>
+    <string name="trigger_screen_fatigue">Fatiga per pantalles</string>
+    <string name="trigger_screen_fatigue_description">Excés de llum blava, convergència</string>
+    <string name="trigger_hormonal_cycle">Canvis hormonals / cicle</string>
+    <string name="trigger_hormonal_cycle_description">Variació del cicle menstrual</string>
+    <string name="trigger_caffeine">Abstinència o excés de cafeïna</string>
+    <string name="trigger_caffeine_description">Canvis en els receptors d’adenosina</string>
+    <string name="trigger_aged_cheese">Formatge curat / tiramina</string>
+    <string name="trigger_aged_cheese_description">Sensibilitat a les amines fermentades</string>
+    <string name="trigger_alcohol">Alcohol / vi negre</string>
+    <string name="trigger_alcohol_description">Tanins, histamina</string>
+    <string name="trigger_sweeteners">Edulcorants artificials</string>
+    <string name="trigger_sweeteners_description">Aspartam, sucralosa</string>
+    <string name="trigger_custom_description">Desencadenant propi</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">Ibuprofèn</string>
+    <string name="medication_ibuprofen_400_class">Adjuvant antiinflamatori</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, agonista de la serotonina</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, bucodispersable</string>
+    <string name="medication_naproxen_500">Naproxè</string>
+    <string name="medication_naproxen_500_class">AINE d’acció prolongada</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Analgèsic</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, antagonista del CGRP</string>
+    <string name="medication_metoclopramide_10">Metoclopramida</string>
+    <string name="medication_metoclopramide_10_class">Antiemètic</string>
+    <string name="medication_electrolytes">Electròlits orals</string>
+    <string name="medication_electrolytes_class">Rehidratació oral</string>
+    <string name="medication_riboflavin_400">Riboflavina</string>
+    <string name="medication_riboflavin_400_class">Vitamina B2</string>
+    <string name="medication_magnesium_400">Magnesi</string>
+    <string name="medication_magnesium_400_class">Suplement mineral</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Betablocador</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antiepilèptic</string>
+    <string name="medication_amitriptyline_10">Amitriptilina</string>
+    <string name="medication_amitriptyline_10_class">Antidepressiu tricíclic</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Anticòs anti-CGRP, mensual</string>
+    <string name="medication_custom_class">Medicament propi</string>
+    <string name="medication_dose_milligrams">%1$s mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">S%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s de %2$s no té cap desencadenant anotat</item>
+        <item quantity="many">%1$s de %2$s no tenen cap desencadenant anotat</item>
+        <item quantity="other">%1$s de %2$s no tenen cap desencadenant anotat</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s crisi</item>
+        <item quantity="many">%1$s crisis</item>
+        <item quantity="other">%1$s crisis</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Informe clínic de migranya</string>
+    <string name="report_page">MigraTrack · Pàgina %1$s</string>
+    <string name="report_patient">Pacient: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Generat el %1$s</string>
+    <string name="report_disclaimer">Dades registrades pel mateix pacient a MigraTrack. Aquest informe dona suport a una avaluació clínica i no la substitueix.</string>
+    <string name="report_stat_episodes">Crisis registrades</string>
+    <string name="report_stat_migraine_days">Dies amb migranya</string>
+    <string name="report_stat_pain_free_days">Dies sense dolor</string>
+    <string name="report_stat_average_intensity">Intensitat mitjana /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">El seguiment va començar el %1$s. %2$s dia anterior d’aquest període no té registres i no compta com a dia sense dolor.</item>
+        <item quantity="many">El seguiment va començar el %1$s. %2$s dies anteriors d’aquest període no tenen registres i no compten com a dies sense dolor.</item>
+        <item quantity="other">El seguiment va començar el %1$s. %2$s dies anteriors d’aquest període no tenen registres i no compten com a dies sense dolor.</item>
+    </plurals>
+    <string name="report_baseline_title">Perfil inicial</string>
+    <string name="report_baseline_diagnoses">Diagnòstics</string>
+    <string name="report_baseline_frequency">Freqüència mensual</string>
+    <string name="report_baseline_duration">Durada habitual</string>
+    <string name="report_baseline_intensity">Intensitat habitual</string>
+    <string name="report_baseline_triggers">Desencadenants coneguts</string>
+    <string name="report_baseline_treatments">Pla de tractament</string>
+    <string name="report_pain_chart_title">Evolució de la intensitat del dolor (1–10)</string>
+    <string name="report_legend_mild">Lleu %1$s–%2$s</string>
+    <string name="report_legend_moderate">Moderat %1$s–%2$s</string>
+    <string name="report_legend_severe">Intens %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Sense seguiment</string>
+    <string name="report_medication_title">Ús de medicaments</string>
+    <string name="report_no_medications">No hi ha cap presa de medicament anotada en aquest període.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s presa</item>
+        <item quantity="many">%1$s preses</item>
+        <item quantity="other">%1$s preses</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura i símptomes d’avís</string>
+    <string name="report_no_symptoms">No hi ha cap aura ni símptoma sensorial anotat en aquest període.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s de %2$s crisi (%3$s)</item>
+        <item quantity="many">%1$s de %2$s crisis (%3$s)</item>
+        <item quantity="other">%1$s de %2$s crisis (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Possibles desencadenants anotats</string>
+    <string name="report_no_triggers">No hi ha cap desencadenant anotat en aquest període.</string>
+    <string name="report_triggers_note">Les xifres mostren quantes vegades el pacient ha anotat un desencadenant amb una crisi. No indiquen una causa.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s de %2$s no té cap desencadenant anotat.</item>
+        <item quantity="many">%1$s de %2$s no tenen cap desencadenant anotat.</item>
+        <item quantity="other">%1$s de %2$s no tenen cap desencadenant anotat.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s crisi</item>
+        <item quantity="many">%1$s crisis</item>
+        <item quantity="other">%1$s crisis</item>
+    </plurals>
+    <string name="report_episodes_title">Crisis</string>
+    <string name="report_no_episodes">No hi ha cap crisi registrada en aquest període.</string>
+    <string name="report_column_date_time">Data i hora</string>
+    <string name="report_column_pain">Dolor</string>
+    <string name="report_column_epicenter">Localització</string>
+    <string name="report_column_symptoms">Símptomes</string>
+    <string name="report_column_medications">Medicaments</string>
+    <string name="report_column_triggers">Desencadenants</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Sense indicar</string>
+    <string name="report_none">Cap</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Crisis</string>
+    <string name="report_sheet_medications">Medicaments</string>
+    <string name="report_sheet_daily_pain">Dolor diari</string>
+    <string name="report_sheet_profile">Perfil</string>
+    <string name="report_header_started">Inici</string>
+    <string name="report_header_pain_intensity">Intensitat del dolor (1–10)</string>
+    <string name="report_header_epicenter">Localització del dolor</string>
+    <string name="report_header_symptoms">Aura i símptomes sensorials</string>
+    <string name="report_header_medications">Medicaments</string>
+    <string name="report_header_triggers">Possibles desencadenants</string>
+    <string name="report_header_episode_started">Inici de la crisi</string>
+    <string name="report_header_medication">Medicament</string>
+    <string name="report_header_dose">Dosi</string>
+    <string name="report_header_date">Data</string>
+    <string name="report_header_peak_pain">Intensitat màxima del dolor (1–10, 0 = sense dolor)</string>
+    <string name="report_header_day">Dia</string>
+    <string name="report_header_field">Camp</string>
+    <string name="report_header_value">Valor</string>
+    <string name="report_day_migraine">Migranya</string>
+    <string name="report_day_pain_free">Sense dolor</string>
+    <string name="report_day_not_tracked">Sense seguiment</string>
+    <string name="report_profile_patient">Pacient</string>
+    <string name="report_profile_range">Període de l’informe</string>
+    <string name="report_profile_tracked_since">Seguiment des de</string>
+    <string name="report_profile_diagnoses">Diagnòstics</string>
+    <string name="report_profile_frequency">Freqüència mensual</string>
+    <string name="report_profile_duration">Durada habitual</string>
+    <string name="report_profile_intensity">Intensitat habitual</string>
+    <string name="report_profile_triggers">Desencadenants coneguts</string>
+    <string name="report_profile_treatments">Pla de tractament</string>
+    <string name="report_iso_range">%1$s a %2$s</string>
+</resources>

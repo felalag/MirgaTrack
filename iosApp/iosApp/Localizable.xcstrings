@@ -10,6 +10,66 @@
             "value" : "Спачатку завяршыце наладжванне ў MigraTrack."
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primer acabeu la configuració a MigraTrack."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen Sie zuerst die Einrichtung in MigraTrack ab."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero termine la configuración en MigraTrack."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero termine la configuración en MigraTrack."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminez d’abord la configuration dans MigraTrack."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terminez d’abord la configuration dans MigraTrack."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completi prima la configurazione in MigraTrack."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voltooi eerst het instellen in MigraTrack."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro conclua a configuração no MigraTrack."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro conclua a configuração no MigraTrack."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -25,6 +85,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новы прыступ"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova crisi"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Attacke"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nueva crisis"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nueva crisis"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle crise"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle crise"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuovo attacco"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieuwe aanval"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova crise"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova crise"
           }
         },
         "ru" : {
@@ -44,6 +164,66 @@
             "value" : "Запісаць прыступ мігрэні"
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anota una crisi de migranya"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migräneattacke eintragen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrar crisis de migraña"
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrar crisis de migraña"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noter une crise de migraine"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noter une crise de migraine"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annota attacco di emicrania"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migraineaanval noteren"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrar crise de enxaqueca"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registar crise de enxaqueca"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -61,10 +241,70 @@
             "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %1$lld з 10, лякарствы: %2$@."
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisi de migranya anotada: intensitat %1$lld de 10, amb %2$@."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migräneattacke eingetragen: Intensität %1$lld von 10, mit %2$@."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Logged a migraine episode: intensity %1$lld of 10, with %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisis de migraña registrada: intensidad %1$lld de 10, con %2$@."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisis de migraña registrada: intensidad %1$lld de 10, con %2$@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de migraine notée : intensité %1$lld sur 10, avec %2$@."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de migraine notée : intensité %1$lld sur 10, avec %2$@."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attacco di emicrania annotato: intensità %1$lld su 10, con %2$@."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migraineaanval genoteerd: intensiteit %1$lld van 10, met %2$@."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de enxaqueca registrada: intensidade %1$lld de 10, com %2$@."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de enxaqueca registada: intensidade %1$lld de 10, com %2$@."
           }
         },
         "ru" : {
@@ -84,6 +324,66 @@
             "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %lld з 10."
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisi de migranya anotada: intensitat %lld de 10."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migräneattacke eingetragen: Intensität %lld von 10."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisis de migraña registrada: intensidad %lld de 10."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crisis de migraña registrada: intensidad %lld de 10."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de migraine notée : intensité %lld sur 10."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de migraine notée : intensité %lld sur 10."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attacco di emicrania annotato: intensità %lld su 10."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migraineaanval genoteerd: intensiteit %lld van 10."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de enxaqueca registrada: intensidade %lld de 10."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crise de enxaqueca registada: intensidade %lld de 10."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -99,6 +399,66 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запісвае прыступ цяпер з вашай звычайнай інтэнсіўнасцю болю і лякарствамі для купіравання прыступу з MigraTrack."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anota ara una crisi amb la vostra intensitat habitual del dolor i els medicaments per a la crisi de MigraTrack."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trägt jetzt eine Attacke mit Ihrer typischen Schmerzintensität und Ihren Akutmedikamenten aus MigraTrack ein."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registra una crisis ahora con su intensidad habitual del dolor y sus medicamentos para la crisis de MigraTrack."
+          }
+        },
+        "es-ES" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registra una crisis ahora con su intensidad habitual del dolor y sus medicamentos para la crisis de MigraTrack."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note une crise maintenant avec votre intensité habituelle et vos traitements de crise de MigraTrack."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note une crise maintenant avec votre intensité habituelle et vos traitements de crise de MigraTrack."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annota ora un attacco con la sua intensità abituale del dolore e i farmaci per l’attacco di MigraTrack."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noteert nu een aanval met uw gewone pijnintensiteit en aanvalsmedicatie uit MigraTrack."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registra uma crise agora com sua intensidade habitual da dor e seus medicamentos para a crise do MigraTrack."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regista uma crise agora com a sua intensidade habitual da dor e os seus medicamentos para a crise do MigraTrack."
           }
         },
         "ru" : {

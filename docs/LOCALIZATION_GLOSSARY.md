@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European batch, October 18, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -129,3 +129,256 @@ No Belarusian ICHD-3 and no medical source in Belarusian was found. The Russian 
 | Tricyclic antidepressant | трициклический антидепрессант | R2, p. 4 | трыцыклічны антыдэпрэсант | Owner |
 | CGRP | КГРП | R2, p. 4–6 ("кальцитонин-ген-родственный пептид") | CGRP | No Belarusian abbreviation found; the Latin one stays |
 | Gepant | гепант | The INN stem; not in R2 | гепант | Owner |
+
+### Western Europe
+
+German (`de`), French (`fr`, Canada `fr-CA`), Spanish (`es`, Latin American text; Spain `es-ES`), Portuguese (`pt`, Brazilian text; Portugal `pt-PT`), Italian (`it`), Dutch (`nl`) and Catalan (`ca`). The project owner approved the address, the word for episode, the medical disclaimer and the watch texts on October 18, 2026. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7).
+
+| Language | Address | Buttons |
+|---|---|---|
+| de | "Sie" | Infinitive: "Speichern", "Abbrechen" |
+| fr, fr-CA | "vous" | Infinitive: "Enregistrer", "Annuler". France: narrow no-break space before ? ! ;. Quebec (OQLF): no space before ? ! ;. Both: no-break space before : and inside « ». |
+| es, es-ES | "usted" | Infinitive: "Guardar", "Cancelar" |
+| pt | "você", as Brazilian software does | Infinitive: "Salvar", "Cancelar" |
+| pt-PT | Impersonal third person with "o seu" | Infinitive: "Guardar", "Cancelar" |
+| it | "Lei", written in lower case ("il suo medico") | The imperative of Italian software: "Salva", "Annulla" |
+| nl | "u" | Infinitive: "Opslaan", "Annuleren" |
+| ca | "vós", as Softcatalà and Firefox in Catalan do | The imperative of Catalan software: "Desa", "Cancel·la" |
+
+| Term | de | fr | es | pt | it | nl | ca |
+|---|---|---|---|---|---|---|---|
+| episode | Attacke | crise | crisis | crise | attacco | aanval | crisi |
+| attack (App Store only) | Attacke, Anfall | crise | crisis, ataque | crise | attacco | aanval | crisi |
+| migraine | Migräne | migraine | migraña | enxaqueca | emicrania | migraine | migranya |
+| log (verb) | eintragen | noter | registrar | registrar (pt-PT registar) | annotare | noteren | anotar |
+| intensity | Intensität, Schmerzintensität | intensité | intensidad | intensidade; "Dor 6/10" with a score | intensità | intensiteit; "Pijn 6/10" with a score | intensitat |
+| migraine day | Migränetag | jour de migraine; pill "3 j de migraine" | día con migraña; pill "Migraña: 3 días" | dia de enxaqueca; pill "Enxaqueca: 3 dias" | giorno con emicrania; pill "Emicrania: 3 gg" | migrainedag | dia amb migranya; pill "Migranya: 3 dies" |
+| tracked day | erfasster Tag | jour suivi | día con seguimiento | dia monitorado (pt-PT monitorizado) | giorno monitorato | bijgehouden dag | dia amb seguiment |
+| pain-free day | schmerzfreier Tag; short "Schmerzfrei" | jour sans douleur; short "Sans douleur" | día sin dolor | dia sem dor | giorno senza dolore; short "Senza dolore" | pijnvrije dag | dia sense dolor |
+| not tracked | nicht erfasst | non suivi | sin seguimiento; strip "Sin datos" | não monitorado (pt-PT não monitorizado; strip "Sem dados") | non monitorato | niet bijgehouden; strip "Geen gegevens" | sense seguiment; strip "Sense dades" |
+| trigger | Auslöser | déclencheur | desencadenante | gatilho (pt-PT desencadeante) | fattore scatenante | trigger | desencadenant |
+| possible trigger | möglicher Auslöser | déclencheur possible | posible desencadenante | possível gatilho | possibile fattore scatenante | mogelijke trigger | possible desencadenant |
+| known trigger | bekannter Auslöser | déclencheur connu | desencadenante conocido | gatilho conhecido | fattore scatenante noto | bekende trigger | desencadenant conegut |
+| aura | Aura | aura | aura | aura | aura | aura | aura |
+| symptom | Symptom | symptôme | síntoma | sintoma | sintomo | klacht | símptoma |
+| acute medication | Akutmedikament, Akutbehandlung | traitement de crise | tratamiento de la crisis | tratamento da crise | terapia dell'attacco | aanvalsmedicatie | tractament de la crisi |
+| preventive medication | Prophylaxe | traitement de fond | preventivo | preventivo | profilassi | preventief | preventiu |
+| medication intake | Einnahme | prise | toma | uso (pt-PT toma) | assunzione | inname | presa |
+| treatment blueprint | Behandlungsplan | plan de traitement | plan de tratamiento | plano de tratamento | piano terapeutico | behandelplan | pla de tractament |
+| baseline profile | Ausgangsprofil | profil de référence | perfil inicial | perfil inicial | profilo iniziale | basisprofiel | perfil inicial |
+| report | Bericht | rapport | informe | relatório | report | rapport | informe |
+| Apple Health | Apple Health, Health-App | app Santé | app Salud | app Saúde | app Salute | Gezondheid-app | app Salut |
+| Settings (iOS) | Einstellungen | Réglages | Configuración (es-ES Ajustes) | Ajustes (pt-PT Definições) | Impostazioni | Instellingen | Configuració |
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "Neue Attacke", "Nouvelle crise", "Nueva crisis", "Nova crise", "Nuovo attacco", "Nieuwe aanval", "Nova crisi". "Save Episode" = "Speichern", "Enregistrer", "Guardar", "Salvar" (pt-PT "Guardar"), "Salva", "Opslaan", "Desa". The round complication "LOG" (4 characters) = "NEU", "NOTE", "NOTA", "NOVA", "NOTA", "MELD", "NOVA".
+
+#### Sources of the Western European terms
+
+Checked on October 18, 2026. A page number is the page of the PDF file. "Records" counts the entries of a register file that name the substance.
+
+- **[DE1]** ICHD-3, German translation of the DMKG: [3385_ichd-3-german.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3385_ichd-3-german.pdf) on the IHS website.
+- **[DE2]** S1 guideline "Therapie der Migräneattacke und Prophylaxe der Migräne", DGN and DMKG, AWMF 030-057, November 2025: [PDF](https://register.awmf.org/assets/guidelines/030-057l_S1_Therapie-der-Migraeneattacke-Prophylaxe-der-Migraene_2025-11.pdf).
+- **[DE3]** German drug register AMIce (PharmNet.Bund). **Not searched**: the public search opens through a BfArM sign-in. [EU1] covers erenumab; [DE2] names the other substances.
+- **[EU1]** EMA, Aimovig (erenumab) product information in German, French, Italian, Dutch, Spanish and Portuguese: [German PDF](https://www.ema.europa.eu/de/documents/product-information/aimovig-epar-product-information_de.pdf) and the same path for the other languages.
+- **[FR1]** ICHD-3, French translation: [3628_ichd-3-french.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3628_ichd-3-french.pdf).
+- **[FR2]** Lantéri-Minet M. et al., SFEMC recommendations for migraine in adults, Rev Neurol 2012 (French): [PDF](https://www.sfetd-douleur.org/wp-content/uploads/2021/02/Lanteri-Minet-et-al-Rev-Neurol-2012-1.pdf). The 2021 update of the SFEMC is in English.
+- **[FR3]** Base de données publique des médicaments, file [CIS_COMPO_bdpm.txt](https://base-donnees-publique.medicaments.gouv.fr/download/file/CIS_COMPO_bdpm.txt), active substances.
+- **[QC1]** Health Canada, Drug Product Database, extract [allfiles.zip](https://www.canada.ca/content/dam/hc-sc/documents/services/drug-product-database/allfiles.zip) (marketed products, French ingredient names), file of October 5, 2026.
+- **[QC2]** INESSS, "Traitement de la migraine chez l'adulte", report in support of the optimal-use guide, September 2025: [BAnQ copy](https://collections.banq.qc.ca/document/s/t/ZGIpXSML16D5RlAgkomDqw).
+- **[ES1]** ICHD-3, Spanish translation: [3559_ichd-3-spanish.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3559_ichd-3-spanish.pdf).
+- **[ES2]** Sociedad Española de Neurología, "Manual de Práctica Clínica en Cefaleas", 2020: [copy at areasaludbadajoz.com](https://areasaludbadajoz.com/docencia_investigacion/biblioteca/Te_puede_interesar/ManualCefaleas2020.pdf).
+- **[ES3]** AEMPS, CIMA register, REST search by first active substance, marketed products only (`cima.aemps.es/cima/rest/medicamentos?practiv1=…&comerc=1`).
+- **[MX1]** IMSS, clinical practice guideline "Diagnóstico y tratamiento de cefalea tensional y migraña en el adulto", IMSS-047-08. imss.gob.mx answered 403, so the pages are those of the [copy at maternoinfantil.gov.co](https://maternoinfantil.gov.co/wp-content/uploads/2022/09/GUIA-DE-PRACTICA-CLINICA-GPC-DIAGNOSTICO-Y-TRATAMIENTO-DE-CEFALEA-TENSIONAL-Y-MIGRANA-PRIMER-Y-SEGUNDO-NIVEL-DE-ATENCION.pdf).
+- **[MX2]** COFEPRIS register of sanitary records. **Not searched**: the public search did not load.
+- **[PT1]** ICHD-3, Portuguese translation (Portugal): [3391_ichd-3-portuguese.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3391_ichd-3-portuguese.pdf).
+- **[PT2]** Sociedade Portuguesa de Cefaleias, "Recomendações Terapêuticas para Cefaleias 2021", supplement of Sinapse 21: [PDF](https://old.sinapse.pt/edition_download.php?id=67).
+- **[PT3]** INFARMED, Prontuário Terapêutico online, name index (`app10.infarmed.pt/prontuario/mostraono.php`). The register Infomed answered 503 and was **not searched**.
+- **[BR1]** ICHD-3, Brazilian Portuguese translation: [ICHD-3-Brazilian-Portuguese.pdf](https://ihs-headache.org/wp-content/uploads/2021/03/ICHD-3-Brazilian-Portuguese.pdf). It uses "migrânea"; it lists "enxaqueca clássica" among the former terms (p. 27).
+- **[BR2]** DATASUS, CID-10 in Portuguese, [G40–G47](http://www2.datasus.gov.br/cid10/V2008/WebHelp/g40_g47.htm): "G43 Enxaqueca", "G43.0 Enxaqueca sem aura", "G43.1 Enxaqueca com aura".
+- **[BR3]** ANVISA, open data of registered medicines, [DADOS_ABERTOS_MEDICAMENTOS.csv](https://dados.anvisa.gov.br/dados/DADOS_ABERTOS_MEDICAMENTOS.csv), registrations with the status "Ativo".
+- **[IT1]** ICHD-3, Italian translation: [ICHD-3-Italian.pdf](https://ihs-headache.org/wp-content/uploads/2021/11/ICHD-3-Italian.pdf).
+- **[IT2]** AIFA, active substances per package, [PA_confezioni.csv](https://drive.aifa.gov.it/farmaci/PA_confezioni.csv). The search found no Italian-language national migraine guideline.
+- **[NL1]** NHG-Standaard Hoofdpijn (M19), published September 2021, last change April 2025: [richtlijnen.nhg.org](https://richtlijnen.nhg.org/standaarden/hoofdpijn). The page has sections, no page numbers. No Dutch ICHD-3 was found.
+- **[NL2]** CBG, Geneesmiddeleninformatiebank, file [metadata.csv](https://www.geneesmiddeleninformatiebank.nl/metadata.csv), field WERKZAMESTOFFEN.
+- **[CAT1]** Generalitat de Catalunya, Canal Salut, [Migranya](https://canalsalut.gencat.cat/ca/salut-a-z/m/migranya/), updated March 24, 2026.
+- **[CAT2]** Catalan Wikipedia, article [Migranya](https://ca.wikipedia.org/wiki/Migranya) and the articles of the substances, as a spelling reference. Not a medical source. TERMCAT and the IEC dictionary load their results with scripts that the check could not read: **not searched**.
+- The reference country of Catalan is Spain, so [ES1]–[ES3] give the meaning and the registration.
+
+#### Medical terms: German, French, French (Canada)
+
+| Term | German | Source (de) | French | Source (fr) | fr-CA |
+|---|---|---|---|---|---|
+| Migraine without aura | Migräne ohne Aura | DE1, 1.1, p. 31, 53 | Migraine sans aura | FR1, 1.1, p. 33, 35 | Same; QC2, p. 14 |
+| Migraine with aura | Migräne mit Aura | DE1, 1.2, p. 31 | Migraine avec aura | FR1, 1.2, p. 33 | Same |
+| Chronic migraine | Chronische Migräne | DE1, 1.3, p. 31 | Migraine chronique | FR1, 1.3, p. 33 | Same |
+| Tension-type headache | Kopfschmerz vom Spannungstyp | DE1, 2, p. 31 | Céphalée de tension | FR1, 2, p. 32 | Same |
+| Cluster headache | Clusterkopfschmerz | DE1, 3.1, p. 31 | Algie vasculaire de la face | FR1, 3.1, p. 87 | Same |
+| attack | Attacke | DE1, throughout; DE2, title | crise | FR1, p. 36; FR2, p. 4 | QC2, p. 19 |
+| Photophobia | Photophobie | DE1, 1.1 D, p. 53 | photophobie | FR1, 1.1, p. 35 | QC2, p. 14 |
+| Phonophobia | Phonophobie | DE1, 1.1 D, p. 53 | phonophobie | FR1, 1.1, p. 35 | QC2, p. 14 |
+| Scintillating scotoma | Flimmerskotom | DE1, p. 193 | scotome scintillant | FR1, p. 161 | Same |
+| Nausea | Übelkeit | DE1, p. 53 | nausée | FR1, p. 35 | QC2, p. 14 |
+| Aphasia | Aphasie | DE1, p. 56 | aphasie | FR1, p. 39 | Same |
+| Paresthesia | Parästhesien | DE1, p. 56 | paresthésies | FR1, p. 118 | Same |
+| Neck stiffness | Nackensteifigkeit | DE1, p. 59 | raideur de la nuque | FR1, p. 35 ("raideur et/ou douleur cervicale") | Same |
+| Retro-orbital | hinter dem Auge | DE1, p. 340 ("retroorbital"); the app uses common words | derrière l'œil | FR1, p. 113 ("rétro-orbitaire") | Same |
+| Occipital | Hinterkopf | DE1, p. 53 ("okzipital") | arrière de la tête | FR1, p. 36 ("occipitale") | Same |
+| Trigger | Auslöser | DE2, p. 43 ("Migränetrigger"), p. 50 ("Auslöser") | déclencheur | FR1, p. 111 | QC2, p. 19 |
+| Acute treatment | Akutbehandlung | DE2, p. 6 ("Akuttherapie") | traitement de crise | FR2, p. 4 | QC2 |
+| Preventive treatment | Prophylaxe | DE2, title | traitement de fond | FR2, p. 6 | QC2, p. 8 ("prophylactique") |
+| Headache diary | Kopfschmerztagebuch | DE1, p. 68; DE2, p. 53 | agenda des crises | FR1, p. 14; FR2, p. 4 | calendrier de céphalées, QC2, p. 9 |
+| Dose unit | mg, with a space | DE2, p. 19 | mg, with a space | FR2, p. 5 | QC2, p. 31 |
+
+| Medication (class) | German | Source (de) | French | Source (fr) | fr-CA | Source (fr-CA) |
+|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | DE2, p. 19 (400 mg) | Ibuprofène | FR3: 106 records | Ibuprofène | QC1: 67 products |
+| Sumatriptan | Sumatriptan | DE2, p. 8 | Sumatriptan | FR3: 10; FR2, p. 5 | Sumatriptan | QC1: 34 |
+| Rizatriptan | Rizatriptan | DE2, p. 8 | Rizatriptan | FR3: 11; FR2, p. 4 | Rizatriptan | QC1: 34 |
+| Naproxen | Naproxen | DE2, p. 19 (500 mg) | Naproxène | FR3: 12 | Naproxène | QC1: 39 |
+| Acetaminophen | Paracetamol | DE2, p. 19 (1000 mg) | Paracétamol | FR3: 221 | **Acétaminophène** | QC1: 241; QC2, p. 34 |
+| Ubrogepant | Ubrogepant | DE2, p. 39: FDA approval only, **no EU authorization**; the INN | Ubrogépant | FR3: 0. **No registration**; the French INN | Ubrogépant | QC1: 2 (UBRELVY) |
+| Metoclopramide | Metoclopramid | DE2, p. 19 (10 mg) | Métoclopramide | FR3: 7 | Métoclopramide | QC1: 10 |
+| Riboflavin | Riboflavin | DE2, p. 61 | Riboflavine | FR3: 4, combinations only | Riboflavine | QC1: 7, multivitamins only |
+| Magnesium | Magnesium | DE2, p. 53 | Magnésium | FR3: 139 (salts) | Magnésium | QC1: 157 (salts) |
+| Propranolol | Propranolol | DE2, p. 11 | Propranolol | FR3: 10; FR2, p. 6 | Propranolol | QC1: 17 |
+| Topiramate | Topiramat | DE2, p. 11 | Topiramate | FR3: 21; FR2, p. 6 | Topiramate | QC1: 42 |
+| Amitriptyline | Amitriptylin | DE2, p. 11 | Amitriptyline | FR3: 7; FR2, p. 6 | Amitriptyline | QC1: 15 |
+| Erenumab | Erenumab | DE2, p. 11; EU1 | Érénumab | FR3: 2 ("ÉRÉNUMAB"); EU1 writes "erenumab" | Érénumab | QC1: 2 (AIMOVIG) |
+| NSAID | NSAR | DE2, p. 10 | AINS | FR2, p. 4 | AINS | QC2, p. 13 |
+| Triptan, serotonin agonist | Triptan, Serotoninagonist | DE2, p. 8 | triptan, agoniste de la sérotonine | FR2, p. 4 | Same | |
+| Antiemetic | Antiemetikum | DE2, p. 9 | antiémétique | FR2, p. 5 (métoclopramide) | Same | QC2, p. 27 |
+| Beta blocker | Betablocker | DE2, p. 11 | bêtabloquant | FR2, p. 6 | Same | QC2, p. 39 |
+| Anticonvulsant | Antikonvulsivum | DE2, p. 11 ("Antikonvulsiva") | antiépileptique | FR2, p. 6 | Same | QC2, p. 39 ("anticonvulsivants") |
+| Tricyclic antidepressant | Trizyklisches Antidepressivum | DE2, p. 69 | antidépresseur tricyclique | FR2, p. 9 | Same | QC2, p. 41 |
+| Gepant, CGRP | Gepant, CGRP | DE2, p. 39 | gépant, CGRP | QC2, p. 6 | Same | QC2 |
+
+#### Medical terms: Spanish, Spanish (Spain), Catalan
+
+| Term | Spanish | Source (es, Mexico) | es-ES | Source (es-ES) | Catalan | Source (ca) |
+|---|---|---|---|---|---|---|
+| Migraine without aura | Migraña sin aura | ES1, 1.1, p. 21 | Same | ES1 | Migranya sense aura | CAT1 |
+| Migraine with aura | Migraña con aura | ES1, 1.2, p. 21 | Same | ES1 | Migranya amb aura | CAT1 |
+| Chronic migraine | Migraña crónica | ES1, 1.3, p. 27 | Same | ES1 | Migranya crònica | CAT1 |
+| Tension-type headache | Cefalea de tipo tensional | ES1, p. 27; MX1, title ("cefalea tensional") | Same | ES1 | Cefalea tensional | CAT2 |
+| Cluster headache | Cefalea en racimos | ES1, 3.1, p. 51 | Same | ES1 | Cefalea en raïms | CAT2 (article title) |
+| attack | crisis | MX1, p. 39; ES1, p. 21 | crisis | ES2, p. 34 | crisi | CAT1 ("crisis") |
+| Photophobia | fotofobia | MX1, p. 8; ES1, p. 43 | Same | ES2, p. 90 | fotofòbia | CAT2 |
+| Phonophobia | fonofobia | MX1, p. 8; ES1, p. 44 | Same | ES2, p. 81 | fonofòbia | CAT2 |
+| Scintillating scotoma | escotoma centelleante | ES1, p. 22 | Same | ES1 | escotoma centellejant | CAT2 has "escotoma"; "centellejant" **not verified** |
+| Nausea | náuseas | MX1, p. 8; ES1, p. 23 | Same | ES1 | nàusees | CAT2 |
+| Aphasia | afasia | ES1, p. 21 | Same | ES2, p. 248 | afàsia | CAT2 |
+| Paresthesia | parestesias | ES1, p. 70 | Same | ES2, p. 177 | parestèsies | CAT2 |
+| Neck stiffness | rigidez de cuello | ES1, p. 23 ("rigidez cervical") | Same | ES2, p. 179 | rigidesa al coll | CAT2 ("rigidesa") |
+| Trigger | desencadenante | ES1, p. 42 | Same | ES2, p. 40 | desencadenant | CAT1 |
+| Acute treatment | tratamiento de la crisis | MX1, p. 6 | Same | ES2, p. 85 | tractament de la crisi | CAT1 |
+| Preventive treatment | preventivo | MX1, p. 26 | Same | ES2, p. 7 | preventiu | CAT1 |
+| Headache diary | diario de cefaleas | ES1, p. 27 | Same | ES1 | diari | CAT2 |
+
+| Medication (class) | Spanish | Source (es) | es-ES | Source (es-ES) | Catalan | Source (ca) |
+|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofeno | MX1, p. 10 (400 mg) | Same | ES3: 157; ES2, p. 87 | Ibuprofèn | CAT1; CAT2 |
+| Sumatriptan | Sumatriptán | MX1, p. 20, 23 | Same | ES3: 11; ES2, p. 87 | Sumatriptan | CAT2 |
+| Rizatriptan | Rizatriptán | MX1, p. 23 | Same | ES3: 29; ES2, p. 87 | Rizatriptan | ES3; no Catalan source found, the INN |
+| Naproxen | Naproxeno | MX1, p. 22 (500 mg) | Same | ES3: 15 | Naproxè | CAT1; CAT2 |
+| Acetaminophen | Paracetamol | MX1, p. 10 (1000 mg) | Same | ES3: 264 | Paracetamol | CAT2 |
+| Ubrogepant | Ubrogepant | MX2 not searched: **not verified** | Same | ES3: 0. **No registration**; the INN | Ubrogepant | **No registration** (ES3) |
+| Metoclopramide | Metoclopramida | MX1, p. 11 (10 mg) | Same | ES3: 8 | Metoclopramida | CAT2 |
+| Riboflavin | Riboflavina | MX1, p. 29 | Same | ES3: 5, combinations and infusions only | Riboflavina | CAT2 |
+| Magnesium | Magnesio | MX1, p. 29 | Same | ES3: 125 (salts) | Magnesi | CAT2 |
+| Propranolol | Propranolol | MX1, p. 15 | Same | ES3: 11; ES2, p. 95 | Propranolol | CAT2 |
+| Topiramate | Topiramato | MX1, p. 27 | Same | ES3: 57; ES2, p. 95 | Topiramat | CAT2 |
+| Amitriptyline | Amitriptilina | MX1, p. 11 | Same | ES3: 13; ES2, p. 94 | Amitriptilina | CAT2 |
+| Erenumab | Erenumab | MX2 not searched: **not verified** | Same | ES3: 2; EU1 | Erenumab | CAT2; ES3 |
+| NSAID | AINE | MX1, p. 6 ("AINES") | Same | ES2, p. 85 | AINE | CAT1 |
+| Triptan | triptán | MX1, p. 23 | Same | ES2, p. 87 | triptan | CAT1 |
+| Antiemetic | antiemético | MX1, p. 6 | Same | ES2, p. 85 | antiemètic | ES2 meaning |
+| Beta blocker | betabloqueador | MX1, p. 26 ("Beta Bloqueadores") | **betabloqueante** | ES2, p. 94 | betablocador | ES2 meaning; **not verified** in Catalan |
+| Anticonvulsant | anticonvulsivo | MX1, p. 27 | **antiepiléptico** | ES2, p. 94 ("neuromoduladores") | antiepilèptic | ES2 meaning |
+| Tricyclic antidepressant | antidepresivo tricíclico | MX1, p. 11 | Same | ES2, p. 128 | antidepressiu tricíclic | ES2 meaning |
+
+#### Medical terms: Portuguese (Brazil), Portuguese (Portugal)
+
+| Term | pt | Source (pt) | pt-PT | Source (pt-PT) |
+|---|---|---|---|---|
+| Migraine without aura | Enxaqueca sem aura | BR2, G43.0; BR1, 1.1, p. 21 ("Migrânea sem aura") | Enxaqueca sem aura | PT1, p. 17 |
+| Migraine with aura | Enxaqueca com aura | BR2, G43.1; BR1, p. 21 | Enxaqueca com aura | PT1, p. 17 |
+| Chronic migraine | Enxaqueca crônica | BR1, p. 21 ("Migrânea crônica") | Enxaqueca crónica | PT1, p. 17 |
+| Tension-type headache | Cefaleia do tipo tensão | BR1, p. 22 | Cefaleia tipo tensão | PT1, p. 17 |
+| Cluster headache | Cefaleia em salvas | BR1, 3.1, p. 46 | Same | PT1, 3.1, p. 38 |
+| attack | crise | BR1, p. 26 | crise | PT1; PT2, p. 12 |
+| Photophobia | fotofobia | BR1, p. 26 | Same | PT1, p. 21 |
+| Phonophobia | fonofobia | BR1, p. 26 | Same | PT1, p. 21 |
+| Scintillating scotoma | escotoma cintilante | BR1, p. 27 ("escotoma", "borda cintilante") | Same | PT1, p. 23 |
+| Nausea | náusea | BR1, p. 26 | Same | PT1, p. 21 ("náuseas") |
+| Aphasia | afasia | BR1, p. 27 | Same | PT1, p. 23 |
+| Paresthesia | parestesia | BR1, p. 27 | Same | PT1, p. 48 |
+| Neck stiffness | rigidez no pescoço | BR1, p. 25 ("rigidez e/ou dor cervical") | Same | PT1, p. 21 |
+| Trigger | gatilho | Common Brazilian word; BR1 has no single term. **Not verified** in a clinical source | desencadeante | PT2, p. 8 |
+| Acute treatment | tratamento da crise | BR1 | Same | PT2, p. 12 |
+| Preventive treatment | preventivo | BR1 | Same | PT2, p. 5 |
+| Headache diary | diário | BR1, p. 28 | Same | PT2, p. 10 ("diário das cefaleias") |
+
+| Medication (class) | pt | Source (pt) | pt-PT | Source (pt-PT) |
+|---|---|---|---|---|
+| Ibuprofen | Ibuprofeno | BR3: 824 active records | Ibuprofeno | PT3; PT2, p. 12 |
+| Sumatriptan | Sumatriptana | BR3: 18 ("succinato de sumatriptana") | Sumatriptano | PT3; PT2, p. 13 |
+| Rizatriptan | Rizatriptana | BR3: 26 ("benzoato de rizatriptana") | Rizatriptano | PT3; PT2, p. 13 |
+| Naproxen | Naproxeno | BR3: 187 | Naproxeno | PT3; PT2, p. 12 |
+| Acetaminophen | Paracetamol | BR3: 1098 | Paracetamol | PT3; PT2, p. 9 |
+| Ubrogepant | Ubrogepanto | BR3: 0. **No registration**; the INN with the Brazilian ending, as in "aprepitanto" | Ubrogepant | PT2, p. 15 names it; not in PT3; EU: no authorization (DE2, p. 39). **No registration** |
+| Metoclopramide | Metoclopramida | BR3: 58 | Metoclopramida | PT3; PT2, p. 12 (10 mg) |
+| Riboflavin | Riboflavina | BR3: 59, combinations only | Riboflavina | PT2, p. 10; not in PT3 |
+| Magnesium | Magnésio | BR3: 612 (salts, combinations) | Magnésio | PT3 (magnesium salts); PT2, p. 10 |
+| Propranolol | Propranolol | BR3: 137 | Propranolol | PT3; PT2, p. 14 |
+| Topiramate | Topiramato | BR3: 260 | Topiramato | PT3; PT2, p. 6 |
+| Amitriptyline | Amitriptilina | BR3: 101 | Amitriptilina | PT3; PT2, p. 20 |
+| Erenumab | Erenumabe | BR3: one registration (PASURTA), **inactive**; the Brazilian name | Erenumab | PT2, p. 6; EU1 |
+| NSAID | AINE | Brazilian usage; BR1 | AINE | PT2, p. 12 |
+| Triptan | triptano | BR1 | triptano | PT2, p. 5 |
+| Antiemetic | antiemético | BR1 | antiemético | PT2, p. 9 |
+| Beta blocker | betabloqueador | BR3 class names | **betabloqueante** | PT2, p. 5 ("beta-bloqueantes") |
+| Anticonvulsant | anticonvulsivante | BR3 class names | **antiepilético** | PT2, p. 5 |
+| Tricyclic antidepressant | antidepressivo tricíclico | BR1 | Same | PT2, p. 5 |
+
+#### Medical terms: Italian, Dutch
+
+| Term | Italian | Source (it) | Dutch | Source (nl) |
+|---|---|---|---|---|
+| Migraine without aura | Emicrania senza aura | IT1, p. 19 | Migraine zonder aura | NL1, "Belangrijkste wijzigingen" |
+| Migraine with aura | Emicrania con aura | IT1, p. 19 | Migraine met aura | NL1, "Belangrijkste wijzigingen" |
+| Chronic migraine | Emicrania cronica | IT1, p. 19 | Chronische migraine | NL1, "Richtlijnen beleid" |
+| Tension-type headache | Cefalea di tipo tensivo | IT1, p. 19 | Spanningshoofdpijn | NL1, "Richtlijnen beleid" |
+| Cluster headache | Cefalea a grappolo | IT1, p. 20 | Clusterhoofdpijn | NL1, "Richtlijnen beleid" |
+| attack | attacco | IT1, p. 24 | aanval | NL1, "Anamnese" ("hoofdpijnaanval") |
+| Photophobia | fotofobia | IT1, p. 24 | fotofobie | NL1, diagnostic criteria |
+| Phonophobia | fonofobia | IT1, p. 24 | fonofobie | NL1, "Anamnese" |
+| Scintillating scotoma | scotoma scintillante | IT1, p. 26 ("scotoma") | flikkerscotoom | NL1, "Achtergronden" |
+| Nausea | nausea | IT1, p. 24 | misselijkheid | NL1, "Anamnese" |
+| Aphasia | afasia | IT1, p. 26 | afasie | Not in NL1: **not verified** |
+| Paresthesia | parestesie | IT1, p. 59 | tintelingen / paresthesie | NL1 ("tintelingen"); "paresthesie" **not verified** |
+| Neck stiffness | rigidità del collo | IT1, p. 25 | stijve nek | NL1 ("nekstijfheid") |
+| Trigger | fattore scatenante | Common word; IT1 has no single term | trigger | NL1 ("aanvallen uitlokken"); "trigger" is the common word |
+| Acute treatment | terapia dell'attacco | IT1 meaning | aanvalsbehandeling | NL1, "Medicamenteus stappenplan aanvalsbehandeling" |
+| Preventive treatment | profilassi | IT1 meaning | preventieve behandeling | NL1, "Preventieve behandeling" |
+| Headache diary | diario | IT1, p. 26 | hoofdpijndagboek | NL1, "Hoofdpijndagboek" |
+
+| Medication (class) | Italian | Source (it) | Dutch | Source (nl) |
+|---|---|---|---|---|
+| Ibuprofen | Ibuprofene | IT2: 1404 packages | Ibuprofen | NL2: 180; NL1 |
+| Sumatriptan | Sumatriptan | IT2: 413 | Sumatriptan | NL2: 39; NL1 |
+| Rizatriptan | Rizatriptan | IT2: 212 | Rizatriptan | NL2: 16; NL1 |
+| Naproxen | Naprossene | IT2: 27 | Naproxen | NL2: 48; NL1 |
+| Acetaminophen | Paracetamolo | IT2: 1520 | Paracetamol | NL2: 278; NL1 |
+| Ubrogepant | Ubrogepant | IT2: 0. **No registration**; the INN | Ubrogepant | NL2: 0. **No registration**; the INN |
+| Metoclopramide | Metoclopramide | IT2: 88 | Metoclopramide | NL2: 14; NL1 |
+| Riboflavin | Riboflavina | IT2: 38, also single-substance | Riboflavine | NL2: 2, combinations only |
+| Magnesium | Magnesio | IT2: 3295 (salts) | Magnesium | NL2: 219 (salts) |
+| Propranolol | Propranololo | IT2: 10 | Propranolol | NL2: 14; NL1 |
+| Topiramate | Topiramato | IT2: 803 | Topiramaat | NL2: 39; NL1 |
+| Amitriptyline | Amitriptilina | IT2: 46 | Amitriptyline | NL2: 23; NL1 |
+| Erenumab | Erenumab | IT2: 6; EU1 | Erenumab | NL2: 4; EU1 |
+| NSAID | FANS | Italian usage; IT2 | NSAID | NL1 |
+| Antiemetic | antiemetico | IT2 meaning | anti-emeticum | NL1 |
+| Beta blocker | betabloccante | IT2 meaning | bètablokker | NL1 |
+| Anticonvulsant | antiepilettico | IT2 meaning | anti-epilepticum | NL1 ("anti-epileptica") |
+| Tricyclic antidepressant | antidepressivo triciclico | IT2 meaning | tricyclisch antidepressivum | NL1 |

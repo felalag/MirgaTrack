@@ -32,7 +32,10 @@ class TranslationCheck(
             folder?.let { it to readStrings(dir) }
         }
     private val languageFolders = folders.filter { !it.first.isRegional }
-    private val appLanguages = languageFolders.map { it.first.code }.toSet()
+    private val languageCodes = languageFolders.map { it.first.code }.toSet()
+
+    /** The languages and the regions: iOS needs an `.lproj` folder for a region too, or it never offers that region. */
+    private val appLanguages = folders.map { it.first }.filterNot { it.isPseudo }.map { it.code }.toSet()
     private val parsedCatalogs = catalogs.map(::Catalog)
 
     fun problems(): List<String> {
@@ -40,7 +43,7 @@ class TranslationCheck(
         checkPluralForms("values", "en", base)
         checkLengths("values", base)
         for ((folder, strings) in folders) {
-            if (folder.code.endsWith("-XA") || folder.code.endsWith("-XC") || folder.code.endsWith("-XT")) {
+            if (folder.isPseudo) {
                 problems += "${folder.name}: pseudo-locales are build output. Do not commit them."
             }
             checkKeys(folder, strings)
@@ -60,6 +63,8 @@ class TranslationCheck(
     private fun checkKeys(folder: Folder, strings: Map<String, Entry>) {
         if (!folder.isRegional) {
             (base.keys - strings.keys).forEach { problems += "${folder.name}: key $it is missing." }
+        } else if (folder.language !in languageCodes && folder.language != "en" && !folder.isPseudo) {
+            problems += "${folder.name}: values-${folder.language} is missing; a regional folder holds only the keys that differ from it."
         }
         (strings.keys - base.keys).forEach { problems += "${folder.name}: key $it is not in values." }
         strings.values.filter { base[it.name] != null && base.getValue(it.name).isPlural != it.isPlural }.forEach {
@@ -126,9 +131,9 @@ class TranslationCheck(
     private fun checkLegalFolder(folder: Folder, strings: Map<String, Entry>) {
         if ("legal_folder" !in base) return
         val value = strings["legal_folder"]?.forms?.get("") ?: return
-        when {
-            folder.isRegional -> problems += "${folder.name}: legal_folder belongs in the folder of the language, not of a region."
-            value != folder.code -> problems += "${folder.name}: legal_folder must be \"${folder.code}\"."
+        if (value != folder.code) {
+            val alternative = if (folder.isRegional) ", or left out to use the folder of the language" else ""
+            problems += "${folder.name}: legal_folder must be \"${folder.code}\"$alternative."
         }
     }
 
@@ -164,8 +169,15 @@ class TranslationCheck(
         val knownRegions = KNOWN_REGIONS.find(xcodeProject.readText())?.groupValues?.get(1).orEmpty()
             .split(',').map { it.trim().trim('"') }.filter { it.isNotEmpty() && it != "Base" && it != "en" }.toSet()
         compare("${infoPlistCatalog.relativeTo(root).path} languages", catalogLanguages)
-        compare("docs/legal/files folders", legalLanguages)
         compare("knownRegions in ${xcodeProject.relativeTo(root).path}", knownRegions)
+        // A region gets its own legal texts only where they differ from the texts of its language.
+        (languageCodes - legalLanguages).forEach { problems += "docs/legal/files folders: $it is missing; the Compose resources have it." }
+        (legalLanguages - appLanguages).forEach { problems += "docs/legal/files folders: $it has no folder in the Compose resources." }
+        for ((folder, strings) in folders.filter { it.first.isRegional && it.first.code in legalLanguages }) {
+            if ("legal_folder" in base && "legal_folder" !in strings) {
+                problems += "${folder.name}: set legal_folder to \"${folder.code}\", or the app never shows docs/legal/files/${folder.code}."
+            }
+        }
 
         val documents = legalFiles.listFiles { file -> file.extension == "md" }.orEmpty().map { it.name }.toSet()
         val excluded = pagesConfig.readLines().map { it.trim().removePrefix("-").trim() }.toSet()
@@ -190,16 +202,20 @@ class TranslationCheck(
         }
     }
 
+    /** The text that a user of [language] sees: a region falls back to its language, as Compose and iOS do. */
     private fun text(source: String, language: String): String? {
         val (where, key) = source.split(':', limit = 2)
+        val fallback = language.substringBefore('-')
         if (where == "strings") {
-            val strings = if (language == "en") base else languageFolders.firstOrNull { it.first.code == language }?.second
-            return strings?.get(key)?.forms?.get("")
+            if (language == "en") return base[key]?.forms?.get("")
+            return listOf(language, fallback).firstNotNullOfOrNull { code ->
+                folders.firstOrNull { it.first.code == code }?.second?.get(key)?.forms?.get("")
+            }
         }
         val catalog = parsedCatalogs.firstOrNull { it.file.relativeTo(root).path == where }
             ?: error("Term pair names $where, which is not a checked catalog.")
         require(key in catalog.strings) { "Term pair names \"$key\", which $where does not have." }
-        return catalog.values(key, language).singleOrNull()
+        return listOf(language, fallback).firstNotNullOfOrNull { catalog.values(key, it).singleOrNull() }
     }
 
     private companion object {

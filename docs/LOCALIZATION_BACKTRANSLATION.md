@@ -46,3 +46,59 @@ Scope: the keys of the checklist, section 3 (`diagnosis_*`, `symptom_*`, `region
 - Privacy Policy, both languages: each section keeps its facts (no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes). "Logging preset" comes back as "default values for logging".
 - Terms of Service, both languages: "not a medical device", "talk to your clinician", the emergency sentence, the backup responsibility, personal non-commercial use, "as is", the limitation of liability. Russian and Belarusian use the legal term "медицинское изделие" / "медыцынскі выраб" for "medical device".
 - Each legal translation starts with: "This is a translation for convenience. The English text is legally binding."
+
+## Batch 3: Western Europe (October 18, 2026)
+
+Languages: German, French, French (Canada), Spanish, Spanish (Spain), Portuguese, Portuguese (Portugal), Italian, Dutch and Catalan. Scope: the keys of the checklist, section 3, the Siri and watch strings, and `docs/legal/files/{de,fr,es,pt,pt-PT,it,nl,ca}/*.md`. The regional folders were read together with the folder of their language.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| de | `medication_metoclopramide_10_class` (first draft) | "Agent against nausea" | Antiemetic | "Antiemetikum": an antiemetic also acts on vomiting (DE2, p. 9) |
+| fr | `summary_pain_free_a11y`, `insights_trigger_row_a11y`, `report_share_of_episodes` | "1 days of 30 tracked days", "noted for 1 attacks of 5" | One noun after the number that selects the plural | The noun follows the number that selects the plural form: "%1$s sur %2$s jours suivis" |
+| fr, es, pt, it, ca | Every `plurals` (first draft of fr) | "1 000 000 of attacks" | — | CLDR "many" covers exact millions only; written in digits, it takes the "other" text |
+| fr | `summary_sleep_connect_body`, `summary_sleep_connect_button` | "Apple Health" | Apple Health | "l'app Santé", the name of the app in French iOS, as in the other French strings |
+| pt | `diagnosis_tension_type` | "Tension-type headache" (with "tensional") | Tension-type Headache | "Cefaleia do tipo tensão", the term of the Brazilian ICHD-3 (BR1, p. 22) |
+| it | `insights_headline_month` | "attacks to Oct" | Episodes in Oct | "attacchi in ott" |
+| de, fr, es, pt, it, nl, ca | `medication_dose_milligrams` | "50 / mg" on two lines at the largest text size | 50mg | A no-break space between the number and "mg" |
+| de, fr, es, pt, it, nl, ca | `export_pain_charts_subtitle` | "1– / 10" on two lines at the largest text size | 1–10 | A word joiner (U+2060) after the en dash |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| de | `pain_scale_high` | "10 Paralysing" | 10 Disabling | 14 characters. "Lähmend" is the common German word for a disabling headache; "Unerträglich" has 15. |
+| de, fr, it | `report_stat_pain_free_days`, watch "Pain-free days", legends | "Pain-free" | Pain-free days | 16 characters on the 40 mm watch; the term pair makes the report tile equal |
+| de, fr, it | `report_column_pain` | "Int." | Pain | 5 characters in the PDF column |
+| de, fr, es, pt, it, nl, ca | `settings_member` | "With us since", "Tracked since", "Diary since", "Active since" | Member | No account exists; the value is the first tracked month (as in batch 2) |
+| fr | `diagnosis_cluster` | "Vascular pain of the face" | Cluster Headache | "Algie vasculaire de la face" is the name of 3.1 in the French ICHD-3 (FR1, p. 87) |
+| fr | `calendar_migraine_days` | "3 d of migraine" | 3 Migraine Days | 18 characters; "j" is the French symbol for day |
+| fr | `export_range_*` | "Over 30 days" | Last 30 Days | 16 characters; same period |
+| es, es-ES, pt-PT, nl, ca | `strip_legend_not_tracked` | "No data" | Not tracked | 14 characters. The longer legends of Insights keep "not tracked". |
+| es, pt | `settings_episodes_logged` | "35 in total" | 35 Logged | 14 characters; the caption above says "episodes" |
+| es | `report_baseline_triggers` | "Triggers" | Known triggers | 24 characters; the row is in the baseline profile, which lists known triggers only |
+| es-ES, fr, pt-PT, it, nl, ca | `medication_topiramate_50_class` | "Antiepileptic" | Anticonvulsant | The national term of the class (ES2, FR2, PT2, NL1); same drug class |
+| pt, nl | `common_intensity_of_ten` | "Pain 6/10" | Intensity 6/10 | 16 characters (as in batch 2) |
+| pt | Diagnoses | "Migraine" as "enxaqueca" | Migraine | The Brazilian ICD-10 (BR2) and patients say "enxaqueca"; the Brazilian ICHD-3 says "migrânea" |
+| pt | `medication_ubrogepant_100` | "Ubrogepanto" | Ubrogepant | No registration in Brazil; the INN with the Brazilian ending of the DCB |
+| pt | `report_intakes` | "8 uses" | 8 intakes | Brazilian usage; pt-PT says "tomas" |
+| it | `insights_legend_migraine_day` | "With migraine" | Migraine Day | 16 characters |
+| it | `calendar_migraine_days` | "Migraine: 3 dd" | 3 Migraine Days | 18 characters; "gg" is the Italian abbreviation of days |
+| nl | `pain_scale_high` | "10 Paralysing" | 10 Disabling | 14 characters; "verlammend" is the common Dutch word for a disabling headache |
+| nl | `export_range_*` | "30 days" | Last 30 Days | 16 characters: "Laatste 6 maanden" has 17. The report header shows the dates. |
+| ca | `calendar_edit_episode_details` | "Edit the details" | Edit Episode Details | 28 characters; the button is in the card of one episode |
+| All | Complication "LOG" | "NEW", "NOTE", "REPORT" | LOG | 4 characters under a plus sign |
+| All | Watch and complication "Log Migraine" | "New attack" | Log Migraine | 14 characters on a 40 mm watch. The owner approved it. |
+
+### No difference in meaning
+
+- Diagnoses, symptoms, regions, frequency and duration chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit "mg" in all ten sets.
+- `common_medical_disclaimer`, for example German: "MigraTrack is a diary and not medical advice. Speak with your doctor before you change your treatment."
+- `insights_triggers_hint`: "How often you noted each trigger together with an attack. This does not show a cause."
+- `report_triggers_note`: "The numbers show how often the patient noted a trigger with an attack. They do not show a cause."
+- `report_disclaimer`: "Data entered by the patient in MigraTrack. This report supports a clinical assessment and does not replace it." German says "ärztliche Beurteilung" (assessment by a physician).
+- The other `report_*` keys, the Siri dialogs and the watch strings.
+- Privacy Policy, all eight texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes.
+- Terms of Service, all eight texts: not a medical device (the legal term of each language: "Medizinprodukt", "dispositif médical", "dispositivo médico", "dispositivo medico", "medisch hulpmiddel", "producte sanitari"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.

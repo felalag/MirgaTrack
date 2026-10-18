@@ -43,6 +43,9 @@ internal val SIRI_LANGUAGES: Set<String> = setOf(
  * [code] is the language as iOS writes it ("pl", "zh-Hans"), or language and region for a regional folder ("fr-CA").
  */
 internal data class Folder(val name: String, val language: String, val code: String, val isRegional: Boolean) {
+    /** A pseudo-locale of docs/LOCALIZATION_PLAN.md, section 5.1: build output, never a real language. */
+    val isPseudo: Boolean get() = code.endsWith("-XA") || code.endsWith("-XC") || code.endsWith("-XT")
+
     companion object {
         private val LANGUAGE = Regex("[a-z]{2,3}")
         private val REGIONAL = Regex("([a-z]{2,3})-r([A-Z]{2})")
