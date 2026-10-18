@@ -206,7 +206,8 @@
     <string name="export_symptoms_subtitle">Arten der Aura und ihre Häufigkeit</string>
     <string name="export_triggers_subtitle">Notierte Auslöser und ihre Häufigkeit</string>
     <string name="export_pain_charts">Diagramme der Schmerzintensität</string>
-    <string name="export_pain_charts_subtitle">Verlauf der Schmerzintensität, 1–⁠10</string>
+    <!-- &#x2060; (word joiner) keeps "1–10" on one line at large text sizes. -->
+    <string name="export_pain_charts_subtitle">Verlauf der Schmerzintensität, 1&#x2060;–&#x2060;10</string>
     <string name="export_pdf">PDF-Bericht exportieren</string>
     <string name="export_excel">Excel-Export (.xlsx)</string>
     <string name="export_share">Teilen</string>
@@ -425,7 +426,8 @@
     <string name="medication_erenumab_70">Erenumab</string>
     <string name="medication_erenumab_70_class">CGRP-Antikörper, monatlich</string>
     <string name="medication_custom_class">Eigenes Medikament</string>
-    <string name="medication_dose_milligrams">%1$s mg</string>
+    <!-- &#160; (no-break space) keeps the number and "mg" on one line. -->
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
     <string name="medication_name_and_dose">%1$s %2$s</string>
 
     <!-- Insights, catalog related -->
