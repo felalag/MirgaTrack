@@ -31,6 +31,14 @@ internal val SYSTEM_FONT_LANGUAGES: Set<String> = setOf(
 )
 
 /**
+ * Target languages that Siri speaks, from the Siri section of https://www.apple.com/ios/feature-availability/
+ * (read on October 18, 2026). `AppShortcuts.xcstrings` needs the Siri phrases only in these languages (plan, section 4.3).
+ */
+internal val SIRI_LANGUAGES: Set<String> = setOf(
+    "ar", "da", "de", "en", "es", "fi", "fr", "he", "it", "ja", "ko", "ms", "nb", "nl", "pt", "ru", "sv", "th", "tr", "vi", "zh",
+)
+
+/**
  * One `values-*` folder of the Compose resources.
  * [code] is the language as iOS writes it ("pl", "zh-Hans"), or language and region for a regional folder ("fr-CA").
  */

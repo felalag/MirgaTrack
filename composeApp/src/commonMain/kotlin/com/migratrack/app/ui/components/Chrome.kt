@@ -29,6 +29,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
@@ -43,9 +44,11 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
+import androidx.compose.ui.unit.sp
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.common_back
 import com.migratrack.app.generated.resources.common_settings
@@ -123,7 +126,16 @@ fun BrandHeader(
         Column(Modifier.weight(1f).semantics(mergeDescendants = true) { heading() }) {
             WithoutFontScaling {
                 MtText("MIGRATRACK", MtTheme.type.caption.copy(letterSpacing = 0.16.em, fontWeight = FontWeight.SemiBold), color = MtColors.BrandLabel)
-                MtText(title, MtTheme.type.title1, color = MtColors.TextPrimary, maxLines = 1)
+                // Shrinks only a title that does not fit, for example "Политика конфиденциальности". With an ellipsis
+                // the text never shrank on iOS (Compose 1.12.1), so the overflow is Clip.
+                MtText(
+                    title,
+                    MtTheme.type.title1,
+                    color = MtColors.TextPrimary,
+                    maxLines = 1,
+                    overflow = TextOverflow.Clip,
+                    autoSize = TextAutoSize.StepBased(minFontSize = 18.sp, maxFontSize = MtTheme.type.title1.fontSize),
+                )
             }
         }
         if (onSettings != null) {

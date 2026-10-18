@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -51,6 +52,7 @@ fun MtText(
     textAlign: TextAlign = TextAlign.Unspecified,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Ellipsis,
+    autoSize: TextAutoSize? = null,
 ) {
     BasicText(
         text = text,
@@ -58,6 +60,7 @@ fun MtText(
         style = style.merge(TextStyle(color = color, textAlign = textAlign)),
         maxLines = maxLines,
         overflow = overflow,
+        autoSize = autoSize,
     )
 }
 

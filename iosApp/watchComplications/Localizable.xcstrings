@@ -4,6 +4,46 @@
     "%lld of %lld days pain-free" : {
       "comment" : "Rectangular complication. %1$lld = pain-free days. %2$lld = tracked days; the plural form follows it. Max 24 characters.",
       "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld з %2$#@tracked@ без болю"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дзён"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дзён"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31,26 +71,150 @@
               }
             }
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld из %2$#@tracked@ без боли"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дней"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дней"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
     "LOG" : {
-      "comment" : "Text under the plus in the small round complication. A verb. Max 4 characters."
+      "comment" : "Text under the plus in the small round complication. A verb. Max 4 characters.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "УВОД"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВВОД"
+          }
+        }
+      }
     },
     "Log Migraine" : {
-      "comment" : "Name of the complication and the control in the watch face gallery, and their VoiceOver label. Max 14 characters."
+      "comment" : "Name of the complication and the control in the watch face gallery, and their VoiceOver label. Max 14 characters.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новы прыступ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый приступ"
+          }
+        }
+      }
     },
     "Open MigraTrack on iPhone" : {
-      "comment" : "Rectangular complication before the iPhone app sent its data. Max 25 characters."
+      "comment" : "Rectangular complication before the iPhone app sent its data. Max 25 characters.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адкрыйце на iPhone"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Откройте на iPhone"
+          }
+        }
+      }
     },
     "Opens the logger." : {
-      "comment" : "Description of the control in Control Center."
+      "comment" : "Description of the control in Control Center.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адкрывае запіс прыступу."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открывает запись приступа."
+          }
+        }
+      }
     },
     "Opens the logger. The rectangular style also shows your pain-free days." : {
-      "comment" : "Description of the complication in the watch face gallery."
+      "comment" : "Description of the complication in the watch face gallery.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Адкрывае запіс прыступу. Прамавугольны варыянт таксама паказвае дні без болю."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открывает запись приступа. Прямоугольный вариант также показывает дни без боли."
+          }
+        }
+      }
     },
     "Pain-free days –" : {
-      "comment" : "Rectangular complication before the first sync. The dash stands for a missing number."
+      "comment" : "Rectangular complication before the first sync. The dash stands for a missing number.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дні без болю –"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дни без боли –"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

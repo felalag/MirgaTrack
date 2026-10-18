@@ -2,30 +2,112 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Finish setup in MigraTrack first." : {
-      "comment" : "Siri says this when the user has not finished onboarding; Siri then offers to open the app."
+      "comment" : "Siri says this when the user has not finished onboarding; Siri then offers to open the app.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спачатку завяршыце наладжванне ў MigraTrack."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сначала завершите настройку в MigraTrack."
+          }
+        }
+      }
     },
     "Log Migraine" : {
-      "comment" : "Short title of the App Shortcut in Spotlight and the Shortcuts app. Max 20 characters."
+      "comment" : "Short title of the App Shortcut in Spotlight and the Shortcuts app. Max 20 characters.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новы прыступ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый приступ"
+          }
+        }
+      }
     },
     "Log Migraine Episode" : {
-      "comment" : "Title of the App Intent in Shortcuts and Spotlight. Use the glossary term for episode."
+      "comment" : "Title of the App Intent in Shortcuts and Spotlight. Use the glossary term for episode.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запісаць прыступ мігрэні"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записать приступ мигрени"
+          }
+        }
+      }
     },
     "Logged a migraine episode: intensity %lld of 10, with %@." : {
       "comment" : "Siri says this after a quick log. %1$lld = pain intensity, 1 to 10. %2$@ = medication names and doses, separated by commas.",
       "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %1$lld з 10, лякарствы: %2$@."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Logged a migraine episode: intensity %1$lld of 10, with %2$@."
           }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приступ мигрени записан: интенсивность %1$lld из 10, лекарства: %2$@."
+          }
         }
       }
     },
     "Logged a migraine episode: intensity %lld of 10." : {
-      "comment" : "Siri says this after a quick log without medications. %lld = pain intensity, 1 to 10."
+      "comment" : "Siri says this after a quick log without medications. %lld = pain intensity, 1 to 10.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %lld з 10."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приступ мигрени записан: интенсивность %lld из 10."
+          }
+        }
+      }
     },
     "Logs an episode now with your typical pain intensity and acute medications from MigraTrack." : {
-      "comment" : "Description of the App Intent in the Shortcuts app."
+      "comment" : "Description of the App Intent in the Shortcuts app.",
+      "localizations" : {
+        "be" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запісвае прыступ цяпер з вашай звычайнай інтэнсіўнасцю болю і лякарствамі для купіравання прыступу з MigraTrack."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записывает приступ сейчас с вашей обычной интенсивностью боли и лекарствами для купирования приступа из MigraTrack."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

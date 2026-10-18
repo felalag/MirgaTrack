@@ -13,6 +13,15 @@
               "Log migraine with ${applicationName}"
             ]
           }
+        },
+        "ru" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Записать мигрень в ${applicationName}",
+              "Запиши приступ в ${applicationName}"
+            ]
+          }
         }
       }
     }

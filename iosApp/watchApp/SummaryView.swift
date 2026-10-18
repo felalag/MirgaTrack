@@ -23,6 +23,8 @@ struct SummaryView: View {
                 Button("Log Migraine") {
                     model.showLogger()
                 }
+                // Without it, the 40 mm watch cuts "Новый приступ" to "Новый при…" at the largest text size; with it, the label wraps.
+                .minimumScaleFactor(0.8)
                 .buttonStyle(.borderedProminent)
                 .tint(.migraPink)
                 .disabled(model.status?.isLinked == false)

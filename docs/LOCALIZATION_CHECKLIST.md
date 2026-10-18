@@ -12,7 +12,7 @@ Use the folder code of the plan, section 1.1. Examples here use Polish, `pl`.
 | The same file | `legal_folder` = `pl`. In a regional folder (`values-fr-rCA`) leave it out. |
 | The same file, from stage 1g | `font_family` = `brand` for a Latin script, `system` for every other script (plan, section 4.7). |
 | `iosApp/**/Localizable.xcstrings`, `InfoPlist.xcstrings` | A `pl` translation in the state "translated" for each string. Xcode: open the catalog, add the language, translate, mark each string as reviewed. |
-| `AppShortcuts.xcstrings` | The Siri phrases, only for a Siri language (plan, section 4.3). Each phrase keeps `${applicationName}`. |
+| `AppShortcuts.xcstrings` | The Siri phrases, only for a Siri language (plan, section 4.3). Each phrase keeps `${applicationName}`. `SIRI_LANGUAGES` in `buildSrc/src/main/kotlin/l10n/Languages.kt` lists them; the build asks for phrases only in these languages. |
 | `iosApp/iosApp.xcodeproj/project.pbxproj` | `pl` in `knownRegions`. Xcode adds it when you add the language to the project. |
 | `docs/legal/files/pl/privacy-policy.md`, `terms-of-service.md` | The translated legal texts, without the front matter. The first paragraph says that the English text is the binding text and the translation is for convenience. |
 | `docs/_config.yml` | `- legal/files/pl` under `exclude`, so the website stays English. |
@@ -30,7 +30,7 @@ Use the folder code of the plan, section 1.1. Examples here use Polish, `pl`.
 
 ## 3. Back-translation
 
-A second pass translates the strings below back into English, without the English source. Compare each back-translation with the English text. Fix each difference in meaning before the merge, and list the differences and their fixes in the pull request.
+A second pass translates the strings below back into English, without the English source. Compare each back-translation with the English text. Fix each difference in meaning before the merge. List the differences, their fixes and the differences that a length limit keeps in a new section of [LOCALIZATION_BACKTRANSLATION.md](LOCALIZATION_BACKTRANSLATION.md), and link it from the pull request.
 
 | Area | Keys and files |
 |---|---|

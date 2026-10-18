@@ -13,7 +13,8 @@ udid=$1 out=$2
 shift 2
 screens=(Summary Log Insights Export Settings)
 xcrun simctl status_bar "$udid" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3
-[[ -n ${WATCH:-} ]] && xcrun simctl status_bar "$WATCH" override --time 9:41
+# The watchOS 27 simulator does not support status bar overrides; the watch screenshot then shows the real time.
+[[ -n ${WATCH:-} ]] && { xcrun simctl status_bar "$WATCH" override --time 9:41 2>/dev/null || true; }
 
 for spec in "$@"; do
   language=${spec%%:*}

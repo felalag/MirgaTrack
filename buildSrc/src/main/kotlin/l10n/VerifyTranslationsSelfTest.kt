@@ -31,7 +31,7 @@ abstract class VerifyTranslationsSelfTest : DefaultTask() {
         val actual = TranslationCheck(
             root = dir,
             resources = File(dir, "composeResources"),
-            catalogs = listOf(File(dir, "App.xcstrings")),
+            catalogs = listOf(File(dir, "App.xcstrings"), File(dir, "AppShortcuts.xcstrings")),
             infoPlistCatalog = File(dir, "InfoPlist.xcstrings"),
             legalFiles = File(dir, "legal"),
             pagesConfig = File(dir, "_config.yml"),
