@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Lithuanian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  CLDR: one (1, 21…), few (2–9, 22–29…), many (decimal numbers) and other (0, 10–20, 30…).
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Atgal</string>
+    <string name="common_settings">Nustatymai</string>
+    <string name="common_cancel">Atšaukti</string>
+    <string name="common_ok">Gerai</string>
+    <string name="common_save">Išsaugoti</string>
+    <string name="common_add">Pridėti</string>
+    <string name="common_next">Toliau</string>
+    <string name="common_on">Įjungta</string>
+    <string name="common_off">Išjungta</string>
+    <string name="common_clear">Išvalyti</string>
+    <string name="common_none">Nėra</string>
+    <string name="common_today">Šiandien</string>
+    <string name="common_not_set">Nenustatyta</string>
+    <string name="common_expanded">Išskleista</string>
+    <string name="common_collapsed">Suskleista</string>
+    <string name="common_last_30_days">Pastarosios 30 dienų</string>
+    <string name="common_medical_disclaimer">MigraTrack yra dienoraštis, o ne medicininė konsultacija. Prieš keisdami gydymą, pasitarkite su gydytoju.</string>
+    <string name="common_log_migraine_episode">Įrašyti migrenos priepuolį</string>
+    <string name="common_save_episode">Išsaugoti</string>
+    <string name="common_edit_episode">Redaguoti priepuolį</string>
+    <string name="common_delete_episode">Ištrinti priepuolį</string>
+    <string name="common_intensity_of_ten">Skausmas %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s</string>
+    <string name="common_possible_triggers">Galimi provokuojantys veiksniai</string>
+    <string name="common_add_trigger">Pridėti veiksnį</string>
+    <string name="common_add_medication">Pridėti vaistą</string>
+    <string name="common_treatment_blueprint">Gydymo planas</string>
+    <string name="common_medication_name_and_dose">Įveskite pavadinimą ir dozę.</string>
+    <string name="common_medication_placeholder">Pavyzdžiui, eletriptanas 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Suvestinė</string>
+    <string name="tab_log">Įrašyti</string>
+    <string name="tab_insights">Analizė</string>
+    <string name="tab_export">Eksportas</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Skausmo intensyvumas</string>
+    <string name="pain_scale_value">%1$s iš 10</string>
+    <string name="pain_scale_low">%1$s Silpnas</string>
+    <string name="pain_scale_middle">%1$s Juntamas</string>
+    <string name="pain_scale_high">%1$s Sekinantis</string>
+    <string name="medication_remove">Pašalinti %1$s</string>
+    <string name="duration_minutes">%1$s min.</string>
+    <string name="duration_hours_minutes">%1$s val. %2$s min.</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Šiandien, %1$s</string>
+    <!-- Genitive after "iš": "iš 1 stebėtos dienos", "iš 30 stebėtų dienų". -->
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">iš %1$s stebėtos dienos</item>
+        <item quantity="few">iš %1$s stebėtų dienų</item>
+        <item quantity="many">iš %1$s stebėtos dienos</item>
+        <item quantity="other">iš %1$s stebėtų dienų</item>
+    </plurals>
+    <string name="summary_without_logged_episode">be įrašyto priepuolio</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s iš %2$s stebėtos dienos be įrašyto priepuolio per pastarąsias 30 dienų</item>
+        <item quantity="few">%1$s iš %2$s stebėtų dienų be įrašyto priepuolio per pastarąsias 30 dienų</item>
+        <item quantity="many">%1$s iš %2$s stebėtos dienos be įrašyto priepuolio per pastarąsias 30 dienų</item>
+        <item quantity="other">%1$s iš %2$s stebėtų dienų be įrašyto priepuolio per pastarąsias 30 dienų</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Skaičiuojama nuo dienos, kai pradėjote stebėti. Ankstesnės dienos nestebėtos.</string>
+    <string name="strip_legend_migraine">Migrena</string>
+    <string name="strip_legend_pain_free">Be skausmo</string>
+    <string name="strip_legend_not_tracked">Nestebėta</string>
+    <string name="summary_sleep_last_night">Praėjusios nakties miegas</string>
+    <string name="summary_sleep_not_recorded">Neįrašyta</string>
+    <string name="summary_sleep_hint">Miegokite su Apple Watch arba stebėkite miegą programoje „Sveikata“. Jei išjungėte prieigą, įjunkite ją skiltyje Nustatymai › Sveikata.</string>
+    <string name="summary_sleep_caption">Miegas</string>
+    <string name="summary_sleep_connect_title">Praėjusios nakties miegas suvestinėje</string>
+    <string name="summary_sleep_connect_body">MigraTrack nuskaito praėjusios nakties miegą iš programos „Sveikata“. Duomenys lieka šiame iPhone.</string>
+    <string name="summary_sleep_connect_button">Prijungti „Sveikata“</string>
+    <string name="summary_last_episode">Paskutinis priepuolis</string>
+    <string name="summary_last_episode_none">Dar nėra</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Įrašyti priepuolį</string>
+    <string name="episode_update">Atnaujinti priepuolį</string>
+    <string name="episode_updated_banner">Priepuolis atnaujintas.</string>
+    <string name="episode_deleted_banner">Priepuolis ištrintas.</string>
+    <string name="episode_saved_banner">Priepuolis išsaugotas. Pailsėkite ir pabūkite prieblandoje.</string>
+    <string name="episode_pain_intensity_index">Skausmo intensyvumo indeksas</string>
+    <string name="episode_cranial_epicenter">Skausmo vieta</string>
+    <string name="episode_aura_symptoms">Aura ir jutimų simptomai</string>
+    <string name="episode_acute_therapy">Ūminis priepuolio gydymas</string>
+    <string name="episode_add_medication_row">Pridėti vaistą / elektrolitus</string>
+    <string name="episode_start">Priepuolio pradžia</string>
+    <string name="episode_start_now">Dabar</string>
+    <string name="episode_add_trigger_message">Kas buvo prieš šį priepuolį?</string>
+    <string name="episode_other_trigger_action">Kitas veiksnys…</string>
+    <string name="episode_other_trigger_title">Kitas veiksnys</string>
+    <string name="episode_other_trigger_message">Įvardykite, kas buvo prieš šį priepuolį.</string>
+    <string name="episode_other_trigger_placeholder">Pavyzdžiui, stiprūs kvepalai</string>
+    <string name="episode_add_medication_message">Ką vartojote per šį priepuolį?</string>
+    <string name="episode_other_medication_action">Kitas vaistas…</string>
+    <string name="episode_other_medication_title">Kitas vaistas</string>
+    <string name="episode_missing_title">Priepuolis ištrintas</string>
+    <string name="episode_missing_message">Šis priepuolis ištrintas kitame įrenginyje, todėl pakeitimų išsaugoti negalima.</string>
+    <string name="episode_delete_message">Skausmas %1$s/10. Priepuolis dings iš istorijos ir ataskaitų.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">S</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">Mt</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">priepuolis šią savaitę</item>
+        <item quantity="few">priepuoliai šią savaitę</item>
+        <item quantity="many">priepuolio šią savaitę</item>
+        <item quantity="other">priepuolių šią savaitę</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">priepuolis savaitę nuo %1$s</item>
+        <item quantity="few">priepuoliai savaitę nuo %1$s</item>
+        <item quantity="many">priepuolio savaitę nuo %1$s</item>
+        <item quantity="other">priepuolių savaitę nuo %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">priepuolis, %1$s</item>
+        <item quantity="few">priepuoliai, %1$s</item>
+        <item quantity="many">priepuolio, %1$s</item>
+        <item quantity="other">priepuolių, %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">priepuolis per 6 mėn.</item>
+        <item quantity="few">priepuoliai per 6 mėn.</item>
+        <item quantity="many">priepuolio per 6 mėn.</item>
+        <item quantity="other">priepuolių per 6 mėn.</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">priepuolis %1$s m.</item>
+        <item quantity="few">priepuoliai %1$s m.</item>
+        <item quantity="many">priepuolio %1$s m.</item>
+        <item quantity="other">priepuolių %1$s m.</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s proc. mažiau priepuolių nei ankstesniu laikotarpiu</string>
+    <string name="insights_trend_more">%1$s proc. daugiau priepuolių nei ankstesniu laikotarpiu</string>
+    <string name="insights_legend_migraine_day">Diena su migrena</string>
+    <string name="insights_legend_pain_free_day">Diena be skausmo</string>
+    <string name="insights_legend_not_tracked">Nestebėta</string>
+    <string name="insights_bar_no_data">%1$s: dar nėra duomenų</string>
+    <string name="insights_bar_not_tracked">%1$s: nestebėta</string>
+    <string name="insights_bar_pain_free">%1$s: be skausmo</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s diena su migrena, daugiausia %3$s iš 10</item>
+        <item quantity="few">%1$s: %2$s dienos su migrena, daugiausia %3$s iš 10</item>
+        <item quantity="many">%1$s: %2$s dienos su migrena, daugiausia %3$s iš 10</item>
+        <item quantity="other">%1$s: %2$s dienų su migrena, daugiausia %3$s iš 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Pažymėkite galimus provokuojančius veiksnius, kai įrašote ar redaguojate priepuolį. Tada ši kortelė parodys, kaip dažnai pažymėjote kiekvieną.</string>
+    <string name="insights_triggers_hint">Kaip dažnai pažymėjote kiekvieną veiksnį per priepuolį. Tai nerodo priežasties.</string>
+    <!-- Genitive after "iš": "iš 1 priepuolio", "iš 5 priepuolių". -->
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, pažymėta per %2$s iš %3$s priepuolio</item>
+        <item quantity="few">%1$s, pažymėta per %2$s iš %3$s priepuolių</item>
+        <item quantity="many">%1$s, pažymėta per %2$s iš %3$s priepuolio</item>
+        <item quantity="other">%1$s, pažymėta per %2$s iš %3$s priepuolių</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s iš %2$s</string>
+    <string name="insights_calendar_a11y">Kalendorius, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s priepuolis.</item>
+        <item quantity="few">%1$s: %2$s priepuoliai.</item>
+        <item quantity="many">%1$s: %2$s priepuolio.</item>
+        <item quantity="other">%1$s: %2$s priepuolių.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · skausmas %2$s/10</string>
+    <string name="insights_month_picker_title">Mėnuo</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Ankstesnis mėnuo</string>
+    <string name="calendar_next_month">Kitas mėnuo</string>
+    <string name="calendar_choose_month_a11y">%1$s, pasirinkti kitą mėnesį</string>
+    <!-- "Migraine: 3 d.": "1 diena su migrena" does not fit 18 characters; "d." stands for every form of "diena". -->
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">Migrena: %1$s d.</item>
+        <item quantity="few">Migrena: %1$s d.</item>
+        <item quantity="many">Migrena: %1$s d.</item>
+        <item quantity="other">Migrena: %1$s d.</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Šiandien, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">nepasiekiama</string>
+    <string name="calendar_day_not_tracked">nestebėta</string>
+    <string name="calendar_day_no_episodes">be priepuolių</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s priepuolis, daugiausia %2$s iš 10</item>
+        <item quantity="few">%1$s priepuoliai, daugiausia %2$s iš 10</item>
+        <item quantity="many">%1$s priepuolio, daugiausia %2$s iš 10</item>
+        <item quantity="other">%1$s priepuolių, daugiausia %2$s iš 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s priepuolis</item>
+        <item quantity="few">%1$s priepuoliai</item>
+        <item quantity="many">%1$s priepuolio</item>
+        <item quantity="other">%1$s priepuolių</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Didžiausias intensyvumas</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Vaistai</string>
+    <string name="calendar_edit_episode_details">Redaguoti duomenis</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Ruošiamas PDF…</string>
+    <string name="export_preparing_excel">Ruošiamas Excel failas…</string>
+    <string name="export_preparing_report">Ruošiama ataskaita…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">priepuolis</item>
+        <item quantity="few">priepuoliai</item>
+        <item quantity="many">priepuolio</item>
+        <item quantity="other">priepuolių</item>
+    </plurals>
+    <string name="export_episodes_recorded">Įrašyti priepuoliai</string>
+    <string name="export_include">Įtraukti į eksportą</string>
+    <string name="export_medications">Vartoti vaistai</string>
+    <string name="export_medications_subtitle">Dozės ir bendras vartojimas</string>
+    <string name="export_symptoms">Aura ir įspėjamieji simptomai</string>
+    <string name="export_symptoms_subtitle">Auros tipai ir jų dažnis</string>
+    <string name="export_triggers_subtitle">Pažymėti veiksniai ir jų dažnis</string>
+    <string name="export_pain_charts">Skausmo intensyvumo grafikai</string>
+    <string name="export_pain_charts_subtitle">Skausmo intensyvumo kitimas, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Eksportuoti PDF ataskaitą</string>
+    <string name="export_excel">Eksportuoti į Excel (.xlsx)</string>
+    <string name="export_share">Bendrinti</string>
+    <string name="export_range_title">Ataskaitos laikotarpis</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack ataskaita: %1$s priepuolis, %2$s.</item>
+        <item quantity="few">MigraTrack ataskaita: %1$s priepuoliai, %2$s.</item>
+        <item quantity="many">MigraTrack ataskaita: %1$s priepuolio, %2$s.</item>
+        <item quantity="other">MigraTrack ataskaita: %1$s priepuolių, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Eksportuoti nepavyko</string>
+    <string name="export_failed_message">Nepavyko sukurti ataskaitos.</string>
+    <string name="export_write_failed">Nepavyko įrašyti %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s žinomas veiksnys</item>
+        <item quantity="few">%1$s žinomi veiksniai</item>
+        <item quantity="many">%1$s žinomo veiksnio</item>
+        <item quantity="other">%1$s žinomų veiksnių</item>
+    </plurals>
+    <string name="settings_no_triggers">Nepasirinkta jokių veiksnių</string>
+    <string name="settings_no_medications">Nepasirinkta jokių vaistų</string>
+    <string name="settings_name_title">Jūsų vardas</string>
+    <string name="settings_name_message">Rodomas eksportuojamose ataskaitose.</string>
+    <string name="settings_name_placeholder">Vardas</string>
+    <string name="settings_delete_title">Ištrinti visus duomenis?</string>
+    <string name="settings_delete_message">MigraTrack saugo jūsų duomenis šiame iPhone, o kopiją – Apple Watch. Taip visam laikui ištrinsite visus priepuolius ir pradinį profilį; laikrodis ištrins savo kopiją per kitą sinchronizavimą. Įrenginių atsarginės kopijos išsaugo savo kopiją. Jei jums reikia ataskaitos, pirmiausia ją eksportuokite.</string>
+    <string name="settings_delete_all">Ištrinti visus duomenis</string>
+    <string name="settings_section_baseline">Klinikinis pradinis profilis ir gydymas</string>
+    <string name="settings_baseline_diagnoses">Pradinės diagnozės</string>
+    <string name="settings_known_triggers">Žinomi provokuojantys veiksniai</string>
+    <string name="settings_section_preferences">Nuostatos</string>
+    <string name="settings_appearance">Išvaizda</string>
+    <string name="settings_appearance_value">Tamsi (užrakinta)</string>
+    <string name="settings_version">Versija</string>
+    <string name="settings_version_value">v%1$s (%2$s)</string>
+    <string name="settings_section_legal">Teisinė informacija</string>
+    <string name="settings_section_developer">Kūrėjas</string>
+    <string name="settings_load_sample_data">Įkelti pavyzdinius duomenis</string>
+    <string name="settings_load_sample_data_subtitle">Prideda metų sugeneruotų priepuolių grafikų peržiūrai</string>
+    <string name="settings_edit_name_a11y">Redaguoti vardą</string>
+    <string name="settings_add_name">Įveskite vardą</string>
+    <!-- No account exists: the value is the first tracked month ("Tracked since"). -->
+    <string name="settings_member">Stebima nuo</string>
+    <string name="settings_episodes">Priepuoliai</string>
+    <!-- "35 in total": the caption above says "Priepuoliai". -->
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">Iš viso %1$s</item>
+        <item quantity="few">Iš viso %1$s</item>
+        <item quantity="many">Iš viso %1$s</item>
+        <item quantity="other">Iš viso %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Privatumo politika</string>
+    <string name="legal_terms_of_service">Naudojimo sąlygos</string>
+    <string name="legal_folder">lt</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Toliau: veiksniai</string>
+    <string name="onboarding_continue_to_medications">Toliau: vaistai</string>
+    <string name="onboarding_finish_setup">Baigti sąranką</string>
+    <string name="onboarding_back_to_diagnoses">Atgal į diagnozes</string>
+    <string name="onboarding_back_to_triggers">Atgal į veiksnius</string>
+    <string name="onboarding_save_changes">Išsaugoti pakeitimus</string>
+    <string name="onboarding_step">%1$s/%2$s žingsnis</string>
+    <string name="onboarding_diagnoses_title">Diagnozės ir anamnezė</string>
+    <string name="onboarding_diagnoses_subtitle">Nustatykite pradinį profilį. Nuo jo prasideda jūsų priepuoliai ir ataskaitos.</string>
+    <string name="onboarding_primary_diagnosis">Pagrindinė diagnozė</string>
+    <string name="onboarding_episode_frequency">Priepuolių per mėnesį</string>
+    <string name="onboarding_episode_duration">Įprasta priepuolio trukmė</string>
+    <string name="onboarding_intensity_baseline">Įprastas skausmo intensyvumas</string>
+    <string name="onboarding_update_later">Pradinį profilį bet kada galite pakeisti nustatymuose.</string>
+    <string name="onboarding_triggers_title">Jūsų provokuojantys veiksniai</string>
+    <string name="onboarding_triggers_subtitle">Pasirinkite žinomus ar įtariamus provokuojančius veiksnius. Ataskaita juos išvardys jūsų gydytojui.</string>
+    <string name="onboarding_add_custom_trigger">Pridėti savo veiksnį</string>
+    <string name="onboarding_treatment_subtitle">Pasirinkite, ką vartojate. Ūminio gydymo vaistai iš anksto įrašomi į kiekvieną naują priepuolį, todėl įrašyti užtenka vieno bakstelėjimo.</string>
+    <string name="onboarding_add_custom_medication">Pridėti savo vaistą</string>
+    <string name="onboarding_custom_trigger_title">Pridėti savo veiksnį</string>
+    <string name="onboarding_custom_trigger_message">Įvardykite, kas jums dažniausiai sukelia migreną.</string>
+    <string name="onboarding_custom_trigger_placeholder">Pavyzdžiui, mirksinčios šviesos</string>
+    <string name="onboarding_medication_role_message">Kada jį vartojate?</string>
+    <string name="onboarding_medication_role_acute">Per priepuolį (ūmiai)</string>
+    <string name="onboarding_medication_role_preventive">Kasdien (profilaktiškai)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Asmeninis migrenos ir provokuojančių veiksnių dienoraštis</string>
+    <string name="welcome_example">Pavyzdys</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">diena be skausmo</item>
+        <item quantity="few">dienos be skausmo</item>
+        <item quantity="many">dienos be skausmo</item>
+        <item quantity="other">dienų be skausmo</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Pavyzdys: %1$s diena be skausmo per pastarąsias 30 dienų</item>
+        <item quantity="few">Pavyzdys: %1$s dienos be skausmo per pastarąsias 30 dienų</item>
+        <item quantity="many">Pavyzdys: %1$s dienos be skausmo per pastarąsias 30 dienų</item>
+        <item quantity="other">Pavyzdys: %1$s dienų be skausmo per pastarąsias 30 dienų</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Supraskite savo dėsningumus.</string>
+    <string name="welcome_headline_doctor">Pateikite gydytojui faktus.</string>
+    <string name="welcome_body">Stebėkite simptomus, pastebėkite galimus provokuojančius veiksnius ir bet kada eksportuokite asmenines ataskaitas.</string>
+    <string name="welcome_get_started">Pradėti</string>
+    <string name="welcome_agreement">Tęsdami sutinkate su dokumentais „%1$s“ ir „%2$s“.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migrena be auros</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Dažna migrenos forma</string>
+    <string name="diagnosis_migraine_with_aura">Migrena su aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Regos ar jutimų židininė aura</string>
+    <string name="diagnosis_chronic_migraine">Lėtinė migrena</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 ar daugiau galvos skausmo dienų per mėnesį</string>
+    <string name="diagnosis_tension_type">Įtampos tipo galvos skausmas</string>
+    <string name="diagnosis_tension_type_subtitle">Spaudžianti įtampa lyg lankas</string>
+    <string name="diagnosis_cluster">Kekinis galvos skausmas</string>
+    <string name="diagnosis_cluster_subtitle">Stiprūs vienpusiai priepuoliai aplink akį</string>
+    <string name="diagnosis_not_diagnosed">Nediagnozuota / tiriuosi</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Stebiu simptomų dėsningumus</string>
+    <string name="frequency_less_than_one">&lt; 1/mėn.</string>
+    <string name="frequency_one_to_four">1–4/mėn.</string>
+    <string name="frequency_five_to_eight">5–7/mėn.</string>
+    <string name="frequency_eight_plus">8+/mėn.</string>
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Kairysis smilkinys</string>
+    <string name="region_right_temple">Dešinysis smilkinys</string>
+    <string name="region_frontal_brow">Kakta / antakiai</string>
+    <string name="region_retro_orbital">Už akies</string>
+    <string name="region_occipital_neck">Pakaušis ir sprandas</string>
+    <string name="symptom_scintillating_scotoma">Mirgančioji skotoma (regos)</string>
+    <string name="symptom_scintillating_scotoma_short">Regos aura</string>
+    <string name="symptom_neck_stiffness">Sustingęs kaklas</string>
+    <string name="symptom_neck_stiffness_short">Stingus kaklas</string>
+    <string name="symptom_photophobia">Fotofobija (šviesa)</string>
+    <string name="symptom_photophobia_short">Šviesa</string>
+    <string name="symptom_nausea">Pykinimas</string>
+    <string name="symptom_nausea_short">Pykinimas</string>
+    <string name="symptom_phonophobia">Fonofobija (garsas)</string>
+    <string name="symptom_phonophobia_short">Garsas</string>
+    <string name="symptom_aphasia">Afazija / minčių rūkas</string>
+    <string name="symptom_aphasia_short">Minčių rūkas</string>
+    <string name="symptom_paresthesia">Dilgčiojimas / parestezija</string>
+    <string name="symptom_paresthesia_short">Dilgčiojimas</string>
+    <string name="trigger_category_weather_environment">Oras ir aplinka</string>
+    <string name="trigger_category_sleep_physical">Miegas ir fizinė rutina</string>
+    <string name="trigger_category_stress_emotions">Stresas ir emocijos</string>
+    <string name="trigger_category_hormonal">Hormonai</string>
+    <string name="trigger_category_diet_consumption">Mityba ir vartojimas</string>
+    <string name="trigger_category_custom">Savi</string>
+    <string name="medication_role_acute">Ūminis / priepuoliui nutraukti</string>
+    <string name="medication_role_preventive">Profilaktika ir papildai</string>
+    <string name="export_range_last_30_days">30&#160;dienų</string>
+    <string name="export_range_last_90_days">90&#160;dienų</string>
+    <string name="export_range_last_6_months">6&#160;mėnesiai</string>
+    <string name="export_range_last_12_months">12&#160;mėnesių</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Atmosferos slėgio kritimas</string>
+    <string name="trigger_barometric_pressure_description">Orų frontai, aukščio pokyčiai</string>
+    <string name="trigger_bright_light">Ryški šviesa ir saulė</string>
+    <string name="trigger_bright_light_description">Akinimas, stroboskopas, fotofobija</string>
+    <string name="trigger_heat_humidity">Didelis karštis / drėgmė</string>
+    <string name="trigger_heat_humidity_description">Temperatūros svyravimai</string>
+    <string name="trigger_loud_noise">Didelis triukšmas</string>
+    <string name="trigger_loud_noise_description">Fonofobija, garso pikai</string>
+    <string name="trigger_poor_sleep">Prastas / nereguliarus miegas</string>
+    <string name="trigger_poor_sleep_description">Miego trūkumas, REM stoka</string>
+    <string name="trigger_dehydration">Dehidratacija</string>
+    <string name="trigger_dehydration_description">Elektrolitų netekimas</string>
+    <string name="trigger_skipped_meals">Praleisti valgiai / badavimas</string>
+    <string name="trigger_skipped_meals_description">Hipoglikemijos slenkstis</string>
+    <string name="trigger_overexertion">Fizinis persitempimas</string>
+    <string name="trigger_overexertion_description">Kraujagyslių apkrova per krūvį</string>
+    <string name="trigger_emotional_stress">Emocinis stresas / atsipalaidavimas po streso</string>
+    <string name="trigger_emotional_stress_description">Pavėluotas atsipalaidavimas po darbo</string>
+    <string name="trigger_screen_fatigue">Nuovargis nuo ekrano</string>
+    <string name="trigger_screen_fatigue_description">Per daug mėlynos šviesos, konvergencija</string>
+    <string name="trigger_hormonal_cycle">Hormonų pokyčiai / ciklas</string>
+    <string name="trigger_hormonal_cycle_description">Mėnesinių ciklo svyravimai</string>
+    <string name="trigger_caffeine">Kofeino nutraukimas / perteklius</string>
+    <string name="trigger_caffeine_description">Adenozino receptorių pokyčiai</string>
+    <string name="trigger_aged_cheese">Brandinti sūriai / tiraminas</string>
+    <string name="trigger_aged_cheese_description">Jautrumas fermentacijos aminams</string>
+    <string name="trigger_alcohol">Alkoholis / raudonasis vynas</string>
+    <string name="trigger_alcohol_description">Taninai, histaminas</string>
+    <string name="trigger_sweeteners">Dirbtiniai saldikliai</string>
+    <string name="trigger_sweeteners_description">Aspartamas, sukralozė</string>
+    <string name="trigger_custom_description">Savas veiksnys</string>
+
+    <!-- Catalog: built-in medications. Lithuanian names of the active substances (VVKT). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofenas</string>
+    <string name="medication_ibuprofen_400_class">Priešuždegiminis adjuvantas</string>
+    <string name="medication_sumatriptan_50">Sumatriptanas</string>
+    <string name="medication_sumatriptan_50_class">Triptanas, serotonino agonistas</string>
+    <string name="medication_rizatriptan_10">Rizatriptanas</string>
+    <string name="medication_rizatriptan_10_class">Triptanas, tirpstantis burnoje</string>
+    <string name="medication_naproxen_500">Naproksenas</string>
+    <string name="medication_naproxen_500_class">Ilgai veikiantis NVNU</string>
+    <string name="medication_acetaminophen_1000">Paracetamolis</string>
+    <string name="medication_acetaminophen_1000_class">Analgetikas</string>
+    <string name="medication_ubrogepant_100">Ubrogepantas</string>
+    <string name="medication_ubrogepant_100_class">Gepantas, CGRP antagonistas</string>
+    <string name="medication_metoclopramide_10">Metoklopramidas</string>
+    <string name="medication_metoclopramide_10_class">Vaistas nuo vėmimo</string>
+    <string name="medication_electrolytes">Rehidratacijos elektrolitai</string>
+    <string name="medication_electrolytes_class">Geriamoji rehidratacija</string>
+    <string name="medication_riboflavin_400">Riboflavinas</string>
+    <string name="medication_riboflavin_400_class">Vitaminas B2</string>
+    <string name="medication_magnesium_400">Magnis</string>
+    <string name="medication_magnesium_400_class">Mineralų papildas</string>
+    <string name="medication_propranolol_40">Propranololis</string>
+    <string name="medication_propranolol_40_class">Beta adrenoblokatorius</string>
+    <string name="medication_topiramate_50">Topiramatas</string>
+    <string name="medication_topiramate_50_class">Vaistas nuo epilepsijos</string>
+    <string name="medication_amitriptyline_10">Amitriptilinas</string>
+    <string name="medication_amitriptyline_10_class">Tricyklis antidepresantas</string>
+    <string name="medication_erenumab_70">Erenumabas</string>
+    <string name="medication_erenumab_70_class">Antikūnas prieš CGRP, kas mėnesį</string>
+    <string name="medication_custom_class">Savas vaistas</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">S%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s iš %2$s neturi pažymėtų veiksnių</item>
+        <item quantity="few">%1$s iš %2$s neturi pažymėtų veiksnių</item>
+        <item quantity="many">%1$s iš %2$s neturi pažymėtų veiksnių</item>
+        <item quantity="other">%1$s iš %2$s neturi pažymėtų veiksnių</item>
+    </plurals>
+    <!-- Genitive: the text follows "iš" in insights_without_triggers. -->
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s priepuolio</item>
+        <item quantity="few">%1$s priepuolių</item>
+        <item quantity="many">%1$s priepuolio</item>
+        <item quantity="other">%1$s priepuolių</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinikinė migrenos ataskaita</string>
+    <string name="report_page">MigraTrack · %1$s psl.</string>
+    <string name="report_patient">Pacientas: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Sukurta %1$s</string>
+    <string name="report_disclaimer">Paciento įvesti duomenys MigraTrack programoje. Ši ataskaita papildo klinikinį įvertinimą, bet jo nepakeičia.</string>
+    <string name="report_stat_episodes">Įrašyti priepuoliai</string>
+    <string name="report_stat_migraine_days">Dienos su migrena</string>
+    <!-- Equal to the watch caption, max 16 characters there: "Pain-free". -->
+    <string name="report_stat_pain_free_days">Be skausmo</string>
+    <string name="report_stat_average_intensity">Vid. intensyvumas /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Stebėjimas pradėtas %1$s. %2$s ankstesnė šio laikotarpio diena neturi įrašų ir nelaikoma diena be skausmo.</item>
+        <item quantity="few">Stebėjimas pradėtas %1$s. %2$s ankstesnės šio laikotarpio dienos neturi įrašų ir nelaikomos dienomis be skausmo.</item>
+        <item quantity="many">Stebėjimas pradėtas %1$s. %2$s ankstesnės šio laikotarpio dienos neturi įrašų ir nelaikomos dienomis be skausmo.</item>
+        <item quantity="other">Stebėjimas pradėtas %1$s. %2$s ankstesnių šio laikotarpio dienų neturi įrašų ir nelaikomos dienomis be skausmo.</item>
+    </plurals>
+    <string name="report_baseline_title">Pradinis profilis</string>
+    <string name="report_baseline_diagnoses">Diagnozės</string>
+    <string name="report_baseline_frequency">Dažnis per mėnesį</string>
+    <string name="report_baseline_duration">Įprasta trukmė</string>
+    <string name="report_baseline_intensity">Įprastas intensyvumas</string>
+    <string name="report_baseline_triggers">Žinomi veiksniai</string>
+    <string name="report_baseline_treatments">Gydymo planas</string>
+    <string name="report_pain_chart_title">Skausmo intensyvumo kitimas (1–10)</string>
+    <string name="report_legend_mild">Lengvas %1$s–%2$s</string>
+    <string name="report_legend_moderate">Vidutinis %1$s–%2$s</string>
+    <string name="report_legend_severe">Stiprus %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Nestebėta</string>
+    <string name="report_medication_title">Vaistų vartojimas</string>
+    <string name="report_no_medications">Šiuo laikotarpiu vaistų vartojimo įrašų nėra.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s vartojimas</item>
+        <item quantity="few">%1$s vartojimai</item>
+        <item quantity="many">%1$s vartojimo</item>
+        <item quantity="other">%1$s vartojimų</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura ir įspėjamieji simptomai</string>
+    <string name="report_no_symptoms">Šiuo laikotarpiu auros ar jutimų simptomų įrašų nėra.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s iš %2$s priepuolio (%3$s)</item>
+        <item quantity="few">%1$s iš %2$s priepuolių (%3$s)</item>
+        <item quantity="many">%1$s iš %2$s priepuolio (%3$s)</item>
+        <item quantity="other">%1$s iš %2$s priepuolių (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Pažymėti galimi provokuojantys veiksniai</string>
+    <string name="report_no_triggers">Šiuo laikotarpiu pažymėtų veiksnių nėra.</string>
+    <string name="report_triggers_note">Skaičiai rodo, kaip dažnai pacientas per priepuolį pažymėjo veiksnį. Jie nerodo priežasties.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s iš %2$s neturi pažymėtų veiksnių.</item>
+        <item quantity="few">%1$s iš %2$s neturi pažymėtų veiksnių.</item>
+        <item quantity="many">%1$s iš %2$s neturi pažymėtų veiksnių.</item>
+        <item quantity="other">%1$s iš %2$s neturi pažymėtų veiksnių.</item>
+    </plurals>
+    <!-- Genitive: the text follows "iš" in report_without_triggers. -->
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s priepuolio</item>
+        <item quantity="few">%1$s priepuolių</item>
+        <item quantity="many">%1$s priepuolio</item>
+        <item quantity="other">%1$s priepuolių</item>
+    </plurals>
+    <string name="report_episodes_title">Priepuoliai</string>
+    <string name="report_no_episodes">Šiuo laikotarpiu priepuolių įrašų nėra.</string>
+    <string name="report_column_date_time">Data ir laikas</string>
+    <string name="report_column_pain">Int.</string>
+    <string name="report_column_epicenter">Skausmo vieta</string>
+    <string name="report_column_symptoms">Simptomai</string>
+    <string name="report_column_medications">Vaistai</string>
+    <string name="report_column_triggers">Veiksniai</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Nenustatyta</string>
+    <string name="report_none">Nėra</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Priepuoliai</string>
+    <string name="report_sheet_medications">Vaistai</string>
+    <string name="report_sheet_daily_pain">Dienos skausmas</string>
+    <string name="report_sheet_profile">Profilis</string>
+    <string name="report_header_started">Pradžia</string>
+    <string name="report_header_pain_intensity">Skausmo intensyvumas (1–10)</string>
+    <string name="report_header_epicenter">Skausmo vieta</string>
+    <string name="report_header_symptoms">Aura ir jutimų simptomai</string>
+    <string name="report_header_medications">Vaistai</string>
+    <string name="report_header_triggers">Galimi provokuojantys veiksniai</string>
+    <string name="report_header_episode_started">Priepuolio pradžia</string>
+    <string name="report_header_medication">Vaistas</string>
+    <string name="report_header_dose">Dozė</string>
+    <string name="report_header_date">Data</string>
+    <string name="report_header_peak_pain">Didžiausias skausmo intensyvumas (1–10, 0 = be skausmo)</string>
+    <string name="report_header_day">Diena</string>
+    <string name="report_header_field">Laukas</string>
+    <string name="report_header_value">Reikšmė</string>
+    <string name="report_day_migraine">Migrena</string>
+    <string name="report_day_pain_free">Be skausmo</string>
+    <string name="report_day_not_tracked">Nestebėta</string>
+    <string name="report_profile_patient">Pacientas</string>
+    <string name="report_profile_range">Ataskaitos laikotarpis</string>
+    <string name="report_profile_tracked_since">Stebima nuo</string>
+    <string name="report_profile_diagnoses">Diagnozės</string>
+    <string name="report_profile_frequency">Dažnis per mėnesį</string>
+    <string name="report_profile_duration">Įprasta trukmė</string>
+    <string name="report_profile_intensity">Įprastas intensyvumas</string>
+    <string name="report_profile_triggers">Žinomi provokuojantys veiksniai</string>
+    <string name="report_profile_treatments">Gydymo planas</string>
+    <string name="report_iso_range">%1$s – %2$s</string>
+</resources>

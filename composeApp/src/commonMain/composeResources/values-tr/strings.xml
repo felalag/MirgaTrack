@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Turkish strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the polite "siz"; buttons use the imperative of Turkish iOS ("Kaydet", "Vazgeç").
+  A Turkish noun after a number stays singular ("5 atak"), so both plural forms are the same.
+  Upper case comes from uppercaseInAppLanguage, which gives "İ" for "i" (plan, section 2.1).
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Geri</string>
+    <string name="common_settings">Ayarlar</string>
+    <string name="common_cancel">Vazgeç</string>
+    <string name="common_ok">Tamam</string>
+    <string name="common_save">Kaydet</string>
+    <string name="common_add">Ekle</string>
+    <string name="common_next">Sonraki</string>
+    <string name="common_on">Açık</string>
+    <string name="common_off">Kapalı</string>
+    <string name="common_clear">Temizle</string>
+    <string name="common_none">Yok</string>
+    <string name="common_today">Bugün</string>
+    <string name="common_not_set">Belirtilmedi</string>
+    <string name="common_expanded">Genişletildi</string>
+    <string name="common_collapsed">Daraltıldı</string>
+    <string name="common_last_30_days">Son 30 gün</string>
+    <string name="common_medical_disclaimer">MigraTrack bir günlüktür, tıbbi tavsiye değildir. Tedavinizi değiştirmeden önce doktorunuzla konuşun.</string>
+    <string name="common_log_migraine_episode">Migren atağı kaydet</string>
+    <string name="common_save_episode">Kaydet</string>
+    <string name="common_edit_episode">Atağı düzenle</string>
+    <string name="common_delete_episode">Atağı sil</string>
+    <string name="common_intensity_of_ten">Şiddet %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s</string>
+    <string name="common_possible_triggers">Olası tetikleyiciler</string>
+    <string name="common_add_trigger">Tetikleyici ekle</string>
+    <string name="common_add_medication">İlaç ekle</string>
+    <string name="common_treatment_blueprint">Tedavi planı</string>
+    <string name="common_medication_name_and_dose">Adı ve dozu girin.</string>
+    <string name="common_medication_placeholder">Örneğin eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Özet</string>
+    <string name="tab_log">Kayıt</string>
+    <string name="tab_insights">Analiz</string>
+    <string name="tab_export">Dışa aktar</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Ağrı şiddeti</string>
+    <string name="pain_scale_value">10 üzerinden %1$s</string>
+    <string name="pain_scale_low">%1$s Hafif</string>
+    <string name="pain_scale_middle">%1$s Belirgin</string>
+    <string name="pain_scale_high">%1$s Sakatlayıcı</string>
+    <string name="medication_remove">Kaldır: %1$s</string>
+    <string name="duration_minutes">%1$s dk</string>
+    <string name="duration_hours_minutes">%1$s sa %2$s dk</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Bugün, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">/ %1$s takip edilen gün</item>
+        <item quantity="other">/ %1$s takip edilen gün</item>
+    </plurals>
+    <string name="summary_without_logged_episode">kayıtlı atak olmadan</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">Son 30 günde %2$s takip edilen günün %1$s gününde kayıtlı atak yok</item>
+        <item quantity="other">Son 30 günde %2$s takip edilen günün %1$s gününde kayıtlı atak yok</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Takibe başladığınız günden itibaren sayılır. Önceki günler takip edilmedi.</string>
+    <string name="strip_legend_migraine">Migren</string>
+    <string name="strip_legend_pain_free">Ağrısız</string>
+    <string name="strip_legend_not_tracked">Takip yok</string>
+    <string name="summary_sleep_last_night">Dün geceki uyku</string>
+    <string name="summary_sleep_not_recorded">Kaydedilmedi</string>
+    <string name="summary_sleep_hint">Uyurken Apple Watch takın veya uykunuzu Sağlık uygulamasında takip edin. Erişimi kapattıysanız Ayarlar › Sağlık bölümünden açın.</string>
+    <string name="summary_sleep_caption">Uyku</string>
+    <string name="summary_sleep_connect_title">Dün geceki uykuyu Özet’te görün</string>
+    <string name="summary_sleep_connect_body">MigraTrack dün geceki uykunuzu Sağlık uygulamasından okur. Veriler bu iPhone’da kalır.</string>
+    <string name="summary_sleep_connect_button">Sağlık’a bağlan</string>
+    <string name="summary_last_episode">Son atak</string>
+    <string name="summary_last_episode_none">Henüz yok</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Atak kaydet</string>
+    <string name="episode_update">Atağı güncelle</string>
+    <string name="episode_updated_banner">Atak güncellendi.</string>
+    <string name="episode_deleted_banner">Atak silindi.</string>
+    <string name="episode_saved_banner">Atak kaydedildi. Dinlenin ve loş ışıkta kalın.</string>
+    <string name="episode_pain_intensity_index">Ağrı şiddeti indeksi</string>
+    <string name="episode_cranial_epicenter">Ağrının yeri</string>
+    <string name="episode_aura_symptoms">Aura ve duyusal belirtiler</string>
+    <string name="episode_acute_therapy">Akut atak tedavisi</string>
+    <string name="episode_add_medication_row">İlaç / sıvı ve elektrolit ekle</string>
+    <string name="episode_start">Atağın başlangıcı</string>
+    <string name="episode_start_now">Şimdi</string>
+    <string name="episode_add_trigger_message">Bu ataktan önce ne oldu?</string>
+    <string name="episode_other_trigger_action">Başka tetikleyici…</string>
+    <string name="episode_other_trigger_title">Başka tetikleyici</string>
+    <string name="episode_other_trigger_message">Bu ataktan önce olan bir şeyi yazın.</string>
+    <string name="episode_other_trigger_placeholder">Örneğin yoğun parfüm</string>
+    <string name="episode_add_medication_message">Bu atak için ne aldınız?</string>
+    <string name="episode_other_medication_action">Başka ilaç…</string>
+    <string name="episode_other_medication_title">Başka ilaç</string>
+    <string name="episode_missing_title">Atak silindi</string>
+    <string name="episode_missing_message">Bu atak başka bir cihazda silindi, bu yüzden değişiklikler kaydedilemiyor.</string>
+    <string name="episode_delete_message">Şiddet %1$s/10. Atak geçmişinizden ve raporlarınızdan kaldırılır.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">H</string>
+    <string name="insights_period_month">A</string>
+    <string name="insights_period_six_months">6A</string>
+    <string name="insights_period_year">Y</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">atak bu hafta</item>
+        <item quantity="other">atak bu hafta</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">atak, %1$s haftası</item>
+        <item quantity="other">atak, %1$s haftası</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">atak, %1$s</item>
+        <item quantity="other">atak, %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">atak, 6 ayda</item>
+        <item quantity="other">atak, 6 ayda</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">atak, %1$s</item>
+        <item quantity="other">atak, %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">Önceki döneme göre yüzde %1$s daha az atak</string>
+    <string name="insights_trend_more">Önceki döneme göre yüzde %1$s daha fazla atak</string>
+    <string name="insights_legend_migraine_day">Migren günü</string>
+    <string name="insights_legend_pain_free_day">Ağrısız gün</string>
+    <string name="insights_legend_not_tracked">Takip edilmedi</string>
+    <string name="insights_bar_no_data">%1$s: henüz veri yok</string>
+    <string name="insights_bar_not_tracked">%1$s: takip edilmedi</string>
+    <string name="insights_bar_pain_free">%1$s: ağrısız</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s migren günü, en yüksek %3$s/10</item>
+        <item quantity="other">%1$s: %2$s migren günü, en yüksek %3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Atak kaydederken veya düzenlerken olası tetikleyicileri işaretleyin. Bu kart, her birini ne sıklıkla işaretlediğinizi gösterir.</string>
+    <string name="insights_triggers_hint">Her tetikleyiciyi bir atakla birlikte ne sıklıkla işaretlediğiniz. Bu bir neden göstermez.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s ataktan %2$s tanesinde işaretlendi</item>
+        <item quantity="other">%1$s, %3$s ataktan %2$s tanesinde işaretlendi</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s / %2$s</string>
+    <string name="insights_calendar_a11y">Takvim, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s atak.</item>
+        <item quantity="other">%1$s: %2$s atak.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · şiddet %2$s/10</string>
+    <string name="insights_month_picker_title">Ay</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Önceki ay</string>
+    <string name="calendar_next_month">Sonraki ay</string>
+    <string name="calendar_choose_month_a11y">%1$s, başka bir ay seçin</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s migren günü</item>
+        <item quantity="other">%1$s migren günü</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Bugün, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">kullanılamaz</string>
+    <string name="calendar_day_not_tracked">takip edilmedi</string>
+    <string name="calendar_day_no_episodes">atak yok</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s atak, en yüksek %2$s/10</item>
+        <item quantity="other">%1$s atak, en yüksek %2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s atak</item>
+        <item quantity="other">%1$s atak</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">En yüksek şiddet</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">İlaçlar</string>
+    <string name="calendar_edit_episode_details">Atak ayrıntılarını düzenle</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF hazırlanıyor…</string>
+    <string name="export_preparing_excel">Excel hazırlanıyor…</string>
+    <string name="export_preparing_report">Rapor hazırlanıyor…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">atak</item>
+        <item quantity="other">atak</item>
+    </plurals>
+    <string name="export_episodes_recorded">Kaydedilen ataklar</string>
+    <string name="export_include">Dışa aktarılacaklar</string>
+    <string name="export_medications">İlaç alımları</string>
+    <string name="export_medications_subtitle">Dozlar ve toplam kullanım</string>
+    <string name="export_symptoms">Aura ve uyarıcı belirtiler</string>
+    <string name="export_symptoms_subtitle">Aura türleri ve sıklıkları</string>
+    <string name="export_triggers_subtitle">İşaretlenen tetikleyiciler ve sıklıkları</string>
+    <string name="export_pain_charts">Ağrı şiddeti grafikleri</string>
+    <string name="export_pain_charts_subtitle">Zaman içinde ağrı şiddeti, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF raporu dışa aktar</string>
+    <string name="export_excel">Excel’e aktar (.xlsx)</string>
+    <string name="export_share">Paylaş</string>
+    <string name="export_range_title">Rapor dönemi</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack raporu: %1$s atak, %2$s.</item>
+        <item quantity="other">MigraTrack raporu: %1$s atak, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Dışa aktarma başarısız</string>
+    <string name="export_failed_message">Rapor oluşturulamadı.</string>
+    <string name="export_write_failed">%1$s yazılamadı</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s bilinen tetikleyici</item>
+        <item quantity="other">%1$s bilinen tetikleyici</item>
+    </plurals>
+    <string name="settings_no_triggers">Tetikleyici seçilmedi</string>
+    <string name="settings_no_medications">İlaç seçilmedi</string>
+    <string name="settings_name_title">Adınız</string>
+    <string name="settings_name_message">Dışa aktardığınız raporlarda görünür.</string>
+    <string name="settings_name_placeholder">Ad</string>
+    <string name="settings_delete_title">Tüm veriler silinsin mi?</string>
+    <string name="settings_delete_message">MigraTrack verilerinizi bu iPhone’da, bir kopyasını da Apple Watch’unuzda saklar. Bu işlem tüm atakları ve başlangıç profilinizi kalıcı olarak siler; saat kendi kopyasını bir sonraki eşzamanlamada siler. Cihaz yedekleri kendi kopyalarını saklar. Bir rapora ihtiyacınız varsa önce dışa aktarın.</string>
+    <string name="settings_delete_all">Tüm verileri sil</string>
+    <string name="settings_section_baseline">Klinik başlangıç ve tedavi</string>
+    <string name="settings_baseline_diagnoses">Başlangıç tanıları</string>
+    <string name="settings_known_triggers">Bilinen tetikleyiciler</string>
+    <string name="settings_section_preferences">Tercihler</string>
+    <string name="settings_appearance">Görünüm</string>
+    <string name="settings_appearance_value">Koyu (kilitli)</string>
+    <string name="settings_version">Sürüm</string>
+    <string name="settings_version_value">v%1$s (derleme %2$s)</string>
+    <string name="settings_section_legal">Yasal</string>
+    <string name="settings_section_developer">Geliştirici</string>
+    <string name="settings_load_sample_data">Örnek verileri yükle</string>
+    <string name="settings_load_sample_data_subtitle">Grafikleri önizlemek için bir yıllık örnek atak ekler</string>
+    <string name="settings_edit_name_a11y">Adı düzenle</string>
+    <string name="settings_add_name">Adınızı ekleyin</string>
+    <!-- No account exists: the value is the first tracked month ("Start"). -->
+    <string name="settings_member">Başlangıç</string>
+    <string name="settings_episodes">Ataklar</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s kayıtlı</item>
+        <item quantity="other">%1$s kayıtlı</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Gizlilik politikası</string>
+    <string name="legal_terms_of_service">Kullanım koşulları</string>
+    <string name="legal_folder">tr</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Tetikleyicilere geç</string>
+    <string name="onboarding_continue_to_medications">İlaçlara geç</string>
+    <string name="onboarding_finish_setup">Kurulumu tamamla</string>
+    <string name="onboarding_back_to_diagnoses">Tanılara dön</string>
+    <string name="onboarding_back_to_triggers">Tetikleyicilere dön</string>
+    <string name="onboarding_save_changes">Değişiklikleri kaydet</string>
+    <string name="onboarding_step">Adım %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Tanılar ve öykü</string>
+    <string name="onboarding_diagnoses_subtitle">Başlangıç profilinizi oluşturun. Ataklarınız ve raporlarınız bu profile dayanır.</string>
+    <string name="onboarding_primary_diagnosis">Birincil tanı</string>
+    <string name="onboarding_episode_frequency">Aylık atak sıklığı</string>
+    <string name="onboarding_episode_duration">Olağan atak süresi</string>
+    <string name="onboarding_intensity_baseline">Olağan ağrı şiddeti</string>
+    <string name="onboarding_update_later">Başlangıç profilinizi istediğiniz zaman Ayarlar’dan güncelleyebilirsiniz.</string>
+    <string name="onboarding_triggers_title">Tetikleyicileriniz</string>
+    <string name="onboarding_triggers_subtitle">Bilinen veya şüphelendiğiniz tetikleyicileri seçin. Rapor bunları hekiminiz için listeler.</string>
+    <string name="onboarding_add_custom_trigger">Özel tetikleyici ekle</string>
+    <string name="onboarding_treatment_subtitle">Kullandıklarınızı seçin. Akut ilaçlar her yeni atağa önceden eklenir; böylece kayıt tek dokunuş sürer.</string>
+    <string name="onboarding_add_custom_medication">Özel ilaç ekle</string>
+    <string name="onboarding_custom_trigger_title">Özel tetikleyici ekle</string>
+    <string name="onboarding_custom_trigger_message">Genellikle migreninizi tetikleyen bir şeyi yazın.</string>
+    <string name="onboarding_custom_trigger_placeholder">Örneğin yanıp sönen ışıklar</string>
+    <string name="onboarding_medication_role_message">Ne zaman alıyorsunuz?</string>
+    <string name="onboarding_medication_role_acute">Atak sırasında (akut)</string>
+    <string name="onboarding_medication_role_preventive">Her gün (koruyucu)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Kişisel migren ve tetikleyici günlüğü</string>
+    <string name="welcome_example">Örnek</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">ağrısız gün</item>
+        <item quantity="other">ağrısız gün</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Örnek: son 30 günde %1$s ağrısız gün</item>
+        <item quantity="other">Örnek: son 30 günde %1$s ağrısız gün</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Örüntülerinizi anlayın.</string>
+    <string name="welcome_headline_doctor">Doktorunuza somut veriler götürün.</string>
+    <string name="welcome_body">Belirtileri takip edin, olası tetikleyicileri fark edin ve kişisel raporlarınızı istediğiniz zaman dışa aktarın.</string>
+    <string name="welcome_get_started">Başla</string>
+    <string name="welcome_agreement">Devam ederek %1$s ve %2$s belgelerini kabul etmiş olursunuz.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Aurasız migren</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Yaygın migren tipi</string>
+    <string name="diagnosis_migraine_with_aura">Auralı migren</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Görsel veya duyusal fokal aura</string>
+    <string name="diagnosis_chronic_migraine">Kronik migren</string>
+    <string name="diagnosis_chronic_migraine_subtitle">Ayda 15 veya daha fazla baş ağrılı gün</string>
+    <!-- The spelling of the Turkish ICHD-3: "Gerilim-tipi başağrısı". -->
+    <string name="diagnosis_tension_type">Gerilim-tipi başağrısı</string>
+    <string name="diagnosis_tension_type_subtitle">Sıkıştırıcı, bant gibi gerginlik</string>
+    <string name="diagnosis_cluster">Küme başağrısı</string>
+    <string name="diagnosis_cluster_subtitle">Göz çevresinde şiddetli, tek taraflı ataklar</string>
+    <string name="diagnosis_not_diagnosed">Tanı yok / araştırılıyor</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Belirti örüntülerini izliyorum</string>
+    <string name="frequency_less_than_one">&lt; 1/ay</string>
+    <string name="frequency_one_to_four">1–4/ay</string>
+    <string name="frequency_five_to_eight">5–7/ay</string>
+    <string name="frequency_eight_plus">8+/ay</string>
+    <!-- "h" (hour): "12–24 sa" does not fit 7 characters. -->
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Sol şakak</string>
+    <string name="region_right_temple">Sağ şakak</string>
+    <string name="region_frontal_brow">Alın / kaş</string>
+    <string name="region_retro_orbital">Göz arkası</string>
+    <string name="region_occipital_neck">Ense ve boyun</string>
+    <string name="symptom_scintillating_scotoma">Parıltılı skotom (görsel)</string>
+    <string name="symptom_scintillating_scotoma_short">Görsel aura</string>
+    <string name="symptom_neck_stiffness">Boyun sertliği</string>
+    <string name="symptom_neck_stiffness_short">Boyun sertliği</string>
+    <string name="symptom_photophobia">Fotofobi (ışık)</string>
+    <string name="symptom_photophobia_short">Işık</string>
+    <string name="symptom_nausea">Bulantı</string>
+    <string name="symptom_nausea_short">Bulantı</string>
+    <string name="symptom_phonophobia">Fonofobi (ses)</string>
+    <string name="symptom_phonophobia_short">Ses</string>
+    <string name="symptom_aphasia">Afazi / beyin sisi</string>
+    <string name="symptom_aphasia_short">Beyin sisi</string>
+    <string name="symptom_paresthesia">Karıncalanma / parestezi</string>
+    <string name="symptom_paresthesia_short">Karıncalanma</string>
+    <string name="trigger_category_weather_environment">Hava ve çevre</string>
+    <string name="trigger_category_sleep_physical">Uyku ve fiziksel rutin</string>
+    <string name="trigger_category_stress_emotions">Stres ve duygular</string>
+    <string name="trigger_category_hormonal">Hormonal</string>
+    <string name="trigger_category_diet_consumption">Beslenme ve tüketim</string>
+    <string name="trigger_category_custom">Özel</string>
+    <string name="medication_role_acute">Akut / atak kesici</string>
+    <string name="medication_role_preventive">Koruyucu ve takviyeler</string>
+    <string name="export_range_last_30_days">Son 30&#160;gün</string>
+    <string name="export_range_last_90_days">Son 90&#160;gün</string>
+    <string name="export_range_last_6_months">Son 6&#160;ay</string>
+    <string name="export_range_last_12_months">Son 12&#160;ay</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Atmosfer basıncında düşüş</string>
+    <string name="trigger_barometric_pressure_description">Hava cepheleri, yükseklik değişimi</string>
+    <string name="trigger_bright_light">Parlak ışık ve güneş</string>
+    <string name="trigger_bright_light_description">Kamaşma, çakar ışık, fotofobi</string>
+    <string name="trigger_heat_humidity">Aşırı sıcak / nem</string>
+    <string name="trigger_heat_humidity_description">Sıcaklık dalgalanmaları</string>
+    <string name="trigger_loud_noise">Yüksek gürültü</string>
+    <string name="trigger_loud_noise_description">Fonofobi, ses tepeleri</string>
+    <string name="trigger_poor_sleep">Kötü / düzensiz uyku</string>
+    <string name="trigger_poor_sleep_description">Uyku borcu, REM eksikliği</string>
+    <string name="trigger_dehydration">Sıvı kaybı (dehidratasyon)</string>
+    <string name="trigger_dehydration_description">Elektrolit kaybı</string>
+    <string name="trigger_skipped_meals">Atlanan öğün / oruç</string>
+    <string name="trigger_skipped_meals_description">Hipoglisemi eşiği</string>
+    <string name="trigger_overexertion">Fiziksel aşırı zorlanma</string>
+    <string name="trigger_overexertion_description">Eforla gelen damar yükü</string>
+    <string name="trigger_emotional_stress">Duygusal stres / stres sonrası gevşeme</string>
+    <string name="trigger_emotional_stress_description">İş sonrası gecikmeli gevşeme</string>
+    <string name="trigger_screen_fatigue">Ekran yorgunluğu</string>
+    <string name="trigger_screen_fatigue_description">Aşırı mavi ışık, konverjans</string>
+    <string name="trigger_hormonal_cycle">Hormonal değişim / döngü</string>
+    <string name="trigger_hormonal_cycle_description">Aylık döngü dalgalanmaları</string>
+    <string name="trigger_caffeine">Kafein yoksunluğu / fazlası</string>
+    <string name="trigger_caffeine_description">Adenozin reseptörü değişimleri</string>
+    <string name="trigger_aged_cheese">Olgunlaşmış peynir / tiramin</string>
+    <string name="trigger_aged_cheese_description">Fermente aminlere duyarlılık</string>
+    <string name="trigger_alcohol">Alkol / kırmızı şarap</string>
+    <string name="trigger_alcohol_description">Tanenler, histamin</string>
+    <string name="trigger_sweeteners">Yapay tatlandırıcılar</string>
+    <string name="trigger_sweeteners_description">Aspartam, sukraloz</string>
+    <string name="trigger_custom_description">Özel tetikleyici</string>
+
+    <!-- Catalog: built-in medications. Turkish names of the active substances (TİTCK). -->
+
+    <string name="medication_ibuprofen_400">İbuprofen</string>
+    <string name="medication_ibuprofen_400_class">Antiinflamatuvar destek</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, serotonin agonisti</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, ağızda dağılan</string>
+    <string name="medication_naproxen_500">Naproksen</string>
+    <string name="medication_naproxen_500_class">Uzun etkili NSAİİ</string>
+    <string name="medication_acetaminophen_1000">Parasetamol</string>
+    <string name="medication_acetaminophen_1000_class">Analjezik</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP antagonisti</string>
+    <string name="medication_metoclopramide_10">Metoklopramid</string>
+    <string name="medication_metoclopramide_10_class">Antiemetik</string>
+    <string name="medication_electrolytes">Rehidrasyon elektrolitleri</string>
+    <string name="medication_electrolytes_class">Ağızdan sıvı desteği</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">B2 vitamini</string>
+    <string name="medication_magnesium_400">Magnezyum</string>
+    <string name="medication_magnesium_400_class">Mineral takviyesi</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Beta bloker</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antiepileptik</string>
+    <string name="medication_amitriptyline_10">Amitriptilin</string>
+    <string name="medication_amitriptyline_10_class">Trisiklik antidepresan</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">CGRP antikoru, aylık</string>
+    <string name="medication_custom_class">Özel ilaç</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">H%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%2$s içinden %1$s tanesinde tetikleyici işaretlenmedi</item>
+        <item quantity="other">%2$s içinden %1$s tanesinde tetikleyici işaretlenmedi</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s atak</item>
+        <item quantity="other">%1$s atak</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinik migren raporu</string>
+    <string name="report_page">MigraTrack · Sayfa %1$s</string>
+    <string name="report_patient">Hasta: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Oluşturulma: %1$s</string>
+    <string name="report_disclaimer">Hastanın MigraTrack’e kendisinin girdiği veriler. Bu rapor klinik değerlendirmeyi destekler, onun yerini almaz.</string>
+    <string name="report_stat_episodes">Kaydedilen ataklar</string>
+    <string name="report_stat_migraine_days">Migren günleri</string>
+    <string name="report_stat_pain_free_days">Ağrısız günler</string>
+    <string name="report_stat_average_intensity">Ortalama şiddet /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Takip %1$s tarihinde başladı. Bu dönemin önceki %2$s gününe ait kayıt yok ve bu gün ağrısız gün sayılmaz.</item>
+        <item quantity="other">Takip %1$s tarihinde başladı. Bu dönemin önceki %2$s gününe ait kayıt yok ve bu günler ağrısız gün sayılmaz.</item>
+    </plurals>
+    <string name="report_baseline_title">Başlangıç profili</string>
+    <string name="report_baseline_diagnoses">Tanılar</string>
+    <string name="report_baseline_frequency">Aylık sıklık</string>
+    <string name="report_baseline_duration">Olağan süre</string>
+    <string name="report_baseline_intensity">Olağan şiddet</string>
+    <string name="report_baseline_triggers">Bilinen tetikleyiciler</string>
+    <string name="report_baseline_treatments">Tedavi planı</string>
+    <string name="report_pain_chart_title">Zaman içinde ağrı şiddeti (1–10)</string>
+    <string name="report_legend_mild">Hafif %1$s–%2$s</string>
+    <string name="report_legend_moderate">Orta %1$s–%2$s</string>
+    <string name="report_legend_severe">Şiddetli %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Takip edilmedi</string>
+    <string name="report_medication_title">İlaç kullanımı</string>
+    <string name="report_no_medications">Bu dönemde kayıtlı ilaç alımı yok.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s alım</item>
+        <item quantity="other">%1$s alım</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura ve uyarıcı belirtiler</string>
+    <string name="report_no_symptoms">Bu dönemde kayıtlı aura veya duyusal belirti yok.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s ataktan %1$s (%3$s)</item>
+        <item quantity="other">%2$s ataktan %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">İşaretlenen olası tetikleyiciler</string>
+    <string name="report_no_triggers">Bu dönemde işaretlenen tetikleyici yok.</string>
+    <string name="report_triggers_note">Sayılar, hastanın bir tetikleyiciyi bir atakla birlikte ne sıklıkla işaretlediğini gösterir. Bir neden göstermez.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%2$s içinden %1$s tanesinde tetikleyici işaretlenmedi.</item>
+        <item quantity="other">%2$s içinden %1$s tanesinde tetikleyici işaretlenmedi.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s atak</item>
+        <item quantity="other">%1$s atak</item>
+    </plurals>
+    <string name="report_episodes_title">Ataklar</string>
+    <string name="report_no_episodes">Bu dönemde kayıtlı atak yok.</string>
+    <string name="report_column_date_time">Tarih ve saat</string>
+    <string name="report_column_pain">Ağrı</string>
+    <string name="report_column_epicenter">Ağrının yeri</string>
+    <string name="report_column_symptoms">Belirtiler</string>
+    <string name="report_column_medications">İlaçlar</string>
+    <string name="report_column_triggers">Tetikleyiciler</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Belirtilmedi</string>
+    <string name="report_none">Yok</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Ataklar</string>
+    <string name="report_sheet_medications">İlaçlar</string>
+    <string name="report_sheet_daily_pain">Günlük ağrı</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Başlangıç</string>
+    <string name="report_header_pain_intensity">Ağrı şiddeti (1–10)</string>
+    <string name="report_header_epicenter">Ağrının yeri</string>
+    <string name="report_header_symptoms">Aura ve duyusal belirtiler</string>
+    <string name="report_header_medications">İlaçlar</string>
+    <string name="report_header_triggers">Olası tetikleyiciler</string>
+    <string name="report_header_episode_started">Atağın başlangıcı</string>
+    <string name="report_header_medication">İlaç</string>
+    <string name="report_header_dose">Doz</string>
+    <string name="report_header_date">Tarih</string>
+    <string name="report_header_peak_pain">En yüksek ağrı şiddeti (1–10, 0 = ağrısız)</string>
+    <string name="report_header_day">Gün</string>
+    <string name="report_header_field">Alan</string>
+    <string name="report_header_value">Değer</string>
+    <string name="report_day_migraine">Migren</string>
+    <string name="report_day_pain_free">Ağrısız</string>
+    <string name="report_day_not_tracked">Takip edilmedi</string>
+    <string name="report_profile_patient">Hasta</string>
+    <string name="report_profile_range">Rapor dönemi</string>
+    <string name="report_profile_tracked_since">Takip başlangıcı</string>
+    <string name="report_profile_diagnoses">Tanılar</string>
+    <string name="report_profile_frequency">Aylık sıklık</string>
+    <string name="report_profile_duration">Olağan süre</string>
+    <string name="report_profile_intensity">Olağan şiddet</string>
+    <string name="report_profile_triggers">Bilinen tetikleyiciler</string>
+    <string name="report_profile_treatments">Tedavi planı</string>
+    <string name="report_iso_range">%1$s – %2$s</string>
+</resources>

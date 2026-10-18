@@ -5,6 +5,15 @@
       "comment" : "Siri phrases. Keep ${applicationName}; Siri puts the app name there. Translate only for languages that Siri supports.",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "da" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrer migræne i ${applicationName}",
+              "Nyt anfald i ${applicationName}"
+            ]
+          }
+        },
         "de" : {
           "stringSet" : {
             "state" : "translated",
@@ -41,6 +50,15 @@
             ]
           }
         },
+        "fi" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Kirjaa migreeni sovelluksessa ${applicationName}",
+              "Uusi kohtaus sovelluksessa ${applicationName}"
+            ]
+          }
+        },
         "fr" : {
           "stringSet" : {
             "state" : "translated",
@@ -65,6 +83,15 @@
             "values" : [
               "Annota un’emicrania in ${applicationName}",
               "Nuovo attacco in ${applicationName}"
+            ]
+          }
+        },
+        "nb" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrer migrene i ${applicationName}",
+              "Nytt anfall i ${applicationName}"
             ]
           }
         },
@@ -101,6 +128,24 @@
             "values" : [
               "Записать мигрень в ${applicationName}",
               "Запиши приступ в ${applicationName}"
+            ]
+          }
+        },
+        "sv" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrera migrän i ${applicationName}",
+              "Nytt anfall i ${applicationName}"
+            ]
+          }
+        },
+        "tr" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "${applicationName} ile migren kaydet",
+              "${applicationName} ile yeni atak"
             ]
           }
         }

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Finnish strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The address is the second person singular, as in Finnish iOS. After a number other than 1 a noun takes the partitive ("3 kohtausta").
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Takaisin</string>
+    <string name="common_settings">Asetukset</string>
+    <string name="common_cancel">Kumoa</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Tallenna</string>
+    <string name="common_add">Lisää</string>
+    <string name="common_next">Seuraava</string>
+    <string name="common_on">Päällä</string>
+    <string name="common_off">Pois</string>
+    <string name="common_clear">Tyhjennä</string>
+    <string name="common_none">Ei mitään</string>
+    <string name="common_today">Tänään</string>
+    <string name="common_not_set">Ei asetettu</string>
+    <string name="common_expanded">Laajennettu</string>
+    <string name="common_collapsed">Supistettu</string>
+    <string name="common_last_30_days">Viimeiset 30 päivää</string>
+    <string name="common_medical_disclaimer">MigraTrack on päiväkirja, ei lääketieteellinen neuvo. Keskustele lääkärin kanssa ennen kuin muutat hoitoasi.</string>
+    <string name="common_log_migraine_episode">Kirjaa migreenikohtaus</string>
+    <string name="common_save_episode">Tallenna</string>
+    <string name="common_edit_episode">Muokkaa kohtausta</string>
+    <string name="common_delete_episode">Poista kohtaus</string>
+    <string name="common_intensity_of_ten">Voimakkuus %1$s/10</string>
+    <string name="common_date_at_time">%1$s klo %2$s</string>
+    <string name="common_possible_triggers">Mahdolliset laukaisijat</string>
+    <string name="common_add_trigger">Lisää laukaisija</string>
+    <string name="common_add_medication">Lisää lääke</string>
+    <string name="common_treatment_blueprint">Hoitosuunnitelma</string>
+    <string name="common_medication_name_and_dose">Kirjoita nimi ja annos.</string>
+    <string name="common_medication_placeholder">Esimerkiksi eletriptaani 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Yhteenveto</string>
+    <string name="tab_log">Kirjaa</string>
+    <string name="tab_insights">Analyysi</string>
+    <string name="tab_export">Vienti</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Kivun voimakkuus</string>
+    <string name="pain_scale_value">%1$s / 10</string>
+    <string name="pain_scale_low">%1$s Lievä</string>
+    <string name="pain_scale_middle">%1$s Tuntuva</string>
+    <string name="pain_scale_high">%1$s Lamauttava</string>
+    <string name="medication_remove">Poista %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Tänään, %1$s</string>
+    <!-- "26 / 30 seuratusta päivästä" (26 of 30 tracked days). -->
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">/ %1$s seuratusta päivästä</item>
+        <item quantity="other">/ %1$s seuratusta päivästä</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ilman kirjattua kohtausta</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s / %2$s seuratusta päivästä ilman kirjattua kohtausta viimeisten 30 päivän aikana</item>
+        <item quantity="other">%1$s / %2$s seuratusta päivästä ilman kirjattua kohtausta viimeisten 30 päivän aikana</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Lasketaan päivästä, jona aloitit seurannan. Sitä edeltäviä päiviä ei ole seurattu.</string>
+    <string name="strip_legend_migraine">Migreeni</string>
+    <string name="strip_legend_pain_free">Kivuton</string>
+    <string name="strip_legend_not_tracked">Ei seurattu</string>
+    <string name="summary_sleep_last_night">Viime yön uni</string>
+    <string name="summary_sleep_not_recorded">Ei kirjattu</string>
+    <string name="summary_sleep_hint">Pidä Apple Watchia nukkuessasi tai seuraa unta Terveys-apissa. Jos poistit pääsyn käytöstä, salli se kohdassa Asetukset › Terveys.</string>
+    <string name="summary_sleep_caption">Uni</string>
+    <string name="summary_sleep_connect_title">Näe viime yön uni Yhteenvedossa</string>
+    <string name="summary_sleep_connect_body">MigraTrack lukee viime yön unen Terveys-apista. Tiedot pysyvät tässä iPhonessa.</string>
+    <string name="summary_sleep_connect_button">Yhdistä Terveys-appiin</string>
+    <string name="summary_last_episode">Viimeisin kohtaus</string>
+    <string name="summary_last_episode_none">Ei vielä</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Kirjaa kohtaus</string>
+    <string name="episode_update">Päivitä kohtaus</string>
+    <string name="episode_updated_banner">Kohtaus päivitetty.</string>
+    <string name="episode_deleted_banner">Kohtaus poistettu.</string>
+    <string name="episode_saved_banner">Kohtaus tallennettu. Lepää ja pysy hämärässä.</string>
+    <string name="episode_pain_intensity_index">Kivun voimakkuusindeksi</string>
+    <string name="episode_cranial_epicenter">Kivun sijainti</string>
+    <string name="episode_aura_symptoms">Aura ja aistioireet</string>
+    <string name="episode_acute_therapy">Kohtauksen akuuttihoito</string>
+    <string name="episode_add_medication_row">Lisää lääke / nesteytys ja elektrolyytit</string>
+    <string name="episode_start">Kohtauksen alku</string>
+    <string name="episode_start_now">Nyt</string>
+    <string name="episode_add_trigger_message">Mitä tapahtui ennen tätä kohtausta?</string>
+    <string name="episode_other_trigger_action">Muu laukaisija…</string>
+    <string name="episode_other_trigger_title">Muu laukaisija</string>
+    <string name="episode_other_trigger_message">Kerro jokin, mikä edelsi tätä kohtausta.</string>
+    <string name="episode_other_trigger_placeholder">Esimerkiksi voimakas hajuvesi</string>
+    <string name="episode_add_medication_message">Mitä otit tähän kohtaukseen?</string>
+    <string name="episode_other_medication_action">Muu lääke…</string>
+    <string name="episode_other_medication_title">Muu lääke</string>
+    <string name="episode_missing_title">Kohtaus poistettu</string>
+    <string name="episode_missing_message">Tämä kohtaus poistettiin toisella laitteella, joten muutoksia ei voi tallentaa.</string>
+    <string name="episode_delete_message">Voimakkuus %1$s/10. Kohtaus poistuu historiasta ja raporteista.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">Vk</string>
+    <string name="insights_period_month">Kk</string>
+    <string name="insights_period_six_months">6kk</string>
+    <string name="insights_period_year">V</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">kohtaus tällä viikolla</item>
+        <item quantity="other">kohtausta tällä viikolla</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">kohtaus viikolla %1$s alkaen</item>
+        <item quantity="other">kohtausta viikolla %1$s alkaen</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">kohtaus, %1$s</item>
+        <item quantity="other">kohtausta, %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">kohtaus / 6 kk</item>
+        <item quantity="other">kohtausta / 6 kk</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">kohtaus vuonna %1$s</item>
+        <item quantity="other">kohtausta vuonna %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s prosenttia vähemmän kohtauksia kuin edellisellä jaksolla</string>
+    <string name="insights_trend_more">%1$s prosenttia enemmän kohtauksia kuin edellisellä jaksolla</string>
+    <string name="insights_legend_migraine_day">Migreenipäivä</string>
+    <string name="insights_legend_pain_free_day">Kivuton päivä</string>
+    <string name="insights_legend_not_tracked">Ei seurattu</string>
+    <string name="insights_bar_no_data">%1$s: ei vielä tietoja</string>
+    <string name="insights_bar_not_tracked">%1$s: ei seurattu</string>
+    <string name="insights_bar_pain_free">%1$s: kivuton</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s migreenipäivä, enintään %3$s/10</item>
+        <item quantity="other">%1$s: %2$s migreenipäivää, enintään %3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Merkitse mahdolliset laukaisijat, kun kirjaat tai muokkaat kohtausta. Kortti näyttää sitten, kuinka usein merkitsit kunkin.</string>
+    <string name="insights_triggers_hint">Kuinka usein merkitsit kunkin laukaisijan kohtauksen yhteydessä. Tämä ei osoita syytä.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, merkitty: %2$s / %3$s kohtaus</item>
+        <item quantity="other">%1$s, merkitty: %2$s / %3$s kohtausta</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s / %2$s</string>
+    <string name="insights_calendar_a11y">Kalenteri, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s kohtaus.</item>
+        <item quantity="other">%1$s: %2$s kohtausta.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · voimakkuus %2$s/10</string>
+    <string name="insights_month_picker_title">Kuukausi</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Edellinen kuukausi</string>
+    <string name="calendar_next_month">Seuraava kuukausi</string>
+    <string name="calendar_choose_month_a11y">%1$s, valitse toinen kuukausi</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s migreenipäivä</item>
+        <item quantity="other">%1$s migreenipäivää</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Tänään, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ei käytettävissä</string>
+    <string name="calendar_day_not_tracked">ei seurattu</string>
+    <string name="calendar_day_no_episodes">ei kohtauksia</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s kohtaus, enintään %2$s/10</item>
+        <item quantity="other">%1$s kohtausta, enintään %2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s kohtaus</item>
+        <item quantity="other">%1$s kohtausta</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Suurin voimakkuus</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Lääkkeet</string>
+    <string name="calendar_edit_episode_details">Muokkaa kohtauksen tietoja</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Valmistellaan PDF:ää…</string>
+    <string name="export_preparing_excel">Valmistellaan Exceliä…</string>
+    <string name="export_preparing_report">Valmistellaan raporttia…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">kohtaus</item>
+        <item quantity="other">kohtausta</item>
+    </plurals>
+    <string name="export_episodes_recorded">Kirjatut kohtaukset</string>
+    <string name="export_include">Sisällytä vientiin</string>
+    <string name="export_medications">Lääkkeiden otot</string>
+    <string name="export_medications_subtitle">Annokset ja kokonaiskäyttö</string>
+    <string name="export_symptoms">Aura ja varoitusoireet</string>
+    <string name="export_symptoms_subtitle">Auratyypit ja niiden yleisyys</string>
+    <string name="export_triggers_subtitle">Merkityt laukaisijat ja niiden yleisyys</string>
+    <string name="export_pain_charts">Kivun voimakkuuden kaaviot</string>
+    <string name="export_pain_charts_subtitle">Kivun voimakkuus ajan mittaan, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Vie PDF-raportti</string>
+    <string name="export_excel">Vie Excel-muodossa (.xlsx)</string>
+    <string name="export_share">Jaa</string>
+    <string name="export_range_title">Raportin jakso</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack-raportti: %1$s kohtaus, %2$s.</item>
+        <item quantity="other">MigraTrack-raportti: %1$s kohtausta, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Vienti epäonnistui</string>
+    <string name="export_failed_message">Raporttia ei voitu luoda.</string>
+    <string name="export_write_failed">Tiedostoa %1$s ei voitu kirjoittaa</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s tunnettu laukaisija</item>
+        <item quantity="other">%1$s tunnettua laukaisijaa</item>
+    </plurals>
+    <string name="settings_no_triggers">Ei valittuja laukaisijoita</string>
+    <string name="settings_no_medications">Ei valittuja lääkkeitä</string>
+    <string name="settings_name_title">Nimesi</string>
+    <string name="settings_name_message">Näkyy viemissäsi raporteissa.</string>
+    <string name="settings_name_placeholder">Nimi</string>
+    <string name="settings_delete_title">Poistetaanko kaikki tiedot?</string>
+    <string name="settings_delete_message">MigraTrack säilyttää tietosi tässä iPhonessa ja kopion Apple Watchissa. Tämä poistaa pysyvästi kaikki kohtaukset ja lähtötilanneprofiilisi; kello poistaa kopionsa seuraavassa synkronoinnissa. Laitteiden varmuuskopiot säilyttävät oman kopionsa. Vie ensin raportti, jos tarvitset sitä.</string>
+    <string name="settings_delete_all">Poista kaikki tiedot</string>
+    <string name="settings_section_baseline">Kliininen lähtötilanne ja hoito</string>
+    <string name="settings_baseline_diagnoses">Lähtötilanteen diagnoosit</string>
+    <string name="settings_known_triggers">Tunnetut laukaisijat</string>
+    <string name="settings_section_preferences">Mieltymykset</string>
+    <string name="settings_appearance">Ulkoasu</string>
+    <string name="settings_appearance_value">Tumma (lukittu)</string>
+    <string name="settings_version">Versio</string>
+    <string name="settings_version_value">v%1$s (koontiversio %2$s)</string>
+    <string name="settings_section_legal">Oikeudelliset tiedot</string>
+    <string name="settings_section_developer">Kehittäjä</string>
+    <string name="settings_load_sample_data">Lataa esimerkkitiedot</string>
+    <string name="settings_load_sample_data_subtitle">Lisää vuoden verran luotuja kohtauksia kaavioiden esikatseluun</string>
+    <string name="settings_edit_name_a11y">Muokkaa nimeä</string>
+    <string name="settings_add_name">Lisää nimesi</string>
+    <!-- No account exists: the value is the first tracked month ("Since"). -->
+    <string name="settings_member">Alkaen</string>
+    <string name="settings_episodes">Kohtaukset</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s kirjattu</item>
+        <item quantity="other">%1$s kirjattu</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Tietosuojakäytäntö</string>
+    <string name="legal_terms_of_service">Käyttöehdot</string>
+    <string name="legal_folder">fi</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Jatka laukaisijoihin</string>
+    <string name="onboarding_continue_to_medications">Jatka lääkkeisiin</string>
+    <string name="onboarding_finish_setup">Viimeistele käyttöönotto</string>
+    <string name="onboarding_back_to_diagnoses">Takaisin diagnooseihin</string>
+    <string name="onboarding_back_to_triggers">Takaisin laukaisijoihin</string>
+    <string name="onboarding_save_changes">Tallenna muutokset</string>
+    <string name="onboarding_step">Vaihe %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnoosit ja tausta</string>
+    <string name="onboarding_diagnoses_subtitle">Luo lähtötilanneprofiilisi. Kohtauksesi ja raporttisi perustuvat siihen.</string>
+    <string name="onboarding_primary_diagnosis">Päädiagnoosi</string>
+    <string name="onboarding_episode_frequency">Kohtauksia kuukaudessa</string>
+    <string name="onboarding_episode_duration">Kohtauksen tavallinen kesto</string>
+    <string name="onboarding_intensity_baseline">Tavallinen kivun voimakkuus</string>
+    <string name="onboarding_update_later">Voit päivittää lähtötilanneprofiilia milloin tahansa Asetuksissa.</string>
+    <string name="onboarding_triggers_title">Laukaisijasi</string>
+    <string name="onboarding_triggers_subtitle">Valitse tunnetut tai epäillyt laukaisijat. Raportti luettelee ne lääkärillesi.</string>
+    <string name="onboarding_add_custom_trigger">Lisää oma laukaisija</string>
+    <string name="onboarding_treatment_subtitle">Valitse, mitä käytät. Akuuttilääkkeet täytetään valmiiksi jokaiseen uuteen kohtaukseen, joten kirjaaminen vaatii yhden napautuksen.</string>
+    <string name="onboarding_add_custom_medication">Lisää oma lääke</string>
+    <string name="onboarding_custom_trigger_title">Lisää oma laukaisija</string>
+    <string name="onboarding_custom_trigger_message">Kerro jokin, joka yleensä laukaisee migreenisi.</string>
+    <string name="onboarding_custom_trigger_placeholder">Esimerkiksi välkkyvät valot</string>
+    <string name="onboarding_medication_role_message">Milloin käytät sitä?</string>
+    <string name="onboarding_medication_role_acute">Kohtauksen aikana (akuutti)</string>
+    <string name="onboarding_medication_role_preventive">Joka päivä (estohoito)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Henkilökohtainen migreeni- ja laukaisijapäiväkirja</string>
+    <string name="welcome_example">Esimerkki</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">kivuton päivä</item>
+        <item quantity="other">kivutonta päivää</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Esimerkki: %1$s kivuton päivä viimeisten 30 päivän aikana</item>
+        <item quantity="other">Esimerkki: %1$s kivutonta päivää viimeisten 30 päivän aikana</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Tunnista toistuvat kuviot.</string>
+    <string name="welcome_headline_doctor">Vie lääkärille faktat.</string>
+    <string name="welcome_body">Seuraa oireita, tunnista mahdollisia laukaisijoita ja vie henkilökohtaiset raporttisi milloin tahansa.</string>
+    <string name="welcome_get_started">Aloita</string>
+    <string name="welcome_agreement">Jatkamalla hyväksyt seuraavat: %1$s ja %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Auraton migreeni</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Migreenin yleinen muoto</string>
+    <string name="diagnosis_migraine_with_aura">Aurallinen migreeni</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Paikallinen näkö- tai tuntoaura</string>
+    <string name="diagnosis_chronic_migraine">Krooninen migreeni</string>
+    <string name="diagnosis_chronic_migraine_subtitle">Päänsärkyä 15 päivänä tai useammin kuukaudessa</string>
+    <string name="diagnosis_tension_type">Jännityspäänsärky</string>
+    <string name="diagnosis_tension_type_subtitle">Puristava, vannemainen jännitys</string>
+    <string name="diagnosis_cluster">Sarjoittainen päänsärky</string>
+    <string name="diagnosis_cluster_subtitle">Voimakkaat toispuoliset kohtaukset silmän ympärillä</string>
+    <string name="diagnosis_not_diagnosed">Ei diagnoosia / selvityksessä</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Seuraan oireiden kuvioita</string>
+    <string name="frequency_less_than_one">&lt; 1/kk</string>
+    <string name="frequency_one_to_four">1–4/kk</string>
+    <string name="frequency_five_to_eight">5–7/kk</string>
+    <string name="frequency_eight_plus">8+/kk</string>
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Vasen ohimo</string>
+    <string name="region_right_temple">Oikea ohimo</string>
+    <string name="region_frontal_brow">Otsa / kulmakarvat</string>
+    <string name="region_retro_orbital">Silmän takana</string>
+    <string name="region_occipital_neck">Takaraivo ja niska</string>
+    <string name="symptom_scintillating_scotoma">Välkkyvä skotooma (näkö)</string>
+    <string name="symptom_scintillating_scotoma_short">Näköaura</string>
+    <string name="symptom_neck_stiffness">Jäykkä niska</string>
+    <string name="symptom_neck_stiffness_short">Jäykkä niska</string>
+    <string name="symptom_photophobia">Fotofobia (valonarkuus)</string>
+    <string name="symptom_photophobia_short">Valo</string>
+    <string name="symptom_nausea">Pahoinvointi</string>
+    <string name="symptom_nausea_short">Pahoinvointi</string>
+    <string name="symptom_phonophobia">Fonofobia (ääniherkkyys)</string>
+    <string name="symptom_phonophobia_short">Ääni</string>
+    <string name="symptom_aphasia">Afasia / aivosumu</string>
+    <string name="symptom_aphasia_short">Aivosumu</string>
+    <string name="symptom_paresthesia">Pistely / parestesiat</string>
+    <string name="symptom_paresthesia_short">Pistely</string>
+    <string name="trigger_category_weather_environment">Sää ja ympäristö</string>
+    <string name="trigger_category_sleep_physical">Uni ja fyysinen rytmi</string>
+    <string name="trigger_category_stress_emotions">Stressi ja tunteet</string>
+    <string name="trigger_category_hormonal">Hormonaalinen</string>
+    <string name="trigger_category_diet_consumption">Ruokavalio ja nautintoaineet</string>
+    <string name="trigger_category_custom">Omat</string>
+    <string name="medication_role_acute">Akuutti / kohtauslääke</string>
+    <string name="medication_role_preventive">Estohoito ja lisäravinteet</string>
+    <string name="export_range_last_30_days">Viimeiset 30&#160;pv</string>
+    <string name="export_range_last_90_days">Viimeiset 90&#160;pv</string>
+    <string name="export_range_last_6_months">Viimeiset 6&#160;kk</string>
+    <string name="export_range_last_12_months">Viimeiset 12&#160;kk</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Ilmanpaineen lasku</string>
+    <string name="trigger_barometric_pressure_description">Säärintamat, korkeuden muutokset</string>
+    <string name="trigger_bright_light">Kirkas valo ja auringonvalo</string>
+    <string name="trigger_bright_light_description">Häikäisy, välkkyvä valo, valonarkuus</string>
+    <string name="trigger_heat_humidity">Kova kuumuus / kosteus</string>
+    <string name="trigger_heat_humidity_description">Lämpötilan vaihtelut</string>
+    <string name="trigger_loud_noise">Kova melu</string>
+    <string name="trigger_loud_noise_description">Ääniherkkyys, äänipiikit</string>
+    <string name="trigger_poor_sleep">Huono / epäsäännöllinen uni</string>
+    <string name="trigger_poor_sleep_description">Univaje, liian vähän REM-unta</string>
+    <string name="trigger_dehydration">Nestehukka</string>
+    <string name="trigger_dehydration_description">Elektrolyyttien menetys</string>
+    <string name="trigger_skipped_meals">Väliin jääneet ateriat / paasto</string>
+    <string name="trigger_skipped_meals_description">Matalan verensokerin raja</string>
+    <string name="trigger_overexertion">Fyysinen ylirasitus</string>
+    <string name="trigger_overexertion_description">Rasituksen aiheuttama verisuonikuormitus</string>
+    <string name="trigger_emotional_stress">Tunneperäinen stressi / stressin laukeaminen</string>
+    <string name="trigger_emotional_stress_description">Viivästynyt rentoutuminen työn jälkeen</string>
+    <string name="trigger_screen_fatigue">Näyttöväsymys</string>
+    <string name="trigger_screen_fatigue_description">Liikaa sinistä valoa, konvergenssi</string>
+    <string name="trigger_hormonal_cycle">Hormonaaliset muutokset / kierto</string>
+    <string name="trigger_hormonal_cycle_description">Kuukautiskierron vaihtelut</string>
+    <string name="trigger_caffeine">Kofeiinin vieroitus / liikakäyttö</string>
+    <string name="trigger_caffeine_description">Adenosiinireseptorien muutokset</string>
+    <string name="trigger_aged_cheese">Kypsytetyt juustot / tyramiini</string>
+    <string name="trigger_aged_cheese_description">Herkkyys käymisen amiineille</string>
+    <string name="trigger_alcohol">Alkoholi / punaviini</string>
+    <string name="trigger_alcohol_description">Tanniinit, histamiini</string>
+    <string name="trigger_sweeteners">Keinotekoiset makeutusaineet</string>
+    <string name="trigger_sweeteners_description">Aspartaami, sukraloosi</string>
+    <string name="trigger_custom_description">Oma laukaisija</string>
+
+    <!-- Catalog: built-in medications. Finnish names of the active substances (Fimea). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofeeni</string>
+    <string name="medication_ibuprofen_400_class">Tulehduskipulääke, tukihoito</string>
+    <string name="medication_sumatriptan_50">Sumatriptaani</string>
+    <string name="medication_sumatriptan_50_class">Triptaani, serotoniiniagonisti</string>
+    <string name="medication_rizatriptan_10">Ritsatriptaani</string>
+    <string name="medication_rizatriptan_10_class">Triptaani, suussa hajoava</string>
+    <string name="medication_naproxen_500">Naprokseeni</string>
+    <string name="medication_naproxen_500_class">Pitkävaikutteinen tulehduskipulääke</string>
+    <string name="medication_acetaminophen_1000">Parasetamoli</string>
+    <string name="medication_acetaminophen_1000_class">Kipulääke</string>
+    <string name="medication_ubrogepant_100">Ubrogepantti</string>
+    <string name="medication_ubrogepant_100_class">Gepantti, CGRP-antagonisti</string>
+    <string name="medication_metoclopramide_10">Metoklopramidi</string>
+    <string name="medication_metoclopramide_10_class">Pahoinvointilääke</string>
+    <string name="medication_electrolytes">Nesteytyselektrolyytit</string>
+    <string name="medication_electrolytes_class">Nesteytys suun kautta</string>
+    <string name="medication_riboflavin_400">Riboflaviini</string>
+    <string name="medication_riboflavin_400_class">B2-vitamiini</string>
+    <string name="medication_magnesium_400">Magnesium</string>
+    <string name="medication_magnesium_400_class">Kivennäislisä</string>
+    <string name="medication_propranolol_40">Propranololi</string>
+    <string name="medication_propranolol_40_class">Beetasalpaaja</string>
+    <string name="medication_topiramate_50">Topiramaatti</string>
+    <string name="medication_topiramate_50_class">Epilepsialääke</string>
+    <string name="medication_amitriptyline_10">Amitriptyliini</string>
+    <string name="medication_amitriptyline_10_class">Trisyklinen masennuslääke</string>
+    <string name="medication_erenumab_70">Erenumabi</string>
+    <string name="medication_erenumab_70_class">CGRP-vasta-aine, kuukausittain</string>
+    <string name="medication_custom_class">Oma lääke</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">V%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s / %2$s: ei merkittyjä laukaisijoita</item>
+        <item quantity="other">%1$s / %2$s: ei merkittyjä laukaisijoita</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s kohtaus</item>
+        <item quantity="other">%1$s kohtausta</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Kliininen migreeniraportti</string>
+    <string name="report_page">MigraTrack · Sivu %1$s</string>
+    <string name="report_patient">Potilas: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Luotu %1$s</string>
+    <string name="report_disclaimer">Potilaan itse MigraTrackiin kirjaamat tiedot. Raportti tukee kliinistä arviota mutta ei korvaa sitä.</string>
+    <string name="report_stat_episodes">Kirjatut kohtaukset</string>
+    <string name="report_stat_migraine_days">Migreenipäivät</string>
+    <!-- Equal to the watch caption, max 16 characters there: "the pain-free (days)". -->
+    <string name="report_stat_pain_free_days">Kivuttomat</string>
+    <string name="report_stat_average_intensity">Keskim. voimakkuus /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Seuranta alkoi %1$s. Jakson %2$s aiemmalta päivältä ei ole kirjauksia, eikä sitä lasketa kivuttomaksi päiväksi.</item>
+        <item quantity="other">Seuranta alkoi %1$s. Jakson %2$s aiemmalta päivältä ei ole kirjauksia, eikä niitä lasketa kivuttomiksi päiviksi.</item>
+    </plurals>
+    <string name="report_baseline_title">Lähtötilanneprofiili</string>
+    <string name="report_baseline_diagnoses">Diagnoosit</string>
+    <string name="report_baseline_frequency">Esiintyvyys kuukaudessa</string>
+    <string name="report_baseline_duration">Tavallinen kesto</string>
+    <string name="report_baseline_intensity">Tavallinen voimakkuus</string>
+    <string name="report_baseline_triggers">Tunnetut laukaisijat</string>
+    <string name="report_baseline_treatments">Hoitosuunnitelma</string>
+    <string name="report_pain_chart_title">Kivun voimakkuus ajan mittaan (1–10)</string>
+    <string name="report_legend_mild">Lievä %1$s–%2$s</string>
+    <string name="report_legend_moderate">Keskiv. %1$s–%2$s</string>
+    <string name="report_legend_severe">Vaikea %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Ei seurattu</string>
+    <string name="report_medication_title">Lääkkeiden käyttö</string>
+    <string name="report_no_medications">Tällä jaksolla ei ole kirjattuja lääkkeiden ottoja.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s otto</item>
+        <item quantity="other">%1$s ottoa</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura ja varoitusoireet</string>
+    <string name="report_no_symptoms">Tällä jaksolla ei ole kirjattua auraa eikä aistioireita.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s / %2$s kohtaus (%3$s)</item>
+        <item quantity="other">%1$s / %2$s kohtausta (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Merkityt mahdolliset laukaisijat</string>
+    <string name="report_no_triggers">Tällä jaksolla ei ole merkittyjä laukaisijoita.</string>
+    <string name="report_triggers_note">Luvut näyttävät, kuinka usein potilas merkitsi laukaisijan kohtauksen yhteydessä. Ne eivät osoita syytä.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s / %2$s: ei merkittyjä laukaisijoita.</item>
+        <item quantity="other">%1$s / %2$s: ei merkittyjä laukaisijoita.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s kohtaus</item>
+        <item quantity="other">%1$s kohtausta</item>
+    </plurals>
+    <string name="report_episodes_title">Kohtaukset</string>
+    <string name="report_no_episodes">Tällä jaksolla ei ole kirjattuja kohtauksia.</string>
+    <string name="report_column_date_time">Päivä ja aika</string>
+    <string name="report_column_pain">Kipu</string>
+    <string name="report_column_epicenter">Sijainti</string>
+    <string name="report_column_symptoms">Oireet</string>
+    <string name="report_column_medications">Lääkkeet</string>
+    <string name="report_column_triggers">Laukaisijat</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Ei asetettu</string>
+    <string name="report_none">Ei mitään</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Kohtaukset</string>
+    <string name="report_sheet_medications">Lääkkeet</string>
+    <string name="report_sheet_daily_pain">Päivittäinen kipu</string>
+    <string name="report_sheet_profile">Profiili</string>
+    <string name="report_header_started">Alkoi</string>
+    <string name="report_header_pain_intensity">Kivun voimakkuus (1–10)</string>
+    <string name="report_header_epicenter">Kivun sijainti</string>
+    <string name="report_header_symptoms">Aura ja aistioireet</string>
+    <string name="report_header_medications">Lääkkeet</string>
+    <string name="report_header_triggers">Mahdolliset laukaisijat</string>
+    <string name="report_header_episode_started">Kohtauksen alku</string>
+    <string name="report_header_medication">Lääke</string>
+    <string name="report_header_dose">Annos</string>
+    <string name="report_header_date">Päivämäärä</string>
+    <string name="report_header_peak_pain">Suurin kivun voimakkuus (1–10, 0 = kivuton)</string>
+    <string name="report_header_day">Päivä</string>
+    <string name="report_header_field">Kenttä</string>
+    <string name="report_header_value">Arvo</string>
+    <string name="report_day_migraine">Migreeni</string>
+    <string name="report_day_pain_free">Kivuton</string>
+    <string name="report_day_not_tracked">Ei seurattu</string>
+    <string name="report_profile_patient">Potilas</string>
+    <string name="report_profile_range">Raportin jakso</string>
+    <string name="report_profile_tracked_since">Seurattu alkaen</string>
+    <string name="report_profile_diagnoses">Diagnoosit</string>
+    <string name="report_profile_frequency">Esiintyvyys kuukaudessa</string>
+    <string name="report_profile_duration">Tavallinen kesto</string>
+    <string name="report_profile_intensity">Tavallinen voimakkuus</string>
+    <string name="report_profile_triggers">Tunnetut laukaisijat</string>
+    <string name="report_profile_treatments">Hoitosuunnitelma</string>
+    <string name="report_iso_range">%1$s – %2$s</string>
+</resources>

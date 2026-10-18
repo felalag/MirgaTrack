@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European batch, October 18, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -382,3 +382,249 @@ Checked on October 18, 2026. A page number is the page of the PDF file. "Records
 | Beta blocker | betabloccante | IT2 meaning | bètablokker | NL1 |
 | Anticonvulsant | antiepilettico | IT2 meaning | anti-epilepticum | NL1 ("anti-epileptica") |
 | Tricyclic antidepressant | antidepressivo triciclico | IT2 meaning | tricyclisch antidepressivum | NL1 |
+
+### Central and Northern Europe
+
+Polish (`pl`), Czech (`cs`), Slovak (`sk`), Croatian (`hr`), Slovenian (`sl`), Romanian (`ro`), Hungarian (`hu`), Lithuanian (`lt`), Danish (`da`), Norwegian Bokmål (`nb`), Swedish (`sv`), Finnish (`fi`) and Turkish (`tr`). The project owner approved the address, the word for episode, the medical disclaimer and the watch texts on October 18, 2026. The Romanian word for episode changed after the approval from "criză" to "atac": the Romanian ICHD-3 (RO1) uses "atac de migrenă" and keeps "criză" for epileptic seizures. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7).
+
+| Language | Address | Buttons |
+|---|---|---|
+| pl | Impersonal forms ("należy porozmawiać"), as plan section 6 asks; noun phrases in prompts | The imperative of Polish iOS: "Zapisz", "Anuluj" |
+| cs | "vy", in lower case | Infinitive: "Uložit", "Zrušit" |
+| sk | "vy", in lower case | Infinitive: "Uložiť", "Zrušiť" |
+| hr | "vi", in lower case | The imperative of Croatian iOS: "Spremi", "Odustani" |
+| sl | "vi", in lower case | The imperative of Slovenian iOS: "Shrani", "Prekliči" |
+| ro | The polite verb forms ("Discutați"), "dvs." where a pronoun is necessary | The imperative of Romanian iOS: "Salvează", "Anulează" |
+| hu | The formal verb forms without "Ön" where possible | Nouns, as in Hungarian iOS: "Mentés", "Mégsem" |
+| lt | "jūs" | Infinitive: "Išsaugoti", "Atšaukti" |
+| da | "du"; the polite "De" is out of use | Infinitive: "Gem", "Annuller" |
+| nb | "du"; the polite "De" is out of use | Infinitive: "Lagre", "Avbryt" |
+| sv | "du" | Infinitive: "Spara", "Avbryt" |
+| fi | The second person singular, as Finnish iOS does | The imperative: "Tallenna", "Kumoa" |
+| tr | "siz" ("konuşun") | The imperative of Turkish iOS: "Kaydet", "Vazgeç" |
+
+| Term | pl | cs | sk | hr | sl | ro | hu |
+|---|---|---|---|---|---|---|---|
+| episode | napad | záchvat | záchvat | napadaj | napad | atac | roham |
+| attack (App Store only) | napad, atak | záchvat | záchvat | napadaj | napad | atac | roham |
+| migraine | migrena | migréna | migréna | migrena | migrena | migrenă | migrén |
+| log (verb) | zapisać | zaznamenat, zapsat | zaznamenať, zapísať | zabilježiti | zabeležiti | nota | rögzíteni |
+| intensity | natężenie (bólu) | intenzita | intenzita | jačina (boli) | jakost (bolečine) | intensitate; "Durere 6/10" with a score | erősség |
+| migraine day | dzień z migreną | den s migrénou | deň s migrénou | dan s migrenom | dan z migreno; pill "Migrena: 3 dni" | zi cu migrenă; pill "Cu migrenă: 3" | migrénes nap |
+| tracked day | dzień obserwacji | sledovaný den | sledovaný deň | praćeni dan | spremljani dan | zi monitorizată | követett nap |
+| pain-free day | dzień bez bólu | den bez bolesti | deň bez bolesti | dan bez boli | dan brez bolečin; short "Brez bolečin" | zi fără durere | fájdalommentes nap; short "Fájdalommentes" |
+| not tracked | bez obserwacji | nesledováno | nesledované | nije praćeno | ni spremljano | nemonitorizat | nem követett |
+| trigger | czynnik wyzwalający | spouštěč | spúšťač | okidač | sprožilec | factor declanșator | kiváltó tényező |
+| possible trigger | możliwy czynnik wyzwalający | možný spouštěč | možný spúšťač | mogući okidač | možni sprožilec | factor declanșator posibil | lehetséges kiváltó tényező |
+| aura | aura | aura | aura | aura | avra | aură | aura |
+| acute medication | lek doraźny | akutní lék | akútny liek | lijek za akutno liječenje | zdravilo za akutno zdravljenje | medicament pentru tratamentul acut | akut gyógyszer |
+| preventive medication | profilaktyka | prevence | prevencia | preventivno | preventiva | preventiv | megelőzés |
+| treatment blueprint | plan leczenia | léčebný plán | liečebný plán | plan liječenja | načrt zdravljenja | plan de tratament | kezelési terv |
+| baseline profile | profil wyjściowy | výchozí profil | východiskový profil | početni profil | izhodiščni profil | profil inițial | kiindulási profil |
+| report | raport | zpráva | správa | izvješće | poročilo | raport | jelentés |
+| Health app | Zdrowie | Zdraví | Zdravie | Zdravlje | Zdravje | Sănătate | Egészség |
+| Settings (iOS) | Ustawienia | Nastavení | Nastavenia | Postavke | Nastavitve | Configurări | Beállítások |
+
+| Term | lt | da | nb | sv | fi | tr |
+|---|---|---|---|---|---|---|
+| episode | priepuolis | anfald | anfall | anfall | kohtaus | atak |
+| attack (App Store only) | priepuolis | anfald | anfall | anfall | kohtaus | atak |
+| migraine | migrena | migræne | migrene | migrän | migreeni | migren |
+| log (verb) | įrašyti | registrere | registrere | registrera | kirjata | kaydetmek |
+| intensity | intensyvumas; "Skausmas 6/10" with a score | intensitet | intensitet | intensitet | voimakkuus | şiddet |
+| migraine day | diena su migrena; pill "Migrena: 3 d." | migrænedag | migrenedag | migrändag | migreenipäivä | migren günü |
+| tracked day | stebėta diena | registreret dag | registrert dag | registrerad dag | seurattu päivä | takip edilen gün |
+| pain-free day | diena be skausmo; short "Be skausmo" | smertefri dag | smertefri dag | smärtfri dag | kivuton päivä; short "Kivuttomat" | ağrısız gün |
+| not tracked | nestebėta | ikke registreret; strip "Ingen data" | ikke registrert; strip "Ingen data" | inte registrerad; strip "Inga data" | ei seurattu | takip edilmedi; strip "Takip yok" |
+| trigger | provokuojantis veiksnys | udløser | utløser | trigger | laukaisija | tetikleyici |
+| possible trigger | galimas provokuojantis veiksnys | mulig udløser | mulig utløser | möjlig trigger | mahdollinen laukaisija | olası tetikleyici |
+| aura | aura | aura | aura | aura | aura | aura |
+| acute medication | ūminio gydymo vaistas | anfaldsmedicin | anfallsmedisin | anfallsläkemedel | akuuttilääke | akut ilaç |
+| preventive medication | profilaktika | forebyggende | forebyggende | förebyggande | estohoito | koruyucu |
+| treatment blueprint | gydymo planas | behandlingsplan | behandlingsplan | behandlingsplan | hoitosuunnitelma | tedavi planı |
+| baseline profile | pradinis profilis | udgangsprofil | utgangsprofil | utgångsprofil | lähtötilanneprofiili | başlangıç profili |
+| report | ataskaita | rapport | rapport | rapport | raportti | rapor |
+| Health app | Sveikata | Sundhed | Helse | Hälsa | Terveys | Sağlık |
+| Settings (iOS) | Nustatymai | Indstillinger | Innstillinger | Inställningar | Asetukset | Ayarlar |
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "Nowy napad", "Nový záchvat", "Nový záchvat", "Novi napadaj", "Nov napad", "Atac nou", "Új roham", "Įrašyti", "Nyt anfald", "Nytt anfall", "Nytt anfall", "Uusi kohtaus", "Yeni atak". "Save Episode" = "Zapisz", "Uložit", "Uložiť", "Spremi", "Shrani", "Salvează", "Mentés", "Išsaugoti", "Gem", "Lagre", "Spara", "Tallenna", "Kaydet". The round complication "LOG" (4 characters) = "NOWY", "NOVÝ", "NOVÝ", "NOVI", "NOV", "NOU", "ÚJ", "ŽYMĖ", "NYT", "NYTT", "NYTT", "UUSI", "YENİ".
+
+#### Sources of the Central and Northern European terms
+
+Checked on October 18, 2026. A page number is the page of the PDF file; a web page without page numbers is cited by its heading.
+
+- **[EU-PL], [EU-CS], [EU-SK], [EU-HR], [EU-SL], [EU-RO], [EU-HU], [EU-LT], [EU-DA], [EU-NO], [EU-SV], [EU-FI]** EMA, Aimovig (erenumab) product information in each language: `https://www.ema.europa.eu/<code>/documents/product-information/aimovig-epar-product-information_<code>.pdf`, with `no` for Norwegian. Section 4.1 (p. 2) gives the term for migraine, migraine day and prophylaxis; section 4.4 or 4.5 (p. 4) names sumatriptan or the triptans.
+- **[PL-SmPC]** Charakterystyka Produktu Leczniczego, Sumatriptan Medical Valley 50 mg: [copy at receptomat.pl](https://receptomat.pl/wp-content/uploads/2024/11/Sumatriptan-Medical-Valley-charakterystyka-produktu-leczniczego-chpl.pdf).
+- **[PL-MP]** Medycyna Praktyczna, [Migrena – objawy, przyczyny, leczenie](https://www.mp.pl/pacjent/neurologia/choroby/150555,migrena), patient text reviewed by a physician, last change February 26, 2024. The Polish guideline of the plan (Stępień 2021) is in English and gives no Polish terms.
+- **[CS1]** ICHD-3, Czech basic version: [3922_ichd-3-czech.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3922_ichd-3-czech.pdf). **[CS2]** ICHD-3, Czech pocket version: [ICHD-3-Czech-pocket-version.pdf](https://ihs-headache.org/wp-content/uploads/2021/03/ICHD-3-Czech-pocket-version.pdf).
+- **[SK1]** Hofericová B., "Profylaktická liečba migrény a jej najčastejšie chyby", Neurologie pro praxi 2021;22(3): [PDF](https://www.neurologiepropraxi.cz/pdfs/neu/2021/03/08.pdf). **[SK2]** Špalek P., "Akútna liečba migrény", Solen: [PDF](https://www.solen.sk/storage/file/article/ff3dfdcee4b21f3cc6b6633611344369.pdf). No Slovak national guideline was found.
+- **[HR-SmPC]** HALMED, Sažetak opisa svojstava lijeka, Imigran 50 mg: [PDF](https://halmed.hr/upl/lijekovi/SPC/Imigran-SPC.pdf). Croatian theses in the Dabar repositories ask for a CAPTCHA and were **not read**; the Croatian guideline in Acta Medica Croatica was not found as a free text.
+- **[SL1]** Strgar Hladnik M., "Obravnava in vodenje migrenskih bolnikov", Medicinska fakulteta Ljubljana: [PDF](https://mf.uni-lj.si/download_file/view/2098/7254). No current Slovenian guideline was found.
+- **[RO1]** ICHD-3, Romanian translation: [ICHD-3-Romanian-rv.pdf](https://ihs-headache.org/wp-content/uploads/2022/08/ICHD-3-Romanian-rv.pdf).
+- **[HU1]** Bozsik Gy., "Az elsődleges fejfájásokról", Semmelweis University, Department of Neurology, November 8, 2023: [PDF](https://semmelweis.hu/neurologia/files/2023/11/Diasor_Bozsik_Gyorgy.pdf). The 2010 professional protocol of the Hungarian health college answered "not found"; no current Hungarian guideline was found.
+- **[LT1]** Kakta B., Mameniškienė R., "NVNU ir triptanai – (ne)nauja migrenos priepuolių gydymo galimybė", Neurologijos seminarai 2023;27(98):240–245, [doi:10.15388/NS.2023.27.98.7](https://doi.org/10.15388/NS.2023.27.98.7). **[LT2]** Visuotinė lietuvių enciklopedija, [Migrena](https://www.vle.lt/straipsnis/migrena/). No Lithuanian national guideline was found.
+- **[DA1]** sundhed.dk, Lægehåndbogen, [Migræne uden aura](https://www.sundhed.dk/sundhedsfaglig/laegehaandbogen/neurologi/tilstande-og-sygdomme/hovedpine/migraene-uden-aura/), updated August 27, 2025. **[DA2]** The same, [Migræne med aura](https://www.sundhed.dk/sundhedsfaglig/laegehaandbogen/neurologi/tilstande-og-sygdomme/hovedpine/migraene-med-aura/), updated August 29, 2025.
+- **[NO1]** Norsk Elektronisk Legehåndbok, [Migrene](https://legehandboka.no/handboken/kliniske-kapitler/nevrologi/tilstander-og-sykdommer/hodepiner/migrene/), updated February 19, 2024. Only the public summary loaded; the full chapter needs a sign-in.
+- **[SE1]** Nationellt system för kunskapsstyrning, NPO Nervsystemets sjukdomar, "Riktlinje för migrän", decided October 25, 2022: [PDF](https://vardpersonal.1177.se/globalassets/nkk/nationell/media/dokument/kunskapsstod/vardriktlinjer/riktlinje-for-migran.pdf).
+- **[FI1]** Käypä hoito -suositus "Migreeni", Suomalainen Lääkäriseura Duodecim and Suomen Neurologinen Yhdistys, published March 28, 2024: [kaypahoito.fi/hoi36050](https://www.kaypahoito.fi/hoi36050). The web page has sections, no page numbers.
+- **[TR1]** ICHD-3, Turkish translation, "Başağrısı Bozukluklarının Uluslararası Sınıflaması": [PDF](https://ihs-headache.org/wp-content/uploads/2021/12/Bas%CC%A7ag%CC%86risi-Bozukluklarinin-Uluslararasi-Siniflamasi.pdf). **[TR2]** T.C. Sağlık Bakanlığı, "Migren Klinik Protokolü", revision 1, August 2025: [copy at noroloji.org.tr](https://noroloji.org.tr/TNDData/Uploads/files/Migren%20Klinik%20Protokol%c3%bc%20(Revizyon)%20(92%20Sayfa).pdf).
+- **National drug registers: not searched in this batch** (Rejestr Produktów Leczniczych, SÚKL, ŠÚKL, HALMED database, JAZMP/CBZ, ANMDMR, OGYÉI, VVKT, Lægemiddelstyrelsen, DMP, Läkemedelsverket, Fimea, TİTCK). The substance names follow the sources above where they name the substance; the other names follow the INN rules of the language and are marked **not verified**. Ubrogepant has no EU marketing authorization (DE2, p. 39, in the Western European sources), so it has **no registration** in the twelve EU and EEA countries; Turkey was not checked.
+
+#### Medical terms: Polish, Czech, Slovak
+
+| Term | Polish | Source (pl) | Czech | Source (cs) | Slovak | Source (sk) |
+|---|---|---|---|---|---|---|
+| Migraine without aura | Migrena bez aury | EU-PL, p. 8 ("bez aury"); **not verified** as a heading | Migréna bez aury | CS1, 1.1, p. 2 | Migréna bez aury | SK1, p. 1 |
+| Migraine with aura | Migrena z aurą | EU-PL, p. 8; PL-MP | Migréna s aurou | CS1, 1.2, p. 2 | Migréna s aurou | SK1, p. 1 |
+| Chronic migraine | Migrena przewlekła | EU-PL, p. 7 ("migreny przewlekłej") | Chronická migréna | CS1, 1.3, p. 2 | Chronická migréna | SK1, p. 1; EU-SK, p. 7 |
+| Tension-type headache | Ból głowy typu napięciowego | PL-MP | Tenzní typ bolesti hlavy | CS2, 2, p. 13 | Tenzná bolesť hlavy | SK1, p. 2 ("tenzná") |
+| Cluster headache | Klasterowy ból głowy | PL-MP | Cluster headache | CS1, 3.1, p. 3 (English name kept) | Klastrová bolesť hlavy | **Not verified**: not in SK1 or SK2 |
+| attack | napad | PL-SmPC, 4.1, p. 1 ("napadów migreny") | záchvat | CS2, p. 2 | záchvat | SK1, p. 2; SK2, p. 1 |
+| Photophobia | fotofobia (światło) | PL-MP ("światłowstręt", "nadwrażliwość na światło") | fotofobie | CS2, p. 38 | fotofóbia | SK1, p. 1 |
+| Phonophobia | fonofobia (dźwięk) | PL-MP ("nadwrażliwość na dźwięki"); "fonofobia" **not verified** | fonofobie | CS2, p. 38 | fonofóbia | SK1, p. 1 |
+| Scintillating scotoma | mroczki migoczące | PL-MP ("mroczkami"); PL-SmPC, p. 4 | scintilující skotom | **Not verified**: not in CS1 or CS2 | scintilujúci skotóm | SK2, p. 2 ("skotóm") |
+| Nausea | nudności | PL-SmPC, p. 4; PL-MP | nevolnost | CS2, p. 38 | nevoľnosť | SK1, p. 1 |
+| Aphasia | afazja | **Not verified** | afázie | **Not verified** | afázia | **Not verified** |
+| Paresthesia | parestezje / mrowienie | PL-SmPC, p. 4; PL-MP | parestezie | CS2, p. 3 | parestézie | SK1, p. 2 |
+| Neck stiffness | sztywność szyi | PL-SmPC, p. 4 ("sztywność szyi"); not "sztywność karku", a meningeal sign | ztuhlost krku | CS2, p. 63 | stuhnutý krk | Common words; **not verified** |
+| Migraine day | dzień z migreną | EU-PL, p. 2 | den s migrénou | EU-CS, p. 2 | deň s migrénou | EU-SK, p. 2 ("dni migrény") |
+| Preventive treatment | profilaktyka | EU-PL, p. 2; PL-MP | prevence | CS2, p. 3; EU-CS, p. 2 ("profylaxi") | prevencia | SK1, p. 1; EU-SK, p. 2 ("profylaxiu") |
+| Trigger | czynnik wyzwalający | PL-MP says "czynniki prowokujące"; "wyzwalający" **not verified** | spouštěč | **Not verified** | spúšťač | SK2, p. 2 |
+
+| Medication (class) | Polish | Source (pl) | Czech | Source (cs) | Slovak | Source (sk) |
+|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | **Not verified** | Ibuprofen | **Not verified** | Ibuprofén | **Not verified** |
+| Sumatriptan | Sumatryptan | PL-SmPC, p. 1; EU-PL, p. 4 | Sumatriptan | CS2, p. 3 | Sumatriptán | SK1, p. 2; EU-SK, p. 4 |
+| Rizatriptan | Ryzatryptan | **Not verified** | Rizatriptan | **Not verified** | Rizatriptán | SK1, p. 2 |
+| Naproxen | Naproksen | **Not verified** | Naproxen | **Not verified** | Naproxén | SK1, p. 2 |
+| Acetaminophen | Paracetamol | PL-SmPC, p. 1 | Paracetamol | CS1, p. 6 | Paracetamol | SK1, p. 2 |
+| Ubrogepant | Ubrogepant | **No registration** (EU) | Ubrogepant | **No registration** (EU) | Ubrogepant | **No registration** (EU) |
+| Metoclopramide | Metoklopramid | PL-MP | Metoklopramid | **Not verified** | Metoklopramid | SK1, p. 2 |
+| Riboflavin | Ryboflawina | **Not verified** | Riboflavin | **Not verified** | Riboflavín | **Not verified** |
+| Magnesium | Magnez | **Not verified** (PL-SmPC names only magnesium stearate) | Hořčík | **Not verified** | Horčík | **Not verified** |
+| Propranolol | Propranolol | PL-SmPC, p. 3 | Propranolol | **Not verified** | Propranolol | SK1, p. 3 |
+| Topiramate | Topiramat | EU-PL, p. 14 | Topiramát | EU-CS, p. 13 | Topiramát | SK1, p. 3 |
+| Amitriptyline | Amitryptylina | PL-MP | Amitriptylin | **Not verified** | Amitriptylín | SK1, p. 3 |
+| Erenumab | Erenumab | EU-PL, p. 2 | Erenumab | EU-CS, p. 2 | Erenumab | EU-SK, p. 2 |
+| NSAID | NLPZ | PL-SmPC, p. 1 | NSA | CS2, p. 20 | NSA | **Not verified** |
+| Triptan | tryptan | EU-PL, p. 4 | triptan | CS2, p. 2 | triptán | SK1, p. 2 |
+| Beta blocker | beta-bloker | **Not verified** | betablokátor | **Not verified** | betablokátor | SK1, p. 3 |
+| Anticonvulsant | lek przeciwpadaczkowy | PL-MP | antiepileptikum | **Not verified** | antiepileptikum | SK1, p. 3 |
+
+#### Medical terms: Croatian, Slovenian, Romanian
+
+| Term | Croatian | Source (hr) | Slovenian | Source (sl) | Romanian | Source (ro) |
+|---|---|---|---|---|---|---|
+| Migraine without aura | Migrena bez aure | HR-SmPC, p. 6 | Migrena brez avre | **Not verified** | Migrenă fără aură | RO1, 1.1, p. 7 |
+| Migraine with aura | Migrena s aurom | HR-SmPC, p. 1 | Migrena z avro | SL1, p. 6; EU-SL, p. 8 | Migrenă cu aură | RO1, 1.2, p. 6 |
+| Chronic migraine | Kronična migrena | **Not verified** | Kronična migrena | **Not verified** | Migrenă cronică | RO1, 1.3, p. 6 |
+| Tension-type headache | Glavobolja tenzijskog tipa | **Not verified** | Tenzijski glavobol | **Not verified** | Cefalee de tip tensional | RO1, 2, p. 5 |
+| Cluster headache | Cluster glavobolja | **Not verified** | Glavobol v skupkih | **Not verified** | Cefalee cluster | RO1, 3.1, p. 6 |
+| attack | napadaj | HR-SmPC, 4.1, p. 1 | napad | EU-SL, p. 7 | atac | RO1, p. 11 ("atac de migrenă"); "criză" is used for seizures |
+| Photophobia | fotofobija | **Not verified** | fotofobija | SL1, p. 2 | fotofobie | RO1, p. 11 |
+| Phonophobia | fonofobija | **Not verified** | fonofobija | SL1, p. 2 | fonofobie | RO1, p. 11 |
+| Scintillating scotoma | scintilirajući skotom | **Not verified** | migetajoči skotom | **Not verified** | scotom scintilant | RO1, p. 12 |
+| Nausea | mučnina | HR-SmPC, p. 5 | slabost | SL1, p. 1 | greață | RO1, p. 11 |
+| Aphasia | afazija | **Not verified** | afazija | **Not verified** | afazie | RO1, p. 14 |
+| Paresthesia | parestezije / trnci | **Not verified** | parestezije / mravljinčenje | **Not verified** | parestezii / furnicături | RO1, p. 12 |
+| Neck stiffness | ukočenost vrata | **Not verified** | otrdel vrat | **Not verified** | rigiditatea gâtului | RO1, p. 13 |
+| Migraine day | dan s migrenom | EU-HR, p. 2 ("migrenu najmanje 4 dana") | dan z migreno | EU-SL, p. 2 ("migrenske dni") | zi cu migrenă | EU-RO, p. 2 |
+| Preventive treatment | preventivno | EU-HR, p. 2 ("profilaksu") | preventiva | EU-SL, p. 2 ("profilakso") | preventiv | RO1, p. 159; EU-RO, p. 2 ("profilaxia") |
+| Trigger | okidač | **Not verified** | sprožilec | SL1, p. 1 ("sprožilni dejavniki") | factor declanșator | RO1, p. 10 ("declanșate") |
+
+| Medication (class) | Croatian | Source (hr) | Slovenian | Source (sl) | Romanian | Source (ro) |
+|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | **Not verified** | Ibuprofen | **Not verified** | Ibuprofen | **Not verified** |
+| Sumatriptan | Sumatriptan | HR-SmPC, p. 1 | Sumatriptan | SL1, p. 4; EU-SL, p. 4 | Sumatriptan | RO1, p. 105; EU-RO, p. 4 |
+| Rizatriptan | Rizatriptan | **Not verified** | Rizatriptan | **Not verified** | Rizatriptan | **Not verified** |
+| Naproxen | Naproksen | **Not verified** | Naproksen | **Not verified** | Naproxen | **Not verified** |
+| Acetaminophen | Paracetamol | HR-SmPC, p. 1 | Paracetamol | SL1, p. 4 | Paracetamol | **Not verified** |
+| Ubrogepant | Ubrogepant | **No registration** (EU) | Ubrogepant | **No registration** (EU) | Ubrogepant | **No registration** (EU) |
+| Metoclopramide | Metoklopramid | **Not verified** | Metoklopramid | **Not verified** | Metoclopramidă | **Not verified** |
+| Riboflavin | Riboflavin | **Not verified** | Riboflavin | **Not verified** | Riboflavină | **Not verified** |
+| Magnesium | Magnezij | **Not verified** | Magnezij | **Not verified** | Magneziu | **Not verified** |
+| Propranolol | Propranolol | HR-SmPC, p. 3 | Propranolol | **Not verified** | Propranolol | **Not verified** |
+| Topiramate | Topiramat | EU-HR, p. 13 | Topiramat | **Not verified** | Topiramat | **Not verified** |
+| Amitriptyline | Amitriptilin | **Not verified** | Amitriptilin | **Not verified** | Amitriptilină | **Not verified** |
+| Erenumab | Erenumab | EU-HR, p. 2 | Erenumab | EU-SL, p. 2 | Erenumab | EU-RO, p. 2 |
+| Triptan | triptan | HR-SmPC, p. 1 | triptan | SL1, p. 3 | triptan | RO1, p. 105 |
+
+#### Medical terms: Hungarian, Lithuanian, Turkish
+
+| Term | Hungarian | Source (hu) | Lithuanian | Source (lt) | Turkish | Source (tr) |
+|---|---|---|---|---|---|---|
+| Migraine without aura | Aura nélküli migrén | HU1, p. 3; EU-HU, p. 8 | Migrena be auros | LT2 | Aurasız migren | TR1, 1.1, p. 10 |
+| Migraine with aura | Aurával járó migrén | HU1, p. 3 | Migrena su aura | LT2; EU-LT, p. 8 | Auralı migren | TR1, 1.2, p. 8 |
+| Chronic migraine | Krónikus migrén | HU1, p. 7 | Lėtinė migrena | EU-LT, p. 7 | Kronik migren | TR1, 1.3, p. 8 |
+| Tension-type headache | Tenziós típusú fejfájás | **Not verified** | Įtampos tipo galvos skausmas | **Not verified** | Gerilim-tipi başağrısı | TR1, 2, p. 5 |
+| Cluster headache | Cluster fejfájás | HU1, p. 8 | Kekinis galvos skausmas | **Not verified** | Küme başağrısı | TR1, 3.1, p. 8 |
+| attack | roham | HU1, p. 3 | priepuolis | LT1, p. 1; EU-LT, p. 7 | atak | TR1, p. 25; TR2, p. 8 |
+| Photophobia | fotofóbia | **Not verified** | fotofobija | LT1, p. 2 | fotofobi | TR1, p. 25 |
+| Phonophobia | fonofóbia | **Not verified** | fonofobija | LT1, p. 2 | fonofobi | TR1, p. 25 |
+| Scintillating scotoma | szcintilláló szkotóma | **Not verified** | mirgančioji skotoma | **Not verified** | parıltılı skotom | TR1, p. 107 |
+| Nausea | hányinger | **Not verified** | pykinimas | LT1, p. 2 | bulantı | TR1, p. 25 |
+| Aphasia | afázia | **Not verified** | afazija | **Not verified** | afazi | TR1, p. 27 |
+| Paresthesia | zsibbadás / paresztézia | **Not verified** | dilgčiojimas / parestezija | **Not verified** | karıncalanma / parestezi | TR1, p. 77 |
+| Neck stiffness | merev nyak | **Not verified** | sustingęs kaklas | **Not verified** | boyun sertliği | TR1, p. 26 ("ense sertliği" in the prodrome) |
+| Migraine day | migrénes nap | EU-HU, p. 2 | diena su migrena | EU-LT, p. 2 ("dienos su migrenos skausmu") | migren günü | TR2, p. 23 |
+| Preventive treatment | megelőzés | HU1, p. 5; EU-HU, p. 2 ("profilaxis") | profilaktika | LT2; EU-LT, p. 2 | koruyucu | TR2, p. 3 |
+| Trigger | kiváltó tényező | **Not verified** | provokuojantis veiksnys | **Not verified** | tetikleyici | TR1, p. 12; TR2, p. 14 |
+
+| Medication (class) | Hungarian | Source (hu) | Lithuanian | Source (lt) | Turkish | Source (tr) |
+|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofén | **Not verified** | Ibuprofenas | LT1, p. 4 | İbuprofen | **Not verified** |
+| Sumatriptan | Szumatriptán | **Not verified** | Sumatriptanas | LT1, p. 1 | Sumatriptan | TR1, p. 182; TR2, p. 26 |
+| Rizatriptan | Rizatriptán | **Not verified** | Rizatriptanas | LT1, p. 5 | Rizatriptan | TR2, p. 32 |
+| Naproxen | Naproxén | **Not verified** | Naproksenas | LT1, p. 1 | Naproksen | TR2, p. 30 |
+| Acetaminophen | Paracetamol | **Not verified** | Paracetamolis | LT1, p. 3 | Parasetamol | TR1, p. 16; TR2, p. 32 |
+| Ubrogepant | Ubrogepant | **No registration** (EU) | Ubrogepantas | **No registration** (EU) | Ubrogepant | TİTCK not searched: **not verified** |
+| Metoclopramide | Metoklopramid | **Not verified** | Metoklopramidas | **Not verified** | Metoklopramid | TR2, p. 25 |
+| Riboflavin | Riboflavin | **Not verified** | Riboflavinas | **Not verified** | Riboflavin | **Not verified** |
+| Magnesium | Magnézium | **Not verified** | Magnis | **Not verified** | Magnezyum | **Not verified** |
+| Propranolol | Propranolol | **Not verified** | Propranololis | **Not verified** | Propranolol | TR1, p. 181; TR2, p. 33 |
+| Topiramate | Topiramát | **Not verified** | Topiramatas | **Not verified** | Topiramat | TR2, p. 49 |
+| Amitriptyline | Amitriptilin | **Not verified** | Amitriptilinas | **Not verified** | Amitriptilin | TR2, p. 51 |
+| Erenumab | Erenumab | EU-HU, p. 2 | Erenumabas | EU-LT, p. 2 ("erenumabo") | Erenumab | TR2, p. 9 |
+| NSAID | NSAID | **Not verified** | NVNU | LT1, p. 1 | NSAİİ | TR1, p. 16; TR2, p. 10 |
+| Triptan | triptán | HU1, p. 6 | triptanas | LT1, p. 1 | triptan | TR1, p. 16 |
+| Beta blocker | béta-blokkoló | **Not verified** | beta adrenoblokatorius | **Not verified** | beta bloker | TR2, p. 32 |
+
+#### Medical terms: Danish, Norwegian, Swedish, Finnish
+
+| Term | Danish | Source (da) | Norwegian | Source (nb) | Swedish | Source (sv) | Finnish | Source (fi) |
+|---|---|---|---|---|---|---|---|---|
+| Migraine without aura | Migræne uden aura | DA1, title | Migrene uten aura | NO1 ("med eller uten aura") | Migrän utan aura | SE1, p. 9 | Auraton migreeni | FI1, table 1 |
+| Migraine with aura | Migræne med aura | DA2, title | Migrene med aura | NO1 ("med eller uten aura") | Migrän med aura | SE1, p. 9 | Aurallinen migreeni | FI1, "Määritelmät" |
+| Chronic migraine | Kronisk migræne | DA1 | Kronisk migrene | EU-NO, p. 7 | Kronisk migrän | SE1, p. 12 | Krooninen migreeni | FI1 |
+| Tension-type headache | Spændingshovedpine | DA1 | Spenningshodepine | **Not verified** | Spänningshuvudvärk | SE1, p. 13 | Jännityspäänsärky | FI1 |
+| Cluster headache | Klyngehovedpine | DA1 | Klasehodepine | **Not verified** | Klusterhuvudvärk | SE1, p. 10 | Sarjoittainen päänsärky | **Not verified** |
+| attack | anfald | DA1; EU-DA, p. 7 | anfall | NO1; EU-NO, p. 7 | anfall | SE1, p. 7 ("migränanfall") | kohtaus | FI1; EU-FI, p. 8 |
+| Photophobia | fotofobi (lys) | DA1 ("lysoverfølsomhed") | fotofobi (lys) | NO1 ("lysømfintlighet") | fotofobi (ljuskänslighet) | SE1, p. 9 ("ljus- och ljudkänslighet") | fotofobia (valonarkuus) | FI1, table 1 |
+| Phonophobia | fonofobi (lyd) | DA1 ("lydoverfølsomhed") | fonofobi (lyd) | NO1 ("lydømfintlighet") | fonofobi (ljudkänslighet) | SE1, p. 9 | fonofobia (ääniherkkyys) | FI1, table 1 |
+| Scintillating scotoma | flimmerskotom | DA2 ("skotom") | flimmerskotom | **Not verified** | flimmerskotom | SE1, p. 8 | välkkyvä skotooma | **Not verified** |
+| Nausea | kvalme | DA1 | kvalme | NO1 | illamående | SE1, p. 9 | pahoinvointi | FI1, table 1 |
+| Aphasia | afasi | DA2 | afasi | **Not verified** | afasi | SE1, p. 8 | afasia | **Not verified** |
+| Paresthesia | prikken / paræstesier | DA2 | prikking / parestesier | **Not verified** | stickningar / parestesier | SE1, p. 8 | pistely / parestesiat | FI1 ("pistely") |
+| Neck stiffness | stiv nakke | Common words; **not verified** | stiv nakke | **Not verified** | stel nacke | **Not verified** | jäykkä niska | Common words; not "niskajäykkyys", a meningeal sign |
+| Migraine day | migrænedag | EU-DA, p. 2 | migrenedag | EU-NO, p. 2 | migrändag | SE1, p. 5; EU-SV, p. 2 | migreenipäivä | FI1; EU-FI, p. 2 |
+| Preventive treatment | forebyggende | DA1 | forebyggende | NO1 | förebyggande | SE1, p. 18 | estohoito | FI1; EU-FI, p. 2 |
+| Trigger | udløser | DA1 ("udløse migræne") | utløser | **Not verified** | trigger | SE1, p. 7 ("triggande faktorer") | laukaisija | FI1 says "laukaisevat tekijät"; the short noun is **not verified** |
+
+| Medication (class) | Danish | Source (da) | Norwegian | Source (nb) | Swedish | Source (sv) | Finnish | Source (fi) |
+|---|---|---|---|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | **Not verified** | Ibuprofen | **Not verified** | Ibuprofen | SE1, p. 17 | Ibuprofeeni | **Not verified** |
+| Sumatriptan | Sumatriptan | DA1 | Sumatriptan | NO1 | Sumatriptan | SE1, p. 17 | Sumatriptaani | FI1 |
+| Rizatriptan | Rizatriptan | **Not verified** | Rizatriptan | **Not verified** | Rizatriptan | **Not verified** | Ritsatriptaani | FI1 |
+| Naproxen | Naproxen | DA1 | Naproksen | **Not verified** | Naproxen | SE1, p. 17 | Naprokseeni | FI1 |
+| Acetaminophen | Paracetamol | DA1 | Paracetamol | NO1 | Paracetamol | SE1, p. 17 | Parasetamoli | FI1 |
+| Ubrogepant | Ubrogepant | **No registration** (EU) | Ubrogepant | **No registration** (EEA) | Ubrogepant | **No registration** (EU) | Ubrogepantti | **No registration** (EU) |
+| Metoclopramide | Metoclopramid | DA1 | Metoklopramid | **Not verified** | Metoklopramid | SE1, p. 17 | Metoklopramidi | FI1 |
+| Riboflavin | Riboflavin | **Not verified** | Riboflavin | **Not verified** | Riboflavin | **Not verified** | Riboflaviini | **Not verified** |
+| Magnesium | Magnesium | **Not verified** | Magnesium | **Not verified** | Magnesium | **Not verified** | Magnesium | **Not verified** |
+| Propranolol | Propranolol | DA1 | Propranolol | NO1 | Propranolol | SE1, p. 6 | Propranololi | FI1 |
+| Topiramate | Topiramat | DA1 | Topiramat | NO1 | Topiramat | SE1, p. 6 | Topiramaatti | FI1 |
+| Amitriptyline | Amitriptylin | DA1 | Amitriptylin | NO1 | Amitriptylin | SE1, p. 18 | Amitriptyliini | FI1 |
+| Erenumab | Erenumab | EU-DA, p. 2 | Erenumab | NO1; EU-NO, p. 2 | Erenumab | SE1, p. 6 | Erenumabi | FI1; EU-FI, p. 2 |
+| NSAID | NSAID | DA1 | NSAID | NO1 | NSAID | SE1, p. 17 | tulehduskipulääke | FI1 |
+| Triptan | triptan | DA1 | triptan | NO1 | triptan | SE1, p. 15 | triptaani | FI1 |
+| Beta blocker | betablokker | **Not verified** | betablokker | **Not verified** | betablockerare | SE1, p. 6 | beetasalpaaja | FI1 |

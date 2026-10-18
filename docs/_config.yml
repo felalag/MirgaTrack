@@ -13,13 +13,26 @@ exclude:
   - LOCALIZATION_CHECKLIST.md
   - legal/files/be
   - legal/files/ca
+  - legal/files/cs
+  - legal/files/da
   - legal/files/de
   - legal/files/es
+  - legal/files/fi
   - legal/files/fr
+  - legal/files/hr
+  - legal/files/hu
   - legal/files/it
+  - legal/files/lt
+  - legal/files/nb
   - legal/files/nl
+  - legal/files/pl
   - legal/files/pt
   - legal/files/pt-PT
+  - legal/files/ro
   - legal/files/ru
+  - legal/files/sk
+  - legal/files/sl
+  - legal/files/sv
+  - legal/files/tr
   - app-store
   - LOCALIZATION_BACKTRANSLATION.md

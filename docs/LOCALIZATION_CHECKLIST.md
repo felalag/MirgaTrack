@@ -28,6 +28,8 @@ Use the folder code of the plan, section 1.1. Examples here use Polish, `pl`.
 - Use the glossary term for each concept. The build compares the shared terms of the iPhone and the watch.
 - Follow the style of the plan, section 6: sentence case, the polite form of address, no slang.
 - Do not translate brand names (MigraTrack) or keys marked "Do not translate".
+- Join a number and its unit with a no-break space, written as the entity `&#160;` ("50&#160;mg", "90&#160;dni"), and put a word joiner `&#8288;` on both sides of the dash in "1–10". At the largest text size the lines break there otherwise.
+- Use the term of the national sources for the word of the episode before the sample goes to the owner. In batch 4 the Romanian ICHD-3 said "atac", and the sample had "criză".
 
 ## 3. Back-translation
 

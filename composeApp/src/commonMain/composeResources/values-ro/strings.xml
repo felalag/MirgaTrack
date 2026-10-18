@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Romanian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the polite verb forms; buttons use the imperative of Romanian iOS ("Salvează", "Anulează").
+  CLDR: one (1), few (0, 2–19) and other (20 and more, which take "de": "20 de atacuri").
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Înapoi</string>
+    <string name="common_settings">Configurări</string>
+    <string name="common_cancel">Anulează</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Salvează</string>
+    <string name="common_add">Adaugă</string>
+    <string name="common_next">Înainte</string>
+    <string name="common_on">Activat</string>
+    <string name="common_off">Dezactivat</string>
+    <string name="common_clear">Șterge</string>
+    <string name="common_none">Niciunul</string>
+    <string name="common_today">Azi</string>
+    <string name="common_not_set">Nesetat</string>
+    <string name="common_expanded">Extins</string>
+    <string name="common_collapsed">Restrâns</string>
+    <string name="common_last_30_days">Ultimele 30 de zile</string>
+    <string name="common_medical_disclaimer">MigraTrack este un jurnal, nu un sfat medical. Discutați cu medicul înainte de a vă schimba tratamentul.</string>
+    <string name="common_log_migraine_episode">Notează un atac de migrenă</string>
+    <string name="common_save_episode">Salvează</string>
+    <string name="common_edit_episode">Editează atacul</string>
+    <string name="common_delete_episode">Șterge atacul</string>
+    <string name="common_intensity_of_ten">Durere %1$s/10</string>
+    <string name="common_date_at_time">%1$s, ora %2$s</string>
+    <string name="common_possible_triggers">Factori declanșatori posibili</string>
+    <string name="common_add_trigger">Adaugă un factor declanșator</string>
+    <string name="common_add_medication">Adaugă un medicament</string>
+    <string name="common_treatment_blueprint">Plan de tratament</string>
+    <string name="common_medication_name_and_dose">Introduceți numele și doza.</string>
+    <string name="common_medication_placeholder">De exemplu, eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Rezumat</string>
+    <string name="tab_log">Notează</string>
+    <string name="tab_insights">Analiză</string>
+    <string name="tab_export">Export</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Intensitatea durerii</string>
+    <string name="pain_scale_value">%1$s din 10</string>
+    <string name="pain_scale_low">%1$s Ușoară</string>
+    <string name="pain_scale_middle">%1$s Resimțită</string>
+    <string name="pain_scale_high">%1$s Invalidantă</string>
+    <string name="medication_remove">Elimină %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Azi, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">din %1$s zi monitorizată</item>
+        <item quantity="few">din %1$s zile monitorizate</item>
+        <item quantity="other">din %1$s de zile monitorizate</item>
+    </plurals>
+    <string name="summary_without_logged_episode">fără atac înregistrat</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s din %2$s zi monitorizată fără atac înregistrat în ultimele 30 de zile</item>
+        <item quantity="few">%1$s din %2$s zile monitorizate fără atac înregistrat în ultimele 30 de zile</item>
+        <item quantity="other">%1$s din %2$s de zile monitorizate fără atac înregistrat în ultimele 30 de zile</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Calculat din ziua în care ați început monitorizarea. Zilele dinainte nu sunt monitorizate.</string>
+    <string name="strip_legend_migraine">Migrenă</string>
+    <string name="strip_legend_pain_free">Fără durere</string>
+    <string name="strip_legend_not_tracked">Nemonitorizat</string>
+    <string name="summary_sleep_last_night">Somnul de azi-noapte</string>
+    <string name="summary_sleep_not_recorded">Neînregistrat</string>
+    <string name="summary_sleep_hint">Purtați Apple Watch în timpul somnului sau înregistrați somnul în aplicația Sănătate. Dacă ați dezactivat accesul, activați-l în Configurări › Sănătate.</string>
+    <string name="summary_sleep_caption">Somn</string>
+    <string name="summary_sleep_connect_title">Somnul de azi-noapte în Rezumat</string>
+    <string name="summary_sleep_connect_body">MigraTrack citește somnul de azi-noapte din aplicația Sănătate. Datele rămân pe acest iPhone.</string>
+    <string name="summary_sleep_connect_button">Conectează aplicația Sănătate</string>
+    <string name="summary_last_episode">Ultimul atac</string>
+    <string name="summary_last_episode_none">Niciunul încă</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Notează un atac</string>
+    <string name="episode_update">Actualizează atacul</string>
+    <string name="episode_updated_banner">Atac actualizat.</string>
+    <string name="episode_deleted_banner">Atac șters.</string>
+    <string name="episode_saved_banner">Atac salvat. Odihniți-vă și stați într-o lumină slabă.</string>
+    <string name="episode_pain_intensity_index">Indicele intensității durerii</string>
+    <string name="episode_cranial_epicenter">Locul durerii</string>
+    <string name="episode_aura_symptoms">Aură și simptome senzoriale</string>
+    <string name="episode_acute_therapy">Tratamentul acut al atacului</string>
+    <string name="episode_add_medication_row">Adaugă medicament / electroliți</string>
+    <string name="episode_start">Începutul atacului</string>
+    <string name="episode_start_now">Acum</string>
+    <string name="episode_add_trigger_message">Ce a precedat acest atac?</string>
+    <string name="episode_other_trigger_action">Alt factor…</string>
+    <string name="episode_other_trigger_title">Alt factor declanșator</string>
+    <string name="episode_other_trigger_message">Numiți ceva ce a precedat acest atac.</string>
+    <string name="episode_other_trigger_placeholder">De exemplu, parfum puternic</string>
+    <string name="episode_add_medication_message">Ce ați luat pentru acest atac?</string>
+    <string name="episode_other_medication_action">Alt medicament…</string>
+    <string name="episode_other_medication_title">Alt medicament</string>
+    <string name="episode_missing_title">Atac șters</string>
+    <string name="episode_missing_message">Acest atac a fost șters pe alt dispozitiv, așa că modificările nu pot fi salvate.</string>
+    <string name="episode_delete_message">Durere %1$s/10. Atacul dispare din istoric și din rapoarte.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">S</string>
+    <string name="insights_period_month">L</string>
+    <string name="insights_period_six_months">6L</string>
+    <string name="insights_period_year">A</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">atac săptămâna aceasta</item>
+        <item quantity="few">atacuri săptămâna aceasta</item>
+        <item quantity="other">de atacuri săptămâna aceasta</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">atac în săptămâna din %1$s</item>
+        <item quantity="few">atacuri în săptămâna din %1$s</item>
+        <item quantity="other">de atacuri în săptămâna din %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">atac în %1$s</item>
+        <item quantity="few">atacuri în %1$s</item>
+        <item quantity="other">de atacuri în %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">atac în 6 luni</item>
+        <item quantity="few">atacuri în 6 luni</item>
+        <item quantity="other">de atacuri în 6 luni</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">atac în %1$s</item>
+        <item quantity="few">atacuri în %1$s</item>
+        <item quantity="other">de atacuri în %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">Cu %1$s la sută mai puține atacuri decât în perioada anterioară</string>
+    <string name="insights_trend_more">Cu %1$s la sută mai multe atacuri decât în perioada anterioară</string>
+    <string name="insights_legend_migraine_day">Zi cu migrenă</string>
+    <string name="insights_legend_pain_free_day">Zi fără durere</string>
+    <string name="insights_legend_not_tracked">Nemonitorizat</string>
+    <string name="insights_bar_no_data">%1$s: încă nu există date</string>
+    <string name="insights_bar_not_tracked">%1$s: nemonitorizat</string>
+    <string name="insights_bar_pain_free">%1$s: fără durere</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s zi cu migrenă, maxim %3$s din 10</item>
+        <item quantity="few">%1$s: %2$s zile cu migrenă, maxim %3$s din 10</item>
+        <item quantity="other">%1$s: %2$s de zile cu migrenă, maxim %3$s din 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Notați factorii declanșatori posibili când înregistrați sau editați un atac. Acest card arată apoi cât de des l-ați notat pe fiecare.</string>
+    <string name="insights_triggers_hint">Cât de des ați notat fiecare factor declanșator la un atac. Asta nu arată o cauză.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, notat la %2$s din %3$s atac</item>
+        <item quantity="few">%1$s, notat la %2$s din %3$s atacuri</item>
+        <item quantity="other">%1$s, notat la %2$s din %3$s de atacuri</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s din %2$s</string>
+    <string name="insights_calendar_a11y">Calendar, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s are %2$s atac.</item>
+        <item quantity="few">%1$s are %2$s atacuri.</item>
+        <item quantity="other">%1$s are %2$s de atacuri.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · durere %2$s/10</string>
+    <string name="insights_month_picker_title">Luna</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Luna anterioară</string>
+    <string name="calendar_next_month">Luna următoare</string>
+    <string name="calendar_choose_month_a11y">%1$s, alegeți altă lună</string>
+    <!-- "With migraine: 21": "21 de zile cu migrenă" does not fit 18 characters. -->
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">Cu migrenă: %1$s</item>
+        <item quantity="few">Cu migrenă: %1$s</item>
+        <item quantity="other">Cu migrenă: %1$s</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Azi, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">indisponibil</string>
+    <string name="calendar_day_not_tracked">nemonitorizat</string>
+    <string name="calendar_day_no_episodes">fără atacuri</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s atac, maxim %2$s din 10</item>
+        <item quantity="few">%1$s atacuri, maxim %2$s din 10</item>
+        <item quantity="other">%1$s de atacuri, maxim %2$s din 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s atac</item>
+        <item quantity="few">%1$s atacuri</item>
+        <item quantity="other">%1$s de atacuri</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Intensitate maximă</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Medicamente</string>
+    <string name="calendar_edit_episode_details">Editează detaliile atacului</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Se pregătește PDF-ul…</string>
+    <string name="export_preparing_excel">Se pregătește Excelul…</string>
+    <string name="export_preparing_report">Se pregătește raportul…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">atac</item>
+        <item quantity="few">atacuri</item>
+        <item quantity="other">de atacuri</item>
+    </plurals>
+    <string name="export_episodes_recorded">Atacuri înregistrate</string>
+    <string name="export_include">Includeți în export</string>
+    <string name="export_medications">Medicamente luate</string>
+    <string name="export_medications_subtitle">Doze și totaluri de utilizare</string>
+    <string name="export_symptoms">Aură și simptome de avertizare</string>
+    <string name="export_symptoms_subtitle">Tipuri de aură și frecvența lor</string>
+    <string name="export_triggers_subtitle">Factori declanșatori notați și frecvența lor</string>
+    <string name="export_pain_charts">Grafice ale intensității durerii</string>
+    <string name="export_pain_charts_subtitle">Evoluția intensității durerii, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Exportă raportul PDF</string>
+    <string name="export_excel">Exportă în Excel (.xlsx)</string>
+    <string name="export_share">Partajează</string>
+    <string name="export_range_title">Perioada raportului</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Raport MigraTrack: %1$s atac, %2$s.</item>
+        <item quantity="few">Raport MigraTrack: %1$s atacuri, %2$s.</item>
+        <item quantity="other">Raport MigraTrack: %1$s de atacuri, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Exportul a eșuat</string>
+    <string name="export_failed_message">Raportul nu a putut fi creat.</string>
+    <string name="export_write_failed">%1$s nu a putut fi scris</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s factor declanșator cunoscut</item>
+        <item quantity="few">%1$s factori declanșatori cunoscuți</item>
+        <item quantity="other">%1$s de factori declanșatori cunoscuți</item>
+    </plurals>
+    <string name="settings_no_triggers">Niciun factor declanșator selectat</string>
+    <string name="settings_no_medications">Niciun medicament selectat</string>
+    <string name="settings_name_title">Numele dvs.</string>
+    <string name="settings_name_message">Apare în rapoartele pe care le exportați.</string>
+    <string name="settings_name_placeholder">Nume</string>
+    <string name="settings_delete_title">Ștergeți toate datele?</string>
+    <string name="settings_delete_message">MigraTrack păstrează datele dvs. pe acest iPhone și o copie pe Apple Watch. Această acțiune șterge definitiv toate atacurile și profilul inițial; ceasul își șterge copia la următoarea sincronizare. Backupurile dispozitivelor își păstrează copia. Exportați mai întâi un raport, dacă aveți nevoie de el.</string>
+    <string name="settings_delete_all">Șterge toate datele</string>
+    <string name="settings_section_baseline">Profil clinic inițial și tratament</string>
+    <string name="settings_baseline_diagnoses">Diagnostice inițiale</string>
+    <string name="settings_known_triggers">Factori declanșatori cunoscuți</string>
+    <string name="settings_section_preferences">Preferințe</string>
+    <string name="settings_appearance">Aspect</string>
+    <string name="settings_appearance_value">Întunecat (blocat)</string>
+    <string name="settings_version">Versiune</string>
+    <string name="settings_version_value">v%1$s (compilarea %2$s)</string>
+    <string name="settings_section_legal">Informații juridice</string>
+    <string name="settings_section_developer">Dezvoltator</string>
+    <string name="settings_load_sample_data">Încarcă date exemplu</string>
+    <string name="settings_load_sample_data_subtitle">Adaugă un an de atacuri generate pentru previzualizarea graficelor</string>
+    <string name="settings_edit_name_a11y">Editează numele</string>
+    <string name="settings_add_name">Adăugați numele</string>
+    <!-- No account exists: the value is the first tracked month ("Diary since"). -->
+    <string name="settings_member">Jurnal din</string>
+    <string name="settings_episodes">Atacuri</string>
+    <!-- "35 in total": the caption above says "Atacuri". -->
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s în total</item>
+        <item quantity="few">%1$s în total</item>
+        <item quantity="other">%1$s în total</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Politica de confidențialitate</string>
+    <string name="legal_terms_of_service">Termeni de utilizare</string>
+    <string name="legal_folder">ro</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Spre factorii declanșatori</string>
+    <string name="onboarding_continue_to_medications">Spre medicamente</string>
+    <string name="onboarding_finish_setup">Finalizează configurarea</string>
+    <string name="onboarding_back_to_diagnoses">Înapoi la diagnostice</string>
+    <string name="onboarding_back_to_triggers">Înapoi la factori</string>
+    <string name="onboarding_save_changes">Salvează modificările</string>
+    <string name="onboarding_step">Pasul %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnostice și istoric</string>
+    <string name="onboarding_diagnoses_subtitle">Configurați profilul inițial. Atacurile și rapoartele dvs. pornesc de la el.</string>
+    <string name="onboarding_primary_diagnosis">Diagnostic principal</string>
+    <string name="onboarding_episode_frequency">Frecvența lunară a atacurilor</string>
+    <string name="onboarding_episode_duration">Durata obișnuită a unui atac</string>
+    <string name="onboarding_intensity_baseline">Intensitatea obișnuită a durerii</string>
+    <string name="onboarding_update_later">Puteți actualiza oricând profilul inițial în Configurări.</string>
+    <string name="onboarding_triggers_title">Factorii dvs. declanșatori</string>
+    <string name="onboarding_triggers_subtitle">Selectați factorii declanșatori cunoscuți sau suspectați. Raportul îi enumeră pentru medicul dvs.</string>
+    <string name="onboarding_add_custom_trigger">Adaugă un factor propriu</string>
+    <string name="onboarding_treatment_subtitle">Alegeți ce luați. Medicamentele pentru tratamentul acut se completează automat la fiecare atac nou, astfel încât înregistrarea necesită o singură atingere.</string>
+    <string name="onboarding_add_custom_medication">Adaugă un medicament propriu</string>
+    <string name="onboarding_custom_trigger_title">Adaugă un factor propriu</string>
+    <string name="onboarding_custom_trigger_message">Numiți ceva ce vă declanșează de obicei migrenele.</string>
+    <string name="onboarding_custom_trigger_placeholder">De exemplu, lumini intermitente</string>
+    <string name="onboarding_medication_role_message">Când îl luați?</string>
+    <string name="onboarding_medication_role_acute">În timpul unui atac (acut)</string>
+    <string name="onboarding_medication_role_preventive">Zilnic (preventiv)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Jurnal personal de migrene și factori declanșatori</string>
+    <string name="welcome_example">Exemplu</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">zi fără durere</item>
+        <item quantity="few">zile fără durere</item>
+        <item quantity="other">de zile fără durere</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Exemplu: %1$s zi fără durere în ultimele 30 de zile</item>
+        <item quantity="few">Exemplu: %1$s zile fără durere în ultimele 30 de zile</item>
+        <item quantity="other">Exemplu: %1$s de zile fără durere în ultimele 30 de zile</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Înțelegeți-vă tiparele.</string>
+    <string name="welcome_headline_doctor">Duceți medicului faptele.</string>
+    <string name="welcome_body">Urmăriți simptomele, identificați factorii declanșatori posibili și exportați oricând rapoartele personale.</string>
+    <string name="welcome_get_started">Începe</string>
+    <string name="welcome_agreement">Continuând, acceptați %1$s și %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migrenă fără aură</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Formă frecventă de migrenă</string>
+    <string name="diagnosis_migraine_with_aura">Migrenă cu aură</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Aură focală vizuală sau senzitivă</string>
+    <string name="diagnosis_chronic_migraine">Migrenă cronică</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 sau mai multe zile cu cefalee pe lună</string>
+    <string name="diagnosis_tension_type">Cefalee de tip tensional</string>
+    <string name="diagnosis_tension_type_subtitle">Tensiune constrictivă, ca o bandă</string>
+    <string name="diagnosis_cluster">Cefalee cluster</string>
+    <string name="diagnosis_cluster_subtitle">Atacuri severe, unilaterale, în jurul ochiului</string>
+    <string name="diagnosis_not_diagnosed">Nediagnosticat / în investigare</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Observ tiparele simptomelor</string>
+    <string name="frequency_less_than_one">&lt; 1/lună</string>
+    <string name="frequency_one_to_four">1–4/lună</string>
+    <string name="frequency_five_to_eight">5–7/lună</string>
+    <string name="frequency_eight_plus">8+/lună</string>
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Tâmpla stângă</string>
+    <string name="region_right_temple">Tâmpla dreaptă</string>
+    <string name="region_frontal_brow">Frunte / sprâncene</string>
+    <string name="region_retro_orbital">În spatele ochiului</string>
+    <string name="region_occipital_neck">Occiput și ceafă</string>
+    <string name="symptom_scintillating_scotoma">Scotom scintilant (vizual)</string>
+    <string name="symptom_scintillating_scotoma_short">Aură vizuală</string>
+    <string name="symptom_neck_stiffness">Rigiditatea gâtului</string>
+    <string name="symptom_neck_stiffness_short">Gât înțepenit</string>
+    <string name="symptom_photophobia">Fotofobie (lumină)</string>
+    <string name="symptom_photophobia_short">Lumină</string>
+    <string name="symptom_nausea">Greață</string>
+    <string name="symptom_nausea_short">Greață</string>
+    <string name="symptom_phonophobia">Fonofobie (sunet)</string>
+    <string name="symptom_phonophobia_short">Sunet</string>
+    <string name="symptom_aphasia">Afazie / ceață mentală</string>
+    <string name="symptom_aphasia_short">Ceață mentală</string>
+    <string name="symptom_paresthesia">Furnicături / parestezii</string>
+    <string name="symptom_paresthesia_short">Furnicături</string>
+    <string name="trigger_category_weather_environment">Vreme și mediu</string>
+    <string name="trigger_category_sleep_physical">Somn și rutină fizică</string>
+    <string name="trigger_category_stress_emotions">Stres și emoții</string>
+    <string name="trigger_category_hormonal">Hormonal</string>
+    <string name="trigger_category_diet_consumption">Dietă și consum</string>
+    <string name="trigger_category_custom">Personalizat</string>
+    <string name="medication_role_acute">Acut / pentru oprirea atacului</string>
+    <string name="medication_role_preventive">Preventiv și suplimente</string>
+    <string name="export_range_last_30_days">30&#160;de zile</string>
+    <string name="export_range_last_90_days">90&#160;de zile</string>
+    <string name="export_range_last_6_months">6&#160;luni</string>
+    <string name="export_range_last_12_months">12&#160;luni</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Scăderea presiunii atmosferice</string>
+    <string name="trigger_barometric_pressure_description">Fronturi atmosferice, schimbări de altitudine</string>
+    <string name="trigger_bright_light">Lumină puternică și soare</string>
+    <string name="trigger_bright_light_description">Strălucire, stroboscop, fotofobie</string>
+    <string name="trigger_heat_humidity">Căldură / umiditate extremă</string>
+    <string name="trigger_heat_humidity_description">Variații de temperatură</string>
+    <string name="trigger_loud_noise">Zgomot puternic</string>
+    <string name="trigger_loud_noise_description">Fonofobie, vârfuri acustice</string>
+    <string name="trigger_poor_sleep">Somn insuficient / neregulat</string>
+    <string name="trigger_poor_sleep_description">Deficit de somn, deficit REM</string>
+    <string name="trigger_dehydration">Deshidratare</string>
+    <string name="trigger_dehydration_description">Pierdere de electroliți</string>
+    <string name="trigger_skipped_meals">Mese sărite / post</string>
+    <string name="trigger_skipped_meals_description">Pragul hipoglicemiei</string>
+    <string name="trigger_overexertion">Efort fizic excesiv</string>
+    <string name="trigger_overexertion_description">Solicitare vasculară la efort</string>
+    <string name="trigger_emotional_stress">Stres emoțional / relaxare după stres</string>
+    <string name="trigger_emotional_stress_description">Relaxare întârziată după muncă</string>
+    <string name="trigger_screen_fatigue">Oboseală de la ecran</string>
+    <string name="trigger_screen_fatigue_description">Exces de lumină albastră, convergență</string>
+    <string name="trigger_hormonal_cycle">Schimbări hormonale / ciclu</string>
+    <string name="trigger_hormonal_cycle_description">Variații în ciclul lunar</string>
+    <string name="trigger_caffeine">Sevraj / exces de cofeină</string>
+    <string name="trigger_caffeine_description">Modificări ale receptorilor de adenozină</string>
+    <string name="trigger_aged_cheese">Brânzeturi maturate / tiramină</string>
+    <string name="trigger_aged_cheese_description">Sensibilitate la aminele din fermentație</string>
+    <string name="trigger_alcohol">Alcool / vin roșu</string>
+    <string name="trigger_alcohol_description">Taninuri, histamină</string>
+    <string name="trigger_sweeteners">Îndulcitori artificiali</string>
+    <string name="trigger_sweeteners_description">Aspartam, sucraloză</string>
+    <string name="trigger_custom_description">Factor propriu</string>
+
+    <!-- Catalog: built-in medications. Romanian names of the active substances (ANMDMR). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Adjuvant antiinflamator</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, agonist serotoninergic</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, orodispersabil</string>
+    <string name="medication_naproxen_500">Naproxen</string>
+    <string name="medication_naproxen_500_class">AINS cu acțiune prelungită</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Analgezic</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, antagonist CGRP</string>
+    <string name="medication_metoclopramide_10">Metoclopramidă</string>
+    <string name="medication_metoclopramide_10_class">Antiemetic</string>
+    <string name="medication_electrolytes">Electroliți de rehidratare</string>
+    <string name="medication_electrolytes_class">Rehidratare orală</string>
+    <string name="medication_riboflavin_400">Riboflavină</string>
+    <string name="medication_riboflavin_400_class">Vitamina B2</string>
+    <string name="medication_magnesium_400">Magneziu</string>
+    <string name="medication_magnesium_400_class">Supliment mineral</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Betablocant</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antiepileptic</string>
+    <string name="medication_amitriptyline_10">Amitriptilină</string>
+    <string name="medication_amitriptyline_10_class">Antidepresiv triciclic</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Anticorp anti-CGRP, lunar</string>
+    <string name="medication_custom_class">Medicament propriu</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">S%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s din %2$s nu are factori declanșatori notați</item>
+        <item quantity="few">%1$s din %2$s nu au factori declanșatori notați</item>
+        <item quantity="other">%1$s din %2$s nu au factori declanșatori notați</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s atac</item>
+        <item quantity="few">%1$s atacuri</item>
+        <item quantity="other">%1$s de atacuri</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Raport clinic de migrenă</string>
+    <string name="report_page">MigraTrack · Pagina %1$s</string>
+    <string name="report_patient">Pacient: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Generat la %1$s</string>
+    <string name="report_disclaimer">Date raportate de pacient în MigraTrack. Acest raport sprijină evaluarea clinică și nu o înlocuiește.</string>
+    <string name="report_stat_episodes">Atacuri înregistrate</string>
+    <string name="report_stat_migraine_days">Zile cu migrenă</string>
+    <string name="report_stat_pain_free_days">Zile fără durere</string>
+    <string name="report_stat_average_intensity">Intensitate medie /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Monitorizarea a început pe %1$s. %2$s zi anterioară din această perioadă nu are înregistrări și nu se numără ca zi fără durere.</item>
+        <item quantity="few">Monitorizarea a început pe %1$s. %2$s zile anterioare din această perioadă nu au înregistrări și nu se numără ca zile fără durere.</item>
+        <item quantity="other">Monitorizarea a început pe %1$s. %2$s de zile anterioare din această perioadă nu au înregistrări și nu se numără ca zile fără durere.</item>
+    </plurals>
+    <string name="report_baseline_title">Profil inițial</string>
+    <string name="report_baseline_diagnoses">Diagnostice</string>
+    <string name="report_baseline_frequency">Frecvență lunară</string>
+    <string name="report_baseline_duration">Durată obișnuită</string>
+    <string name="report_baseline_intensity">Intensitate obișnuită</string>
+    <string name="report_baseline_triggers">Declanșatori cunoscuți</string>
+    <string name="report_baseline_treatments">Plan de tratament</string>
+    <string name="report_pain_chart_title">Evoluția intensității durerii (1–10)</string>
+    <string name="report_legend_mild">Ușoară %1$s–%2$s</string>
+    <string name="report_legend_moderate">Moderată %1$s–%2$s</string>
+    <string name="report_legend_severe">Severă %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Nemonitorizat</string>
+    <string name="report_medication_title">Utilizarea medicamentelor</string>
+    <string name="report_no_medications">Nicio administrare de medicament înregistrată în această perioadă.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s administrare</item>
+        <item quantity="few">%1$s administrări</item>
+        <item quantity="other">%1$s de administrări</item>
+    </plurals>
+    <string name="report_symptoms_title">Aură și simptome de avertizare</string>
+    <string name="report_no_symptoms">Nicio aură sau simptom senzorial înregistrat în această perioadă.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s din %2$s atac (%3$s)</item>
+        <item quantity="few">%1$s din %2$s atacuri (%3$s)</item>
+        <item quantity="other">%1$s din %2$s de atacuri (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Factori declanșatori posibili notați</string>
+    <string name="report_no_triggers">Niciun factor declanșator notat în această perioadă.</string>
+    <string name="report_triggers_note">Cifrele arată cât de des a notat pacientul un factor declanșator la un atac. Nu arată o cauză.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s din %2$s nu are factori declanșatori notați.</item>
+        <item quantity="few">%1$s din %2$s nu au factori declanșatori notați.</item>
+        <item quantity="other">%1$s din %2$s nu au factori declanșatori notați.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s atac</item>
+        <item quantity="few">%1$s atacuri</item>
+        <item quantity="other">%1$s de atacuri</item>
+    </plurals>
+    <string name="report_episodes_title">Atacuri</string>
+    <string name="report_no_episodes">Niciun atac înregistrat în această perioadă.</string>
+    <string name="report_column_date_time">Data și ora</string>
+    <string name="report_column_pain">Int.</string>
+    <string name="report_column_epicenter">Locul durerii</string>
+    <string name="report_column_symptoms">Simptome</string>
+    <string name="report_column_medications">Medicamente</string>
+    <string name="report_column_triggers">Declanșatori</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Nesetat</string>
+    <string name="report_none">Niciunul</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Atacuri</string>
+    <string name="report_sheet_medications">Medicamente</string>
+    <string name="report_sheet_daily_pain">Durere zilnică</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Început</string>
+    <string name="report_header_pain_intensity">Intensitatea durerii (1–10)</string>
+    <string name="report_header_epicenter">Locul durerii</string>
+    <string name="report_header_symptoms">Aură și simptome senzoriale</string>
+    <string name="report_header_medications">Medicamente</string>
+    <string name="report_header_triggers">Factori declanșatori posibili</string>
+    <string name="report_header_episode_started">Începutul atacului</string>
+    <string name="report_header_medication">Medicament</string>
+    <string name="report_header_dose">Doză</string>
+    <string name="report_header_date">Data</string>
+    <string name="report_header_peak_pain">Intensitatea maximă a durerii (1–10, 0 = fără durere)</string>
+    <string name="report_header_day">Zi</string>
+    <string name="report_header_field">Câmp</string>
+    <string name="report_header_value">Valoare</string>
+    <string name="report_day_migraine">Migrenă</string>
+    <string name="report_day_pain_free">Fără durere</string>
+    <string name="report_day_not_tracked">Nemonitorizat</string>
+    <string name="report_profile_patient">Pacient</string>
+    <string name="report_profile_range">Perioada raportului</string>
+    <string name="report_profile_tracked_since">Monitorizat din</string>
+    <string name="report_profile_diagnoses">Diagnostice</string>
+    <string name="report_profile_frequency">Frecvență lunară</string>
+    <string name="report_profile_duration">Durată obișnuită</string>
+    <string name="report_profile_intensity">Intensitate obișnuită</string>
+    <string name="report_profile_triggers">Factori declanșatori cunoscuți</string>
+    <string name="report_profile_treatments">Plan de tratament</string>
+    <string name="report_iso_range">%1$s până la %2$s</string>
+</resources>

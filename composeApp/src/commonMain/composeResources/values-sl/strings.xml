@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Slovenian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the polite "vi"; buttons use the imperative of Slovenian iOS ("Shrani", "Prekliči").
+  Slovenian has a dual: one (1), two (2), few (3–4) and other (0, 5 and more).
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Nazaj</string>
+    <string name="common_settings">Nastavitve</string>
+    <string name="common_cancel">Prekliči</string>
+    <string name="common_ok">V redu</string>
+    <string name="common_save">Shrani</string>
+    <string name="common_add">Dodaj</string>
+    <string name="common_next">Naprej</string>
+    <string name="common_on">Vklopljeno</string>
+    <string name="common_off">Izklopljeno</string>
+    <string name="common_clear">Počisti</string>
+    <string name="common_none">Brez</string>
+    <string name="common_today">Danes</string>
+    <string name="common_not_set">Ni nastavljeno</string>
+    <string name="common_expanded">Razširjeno</string>
+    <string name="common_collapsed">Strnjeno</string>
+    <string name="common_last_30_days">Zadnjih 30 dni</string>
+    <string name="common_medical_disclaimer">MigraTrack je dnevnik, ne zdravniški nasvet. Preden spremenite zdravljenje, se posvetujte s svojim zdravnikom.</string>
+    <string name="common_log_migraine_episode">Zabeleži napad migrene</string>
+    <string name="common_save_episode">Shrani</string>
+    <string name="common_edit_episode">Uredi napad</string>
+    <string name="common_delete_episode">Izbriši napad</string>
+    <string name="common_intensity_of_ten">Jakost %1$s/10</string>
+    <string name="common_date_at_time">%1$s ob %2$s</string>
+    <string name="common_possible_triggers">Možni sprožilci</string>
+    <string name="common_add_trigger">Dodaj sprožilec</string>
+    <string name="common_add_medication">Dodaj zdravilo</string>
+    <string name="common_treatment_blueprint">Načrt zdravljenja</string>
+    <string name="common_medication_name_and_dose">Vnesite ime in odmerek.</string>
+    <string name="common_medication_placeholder">Na primer eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Povzetek</string>
+    <string name="tab_log">Zabeleži</string>
+    <string name="tab_insights">Analiza</string>
+    <string name="tab_export">Izvoz</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Jakost bolečine</string>
+    <string name="pain_scale_value">%1$s od 10</string>
+    <string name="pain_scale_low">%1$s Blaga</string>
+    <string name="pain_scale_middle">%1$s Opazna</string>
+    <string name="pain_scale_high">%1$s Hromeča</string>
+    <string name="medication_remove">Odstrani %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Danes, %1$s</string>
+    <!-- Genitive after "od": "26 od 30 spremljanih dni". -->
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">od %1$s spremljanega dne</item>
+        <item quantity="two">od %1$s spremljanih dni</item>
+        <item quantity="few">od %1$s spremljanih dni</item>
+        <item quantity="other">od %1$s spremljanih dni</item>
+    </plurals>
+    <string name="summary_without_logged_episode">brez zabeleženega napada</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s od %2$s spremljanega dne brez zabeleženega napada v zadnjih 30 dneh</item>
+        <item quantity="two">%1$s od %2$s spremljanih dni brez zabeleženega napada v zadnjih 30 dneh</item>
+        <item quantity="few">%1$s od %2$s spremljanih dni brez zabeleženega napada v zadnjih 30 dneh</item>
+        <item quantity="other">%1$s od %2$s spremljanih dni brez zabeleženega napada v zadnjih 30 dneh</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Šteje se od dneva, ko ste začeli spremljati. Dnevi pred tem niso spremljani.</string>
+    <string name="strip_legend_migraine">Migrena</string>
+    <string name="strip_legend_pain_free">Brez bolečin</string>
+    <string name="strip_legend_not_tracked">Ni spremljano</string>
+    <string name="summary_sleep_last_night">Spanec sinoči</string>
+    <string name="summary_sleep_not_recorded">Ni zabeleženo</string>
+    <string name="summary_sleep_hint">Med spanjem nosite Apple Watch ali spremljajte spanec v aplikaciji Zdravje. Če ste dostop izklopili, ga vklopite v Nastavitve › Zdravje.</string>
+    <string name="summary_sleep_caption">Spanec</string>
+    <string name="summary_sleep_connect_title">Sinočnji spanec v Povzetku</string>
+    <string name="summary_sleep_connect_body">MigraTrack prebere sinočnji spanec iz aplikacije Zdravje. Podatki ostanejo v tem iPhonu.</string>
+    <string name="summary_sleep_connect_button">Poveži aplikacijo Zdravje</string>
+    <string name="summary_last_episode">Zadnji napad</string>
+    <string name="summary_last_episode_none">Še nobenega</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Zabeleži napad</string>
+    <string name="episode_update">Posodobi napad</string>
+    <string name="episode_updated_banner">Napad je posodobljen.</string>
+    <string name="episode_deleted_banner">Napad je izbrisan.</string>
+    <string name="episode_saved_banner">Napad je shranjen. Počivajte in ostanite v zatemnjenem prostoru.</string>
+    <string name="episode_pain_intensity_index">Indeks jakosti bolečine</string>
+    <string name="episode_cranial_epicenter">Mesto bolečine</string>
+    <string name="episode_aura_symptoms">Avra in čutilni simptomi</string>
+    <string name="episode_acute_therapy">Akutno zdravljenje napada</string>
+    <string name="episode_add_medication_row">Dodaj zdravilo / elektrolite</string>
+    <string name="episode_start">Začetek napada</string>
+    <string name="episode_start_now">Zdaj</string>
+    <string name="episode_add_trigger_message">Kaj je bilo pred tem napadom?</string>
+    <string name="episode_other_trigger_action">Drug sprožilec…</string>
+    <string name="episode_other_trigger_title">Drug sprožilec</string>
+    <string name="episode_other_trigger_message">Navedite nekaj, kar je bilo pred tem napadom.</string>
+    <string name="episode_other_trigger_placeholder">Na primer močan parfum</string>
+    <string name="episode_add_medication_message">Kaj ste vzeli ob tem napadu?</string>
+    <string name="episode_other_medication_action">Drugo zdravilo…</string>
+    <string name="episode_other_medication_title">Drugo zdravilo</string>
+    <string name="episode_missing_title">Napad je izbrisan</string>
+    <string name="episode_missing_message">Ta napad je bil izbrisan v drugi napravi, zato sprememb ni mogoče shraniti.</string>
+    <string name="episode_delete_message">Jakost %1$s/10. Napad izgine iz zgodovine in poročil.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">T</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">L</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">napad ta teden</item>
+        <item quantity="two">napada ta teden</item>
+        <item quantity="few">napadi ta teden</item>
+        <item quantity="other">napadov ta teden</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">napad v tednu od %1$s</item>
+        <item quantity="two">napada v tednu od %1$s</item>
+        <item quantity="few">napadi v tednu od %1$s</item>
+        <item quantity="other">napadov v tednu od %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">napad, %1$s</item>
+        <item quantity="two">napada, %1$s</item>
+        <item quantity="few">napadi, %1$s</item>
+        <item quantity="other">napadov, %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">napad v 6 mes.</item>
+        <item quantity="two">napada v 6 mes.</item>
+        <item quantity="few">napadi v 6 mes.</item>
+        <item quantity="other">napadov v 6 mes.</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">napad v letu %1$s</item>
+        <item quantity="two">napada v letu %1$s</item>
+        <item quantity="few">napadi v letu %1$s</item>
+        <item quantity="other">napadov v letu %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s odstotkov manj napadov kot v prejšnjem obdobju</string>
+    <string name="insights_trend_more">%1$s odstotkov več napadov kot v prejšnjem obdobju</string>
+    <string name="insights_legend_migraine_day">Dan z migreno</string>
+    <string name="insights_legend_pain_free_day">Dan brez bolečin</string>
+    <string name="insights_legend_not_tracked">Ni spremljano</string>
+    <string name="insights_bar_no_data">%1$s: še ni podatkov</string>
+    <string name="insights_bar_not_tracked">%1$s: ni spremljano</string>
+    <string name="insights_bar_pain_free">%1$s: brez bolečin</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s dan z migreno, največ %3$s od 10</item>
+        <item quantity="two">%1$s: %2$s dneva z migreno, največ %3$s od 10</item>
+        <item quantity="few">%1$s: %2$s dnevi z migreno, največ %3$s od 10</item>
+        <item quantity="other">%1$s: %2$s dni z migreno, največ %3$s od 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Ko beležite ali urejate napad, označite možne sprožilce. Ta kartica nato pokaže, kako pogosto ste označili vsakega.</string>
+    <string name="insights_triggers_hint">Kako pogosto ste vsak sprožilec označili ob napadu. To ne kaže vzroka.</string>
+    <!-- Genitive after "od": "od 1 napada", "od 5 napadov". -->
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, označeno pri %2$s od %3$s napada</item>
+        <item quantity="two">%1$s, označeno pri %2$s od %3$s napadov</item>
+        <item quantity="few">%1$s, označeno pri %2$s od %3$s napadov</item>
+        <item quantity="other">%1$s, označeno pri %2$s od %3$s napadov</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s od %2$s</string>
+    <string name="insights_calendar_a11y">Koledar, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s napad.</item>
+        <item quantity="two">%1$s: %2$s napada.</item>
+        <item quantity="few">%1$s: %2$s napadi.</item>
+        <item quantity="other">%1$s: %2$s napadov.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · jakost %2$s/10</string>
+    <string name="insights_month_picker_title">Mesec</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Prejšnji mesec</string>
+    <string name="calendar_next_month">Naslednji mesec</string>
+    <string name="calendar_choose_month_a11y">%1$s, izberite drug mesec</string>
+    <!-- "Migraine: 3 days": "2 dneva z migreno" does not fit 18 characters. -->
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">Migrena: %1$s dan</item>
+        <item quantity="two">Migrena: %1$s dneva</item>
+        <item quantity="few">Migrena: %1$s dnevi</item>
+        <item quantity="other">Migrena: %1$s dni</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Danes, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ni na voljo</string>
+    <string name="calendar_day_not_tracked">ni spremljano</string>
+    <string name="calendar_day_no_episodes">brez napadov</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s napad, največ %2$s od 10</item>
+        <item quantity="two">%1$s napada, največ %2$s od 10</item>
+        <item quantity="few">%1$s napadi, največ %2$s od 10</item>
+        <item quantity="other">%1$s napadov, največ %2$s od 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s napad</item>
+        <item quantity="two">%1$s napada</item>
+        <item quantity="few">%1$s napadi</item>
+        <item quantity="other">%1$s napadov</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Največja jakost</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Zdravila</string>
+    <string name="calendar_edit_episode_details">Uredi podrobnosti napada</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Pripravljanje PDF…</string>
+    <string name="export_preparing_excel">Pripravljanje Excela…</string>
+    <string name="export_preparing_report">Pripravljanje poročila…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">napad</item>
+        <item quantity="two">napada</item>
+        <item quantity="few">napadi</item>
+        <item quantity="other">napadov</item>
+    </plurals>
+    <string name="export_episodes_recorded">Zabeleženi napadi</string>
+    <string name="export_include">Vključi v izvoz</string>
+    <string name="export_medications">Vzeta zdravila</string>
+    <string name="export_medications_subtitle">Odmerki in skupna uporaba</string>
+    <string name="export_symptoms">Avra in opozorilni simptomi</string>
+    <string name="export_symptoms_subtitle">Vrste avre in njihova pogostost</string>
+    <string name="export_triggers_subtitle">Označeni sprožilci in njihova pogostost</string>
+    <string name="export_pain_charts">Grafi jakosti bolečine</string>
+    <string name="export_pain_charts_subtitle">Potek jakosti bolečine, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Izvozi poročilo PDF</string>
+    <string name="export_excel">Izvozi v Excel (.xlsx)</string>
+    <string name="export_share">Deli</string>
+    <string name="export_range_title">Obdobje poročila</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Poročilo MigraTrack: %1$s napad, %2$s.</item>
+        <item quantity="two">Poročilo MigraTrack: %1$s napada, %2$s.</item>
+        <item quantity="few">Poročilo MigraTrack: %1$s napadi, %2$s.</item>
+        <item quantity="other">Poročilo MigraTrack: %1$s napadov, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Izvoz ni uspel</string>
+    <string name="export_failed_message">Poročila ni bilo mogoče ustvariti.</string>
+    <string name="export_write_failed">Ni mogoče zapisati %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s znan sprožilec</item>
+        <item quantity="two">%1$s znana sprožilca</item>
+        <item quantity="few">%1$s znani sprožilci</item>
+        <item quantity="other">%1$s znanih sprožilcev</item>
+    </plurals>
+    <string name="settings_no_triggers">Ni izbranih sprožilcev</string>
+    <string name="settings_no_medications">Ni izbranih zdravil</string>
+    <string name="settings_name_title">Vaše ime</string>
+    <string name="settings_name_message">Prikaže se v poročilih, ki jih izvozite.</string>
+    <string name="settings_name_placeholder">Ime</string>
+    <string name="settings_delete_title">Želite izbrisati vse podatke?</string>
+    <string name="settings_delete_message">MigraTrack hrani vaše podatke v tem iPhonu in kopijo v uri Apple Watch. S tem trajno izbrišete vse napade in izhodiščni profil; ura izbriše svojo kopijo ob naslednji sinhronizaciji. Varnostne kopije naprav ohranijo svojo kopijo. Če poročilo potrebujete, ga najprej izvozite.</string>
+    <string name="settings_delete_all">Izbriši vse podatke</string>
+    <string name="settings_section_baseline">Klinično izhodišče in zdravljenje</string>
+    <string name="settings_baseline_diagnoses">Izhodiščne diagnoze</string>
+    <string name="settings_known_triggers">Znani sprožilci</string>
+    <string name="settings_section_preferences">Prednostne nastavitve</string>
+    <string name="settings_appearance">Videz</string>
+    <string name="settings_appearance_value">Temno (zaklenjeno)</string>
+    <string name="settings_version">Različica</string>
+    <string name="settings_version_value">v%1$s (gradnja %2$s)</string>
+    <string name="settings_section_legal">Pravne informacije</string>
+    <string name="settings_section_developer">Razvijalec</string>
+    <string name="settings_load_sample_data">Naloži vzorčne podatke</string>
+    <string name="settings_load_sample_data_subtitle">Doda leto ustvarjenih napadov za predogled grafov</string>
+    <string name="settings_edit_name_a11y">Uredi ime</string>
+    <string name="settings_add_name">Dodajte ime</string>
+    <!-- No account exists: the value is the first tracked month ("Diary since"). -->
+    <string name="settings_member">Dnevnik od</string>
+    <string name="settings_episodes">Napadi</string>
+    <!-- "35 in total": the caption above says "Napadi". -->
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">Skupaj %1$s</item>
+        <item quantity="two">Skupaj %1$s</item>
+        <item quantity="few">Skupaj %1$s</item>
+        <item quantity="other">Skupaj %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Pravilnik o zasebnosti</string>
+    <string name="legal_terms_of_service">Pogoji uporabe</string>
+    <string name="legal_folder">sl</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Naprej na sprožilce</string>
+    <string name="onboarding_continue_to_medications">Naprej na zdravila</string>
+    <string name="onboarding_finish_setup">Dokončaj nastavitev</string>
+    <string name="onboarding_back_to_diagnoses">Nazaj na diagnoze</string>
+    <string name="onboarding_back_to_triggers">Nazaj na sprožilce</string>
+    <string name="onboarding_save_changes">Shrani spremembe</string>
+    <string name="onboarding_step">Korak %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnoze in anamneza</string>
+    <string name="onboarding_diagnoses_subtitle">Nastavite izhodiščni profil. Vaši napadi in poročila izhajajo iz njega.</string>
+    <string name="onboarding_primary_diagnosis">Glavna diagnoza</string>
+    <string name="onboarding_episode_frequency">Število napadov na mesec</string>
+    <string name="onboarding_episode_duration">Običajno trajanje napada</string>
+    <string name="onboarding_intensity_baseline">Običajna jakost bolečine</string>
+    <string name="onboarding_update_later">Izhodiščni profil lahko kadar koli spremenite v Nastavitvah.</string>
+    <string name="onboarding_triggers_title">Vaši sprožilci</string>
+    <string name="onboarding_triggers_subtitle">Izberite znane ali domnevne sprožilce. Poročilo jih navede za vašega zdravnika.</string>
+    <string name="onboarding_add_custom_trigger">Dodaj lasten sprožilec</string>
+    <string name="onboarding_treatment_subtitle">Izberite, kaj jemljete. Zdravila za akutno zdravljenje so vnaprej vnesena v vsak nov napad, zato beleženje vzame en dotik.</string>
+    <string name="onboarding_add_custom_medication">Dodaj lastno zdravilo</string>
+    <string name="onboarding_custom_trigger_title">Dodaj lasten sprožilec</string>
+    <string name="onboarding_custom_trigger_message">Navedite nekaj, kar vam običajno sproži migreno.</string>
+    <string name="onboarding_custom_trigger_placeholder">Na primer utripajoče luči</string>
+    <string name="onboarding_medication_role_message">Kdaj ga jemljete?</string>
+    <string name="onboarding_medication_role_acute">Med napadom (akutno)</string>
+    <string name="onboarding_medication_role_preventive">Vsak dan (preventivno)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Osebni dnevnik migrene in sprožilcev</string>
+    <string name="welcome_example">Primer</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">dan brez bolečin</item>
+        <item quantity="two">dneva brez bolečin</item>
+        <item quantity="few">dnevi brez bolečin</item>
+        <item quantity="other">dni brez bolečin</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Primer: %1$s dan brez bolečin v zadnjih 30 dneh</item>
+        <item quantity="two">Primer: %1$s dneva brez bolečin v zadnjih 30 dneh</item>
+        <item quantity="few">Primer: %1$s dnevi brez bolečin v zadnjih 30 dneh</item>
+        <item quantity="other">Primer: %1$s dni brez bolečin v zadnjih 30 dneh</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Spoznajte svoje vzorce.</string>
+    <string name="welcome_headline_doctor">Zdravniku prinesite dejstva.</string>
+    <string name="welcome_body">Spremljajte simptome, odkrijte možne sprožilce in kadar koli izvozite osebna poročila.</string>
+    <string name="welcome_get_started">Začni</string>
+    <string name="welcome_agreement">Z nadaljevanjem sprejemate dokumenta %1$s in %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migrena brez avre</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Pogosta oblika migrene</string>
+    <string name="diagnosis_migraine_with_aura">Migrena z avro</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Vidna ali senzorična žariščna avra</string>
+    <string name="diagnosis_chronic_migraine">Kronična migrena</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 ali več dni z glavobolom na mesec</string>
+    <string name="diagnosis_tension_type">Tenzijski glavobol</string>
+    <string name="diagnosis_tension_type_subtitle">Stiskajoča napetost kot obroč</string>
+    <string name="diagnosis_cluster">Glavobol v skupkih</string>
+    <string name="diagnosis_cluster_subtitle">Hudi enostranski napadi okoli očesa</string>
+    <string name="diagnosis_not_diagnosed">Brez diagnoze / raziskujem</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Opazujem vzorce simptomov</string>
+    <string name="frequency_less_than_one">&lt; 1/mes.</string>
+    <string name="frequency_one_to_four">1–4/mes.</string>
+    <string name="frequency_five_to_eight">5–7/mes.</string>
+    <string name="frequency_eight_plus">8+/mes.</string>
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Leva senca</string>
+    <string name="region_right_temple">Desna senca</string>
+    <string name="region_frontal_brow">Čelo / obrvi</string>
+    <string name="region_retro_orbital">Za očesom</string>
+    <string name="region_occipital_neck">Zatilje in vrat</string>
+    <string name="symptom_scintillating_scotoma">Migetajoči skotom (vidni)</string>
+    <string name="symptom_scintillating_scotoma_short">Vidna avra</string>
+    <string name="symptom_neck_stiffness">Otrdel vrat</string>
+    <string name="symptom_neck_stiffness_short">Otrdel vrat</string>
+    <string name="symptom_photophobia">Fotofobija (svetloba)</string>
+    <string name="symptom_photophobia_short">Svetloba</string>
+    <string name="symptom_nausea">Slabost</string>
+    <string name="symptom_nausea_short">Slabost</string>
+    <string name="symptom_phonophobia">Fonofobija (zvok)</string>
+    <string name="symptom_phonophobia_short">Zvok</string>
+    <string name="symptom_aphasia">Afazija / megla v glavi</string>
+    <string name="symptom_aphasia_short">Megla v glavi</string>
+    <string name="symptom_paresthesia">Mravljinčenje / parestezije</string>
+    <string name="symptom_paresthesia_short">Mravljinčenje</string>
+    <string name="trigger_category_weather_environment">Vreme in okolje</string>
+    <string name="trigger_category_sleep_physical">Spanje in telesna rutina</string>
+    <string name="trigger_category_stress_emotions">Stres in čustva</string>
+    <string name="trigger_category_hormonal">Hormoni</string>
+    <string name="trigger_category_diet_consumption">Prehrana in uživanje</string>
+    <string name="trigger_category_custom">Lastno</string>
+    <string name="medication_role_acute">Akutno / za prekinitev napada</string>
+    <string name="medication_role_preventive">Preventiva in dodatki</string>
+    <string name="export_range_last_30_days">Zadnjih 30&#160;dni</string>
+    <string name="export_range_last_90_days">Zadnjih 90&#160;dni</string>
+    <string name="export_range_last_6_months">Zadnjih 6&#160;mes.</string>
+    <string name="export_range_last_12_months">Zadnjih 12&#160;mes.</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Padec zračnega tlaka</string>
+    <string name="trigger_barometric_pressure_description">Vremenske fronte, sprememba nadmorske višine</string>
+    <string name="trigger_bright_light">Močna svetloba in sonce</string>
+    <string name="trigger_bright_light_description">Bleščanje, stroboskop, fotofobija</string>
+    <string name="trigger_heat_humidity">Huda vročina / vlaga</string>
+    <string name="trigger_heat_humidity_description">Temperaturna nihanja</string>
+    <string name="trigger_loud_noise">Glasen hrup</string>
+    <string name="trigger_loud_noise_description">Fonofobija, zvočni vrhovi</string>
+    <string name="trigger_poor_sleep">Slab / neredni spanec</string>
+    <string name="trigger_poor_sleep_description">Pomanjkanje spanca, premalo faze REM</string>
+    <string name="trigger_dehydration">Dehidracija</string>
+    <string name="trigger_dehydration_description">Izguba elektrolitov</string>
+    <string name="trigger_skipped_meals">Izpuščeni obroki / post</string>
+    <string name="trigger_skipped_meals_description">Prag hipoglikemije</string>
+    <string name="trigger_overexertion">Telesna preobremenitev</string>
+    <string name="trigger_overexertion_description">Žilna obremenitev ob naporu</string>
+    <string name="trigger_emotional_stress">Čustveni stres / sprostitev po stresu</string>
+    <string name="trigger_emotional_stress_description">Zapoznela sprostitev po delu</string>
+    <string name="trigger_screen_fatigue">Utrujenost od zaslona</string>
+    <string name="trigger_screen_fatigue_description">Preveč modre svetlobe, konvergenca</string>
+    <string name="trigger_hormonal_cycle">Hormonske spremembe / cikel</string>
+    <string name="trigger_hormonal_cycle_description">Nihanja med mesečnim ciklom</string>
+    <string name="trigger_caffeine">Odtegnitev / preveč kofeina</string>
+    <string name="trigger_caffeine_description">Spremembe adenozinskih receptorjev</string>
+    <string name="trigger_aged_cheese">Zoreli siri / tiramin</string>
+    <string name="trigger_aged_cheese_description">Občutljivost na amine iz fermentacije</string>
+    <string name="trigger_alcohol">Alkohol / rdeče vino</string>
+    <string name="trigger_alcohol_description">Tanini, histamin</string>
+    <string name="trigger_sweeteners">Umetna sladila</string>
+    <string name="trigger_sweeteners_description">Aspartam, sukraloza</string>
+    <string name="trigger_custom_description">Lasten sprožilec</string>
+
+    <!-- Catalog: built-in medications. Slovenian names of the active substances (Centralna baza zdravil). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Protivnetni adjuvans</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, agonist serotonina</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, za raztapljanje v ustih</string>
+    <string name="medication_naproxen_500">Naproksen</string>
+    <string name="medication_naproxen_500_class">NSAID z dolgim delovanjem</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Analgetik</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, antagonist CGRP</string>
+    <string name="medication_metoclopramide_10">Metoklopramid</string>
+    <string name="medication_metoclopramide_10_class">Antiemetik</string>
+    <string name="medication_electrolytes">Elektroliti za rehidracijo</string>
+    <string name="medication_electrolytes_class">Peroralna rehidracija</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">Vitamin B2</string>
+    <string name="medication_magnesium_400">Magnezij</string>
+    <string name="medication_magnesium_400_class">Mineralni dodatek</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Zaviralec beta</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antiepileptik</string>
+    <string name="medication_amitriptyline_10">Amitriptilin</string>
+    <string name="medication_amitriptyline_10_class">Triciklični antidepresiv</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Protitelo proti CGRP, mesečno</string>
+    <string name="medication_custom_class">Lastno zdravilo</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">T%1$s</string>
+    <!-- Slovenian uses the singular verb after 5 and more: "5 od 8 napadov nima…". -->
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s od %2$s nima označenih sprožilcev</item>
+        <item quantity="two">%1$s od %2$s nimata označenih sprožilcev</item>
+        <item quantity="few">%1$s od %2$s nimajo označenih sprožilcev</item>
+        <item quantity="other">%1$s od %2$s nima označenih sprožilcev</item>
+    </plurals>
+    <!-- Genitive: the text follows "od" in insights_without_triggers. -->
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s napada</item>
+        <item quantity="two">%1$s napadov</item>
+        <item quantity="few">%1$s napadov</item>
+        <item quantity="other">%1$s napadov</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinično poročilo o migreni</string>
+    <string name="report_page">MigraTrack · Stran %1$s</string>
+    <string name="report_patient">Pacient: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Ustvarjeno %1$s</string>
+    <string name="report_disclaimer">Podatke je v MigraTrack vnesel pacient sam. Poročilo dopolnjuje klinično oceno, ne nadomešča je.</string>
+    <string name="report_stat_episodes">Zabeleženi napadi</string>
+    <string name="report_stat_migraine_days">Dnevi z migreno</string>
+    <!-- Equal to the watch caption, max 16 characters there: "Pain-free". -->
+    <string name="report_stat_pain_free_days">Brez bolečin</string>
+    <string name="report_stat_average_intensity">Povprečna jakost /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Spremljanje se je začelo %1$s. %2$s prejšnji dan tega obdobja nima zapisov in se ne šteje kot dan brez bolečin.</item>
+        <item quantity="two">Spremljanje se je začelo %1$s. %2$s prejšnja dneva tega obdobja nimata zapisov in se ne štejeta kot dneva brez bolečin.</item>
+        <item quantity="few">Spremljanje se je začelo %1$s. %2$s prejšnji dnevi tega obdobja nimajo zapisov in se ne štejejo kot dnevi brez bolečin.</item>
+        <item quantity="other">Spremljanje se je začelo %1$s. %2$s prejšnjih dni tega obdobja nima zapisov in se ne šteje kot dnevi brez bolečin.</item>
+    </plurals>
+    <string name="report_baseline_title">Izhodiščni profil</string>
+    <string name="report_baseline_diagnoses">Diagnoze</string>
+    <string name="report_baseline_frequency">Pogostost na mesec</string>
+    <string name="report_baseline_duration">Običajno trajanje</string>
+    <string name="report_baseline_intensity">Običajna jakost</string>
+    <string name="report_baseline_triggers">Znani sprožilci</string>
+    <string name="report_baseline_treatments">Načrt zdravljenja</string>
+    <string name="report_pain_chart_title">Potek jakosti bolečine (1–10)</string>
+    <string name="report_legend_mild">Blaga %1$s–%2$s</string>
+    <string name="report_legend_moderate">Zmerna %1$s–%2$s</string>
+    <string name="report_legend_severe">Huda %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Ni spremljano</string>
+    <string name="report_medication_title">Uporaba zdravil</string>
+    <string name="report_no_medications">V tem obdobju ni zabeleženih jemanj zdravil.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s jemanje</item>
+        <item quantity="two">%1$s jemanji</item>
+        <item quantity="few">%1$s jemanja</item>
+        <item quantity="other">%1$s jemanj</item>
+    </plurals>
+    <string name="report_symptoms_title">Avra in opozorilni simptomi</string>
+    <string name="report_no_symptoms">V tem obdobju ni zabeležene avre ali čutilnih simptomov.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s od %2$s napada (%3$s)</item>
+        <item quantity="two">%1$s od %2$s napadov (%3$s)</item>
+        <item quantity="few">%1$s od %2$s napadov (%3$s)</item>
+        <item quantity="other">%1$s od %2$s napadov (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Označeni možni sprožilci</string>
+    <string name="report_no_triggers">V tem obdobju ni označenih sprožilcev.</string>
+    <string name="report_triggers_note">Številke kažejo, kako pogosto je pacient ob napadu označil sprožilec. Ne kažejo vzroka.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s od %2$s nima označenih sprožilcev.</item>
+        <item quantity="two">%1$s od %2$s nimata označenih sprožilcev.</item>
+        <item quantity="few">%1$s od %2$s nimajo označenih sprožilcev.</item>
+        <item quantity="other">%1$s od %2$s nima označenih sprožilcev.</item>
+    </plurals>
+    <!-- Genitive: the text follows "od" in report_without_triggers. -->
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s napada</item>
+        <item quantity="two">%1$s napadov</item>
+        <item quantity="few">%1$s napadov</item>
+        <item quantity="other">%1$s napadov</item>
+    </plurals>
+    <string name="report_episodes_title">Napadi</string>
+    <string name="report_no_episodes">V tem obdobju ni zabeleženih napadov.</string>
+    <string name="report_column_date_time">Datum in čas</string>
+    <string name="report_column_pain">Jak.</string>
+    <string name="report_column_epicenter">Mesto bolečine</string>
+    <string name="report_column_symptoms">Simptomi</string>
+    <string name="report_column_medications">Zdravila</string>
+    <string name="report_column_triggers">Sprožilci</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Ni nastavljeno</string>
+    <string name="report_none">Brez</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Napadi</string>
+    <string name="report_sheet_medications">Zdravila</string>
+    <string name="report_sheet_daily_pain">Dnevna bolečina</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Začetek</string>
+    <string name="report_header_pain_intensity">Jakost bolečine (1–10)</string>
+    <string name="report_header_epicenter">Mesto bolečine</string>
+    <string name="report_header_symptoms">Avra in čutilni simptomi</string>
+    <string name="report_header_medications">Zdravila</string>
+    <string name="report_header_triggers">Možni sprožilci</string>
+    <string name="report_header_episode_started">Začetek napada</string>
+    <string name="report_header_medication">Zdravilo</string>
+    <string name="report_header_dose">Odmerek</string>
+    <string name="report_header_date">Datum</string>
+    <string name="report_header_peak_pain">Največja jakost bolečine (1–10, 0 = brez bolečin)</string>
+    <string name="report_header_day">Dan</string>
+    <string name="report_header_field">Polje</string>
+    <string name="report_header_value">Vrednost</string>
+    <string name="report_day_migraine">Migrena</string>
+    <string name="report_day_pain_free">Brez bolečin</string>
+    <string name="report_day_not_tracked">Ni spremljano</string>
+    <string name="report_profile_patient">Pacient</string>
+    <string name="report_profile_range">Obdobje poročila</string>
+    <string name="report_profile_tracked_since">Spremljano od</string>
+    <string name="report_profile_diagnoses">Diagnoze</string>
+    <string name="report_profile_frequency">Pogostost na mesec</string>
+    <string name="report_profile_duration">Običajno trajanje</string>
+    <string name="report_profile_intensity">Običajna jakost</string>
+    <string name="report_profile_triggers">Znani sprožilci</string>
+    <string name="report_profile_treatments">Načrt zdravljenja</string>
+    <string name="report_iso_range">%1$s do %2$s</string>
+</resources>
