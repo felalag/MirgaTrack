@@ -130,6 +130,15 @@ class ReportTest {
     }
 
     @Test
+    fun pdfLeavesAGapBetweenAKeyAndItsValue() {
+        val canvas = RecordingRenderer().also { ReportPdf.render(report(listOf(episode(20))), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }
+        val index = canvas.texts.indexOf("Monthly frequency")
+        val (keyX, keyWidth) = canvas.boxes.getValue(canvas.texts[index])
+        val (valueX, _) = canvas.boxes.getValue(canvas.texts[index + 1])
+        assertTrue(keyX + keyWidth < valueX, "The key box ends at ${keyX + keyWidth}, the value starts at $valueX.")
+    }
+
+    @Test
     fun pdfShowsTriggerFrequencyAsAShareOfEpisodesOnlyWhenSwitchedOn() {
         val episodes = listOf(episode(20), episode(21, triggers = emptyList()))
         val on = RecordingRenderer().also { ReportPdf.render(report(episodes), it, EnglishReportStrings, EnglishDateFormats, EnglishNumberFormats) }

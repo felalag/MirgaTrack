@@ -137,7 +137,7 @@ class TranslationCheck(
         for (key in catalog.strings.keys) {
             val limit = maxLength(catalog.comment(key))
             for (language in listOf(catalog.sourceLanguage) + appLanguages) {
-                if (language != catalog.sourceLanguage && catalog.shouldTranslate(key)) {
+                if (language != catalog.sourceLanguage && catalog.shouldTranslate(key) && catalog.needs(language)) {
                     val localization = catalog.localization(key, language)
                     if (localization == null) {
                         problems += "$name: \"$key\" has no $language translation."
@@ -152,6 +152,10 @@ class TranslationCheck(
             }
         }
     }
+
+    /** Siri phrases exist only for the languages that Siri speaks; Spotlight and Shortcuts show the translated title. */
+    private fun Catalog.needs(language: String): Boolean =
+        file.name != "AppShortcuts.xcstrings" || language.substringBefore('-') in SIRI_LANGUAGES
 
     private fun checkLanguageLists() {
         val infoPlist = Catalog(infoPlistCatalog)

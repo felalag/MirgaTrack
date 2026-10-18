@@ -22,6 +22,10 @@ The requirements were checked against the Apple sources in [Sources](#sources) o
 The app and the website show the same legal text. The Markdown files in `docs/legal/files/` are the only copy: the app bundles them as Compose resources, and GitHub Pages publishes them.
 The Support URL must lead to contact information, so the support page shows an email address.
 
+## Localizations
+
+English is the primary language. Each other localization has its own file in [app-store](app-store/) ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 5.4): [Russian](app-store/ru.md).
+
 ## App information
 
 | Field | Value | Limit |

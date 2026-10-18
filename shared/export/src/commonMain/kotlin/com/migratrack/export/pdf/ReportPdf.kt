@@ -141,15 +141,17 @@ private class PageCursor(
 
     private fun keyValueRows(rows: List<Pair<String, String>>) {
         val keyWidth = 130f
+        // A key that fills its column touched the value, for example "Покалывание / парестезии" in Russian.
+        val keyTextWidth = keyWidth - 8f
         val keyStyle = TextStyle(9.5f, color = Palette.SECONDARY)
         val valueStyle = TextStyle(10f)
         for ((key, value) in rows) {
             val height = maxOf(
-                canvas.measureHeight(key, keyStyle, keyWidth),
+                canvas.measureHeight(key, keyStyle, keyTextWidth),
                 canvas.measureHeight(value, valueStyle, width - keyWidth),
             )
             ensure(height + 6f)
-            canvas.drawText(key, keyStyle, left, y, keyWidth)
+            canvas.drawText(key, keyStyle, left, y, keyTextWidth)
             canvas.drawText(value, valueStyle, left + keyWidth, y, width - keyWidth)
             y += height + 6f
         }

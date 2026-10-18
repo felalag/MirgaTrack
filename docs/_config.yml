@@ -11,3 +11,7 @@ exclude:
   - review-readiness
   - LOCALIZATION_GLOSSARY.md
   - LOCALIZATION_CHECKLIST.md
+  - legal/files/be
+  - legal/files/ru
+  - app-store
+  - LOCALIZATION_BACKTRANSLATION.md

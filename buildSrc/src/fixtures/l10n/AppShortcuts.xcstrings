@@ -1,0 +1,19 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Log in ${applicationName}" : {
+      "comment" : "No pl phrase and no problem: Siri does not speak Polish.",
+      "localizations" : {
+        "en" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Log in ${applicationName}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
