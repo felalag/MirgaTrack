@@ -308,6 +308,16 @@
 				en,
 				Base,
 				be,
+				ca,
+				de,
+				es,
+				"es-ES",
+				fr,
+				"fr-CA",
+				it,
+				nl,
+				pt,
+				"pt-PT",
 				ru,
 			);
 			mainGroup = 7A0000000000000000000201;

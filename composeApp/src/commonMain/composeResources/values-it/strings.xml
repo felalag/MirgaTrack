@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Italian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Indietro</string>
+    <string name="common_settings">Impostazioni</string>
+    <string name="common_cancel">Annulla</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Salva</string>
+    <string name="common_add">Aggiungi</string>
+    <string name="common_next">Avanti</string>
+    <string name="common_on">Attivo</string>
+    <string name="common_off">Disattivo</string>
+    <string name="common_clear">Cancella</string>
+    <string name="common_none">Nessuno</string>
+    <string name="common_today">Oggi</string>
+    <string name="common_not_set">Non indicato</string>
+    <string name="common_expanded">Espanso</string>
+    <string name="common_collapsed">Compresso</string>
+    <string name="common_last_30_days">Ultimi 30 giorni</string>
+    <string name="common_medical_disclaimer">MigraTrack è un diario, non un consiglio medico. Si rivolga al suo medico prima di modificare la terapia.</string>
+    <string name="common_log_migraine_episode">Annota attacco di emicrania</string>
+    <string name="common_save_episode">Salva</string>
+    <string name="common_edit_episode">Modifica attacco</string>
+    <string name="common_delete_episode">Elimina attacco</string>
+    <string name="common_intensity_of_ten">Intensità %1$s/10</string>
+    <string name="common_date_at_time">%1$s alle %2$s</string>
+    <string name="common_possible_triggers">Possibili fattori scatenanti</string>
+    <string name="common_add_trigger">Aggiungi fattore scatenante</string>
+    <string name="common_add_medication">Aggiungi farmaco</string>
+    <string name="common_treatment_blueprint">Piano terapeutico</string>
+    <string name="common_medication_name_and_dose">Inserisca il nome e la dose.</string>
+    <string name="common_medication_placeholder">Ad esempio, eletriptan 40 mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Riepilogo</string>
+    <string name="tab_log">Annota</string>
+    <string name="tab_insights">Analisi</string>
+    <string name="tab_export">Esporta</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Intensità del dolore</string>
+    <string name="pain_scale_value">%1$s su 10</string>
+    <string name="pain_scale_low">%1$s Lieve</string>
+    <string name="pain_scale_middle">%1$s Avvertibile</string>
+    <string name="pain_scale_high">%1$s Invalidante</string>
+    <string name="medication_remove">Rimuovi %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s h %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Oggi, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">su %1$s giorno monitorato</item>
+        <item quantity="many">su %1$s giorni monitorati</item>
+        <item quantity="other">su %1$s giorni monitorati</item>
+    </plurals>
+    <string name="summary_without_logged_episode">senza attacchi annotati</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s su %2$s giorno monitorato senza attacchi annotati negli ultimi 30 giorni</item>
+        <item quantity="many">%1$s su %2$s giorni monitorati senza attacchi annotati negli ultimi 30 giorni</item>
+        <item quantity="other">%1$s su %2$s giorni monitorati senza attacchi annotati negli ultimi 30 giorni</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Il conteggio parte dal giorno in cui ha iniziato il monitoraggio. I giorni precedenti non sono monitorati.</string>
+    <string name="strip_legend_migraine">Emicrania</string>
+    <string name="strip_legend_pain_free">Senza dolore</string>
+    <string name="strip_legend_not_tracked">Non monitorato</string>
+    <string name="summary_sleep_last_night">Sonno di stanotte</string>
+    <string name="summary_sleep_not_recorded">Non registrato</string>
+    <string name="summary_sleep_hint">Indossi Apple Watch a letto o registri il sonno nell’app Salute. Se ha disattivato l’accesso, lo attivi in Impostazioni › Salute.</string>
+    <string name="summary_sleep_caption">Sonno</string>
+    <string name="summary_sleep_connect_title">Veda il sonno di stanotte nel riepilogo</string>
+    <string name="summary_sleep_connect_body">MigraTrack legge il sonno di stanotte dall’app Salute. I dati restano su questo iPhone.</string>
+    <string name="summary_sleep_connect_button">Collega l’app Salute</string>
+    <string name="summary_last_episode">Ultimo attacco</string>
+    <string name="summary_last_episode_none">Ancora nessuno</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Annota attacco</string>
+    <string name="episode_update">Aggiorna attacco</string>
+    <string name="episode_updated_banner">Attacco aggiornato.</string>
+    <string name="episode_deleted_banner">Attacco eliminato.</string>
+    <string name="episode_saved_banner">Attacco salvato. Si riposi e resti in un ambiente poco illuminato.</string>
+    <string name="episode_pain_intensity_index">Intensità del dolore</string>
+    <string name="episode_cranial_epicenter">Sede del dolore</string>
+    <string name="episode_aura_symptoms">Aura e sintomi sensoriali</string>
+    <string name="episode_acute_therapy">Terapia dell’attacco</string>
+    <string name="episode_add_medication_row">Aggiungi farmaco o elettroliti</string>
+    <string name="episode_start">Inizio dell’attacco</string>
+    <string name="episode_start_now">Ora</string>
+    <string name="episode_add_trigger_message">Che cosa è successo prima di questo attacco?</string>
+    <string name="episode_other_trigger_action">Altro fattore…</string>
+    <string name="episode_other_trigger_title">Altro fattore scatenante</string>
+    <string name="episode_other_trigger_message">Indichi qualcosa che è successo prima di questo attacco.</string>
+    <string name="episode_other_trigger_placeholder">Ad esempio, profumo intenso</string>
+    <string name="episode_add_medication_message">Che cosa ha preso per questo attacco?</string>
+    <string name="episode_other_medication_action">Altro farmaco…</string>
+    <string name="episode_other_medication_title">Altro farmaco</string>
+    <string name="episode_missing_title">Attacco eliminato</string>
+    <string name="episode_missing_message">Questo attacco è stato eliminato su un altro dispositivo, quindi non è possibile salvare le modifiche.</string>
+    <string name="episode_delete_message">Intensità %1$s/10. L’attacco sparisce dalla cronologia e dai report.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">S</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">A</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">attacco questa settimana</item>
+        <item quantity="many">attacchi questa settimana</item>
+        <item quantity="other">attacchi questa settimana</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">attacco nella settimana del %1$s</item>
+        <item quantity="many">attacchi nella settimana del %1$s</item>
+        <item quantity="other">attacchi nella settimana del %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">attacco in %1$s</item>
+        <item quantity="many">attacchi in %1$s</item>
+        <item quantity="other">attacchi in %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">attacco in 6 mesi</item>
+        <item quantity="many">attacchi in 6 mesi</item>
+        <item quantity="other">attacchi in 6 mesi</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">attacco nel %1$s</item>
+        <item quantity="many">attacchi nel %1$s</item>
+        <item quantity="other">attacchi nel %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s per cento di attacchi in meno rispetto al periodo precedente</string>
+    <string name="insights_trend_more">%1$s per cento di attacchi in più rispetto al periodo precedente</string>
+    <string name="insights_legend_migraine_day">Con emicrania</string>
+    <string name="insights_legend_pain_free_day">Senza dolore</string>
+    <string name="insights_legend_not_tracked">Non monitorato</string>
+    <string name="insights_bar_no_data">%1$s: ancora nessun dato</string>
+    <string name="insights_bar_not_tracked">%1$s: non monitorato</string>
+    <string name="insights_bar_pain_free">%1$s: senza dolore</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s giorno con emicrania, massimo %3$s su 10</item>
+        <item quantity="many">%1$s: %2$s giorni con emicrania, massimo %3$s su 10</item>
+        <item quantity="other">%1$s: %2$s giorni con emicrania, massimo %3$s su 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Annoti i possibili fattori scatenanti quando annota o modifica un attacco. Questa scheda mostrerà quante volte ha annotato ciascuno.</string>
+    <string name="insights_triggers_hint">Quante volte ha annotato ogni fattore scatenante insieme a un attacco. Questo non indica una causa.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, annotato in %2$s su %3$s attacco</item>
+        <item quantity="many">%1$s, annotato in %2$s su %3$s attacchi</item>
+        <item quantity="other">%1$s, annotato in %2$s su %3$s attacchi</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s su %2$s</string>
+    <string name="insights_calendar_a11y">Calendario, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s attacco.</item>
+        <item quantity="many">%1$s: %2$s attacchi.</item>
+        <item quantity="other">%1$s: %2$s attacchi.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Intensità %2$s/10</string>
+    <string name="insights_month_picker_title">Mese</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Mese precedente</string>
+    <string name="calendar_next_month">Mese successivo</string>
+    <string name="calendar_choose_month_a11y">%1$s, scegli un altro mese</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">Emicrania: %1$s g</item>
+        <item quantity="many">Emicrania: %1$s gg</item>
+        <item quantity="other">Emicrania: %1$s gg</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Oggi, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">non disponibile</string>
+    <string name="calendar_day_not_tracked">non monitorato</string>
+    <string name="calendar_day_no_episodes">nessun attacco</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s attacco, massimo %2$s su 10</item>
+        <item quantity="many">%1$s attacchi, massimo %2$s su 10</item>
+        <item quantity="other">%1$s attacchi, massimo %2$s su 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s attacco</item>
+        <item quantity="many">%1$s attacchi</item>
+        <item quantity="other">%1$s attacchi</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Intensità massima</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Farmaci</string>
+    <string name="calendar_edit_episode_details">Modifica dettagli attacco</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Preparazione PDF…</string>
+    <string name="export_preparing_excel">Preparazione Excel…</string>
+    <string name="export_preparing_report">Preparazione report…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">attacco</item>
+        <item quantity="many">attacchi</item>
+        <item quantity="other">attacchi</item>
+    </plurals>
+    <string name="export_episodes_recorded">Attacchi registrati</string>
+    <string name="export_include">Includi nell’esportazione</string>
+    <string name="export_medications">Assunzioni di farmaci</string>
+    <string name="export_medications_subtitle">Dosaggi e totali d’uso</string>
+    <string name="export_symptoms">Aura e sintomi premonitori</string>
+    <string name="export_symptoms_subtitle">Tipi di aura e loro frequenza</string>
+    <string name="export_triggers_subtitle">Fattori scatenanti annotati e loro frequenza</string>
+    <string name="export_pain_charts">Grafici dell’intensità del dolore</string>
+    <string name="export_pain_charts_subtitle">Andamento dell’intensità del dolore, 1–⁠10</string>
+    <string name="export_pdf">Esporta report PDF</string>
+    <string name="export_excel">Esporta in Excel (.xlsx)</string>
+    <string name="export_share">Condividi</string>
+    <string name="export_range_title">Periodo del report</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Report MigraTrack: %1$s attacco, %2$s.</item>
+        <item quantity="many">Report MigraTrack: %1$s attacchi, %2$s.</item>
+        <item quantity="other">Report MigraTrack: %1$s attacchi, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Esportazione non riuscita</string>
+    <string name="export_failed_message">Non è stato possibile creare il report.</string>
+    <string name="export_write_failed">Impossibile salvare %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s fattore scatenante noto</item>
+        <item quantity="many">%1$s fattori scatenanti noti</item>
+        <item quantity="other">%1$s fattori scatenanti noti</item>
+    </plurals>
+    <string name="settings_no_triggers">Nessun fattore scatenante selezionato</string>
+    <string name="settings_no_medications">Nessun farmaco selezionato</string>
+    <string name="settings_name_title">Il suo nome</string>
+    <string name="settings_name_message">Compare nei report che esporta.</string>
+    <string name="settings_name_placeholder">Nome</string>
+    <string name="settings_delete_title">Eliminare tutti i dati?</string>
+    <string name="settings_delete_message">MigraTrack conserva i suoi dati su questo iPhone e una copia sul suo Apple Watch. Questa azione elimina per sempre tutti gli attacchi e il profilo iniziale; l’orologio elimina la sua copia alla prossima sincronizzazione. I backup del dispositivo mantengono la loro copia. Se le serve un report, lo esporti prima.</string>
+    <string name="settings_delete_all">Elimina tutti i dati</string>
+    <string name="settings_section_baseline">Profilo iniziale e terapia</string>
+    <string name="settings_baseline_diagnoses">Diagnosi</string>
+    <string name="settings_known_triggers">Fattori scatenanti noti</string>
+    <string name="settings_section_preferences">Preferenze</string>
+    <string name="settings_appearance">Aspetto</string>
+    <string name="settings_appearance_value">Scuro (fisso)</string>
+    <string name="settings_version">Versione</string>
+    <string name="settings_version_value">v%1$s (build %2$s)</string>
+    <string name="settings_section_legal">Note legali</string>
+    <string name="settings_section_developer">Sviluppatore</string>
+    <string name="settings_load_sample_data">Carica dati di esempio</string>
+    <string name="settings_load_sample_data_subtitle">Aggiunge un anno di attacchi generati per vedere i grafici</string>
+    <string name="settings_edit_name_a11y">Modifica nome</string>
+    <string name="settings_add_name">Aggiunga il suo nome</string>
+    <string name="settings_member">Diario dal</string>
+    <string name="settings_episodes">Attacchi</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s annotato</item>
+        <item quantity="many">%1$s annotati</item>
+        <item quantity="other">%1$s annotati</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Informativa sulla privacy</string>
+    <string name="legal_terms_of_service">Termini di servizio</string>
+    <string name="legal_folder">it</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Vai ai fattori scatenanti</string>
+    <string name="onboarding_continue_to_medications">Vai ai farmaci</string>
+    <string name="onboarding_finish_setup">Completa la configurazione</string>
+    <string name="onboarding_back_to_diagnoses">Torna alle diagnosi</string>
+    <string name="onboarding_back_to_triggers">Torna ai fattori scatenanti</string>
+    <string name="onboarding_save_changes">Salva le modifiche</string>
+    <string name="onboarding_step">Passo %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnosi e anamnesi</string>
+    <string name="onboarding_diagnoses_subtitle">Imposti il suo profilo iniziale. Attacchi e report partono da questo profilo.</string>
+    <string name="onboarding_primary_diagnosis">Diagnosi principale</string>
+    <string name="onboarding_episode_frequency">Attacchi al mese</string>
+    <string name="onboarding_episode_duration">Durata abituale di un attacco</string>
+    <string name="onboarding_intensity_baseline">Intensità abituale del dolore</string>
+    <string name="onboarding_update_later">Può modificare il profilo iniziale in qualsiasi momento nelle impostazioni.</string>
+    <string name="onboarding_triggers_title">I suoi fattori scatenanti</string>
+    <string name="onboarding_triggers_subtitle">Scelga i fattori scatenanti noti o sospetti. Il report li mostra al suo medico.</string>
+    <string name="onboarding_add_custom_trigger">Aggiungi fattore personale</string>
+    <string name="onboarding_treatment_subtitle">Scelga che cosa assume. I farmaci per l’attacco sono già compilati in ogni nuovo attacco, così basta un tocco.</string>
+    <string name="onboarding_add_custom_medication">Aggiungi farmaco personale</string>
+    <string name="onboarding_custom_trigger_title">Fattore scatenante personale</string>
+    <string name="onboarding_custom_trigger_message">Indichi qualcosa che spesso le scatena l’emicrania.</string>
+    <string name="onboarding_custom_trigger_placeholder">Ad esempio, luci lampeggianti</string>
+    <string name="onboarding_medication_role_message">Quando lo assume?</string>
+    <string name="onboarding_medication_role_acute">Durante un attacco (terapia acuta)</string>
+    <string name="onboarding_medication_role_preventive">Ogni giorno (profilassi)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Diario personale di emicrania e fattori scatenanti</string>
+    <string name="welcome_example">Esempio</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">giorno senza dolore</item>
+        <item quantity="many">giorni senza dolore</item>
+        <item quantity="other">giorni senza dolore</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Esempio: %1$s giorno senza dolore negli ultimi 30 giorni</item>
+        <item quantity="many">Esempio: %1$s giorni senza dolore negli ultimi 30 giorni</item>
+        <item quantity="other">Esempio: %1$s giorni senza dolore negli ultimi 30 giorni</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Capisca le sue ricorrenze.</string>
+    <string name="welcome_headline_doctor">Porti i fatti al suo medico.</string>
+    <string name="welcome_body">Registri i sintomi, individui i possibili fattori scatenanti ed esporti i suoi report quando vuole.</string>
+    <string name="welcome_get_started">Inizia</string>
+    <string name="welcome_agreement">Continuando, accetta i %1$s e l’%2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Emicrania senza aura</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Forma comune di emicrania</string>
+    <string name="diagnosis_migraine_with_aura">Emicrania con aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Aura focale visiva o sensitiva</string>
+    <string name="diagnosis_chronic_migraine">Emicrania cronica</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 o più giorni di cefalea al mese</string>
+    <string name="diagnosis_tension_type">Cefalea di tipo tensivo</string>
+    <string name="diagnosis_tension_type_subtitle">Tensione costrittiva, come una fascia</string>
+    <string name="diagnosis_cluster">Cefalea a grappolo</string>
+    <string name="diagnosis_cluster_subtitle">Attacchi intensi, da un lato, intorno all’occhio</string>
+    <string name="diagnosis_not_diagnosed">Non diagnosticata / in valutazione</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Osservazione dei sintomi</string>
+    <string name="frequency_less_than_one">&lt; 1/mese</string>
+    <string name="frequency_one_to_four">1–4/mese</string>
+    <string name="frequency_five_to_eight">5–7/mese</string>
+    <string name="frequency_eight_plus">8+/mese</string>
+    <string name="duration_two_to_four">2–4 h</string>
+    <string name="duration_four_to_twelve">4–12 h</string>
+    <string name="duration_twelve_to_twenty_four">12–24 h</string>
+    <string name="duration_one_to_three_days">24–72 h</string>
+    <string name="region_left_temple">Tempia sinistra</string>
+    <string name="region_right_temple">Tempia destra</string>
+    <string name="region_frontal_brow">Fronte / sopracciglia</string>
+    <string name="region_retro_orbital">Dietro l’occhio</string>
+    <string name="region_occipital_neck">Nuca e collo</string>
+    <string name="symptom_scintillating_scotoma">Scotoma scintillante (visivo)</string>
+    <string name="symptom_scintillating_scotoma_short">Aura visiva</string>
+    <string name="symptom_neck_stiffness">Rigidità del collo</string>
+    <string name="symptom_neck_stiffness_short">Collo rigido</string>
+    <string name="symptom_photophobia">Fotofobia (luce)</string>
+    <string name="symptom_photophobia_short">Luce</string>
+    <string name="symptom_nausea">Nausea</string>
+    <string name="symptom_nausea_short">Nausea</string>
+    <string name="symptom_phonophobia">Fonofobia (rumore)</string>
+    <string name="symptom_phonophobia_short">Rumore</string>
+    <string name="symptom_aphasia">Afasia / annebbiamento</string>
+    <string name="symptom_aphasia_short">Annebbiamento</string>
+    <string name="symptom_paresthesia">Formicolio / parestesie</string>
+    <string name="symptom_paresthesia_short">Formicolio</string>
+    <string name="trigger_category_weather_environment">Meteo e ambiente</string>
+    <string name="trigger_category_sleep_physical">Sonno e routine fisica</string>
+    <string name="trigger_category_stress_emotions">Stress ed emozioni</string>
+    <string name="trigger_category_hormonal">Ormoni</string>
+    <string name="trigger_category_diet_consumption">Alimentazione e consumi</string>
+    <string name="trigger_category_custom">Personali</string>
+    <string name="medication_role_acute">Terapia dell’attacco</string>
+    <string name="medication_role_preventive">Profilassi e integratori</string>
+    <string name="export_range_last_30_days">Ultimi 30 giorni</string>
+    <string name="export_range_last_90_days">Ultimi 90 giorni</string>
+    <string name="export_range_last_6_months">Ultimi 6 mesi</string>
+    <string name="export_range_last_12_months">Ultimi 12 mesi</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Calo di pressione atmosferica</string>
+    <string name="trigger_barometric_pressure_description">Fronti meteo, cambi di altitudine</string>
+    <string name="trigger_bright_light">Luce intensa e sole</string>
+    <string name="trigger_bright_light_description">Abbagliamento, luci stroboscopiche, fotofobia</string>
+    <string name="trigger_heat_humidity">Caldo / umidità estremi</string>
+    <string name="trigger_heat_humidity_description">Sbalzi di temperatura</string>
+    <string name="trigger_loud_noise">Rumore forte</string>
+    <string name="trigger_loud_noise_description">Fonofobia, picchi sonori</string>
+    <string name="trigger_poor_sleep">Sonno scarso / irregolare</string>
+    <string name="trigger_poor_sleep_description">Debito di sonno, poco sonno REM</string>
+    <string name="trigger_dehydration">Disidratazione</string>
+    <string name="trigger_dehydration_description">Perdita di elettroliti</string>
+    <string name="trigger_skipped_meals">Pasti saltati / digiuno</string>
+    <string name="trigger_skipped_meals_description">Soglia di ipoglicemia</string>
+    <string name="trigger_overexertion">Sforzo fisico eccessivo</string>
+    <string name="trigger_overexertion_description">Carico vascolare da sforzo</string>
+    <string name="trigger_emotional_stress">Stress emotivo / rilassamento dopo</string>
+    <string name="trigger_emotional_stress_description">Calo della tensione dopo il lavoro</string>
+    <string name="trigger_screen_fatigue">Affaticamento da schermi</string>
+    <string name="trigger_screen_fatigue_description">Eccesso di luce blu, convergenza</string>
+    <string name="trigger_hormonal_cycle">Variazioni ormonali / ciclo</string>
+    <string name="trigger_hormonal_cycle_description">Variazioni del ciclo mestruale</string>
+    <string name="trigger_caffeine">Astinenza o eccesso di caffeina</string>
+    <string name="trigger_caffeine_description">Variazioni dei recettori dell’adenosina</string>
+    <string name="trigger_aged_cheese">Formaggi stagionati / tiramina</string>
+    <string name="trigger_aged_cheese_description">Sensibilità alle ammine da fermentazione</string>
+    <string name="trigger_alcohol">Alcol / vino rosso</string>
+    <string name="trigger_alcohol_description">Tannini, istamina</string>
+    <string name="trigger_sweeteners">Dolcificanti artificiali</string>
+    <string name="trigger_sweeteners_description">Aspartame, sucralosio</string>
+    <string name="trigger_custom_description">Fattore personale</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">Ibuprofene</string>
+    <string name="medication_ibuprofen_400_class">Adiuvante antinfiammatorio</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptano, agonista della serotonina</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptano, orodispersibile</string>
+    <string name="medication_naproxen_500">Naprossene</string>
+    <string name="medication_naproxen_500_class">FANS a lunga durata</string>
+    <string name="medication_acetaminophen_1000">Paracetamolo</string>
+    <string name="medication_acetaminophen_1000_class">Analgesico</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepante, antagonista del CGRP</string>
+    <string name="medication_metoclopramide_10">Metoclopramide</string>
+    <string name="medication_metoclopramide_10_class">Antiemetico</string>
+    <string name="medication_electrolytes">Elettroliti orali</string>
+    <string name="medication_electrolytes_class">Reidratazione orale</string>
+    <string name="medication_riboflavin_400">Riboflavina</string>
+    <string name="medication_riboflavin_400_class">Vitamina B2</string>
+    <string name="medication_magnesium_400">Magnesio</string>
+    <string name="medication_magnesium_400_class">Integratore minerale</string>
+    <string name="medication_propranolol_40">Propranololo</string>
+    <string name="medication_propranolol_40_class">Betabloccante</string>
+    <string name="medication_topiramate_50">Topiramato</string>
+    <string name="medication_topiramate_50_class">Antiepilettico</string>
+    <string name="medication_amitriptyline_10">Amitriptilina</string>
+    <string name="medication_amitriptyline_10_class">Antidepressivo triciclico</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Anticorpo anti-CGRP, mensile</string>
+    <string name="medication_custom_class">Farmaco personale</string>
+    <string name="medication_dose_milligrams">%1$s mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">S%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s su %2$s non ha fattori scatenanti annotati</item>
+        <item quantity="many">%1$s su %2$s non hanno fattori scatenanti annotati</item>
+        <item quantity="other">%1$s su %2$s non hanno fattori scatenanti annotati</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s attacco</item>
+        <item quantity="many">%1$s attacchi</item>
+        <item quantity="other">%1$s attacchi</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Report clinico dell’emicrania</string>
+    <string name="report_page">MigraTrack · Pagina %1$s</string>
+    <string name="report_patient">Paziente: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Creato il %1$s</string>
+    <string name="report_disclaimer">Dati inseriti dal paziente in MigraTrack. Questo report supporta una valutazione clinica e non la sostituisce.</string>
+    <string name="report_stat_episodes">Attacchi registrati</string>
+    <string name="report_stat_migraine_days">Giorni con emicrania</string>
+    <string name="report_stat_pain_free_days">Senza dolore</string>
+    <string name="report_stat_average_intensity">Intensità media /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Il monitoraggio è iniziato il %1$s. %2$s giorno precedente di questo periodo non ha dati e non conta come giorno senza dolore.</item>
+        <item quantity="many">Il monitoraggio è iniziato il %1$s. %2$s giorni precedenti di questo periodo non hanno dati e non contano come giorni senza dolore.</item>
+        <item quantity="other">Il monitoraggio è iniziato il %1$s. %2$s giorni precedenti di questo periodo non hanno dati e non contano come giorni senza dolore.</item>
+    </plurals>
+    <string name="report_baseline_title">Profilo iniziale</string>
+    <string name="report_baseline_diagnoses">Diagnosi</string>
+    <string name="report_baseline_frequency">Frequenza mensile</string>
+    <string name="report_baseline_duration">Durata abituale</string>
+    <string name="report_baseline_intensity">Intensità abituale</string>
+    <string name="report_baseline_triggers">Fattori scatenanti noti</string>
+    <string name="report_baseline_treatments">Piano terapeutico</string>
+    <string name="report_pain_chart_title">Andamento dell’intensità del dolore (1–10)</string>
+    <string name="report_legend_mild">Lieve %1$s–%2$s</string>
+    <string name="report_legend_moderate">Moderato %1$s–%2$s</string>
+    <string name="report_legend_severe">Forte %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Non monitorato</string>
+    <string name="report_medication_title">Uso dei farmaci</string>
+    <string name="report_no_medications">Nessuna assunzione di farmaci annotata in questo periodo.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s assunzione</item>
+        <item quantity="many">%1$s assunzioni</item>
+        <item quantity="other">%1$s assunzioni</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura e sintomi premonitori</string>
+    <string name="report_no_symptoms">Nessuna aura né sintomo sensoriale annotato in questo periodo.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s su %2$s attacco (%3$s)</item>
+        <item quantity="many">%1$s su %2$s attacchi (%3$s)</item>
+        <item quantity="other">%1$s su %2$s attacchi (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Possibili fattori scatenanti annotati</string>
+    <string name="report_no_triggers">Nessun fattore scatenante annotato in questo periodo.</string>
+    <string name="report_triggers_note">I numeri mostrano quante volte il paziente ha annotato un fattore scatenante insieme a un attacco. Non indicano una causa.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s su %2$s non ha fattori scatenanti annotati.</item>
+        <item quantity="many">%1$s su %2$s non hanno fattori scatenanti annotati.</item>
+        <item quantity="other">%1$s su %2$s non hanno fattori scatenanti annotati.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s attacco</item>
+        <item quantity="many">%1$s attacchi</item>
+        <item quantity="other">%1$s attacchi</item>
+    </plurals>
+    <string name="report_episodes_title">Attacchi</string>
+    <string name="report_no_episodes">Nessun attacco registrato in questo periodo.</string>
+    <string name="report_column_date_time">Data e ora</string>
+    <string name="report_column_pain">Int.</string>
+    <string name="report_column_epicenter">Sede</string>
+    <string name="report_column_symptoms">Sintomi</string>
+    <string name="report_column_medications">Farmaci</string>
+    <string name="report_column_triggers">Scatenanti</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Non indicato</string>
+    <string name="report_none">Nessuno</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Attacchi</string>
+    <string name="report_sheet_medications">Farmaci</string>
+    <string name="report_sheet_daily_pain">Dolore giornaliero</string>
+    <string name="report_sheet_profile">Profilo</string>
+    <string name="report_header_started">Inizio</string>
+    <string name="report_header_pain_intensity">Intensità del dolore (1–10)</string>
+    <string name="report_header_epicenter">Sede del dolore</string>
+    <string name="report_header_symptoms">Aura e sintomi sensoriali</string>
+    <string name="report_header_medications">Farmaci</string>
+    <string name="report_header_triggers">Possibili fattori scatenanti</string>
+    <string name="report_header_episode_started">Inizio dell’attacco</string>
+    <string name="report_header_medication">Farmaco</string>
+    <string name="report_header_dose">Dose</string>
+    <string name="report_header_date">Data</string>
+    <string name="report_header_peak_pain">Intensità massima del dolore (1–10, 0 = senza dolore)</string>
+    <string name="report_header_day">Giorno</string>
+    <string name="report_header_field">Campo</string>
+    <string name="report_header_value">Valore</string>
+    <string name="report_day_migraine">Emicrania</string>
+    <string name="report_day_pain_free">Senza dolore</string>
+    <string name="report_day_not_tracked">Non monitorato</string>
+    <string name="report_profile_patient">Paziente</string>
+    <string name="report_profile_range">Periodo del report</string>
+    <string name="report_profile_tracked_since">Monitorato dal</string>
+    <string name="report_profile_diagnoses">Diagnosi</string>
+    <string name="report_profile_frequency">Frequenza mensile</string>
+    <string name="report_profile_duration">Durata abituale</string>
+    <string name="report_profile_intensity">Intensità abituale</string>
+    <string name="report_profile_triggers">Fattori scatenanti noti</string>
+    <string name="report_profile_treatments">Piano terapeutico</string>
+    <string name="report_iso_range">dal %1$s al %2$s</string>
+</resources>

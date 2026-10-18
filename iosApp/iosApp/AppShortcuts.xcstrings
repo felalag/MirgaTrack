@@ -5,12 +5,93 @@
       "comment" : "Siri phrases. Keep ${applicationName}; Siri puts the app name there. Translate only for languages that Siri supports.",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "de" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Migräne in ${applicationName} eintragen",
+              "Neue Attacke in ${applicationName}"
+            ]
+          }
+        },
         "en" : {
           "stringSet" : {
             "state" : "new",
             "values" : [
               "Log a migraine in ${applicationName}",
               "Log migraine with ${applicationName}"
+            ]
+          }
+        },
+        "es" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrar una migraña en ${applicationName}",
+              "Nueva crisis en ${applicationName}"
+            ]
+          }
+        },
+        "es-ES" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrar una migraña en ${applicationName}",
+              "Nueva crisis en ${applicationName}"
+            ]
+          }
+        },
+        "fr" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Noter une migraine dans ${applicationName}",
+              "Nouvelle crise dans ${applicationName}"
+            ]
+          }
+        },
+        "fr-CA" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Noter une migraine dans ${applicationName}",
+              "Nouvelle crise dans ${applicationName}"
+            ]
+          }
+        },
+        "it" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Annota un’emicrania in ${applicationName}",
+              "Nuovo attacco in ${applicationName}"
+            ]
+          }
+        },
+        "nl" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Migraine noteren in ${applicationName}",
+              "Nieuwe aanval in ${applicationName}"
+            ]
+          }
+        },
+        "pt" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registrar uma enxaqueca no ${applicationName}",
+              "Nova crise no ${applicationName}"
+            ]
+          }
+        },
+        "pt-PT" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Registar uma enxaqueca no ${applicationName}",
+              "Nova crise no ${applicationName}"
             ]
           }
         },

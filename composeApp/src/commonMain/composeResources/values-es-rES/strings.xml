@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Spanish (Spain) strings: only the keys that differ from values-es, which holds the Latin American text.
+  iOS in Spain says "Ajustes", "Añadir" and "Introduzca"; SEN and CIMA give the medical terms.
+-->
+<resources>
+    <string name="common_settings">Ajustes</string>
+    <string name="common_add">Añadir</string>
+    <string name="common_add_trigger">Añadir desencadenante</string>
+    <string name="common_add_medication">Añadir medicamento</string>
+    <string name="common_medication_name_and_dose">Introduzca el nombre y la dosis.</string>
+    <string name="summary_sleep_hint">Use el Apple Watch para dormir o registre el sueño en la app Salud. Si desactivó el acceso, actívelo en Ajustes › Salud.</string>
+    <string name="episode_add_medication_row">Añadir medicamento o electrolitos</string>
+    <string name="export_pain_charts">Gráficos de intensidad del dolor</string>
+    <string name="settings_delete_message">MigraTrack guarda sus datos en este iPhone y una copia en su Apple Watch. Esta acción elimina de forma permanente todas las crisis y su perfil inicial; el reloj elimina su copia en la próxima sincronización. Las copias de seguridad del dispositivo conservan su copia. Si necesita un informe, expórtelo antes.</string>
+    <string name="settings_load_sample_data_subtitle">Añade un año de crisis generadas para ver los gráficos</string>
+    <string name="settings_add_name">Añada su nombre</string>
+    <string name="onboarding_update_later">Puede cambiar su perfil inicial en cualquier momento en Ajustes.</string>
+    <string name="onboarding_add_custom_trigger">Añadir desencadenante propio</string>
+    <string name="onboarding_add_custom_medication">Añadir medicamento propio</string>
+    <string name="medication_propranolol_40_class">Betabloqueante</string>
+    <string name="medication_topiramate_50_class">Antiepiléptico</string>
+</resources>

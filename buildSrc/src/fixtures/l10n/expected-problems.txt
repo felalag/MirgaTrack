@@ -1,5 +1,6 @@
 values-pl_PL: Compose resources cannot read this folder name. Use values-xx, values-xx-rYY or values-b+xx+Scrp.
-values-de-rAT: legal_folder belongs in the folder of the language, not of a region.
+values-de-rAT: values-de is missing; a regional folder holds only the keys that differ from it.
+values-de-rAT: legal_folder must be "de-AT", or left out to use the folder of the language.
 values-en-rXA: pseudo-locales are build output. Do not commit them.
 values-pl: key farewell is missing.
 values-pl: key unused is not in values.
@@ -13,7 +14,12 @@ values-pl: font_family must be "brand" for the script of pl.
 App.xcstrings: "Log in" in en has 6 characters, the limit is 3: "Log in".
 App.xcstrings: "Log in" has no pl translation.
 App.xcstrings: "Hello" in pl is not in the state "translated".
+App.xcstrings: "Log in" has no de-AT translation.
+App.xcstrings: "Hello" has no de-AT translation.
+AppShortcuts.xcstrings: "Log in ${applicationName}" has no de-AT translation.
 InfoPlist.xcstrings languages: pl is missing; the Compose resources have it.
+InfoPlist.xcstrings languages: de-AT is missing; the Compose resources have it.
+knownRegions in app.xcodeproj/project.pbxproj: de-AT is missing; the Compose resources have it.
 knownRegions in app.xcodeproj/project.pbxproj: de has no folder in the Compose resources.
 docs/legal/files/pl: privacy.md is missing.
 docs/_config.yml: exclude legal/files/pl, so the website stays English.

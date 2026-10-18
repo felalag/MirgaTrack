@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dutch strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Terug</string>
+    <string name="common_settings">Instellingen</string>
+    <string name="common_cancel">Annuleren</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Opslaan</string>
+    <string name="common_add">Toevoegen</string>
+    <string name="common_next">Volgende</string>
+    <string name="common_on">Aan</string>
+    <string name="common_off">Uit</string>
+    <string name="common_clear">Wissen</string>
+    <string name="common_none">Geen</string>
+    <string name="common_today">Vandaag</string>
+    <string name="common_not_set">Niet ingevuld</string>
+    <string name="common_expanded">Uitgevouwen</string>
+    <string name="common_collapsed">Samengevouwen</string>
+    <string name="common_last_30_days">Laatste 30 dagen</string>
+    <string name="common_medical_disclaimer">MigraTrack is een dagboek, geen medisch advies. Overleg met uw arts voordat u uw behandeling verandert.</string>
+    <string name="common_log_migraine_episode">Migraineaanval noteren</string>
+    <string name="common_save_episode">Opslaan</string>
+    <string name="common_edit_episode">Aanval bewerken</string>
+    <string name="common_delete_episode">Aanval verwijderen</string>
+    <string name="common_intensity_of_ten">Pijn %1$s/10</string>
+    <string name="common_date_at_time">%1$s om %2$s</string>
+    <string name="common_possible_triggers">Mogelijke triggers</string>
+    <string name="common_add_trigger">Trigger toevoegen</string>
+    <string name="common_add_medication">Medicijn toevoegen</string>
+    <string name="common_treatment_blueprint">Behandelplan</string>
+    <string name="common_medication_name_and_dose">Voer de naam en de dosis in.</string>
+    <string name="common_medication_placeholder">Bijvoorbeeld eletriptan 40 mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Overzicht</string>
+    <string name="tab_log">Noteren</string>
+    <string name="tab_insights">Inzichten</string>
+    <string name="tab_export">Exporteren</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Pijnintensiteit</string>
+    <string name="pain_scale_value">%1$s van 10</string>
+    <string name="pain_scale_low">%1$s Gedempt</string>
+    <string name="pain_scale_middle">%1$s Merkbaar</string>
+    <string name="pain_scale_high">%1$s Verlammend</string>
+    <string name="medication_remove">%1$s verwijderen</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s u %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Vandaag, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">van %1$s bijgehouden dag</item>
+        <item quantity="other">van %1$s bijgehouden dagen</item>
+    </plurals>
+    <string name="summary_without_logged_episode">zonder genoteerde aanval</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s van %2$s bijgehouden dag zonder genoteerde aanval in de laatste 30 dagen</item>
+        <item quantity="other">%1$s van %2$s bijgehouden dagen zonder genoteerde aanval in de laatste 30 dagen</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Geteld vanaf de dag waarop u begon met bijhouden. Eerdere dagen zijn niet bijgehouden.</string>
+    <string name="strip_legend_migraine">Migraine</string>
+    <string name="strip_legend_pain_free">Pijnvrij</string>
+    <string name="strip_legend_not_tracked">Geen gegevens</string>
+    <string name="summary_sleep_last_night">Slaap vannacht</string>
+    <string name="summary_sleep_not_recorded">Niet geregistreerd</string>
+    <string name="summary_sleep_hint">Draag uw Apple Watch tijdens het slapen of houd uw slaap bij in de Gezondheid-app. Als u de toegang hebt uitgeschakeld, schakel die dan in via Instellingen › Gezondheid.</string>
+    <string name="summary_sleep_caption">Slaap</string>
+    <string name="summary_sleep_connect_title">Zie de slaap van vannacht in het overzicht</string>
+    <string name="summary_sleep_connect_body">MigraTrack leest de slaap van vannacht uit de Gezondheid-app. De gegevens blijven op deze iPhone.</string>
+    <string name="summary_sleep_connect_button">Gezondheid koppelen</string>
+    <string name="summary_last_episode">Laatste aanval</string>
+    <string name="summary_last_episode_none">Nog geen</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Aanval noteren</string>
+    <string name="episode_update">Aanval bijwerken</string>
+    <string name="episode_updated_banner">Aanval bijgewerkt.</string>
+    <string name="episode_deleted_banner">Aanval verwijderd.</string>
+    <string name="episode_saved_banner">Aanval opgeslagen. Doe rustig aan en blijf in gedempt licht.</string>
+    <string name="episode_pain_intensity_index">Pijnintensiteit</string>
+    <string name="episode_cranial_epicenter">Plaats van de pijn</string>
+    <string name="episode_aura_symptoms">Aura en zintuiglijke klachten</string>
+    <string name="episode_acute_therapy">Aanvalsbehandeling</string>
+    <string name="episode_add_medication_row">Medicijn of elektrolyten toevoegen</string>
+    <string name="episode_start">Begin van de aanval</string>
+    <string name="episode_start_now">Nu</string>
+    <string name="episode_add_trigger_message">Wat ging aan deze aanval vooraf?</string>
+    <string name="episode_other_trigger_action">Andere trigger…</string>
+    <string name="episode_other_trigger_title">Andere trigger</string>
+    <string name="episode_other_trigger_message">Noem iets wat aan deze aanval voorafging.</string>
+    <string name="episode_other_trigger_placeholder">Bijvoorbeeld sterk parfum</string>
+    <string name="episode_add_medication_message">Wat hebt u voor deze aanval ingenomen?</string>
+    <string name="episode_other_medication_action">Ander medicijn…</string>
+    <string name="episode_other_medication_title">Ander medicijn</string>
+    <string name="episode_missing_title">Aanval verwijderd</string>
+    <string name="episode_missing_message">Deze aanval is op een ander apparaat verwijderd. Daarom kunnen de wijzigingen niet worden opgeslagen.</string>
+    <string name="episode_delete_message">Pijn %1$s/10. De aanval verdwijnt uit uw geschiedenis en rapporten.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">W</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">J</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">aanval deze week</item>
+        <item quantity="other">aanvallen deze week</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">aanval in de week van %1$s</item>
+        <item quantity="other">aanvallen in de week van %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">aanval in %1$s</item>
+        <item quantity="other">aanvallen in %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">aanval in 6 mnd.</item>
+        <item quantity="other">aanvallen in 6 mnd.</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">aanval in %1$s</item>
+        <item quantity="other">aanvallen in %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s procent minder aanvallen dan in de vorige periode</string>
+    <string name="insights_trend_more">%1$s procent meer aanvallen dan in de vorige periode</string>
+    <string name="insights_legend_migraine_day">Migrainedag</string>
+    <string name="insights_legend_pain_free_day">Pijnvrije dag</string>
+    <string name="insights_legend_not_tracked">Niet bijgehouden</string>
+    <string name="insights_bar_no_data">%1$s: nog geen gegevens</string>
+    <string name="insights_bar_not_tracked">%1$s: niet bijgehouden</string>
+    <string name="insights_bar_pain_free">%1$s: pijnvrij</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s migrainedag, hoogste %3$s van 10</item>
+        <item quantity="other">%1$s: %2$s migrainedagen, hoogste %3$s van 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Noteer mogelijke triggers als u een aanval noteert of bewerkt. Deze kaart laat dan zien hoe vaak u elke trigger hebt genoteerd.</string>
+    <string name="insights_triggers_hint">Hoe vaak u elke trigger samen met een aanval hebt genoteerd. Dit toont geen oorzaak.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, genoteerd bij %2$s van %3$s aanval</item>
+        <item quantity="other">%1$s, genoteerd bij %2$s van %3$s aanvallen</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s van %2$s</string>
+    <string name="insights_calendar_a11y">Kalender, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s aanval.</item>
+        <item quantity="other">%1$s: %2$s aanvallen.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Pijn %2$s/10</string>
+    <string name="insights_month_picker_title">Maand</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Vorige maand</string>
+    <string name="calendar_next_month">Volgende maand</string>
+    <string name="calendar_choose_month_a11y">%1$s, andere maand kiezen</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s migrainedag</item>
+        <item quantity="other">%1$s migrainedagen</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Vandaag, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">niet beschikbaar</string>
+    <string name="calendar_day_not_tracked">niet bijgehouden</string>
+    <string name="calendar_day_no_episodes">geen aanvallen</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s aanval, hoogste %2$s van 10</item>
+        <item quantity="other">%1$s aanvallen, hoogste %2$s van 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s aanval</item>
+        <item quantity="other">%1$s aanvallen</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Hoogste intensiteit</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Medicatie</string>
+    <string name="calendar_edit_episode_details">Aanvalsgegevens bewerken</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF voorbereiden…</string>
+    <string name="export_preparing_excel">Excel voorbereiden…</string>
+    <string name="export_preparing_report">Rapport voorbereiden…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">aanval</item>
+        <item quantity="other">aanvallen</item>
+    </plurals>
+    <string name="export_episodes_recorded">Genoteerde aanvallen</string>
+    <string name="export_include">Opnemen in export</string>
+    <string name="export_medications">Medicijninname</string>
+    <string name="export_medications_subtitle">Doseringen en totaal gebruik</string>
+    <string name="export_symptoms">Aura en waarschuwingsklachten</string>
+    <string name="export_symptoms_subtitle">Soorten aura en hoe vaak</string>
+    <string name="export_triggers_subtitle">Genoteerde triggers en hoe vaak</string>
+    <string name="export_pain_charts">Grafieken van de pijnintensiteit</string>
+    <string name="export_pain_charts_subtitle">Verloop van de pijnintensiteit, 1–⁠10</string>
+    <string name="export_pdf">PDF-rapport exporteren</string>
+    <string name="export_excel">Exporteren als Excel (.xlsx)</string>
+    <string name="export_share">Delen</string>
+    <string name="export_range_title">Rapportperiode</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack-rapport: %1$s aanval, %2$s.</item>
+        <item quantity="other">MigraTrack-rapport: %1$s aanvallen, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Exporteren mislukt</string>
+    <string name="export_failed_message">Het rapport kon niet worden gemaakt.</string>
+    <string name="export_write_failed">%1$s kon niet worden opgeslagen</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s bekende trigger</item>
+        <item quantity="other">%1$s bekende triggers</item>
+    </plurals>
+    <string name="settings_no_triggers">Geen triggers geselecteerd</string>
+    <string name="settings_no_medications">Geen medicijnen geselecteerd</string>
+    <string name="settings_name_title">Uw naam</string>
+    <string name="settings_name_message">Deze staat op de rapporten die u exporteert.</string>
+    <string name="settings_name_placeholder">Naam</string>
+    <string name="settings_delete_title">Alle gegevens verwijderen?</string>
+    <string name="settings_delete_message">MigraTrack bewaart uw gegevens op deze iPhone en een kopie op uw Apple Watch. Hiermee worden alle aanvallen en uw basisprofiel definitief verwijderd; de watch verwijdert zijn kopie bij de volgende synchronisatie. Back-ups van het apparaat houden hun kopie. Exporteer eerst een rapport als u dat nodig hebt.</string>
+    <string name="settings_delete_all">Alle gegevens verwijderen</string>
+    <string name="settings_section_baseline">Basisprofiel en behandeling</string>
+    <string name="settings_baseline_diagnoses">Diagnoses</string>
+    <string name="settings_known_triggers">Bekende triggers</string>
+    <string name="settings_section_preferences">Voorkeuren</string>
+    <string name="settings_appearance">Weergave</string>
+    <string name="settings_appearance_value">Donker (vast)</string>
+    <string name="settings_version">Versie</string>
+    <string name="settings_version_value">v%1$s (build %2$s)</string>
+    <string name="settings_section_legal">Juridisch</string>
+    <string name="settings_section_developer">Ontwikkelaar</string>
+    <string name="settings_load_sample_data">Voorbeeldgegevens laden</string>
+    <string name="settings_load_sample_data_subtitle">Voegt een jaar aan gegenereerde aanvallen toe om de grafieken te bekijken</string>
+    <string name="settings_edit_name_a11y">Naam bewerken</string>
+    <string name="settings_add_name">Voeg uw naam toe</string>
+    <string name="settings_member">Actief sinds</string>
+    <string name="settings_episodes">Aanvallen</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s genoteerd</item>
+        <item quantity="other">%1$s genoteerd</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Privacybeleid</string>
+    <string name="legal_terms_of_service">Gebruiksvoorwaarden</string>
+    <string name="legal_folder">nl</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Verder naar triggers</string>
+    <string name="onboarding_continue_to_medications">Verder naar medicatie</string>
+    <string name="onboarding_finish_setup">Instellen voltooien</string>
+    <string name="onboarding_back_to_diagnoses">Terug naar diagnoses</string>
+    <string name="onboarding_back_to_triggers">Terug naar triggers</string>
+    <string name="onboarding_save_changes">Wijzigingen opslaan</string>
+    <string name="onboarding_step">Stap %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnoses en voorgeschiedenis</string>
+    <string name="onboarding_diagnoses_subtitle">Stel uw basisprofiel in. Uw aanvallen en rapporten gaan hiervan uit.</string>
+    <string name="onboarding_primary_diagnosis">Hoofddiagnose</string>
+    <string name="onboarding_episode_frequency">Aanvallen per maand</string>
+    <string name="onboarding_episode_duration">Gewone duur van een aanval</string>
+    <string name="onboarding_intensity_baseline">Gewone pijnintensiteit</string>
+    <string name="onboarding_update_later">U kunt uw basisprofiel altijd wijzigen in Instellingen.</string>
+    <string name="onboarding_triggers_title">Uw triggers</string>
+    <string name="onboarding_triggers_subtitle">Kies uw bekende of vermoede triggers. Uw rapport toont ze aan uw arts.</string>
+    <string name="onboarding_add_custom_trigger">Eigen trigger toevoegen</string>
+    <string name="onboarding_treatment_subtitle">Kies wat u gebruikt. Aanvalsmedicatie staat al ingevuld bij elke nieuwe aanval, dus noteren kost één tik.</string>
+    <string name="onboarding_add_custom_medication">Eigen medicijn toevoegen</string>
+    <string name="onboarding_custom_trigger_title">Eigen trigger toevoegen</string>
+    <string name="onboarding_custom_trigger_message">Noem iets wat vaak uw migraine uitlokt.</string>
+    <string name="onboarding_custom_trigger_placeholder">Bijvoorbeeld flikkerend licht</string>
+    <string name="onboarding_medication_role_message">Wanneer neemt u het in?</string>
+    <string name="onboarding_medication_role_acute">Tijdens een aanval (aanvalsmedicatie)</string>
+    <string name="onboarding_medication_role_preventive">Elke dag (preventief)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Persoonlijk dagboek voor migraine en triggers</string>
+    <string name="welcome_example">Voorbeeld</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">pijnvrije dag</item>
+        <item quantity="other">pijnvrije dagen</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Voorbeeld: %1$s pijnvrije dag in de laatste 30 dagen</item>
+        <item quantity="other">Voorbeeld: %1$s pijnvrije dagen in de laatste 30 dagen</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Begrijp uw patronen.</string>
+    <string name="welcome_headline_doctor">Neem de feiten mee naar uw arts.</string>
+    <string name="welcome_body">Houd klachten bij, herken mogelijke triggers en exporteer uw rapporten wanneer u wilt.</string>
+    <string name="welcome_get_started">Beginnen</string>
+    <string name="welcome_agreement">Door verder te gaan, gaat u akkoord met de %1$s en het %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migraine zonder aura</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Veelvoorkomende vorm van migraine</string>
+    <string name="diagnosis_migraine_with_aura">Migraine met aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Visuele of sensorische focale aura</string>
+    <string name="diagnosis_chronic_migraine">Chronische migraine</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 of meer hoofdpijndagen per maand</string>
+    <string name="diagnosis_tension_type">Spanningshoofdpijn</string>
+    <string name="diagnosis_tension_type_subtitle">Drukkende spanning, als een band</string>
+    <string name="diagnosis_cluster">Clusterhoofdpijn</string>
+    <string name="diagnosis_cluster_subtitle">Hevige aanvallen aan één kant, rond het oog</string>
+    <string name="diagnosis_not_diagnosed">Geen diagnose / in onderzoek</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Klachtenpatronen observeren</string>
+    <string name="frequency_less_than_one">&lt; 1/mnd</string>
+    <string name="frequency_one_to_four">1–4/mnd</string>
+    <string name="frequency_five_to_eight">5–7/mnd</string>
+    <string name="frequency_eight_plus">8+/mnd</string>
+    <string name="duration_two_to_four">2–4 u</string>
+    <string name="duration_four_to_twelve">4–12 u</string>
+    <string name="duration_twelve_to_twenty_four">12–24 u</string>
+    <string name="duration_one_to_three_days">24–72 u</string>
+    <string name="region_left_temple">Linkerslaap</string>
+    <string name="region_right_temple">Rechterslaap</string>
+    <string name="region_frontal_brow">Voorhoofd / wenkbrauwen</string>
+    <string name="region_retro_orbital">Achter het oog</string>
+    <string name="region_occipital_neck">Achterhoofd en nek</string>
+    <string name="symptom_scintillating_scotoma">Flikkerscotoom (zien)</string>
+    <string name="symptom_scintillating_scotoma_short">Visuele aura</string>
+    <string name="symptom_neck_stiffness">Stijve nek</string>
+    <string name="symptom_neck_stiffness_short">Stijve nek</string>
+    <string name="symptom_photophobia">Fotofobie (licht)</string>
+    <string name="symptom_photophobia_short">Licht</string>
+    <string name="symptom_nausea">Misselijkheid</string>
+    <string name="symptom_nausea_short">Misselijk</string>
+    <string name="symptom_phonophobia">Fonofobie (geluid)</string>
+    <string name="symptom_phonophobia_short">Geluid</string>
+    <string name="symptom_aphasia">Afasie / wazig denken</string>
+    <string name="symptom_aphasia_short">Wazig denken</string>
+    <string name="symptom_paresthesia">Tintelingen / paresthesie</string>
+    <string name="symptom_paresthesia_short">Tintelingen</string>
+    <string name="trigger_category_weather_environment">Weer en omgeving</string>
+    <string name="trigger_category_sleep_physical">Slaap en dagritme</string>
+    <string name="trigger_category_stress_emotions">Stress en emoties</string>
+    <string name="trigger_category_hormonal">Hormonen</string>
+    <string name="trigger_category_diet_consumption">Eten en drinken</string>
+    <string name="trigger_category_custom">Eigen</string>
+    <string name="medication_role_acute">Aanvalsmedicatie</string>
+    <string name="medication_role_preventive">Preventief en supplementen</string>
+    <string name="export_range_last_30_days">30 dagen</string>
+    <string name="export_range_last_90_days">90 dagen</string>
+    <string name="export_range_last_6_months">6 maanden</string>
+    <string name="export_range_last_12_months">12 maanden</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Dalende luchtdruk</string>
+    <string name="trigger_barometric_pressure_description">Weerfronten, hoogteverschillen</string>
+    <string name="trigger_bright_light">Fel licht en zon</string>
+    <string name="trigger_bright_light_description">Verblinding, flitslicht, fotofobie</string>
+    <string name="trigger_heat_humidity">Grote hitte / vochtigheid</string>
+    <string name="trigger_heat_humidity_description">Temperatuurschommelingen</string>
+    <string name="trigger_loud_noise">Hard geluid</string>
+    <string name="trigger_loud_noise_description">Fonofobie, geluidspieken</string>
+    <string name="trigger_poor_sleep">Slechte / onregelmatige slaap</string>
+    <string name="trigger_poor_sleep_description">Slaaptekort, weinig REM-slaap</string>
+    <string name="trigger_dehydration">Uitdroging</string>
+    <string name="trigger_dehydration_description">Verlies van elektrolyten</string>
+    <string name="trigger_skipped_meals">Overgeslagen maaltijden / vasten</string>
+    <string name="trigger_skipped_meals_description">Grens van lage bloedsuiker</string>
+    <string name="trigger_overexertion">Lichamelijke overbelasting</string>
+    <string name="trigger_overexertion_description">Belasting van de bloedvaten door inspanning</string>
+    <string name="trigger_emotional_stress">Emotionele stress / ontspanning erna</string>
+    <string name="trigger_emotional_stress_description">Spanning die na het werk wegvalt</string>
+    <string name="trigger_screen_fatigue">Schermvermoeidheid</string>
+    <string name="trigger_screen_fatigue_description">Veel blauw licht, convergentie</string>
+    <string name="trigger_hormonal_cycle">Hormonale schommelingen / cyclus</string>
+    <string name="trigger_hormonal_cycle_description">Schommelingen in de menstruatiecyclus</string>
+    <string name="trigger_caffeine">Te weinig of te veel cafeïne</string>
+    <string name="trigger_caffeine_description">Veranderingen in adenosinereceptoren</string>
+    <string name="trigger_aged_cheese">Belegen kaas / tyramine</string>
+    <string name="trigger_aged_cheese_description">Gevoeligheid voor amines uit gisting</string>
+    <string name="trigger_alcohol">Alcohol / rode wijn</string>
+    <string name="trigger_alcohol_description">Tannines, histamine</string>
+    <string name="trigger_sweeteners">Kunstmatige zoetstoffen</string>
+    <string name="trigger_sweeteners_description">Aspartaam, sucralose</string>
+    <string name="trigger_custom_description">Eigen trigger</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Ontstekingsremmend hulpmiddel</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, serotonine-agonist</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, smelttablet</string>
+    <string name="medication_naproxen_500">Naproxen</string>
+    <string name="medication_naproxen_500_class">Langwerkend NSAID</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Pijnstiller</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP-antagonist</string>
+    <string name="medication_metoclopramide_10">Metoclopramide</string>
+    <string name="medication_metoclopramide_10_class">Anti-emeticum</string>
+    <string name="medication_electrolytes">Elektrolyten (ORS)</string>
+    <string name="medication_electrolytes_class">Orale rehydratie</string>
+    <string name="medication_riboflavin_400">Riboflavine</string>
+    <string name="medication_riboflavin_400_class">Vitamine B2</string>
+    <string name="medication_magnesium_400">Magnesium</string>
+    <string name="medication_magnesium_400_class">Mineraalsupplement</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Bètablokker</string>
+    <string name="medication_topiramate_50">Topiramaat</string>
+    <string name="medication_topiramate_50_class">Anti-epilepticum</string>
+    <string name="medication_amitriptyline_10">Amitriptyline</string>
+    <string name="medication_amitriptyline_10_class">Tricyclisch antidepressivum</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">CGRP-antistof, maandelijks</string>
+    <string name="medication_custom_class">Eigen medicijn</string>
+    <string name="medication_dose_milligrams">%1$s mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">W%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s van %2$s heeft geen genoteerde trigger</item>
+        <item quantity="other">%1$s van %2$s hebben geen genoteerde trigger</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s aanval</item>
+        <item quantity="other">%1$s aanvallen</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinisch migrainerapport</string>
+    <string name="report_page">MigraTrack · Pagina %1$s</string>
+    <string name="report_patient">Patiënt: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Gemaakt op %1$s</string>
+    <string name="report_disclaimer">Door de patiënt zelf ingevoerde gegevens in MigraTrack. Dit rapport ondersteunt een klinische beoordeling en vervangt die niet.</string>
+    <string name="report_stat_episodes">Genoteerde aanvallen</string>
+    <string name="report_stat_migraine_days">Migrainedagen</string>
+    <string name="report_stat_pain_free_days">Pijnvrije dagen</string>
+    <string name="report_stat_average_intensity">Gem. intensiteit /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Het bijhouden begon op %1$s. %2$s eerdere dag van deze periode heeft geen gegevens en telt niet als pijnvrije dag.</item>
+        <item quantity="other">Het bijhouden begon op %1$s. %2$s eerdere dagen van deze periode hebben geen gegevens en tellen niet als pijnvrije dagen.</item>
+    </plurals>
+    <string name="report_baseline_title">Basisprofiel</string>
+    <string name="report_baseline_diagnoses">Diagnoses</string>
+    <string name="report_baseline_frequency">Frequentie per maand</string>
+    <string name="report_baseline_duration">Gewone duur</string>
+    <string name="report_baseline_intensity">Gewone intensiteit</string>
+    <string name="report_baseline_triggers">Bekende triggers</string>
+    <string name="report_baseline_treatments">Behandelplan</string>
+    <string name="report_pain_chart_title">Verloop van de pijnintensiteit (1–10)</string>
+    <string name="report_legend_mild">Licht %1$s–%2$s</string>
+    <string name="report_legend_moderate">Matig %1$s–%2$s</string>
+    <string name="report_legend_severe">Ernstig %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Niet bijgehouden</string>
+    <string name="report_medication_title">Medicijngebruik</string>
+    <string name="report_no_medications">Geen medicijninname genoteerd in deze periode.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s inname</item>
+        <item quantity="other">%1$s innames</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura en waarschuwingsklachten</string>
+    <string name="report_no_symptoms">Geen aura of zintuiglijke klachten genoteerd in deze periode.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s van %2$s aanval (%3$s)</item>
+        <item quantity="other">%1$s van %2$s aanvallen (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Genoteerde mogelijke triggers</string>
+    <string name="report_no_triggers">Geen triggers genoteerd in deze periode.</string>
+    <string name="report_triggers_note">De aantallen tonen hoe vaak de patiënt een trigger samen met een aanval heeft genoteerd. Ze tonen geen oorzaak.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s van %2$s heeft geen genoteerde trigger.</item>
+        <item quantity="other">%1$s van %2$s hebben geen genoteerde trigger.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s aanval</item>
+        <item quantity="other">%1$s aanvallen</item>
+    </plurals>
+    <string name="report_episodes_title">Aanvallen</string>
+    <string name="report_no_episodes">Geen aanvallen geregistreerd in deze periode.</string>
+    <string name="report_column_date_time">Datum en tijd</string>
+    <string name="report_column_pain">Pijn</string>
+    <string name="report_column_epicenter">Plaats</string>
+    <string name="report_column_symptoms">Klachten</string>
+    <string name="report_column_medications">Medicatie</string>
+    <string name="report_column_triggers">Triggers</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Niet ingevuld</string>
+    <string name="report_none">Geen</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Aanvallen</string>
+    <string name="report_sheet_medications">Medicatie</string>
+    <string name="report_sheet_daily_pain">Pijn per dag</string>
+    <string name="report_sheet_profile">Profiel</string>
+    <string name="report_header_started">Begin</string>
+    <string name="report_header_pain_intensity">Pijnintensiteit (1–10)</string>
+    <string name="report_header_epicenter">Plaats van de pijn</string>
+    <string name="report_header_symptoms">Aura en zintuiglijke klachten</string>
+    <string name="report_header_medications">Medicatie</string>
+    <string name="report_header_triggers">Mogelijke triggers</string>
+    <string name="report_header_episode_started">Begin van de aanval</string>
+    <string name="report_header_medication">Medicijn</string>
+    <string name="report_header_dose">Dosis</string>
+    <string name="report_header_date">Datum</string>
+    <string name="report_header_peak_pain">Hoogste pijnintensiteit (1–10, 0 = pijnvrij)</string>
+    <string name="report_header_day">Dag</string>
+    <string name="report_header_field">Veld</string>
+    <string name="report_header_value">Waarde</string>
+    <string name="report_day_migraine">Migraine</string>
+    <string name="report_day_pain_free">Pijnvrij</string>
+    <string name="report_day_not_tracked">Niet bijgehouden</string>
+    <string name="report_profile_patient">Patiënt</string>
+    <string name="report_profile_range">Rapportperiode</string>
+    <string name="report_profile_tracked_since">Bijgehouden sinds</string>
+    <string name="report_profile_diagnoses">Diagnoses</string>
+    <string name="report_profile_frequency">Frequentie per maand</string>
+    <string name="report_profile_duration">Gewone duur</string>
+    <string name="report_profile_intensity">Gewone intensiteit</string>
+    <string name="report_profile_triggers">Bekende triggers</string>
+    <string name="report_profile_treatments">Behandelplan</string>
+    <string name="report_iso_range">%1$s tot %2$s</string>
+</resources>

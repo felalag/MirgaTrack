@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  French (Canada) strings: only the keys that differ from values-fr.
+  Health Canada names the active substance "acétaminophène". The OQLF puts no space before ? ! ;.
+-->
+<resources>
+    <string name="episode_add_trigger_message">Qu’est-ce qui a précédé cette crise?</string>
+    <string name="episode_add_medication_message">Qu’avez-vous pris pour cette crise?</string>
+    <string name="settings_delete_title">Supprimer toutes les données?</string>
+    <string name="settings_delete_message">MigraTrack conserve vos données sur cet iPhone et une copie sur votre Apple Watch. Cette action supprime définitivement toutes les crises et votre profil de référence; la montre supprime sa copie à la prochaine synchronisation. Les sauvegardes de l’appareil gardent leur copie. Exportez d’abord un rapport si vous en avez besoin.</string>
+    <string name="onboarding_medication_role_message">Quand le prenez-vous?</string>
+    <string name="medication_acetaminophen_1000">Acétaminophène</string>
+</resources>

@@ -24,7 +24,7 @@ The Support URL must lead to contact information, so the support page shows an e
 
 ## Localizations
 
-English is the primary language. Each other localization has its own file in [app-store](app-store/) ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 5.4): [Russian](app-store/ru.md).
+English is the primary language. Each other localization has its own file in [app-store](app-store/) ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 5.4): [Russian](app-store/ru.md), [German](app-store/de.md), [French](app-store/fr.md), [French (Canada)](app-store/fr-CA.md), [Spanish (Mexico)](app-store/es.md), [Spanish (Spain)](app-store/es-ES.md), [Portuguese (Brazil)](app-store/pt.md), [Portuguese (Portugal)](app-store/pt-PT.md), [Italian](app-store/it.md), [Dutch](app-store/nl.md), [Catalan](app-store/ca.md).
 
 ## App information
 
