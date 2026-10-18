@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Hungarian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the formal verb forms without "Ön"; buttons are nouns, as in Hungarian iOS ("Mentés", "Mégsem").
+  A Hungarian noun after a number stays singular ("5 roham"), so both plural forms are the same.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Vissza</string>
+    <string name="common_settings">Beállítások</string>
+    <string name="common_cancel">Mégsem</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Mentés</string>
+    <string name="common_add">Hozzáadás</string>
+    <string name="common_next">Tovább</string>
+    <string name="common_on">Be</string>
+    <string name="common_off">Ki</string>
+    <string name="common_clear">Törlés</string>
+    <string name="common_none">Nincs</string>
+    <string name="common_today">Ma</string>
+    <string name="common_not_set">Nincs megadva</string>
+    <string name="common_expanded">Kibontva</string>
+    <string name="common_collapsed">Összecsukva</string>
+    <string name="common_last_30_days">Utolsó 30 nap</string>
+    <string name="common_medical_disclaimer">A MigraTrack napló, nem orvosi tanács. Mielőtt változtat a kezelésén, beszéljen orvosával.</string>
+    <string name="common_log_migraine_episode">Migrénroham rögzítése</string>
+    <string name="common_save_episode">Mentés</string>
+    <string name="common_edit_episode">Roham szerkesztése</string>
+    <string name="common_delete_episode">Roham törlése</string>
+    <string name="common_intensity_of_ten">Erősség: %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s</string>
+    <string name="common_possible_triggers">Lehetséges kiváltó tényezők</string>
+    <string name="common_add_trigger">Kiváltó tényező hozzáadása</string>
+    <string name="common_add_medication">Gyógyszer hozzáadása</string>
+    <string name="common_treatment_blueprint">Kezelési terv</string>
+    <string name="common_medication_name_and_dose">Adja meg a nevet és az adagot.</string>
+    <string name="common_medication_placeholder">Például eletriptán 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Összegzés</string>
+    <string name="tab_log">Rögzítés</string>
+    <string name="tab_insights">Elemzés</string>
+    <string name="tab_export">Exportálás</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Fájdalom erőssége</string>
+    <string name="pain_scale_value">%1$s a 10-ből</string>
+    <string name="pain_scale_low">%1$s Enyhe</string>
+    <string name="pain_scale_middle">%1$s Érezhető</string>
+    <string name="pain_scale_high">%1$s Bénító</string>
+    <string name="medication_remove">%1$s eltávolítása</string>
+    <string name="duration_minutes">%1$s perc</string>
+    <string name="duration_hours_minutes">%1$s ó %2$s perc</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Ma, %1$s</string>
+    <!-- "26 / 30 követett napból": a slash avoids the article "a" or "az", which depends on the number. -->
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">/ %1$s követett napból</item>
+        <item quantity="other">/ %1$s követett napból</item>
+    </plurals>
+    <string name="summary_without_logged_episode">rögzített roham nélkül</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">Az utolsó 30 napban %2$s követett napból %1$s telt rögzített roham nélkül</item>
+        <item quantity="other">Az utolsó 30 napban %2$s követett napból %1$s telt rögzített roham nélkül</item>
+    </plurals>
+    <string name="summary_tracking_start_note">A követés kezdőnapjától számolva. A korábbi napok nem követettek.</string>
+    <string name="strip_legend_migraine">Migrén</string>
+    <string name="strip_legend_pain_free">Fájdalommentes</string>
+    <string name="strip_legend_not_tracked">Nem követett</string>
+    <string name="summary_sleep_last_night">Tegnap éjjeli alvás</string>
+    <string name="summary_sleep_not_recorded">Nincs rögzítve</string>
+    <string name="summary_sleep_hint">Viselje alvás közben az Apple Watchot, vagy kövesse az alvását az Egészség appban. Ha kikapcsolta a hozzáférést, engedélyezze a Beállítások › Egészség menüben.</string>
+    <string name="summary_sleep_caption">Alvás</string>
+    <string name="summary_sleep_connect_title">A tegnap éjjeli alvás az Összegzésben</string>
+    <string name="summary_sleep_connect_body">A MigraTrack az Egészség appból olvassa be a tegnap éjjeli alvást. Az adatok ezen az iPhone-on maradnak.</string>
+    <string name="summary_sleep_connect_button">Egészség app csatlakoztatása</string>
+    <string name="summary_last_episode">Utolsó roham</string>
+    <string name="summary_last_episode_none">Még nincs</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Roham rögzítése</string>
+    <string name="episode_update">Roham frissítése</string>
+    <string name="episode_updated_banner">Roham frissítve.</string>
+    <string name="episode_deleted_banner">Roham törölve.</string>
+    <string name="episode_saved_banner">Roham mentve. Pihenjen, és maradjon tompított fényben.</string>
+    <string name="episode_pain_intensity_index">Fájdalomerősség-index</string>
+    <string name="episode_cranial_epicenter">Fájdalom helye</string>
+    <string name="episode_aura_symptoms">Aura és érzékszervi tünetek</string>
+    <string name="episode_acute_therapy">Akut rohamkezelés</string>
+    <string name="episode_add_medication_row">Gyógyszer / elektrolit hozzáadása</string>
+    <string name="episode_start">Roham kezdete</string>
+    <string name="episode_start_now">Most</string>
+    <string name="episode_add_trigger_message">Mi előzte meg ezt a rohamot?</string>
+    <string name="episode_other_trigger_action">Más kiváltó tényező…</string>
+    <string name="episode_other_trigger_title">Más kiváltó tényező</string>
+    <string name="episode_other_trigger_message">Nevezzen meg valamit, ami megelőzte ezt a rohamot.</string>
+    <string name="episode_other_trigger_placeholder">Például erős parfüm</string>
+    <string name="episode_add_medication_message">Mit vett be erre a rohamra?</string>
+    <string name="episode_other_medication_action">Más gyógyszer…</string>
+    <string name="episode_other_medication_title">Más gyógyszer</string>
+    <string name="episode_missing_title">Roham törölve</string>
+    <string name="episode_missing_message">Ezt a rohamot egy másik eszközön törölték, így a módosítások nem menthetők.</string>
+    <string name="episode_delete_message">Erősség: %1$s/10. A roham eltűnik az előzményekből és a jelentésekből.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">Hét</string>
+    <string name="insights_period_month">Hó</string>
+    <string name="insights_period_six_months">6hó</string>
+    <string name="insights_period_year">Év</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">roham ezen a héten</item>
+        <item quantity="other">roham ezen a héten</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">roham, hét: %1$s</item>
+        <item quantity="other">roham, hét: %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">roham, %1$s</item>
+        <item quantity="other">roham, %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">roham 6 hónap alatt</item>
+        <item quantity="other">roham 6 hónap alatt</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">roham, %1$s</item>
+        <item quantity="other">roham, %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s százalékkal kevesebb roham, mint az előző időszakban</string>
+    <string name="insights_trend_more">%1$s százalékkal több roham, mint az előző időszakban</string>
+    <string name="insights_legend_migraine_day">Migrénes nap</string>
+    <string name="insights_legend_pain_free_day">Fájdalommentes</string>
+    <string name="insights_legend_not_tracked">Nem követett</string>
+    <string name="insights_bar_no_data">%1$s: még nincs adat</string>
+    <string name="insights_bar_not_tracked">%1$s: nem követett</string>
+    <string name="insights_bar_pain_free">%1$s: fájdalommentes</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s migrénes nap, legfeljebb %3$s/10</item>
+        <item quantity="other">%1$s: %2$s migrénes nap, legfeljebb %3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Jelölje meg a lehetséges kiváltó tényezőket, amikor rohamot rögzít vagy szerkeszt. Ez a kártya ezután megmutatja, milyen gyakran jelölte meg az egyes tényezőket.</string>
+    <string name="insights_triggers_hint">Milyen gyakran jelölte meg az egyes kiváltó tényezőket egy rohamnál. Ez nem mutat okot.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s: %3$s rohamból %2$s alkalommal megjelölve</item>
+        <item quantity="other">%1$s: %3$s rohamból %2$s alkalommal megjelölve</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s / %2$s</string>
+    <string name="insights_calendar_a11y">Naptár, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s roham.</item>
+        <item quantity="other">%1$s: %2$s roham.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · erősség: %2$s/10</string>
+    <string name="insights_month_picker_title">Hónap</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Előző hónap</string>
+    <string name="calendar_next_month">Következő hónap</string>
+    <string name="calendar_choose_month_a11y">%1$s, másik hónap választása</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s migrénes nap</item>
+        <item quantity="other">%1$s migrénes nap</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Ma, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">nem érhető el</string>
+    <string name="calendar_day_not_tracked">nem követett</string>
+    <string name="calendar_day_no_episodes">nincs roham</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s roham, legfeljebb %2$s/10</item>
+        <item quantity="other">%1$s roham, legfeljebb %2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s roham</item>
+        <item quantity="other">%1$s roham</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Legnagyobb erősség</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Gyógyszer</string>
+    <string name="calendar_edit_episode_details">Részletek szerkesztése</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF készítése…</string>
+    <string name="export_preparing_excel">Excel-fájl készítése…</string>
+    <string name="export_preparing_report">Jelentés készítése…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">roham</item>
+        <item quantity="other">roham</item>
+    </plurals>
+    <string name="export_episodes_recorded">Rögzített rohamok</string>
+    <string name="export_include">Exportálandó tartalom</string>
+    <string name="export_medications">Gyógyszerbevételek</string>
+    <string name="export_medications_subtitle">Adagok és összesített használat</string>
+    <string name="export_symptoms">Aura és figyelmeztető tünetek</string>
+    <string name="export_symptoms_subtitle">Auratípusok és gyakoriságuk</string>
+    <string name="export_triggers_subtitle">Megjelölt kiváltó tényezők és gyakoriságuk</string>
+    <string name="export_pain_charts">Fájdalomerősség-diagramok</string>
+    <string name="export_pain_charts_subtitle">Fájdalomerősség alakulása, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF-jelentés exportálása</string>
+    <string name="export_excel">Exportálás Excelbe (.xlsx)</string>
+    <string name="export_share">Megosztás</string>
+    <string name="export_range_title">Jelentés időszaka</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack-jelentés: %1$s roham, %2$s.</item>
+        <item quantity="other">MigraTrack-jelentés: %1$s roham, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Sikertelen exportálás</string>
+    <string name="export_failed_message">A jelentést nem sikerült létrehozni.</string>
+    <string name="export_write_failed">Nem sikerült írni: %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s ismert kiváltó tényező</item>
+        <item quantity="other">%1$s ismert kiváltó tényező</item>
+    </plurals>
+    <string name="settings_no_triggers">Nincs kiválasztott kiváltó tényező</string>
+    <string name="settings_no_medications">Nincs kiválasztott gyógyszer</string>
+    <string name="settings_name_title">Az Ön neve</string>
+    <string name="settings_name_message">Megjelenik az exportált jelentéseken.</string>
+    <string name="settings_name_placeholder">Név</string>
+    <string name="settings_delete_title">Minden adat törlése?</string>
+    <string name="settings_delete_message">A MigraTrack az adatait ezen az iPhone-on, egy másolatot pedig az Apple Watchon tárol. Ez véglegesen töröl minden rohamot és a kiindulási profilt; az óra a következő szinkronizáláskor törli a saját másolatát. Az eszközök biztonsági mentései megőrzik a saját másolatukat. Ha szüksége van jelentésre, előbb exportálja.</string>
+    <string name="settings_delete_all">Minden adat törlése</string>
+    <string name="settings_section_baseline">Klinikai kiindulópont és kezelés</string>
+    <string name="settings_baseline_diagnoses">Kiindulási diagnózisok</string>
+    <string name="settings_known_triggers">Ismert kiváltó tényezők</string>
+    <string name="settings_section_preferences">Testreszabás</string>
+    <string name="settings_appearance">Megjelenés</string>
+    <string name="settings_appearance_value">Sötét (rögzített)</string>
+    <string name="settings_version">Verzió</string>
+    <string name="settings_version_value">v%1$s (build: %2$s)</string>
+    <string name="settings_section_legal">Jogi információk</string>
+    <string name="settings_section_developer">Fejlesztő</string>
+    <string name="settings_load_sample_data">Mintaadatok betöltése</string>
+    <string name="settings_load_sample_data_subtitle">Egy év generált rohamot ad hozzá a diagramok előnézetéhez</string>
+    <string name="settings_edit_name_a11y">Név szerkesztése</string>
+    <string name="settings_add_name">Név hozzáadása</string>
+    <!-- No account exists: the value is the first tracked month ("First month"). -->
+    <string name="settings_member">Első hónap</string>
+    <string name="settings_episodes">Rohamok</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s rögzítve</item>
+        <item quantity="other">%1$s rögzítve</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Adatvédelmi irányelvek</string>
+    <string name="legal_terms_of_service">Felhasználási feltételek</string>
+    <string name="legal_folder">hu</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Tovább a kiváltó tényezőkhöz</string>
+    <string name="onboarding_continue_to_medications">Tovább a gyógyszerekhez</string>
+    <string name="onboarding_finish_setup">Beállítás befejezése</string>
+    <string name="onboarding_back_to_diagnoses">Vissza a diagnózisokhoz</string>
+    <string name="onboarding_back_to_triggers">Vissza a kiváltókhoz</string>
+    <string name="onboarding_save_changes">Módosítások mentése</string>
+    <string name="onboarding_step">%1$s/%2$s. lépés</string>
+    <string name="onboarding_diagnoses_title">Diagnózisok és előzmények</string>
+    <string name="onboarding_diagnoses_subtitle">Állítsa be a kiindulási profilját. Rohamai és jelentései ebből indulnak ki.</string>
+    <string name="onboarding_primary_diagnosis">Elsődleges diagnózis</string>
+    <string name="onboarding_episode_frequency">Havi rohamszám</string>
+    <string name="onboarding_episode_duration">Egy roham szokásos hossza</string>
+    <string name="onboarding_intensity_baseline">Szokásos fájdalomerősség</string>
+    <string name="onboarding_update_later">A kiindulási profilt bármikor módosíthatja a Beállításokban.</string>
+    <string name="onboarding_triggers_title">Kiváltó tényezői</string>
+    <string name="onboarding_triggers_subtitle">Válassza ki az ismert vagy feltételezett kiváltó tényezőket. A jelentés felsorolja őket orvosa számára.</string>
+    <string name="onboarding_add_custom_trigger">Saját kiváltó tényező hozzáadása</string>
+    <string name="onboarding_treatment_subtitle">Válassza ki, mit szed. Az akut gyógyszerek minden új rohamnál előre ki vannak töltve, így a rögzítés egyetlen koppintás.</string>
+    <string name="onboarding_add_custom_medication">Saját gyógyszer hozzáadása</string>
+    <string name="onboarding_custom_trigger_title">Saját kiváltó tényező</string>
+    <string name="onboarding_custom_trigger_message">Nevezzen meg valamit, ami általában kiváltja a migrénjét.</string>
+    <string name="onboarding_custom_trigger_placeholder">Például villogó fények</string>
+    <string name="onboarding_medication_role_message">Mikor szedi?</string>
+    <string name="onboarding_medication_role_acute">Roham alatt (akut)</string>
+    <string name="onboarding_medication_role_preventive">Minden nap (megelőző)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Személyes migrén- és kiváltótényező-napló</string>
+    <string name="welcome_example">Példa</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">fájdalommentes nap</item>
+        <item quantity="other">fájdalommentes nap</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Példa: %1$s fájdalommentes nap az utolsó 30 napban</item>
+        <item quantity="other">Példa: %1$s fájdalommentes nap az utolsó 30 napban</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Ismerje meg mintázatait.</string>
+    <string name="welcome_headline_doctor">Vigyen tényeket orvosához.</string>
+    <string name="welcome_body">Kövesse tüneteit, azonosítsa a lehetséges kiváltó tényezőket, és exportálja személyes jelentéseit bármikor.</string>
+    <string name="welcome_get_started">Kezdés</string>
+    <string name="welcome_agreement">A folytatással elfogadja a következőket: %1$s és %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Aura nélküli migrén</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Gyakori migrénforma</string>
+    <string name="diagnosis_migraine_with_aura">Aurával járó migrén</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Látási vagy érzészavaros fokális aura</string>
+    <string name="diagnosis_chronic_migraine">Krónikus migrén</string>
+    <string name="diagnosis_chronic_migraine_subtitle">Havonta 15 vagy több fejfájásos nap</string>
+    <string name="diagnosis_tension_type">Tenziós típusú fejfájás</string>
+    <string name="diagnosis_tension_type_subtitle">Szorító, abroncsszerű feszülés</string>
+    <string name="diagnosis_cluster">Cluster fejfájás</string>
+    <string name="diagnosis_cluster_subtitle">Súlyos, egyoldali rohamok a szem körül</string>
+    <string name="diagnosis_not_diagnosed">Nincs diagnózis / vizsgálat alatt</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Tünetmintázatok megfigyelése</string>
+    <string name="frequency_less_than_one">&lt; 1/hó</string>
+    <string name="frequency_one_to_four">1–4/hó</string>
+    <string name="frequency_five_to_eight">5–7/hó</string>
+    <string name="frequency_eight_plus">8+/hó</string>
+    <string name="duration_two_to_four">2–4&#160;ó</string>
+    <string name="duration_four_to_twelve">4–12&#160;ó</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;ó</string>
+    <string name="duration_one_to_three_days">24–72&#160;ó</string>
+    <string name="region_left_temple">Bal halánték</string>
+    <string name="region_right_temple">Jobb halánték</string>
+    <string name="region_frontal_brow">Homlok / szemöldök</string>
+    <string name="region_retro_orbital">Szem mögött</string>
+    <string name="region_occipital_neck">Tarkó és nyak</string>
+    <string name="symptom_scintillating_scotoma">Szcintilláló szkotóma (látási)</string>
+    <string name="symptom_scintillating_scotoma_short">Látási aura</string>
+    <string name="symptom_neck_stiffness">Merev nyak</string>
+    <string name="symptom_neck_stiffness_short">Merev nyak</string>
+    <string name="symptom_photophobia">Fotofóbia (fény)</string>
+    <string name="symptom_photophobia_short">Fény</string>
+    <string name="symptom_nausea">Hányinger</string>
+    <string name="symptom_nausea_short">Hányinger</string>
+    <string name="symptom_phonophobia">Fonofóbia (hang)</string>
+    <string name="symptom_phonophobia_short">Hang</string>
+    <string name="symptom_aphasia">Afázia / agyköd</string>
+    <string name="symptom_aphasia_short">Agyköd</string>
+    <string name="symptom_paresthesia">Zsibbadás / paresztézia</string>
+    <string name="symptom_paresthesia_short">Zsibbadás</string>
+    <string name="trigger_category_weather_environment">Időjárás és környezet</string>
+    <string name="trigger_category_sleep_physical">Alvás és testi rutin</string>
+    <string name="trigger_category_stress_emotions">Stressz és érzelmek</string>
+    <string name="trigger_category_hormonal">Hormonális</string>
+    <string name="trigger_category_diet_consumption">Étrend és fogyasztás</string>
+    <string name="trigger_category_custom">Saját</string>
+    <string name="medication_role_acute">Akut / rohamoldó</string>
+    <string name="medication_role_preventive">Megelőzés és étrend-kiegészítők</string>
+    <string name="export_range_last_30_days">Utolsó 30&#160;nap</string>
+    <string name="export_range_last_90_days">Utolsó 90&#160;nap</string>
+    <string name="export_range_last_6_months">Utolsó 6&#160;hónap</string>
+    <string name="export_range_last_12_months">Utolsó 12&#160;hónap</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Légnyomáscsökkenés</string>
+    <string name="trigger_barometric_pressure_description">Időjárási frontok, magasságváltozás</string>
+    <string name="trigger_bright_light">Erős fény és napfény</string>
+    <string name="trigger_bright_light_description">Vakító fény, stroboszkóp, fotofóbia</string>
+    <string name="trigger_heat_humidity">Nagy hőség / páratartalom</string>
+    <string name="trigger_heat_humidity_description">Hőmérséklet-ingadozás</string>
+    <string name="trigger_loud_noise">Hangos zaj</string>
+    <string name="trigger_loud_noise_description">Fonofóbia, zajcsúcsok</string>
+    <string name="trigger_poor_sleep">Rossz / rendszertelen alvás</string>
+    <string name="trigger_poor_sleep_description">Alváshiány, REM-hiány</string>
+    <string name="trigger_dehydration">Kiszáradás</string>
+    <string name="trigger_dehydration_description">Elektrolitvesztés</string>
+    <string name="trigger_skipped_meals">Kihagyott étkezés / böjt</string>
+    <string name="trigger_skipped_meals_description">Hipoglikémiás küszöb</string>
+    <string name="trigger_overexertion">Fizikai túlterhelés</string>
+    <string name="trigger_overexertion_description">Terhelés okozta érrendszeri megterhelés</string>
+    <string name="trigger_emotional_stress">Érzelmi stressz / stressz utáni ellazulás</string>
+    <string name="trigger_emotional_stress_description">Munka utáni késleltetett ellazulás</string>
+    <string name="trigger_screen_fatigue">Képernyő okozta fáradtság</string>
+    <string name="trigger_screen_fatigue_description">Túl sok kék fény, konvergencia</string>
+    <string name="trigger_hormonal_cycle">Hormonális változás / ciklus</string>
+    <string name="trigger_hormonal_cycle_description">A havi ciklus ingadozásai</string>
+    <string name="trigger_caffeine">Koffeinmegvonás / -túladagolás</string>
+    <string name="trigger_caffeine_description">Adenozinreceptor-változások</string>
+    <string name="trigger_aged_cheese">Érlelt sajtok / tiramin</string>
+    <string name="trigger_aged_cheese_description">Érzékenység erjedési aminokra</string>
+    <string name="trigger_alcohol">Alkohol / vörösbor</string>
+    <string name="trigger_alcohol_description">Tanninok, hisztamin</string>
+    <string name="trigger_sweeteners">Mesterséges édesítőszerek</string>
+    <string name="trigger_sweeteners_description">Aszpartám, szukralóz</string>
+    <string name="trigger_custom_description">Saját kiváltó tényező</string>
+
+    <!-- Catalog: built-in medications. Hungarian names of the active substances (OGYÉI). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofén</string>
+    <string name="medication_ibuprofen_400_class">Gyulladáscsökkentő adjuváns</string>
+    <string name="medication_sumatriptan_50">Szumatriptán</string>
+    <string name="medication_sumatriptan_50_class">Triptán, szerotoninagonista</string>
+    <string name="medication_rizatriptan_10">Rizatriptán</string>
+    <string name="medication_rizatriptan_10_class">Triptán, szájban diszpergálódó</string>
+    <string name="medication_naproxen_500">Naproxén</string>
+    <string name="medication_naproxen_500_class">Hosszú hatású NSAID</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Fájdalomcsillapító</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP-antagonista</string>
+    <string name="medication_metoclopramide_10">Metoklopramid</string>
+    <string name="medication_metoclopramide_10_class">Hányáscsillapító</string>
+    <string name="medication_electrolytes">Rehidratáló elektrolitok</string>
+    <string name="medication_electrolytes_class">Szájon át történő rehidratálás</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">B2-vitamin</string>
+    <string name="medication_magnesium_400">Magnézium</string>
+    <string name="medication_magnesium_400_class">Ásványianyag-kiegészítő</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Béta-blokkoló</string>
+    <string name="medication_topiramate_50">Topiramát</string>
+    <string name="medication_topiramate_50_class">Antiepileptikum</string>
+    <string name="medication_amitriptyline_10">Amitriptilin</string>
+    <string name="medication_amitriptyline_10_class">Triciklusos antidepresszáns</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">CGRP elleni antitest, havonta</string>
+    <string name="medication_custom_class">Saját gyógyszer</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">H%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%2$s közül %1$s esetében nincs megjelölt kiváltó tényező</item>
+        <item quantity="other">%2$s közül %1$s esetében nincs megjelölt kiváltó tényező</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s roham</item>
+        <item quantity="other">%1$s roham</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinikai migrénjelentés</string>
+    <string name="report_page">MigraTrack · %1$s. oldal</string>
+    <string name="report_patient">Beteg: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Készült: %1$s</string>
+    <string name="report_disclaimer">A beteg által a MigraTrackben rögzített adatok. Ez a jelentés kiegészíti a klinikai értékelést, de nem helyettesíti.</string>
+    <string name="report_stat_episodes">Rögzített rohamok</string>
+    <string name="report_stat_migraine_days">Migrénes napok</string>
+    <!-- Equal to the watch caption, max 16 characters there: "Pain-free". -->
+    <string name="report_stat_pain_free_days">Fájdalommentes</string>
+    <string name="report_stat_average_intensity">Átlagos erősség /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">A követés kezdete: %1$s. Az időszak %2$s korábbi napjáról nincs adat, és ez nem számít fájdalommentes napnak.</item>
+        <item quantity="other">A követés kezdete: %1$s. Az időszak %2$s korábbi napjáról nincs adat, és ezek nem számítanak fájdalommentes napnak.</item>
+    </plurals>
+    <string name="report_baseline_title">Kiindulási profil</string>
+    <string name="report_baseline_diagnoses">Diagnózisok</string>
+    <string name="report_baseline_frequency">Havi gyakoriság</string>
+    <string name="report_baseline_duration">Szokásos időtartam</string>
+    <string name="report_baseline_intensity">Szokásos erősség</string>
+    <string name="report_baseline_triggers">Ismert kiváltó tényezők</string>
+    <string name="report_baseline_treatments">Kezelési terv</string>
+    <string name="report_pain_chart_title">Fájdalomerősség alakulása (1–10)</string>
+    <string name="report_legend_mild">Enyhe %1$s–%2$s</string>
+    <string name="report_legend_moderate">Közepes %1$s–%2$s</string>
+    <string name="report_legend_severe">Súlyos %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Nem követett</string>
+    <string name="report_medication_title">Gyógyszerhasználat</string>
+    <string name="report_no_medications">Ebben az időszakban nincs rögzített gyógyszerbevétel.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s bevétel</item>
+        <item quantity="other">%1$s bevétel</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura és figyelmeztető tünetek</string>
+    <string name="report_no_symptoms">Ebben az időszakban nincs rögzített aura vagy érzékszervi tünet.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s rohamból %1$s (%3$s)</item>
+        <item quantity="other">%2$s rohamból %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Megjelölt lehetséges kiváltó tényezők</string>
+    <string name="report_no_triggers">Ebben az időszakban nincs megjelölt kiváltó tényező.</string>
+    <string name="report_triggers_note">A számok azt mutatják, milyen gyakran jelölt meg a beteg egy kiváltó tényezőt egy rohamnál. Nem mutatnak okot.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%2$s közül %1$s esetében nincs megjelölt kiváltó tényező.</item>
+        <item quantity="other">%2$s közül %1$s esetében nincs megjelölt kiváltó tényező.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s roham</item>
+        <item quantity="other">%1$s roham</item>
+    </plurals>
+    <string name="report_episodes_title">Rohamok</string>
+    <string name="report_no_episodes">Ebben az időszakban nincs rögzített roham.</string>
+    <string name="report_column_date_time">Dátum és idő</string>
+    <string name="report_column_pain">Fájd.</string>
+    <string name="report_column_epicenter">Fájdalom helye</string>
+    <string name="report_column_symptoms">Tünetek</string>
+    <string name="report_column_medications">Gyógyszerek</string>
+    <string name="report_column_triggers">Kiváltók</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Nincs megadva</string>
+    <string name="report_none">Nincs</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Rohamok</string>
+    <string name="report_sheet_medications">Gyógyszerek</string>
+    <string name="report_sheet_daily_pain">Napi fájdalom</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Kezdet</string>
+    <string name="report_header_pain_intensity">Fájdalom erőssége (1–10)</string>
+    <string name="report_header_epicenter">Fájdalom helye</string>
+    <string name="report_header_symptoms">Aura és érzékszervi tünetek</string>
+    <string name="report_header_medications">Gyógyszerek</string>
+    <string name="report_header_triggers">Lehetséges kiváltó tényezők</string>
+    <string name="report_header_episode_started">Roham kezdete</string>
+    <string name="report_header_medication">Gyógyszer</string>
+    <string name="report_header_dose">Adag</string>
+    <string name="report_header_date">Dátum</string>
+    <string name="report_header_peak_pain">Legnagyobb fájdalomerősség (1–10, 0 = fájdalommentes)</string>
+    <string name="report_header_day">Nap</string>
+    <string name="report_header_field">Mező</string>
+    <string name="report_header_value">Érték</string>
+    <string name="report_day_migraine">Migrén</string>
+    <string name="report_day_pain_free">Fájdalommentes</string>
+    <string name="report_day_not_tracked">Nem követett</string>
+    <string name="report_profile_patient">Beteg</string>
+    <string name="report_profile_range">Jelentés időszaka</string>
+    <string name="report_profile_tracked_since">Követés kezdete</string>
+    <string name="report_profile_diagnoses">Diagnózisok</string>
+    <string name="report_profile_frequency">Havi gyakoriság</string>
+    <string name="report_profile_duration">Szokásos időtartam</string>
+    <string name="report_profile_intensity">Szokásos erősség</string>
+    <string name="report_profile_triggers">Ismert kiváltó tényezők</string>
+    <string name="report_profile_treatments">Kezelési terv</string>
+    <string name="report_iso_range">%1$s – %2$s</string>
+</resources>

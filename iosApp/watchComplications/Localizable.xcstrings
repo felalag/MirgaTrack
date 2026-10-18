@@ -78,6 +78,74 @@
             }
           }
         },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ bez bolesti"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dny"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dne"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg den"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dní"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ uden smerter"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dag"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dage"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -202,6 +270,12 @@
             }
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kivuttomia: %1$lld/%2$lld"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -270,10 +344,118 @@
             }
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ bez boli"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dana"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dan"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dana"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld nap fájdalommentes"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senza dolore: %1$lld/%2$lld"
+          }
+        },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ be skausmo"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dienos"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dienos"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg diena"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dienų"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ uten smerter"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dag"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dager"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "nl" : {
@@ -297,6 +479,46 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg dagen"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ bez bólu"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dni"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dni"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dzień"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dnia"
                     }
                   }
                 }
@@ -370,6 +592,12 @@
                 }
               }
             }
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fără durere: %1$lld/%2$lld"
           }
         },
         "ru" : {
@@ -411,6 +639,120 @@
               }
             }
           }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ bez bolesti"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dni"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dňa"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg deň"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dní"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ brez bolečin"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dnevi"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dan"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dni"
+                    }
+                  },
+                  "two" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dneva"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ utan smärta"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dag"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg dagar"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld gün ağrısız"
+          }
         }
       }
     },
@@ -427,6 +769,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NOVA"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOVÝ"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NYT"
           }
         },
         "de" : {
@@ -447,6 +801,12 @@
             "value" : "NOTA"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "UUSI"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -459,16 +819,46 @@
             "value" : "NOTE"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOVI"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ÚJ"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "NOTA"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ŽYMĖ"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NYTT"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MELD"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOWY"
           }
         },
         "pt" : {
@@ -483,10 +873,40 @@
             "value" : "NOVA"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOU"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ВВОД"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOVÝ"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NOV"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NYTT"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "YENİ"
           }
         }
       }
@@ -504,6 +924,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nova crisi"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nový záchvat"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyt anfald"
           }
         },
         "de" : {
@@ -524,6 +956,12 @@
             "value" : "Nueva crisis"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uusi kohtaus"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -536,16 +974,46 @@
             "value" : "Nouvelle crise"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novi napadaj"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Új roham"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nuovo attacco"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Įrašyti"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt anfall"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nieuwe aanval"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nowy napad"
           }
         },
         "pt" : {
@@ -560,10 +1028,40 @@
             "value" : "Nova crise"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atac nou"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новый приступ"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nový záchvat"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nov napad"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt anfall"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni atak"
           }
         }
       }
@@ -581,6 +1079,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obre a l’iPhone"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevřete v iPhonu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbn på iPhone"
           }
         },
         "de" : {
@@ -601,6 +1111,12 @@
             "value" : "Abrir en el iPhone"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa iPhonessa"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -613,16 +1129,46 @@
             "value" : "Ouvrir sur l’iPhone"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvorite na iPhoneu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megnyitás az iPhone-on"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apri su iPhone"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atidarykite iPhone"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpne på iPhone"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open op iPhone"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz na iPhonie"
           }
         },
         "pt" : {
@@ -637,10 +1183,40 @@
             "value" : "Abrir no iPhone"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschideți pe iPhone"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Откройте на iPhone"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvorte v iPhone"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odprite v iPhonu"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppna på iPhone"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone’da açın"
           }
         }
       }
@@ -658,6 +1234,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obre l’anotació d’una crisi."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevře záznam záchvatu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbner registrering af anfald."
           }
         },
         "de" : {
@@ -678,6 +1266,12 @@
             "value" : "Abre el registro de una crisis."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa kohtauksen kirjauksen."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -690,16 +1284,46 @@
             "value" : "Ouvre la saisie d’une crise."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvara bilježenje napadaja."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megnyitja a rohamrögzítést."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apre l’annotazione di un attacco."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atidaro priepuolio įrašymą."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpner registrering av anfall."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opent het noteren van een aanval."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwiera zapis napadu."
           }
         },
         "pt" : {
@@ -714,10 +1338,40 @@
             "value" : "Abre o registo de uma crise."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschide înregistrarea unui atac."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открывает запись приступа."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvorí záznam záchvatu."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odpre beleženje napada."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppnar registrering av anfall."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atak kaydını açar."
           }
         }
       }
@@ -735,6 +1389,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Obre l’anotació d’una crisi. L’estil rectangular també mostra els vostres dies sense dolor."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otevře záznam záchvatu. Obdélníková varianta ukazuje i dny bez bolesti."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbner registrering af anfald. Den rektangulære stil viser også dine smertefri dage."
           }
         },
         "de" : {
@@ -755,6 +1421,12 @@
             "value" : "Abre el registro de una crisis. El estilo rectangular también muestra sus días sin dolor."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avaa kohtauksen kirjauksen. Suorakulmainen tyyli näyttää myös kivuttomat päiväsi."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -767,16 +1439,46 @@
             "value" : "Ouvre la saisie d’une crise. Le style rectangulaire affiche aussi vos jours sans douleur."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvara bilježenje napadaja. Pravokutni stil prikazuje i dane bez boli."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megnyitja a rohamrögzítést. A téglalap alakú változat a fájdalommentes napokat is mutatja."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apre l’annotazione di un attacco. Lo stile rettangolare mostra anche i suoi giorni senza dolore."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atidaro priepuolio įrašymą. Stačiakampis variantas rodo ir dienas be skausmo."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åpner registrering av anfall. Den rektangulære stilen viser også de smertefrie dagene dine."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opent het noteren van een aanval. De rechthoekige stijl toont ook uw pijnvrije dagen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwiera zapis napadu. Wariant prostokątny pokazuje też dni bez bólu."
           }
         },
         "pt" : {
@@ -791,10 +1493,40 @@
             "value" : "Abre o registo de uma crise. O estilo retangular também mostra os seus dias sem dor."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deschide înregistrarea unui atac. Stilul dreptunghiular arată și zilele fără durere."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Открывает запись приступа. Прямоугольный вариант также показывает дни без боли."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otvorí záznam záchvatu. Obdĺžnikový variant ukazuje aj dni bez bolesti."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odpre beleženje napada. Pravokotni slog prikazuje tudi dneve brez bolečin."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öppnar registrering av anfall. Den rektangulära stilen visar också dina smärtfria dagar."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atak kaydını açar. Dikdörtgen stil ağrısız günlerinizi de gösterir."
           }
         }
       }
@@ -812,6 +1544,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dies sense dolor –"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dny bez bolesti –"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smertefri dage –"
           }
         },
         "de" : {
@@ -832,6 +1576,12 @@
             "value" : "Días sin dolor –"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kivuttomat päivät –"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -844,16 +1594,46 @@
             "value" : "Jours sans douleur –"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dani bez boli –"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fájdalommentes napok –"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giorni senza dolore –"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dienos be skausmo –"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smertefrie dager –"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pijnvrije dagen –"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dni bez bólu –"
           }
         },
         "pt" : {
@@ -868,10 +1648,40 @@
             "value" : "Dias sem dor –"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zile fără durere –"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дни без боли –"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dni bez bolesti –"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dnevi brez bolečin –"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smärtfria dagar –"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ağrısız günler –"
           }
         }
       }

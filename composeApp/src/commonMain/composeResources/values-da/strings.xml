@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Danish strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The address is "du", as in Danish iOS; the polite "De" is out of use.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Tilbage</string>
+    <string name="common_settings">Indstillinger</string>
+    <string name="common_cancel">Annuller</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Gem</string>
+    <string name="common_add">Tilføj</string>
+    <string name="common_next">Næste</string>
+    <string name="common_on">Til</string>
+    <string name="common_off">Fra</string>
+    <string name="common_clear">Ryd</string>
+    <string name="common_none">Ingen</string>
+    <string name="common_today">I dag</string>
+    <string name="common_not_set">Ikke angivet</string>
+    <string name="common_expanded">Udvidet</string>
+    <string name="common_collapsed">Skjult</string>
+    <string name="common_last_30_days">Seneste 30 dage</string>
+    <string name="common_medical_disclaimer">MigraTrack er en dagbog, ikke lægelig rådgivning. Tal med din læge, før du ændrer din behandling.</string>
+    <string name="common_log_migraine_episode">Registrer migræneanfald</string>
+    <string name="common_save_episode">Gem</string>
+    <string name="common_edit_episode">Rediger anfald</string>
+    <string name="common_delete_episode">Slet anfald</string>
+    <string name="common_intensity_of_ten">Intensitet %1$s/10</string>
+    <string name="common_date_at_time">%1$s kl. %2$s</string>
+    <string name="common_possible_triggers">Mulige udløsere</string>
+    <string name="common_add_trigger">Tilføj udløser</string>
+    <string name="common_add_medication">Tilføj medicin</string>
+    <string name="common_treatment_blueprint">Behandlingsplan</string>
+    <string name="common_medication_name_and_dose">Angiv navn og dosis.</string>
+    <string name="common_medication_placeholder">F.eks. eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Oversigt</string>
+    <string name="tab_log">Registrer</string>
+    <string name="tab_insights">Indsigt</string>
+    <string name="tab_export">Eksport</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Smerteintensitet</string>
+    <string name="pain_scale_value">%1$s af 10</string>
+    <string name="pain_scale_low">%1$s Dæmpet</string>
+    <string name="pain_scale_middle">%1$s Mærkbar</string>
+    <string name="pain_scale_high">%1$s Lammende</string>
+    <string name="medication_remove">Fjern %1$s</string>
+    <string name="duration_minutes">%1$s min.</string>
+    <string name="duration_hours_minutes">%1$s t. %2$s min.</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">I dag, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">af %1$s registreret dag</item>
+        <item quantity="other">af %1$s registrerede dage</item>
+    </plurals>
+    <string name="summary_without_logged_episode">uden et registreret anfald</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s af %2$s registreret dag uden et registreret anfald de seneste 30 dage</item>
+        <item quantity="other">%1$s af %2$s registrerede dage uden et registreret anfald de seneste 30 dage</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Tælles fra den dag, du begyndte at registrere. Dage før det er ikke registreret.</string>
+    <string name="strip_legend_migraine">Migræne</string>
+    <string name="strip_legend_pain_free">Smertefri</string>
+    <string name="strip_legend_not_tracked">Ingen data</string>
+    <string name="summary_sleep_last_night">Søvn i nat</string>
+    <string name="summary_sleep_not_recorded">Ikke registreret</string>
+    <string name="summary_sleep_hint">Brug Apple Watch, når du sover, eller registrer søvn i appen Sundhed. Hvis du har slået adgangen fra, kan du slå den til i Indstillinger › Sundhed.</string>
+    <string name="summary_sleep_caption">Søvn</string>
+    <string name="summary_sleep_connect_title">Se nattens søvn i Oversigt</string>
+    <string name="summary_sleep_connect_body">MigraTrack læser nattens søvn fra appen Sundhed. Dataene bliver på denne iPhone.</string>
+    <string name="summary_sleep_connect_button">Forbind til Sundhed</string>
+    <string name="summary_last_episode">Seneste anfald</string>
+    <string name="summary_last_episode_none">Ingen endnu</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Registrer anfald</string>
+    <string name="episode_update">Opdater anfald</string>
+    <string name="episode_updated_banner">Anfaldet er opdateret.</string>
+    <string name="episode_deleted_banner">Anfaldet er slettet.</string>
+    <string name="episode_saved_banner">Anfaldet er gemt. Tag det roligt, og hold dig i dæmpet lys.</string>
+    <string name="episode_pain_intensity_index">Smerteintensitetsindeks</string>
+    <string name="episode_cranial_epicenter">Smertens placering</string>
+    <string name="episode_aura_symptoms">Aura og sansesymptomer</string>
+    <string name="episode_acute_therapy">Anfaldsbehandling</string>
+    <string name="episode_add_medication_row">Tilføj medicin/væske og elektrolytter</string>
+    <string name="episode_start">Anfaldets start</string>
+    <string name="episode_start_now">Nu</string>
+    <string name="episode_add_trigger_message">Hvad kom før dette anfald?</string>
+    <string name="episode_other_trigger_action">Anden udløser…</string>
+    <string name="episode_other_trigger_title">Anden udløser</string>
+    <string name="episode_other_trigger_message">Angiv noget, der kom før dette anfald.</string>
+    <string name="episode_other_trigger_placeholder">F.eks. stærk parfume</string>
+    <string name="episode_add_medication_message">Hvad tog du for dette anfald?</string>
+    <string name="episode_other_medication_action">Anden medicin…</string>
+    <string name="episode_other_medication_title">Anden medicin</string>
+    <string name="episode_missing_title">Anfaldet er slettet</string>
+    <string name="episode_missing_message">Dette anfald blev slettet på en anden enhed, så ændringerne kan ikke gemmes.</string>
+    <string name="episode_delete_message">Intensitet %1$s/10. Anfaldet fjernes fra din historik og dine rapporter.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">U</string>
+    <string name="insights_period_month">M</string>
+    <string name="insights_period_six_months">6M</string>
+    <string name="insights_period_year">Å</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">anfald i denne uge</item>
+        <item quantity="other">anfald i denne uge</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">anfald i ugen fra %1$s</item>
+        <item quantity="other">anfald i ugen fra %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">anfald i %1$s</item>
+        <item quantity="other">anfald i %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">anfald på 6 mdr.</item>
+        <item quantity="other">anfald på 6 mdr.</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">anfald i %1$s</item>
+        <item quantity="other">anfald i %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s procent færre anfald end i forrige periode</string>
+    <string name="insights_trend_more">%1$s procent flere anfald end i forrige periode</string>
+    <string name="insights_legend_migraine_day">Migrænedag</string>
+    <string name="insights_legend_pain_free_day">Smertefri dag</string>
+    <string name="insights_legend_not_tracked">Ikke registreret</string>
+    <string name="insights_bar_no_data">%1$s: ingen data endnu</string>
+    <string name="insights_bar_not_tracked">%1$s: ikke registreret</string>
+    <string name="insights_bar_pain_free">%1$s: smertefri</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s migrænedag, højst %3$s af 10</item>
+        <item quantity="other">%1$s: %2$s migrænedage, højst %3$s af 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Notér mulige udløsere, når du registrerer eller redigerer et anfald. Kortet viser derefter, hvor ofte du har noteret hver af dem.</string>
+    <string name="insights_triggers_hint">Hvor ofte du har noteret hver udløser ved et anfald. Det viser ikke en årsag.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, noteret ved %2$s af %3$s anfald</item>
+        <item quantity="other">%1$s, noteret ved %2$s af %3$s anfald</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s af %2$s</string>
+    <string name="insights_calendar_a11y">Kalender, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s har %2$s anfald.</item>
+        <item quantity="other">%1$s har %2$s anfald.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · intensitet %2$s/10</string>
+    <string name="insights_month_picker_title">Måned</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Forrige måned</string>
+    <string name="calendar_next_month">Næste måned</string>
+    <string name="calendar_choose_month_a11y">%1$s, vælg en anden måned</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s migrænedag</item>
+        <item quantity="other">%1$s migrænedage</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">I dag, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ikke tilgængelig</string>
+    <string name="calendar_day_not_tracked">ikke registreret</string>
+    <string name="calendar_day_no_episodes">ingen anfald</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s anfald, højst %2$s af 10</item>
+        <item quantity="other">%1$s anfald, højst %2$s af 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s anfald</item>
+        <item quantity="other">%1$s anfald</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Højeste intensitet</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Medicin</string>
+    <string name="calendar_edit_episode_details">Rediger anfaldets detaljer</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Forbereder PDF…</string>
+    <string name="export_preparing_excel">Forbereder Excel…</string>
+    <string name="export_preparing_report">Forbereder rapport…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">anfald</item>
+        <item quantity="other">anfald</item>
+    </plurals>
+    <string name="export_episodes_recorded">Registrerede anfald</string>
+    <string name="export_include">Medtag i eksport</string>
+    <string name="export_medications">Medicinindtag</string>
+    <string name="export_medications_subtitle">Doser og samlet forbrug</string>
+    <string name="export_symptoms">Aura og varselssymptomer</string>
+    <string name="export_symptoms_subtitle">Auratyper og deres hyppighed</string>
+    <string name="export_triggers_subtitle">Noterede udløsere og deres hyppighed</string>
+    <string name="export_pain_charts">Smerteintensitetsgrafer</string>
+    <string name="export_pain_charts_subtitle">Smerteintensitet over tid, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Eksportér PDF-rapport</string>
+    <string name="export_excel">Eksportér som Excel (.xlsx)</string>
+    <string name="export_share">Del</string>
+    <string name="export_range_title">Rapportperiode</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack-rapport: %1$s anfald, %2$s.</item>
+        <item quantity="other">MigraTrack-rapport: %1$s anfald, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Eksporten mislykkedes</string>
+    <string name="export_failed_message">Rapporten kunne ikke oprettes.</string>
+    <string name="export_write_failed">Kunne ikke skrive %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s kendt udløser</item>
+        <item quantity="other">%1$s kendte udløsere</item>
+    </plurals>
+    <string name="settings_no_triggers">Ingen udløsere valgt</string>
+    <string name="settings_no_medications">Ingen medicin valgt</string>
+    <string name="settings_name_title">Dit navn</string>
+    <string name="settings_name_message">Det vises på de rapporter, du eksporterer.</string>
+    <string name="settings_name_placeholder">Navn</string>
+    <string name="settings_delete_title">Slet alle data?</string>
+    <string name="settings_delete_message">MigraTrack gemmer dine data på denne iPhone og en kopi på dit Apple Watch. Dette sletter permanent alle anfald og din udgangsprofil; uret sletter sin kopi ved næste synkronisering. Sikkerhedskopier af enhederne beholder deres kopi. Eksportér en rapport først, hvis du har brug for den.</string>
+    <string name="settings_delete_all">Slet alle data</string>
+    <string name="settings_section_baseline">Klinisk udgangspunkt og behandling</string>
+    <string name="settings_baseline_diagnoses">Udgangsdiagnoser</string>
+    <string name="settings_known_triggers">Kendte udløsere</string>
+    <string name="settings_section_preferences">Præferencer</string>
+    <string name="settings_appearance">Udseende</string>
+    <string name="settings_appearance_value">Mørk (låst)</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_version_value">v%1$s (build %2$s)</string>
+    <string name="settings_section_legal">Juridisk</string>
+    <string name="settings_section_developer">Udvikler</string>
+    <string name="settings_load_sample_data">Indlæs eksempeldata</string>
+    <string name="settings_load_sample_data_subtitle">Tilføjer et år med genererede anfald for at vise graferne</string>
+    <string name="settings_edit_name_a11y">Rediger navn</string>
+    <string name="settings_add_name">Tilføj dit navn</string>
+    <!-- No account exists: the value is the first tracked month ("Diary since"). -->
+    <string name="settings_member">Dagbog siden</string>
+    <string name="settings_episodes">Anfald</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s registreret</item>
+        <item quantity="other">%1$s registreret</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Privatlivspolitik</string>
+    <string name="legal_terms_of_service">Servicevilkår</string>
+    <string name="legal_folder">da</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Fortsæt til udløsere</string>
+    <string name="onboarding_continue_to_medications">Fortsæt til medicin</string>
+    <string name="onboarding_finish_setup">Afslut opsætning</string>
+    <string name="onboarding_back_to_diagnoses">Tilbage til diagnoser</string>
+    <string name="onboarding_back_to_triggers">Tilbage til udløsere</string>
+    <string name="onboarding_save_changes">Gem ændringer</string>
+    <string name="onboarding_step">Trin %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnoser og sygehistorie</string>
+    <string name="onboarding_diagnoses_subtitle">Opret din udgangsprofil. Dine anfald og rapporter tager udgangspunkt i den.</string>
+    <string name="onboarding_primary_diagnosis">Primær diagnose</string>
+    <string name="onboarding_episode_frequency">Anfald pr. måned</string>
+    <string name="onboarding_episode_duration">Typisk anfaldsvarighed</string>
+    <string name="onboarding_intensity_baseline">Typisk smerteintensitet</string>
+    <string name="onboarding_update_later">Du kan altid opdatere din udgangsprofil i Indstillinger.</string>
+    <string name="onboarding_triggers_title">Dine udløsere</string>
+    <string name="onboarding_triggers_subtitle">Vælg dine kendte eller formodede udløsere. Rapporten viser dem til din læge.</string>
+    <string name="onboarding_add_custom_trigger">Tilføj egen udløser</string>
+    <string name="onboarding_treatment_subtitle">Vælg det, du tager. Anfaldsmedicin udfyldes på forhånd i hvert nyt anfald, så registreringen kræver ét tryk.</string>
+    <string name="onboarding_add_custom_medication">Tilføj egen medicin</string>
+    <string name="onboarding_custom_trigger_title">Tilføj egen udløser</string>
+    <string name="onboarding_custom_trigger_message">Angiv noget, der plejer at udløse din migræne.</string>
+    <string name="onboarding_custom_trigger_placeholder">F.eks. blinkende lys</string>
+    <string name="onboarding_medication_role_message">Hvornår tager du det?</string>
+    <string name="onboarding_medication_role_acute">Under et anfald (akut)</string>
+    <string name="onboarding_medication_role_preventive">Hver dag (forebyggende)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Personlig dagbog over migræne og udløsere</string>
+    <string name="welcome_example">Eksempel</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">smertefri dag</item>
+        <item quantity="other">smertefri dage</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Eksempel: %1$s smertefri dag de seneste 30 dage</item>
+        <item quantity="other">Eksempel: %1$s smertefri dage de seneste 30 dage</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Forstå dine mønstre.</string>
+    <string name="welcome_headline_doctor">Giv din læge fakta.</string>
+    <string name="welcome_body">Registrer symptomer, find mulige udløsere, og eksportér dine personlige rapporter når som helst.</string>
+    <string name="welcome_get_started">Kom i gang</string>
+    <string name="welcome_agreement">Ved at fortsætte accepterer du %1$s og %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migræne uden aura</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Almindelig migræneform</string>
+    <string name="diagnosis_migraine_with_aura">Migræne med aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Visuel eller sensorisk fokal aura</string>
+    <string name="diagnosis_chronic_migraine">Kronisk migræne</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 eller flere hovedpinedage om måneden</string>
+    <string name="diagnosis_tension_type">Spændingshovedpine</string>
+    <string name="diagnosis_tension_type_subtitle">Trykkende, båndformet spænding</string>
+    <string name="diagnosis_cluster">Klyngehovedpine</string>
+    <string name="diagnosis_cluster_subtitle">Svære ensidige anfald omkring øjet</string>
+    <string name="diagnosis_not_diagnosed">Ikke diagnosticeret / undersøges</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Holder øje med symptommønstre</string>
+    <string name="frequency_less_than_one">&lt; 1/md.</string>
+    <string name="frequency_one_to_four">1–4/md.</string>
+    <string name="frequency_five_to_eight">5–7/md.</string>
+    <string name="frequency_eight_plus">8+/md.</string>
+    <string name="duration_two_to_four">2–4&#160;t</string>
+    <string name="duration_four_to_twelve">4–12&#160;t</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;t</string>
+    <string name="duration_one_to_three_days">24–72&#160;t</string>
+    <string name="region_left_temple">Venstre tinding</string>
+    <string name="region_right_temple">Højre tinding</string>
+    <string name="region_frontal_brow">Pande/øjenbryn</string>
+    <string name="region_retro_orbital">Bag øjet</string>
+    <string name="region_occipital_neck">Baghoved og nakke</string>
+    <string name="symptom_scintillating_scotoma">Flimmerskotom (syn)</string>
+    <string name="symptom_scintillating_scotoma_short">Synsaura</string>
+    <string name="symptom_neck_stiffness">Stiv nakke</string>
+    <string name="symptom_neck_stiffness_short">Stiv nakke</string>
+    <string name="symptom_photophobia">Fotofobi (lys)</string>
+    <string name="symptom_photophobia_short">Lys</string>
+    <string name="symptom_nausea">Kvalme</string>
+    <string name="symptom_nausea_short">Kvalme</string>
+    <string name="symptom_phonophobia">Fonofobi (lyd)</string>
+    <string name="symptom_phonophobia_short">Lyd</string>
+    <string name="symptom_aphasia">Afasi / hjernetåge</string>
+    <string name="symptom_aphasia_short">Hjernetåge</string>
+    <string name="symptom_paresthesia">Prikken / paræstesier</string>
+    <string name="symptom_paresthesia_short">Prikken</string>
+    <string name="trigger_category_weather_environment">Vejr og omgivelser</string>
+    <string name="trigger_category_sleep_physical">Søvn og fysisk rutine</string>
+    <string name="trigger_category_stress_emotions">Stress og følelser</string>
+    <string name="trigger_category_hormonal">Hormonelt</string>
+    <string name="trigger_category_diet_consumption">Kost og indtag</string>
+    <string name="trigger_category_custom">Egne</string>
+    <string name="medication_role_acute">Akut/anfaldsstoppende</string>
+    <string name="medication_role_preventive">Forebyggende og kosttilskud</string>
+    <string name="export_range_last_30_days">Seneste 30&#160;dage</string>
+    <string name="export_range_last_90_days">Seneste 90&#160;dage</string>
+    <string name="export_range_last_6_months">Seneste 6&#160;mdr.</string>
+    <string name="export_range_last_12_months">Seneste 12&#160;mdr.</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Faldende lufttryk</string>
+    <string name="trigger_barometric_pressure_description">Vejrfronter, højdeændringer</string>
+    <string name="trigger_bright_light">Skarpt lys og sollys</string>
+    <string name="trigger_bright_light_description">Blænding, stroboskoplys, fotofobi</string>
+    <string name="trigger_heat_humidity">Ekstrem varme/fugtighed</string>
+    <string name="trigger_heat_humidity_description">Temperatursvingninger</string>
+    <string name="trigger_loud_noise">Høj støj</string>
+    <string name="trigger_loud_noise_description">Fonofobi, lydtoppe</string>
+    <string name="trigger_poor_sleep">Dårlig/uregelmæssig søvn</string>
+    <string name="trigger_poor_sleep_description">Søvnunderskud, for lidt REM-søvn</string>
+    <string name="trigger_dehydration">Dehydrering</string>
+    <string name="trigger_dehydration_description">Tab af elektrolytter</string>
+    <string name="trigger_skipped_meals">Sprunget måltid over/faste</string>
+    <string name="trigger_skipped_meals_description">Grænse for lavt blodsukker</string>
+    <string name="trigger_overexertion">Fysisk overanstrengelse</string>
+    <string name="trigger_overexertion_description">Belastning af karrene ved anstrengelse</string>
+    <string name="trigger_emotional_stress">Følelsesmæssig stress/afslapning efter stress</string>
+    <string name="trigger_emotional_stress_description">Forsinket afspænding efter arbejde</string>
+    <string name="trigger_screen_fatigue">Skærmtræthed</string>
+    <string name="trigger_screen_fatigue_description">For meget blåt lys, konvergens</string>
+    <string name="trigger_hormonal_cycle">Hormonelle udsving/cyklus</string>
+    <string name="trigger_hormonal_cycle_description">Udsving i menstruationscyklussen</string>
+    <string name="trigger_caffeine">Koffeinabstinens/for meget koffein</string>
+    <string name="trigger_caffeine_description">Ændringer i adenosinreceptorer</string>
+    <string name="trigger_aged_cheese">Lagret ost/tyramin</string>
+    <string name="trigger_aged_cheese_description">Følsomhed over for aminer fra gæring</string>
+    <string name="trigger_alcohol">Alkohol/rødvin</string>
+    <string name="trigger_alcohol_description">Garvesyrer, histamin</string>
+    <string name="trigger_sweeteners">Kunstige sødestoffer</string>
+    <string name="trigger_sweeteners_description">Aspartam, sucralose</string>
+    <string name="trigger_custom_description">Egen udløser</string>
+
+    <!-- Catalog: built-in medications. Danish names of the active substances (Lægemiddelstyrelsen). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Betændelsesdæmpende tillæg</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, serotoninagonist</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, smeltetablet</string>
+    <string name="medication_naproxen_500">Naproxen</string>
+    <string name="medication_naproxen_500_class">Langtidsvirkende NSAID</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Smertestillende</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, CGRP-antagonist</string>
+    <string name="medication_metoclopramide_10">Metoclopramid</string>
+    <string name="medication_metoclopramide_10_class">Antiemetikum</string>
+    <string name="medication_electrolytes">Væske og elektrolytter</string>
+    <string name="medication_electrolytes_class">Oral rehydrering</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">B2-vitamin</string>
+    <string name="medication_magnesium_400">Magnesium</string>
+    <string name="medication_magnesium_400_class">Mineraltilskud</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Betablokker</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antiepileptikum</string>
+    <string name="medication_amitriptyline_10">Amitriptylin</string>
+    <string name="medication_amitriptyline_10_class">Tricyklisk antidepressivum</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">CGRP-antistof, månedlig</string>
+    <string name="medication_custom_class">Egen medicin</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+
+    <string name="insights_bar_week">U%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s af %2$s har ingen noterede udløsere</item>
+        <item quantity="other">%1$s af %2$s har ingen noterede udløsere</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s anfald</item>
+        <item quantity="other">%1$s anfald</item>
+    </plurals>
+
+    <!-- PDF report -->
+
+    <string name="report_title">Klinisk migrænerapport</string>
+    <string name="report_page">MigraTrack · Side %1$s</string>
+    <string name="report_patient">Patient: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Oprettet %1$s</string>
+    <string name="report_disclaimer">Data registreret af patienten selv i MigraTrack. Rapporten understøtter, men erstatter ikke, en klinisk vurdering.</string>
+    <string name="report_stat_episodes">Registrerede anfald</string>
+    <string name="report_stat_migraine_days">Migrænedage</string>
+    <string name="report_stat_pain_free_days">Smertefri dage</string>
+    <string name="report_stat_average_intensity">Gns. intensitet /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Registreringen startede %1$s. %2$s tidligere dag i perioden har ingen registreringer og tæller ikke som en smertefri dag.</item>
+        <item quantity="other">Registreringen startede %1$s. %2$s tidligere dage i perioden har ingen registreringer og tæller ikke som smertefri dage.</item>
+    </plurals>
+    <string name="report_baseline_title">Udgangsprofil</string>
+    <string name="report_baseline_diagnoses">Diagnoser</string>
+    <string name="report_baseline_frequency">Hyppighed pr. måned</string>
+    <string name="report_baseline_duration">Typisk varighed</string>
+    <string name="report_baseline_intensity">Typisk intensitet</string>
+    <string name="report_baseline_triggers">Kendte udløsere</string>
+    <string name="report_baseline_treatments">Behandlingsplan</string>
+    <string name="report_pain_chart_title">Smerteintensitet over tid (1–10)</string>
+    <string name="report_legend_mild">Let %1$s–%2$s</string>
+    <string name="report_legend_moderate">Moderat %1$s–%2$s</string>
+    <string name="report_legend_severe">Svær %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Ikke registreret</string>
+    <string name="report_medication_title">Medicinforbrug</string>
+    <string name="report_no_medications">Ingen medicinindtag registreret i perioden.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s indtag</item>
+        <item quantity="other">%1$s indtag</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura og varselssymptomer</string>
+    <string name="report_no_symptoms">Ingen aura eller sansesymptomer registreret i perioden.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s af %2$s anfald (%3$s)</item>
+        <item quantity="other">%1$s af %2$s anfald (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Noterede mulige udløsere</string>
+    <string name="report_no_triggers">Ingen udløsere noteret i perioden.</string>
+    <string name="report_triggers_note">Tallene viser, hvor ofte patienten noterede en udløser ved et anfald. De viser ikke en årsag.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s af %2$s har ingen noterede udløsere.</item>
+        <item quantity="other">%1$s af %2$s har ingen noterede udløsere.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s anfald</item>
+        <item quantity="other">%1$s anfald</item>
+    </plurals>
+    <string name="report_episodes_title">Anfald</string>
+    <string name="report_no_episodes">Ingen anfald registreret i perioden.</string>
+    <string name="report_column_date_time">Dato og tid</string>
+    <string name="report_column_pain">Int.</string>
+    <string name="report_column_epicenter">Placering</string>
+    <string name="report_column_symptoms">Symptomer</string>
+    <string name="report_column_medications">Medicin</string>
+    <string name="report_column_triggers">Udløsere</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Ikke angivet</string>
+    <string name="report_none">Ingen</string>
+
+    <!-- Spreadsheet report -->
+
+    <string name="report_sheet_episodes">Anfald</string>
+    <string name="report_sheet_medications">Medicin</string>
+    <string name="report_sheet_daily_pain">Daglig smerte</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Startet</string>
+    <string name="report_header_pain_intensity">Smerteintensitet (1–10)</string>
+    <string name="report_header_epicenter">Smertens placering</string>
+    <string name="report_header_symptoms">Aura og sansesymptomer</string>
+    <string name="report_header_medications">Medicin</string>
+    <string name="report_header_triggers">Mulige udløsere</string>
+    <string name="report_header_episode_started">Anfaldets start</string>
+    <string name="report_header_medication">Medicin</string>
+    <string name="report_header_dose">Dosis</string>
+    <string name="report_header_date">Dato</string>
+    <string name="report_header_peak_pain">Højeste smerteintensitet (1–10, 0 = smertefri)</string>
+    <string name="report_header_day">Dag</string>
+    <string name="report_header_field">Felt</string>
+    <string name="report_header_value">Værdi</string>
+    <string name="report_day_migraine">Migræne</string>
+    <string name="report_day_pain_free">Smertefri</string>
+    <string name="report_day_not_tracked">Ikke registreret</string>
+    <string name="report_profile_patient">Patient</string>
+    <string name="report_profile_range">Rapportperiode</string>
+    <string name="report_profile_tracked_since">Registreret siden</string>
+    <string name="report_profile_diagnoses">Diagnoser</string>
+    <string name="report_profile_frequency">Hyppighed pr. måned</string>
+    <string name="report_profile_duration">Typisk varighed</string>
+    <string name="report_profile_intensity">Typisk intensitet</string>
+    <string name="report_profile_triggers">Kendte udløsere</string>
+    <string name="report_profile_treatments">Behandlingsplan</string>
+    <string name="report_iso_range">%1$s til %2$s</string>
+</resources>

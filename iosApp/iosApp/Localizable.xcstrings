@@ -16,6 +16,18 @@
             "value" : "Primer acabeu la configuració a MigraTrack."
           }
         },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejprve dokončete nastavení v MigraTracku."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afslut først opsætningen i MigraTrack."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -34,6 +46,12 @@
             "value" : "Primero termine la configuración en MigraTrack."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viimeistele ensin käyttöönotto MigraTrackissa."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -46,16 +64,46 @@
             "value" : "Terminez d’abord la configuration dans MigraTrack."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprije dovršite postavljanje u MigraTracku."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Először fejezze be a beállítást a MigraTrackben."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Completi prima la configurazione in MigraTrack."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pirmiausia baikite sąranką MigraTrack."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fullfør oppsettet i MigraTrack først."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltooi eerst het instellen in MigraTrack."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najpierw należy dokończyć konfigurację w MigraTrack."
           }
         },
         "pt" : {
@@ -70,10 +118,40 @@
             "value" : "Primeiro conclua a configuração no MigraTrack."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mai întâi finalizați configurarea în MigraTrack."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сначала завершите настройку в MigraTrack."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprv dokončite nastavenie v aplikácii MigraTrack."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprej dokončajte nastavitev v MigraTracku."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slutför konfigurationen i MigraTrack först."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önce MigraTrack’te kurulumu tamamlayın."
           }
         }
       }
@@ -91,6 +169,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nova crisi"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nový záchvat"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyt anfald"
           }
         },
         "de" : {
@@ -111,6 +201,12 @@
             "value" : "Nueva crisis"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uusi kohtaus"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -123,16 +219,46 @@
             "value" : "Nouvelle crise"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novi napadaj"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Új roham"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nuovo attacco"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Įrašyti"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt anfall"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nieuwe aanval"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nowy napad"
           }
         },
         "pt" : {
@@ -147,10 +273,40 @@
             "value" : "Nova crise"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atac nou"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новый приступ"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nový záchvat"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nov napad"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt anfall"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni atak"
           }
         }
       }
@@ -168,6 +324,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anota una crisi de migranya"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaznamenat záchvat migrény"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrer migræneanfald"
           }
         },
         "de" : {
@@ -188,6 +356,12 @@
             "value" : "Registrar crisis de migraña"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kirjaa migreenikohtaus"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -200,16 +374,46 @@
             "value" : "Noter une crise de migraine"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zabilježi napadaj migrene"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migrénroham rögzítése"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annota attacco di emicrania"
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Įrašyti migrenos priepuolį"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrer migreneanfall"
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval noteren"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisz napad migreny"
           }
         },
         "pt" : {
@@ -224,10 +428,40 @@
             "value" : "Registar crise de enxaqueca"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notează un atac de migrenă"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Записать приступ мигрени"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaznamenať záchvat migrény"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zabeleži napad migrene"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrera migränanfall"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migren atağı kaydet"
           }
         }
       }
@@ -245,6 +479,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crisi de migranya anotada: intensitat %1$lld de 10, amb %2$@."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záchvat migrény zaznamenán: intenzita %1$lld z 10, léky: %2$@."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migræneanfald registreret: intensitet %1$lld af 10, med %2$@."
           }
         },
         "de" : {
@@ -271,6 +517,12 @@
             "value" : "Crisis de migraña registrada: intensidad %1$lld de 10, con %2$@."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migreenikohtaus kirjattu: voimakkuus %1$lld/10, lääkkeet: %2$@."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -283,16 +535,46 @@
             "value" : "Crise de migraine notée : intensité %1$lld sur 10, avec %2$@."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napadaj migrene zabilježen: jačina %1$lld od 10, lijekovi: %2$@."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migrénroham rögzítve: erősség %1$lld/10, gyógyszerek: %2$@."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacco di emicrania annotato: intensità %1$lld su 10, con %2$@."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migrenos priepuolis įrašytas: intensyvumas %1$lld iš 10, vaistai: %2$@."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migreneanfall registrert: intensitet %1$lld av 10, med %2$@."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval genoteerd: intensiteit %1$lld van 10, met %2$@."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisano napad migreny: natężenie %1$lld z 10, przyjęte leki: %2$@."
           }
         },
         "pt" : {
@@ -307,10 +589,40 @@
             "value" : "Crise de enxaqueca registada: intensidade %1$lld de 10, com %2$@."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atac de migrenă înregistrat: intensitate %1$lld din 10, cu %2$@."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приступ мигрени записан: интенсивность %1$lld из 10, лекарства: %2$@."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záchvat migrény zaznamenaný: intenzita %1$lld z 10, lieky: %2$@."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napad migrene zabeležen: jakost %1$lld od 10, zdravila: %2$@."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migränanfall registrerat: intensitet %1$lld av 10, med %2$@."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migren atağı kaydedildi: şiddet 10 üzerinden %1$lld, ilaçlar: %2$@."
           }
         }
       }
@@ -328,6 +640,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crisi de migranya anotada: intensitat %lld de 10."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záchvat migrény zaznamenán: intenzita %lld z 10."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migræneanfald registreret: intensitet %lld af 10."
           }
         },
         "de" : {
@@ -348,6 +672,12 @@
             "value" : "Crisis de migraña registrada: intensidad %lld de 10."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migreenikohtaus kirjattu: voimakkuus %lld/10."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -360,16 +690,46 @@
             "value" : "Crise de migraine notée : intensité %lld sur 10."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napadaj migrene zabilježen: jačina %lld od 10."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migrénroham rögzítve: erősség %lld/10."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacco di emicrania annotato: intensità %lld su 10."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migrenos priepuolis įrašytas: intensyvumas %lld iš 10."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migreneanfall registrert: intensitet %lld av 10."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval genoteerd: intensiteit %lld van 10."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisano napad migreny: natężenie %lld z 10."
           }
         },
         "pt" : {
@@ -384,10 +744,40 @@
             "value" : "Crise de enxaqueca registada: intensidade %lld de 10."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atac de migrenă înregistrat: intensitate %lld din 10."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Приступ мигрени записан: интенсивность %lld из 10."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Záchvat migrény zaznamenaný: intenzita %lld z 10."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napad migrene zabeležen: jakost %lld od 10."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migränanfall registrerat: intensitet %lld av 10."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Migren atağı kaydedildi: şiddet 10 üzerinden %lld."
           }
         }
       }
@@ -405,6 +795,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Anota ara una crisi amb la vostra intensitat habitual del dolor i els medicaments per a la crisi de MigraTrack."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaznamená záchvat nyní s vaší obvyklou intenzitou bolesti a akutními léky z MigraTracku."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrerer et anfald nu med din typiske smerteintensitet og din anfaldsmedicin fra MigraTrack."
           }
         },
         "de" : {
@@ -425,6 +827,12 @@
             "value" : "Registra una crisis ahora con su intensidad habitual del dolor y sus medicamentos para la crisis de MigraTrack."
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kirjaa kohtauksen nyt tavallisella kivun voimakkuudellasi ja MigraTrackin akuuttilääkkeillä."
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -437,16 +845,46 @@
             "value" : "Note une crise maintenant avec votre intensité habituelle et vos traitements de crise de MigraTrack."
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odmah bilježi napadaj s vašom uobičajenom jačinom boli i lijekovima za akutno liječenje iz MigraTracka."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most rögzít egy rohamot a szokásos fájdalomerősséggel és a MigraTrackben megadott akut gyógyszerekkel."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annota ora un attacco con la sua intensità abituale del dolore e i farmaci per l’attacco di MigraTrack."
           }
         },
+        "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dabar įrašo priepuolį su jūsų įprastu skausmo intensyvumu ir ūminio gydymo vaistais iš MigraTrack."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrerer et anfall nå med din typiske smerteintensitet og anfallsmedisinene dine fra MigraTrack."
+          }
+        },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noteert nu een aanval met uw gewone pijnintensiteit en aanvalsmedicatie uit MigraTrack."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapisuje teraz napad z typowym natężeniem bólu i lekami doraźnymi z MigraTrack."
           }
         },
         "pt" : {
@@ -461,10 +899,40 @@
             "value" : "Regista uma crise agora com a sua intensidade habitual da dor e os seus medicamentos para a crise do MigraTrack."
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Înregistrează acum un atac cu intensitatea obișnuită a durerii și medicamentele pentru tratamentul acut din MigraTrack."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Записывает приступ сейчас с вашей обычной интенсивностью боли и лекарствами для купирования приступа из MigraTrack."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaznamená záchvat teraz s vašou obvyklou intenzitou bolesti a akútnymi liekmi z aplikácie MigraTrack."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Takoj zabeleži napad z vašo običajno jakostjo bolečine in zdravili za akutno zdravljenje iz MigraTracka."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registrerar ett anfall nu med din typiska smärtintensitet och dina anfallsläkemedel från MigraTrack."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olağan ağrı şiddetiniz ve MigraTrack’teki akut ilaçlarınızla şimdi bir atak kaydeder."
           }
         }
       }

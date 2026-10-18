@@ -102,3 +102,62 @@ Languages: German, French, French (Canada), Spanish, Spanish (Spain), Portuguese
 - Privacy Policy, all eight texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes.
 - Terms of Service, all eight texts: not a medical device (the legal term of each language: "Medizinprodukt", "dispositif médical", "dispositivo médico", "dispositivo medico", "medisch hulpmiddel", "producte sanitari"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 4: Central and Northern Europe (October 18, 2026)
+
+Languages: Polish, Czech, Slovak, Croatian, Slovenian, Romanian, Hungarian, Lithuanian, Danish, Norwegian Bokmål, Swedish, Finnish and Turkish. Scope: the keys of the checklist, section 3, the Siri and watch strings, and `docs/legal/files/{pl,cs,sk,hr,sl,ro,hu,lt,da,nb,sv,fi,tr}/*.md`.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| ro | Every key with "episode" (first draft, approved as a sample) | "crisis" ("criză") | Episode | "atac": the Romanian ICHD-3 (RO1, p. 11) says "atac de migrenă" and keeps "criză" for epileptic seizures (p. 17). The watch says "Atac nou", the complication "NOU". |
+| fi | `diagnosis_migraine_without_aura` | "Migraine without aura" ("Migreeni ilman auraa") | Migraine without aura | "Auraton migreeni", the name in Käypä hoito (FI1, table 1) |
+| cs, sk | `report_disclaimer` | "supplements the clinical examination" | supports a clinical assessment | "klinické posouzení" / "klinické posúdenie" (assessment). "Klinické hodnocení" is not used: in Czech it also means a clinical trial. |
+| da, nb, sv | `medication_metoclopramide_10_class` | "Agent against nausea" | Antiemetic | "Antiemetikum": an antiemetic also acts on vomiting, as in batch 3 for German |
+| All | `export_range_*` | "Last 90 / days" on two lines at the largest text size | Last 90 Days | A no-break space between the number and the unit, as in the dose |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| pl | `pain_scale_high` | "10 Unbearable" | 10 Disabling | 14 characters. "Obezwładniający" and "Paraliżujący" are longer. |
+| cs, sk, hu, da, nb, sv, sl | `pain_scale_high` | "10 Paralysing" | 10 Disabling | The common word for a disabling headache, as German and Dutch in batch 3 |
+| hr | `pain_scale_high` | "10 Devastating" | 10 Disabling | 14 characters; "Onesposobljavajuća" has 18 |
+| lt | `pain_scale_high` | "10 Exhausting" | 10 Disabling | 14 characters; "Nepakeliamas" (unbearable) has 15 with the number |
+| ro, lt | `common_intensity_of_ten`, `insights_episode_option`, `episode_delete_message` | "Pain 6/10" | Intensity 6/10 | 16 characters ("Intensitate 6/10" has 17), as Portuguese and Dutch in batch 3 |
+| pl | `report_legend_moderate` | "Medium 4–7" | Moderate 4–7 | 16 characters; "Umiarkowany 4–7" has 17 |
+| fi | `report_legend_moderate` | "Mod. 4–7" ("Keskiv.") | Moderate 4–7 | 16 characters; "Keskivaikea 4–7" has 17 |
+| pl, cs, sk, hr, sl, ro, hu, lt, da, nb, sv, fi, tr | `medication_topiramate_50_class` | "Antiepileptic" | Anticonvulsant | The usual class name in these languages (SK1, p. 3; PL-MP); same drug class |
+| fi | `medication_acetaminophen_1000_class`, `medication_metoclopramide_10_class` | "Pain medicine", "Nausea medicine" | Analgesic, Antiemetic | The words of Finnish patient texts and of the 2024 Käypä hoito presentation ("Pahoinvointilääke: Metoklopramidi") |
+| pl, cs, sk, hr, sl, ro, lt, da, nb, sv, fi, hu, tr | `settings_member` | "Diary since", "Tracked since", "First month", "Since", "Start" | Member | No account exists; the value is the first tracked month (as in batches 2 and 3) |
+| cs, sk, hr, sl, ro, lt, sv | `settings_episodes_logged` | "35 in total" | 35 Logged | 14 characters or the plural forms; the caption above says "episodes" |
+| sl, ro, lt | `calendar_migraine_days` | "Migraine: 3 days", "With migraine: 3", "Migraine: 3 d." | 3 Migraine Days | 18 characters with the plural forms: "2 dneva z migreno", "21 de zile cu migrenă", "1 diena su migrena" are longer |
+| cs, sk, ro, lt | `export_range_*` | "Over 30 days", "30 days" | Last 30 Days | 16 characters; the report header shows the dates |
+| pl | `export_range_last_12_months` | "Last year" | Last 12 Months | 16 characters; same period |
+| sl, hu, lt, fi | `report_stat_pain_free_days`, watch "Pain-free days" | "Pain-free" | Pain-free days | 16 characters on the 40 mm watch; the term pair makes the report tile equal (as German, French, Italian in batch 3) |
+| cs, sk, ro, lt, da, nb, sv, sl | `report_column_pain` | "Int." | Pain | 5 characters in the PDF column |
+| hu | `calendar_edit_episode_details` | "Edit details" | Edit Episode Details | 28 characters; the button is in the card of one episode |
+| lt | `calendar_edit_episode_details` | "Edit the data" | Edit Episode Details | 28 characters; same reason |
+| da, nb, sv | `strip_legend_not_tracked` | "No data" | Not tracked | 14 characters; the longer legends of Insights keep "not registered" |
+| pl | `episode_aura_symptoms`, `report_header_symptoms` | "Aura and accompanying symptoms" | Aura & Sensory Phenotypes / Symptoms | Nausea in the list is not a sensory symptom; "objawy towarzyszące" is the usual Polish clinical phrase |
+| cs, sk, hr, sl, ro | `diagnosis_cluster` | "Cluster headache" (English word in cs, hr, ro) | Cluster Headache | The Czech and Romanian ICHD-3 keep "cluster" (CS1, p. 3; RO1, p. 6) |
+| tr | `duration_*` | "2–4 h" with the symbol "h" | 2–4h | 7 characters: "12–24 sa" has 8 |
+| hu, fi, tr | `summary_of_tracked_days`, `insights_trigger_row_count` | "26 / 30 tracked days" | 26 of 30 tracked days | A slash avoids an article or a case ending that depends on the number |
+| lt | Watch and complication "Log Migraine", App Shortcut title | "Record" ("Įrašyti") | Log Migraine | 14 characters on a 40 mm watch: "Naujas priepuolis" has 17. The owner approved it. |
+| lt | Complication "LOG" | "MARK" ("ŽYMĖ") | LOG | 4 characters under a plus sign; no Lithuanian verb fits. The owner approved it. |
+| All but lt | Watch and complication "Log Migraine" | "New attack" | Log Migraine | 14 characters on a 40 mm watch, as in batches 2 and 3. The owner approved it. |
+| All | Complication "LOG" | "NEW" | LOG | 4 characters under a plus sign. The owner approved it. |
+| ro, fi | Rectangular complication | "Pain-free: 25/30" | 25 of 30 days pain-free | 24 characters with the Romanian "de" and the Finnish cases; the complication sits next to the app name |
+
+### No difference in meaning
+
+- Diagnoses, symptoms, regions, frequency and duration chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit "mg" with a no-break space in all thirteen sets.
+- `common_medical_disclaimer`, for example Polish: "MigraTrack is a diary, not medical advice. Before a change of treatment, one should talk to a doctor."
+- `insights_triggers_hint`, for example Czech: "How often you noted each trigger with an attack. This does not show the cause."
+- `report_triggers_note`, for example Swedish: "The numbers show how often the patient noted a trigger with an attack. They do not show a cause."
+- `report_disclaimer`, for example Turkish: "Data that the patient entered in MigraTrack. This report supports the clinical assessment and does not replace it."
+- The other `report_*` keys, the Siri dialogs (da, nb, sv, fi, tr) and the watch strings.
+- Privacy Policy, all thirteen texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2 and 3.
+- Terms of Service, all thirteen texts: not a medical device (the legal term of each language: "wyrób medyczny", "zdravotnický prostředek", "zdravotnícka pomôcka", "medicinski proizvod", "medicinski pripomoček", "dispozitiv medical", "orvostechnikai eszköz", "medicinos priemonė", "medicinsk udstyr", "medisinsk utstyr", "medicinteknisk produkt", "lääkinnällinen laite", "tıbbi cihaz"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.
