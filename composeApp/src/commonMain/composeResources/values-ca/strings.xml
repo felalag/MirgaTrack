@@ -221,7 +221,8 @@
     <string name="export_symptoms_subtitle">Tipus d’aura i la seva freqüència</string>
     <string name="export_triggers_subtitle">Desencadenants anotats i la seva freqüència</string>
     <string name="export_pain_charts">Gràfics d’intensitat del dolor</string>
-    <string name="export_pain_charts_subtitle">Evolució de la intensitat del dolor, 1–⁠10</string>
+    <!-- &#x2060; (word joiner) keeps "1–10" on one line at large text sizes. -->
+    <string name="export_pain_charts_subtitle">Evolució de la intensitat del dolor, 1&#x2060;–&#x2060;10</string>
     <string name="export_pdf">Exporta l’informe PDF</string>
     <string name="export_excel">Exporta a Excel (.xlsx)</string>
     <string name="export_share">Comparteix</string>
@@ -445,7 +446,8 @@
     <string name="medication_erenumab_70">Erenumab</string>
     <string name="medication_erenumab_70_class">Anticòs anti-CGRP, mensual</string>
     <string name="medication_custom_class">Medicament propi</string>
-    <string name="medication_dose_milligrams">%1$s mg</string>
+    <!-- &#160; (no-break space) keeps the number and "mg" on one line. -->
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
     <string name="medication_name_and_dose">%1$s %2$s</string>
 
     <!-- Insights, catalog related -->

@@ -61,8 +61,8 @@ Languages: German, French, French (Canada), Spanish, Spanish (Spain), Portuguese
 | fr | `summary_sleep_connect_body`, `summary_sleep_connect_button` | "Apple Health" | Apple Health | "l'app Santé", the name of the app in French iOS, as in the other French strings |
 | pt | `diagnosis_tension_type` | "Tension-type headache" (with "tensional") | Tension-type Headache | "Cefaleia do tipo tensão", the term of the Brazilian ICHD-3 (BR1, p. 22) |
 | it | `insights_headline_month` | "attacks to Oct" | Episodes in Oct | "attacchi in ott" |
-| de, fr, es, pt, it, nl, ca | `medication_dose_milligrams` | "50 / mg" on two lines at the largest text size | 50mg | A no-break space between the number and "mg" |
-| de, fr, es, pt, it, nl, ca | `export_pain_charts_subtitle` | "1– / 10" on two lines at the largest text size | 1–10 | A word joiner (U+2060) after the en dash |
+| de, fr, es, pt, it, nl, ca | `medication_dose_milligrams` | "50 / mg" on two lines at the largest text size | 50mg | A no-break space between the number and "mg", as in Russian and Belarusian |
+| de, fr, es, pt, it, nl, ca | `export_pain_charts_subtitle` | "1– / 10" on two lines at the largest text size | 1–10 | A word joiner (U+2060) on both sides of the en dash, as in Russian and Belarusian |
 
 ### Kept, with the reason
 
