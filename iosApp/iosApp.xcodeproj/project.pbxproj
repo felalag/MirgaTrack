@@ -323,7 +323,9 @@
 				hu,
 				id,
 				it,
+				ja,
 				kk,
+				ko,
 				lt,
 				ms,
 				nb,
@@ -340,6 +342,8 @@
 				tr,
 				uk,
 				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 7A0000000000000000000201;
 			productRefGroup = 7A0000000000000000000204 /* Products */;

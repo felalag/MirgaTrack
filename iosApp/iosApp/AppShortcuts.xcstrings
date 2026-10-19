@@ -86,6 +86,24 @@
             ]
           }
         },
+        "ja" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "${applicationName}で片頭痛を記録",
+              "${applicationName}に片頭痛を記録して"
+            ]
+          }
+        },
+        "ko" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "${applicationName}에서 편두통 기록",
+              "${applicationName}에 편두통 기록해 줘"
+            ]
+          }
+        },
         "ms" : {
           "stringSet" : {
             "state" : "translated",
@@ -173,6 +191,24 @@
             "values" : [
               "Ghi migraine trong ${applicationName}",
               "Ghi cơn mới trong ${applicationName}"
+            ]
+          }
+        },
+        "zh-Hans" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "在${applicationName}中记录偏头痛",
+              "用${applicationName}记录偏头痛"
+            ]
+          }
+        },
+        "zh-Hant" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "在${applicationName}中記錄偏頭痛",
+              "用${applicationName}記錄偏頭痛"
             ]
           }
         }

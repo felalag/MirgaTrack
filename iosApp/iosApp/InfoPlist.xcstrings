@@ -107,10 +107,22 @@
             "value" : "MigraTrack legge il sonno di stanotte dall’app Salute e lo mostra nel riepilogo. I dati restano su questo iPhone."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrackはヘルスケアから昨夜の睡眠を読み取り、概要に表示します。データはこのiPhoneの中だけに保存されます。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack кешегі түнгі ұйқыны «Денсаулық» қолданбасынан оқып, шолуда көрсетеді. Деректер осы iPhone-да қалады."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack은 건강 앱에서 어젯밤 수면을 읽어 요약에 표시합니다. 데이터는 이 iPhone에만 저장됩니다."
           }
         },
         "lt" : {
@@ -207,6 +219,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack đọc giấc ngủ đêm qua từ ứng dụng Sức khỏe để hiển thị trong Tổng quan. Dữ liệu chỉ ở trên iPhone này."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack 会从“健康”读取昨晚的睡眠数据，并显示在概览中。数据只保存在这台 iPhone 上。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack 會從「健康」讀取昨晚的睡眠資料，並顯示在摘要中。資料只保留在這部 iPhone 上。"
           }
         }
       }

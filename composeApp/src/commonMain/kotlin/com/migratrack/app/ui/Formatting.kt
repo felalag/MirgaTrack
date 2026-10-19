@@ -30,6 +30,25 @@ expect suspend fun appReadsRightToLeft(): Boolean
 /** Upper case by the rules of the app language: Turkish "i" becomes "İ", not "I". */
 fun String.uppercaseInAppLanguage(): String = toUpperCase(TextLocale)
 
+/**
+ * Korean breaks lines only at spaces, but Compose breaks between any two Hangul syllables, also in "10월" or "MigraTrack은".
+ * A word joiner (U+2060) inside each word with Hangul keeps the word on one line, as UIKit does for Korean.
+ */
+fun String.keepKoreanWords(): String {
+    if (none(::isHangul)) return this
+    return buildString(length + length / 2) {
+        this@keepKoreanWords.forEachIndexed { index, char ->
+            val previous = this@keepKoreanWords.getOrNull(index - 1)
+            if (previous != null && previous.isLetterOrDigit() && char.isLetterOrDigit() && (isHangul(previous) || isHangul(char))) {
+                append('\u2060')
+            }
+            append(char)
+        }
+    }
+}
+
+private fun isHangul(char: Char): Boolean = char in '\uAC00'..'\uD7A3' || char in '\u3131'..'\u318E'
+
 /** "7 h 20 min", or "45 min" under an hour. */
 @Composable
 fun formatHoursMinutes(duration: Duration): String {

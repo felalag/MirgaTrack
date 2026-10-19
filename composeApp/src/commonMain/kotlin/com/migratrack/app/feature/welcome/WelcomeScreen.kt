@@ -59,6 +59,7 @@ import com.migratrack.app.generated.resources.welcome_pain_free_days
 import com.migratrack.app.generated.resources.welcome_tagline
 import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.appendWithPlaceholders
+import com.migratrack.app.ui.keepKoreanWords
 import com.migratrack.app.ui.components.BrandMark
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
@@ -96,9 +97,9 @@ fun WelcomeScreen(onGetStarted: () -> Unit, onOpenDocument: (LegalDocument) -> U
                 Column(verticalArrangement = Arrangement.spacedBy(MtSpacing.sm)) {
                     BasicText(
                         buildAnnotatedString {
-                            append(stringResource(Res.string.welcome_headline_patterns))
+                            append(stringResource(Res.string.welcome_headline_patterns).keepKoreanWords())
                             append("\n")
-                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append(stringResource(Res.string.welcome_headline_doctor)) }
+                            withStyle(SpanStyle(color = MtColors.BrandLabel)) { append(stringResource(Res.string.welcome_headline_doctor).keepKoreanWords()) }
                         },
                         Modifier.fillMaxWidth().semantics { heading() },
                         style = MtTheme.type.largeTitle.copy(textAlign = TextAlign.Center),
@@ -178,9 +179,9 @@ private fun BrandRow() {
 @Composable
 private fun AgreementFooter(onOpenDocument: (LegalDocument) -> Unit) {
     val linkStyles = TextLinkStyles(SpanStyle(color = MtColors.TextBody, textDecoration = TextDecoration.Underline))
-    val template = stringResource(Res.string.welcome_agreement)
-    val terms = stringResource(LegalDocument.TermsOfService.title)
-    val privacy = stringResource(LegalDocument.PrivacyPolicy.title)
+    val template = stringResource(Res.string.welcome_agreement).keepKoreanWords()
+    val terms = stringResource(LegalDocument.TermsOfService.title).keepKoreanWords()
+    val privacy = stringResource(LegalDocument.PrivacyPolicy.title).keepKoreanWords()
     BasicText(
         buildAnnotatedString {
             // One sentence with placeholders, so a translation can put the two links in any order.

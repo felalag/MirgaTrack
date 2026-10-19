@@ -100,7 +100,19 @@
             "value" : " / %lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "ko" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -197,6 +209,18 @@
           }
         },
         "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -313,10 +337,22 @@
             "value" : "%1$lld su %2$lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld日中%1$lld日"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%2$lld ішінен %1$lld"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld일 중 %1$lld일"
           }
         },
         "lt" : {
@@ -413,6 +449,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld trên %2$lld"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld 天中的 %1$lld 天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld 天中的 %1$lld 天"
           }
         }
       }
@@ -516,10 +564,22 @@
             "value" : "%lld su 10"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10段階中%lld"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "10 ішінен %lld"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10점 중 %lld점"
           }
         },
         "lt" : {
@@ -616,6 +676,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld trên 10"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 分，满分 10 分"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 分，滿分 10 分"
           }
         }
       }
@@ -719,10 +791,22 @@
             "value" : "Fine"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дайын"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
           }
         },
         "lt" : {
@@ -819,6 +903,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Xong"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }
@@ -922,10 +1018,22 @@
             "value" : "Attacco annotato"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発作を記録しました"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ұстама жазылды"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발작을 기록했습니다"
           }
         },
         "lt" : {
@@ -1022,6 +1130,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Đã ghi lại cơn"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "发作已记录"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "發作已記錄"
           }
         }
       }
@@ -1125,10 +1245,22 @@
             "value" : "Ultimo attacco %@"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前回の発作 %@"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Соңғы ұстама %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "마지막 발작 %@"
           }
         },
         "lt" : {
@@ -1225,6 +1357,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gần nhất: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次发作 %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上次發作 %@"
           }
         }
       }
@@ -1328,10 +1472,22 @@
             "value" : "Nuovo attacco"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛を記録"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Жаңа ұстама"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 기록"
           }
         },
         "lt" : {
@@ -1428,6 +1584,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ghi cơn mới"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录偏头痛"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄偏頭痛"
           }
         }
       }
@@ -1531,10 +1699,22 @@
             "value" : "Nessun attacco"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発作の記録なし"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ұстама жоқ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발작 기록 없음"
           }
         },
         "lt" : {
@@ -1631,6 +1811,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chưa ghi cơn nào"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂无发作记录"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "尚無發作紀錄"
           }
         }
       }
@@ -1734,10 +1926,22 @@
             "value" : "Apra MigraTrack sul suo iPhone per sincronizzare."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhoneでMigraTrackを開いて同期してください。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Синхрондау үшін iPhone-да MigraTrack ашыңыз."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone에서 MigraTrack을 열어 동기화하십시오."
           }
         },
         "lt" : {
@@ -1834,6 +2038,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mở MigraTrack trên iPhone để đồng bộ."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请在 iPhone 上打开 MigraTrack 进行同步。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在 iPhone 上開啟 MigraTrack 以同步。"
           }
         }
       }
@@ -1937,10 +2153,22 @@
             "value" : "Intensità"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "痛みの強さ"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Қарқындылық"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통증 강도"
           }
         },
         "lt" : {
@@ -2037,6 +2265,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cường độ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "疼痛强度"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "疼痛強度"
           }
         }
       }
@@ -2140,10 +2380,22 @@
             "value" : "Intensità del dolore"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "痛みの強さ"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ауырсыну қарқындылығы"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통증 강도"
           }
         },
         "lt" : {
@@ -2240,6 +2492,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cường độ đau"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "疼痛强度"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "疼痛強度"
           }
         }
       }
@@ -2343,10 +2607,22 @@
             "value" : "Senza dolore"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "痛みのない日"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ауырсынусыз"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통증 없는 날"
           }
         },
         "lt" : {
@@ -2443,6 +2719,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ngày không đau"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无痛日"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無痛日"
           }
         }
       }
@@ -2546,10 +2834,22 @@
             "value" : "Salva"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сақтау"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
           }
         },
         "lt" : {
@@ -2646,6 +2946,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lưu"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存"
           }
         }
       }
