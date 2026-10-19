@@ -10,6 +10,12 @@
             "value" : "Спачатку завяршыце наладжванне ў MigraTrack."
           }
         },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Първо завършете настройката в MigraTrack."
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -32,6 +38,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schließen Sie zuerst die Einrichtung in MigraTrack ab."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ολοκληρώστε πρώτα τη ρύθμιση στο MigraTrack."
           }
         },
         "es" : {
@@ -80,6 +92,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Completi prima la configurazione in MigraTrack."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Алдымен MigraTrack ішінде баптауды аяқтаңыз."
           }
         },
         "lt" : {
@@ -153,6 +171,12 @@
             "state" : "translated",
             "value" : "Önce MigraTrack’te kurulumu tamamlayın."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спершу завершіть налаштування в MigraTrack."
+          }
         }
       }
     },
@@ -163,6 +187,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новы прыступ"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нов пристъп"
           }
         },
         "ca" : {
@@ -187,6 +217,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neue Attacke"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νέα κρίση"
           }
         },
         "es" : {
@@ -235,6 +271,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nuovo attacco"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жаңа ұстама"
           }
         },
         "lt" : {
@@ -308,6 +350,12 @@
             "state" : "translated",
             "value" : "Yeni atak"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новий напад"
+          }
         }
       }
     },
@@ -318,6 +366,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запісаць прыступ мігрэні"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запиши пристъп на мигрена"
           }
         },
         "ca" : {
@@ -342,6 +396,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migräneattacke eintragen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καταγραφή κρίσης ημικρανίας"
           }
         },
         "es" : {
@@ -390,6 +450,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annota attacco di emicrania"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мигрень ұстамасын жазу"
           }
         },
         "lt" : {
@@ -463,6 +529,12 @@
             "state" : "translated",
             "value" : "Migren atağı kaydet"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записати напад мігрені"
+          }
         }
       }
     },
@@ -473,6 +545,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %1$lld з 10, лякарствы: %2$@."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пристъпът на мигрена е записан: интензитет %1$lld от 10, лекарства: %2$@."
           }
         },
         "ca" : {
@@ -497,6 +575,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migräneattacke eingetragen: Intensität %1$lld von 10, mit %2$@."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η κρίση ημικρανίας καταγράφηκε: ένταση %1$lld από 10, φάρμακα: %2$@."
           }
         },
         "en" : {
@@ -551,6 +635,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacco di emicrania annotato: intensità %1$lld su 10, con %2$@."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %1$lld, дәрілер: %2$@."
           }
         },
         "lt" : {
@@ -624,6 +714,12 @@
             "state" : "translated",
             "value" : "Migren atağı kaydedildi: şiddet 10 üzerinden %1$lld, ilaçlar: %2$@."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напад мігрені записано: інтенсивність %1$lld з 10, ліки: %2$@."
+          }
         }
       }
     },
@@ -634,6 +730,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прыступ мігрэні запісаны: інтэнсіўнасць %lld з 10."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пристъпът на мигрена е записан: интензитет %lld от 10."
           }
         },
         "ca" : {
@@ -658,6 +760,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migräneattacke eingetragen: Intensität %lld von 10."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η κρίση ημικρανίας καταγράφηκε: ένταση %lld από 10."
           }
         },
         "es" : {
@@ -706,6 +814,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacco di emicrania annotato: intensità %lld su 10."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %lld."
           }
         },
         "lt" : {
@@ -779,6 +893,12 @@
             "state" : "translated",
             "value" : "Migren atağı kaydedildi: şiddet 10 üzerinden %lld."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напад мігрені записано: інтенсивність %lld з 10."
+          }
         }
       }
     },
@@ -789,6 +909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запісвае прыступ цяпер з вашай звычайнай інтэнсіўнасцю болю і лякарствамі для купіравання прыступу з MigraTrack."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записва пристъп сега с обичайния ви интензитет на болката и лекарствата ви за овладяване на пристъпа от MigraTrack."
           }
         },
         "ca" : {
@@ -813,6 +939,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trägt jetzt eine Attacke mit Ihrer typischen Schmerzintensität und Ihren Akutmedikamenten aus MigraTrack ein."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καταγράφει μια κρίση τώρα με τη συνήθη ένταση πόνου σας και τα φάρμακα για την κρίση από το MigraTrack."
           }
         },
         "es" : {
@@ -861,6 +993,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annota ora un attacco con la sua intensità abituale del dolore e i farmaci per l’attacco di MigraTrack."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ішіндегі әдеттегі ауырсыну қарқындылығыңызбен және ұстаманы басуға арналған дәрілеріңізбен ұстаманы қазір жазады."
           }
         },
         "lt" : {
@@ -933,6 +1071,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Olağan ağrı şiddetiniz ve MigraTrack’teki akut ilaçlarınızla şimdi bir atak kaydeder."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записує напад зараз із вашою звичайною інтенсивністю болю та ліками для купірування нападу з MigraTrack."
           }
         }
       }

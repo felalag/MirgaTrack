@@ -469,6 +469,10 @@ Sources found for the pilot languages and Polish (checked on October 17, 2026):
 | Swedish | No Swedish ICHD-3 found | NPO Nervsystemets sjukdomar, "Riktlinje för migrän", October 2022 | Läkemedelsverket: not searched |
 | Finnish | No Finnish ICHD-3 found | [Käypä hoito "Migreeni"](https://www.kaypahoito.fi/hoi36050), March 2024 | Fimea: not searched |
 | Turkish | [ICHD-3 in Turkish](https://ihs-headache.org/wp-content/uploads/2021/12/Bas%CC%A7ag%CC%86risi-Bozukluklarinin-Uluslararasi-Siniflamasi.pdf) | Ministry of Health, "Migren Klinik Protokolü", revision of August 2025 | TİTCK: not searched |
+| Ukrainian | No Ukrainian ICHD-3 found | Ministry of Health order No. 487 of August 17, 2007, migraine protocol; the register of current guidelines (guidelines.moz.gov.ua) asked for a Cloudflare check and was not read | [State Register of Medicinal Products](http://www.drlz.com.ua/), full CSV export searched |
+| Bulgarian | [ICHD-3 in Bulgarian](https://ihs-headache.org/wp-content/uploads/2020/05/3675_ichd-3-bulgarian.pdf) | No Bulgarian guideline found; EMA product information in Bulgarian | Bulgarian Drug Agency: not searched |
+| Kazakh | No Kazakh ICHD-3 found | Clinical protocol "Мигрень у взрослых", Ministry of Health of Kazakhstan, 2023, protocol No. 188 (in Russian; no Kazakh text found) | NDDA register: not searched (script page) |
+| Greek | No Greek ICHD-3 found | No national guideline found; EMA product information in Greek, Eginition Hospital leaflets (2026), headaches.gr | EOF: not searched |
 
 The pilot could not search GRLS: its search asks for a CAPTCHA, which Claude does not solve. [LOCALIZATION_GLOSSARY.md](LOCALIZATION_GLOSSARY.md) marks these checks as open, with the page of the Russian guideline that names each medication.
 

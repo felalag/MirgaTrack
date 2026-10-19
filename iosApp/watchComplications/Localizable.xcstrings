@@ -44,6 +44,34 @@
             }
           }
         },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld от %2$#@tracked@ без болка"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ден"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дни"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -167,6 +195,34 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg Tage"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ χωρίς πόνο"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ημέρα"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ημέρες"
                     }
                   }
                 }
@@ -388,6 +444,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senza dolore: %1$lld/%2$lld"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$lld күн ауырсынусыз"
           }
         },
         "lt" : {
@@ -753,6 +815,46 @@
             "state" : "translated",
             "value" : "%1$lld/%2$lld gün ağrısız"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld з %2$#@tracked@ без болю"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg днів"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg днів"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg дня"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -763,6 +865,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "УВОД"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НОВ"
           }
         },
         "ca" : {
@@ -787,6 +895,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NEU"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ΝΕΑ"
           }
         },
         "es" : {
@@ -835,6 +949,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NOTA"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЖАҢА"
           }
         },
         "lt" : {
@@ -908,6 +1028,12 @@
             "state" : "translated",
             "value" : "YENİ"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВВІД"
+          }
         }
       }
     },
@@ -918,6 +1044,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новы прыступ"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нов пристъп"
           }
         },
         "ca" : {
@@ -942,6 +1074,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neue Attacke"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νέα κρίση"
           }
         },
         "es" : {
@@ -990,6 +1128,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nuovo attacco"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жаңа ұстама"
           }
         },
         "lt" : {
@@ -1063,6 +1207,12 @@
             "state" : "translated",
             "value" : "Yeni atak"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новий напад"
+          }
         }
       }
     },
@@ -1073,6 +1223,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Адкрыйце на iPhone"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отворете на iPhone"
           }
         },
         "ca" : {
@@ -1097,6 +1253,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Auf dem iPhone öffnen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε στο iPhone"
           }
         },
         "es" : {
@@ -1145,6 +1307,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apri su iPhone"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone-да ашыңыз"
           }
         },
         "lt" : {
@@ -1218,6 +1386,12 @@
             "state" : "translated",
             "value" : "iPhone’da açın"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте на iPhone"
+          }
         }
       }
     },
@@ -1228,6 +1402,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Адкрывае запіс прыступу."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отваря записа на пристъп."
           }
         },
         "ca" : {
@@ -1252,6 +1432,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öffnet das Eintragen einer Attacke."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίγει την καταγραφή κρίσης."
           }
         },
         "es" : {
@@ -1300,6 +1486,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apre l’annotazione di un attacco."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ұстаманы жазуды ашады."
           }
         },
         "lt" : {
@@ -1373,6 +1565,12 @@
             "state" : "translated",
             "value" : "Atak kaydını açar."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкриває запис нападу."
+          }
         }
       }
     },
@@ -1383,6 +1581,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Адкрывае запіс прыступу. Прамавугольны варыянт таксама паказвае дні без болю."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отваря записа на пристъп. Правоъгълният вариант показва и дните без болка."
           }
         },
         "ca" : {
@@ -1407,6 +1611,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öffnet das Eintragen einer Attacke. Die rechteckige Variante zeigt auch Ihre schmerzfreien Tage."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίγει την καταγραφή κρίσης. Η ορθογώνια μορφή δείχνει επίσης τις μέρες χωρίς πόνο."
           }
         },
         "es" : {
@@ -1455,6 +1665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apre l’annotazione di un attacco. Lo stile rettangolare mostra anche i suoi giorni senza dolore."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ұстаманы жазуды ашады. Тікбұрышты нұсқасы ауырсынусыз күндерді де көрсетеді."
           }
         },
         "lt" : {
@@ -1528,6 +1744,12 @@
             "state" : "translated",
             "value" : "Atak kaydını açar. Dikdörtgen stil ağrısız günlerinizi de gösterir."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкриває запис нападу. Прямокутний варіант також показує дні без болю."
+          }
         }
       }
     },
@@ -1538,6 +1760,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дні без болю –"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дни без болка –"
           }
         },
         "ca" : {
@@ -1562,6 +1790,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schmerzfreie Tage –"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Χωρίς πόνο –"
           }
         },
         "es" : {
@@ -1610,6 +1844,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giorni senza dolore –"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ауырсынусыз –"
           }
         },
         "lt" : {
@@ -1682,6 +1922,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ağrısız günler –"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дні без болю –"
           }
         }
       }

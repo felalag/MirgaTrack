@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Bulgarian strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">Назад</string>
+    <string name="common_settings">Настройки</string>
+    <string name="common_cancel">Отказ</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Запази</string>
+    <string name="common_add">Добави</string>
+    <string name="common_next">Напред</string>
+    <string name="common_on">Вкл.</string>
+    <string name="common_off">Изкл.</string>
+    <string name="common_clear">Изчисти</string>
+    <string name="common_none">Няма</string>
+    <string name="common_today">Днес</string>
+    <string name="common_not_set">Не е зададено</string>
+    <string name="common_expanded">Разгънато</string>
+    <string name="common_collapsed">Свито</string>
+    <string name="common_last_30_days">Последните 30 дни</string>
+    <string name="common_medical_disclaimer">MigraTrack е дневник, а не медицински съвет. Говорете с лекаря си, преди да промените лечението.</string>
+    <string name="common_log_migraine_episode">Запиши пристъп на мигрена</string>
+    <string name="common_save_episode">Запази</string>
+    <string name="common_edit_episode">Редактиране на пристъп</string>
+    <string name="common_delete_episode">Изтрий пристъпа</string>
+    <string name="common_intensity_of_ten">Болка %1$s/10</string>
+    <string name="common_date_at_time">%1$s в %2$s</string>
+    <string name="common_possible_triggers">Възможни тригери</string>
+    <string name="common_add_trigger">Добави тригер</string>
+    <string name="common_add_medication">Добави лекарство</string>
+    <string name="common_treatment_blueprint">План за лечение</string>
+    <string name="common_medication_name_and_dose">Въведете името и дозата.</string>
+    <string name="common_medication_placeholder">Например елетриптан 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Обобщение</string>
+    <string name="tab_log">Запиши</string>
+    <string name="tab_insights">Анализ</string>
+    <string name="tab_export">Експорт</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Интензитет на болката</string>
+    <string name="pain_scale_value">%1$s от 10</string>
+    <string name="pain_scale_low">%1$s Слаба</string>
+    <string name="pain_scale_middle">%1$s Осезаема</string>
+    <string name="pain_scale_high">%1$s Изтощителна</string>
+    <string name="medication_remove">Премахни %1$s</string>
+    <string name="duration_minutes">%1$s мин</string>
+    <string name="duration_hours_minutes">%1$s ч %2$s мин</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Днес, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">от %1$s ден на проследяване</item>
+        <item quantity="other">от %1$s дни на проследяване</item>
+    </plurals>
+    <string name="summary_without_logged_episode">без записан пристъп</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s от %2$s ден на проследяване без записан пристъп през последните 30 дни</item>
+        <item quantity="other">%1$s от %2$s дни на проследяване без записан пристъп през последните 30 дни</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Броят се от деня, в който започнахте проследяването. По-ранните дни не се проследяват.</string>
+    <string name="strip_legend_migraine">Мигрена</string>
+    <string name="strip_legend_pain_free">Без болка</string>
+    <string name="strip_legend_not_tracked">Няма данни</string>
+    <string name="summary_sleep_last_night">Сън през нощта</string>
+    <string name="summary_sleep_not_recorded">Няма запис</string>
+    <string name="summary_sleep_hint">Носете Apple Watch през нощта или проследявайте съня в приложението „Здраве“. Ако сте изключили достъпа, включете го в „Настройки“ › „Здраве“.</string>
+    <string name="summary_sleep_caption">Сън</string>
+    <string name="summary_sleep_connect_title">Сънят от изминалата нощ в обобщението</string>
+    <string name="summary_sleep_connect_body">MigraTrack чете съня от изминалата нощ от „Здраве“. Данните остават на този iPhone.</string>
+    <string name="summary_sleep_connect_button">Свържи „Здраве“</string>
+    <string name="summary_last_episode">Последен пристъп</string>
+    <string name="summary_last_episode_none">Все още няма</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Запис на пристъп</string>
+    <string name="episode_update">Обнови пристъпа</string>
+    <string name="episode_updated_banner">Пристъпът е обновен.</string>
+    <string name="episode_deleted_banner">Пристъпът е изтрит.</string>
+    <string name="episode_saved_banner">Пристъпът е запазен. Починете си и стойте на приглушена светлина.</string>
+    <string name="episode_pain_intensity_index">Интензитет на болката</string>
+    <string name="episode_cranial_epicenter">Локализация на болката</string>
+    <string name="episode_aura_symptoms">Аура и сензорни симптоми</string>
+    <string name="episode_acute_therapy">Овладяване на пристъпа</string>
+    <string name="episode_add_medication_row">Добави лекарство или електролити</string>
+    <string name="episode_start">Начало на пристъпа</string>
+    <string name="episode_start_now">Сега</string>
+    <string name="episode_add_trigger_message">Какво предшества този пристъп?</string>
+    <string name="episode_other_trigger_action">Друг тригер…</string>
+    <string name="episode_other_trigger_title">Друг тригер</string>
+    <string name="episode_other_trigger_message">Опишете какво предшества този пристъп.</string>
+    <string name="episode_other_trigger_placeholder">Например силен парфюм</string>
+    <string name="episode_add_medication_message">Какво взехте при този пристъп?</string>
+    <string name="episode_other_medication_action">Друго лекарство…</string>
+    <string name="episode_other_medication_title">Друго лекарство</string>
+    <string name="episode_missing_title">Пристъпът е изтрит</string>
+    <string name="episode_missing_message">Този пристъп е изтрит на друго устройство, затова промените не могат да се запазят.</string>
+    <string name="episode_delete_message">Болка %1$s/10. Пристъпът ще изчезне от историята и отчетите.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">С</string>
+    <string name="insights_period_month">М</string>
+    <string name="insights_period_six_months">6М</string>
+    <string name="insights_period_year">Г</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">пристъп тази седмица</item>
+        <item quantity="other">пристъпа тази седмица</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">пристъп през седмицата от %1$s</item>
+        <item quantity="other">пристъпа през седмицата от %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">пристъп през %1$s</item>
+        <item quantity="other">пристъпа през %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">пристъп за 6 мес.</item>
+        <item quantity="other">пристъпа за 6 мес.</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">пристъп през %1$s г.</item>
+        <item quantity="other">пристъпа през %1$s г.</item>
+    </plurals>
+    <string name="insights_trend_fewer">С %1$s процента по-малко пристъпи от предишния период</string>
+    <string name="insights_trend_more">С %1$s процента повече пристъпи от предишния период</string>
+    <string name="insights_legend_migraine_day">Ден с мигрена</string>
+    <string name="insights_legend_pain_free_day">Ден без болка</string>
+    <string name="insights_legend_not_tracked">Няма данни</string>
+    <string name="insights_bar_no_data">%1$s: все още няма данни</string>
+    <string name="insights_bar_not_tracked">%1$s: без проследяване</string>
+    <string name="insights_bar_pain_free">%1$s: без болка</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s ден с мигрена, максимум %3$s от 10</item>
+        <item quantity="other">%1$s: %2$s дни с мигрена, максимум %3$s от 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Отбелязвайте възможните тригери, когато записвате или редактирате пристъп. Тук ще видите колко често сте отбелязали всеки от тях.</string>
+    <string name="insights_triggers_hint">Колко често сте отбелязали всеки тригер заедно с пристъп. Това не показва причина.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, отбелязан в %2$s от %3$s пристъп</item>
+        <item quantity="other">%1$s, отбелязан в %2$s от %3$s пристъпа</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s от %2$s</string>
+    <string name="insights_calendar_a11y">Календар, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s пристъп.</item>
+        <item quantity="other">%1$s: %2$s пристъпа.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Болка %2$s/10</string>
+    <string name="insights_month_picker_title">Месец</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Предишен месец</string>
+    <string name="calendar_next_month">Следващ месец</string>
+    <string name="calendar_choose_month_a11y">%1$s, изберете друг месец</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s ден с мигрена</item>
+        <item quantity="other">%1$s дни с мигрена</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Днес, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">недостъпен</string>
+    <string name="calendar_day_not_tracked">без проследяване</string>
+    <string name="calendar_day_no_episodes">няма пристъпи</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s пристъп, максимум %2$s от 10</item>
+        <item quantity="other">%1$s пристъпа, максимум %2$s от 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s пристъп</item>
+        <item quantity="other">%1$s пристъпа</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Макс. интензитет</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Лекарства</string>
+    <string name="calendar_edit_episode_details">Промени данните за пристъпа</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Подготвяне на PDF…</string>
+    <string name="export_preparing_excel">Подготвяне на Excel…</string>
+    <string name="export_preparing_report">Подготвяне на отчет…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">пристъп</item>
+        <item quantity="other">пристъпа</item>
+    </plurals>
+    <string name="export_episodes_recorded">Записани пристъпи</string>
+    <string name="export_include">Включи в експорта</string>
+    <string name="export_medications">Прием на лекарства</string>
+    <string name="export_medications_subtitle">Дози и общ брой приеми</string>
+    <string name="export_symptoms">Аура и предупредителни симптоми</string>
+    <string name="export_symptoms_subtitle">Видове аура и тяхната честота</string>
+    <string name="export_triggers_subtitle">Отбелязани тригери и тяхната честота</string>
+    <string name="export_pain_charts">Графики на интензитета на болката</string>
+    <string name="export_pain_charts_subtitle">Интензитет на болката по дни, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Експорт на отчет в PDF</string>
+    <string name="export_excel">Експорт в Excel (.xlsx)</string>
+    <string name="export_share">Сподели</string>
+    <string name="export_range_title">Период на отчета</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Отчет от MigraTrack: %1$s пристъп, %2$s.</item>
+        <item quantity="other">Отчет от MigraTrack: %1$s пристъпа, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Неуспешен експорт</string>
+    <string name="export_failed_message">Отчетът не можа да бъде създаден.</string>
+    <string name="export_write_failed">Файлът %1$s не можа да бъде записан</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s известен тригер</item>
+        <item quantity="other">%1$s известни тригера</item>
+    </plurals>
+    <string name="settings_no_triggers">Няма избрани тригери</string>
+    <string name="settings_no_medications">Няма избрани лекарства</string>
+    <string name="settings_name_title">Вашето име</string>
+    <string name="settings_name_message">То се показва в отчетите, които експортирате.</string>
+    <string name="settings_name_placeholder">Име</string>
+    <string name="settings_delete_title">Да се изтрият ли всички данни?</string>
+    <string name="settings_delete_message">MigraTrack пази данните ви на този iPhone и копие на вашия Apple Watch. Това действие изтрива окончателно всички пристъпи и изходния ви профил; часовникът изтрива своето копие при следващата синхронизация. Резервните копия на устройствата запазват своето копие. Ако ви трябва отчет, първо го експортирайте.</string>
+    <string name="settings_delete_all">Изтрий всички данни</string>
+    <string name="settings_section_baseline">Изходни данни и лечение</string>
+    <string name="settings_baseline_diagnoses">Диагнози</string>
+    <string name="settings_known_triggers">Известни тригери</string>
+    <string name="settings_section_preferences">Предпочитания</string>
+    <string name="settings_appearance">Облик</string>
+    <string name="settings_appearance_value">Тъмен (винаги)</string>
+    <string name="settings_version">Версия</string>
+    <string name="settings_version_value">v%1$s (компилация %2$s)</string>
+    <string name="settings_section_legal">Правна информация</string>
+    <string name="settings_section_developer">Разработчик</string>
+    <string name="settings_load_sample_data">Зареди примерни данни</string>
+    <string name="settings_load_sample_data_subtitle">Добавя генерирани пристъпи за една година, за да прегледате графиките</string>
+    <string name="settings_edit_name_a11y">Редактиране на името</string>
+    <string name="settings_add_name">Добавете името си</string>
+    <string name="settings_member">Дневник от</string>
+    <string name="settings_episodes">Пристъпи</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">Записан: %1$s</item>
+        <item quantity="other">Записани: %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Политика за поверителност</string>
+    <string name="legal_terms_of_service">Условия за ползване</string>
+    <string name="legal_folder">bg</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Напред: тригери</string>
+    <string name="onboarding_continue_to_medications">Напред: лекарства</string>
+    <string name="onboarding_finish_setup">Завърши настройката</string>
+    <string name="onboarding_back_to_diagnoses">Назад към диагнозите</string>
+    <string name="onboarding_back_to_triggers">Назад към тригерите</string>
+    <string name="onboarding_save_changes">Запази промените</string>
+    <string name="onboarding_step">Стъпка %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Диагнози и анамнеза</string>
+    <string name="onboarding_diagnoses_subtitle">Попълнете изходния си профил. Пристъпите и отчетите ви започват от него.</string>
+    <string name="onboarding_primary_diagnosis">Основна диагноза</string>
+    <string name="onboarding_episode_frequency">Честота на пристъпите на месец</string>
+    <string name="onboarding_episode_duration">Обичайна продължителност на пристъпа</string>
+    <string name="onboarding_intensity_baseline">Обичаен интензитет на болката</string>
+    <string name="onboarding_update_later">Можете да промените изходния си профил по всяко време в настройките.</string>
+    <string name="onboarding_triggers_title">Вашите тригери</string>
+    <string name="onboarding_triggers_subtitle">Изберете известните или предполагаемите си тригери. Отчетът ги показва на вашия лекар.</string>
+    <string name="onboarding_add_custom_trigger">Добави свой тригер</string>
+    <string name="onboarding_treatment_subtitle">Изберете какво приемате. Лекарствата за овладяване на пристъпа се попълват във всеки нов пристъп, така че записът отнема едно докосване.</string>
+    <string name="onboarding_add_custom_medication">Добави свое лекарство</string>
+    <string name="onboarding_custom_trigger_title">Свой тригер</string>
+    <string name="onboarding_custom_trigger_message">Опишете какво обикновено отключва мигрената ви.</string>
+    <string name="onboarding_custom_trigger_placeholder">Например мигаща светлина</string>
+    <string name="onboarding_medication_role_message">Кога го приемате?</string>
+    <string name="onboarding_medication_role_acute">При пристъп (овладяване)</string>
+    <string name="onboarding_medication_role_preventive">Всеки ден (профилактика)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Личен дневник на мигрената и тригерите</string>
+    <string name="welcome_example">Пример</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">ден без болка</item>
+        <item quantity="other">дни без болка</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Пример: %1$s ден без болка през последните 30 дни</item>
+        <item quantity="other">Пример: %1$s дни без болка през последните 30 дни</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Разберете закономерностите.</string>
+    <string name="welcome_headline_doctor">Покажете фактите на лекаря.</string>
+    <string name="welcome_body">Записвайте симптомите, откривайте възможните тригери и експортирайте личните си отчети по всяко време.</string>
+    <string name="welcome_get_started">Начало</string>
+    <string name="welcome_agreement">Като продължите, приемате „%1$s“ и „%2$s“.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+    <string name="diagnosis_migraine_without_aura">Мигрена без аура</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Честа форма на мигрена</string>
+    <string name="diagnosis_migraine_with_aura">Мигрена с аура</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Зрителна или сензорна фокална аура</string>
+    <string name="diagnosis_chronic_migraine">Хронична мигрена</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 или повече дни с главоболие на месец</string>
+    <string name="diagnosis_tension_type">Тензионен тип главоболие</string>
+    <string name="diagnosis_tension_type_subtitle">Стягащо напрежение като обръч</string>
+    <string name="diagnosis_cluster">Кластърно главоболие</string>
+    <string name="diagnosis_cluster_subtitle">Силни едностранни пристъпи около окото</string>
+    <string name="diagnosis_not_diagnosed">Без диагноза / изяснявам</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Наблюдавам закономерностите на симптомите</string>
+    <string name="frequency_less_than_one">&lt; 1 / мес</string>
+    <string name="frequency_one_to_four">1–4 / мес</string>
+    <string name="frequency_five_to_eight">5–7 / мес</string>
+    <string name="frequency_eight_plus">8+ / мес</string>
+    <string name="duration_two_to_four">2–4&#160;ч</string>
+    <string name="duration_four_to_twelve">4–12&#160;ч</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;ч</string>
+    <string name="duration_one_to_three_days">24–72&#160;ч</string>
+    <string name="region_left_temple">Ляво слепоочие</string>
+    <string name="region_right_temple">Дясно слепоочие</string>
+    <string name="region_frontal_brow">Чело / вежди</string>
+    <string name="region_retro_orbital">Зад окото</string>
+    <string name="region_occipital_neck">Тил и шия</string>
+    <string name="symptom_scintillating_scotoma">Сцинтилираща скотома (зрителна аура)</string>
+    <string name="symptom_scintillating_scotoma_short">Зрителна аура</string>
+    <string name="symptom_neck_stiffness">Скованост на врата</string>
+    <string name="symptom_neck_stiffness_short">Схванат врат</string>
+    <string name="symptom_photophobia">Фотофобия (светлина)</string>
+    <string name="symptom_photophobia_short">Светлина</string>
+    <string name="symptom_nausea">Гадене</string>
+    <string name="symptom_nausea_short">Гадене</string>
+    <string name="symptom_phonophobia">Фонофобия (звук)</string>
+    <string name="symptom_phonophobia_short">Звук</string>
+    <string name="symptom_aphasia">Афазия / мозъчна мъгла</string>
+    <string name="symptom_aphasia_short">Мозъчна мъгла</string>
+    <string name="symptom_paresthesia">Изтръпване / парестезии</string>
+    <string name="symptom_paresthesia_short">Изтръпване</string>
+    <string name="trigger_category_weather_environment">Време и околна среда</string>
+    <string name="trigger_category_sleep_physical">Сън и дневен режим</string>
+    <string name="trigger_category_stress_emotions">Стрес и емоции</string>
+    <string name="trigger_category_hormonal">Хормони</string>
+    <string name="trigger_category_diet_consumption">Храна и напитки</string>
+    <string name="trigger_category_custom">Свои</string>
+    <string name="medication_role_acute">За овладяване на пристъпа</string>
+    <string name="medication_role_preventive">Профилактика и добавки</string>
+    <string name="export_range_last_30_days">Последни 30&#160;дни</string>
+    <string name="export_range_last_90_days">Последни 90&#160;дни</string>
+    <string name="export_range_last_6_months">Последни 6&#160;мес.</string>
+    <string name="export_range_last_12_months">Последни 12&#160;мес.</string>
+
+    <!-- Catalog: built-in triggers -->
+    <string name="trigger_barometric_pressure">Спад на атмосферното налягане</string>
+    <string name="trigger_barometric_pressure_description">Атмосферни фронтове, промяна на надморската височина</string>
+    <string name="trigger_bright_light">Ярка светлина и слънце</string>
+    <string name="trigger_bright_light_description">Отблясъци, трептене, фотофобия</string>
+    <string name="trigger_heat_humidity">Силна жега / влажност</string>
+    <string name="trigger_heat_humidity_description">Температурни колебания</string>
+    <string name="trigger_loud_noise">Силен шум</string>
+    <string name="trigger_loud_noise_description">Фонофобия, резки звуци</string>
+    <string name="trigger_poor_sleep">Лош / нередовен сън</string>
+    <string name="trigger_poor_sleep_description">Недоспиване, липса на REM сън</string>
+    <string name="trigger_dehydration">Дехидратация</string>
+    <string name="trigger_dehydration_description">Загуба на електролити</string>
+    <string name="trigger_skipped_meals">Пропуснато хранене / гладуване</string>
+    <string name="trigger_skipped_meals_description">Праг на хипогликемия</string>
+    <string name="trigger_overexertion">Физическо пренатоварване</string>
+    <string name="trigger_overexertion_description">Натоварване на съдовете при усилие</string>
+    <string name="trigger_emotional_stress">Стрес / отпускане след стрес</string>
+    <string name="trigger_emotional_stress_description">Спад на напрежението след работа</string>
+    <string name="trigger_screen_fatigue">Умора от екрана</string>
+    <string name="trigger_screen_fatigue_description">Твърде много синя светлина, конвергенция</string>
+    <string name="trigger_hormonal_cycle">Хормонални промени / цикъл</string>
+    <string name="trigger_hormonal_cycle_description">Промени през месечния цикъл</string>
+    <string name="trigger_caffeine">Спиране или излишък на кофеин</string>
+    <string name="trigger_caffeine_description">Промени в аденозиновите рецептори</string>
+    <string name="trigger_aged_cheese">Отлежало сирене / тирамин</string>
+    <string name="trigger_aged_cheese_description">Чувствителност към амини от ферментирали храни</string>
+    <string name="trigger_alcohol">Алкохол / червено вино</string>
+    <string name="trigger_alcohol_description">Танини, хистамин</string>
+    <string name="trigger_sweeteners">Изкуствени подсладители</string>
+    <string name="trigger_sweeteners_description">Аспартам, сукралоза</string>
+    <string name="trigger_custom_description">Свой тригер</string>
+
+    <!-- Catalog: built-in medications -->
+    <string name="medication_ibuprofen_400">Ибупрофен</string>
+    <string name="medication_ibuprofen_400_class">Противовъзпалително адювантно средство</string>
+    <string name="medication_sumatriptan_50">Суматриптан</string>
+    <string name="medication_sumatriptan_50_class">Триптан, серотонинов агонист</string>
+    <string name="medication_rizatriptan_10">Ризатриптан</string>
+    <string name="medication_rizatriptan_10_class">Триптан, разтваря се в устата</string>
+    <string name="medication_naproxen_500">Напроксен</string>
+    <string name="medication_naproxen_500_class">НСПВС с продължително действие</string>
+    <string name="medication_acetaminophen_1000">Парацетамол</string>
+    <string name="medication_acetaminophen_1000_class">Аналгетик</string>
+    <string name="medication_ubrogepant_100">Уброгепант</string>
+    <string name="medication_ubrogepant_100_class">Гепант, CGRP антагонист</string>
+    <string name="medication_metoclopramide_10">Метоклопрамид</string>
+    <string name="medication_metoclopramide_10_class">Антиеметик</string>
+    <string name="medication_electrolytes">Електролити за рехидратация</string>
+    <string name="medication_electrolytes_class">Перорална рехидратация</string>
+    <string name="medication_riboflavin_400">Рибофлавин</string>
+    <string name="medication_riboflavin_400_class">Витамин B2</string>
+    <string name="medication_magnesium_400">Магнезий</string>
+    <string name="medication_magnesium_400_class">Минерална добавка</string>
+    <string name="medication_propranolol_40">Пропранолол</string>
+    <string name="medication_propranolol_40_class">Бета-блокер</string>
+    <string name="medication_topiramate_50">Топирамат</string>
+    <string name="medication_topiramate_50_class">Антиепилептично средство</string>
+    <string name="medication_amitriptyline_10">Амитриптилин</string>
+    <string name="medication_amitriptyline_10_class">Трицикличен антидепресант</string>
+    <string name="medication_erenumab_70">Еренумаб</string>
+    <string name="medication_erenumab_70_class">Антитяло срещу CGRP, веднъж месечно</string>
+    <string name="medication_custom_class">Свое лекарство</string>
+    <!-- &#160; (no-break space) keeps the number and "mg" on one line. Bulgarian product information writes "mg". -->
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">С%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s от %2$s: без отбелязани тригери</item>
+        <item quantity="other">%1$s от %2$s: без отбелязани тригери</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s пристъп</item>
+        <item quantity="other">%1$s пристъпа</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">Клиничен отчет за мигрена</string>
+    <string name="report_page">MigraTrack · Страница %1$s</string>
+    <string name="report_patient">Пациент: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Създаден на %1$s</string>
+    <string name="report_disclaimer">Данни, въведени от пациента в MigraTrack. Отчетът допълва клиничната оценка и не я замества.</string>
+    <string name="report_stat_episodes">Записани пристъпи</string>
+    <string name="report_stat_migraine_days">Дни с мигрена</string>
+    <string name="report_stat_pain_free_days">Дни без болка</string>
+    <string name="report_stat_average_intensity">Ср. интензитет /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Проследяването започна на %1$s. %2$s по-ранен ден от този период няма записи и не се брои за ден без болка.</item>
+        <item quantity="other">Проследяването започна на %1$s. %2$s по-ранни дни от този период нямат записи и не се броят за дни без болка.</item>
+    </plurals>
+    <string name="report_baseline_title">Изходен профил</string>
+    <string name="report_baseline_diagnoses">Диагнози</string>
+    <string name="report_baseline_frequency">Честота на месец</string>
+    <string name="report_baseline_duration">Обичайна продължителност</string>
+    <string name="report_baseline_intensity">Обичаен интензитет</string>
+    <string name="report_baseline_triggers">Известни тригери</string>
+    <string name="report_baseline_treatments">План за лечение</string>
+    <string name="report_pain_chart_title">Интензитет на болката по дни (1–10)</string>
+    <string name="report_legend_mild">Лека %1$s–%2$s</string>
+    <string name="report_legend_moderate">Умерена %1$s–%2$s</string>
+    <string name="report_legend_severe">Силна %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Няма данни</string>
+    <string name="report_medication_title">Прием на лекарства</string>
+    <string name="report_no_medications">През този период няма записан прием на лекарства.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s прием</item>
+        <item quantity="other">%1$s приема</item>
+    </plurals>
+    <string name="report_symptoms_title">Аура и предупредителни симптоми</string>
+    <string name="report_no_symptoms">През този период няма записани аура или сензорни симптоми.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s от %2$s пристъп (%3$s)</item>
+        <item quantity="other">%1$s от %2$s пристъпа (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Отбелязани възможни тригери</string>
+    <string name="report_no_triggers">През този период няма отбелязани тригери.</string>
+    <string name="report_triggers_note">Броят показва колко често пациентът е отбелязал даден тригер заедно с пристъп. Той не показва причина.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s от %2$s: без отбелязани тригери.</item>
+        <item quantity="other">%1$s от %2$s: без отбелязани тригери.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s пристъп</item>
+        <item quantity="other">%1$s пристъпа</item>
+    </plurals>
+    <string name="report_episodes_title">Пристъпи</string>
+    <string name="report_no_episodes">През този период няма записани пристъпи.</string>
+    <string name="report_column_date_time">Дата и час</string>
+    <string name="report_column_pain">Инт.</string>
+    <string name="report_column_epicenter">Локализация</string>
+    <string name="report_column_symptoms">Симптоми</string>
+    <string name="report_column_medications">Лекарства</string>
+    <string name="report_column_triggers">Тригери</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Не е зададено</string>
+    <string name="report_none">Няма</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">Пристъпи</string>
+    <string name="report_sheet_medications">Лекарства</string>
+    <string name="report_sheet_daily_pain">Болка по дни</string>
+    <string name="report_sheet_profile">Профил</string>
+    <string name="report_header_started">Начало</string>
+    <string name="report_header_pain_intensity">Интензитет на болката (1–10)</string>
+    <string name="report_header_epicenter">Локализация на болката</string>
+    <string name="report_header_symptoms">Аура и сензорни симптоми</string>
+    <string name="report_header_medications">Лекарства</string>
+    <string name="report_header_triggers">Възможни тригери</string>
+    <string name="report_header_episode_started">Начало на пристъпа</string>
+    <string name="report_header_medication">Лекарство</string>
+    <string name="report_header_dose">Доза</string>
+    <string name="report_header_date">Дата</string>
+    <string name="report_header_peak_pain">Максимален интензитет на болката (1–10, 0 = без болка)</string>
+    <string name="report_header_day">Ден</string>
+    <string name="report_header_field">Поле</string>
+    <string name="report_header_value">Стойност</string>
+    <string name="report_day_migraine">Мигрена</string>
+    <string name="report_day_pain_free">Без болка</string>
+    <string name="report_day_not_tracked">Няма данни</string>
+    <string name="report_profile_patient">Пациент</string>
+    <string name="report_profile_range">Период на отчета</string>
+    <string name="report_profile_tracked_since">Проследяване от</string>
+    <string name="report_profile_diagnoses">Диагнози</string>
+    <string name="report_profile_frequency">Честота на месец</string>
+    <string name="report_profile_duration">Обичайна продължителност</string>
+    <string name="report_profile_intensity">Обичаен интензитет</string>
+    <string name="report_profile_triggers">Известни тригери</string>
+    <string name="report_profile_treatments">План за лечение</string>
+    <string name="report_iso_range">%1$s – %2$s</string>
+</resources>

@@ -308,10 +308,12 @@
 				en,
 				Base,
 				be,
+				bg,
 				ca,
 				cs,
 				da,
 				de,
+				el,
 				es,
 				"es-ES",
 				fi,
@@ -320,6 +322,7 @@
 				hr,
 				hu,
 				it,
+				kk,
 				lt,
 				nb,
 				nl,
@@ -332,6 +335,7 @@
 				sl,
 				sv,
 				tr,
+				uk,
 			);
 			mainGroup = 7A0000000000000000000201;
 			productRefGroup = 7A0000000000000000000204 /* Products */;

@@ -10,6 +10,12 @@
             "value" : " / %lld"
           }
         },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -29,6 +35,12 @@
           }
         },
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -77,6 +89,12 @@
           }
         },
         "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -153,6 +171,12 @@
             "state" : "translated",
             "value" : " / %lld"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
         }
       }
     },
@@ -167,6 +191,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld з %2$lld"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld от %2$lld"
           }
         },
         "ca" : {
@@ -191,6 +221,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld von %2$lld"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld από %2$lld"
           }
         },
         "en" : {
@@ -245,6 +281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld su %2$lld"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld ішінен %1$lld"
           }
         },
         "lt" : {
@@ -318,6 +360,12 @@
             "state" : "translated",
             "value" : "%1$lld/%2$lld"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld з %2$lld"
+          }
         }
       }
     },
@@ -328,6 +376,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld з 10"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld от 10"
           }
         },
         "ca" : {
@@ -352,6 +406,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld von 10"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld από 10"
           }
         },
         "es" : {
@@ -400,6 +460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld su 10"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 ішінен %lld"
           }
         },
         "lt" : {
@@ -473,6 +539,12 @@
             "state" : "translated",
             "value" : "10 üzerinden %lld"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld з 10"
+          }
         }
       }
     },
@@ -483,6 +555,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Гатова"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
           }
         },
         "ca" : {
@@ -507,6 +585,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fertig"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τέλος"
           }
         },
         "es" : {
@@ -555,6 +639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fine"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дайын"
           }
         },
         "lt" : {
@@ -628,6 +718,12 @@
             "state" : "translated",
             "value" : "Bitti"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
         }
       }
     },
@@ -638,6 +734,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прыступ запісаны"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пристъпът е записан"
           }
         },
         "ca" : {
@@ -662,6 +764,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacke eingetragen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η κρίση καταγράφηκε"
           }
         },
         "es" : {
@@ -710,6 +818,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attacco annotato"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ұстама жазылды"
           }
         },
         "lt" : {
@@ -783,6 +897,12 @@
             "state" : "translated",
             "value" : "Atak kaydedildi"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напад записано"
+          }
         }
       }
     },
@@ -793,6 +913,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Апошні прыступ %@"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Последен пристъп %@"
           }
         },
         "ca" : {
@@ -817,6 +943,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Letzte Attacke %@"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τελευταία κρίση %@"
           }
         },
         "es" : {
@@ -865,6 +997,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ultimo attacco %@"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Соңғы ұстама %@"
           }
         },
         "lt" : {
@@ -938,6 +1076,12 @@
             "state" : "translated",
             "value" : "Son atak: %@"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Останній напад %@"
+          }
         }
       }
     },
@@ -948,6 +1092,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новы прыступ"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нов пристъп"
           }
         },
         "ca" : {
@@ -972,6 +1122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neue Attacke"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νέα κρίση"
           }
         },
         "es" : {
@@ -1020,6 +1176,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nuovo attacco"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жаңа ұстама"
           }
         },
         "lt" : {
@@ -1093,6 +1255,12 @@
             "state" : "translated",
             "value" : "Yeni atak"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новий напад"
+          }
         }
       }
     },
@@ -1103,6 +1271,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Прыступаў няма"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Няма пристъпи"
           }
         },
         "ca" : {
@@ -1127,6 +1301,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noch keine Attacke"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καμία κρίση"
           }
         },
         "es" : {
@@ -1175,6 +1355,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nessun attacco"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ұстама жоқ"
           }
         },
         "lt" : {
@@ -1248,6 +1434,12 @@
             "state" : "translated",
             "value" : "Kayıtlı atak yok"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нападів немає"
+          }
         }
       }
     },
@@ -1258,6 +1450,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Адкрыйце MigraTrack на iPhone для сінхранізацыі."
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отворете MigraTrack на iPhone за синхронизиране."
           }
         },
         "ca" : {
@@ -1282,6 +1480,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öffnen Sie MigraTrack auf Ihrem iPhone, um zu synchronisieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ανοίξτε το MigraTrack στο iPhone για συγχρονισμό."
           }
         },
         "es" : {
@@ -1330,6 +1534,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apra MigraTrack sul suo iPhone per sincronizzare."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Синхрондау үшін iPhone-да MigraTrack ашыңыз."
           }
         },
         "lt" : {
@@ -1403,6 +1613,12 @@
             "state" : "translated",
             "value" : "Eşzamanlamak için iPhone’unuzda MigraTrack’i açın."
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте MigraTrack на iPhone для синхронізації."
+          }
         }
       }
     },
@@ -1413,6 +1629,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Інтэнсіўнасць"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Интензитет"
           }
         },
         "ca" : {
@@ -1437,6 +1659,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensität"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ένταση"
           }
         },
         "es" : {
@@ -1485,6 +1713,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensità"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Қарқындылық"
           }
         },
         "lt" : {
@@ -1558,6 +1792,12 @@
             "state" : "translated",
             "value" : "Şiddet"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інтенсивність"
+          }
         }
       }
     },
@@ -1568,6 +1808,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Інтэнсіўнасць болю"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Интензитет на болката"
           }
         },
         "ca" : {
@@ -1592,6 +1838,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schmerzintensität"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ένταση πόνου"
           }
         },
         "es" : {
@@ -1640,6 +1892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensità del dolore"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ауырсыну қарқындылығы"
           }
         },
         "lt" : {
@@ -1713,6 +1971,12 @@
             "state" : "translated",
             "value" : "Ağrı şiddeti"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інтенсивність болю"
+          }
         }
       }
     },
@@ -1723,6 +1987,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дні без болю"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дни без болка"
           }
         },
         "ca" : {
@@ -1747,6 +2017,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schmerzfrei"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Χωρίς πόνο"
           }
         },
         "es" : {
@@ -1795,6 +2071,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Senza dolore"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ауырсынусыз"
           }
         },
         "lt" : {
@@ -1868,6 +2150,12 @@
             "state" : "translated",
             "value" : "Ağrısız günler"
           }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дні без болю"
+          }
         }
       }
     },
@@ -1878,6 +2166,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Захаваць"
+          }
+        },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запази"
           }
         },
         "ca" : {
@@ -1902,6 +2196,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Speichern"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αποθήκευση"
           }
         },
         "es" : {
@@ -1950,6 +2250,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Salva"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сақтау"
           }
         },
         "lt" : {
@@ -2022,6 +2328,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaydet"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти"
           }
         }
       }

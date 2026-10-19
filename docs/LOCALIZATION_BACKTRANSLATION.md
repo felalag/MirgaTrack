@@ -161,3 +161,55 @@ Languages: Polish, Czech, Slovak, Croatian, Slovenian, Romanian, Hungarian, Lith
 - Privacy Policy, all thirteen texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2 and 3.
 - Terms of Service, all thirteen texts: not a medical device (the legal term of each language: "wyrób medyczny", "zdravotnický prostředek", "zdravotnícka pomôcka", "medicinski proizvod", "medicinski pripomoček", "dispozitiv medical", "orvostechnikai eszköz", "medicinos priemonė", "medicinsk udstyr", "medisinsk utstyr", "medicinteknisk produkt", "lääkinnällinen laite", "tıbbi cihaz"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 5: Ukrainian, Bulgarian, Kazakh, Greek (October 19, 2026)
+
+Languages: Ukrainian, Bulgarian, Kazakh and Greek. Scope: the keys of the checklist, section 3, the Siri dialogs and watch strings, and `docs/legal/files/{uk,bg,kk,el}/*.md`. None of the four has Siri phrases.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| el | `common_clear` | "Delete" ("Διαγραφή") | Clear | "Απαλοιφή", the word of Greek iOS. The button removes the choices of one card, not data. |
+| el | `diagnosis_tension_type` | "Headache of the tension type" ("τάσης") | Tension-type Headache | Same meaning; the form "τάσεως" of the Eginition leaflets (EL2) |
+| kk | `medication_naproxen_500_class` | "Long-acting ҚҚСП" (abbreviation not found in a source) | Long-acting NSAID | Written out: "стероидты емес қабынуға қарсы дәрі" |
+| bg, el | `report_column_pain` | "PAI / N" on two lines in the PDF ("БОЛК/А", "ΠΟΝΟ/Σ") | Pain | "Инт.", "Έντ." (intensity), as cs, sk, ro, lt, da, nb, sv, sl in batch 4. Five capital letters do not fit the column. |
+| kk | `report_column_date_time` | "DATE AND / TIME" on two lines over the first row of the PDF table | Date & Time | "Күн, уақыт" (date, time) |
+| kk | `export_pain_charts` | "Charts of pain inten…" cut at the largest text size | Pain Intensity Charts | "Ауырсыну графиктері" (pain charts); the subtitle names the intensity |
+| kk, el | Watch "Pain-free days", `report_stat_pain_free_days` | "Pain-free…" cut on the 40 mm watch at the largest text size | Pain-free days | "Ауырсынусыз", "Χωρίς πόνο" (pain-free); see "Kept" |
+| el | `report_stat_episodes` | Two lines in the PDF tile | Episodes recorded | "Σύνολο κρίσεων" (total episodes); the tile has one line |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| uk, bg, kk | `pain_scale_high` | "10 Exhausting" | 10 Disabling | 14 characters, as lt in batch 4 |
+| el | `pain_scale_high` | "10 Unbearable" | 10 Disabling | 14 characters: "Εξουθενωτικός" has 16 with the number |
+| uk, bg, kk, el | `common_intensity_of_ten`, `insights_episode_option`, `episode_delete_message` | "Pain 6/10" | Intensity 6/10 | 16 characters, as ru and be in batch 2 |
+| uk | `duration_*` | "2–4 h" with "г" | 2–4h | 7 characters: "год" does not fit. "г" is the narrow unit of CLDR for Ukrainian (the iOS formatter writes "12 г"). |
+| kk | `duration_*`, `onboarding_episode_duration`, `report_baseline_duration`, `report_profile_duration` | "4–12" in the chip; "Typical duration of the episode, h" in the caption | 4–12h | 7 characters: "сағ" with a range has 8 or 9. Kazakh has no shorter unit, so the unit moves to the caption and the report label. |
+| kk | `summary_of_tracked_days`, `insights_trigger_row_count`, `insights_without_triggers`, `report_share_of_episodes` | "26 / 30 tracked days", "of 11 episodes 3" | 26 of 30 tracked days | No case suffix after a placeholder; the slash or the genitive of the whole carries the meaning |
+| el | `calendar_migraine_days` | "3 d. of migraine" ("ημ.") | 3 Migraine Days | 18 characters: "ημέρες ημικρανίας" with a number has 20 |
+| el | `export_range_*` | "Last 30 days" with "Τελ." | Last 30 Days | 16 characters: "Τελευταίες 30 ημέρες" has 20 |
+| kk, el | Watch "Pain-free days", `report_stat_pain_free_days` | "Pain-free" | Pain-free days | 40 mm watch at the largest text size; the term pair makes the report tile equal, as de, fr, fi, lt in batches 3 and 4 |
+| uk, bg, kk, el | `strip_legend_not_tracked`, `insights_legend_not_tracked`, `report_legend_not_tracked`, `report_day_not_tracked` | "No data" | Not tracked | 14 characters for the strip ("без спостереження" has 17); the same words in every legend. The calendar and VoiceOver keep "not tracked". |
+| uk, bg, kk, el | `settings_member` | "Diary since", "Start", "Member since" | Member | No account exists; the value is the first tracked month (as in batches 2–4) |
+| kk, el | `settings_episodes_logged` | "Logged: 35", "Total: 35" | 35 Logged | 14 characters; the caption above says "episodes" |
+| el | Every UI text with "trigger" where space is short | "factor" ("παράγοντας") | trigger | "εκλυτικός παράγοντας" is long; titles and the report keep the full term |
+| el | `docs/legal/files/el/privacy-policy.md` | "Creator of MigraTrack: Ira Babayed" | MigraTrack is developed by Ira Babayed | Greek verbs and articles show a gender; this form needs none |
+| uk | Complication "LOG" | "INPUT" ("ВВІД") | LOG | 4 characters under a plus sign, as the Russian "ВВОД". The owner approved it. |
+| bg, kk, el | Complication "LOG" | "NEW" | LOG | 4 characters under a plus sign. The owner approved it. |
+| uk, bg, kk, el | Watch and complication "Log Migraine" | "New attack" | Log Migraine | 14 characters on a 40 mm watch, as in batches 2–4. The owner approved it. |
+| kk | Rectangular complication | "25/30 days pain-free" | 25 of 30 days pain-free | 24 characters; a slash avoids the case ending |
+
+### No difference in meaning
+
+- Diagnoses, symptoms, regions, frequency chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit ("мг" in uk and kk, "mg" in bg and el, as their product information writes it) with a no-break space.
+- `common_medical_disclaimer`, for example Kazakh: "MigraTrack is a diary, not medical advice. Talk to your doctor before you change the treatment."
+- `insights_triggers_hint`, for example Bulgarian: "How often you noted each trigger together with an attack. This does not show a cause."
+- `report_triggers_note`, for example Greek: "The numbers show how often the patient noted a factor together with an attack. They do not show a cause."
+- `report_disclaimer`, for example Ukrainian: "Data entered by the patient in MigraTrack. The report supplements the clinical assessment and does not replace it."
+- The other `report_*` keys, the Siri dialogs and the watch strings.
+- Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2–4.
+- Terms of Service, all four texts: not a medical device ("медичний виріб", "медицинско изделие", "медициналық бұйым", "ιατροτεχνολογικό προϊόν"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.
