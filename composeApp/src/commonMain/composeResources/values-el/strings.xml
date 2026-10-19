@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Greek strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">Πίσω</string>
+    <string name="common_settings">Ρυθμίσεις</string>
+    <string name="common_cancel">Ακύρωση</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Αποθήκευση</string>
+    <string name="common_add">Προσθήκη</string>
+    <string name="common_next">Επόμενο</string>
+    <string name="common_on">Ενεργό</string>
+    <string name="common_off">Ανενεργό</string>
+    <string name="common_clear">Απαλοιφή</string>
+    <string name="common_none">Κανένα</string>
+    <string name="common_today">Σήμερα</string>
+    <string name="common_not_set">Δεν ορίστηκε</string>
+    <string name="common_expanded">Ανοιχτό</string>
+    <string name="common_collapsed">Κλειστό</string>
+    <string name="common_last_30_days">Τελευταίες 30 ημέρες</string>
+    <string name="common_medical_disclaimer">Το MigraTrack είναι ημερολόγιο, όχι ιατρική συμβουλή. Μιλήστε με τον γιατρό σας πριν αλλάξετε τη θεραπεία σας.</string>
+    <string name="common_log_migraine_episode">Καταγραφή κρίσης ημικρανίας</string>
+    <string name="common_save_episode">Αποθήκευση</string>
+    <string name="common_edit_episode">Επεξεργασία κρίσης</string>
+    <string name="common_delete_episode">Διαγραφή κρίσης</string>
+    <string name="common_intensity_of_ten">Πόνος %1$s/10</string>
+    <string name="common_date_at_time">%1$s στις %2$s</string>
+    <string name="common_possible_triggers">Πιθανοί εκλυτικοί παράγοντες</string>
+    <string name="common_add_trigger">Προσθήκη παράγοντα</string>
+    <string name="common_add_medication">Προσθήκη φαρμάκου</string>
+    <string name="common_treatment_blueprint">Σχέδιο θεραπείας</string>
+    <string name="common_medication_name_and_dose">Εισαγάγετε το όνομα και τη δόση.</string>
+    <string name="common_medication_placeholder">Π.χ. ελετριπτάνη 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Σύνοψη</string>
+    <string name="tab_log">Καταγραφή</string>
+    <string name="tab_insights">Ανάλυση</string>
+    <string name="tab_export">Εξαγωγή</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Ένταση πόνου</string>
+    <string name="pain_scale_value">%1$s από 10</string>
+    <string name="pain_scale_low">%1$s Ήπιος</string>
+    <string name="pain_scale_middle">%1$s Αισθητός</string>
+    <string name="pain_scale_high">%1$s Ανυπόφορος</string>
+    <string name="medication_remove">Αφαίρεση %1$s</string>
+    <string name="duration_minutes">%1$s λ.</string>
+    <string name="duration_hours_minutes">%1$s ώ. %2$s λ.</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Σήμερα, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">από %1$s ημέρα παρακολούθησης</item>
+        <item quantity="other">από %1$s ημέρες παρακολούθησης</item>
+    </plurals>
+    <string name="summary_without_logged_episode">χωρίς καταγεγραμμένη κρίση</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s από %2$s ημέρα παρακολούθησης χωρίς καταγεγραμμένη κρίση τις τελευταίες 30 ημέρες</item>
+        <item quantity="other">%1$s από %2$s ημέρες παρακολούθησης χωρίς καταγεγραμμένη κρίση τις τελευταίες 30 ημέρες</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Η μέτρηση ξεκινά από την ημέρα που αρχίσατε την παρακολούθηση. Οι προηγούμενες ημέρες δεν παρακολουθούνται.</string>
+    <string name="strip_legend_migraine">Ημικρανία</string>
+    <string name="strip_legend_pain_free">Χωρίς πόνο</string>
+    <string name="strip_legend_not_tracked">Χωρίς δεδομένα</string>
+    <string name="summary_sleep_last_night">Ύπνος χθες βράδυ</string>
+    <string name="summary_sleep_not_recorded">Δεν καταγράφηκε</string>
+    <string name="summary_sleep_hint">Φοράτε το Apple Watch στον ύπνο ή καταγράφετε τον ύπνο στην εφαρμογή «Υγεία». Αν απενεργοποιήσατε την πρόσβαση, ενεργοποιήστε την στις Ρυθμίσεις › Υγεία.</string>
+    <string name="summary_sleep_caption">Ύπνος</string>
+    <string name="summary_sleep_connect_title">Δείτε τον χθεσινό ύπνο στη Σύνοψη</string>
+    <string name="summary_sleep_connect_body">Το MigraTrack διαβάζει τον χθεσινό ύπνο από την εφαρμογή «Υγεία». Τα δεδομένα μένουν σε αυτό το iPhone.</string>
+    <string name="summary_sleep_connect_button">Σύνδεση με «Υγεία»</string>
+    <string name="summary_last_episode">Τελευταία κρίση</string>
+    <string name="summary_last_episode_none">Καμία ακόμα</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Καταγραφή κρίσης</string>
+    <string name="episode_update">Ενημέρωση κρίσης</string>
+    <string name="episode_updated_banner">Η κρίση ενημερώθηκε.</string>
+    <string name="episode_deleted_banner">Η κρίση διαγράφηκε.</string>
+    <string name="episode_saved_banner">Η κρίση αποθηκεύτηκε. Ξεκουραστείτε και μείνετε σε χαμηλό φως.</string>
+    <string name="episode_pain_intensity_index">Ένταση πόνου</string>
+    <string name="episode_cranial_epicenter">Εντόπιση πόνου</string>
+    <string name="episode_aura_symptoms">Αύρα και αισθητηριακά συμπτώματα</string>
+    <string name="episode_acute_therapy">Αντιμετώπιση της κρίσης</string>
+    <string name="episode_add_medication_row">Προσθήκη φαρμάκου ή ηλεκτρολυτών</string>
+    <string name="episode_start">Έναρξη κρίσης</string>
+    <string name="episode_start_now">Τώρα</string>
+    <string name="episode_add_trigger_message">Τι προηγήθηκε αυτής της κρίσης;</string>
+    <string name="episode_other_trigger_action">Άλλος παράγοντας…</string>
+    <string name="episode_other_trigger_title">Άλλος παράγοντας</string>
+    <string name="episode_other_trigger_message">Γράψτε κάτι που προηγήθηκε αυτής της κρίσης.</string>
+    <string name="episode_other_trigger_placeholder">Π.χ. έντονο άρωμα</string>
+    <string name="episode_add_medication_message">Τι πήρατε για αυτή την κρίση;</string>
+    <string name="episode_other_medication_action">Άλλο φάρμακο…</string>
+    <string name="episode_other_medication_title">Άλλο φάρμακο</string>
+    <string name="episode_missing_title">Η κρίση διαγράφηκε</string>
+    <string name="episode_missing_message">Αυτή η κρίση διαγράφηκε σε άλλη συσκευή, οπότε οι αλλαγές δεν μπορούν να αποθηκευτούν.</string>
+    <string name="episode_delete_message">Πόνος %1$s/10. Η κρίση θα αφαιρεθεί από το ιστορικό και τις αναφορές σας.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">Ε</string>
+    <string name="insights_period_month">Μ</string>
+    <string name="insights_period_six_months">6Μ</string>
+    <string name="insights_period_year">Χ</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">κρίση αυτή την εβδομάδα</item>
+        <item quantity="other">κρίσεις αυτή την εβδομάδα</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">κρίση την εβδομάδα από %1$s</item>
+        <item quantity="other">κρίσεις την εβδομάδα από %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">κρίση τον %1$s</item>
+        <item quantity="other">κρίσεις τον %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">κρίση σε 6 μήνες</item>
+        <item quantity="other">κρίσεις σε 6 μήνες</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">κρίση το %1$s</item>
+        <item quantity="other">κρίσεις το %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s τοις εκατό λιγότερες κρίσεις από την προηγούμενη περίοδο</string>
+    <string name="insights_trend_more">%1$s τοις εκατό περισσότερες κρίσεις από την προηγούμενη περίοδο</string>
+    <string name="insights_legend_migraine_day">Ημέρα ημικρανίας</string>
+    <string name="insights_legend_pain_free_day">Ημέρα χωρίς πόνο</string>
+    <string name="insights_legend_not_tracked">Χωρίς δεδομένα</string>
+    <string name="insights_bar_no_data">%1$s: δεν υπάρχουν ακόμα δεδομένα</string>
+    <string name="insights_bar_not_tracked">%1$s: χωρίς παρακολούθηση</string>
+    <string name="insights_bar_pain_free">%1$s: χωρίς πόνο</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s ημέρα ημικρανίας, μέγιστο %3$s από 10</item>
+        <item quantity="other">%1$s: %2$s ημέρες ημικρανίας, μέγιστο %3$s από 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Σημειώνετε πιθανούς εκλυτικούς παράγοντες όταν καταγράφετε ή επεξεργάζεστε μια κρίση. Εδώ θα δείτε πόσο συχνά σημειώσατε τον καθένα.</string>
+    <string name="insights_triggers_hint">Πόσο συχνά σημειώσατε κάθε παράγοντα μαζί με μια κρίση. Αυτό δεν δείχνει αιτία.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, σημειώθηκε σε %2$s από %3$s κρίση</item>
+        <item quantity="other">%1$s, σημειώθηκε σε %2$s από %3$s κρίσεις</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s από %2$s</string>
+    <string name="insights_calendar_a11y">Ημερολόγιο, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s: %2$s κρίση.</item>
+        <item quantity="other">%1$s: %2$s κρίσεις.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Πόνος %2$s/10</string>
+    <string name="insights_month_picker_title">Μήνας</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Προηγούμενος μήνας</string>
+    <string name="calendar_next_month">Επόμενος μήνας</string>
+    <string name="calendar_choose_month_a11y">%1$s, επιλογή άλλου μήνα</string>
+    <!-- "ημ." is the usual short form of "ημέρα" and "ημέρες"; the full words exceed 18 characters. -->
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s ημ. ημικρανίας</item>
+        <item quantity="other">%1$s ημ. ημικρανίας</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Σήμερα, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">μη διαθέσιμη</string>
+    <string name="calendar_day_not_tracked">χωρίς παρακολούθηση</string>
+    <string name="calendar_day_no_episodes">καμία κρίση</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s κρίση, μέγιστο %2$s από 10</item>
+        <item quantity="other">%1$s κρίσεις, μέγιστο %2$s από 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s κρίση</item>
+        <item quantity="other">%1$s κρίσεις</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Μέγιστη ένταση</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Φάρμακα</string>
+    <string name="calendar_edit_episode_details">Επεξεργασία στοιχείων κρίσης</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Προετοιμασία PDF…</string>
+    <string name="export_preparing_excel">Προετοιμασία Excel…</string>
+    <string name="export_preparing_report">Προετοιμασία αναφοράς…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">κρίση</item>
+        <item quantity="other">κρίσεις</item>
+    </plurals>
+    <string name="export_episodes_recorded">Καταγραμμένες κρίσεις</string>
+    <string name="export_include">Συμπερίληψη στην εξαγωγή</string>
+    <string name="export_medications">Λήψεις φαρμάκων</string>
+    <string name="export_medications_subtitle">Δόσεις και σύνολα λήψεων</string>
+    <string name="export_symptoms">Αύρα και προειδοποιητικά συμπτώματα</string>
+    <string name="export_symptoms_subtitle">Τύποι αύρας και η συχνότητά τους</string>
+    <string name="export_triggers_subtitle">Σημειωμένοι παράγοντες και η συχνότητά τους</string>
+    <string name="export_pain_charts">Γραφήματα έντασης πόνου</string>
+    <string name="export_pain_charts_subtitle">Ένταση πόνου ανά ημέρα, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Εξαγωγή αναφοράς PDF</string>
+    <string name="export_excel">Εξαγωγή σε Excel (.xlsx)</string>
+    <string name="export_share">Κοινοποίηση</string>
+    <string name="export_range_title">Περίοδος αναφοράς</string>
+    <plurals name="export_share_text">
+        <item quantity="one">Αναφορά MigraTrack: %1$s κρίση, %2$s.</item>
+        <item quantity="other">Αναφορά MigraTrack: %1$s κρίσεις, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Η εξαγωγή απέτυχε</string>
+    <string name="export_failed_message">Δεν ήταν δυνατή η δημιουργία της αναφοράς.</string>
+    <string name="export_write_failed">Δεν ήταν δυνατή η εγγραφή του %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s γνωστός παράγοντας</item>
+        <item quantity="other">%1$s γνωστοί παράγοντες</item>
+    </plurals>
+    <string name="settings_no_triggers">Δεν επιλέχθηκαν παράγοντες</string>
+    <string name="settings_no_medications">Δεν επιλέχθηκαν φάρμακα</string>
+    <string name="settings_name_title">Το όνομά σας</string>
+    <string name="settings_name_message">Εμφανίζεται στις αναφορές που εξάγετε.</string>
+    <string name="settings_name_placeholder">Όνομα</string>
+    <string name="settings_delete_title">Διαγραφή όλων των δεδομένων;</string>
+    <string name="settings_delete_message">Το MigraTrack κρατά τα δεδομένα σας σε αυτό το iPhone και ένα αντίγραφο στο Apple Watch σας. Αυτή η ενέργεια διαγράφει οριστικά όλες τις κρίσεις και το αρχικό σας προφίλ· το ρολόι διαγράφει το αντίγραφό του στον επόμενο συγχρονισμό. Τα αντίγραφα ασφαλείας των συσκευών κρατούν το δικό τους αντίγραφο. Αν χρειάζεστε μια αναφορά, εξαγάγετέ την πρώτα.</string>
+    <string name="settings_delete_all">Διαγραφή όλων των δεδομένων</string>
+    <string name="settings_section_baseline">Αρχικά κλινικά δεδομένα και θεραπεία</string>
+    <string name="settings_baseline_diagnoses">Διαγνώσεις</string>
+    <string name="settings_known_triggers">Γνωστοί εκλυτικοί παράγοντες</string>
+    <string name="settings_section_preferences">Προτιμήσεις</string>
+    <string name="settings_appearance">Εμφάνιση</string>
+    <string name="settings_appearance_value">Σκούρα (σταθερή)</string>
+    <string name="settings_version">Έκδοση</string>
+    <string name="settings_version_value">v%1$s (Build %2$s)</string>
+    <string name="settings_section_legal">Νομικά</string>
+    <string name="settings_section_developer">Προγραμματιστής</string>
+    <string name="settings_load_sample_data">Φόρτωση δειγμάτων δεδομένων</string>
+    <string name="settings_load_sample_data_subtitle">Προσθέτει κρίσεις ενός έτους για προεπισκόπηση των γραφημάτων</string>
+    <string name="settings_edit_name_a11y">Επεξεργασία ονόματος</string>
+    <string name="settings_add_name">Προσθέστε το όνομά σας</string>
+    <string name="settings_member">Μέλος από</string>
+    <string name="settings_episodes">Κρίσεις</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">Σύνολο: %1$s</item>
+        <item quantity="other">Σύνολο: %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Πολιτική απορρήτου</string>
+    <string name="legal_terms_of_service">Όροι χρήσης</string>
+    <string name="legal_folder">el</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Συνέχεια: παράγοντες</string>
+    <string name="onboarding_continue_to_medications">Συνέχεια: φάρμακα</string>
+    <string name="onboarding_finish_setup">Ολοκλήρωση ρύθμισης</string>
+    <string name="onboarding_back_to_diagnoses">Πίσω στις διαγνώσεις</string>
+    <string name="onboarding_back_to_triggers">Πίσω στους παράγοντες</string>
+    <string name="onboarding_save_changes">Αποθήκευση αλλαγών</string>
+    <string name="onboarding_step">Βήμα %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Διαγνώσεις και ιστορικό</string>
+    <string name="onboarding_diagnoses_subtitle">Ορίστε το αρχικό σας προφίλ. Οι κρίσεις και οι αναφορές σας ξεκινούν από αυτό.</string>
+    <string name="onboarding_primary_diagnosis">Κύρια διάγνωση</string>
+    <string name="onboarding_episode_frequency">Μηνιαία συχνότητα κρίσεων</string>
+    <string name="onboarding_episode_duration">Συνήθης διάρκεια κρίσης</string>
+    <string name="onboarding_intensity_baseline">Συνήθης ένταση πόνου</string>
+    <string name="onboarding_update_later">Μπορείτε να αλλάξετε το αρχικό σας προφίλ οποιαδήποτε στιγμή στις Ρυθμίσεις.</string>
+    <string name="onboarding_triggers_title">Οι παράγοντές σας</string>
+    <string name="onboarding_triggers_subtitle">Επιλέξτε τους γνωστούς ή πιθανούς εκλυτικούς παράγοντες. Η αναφορά σας τους δείχνει στον γιατρό σας.</string>
+    <string name="onboarding_add_custom_trigger">Προσθήκη δικού σας παράγοντα</string>
+    <string name="onboarding_treatment_subtitle">Επιλέξτε τι παίρνετε. Τα φάρμακα για την κρίση συμπληρώνονται σε κάθε νέα κρίση, οπότε η καταγραφή θέλει ένα πάτημα.</string>
+    <string name="onboarding_add_custom_medication">Προσθήκη δικού σας φαρμάκου</string>
+    <string name="onboarding_custom_trigger_title">Δικός σας παράγοντας</string>
+    <string name="onboarding_custom_trigger_message">Γράψτε κάτι που συνήθως προκαλεί τις ημικρανίες σας.</string>
+    <string name="onboarding_custom_trigger_placeholder">Π.χ. φώτα που αναβοσβήνουν</string>
+    <string name="onboarding_medication_role_message">Πότε το παίρνετε;</string>
+    <string name="onboarding_medication_role_acute">Κατά την κρίση (οξεία)</string>
+    <string name="onboarding_medication_role_preventive">Κάθε μέρα (προληπτικά)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Προσωπικό ημερολόγιο ημικρανίας και εκλυτικών παραγόντων</string>
+    <string name="welcome_example">Παράδειγμα</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">ημέρα χωρίς πόνο</item>
+        <item quantity="other">ημέρες χωρίς πόνο</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">Παράδειγμα: %1$s ημέρα χωρίς πόνο τις τελευταίες 30 ημέρες</item>
+        <item quantity="other">Παράδειγμα: %1$s ημέρες χωρίς πόνο τις τελευταίες 30 ημέρες</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Κατανοήστε τα μοτίβα σας.</string>
+    <string name="welcome_headline_doctor">Δείξτε τα στοιχεία στον γιατρό σας.</string>
+    <string name="welcome_body">Καταγράψτε συμπτώματα, εντοπίστε πιθανούς εκλυτικούς παράγοντες και εξαγάγετε τις προσωπικές σας αναφορές οποιαδήποτε στιγμή.</string>
+    <string name="welcome_get_started">Έναρξη</string>
+    <string name="welcome_agreement">Αν συνεχίσετε, αποδέχεστε τους «%1$s» και την «%2$s».</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+    <string name="diagnosis_migraine_without_aura">Ημικρανία χωρίς αύρα</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Η συνήθης μορφή ημικρανίας</string>
+    <string name="diagnosis_migraine_with_aura">Ημικρανία με αύρα</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Οπτική ή αισθητική εστιακή αύρα</string>
+    <string name="diagnosis_chronic_migraine">Χρόνια ημικρανία</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 ή περισσότερες ημέρες κεφαλαλγίας τον μήνα</string>
+    <string name="diagnosis_tension_type">Κεφαλαλγία τύπου τάσεως</string>
+    <string name="diagnosis_tension_type_subtitle">Σφιχτή πίεση σαν στεφάνι</string>
+    <string name="diagnosis_cluster">Αθροιστική κεφαλαλγία</string>
+    <string name="diagnosis_cluster_subtitle">Σοβαρές ετερόπλευρες κρίσεις γύρω από το μάτι</string>
+    <string name="diagnosis_not_diagnosed">Χωρίς διάγνωση / διερεύνηση</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Παρακολουθώ τα μοτίβα των συμπτωμάτων</string>
+    <string name="frequency_less_than_one">&lt; 1/μήνα</string>
+    <string name="frequency_one_to_four">1–4/μήνα</string>
+    <string name="frequency_five_to_eight">5–7/μήνα</string>
+    <string name="frequency_eight_plus">8+/μήνα</string>
+    <string name="duration_two_to_four">2–4&#160;ώ</string>
+    <string name="duration_four_to_twelve">4–12&#160;ώ</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;ώ</string>
+    <string name="duration_one_to_three_days">24–72&#160;ώ</string>
+    <string name="region_left_temple">Αριστερός κρόταφος</string>
+    <string name="region_right_temple">Δεξιός κρόταφος</string>
+    <string name="region_frontal_brow">Μέτωπο / φρύδια</string>
+    <string name="region_retro_orbital">Πίσω από το μάτι</string>
+    <string name="region_occipital_neck">Ινιακή χώρα και αυχένας</string>
+    <string name="symptom_scintillating_scotoma">Σπινθηροβόλο σκότωμα (οπτική αύρα)</string>
+    <string name="symptom_scintillating_scotoma_short">Οπτική αύρα</string>
+    <string name="symptom_neck_stiffness">Δυσκαμψία αυχένα</string>
+    <string name="symptom_neck_stiffness_short">Πιάσιμο αυχένα</string>
+    <string name="symptom_photophobia">Φωτοφοβία (φως)</string>
+    <string name="symptom_photophobia_short">Φως</string>
+    <string name="symptom_nausea">Ναυτία</string>
+    <string name="symptom_nausea_short">Ναυτία</string>
+    <string name="symptom_phonophobia">Φωνοφοβία (ήχος)</string>
+    <string name="symptom_phonophobia_short">Ήχος</string>
+    <string name="symptom_aphasia">Αφασία / θολή σκέψη</string>
+    <string name="symptom_aphasia_short">Θολή σκέψη</string>
+    <string name="symptom_paresthesia">Μυρμήγκιασμα / παραισθησία</string>
+    <string name="symptom_paresthesia_short">Μυρμήγκιασμα</string>
+    <string name="trigger_category_weather_environment">Καιρός και περιβάλλον</string>
+    <string name="trigger_category_sleep_physical">Ύπνος και καθημερινή ρουτίνα</string>
+    <string name="trigger_category_stress_emotions">Στρες και συναισθήματα</string>
+    <string name="trigger_category_hormonal">Ορμονικοί</string>
+    <string name="trigger_category_diet_consumption">Διατροφή και ποτά</string>
+    <string name="trigger_category_custom">Δικοί σας</string>
+    <string name="medication_role_acute">Για την κρίση</string>
+    <string name="medication_role_preventive">Προληπτικά και συμπληρώματα</string>
+    <string name="export_range_last_30_days">Τελ. 30&#160;ημέρες</string>
+    <string name="export_range_last_90_days">Τελ. 90&#160;ημέρες</string>
+    <string name="export_range_last_6_months">Τελ. 6&#160;μήνες</string>
+    <string name="export_range_last_12_months">Τελ. 12&#160;μήνες</string>
+
+    <!-- Catalog: built-in triggers -->
+    <string name="trigger_barometric_pressure">Πτώση βαρομετρικής πίεσης</string>
+    <string name="trigger_barometric_pressure_description">Καιρικά μέτωπα, αλλαγές υψομέτρου</string>
+    <string name="trigger_bright_light">Έντονο φως και ήλιος</string>
+    <string name="trigger_bright_light_description">Αντανάκλαση, τρεμόπαιγμα, φωτοφοβία</string>
+    <string name="trigger_heat_humidity">Έντονη ζέστη / υγρασία</string>
+    <string name="trigger_heat_humidity_description">Μεταβολές θερμοκρασίας</string>
+    <string name="trigger_loud_noise">Δυνατός θόρυβος</string>
+    <string name="trigger_loud_noise_description">Φωνοφοβία, απότομοι ήχοι</string>
+    <string name="trigger_poor_sleep">Κακός / ακανόνιστος ύπνος</string>
+    <string name="trigger_poor_sleep_description">Έλλειψη ύπνου, λίγος ύπνος REM</string>
+    <string name="trigger_dehydration">Αφυδάτωση</string>
+    <string name="trigger_dehydration_description">Απώλεια ηλεκτρολυτών</string>
+    <string name="trigger_skipped_meals">Παράλειψη γευμάτων / νηστεία</string>
+    <string name="trigger_skipped_meals_description">Όριο υπογλυκαιμίας</string>
+    <string name="trigger_overexertion">Σωματική υπερκόπωση</string>
+    <string name="trigger_overexertion_description">Αγγειακή καταπόνηση από προσπάθεια</string>
+    <string name="trigger_emotional_stress">Στρες / χαλάρωση μετά το στρες</string>
+    <string name="trigger_emotional_stress_description">Αποφόρτιση μετά τη δουλειά</string>
+    <string name="trigger_screen_fatigue">Κούραση από οθόνες</string>
+    <string name="trigger_screen_fatigue_description">Υπερβολικό μπλε φως, σύγκλιση</string>
+    <string name="trigger_hormonal_cycle">Ορμονικές αλλαγές / κύκλος</string>
+    <string name="trigger_hormonal_cycle_description">Μεταβολές στη διάρκεια του κύκλου</string>
+    <string name="trigger_caffeine">Στέρηση ή υπερβολή καφεΐνης</string>
+    <string name="trigger_caffeine_description">Μεταβολές υποδοχέων αδενοσίνης</string>
+    <string name="trigger_aged_cheese">Ώριμα τυριά / τυραμίνη</string>
+    <string name="trigger_aged_cheese_description">Ευαισθησία σε αμίνες ζυμωμένων τροφών</string>
+    <string name="trigger_alcohol">Αλκοόλ / κόκκινο κρασί</string>
+    <string name="trigger_alcohol_description">Τανίνες, ισταμίνη</string>
+    <string name="trigger_sweeteners">Τεχνητά γλυκαντικά</string>
+    <string name="trigger_sweeteners_description">Ασπαρτάμη, σουκραλόζη</string>
+    <string name="trigger_custom_description">Δικός σας παράγοντας</string>
+
+    <!-- Catalog: built-in medications -->
+    <string name="medication_ibuprofen_400">Ιβουπροφαίνη</string>
+    <string name="medication_ibuprofen_400_class">Αντιφλεγμονώδες, επικουρικό</string>
+    <string name="medication_sumatriptan_50">Σουματριπτάνη</string>
+    <string name="medication_sumatriptan_50_class">Τριπτάνη, αγωνιστής σεροτονίνης</string>
+    <string name="medication_rizatriptan_10">Ριζατριπτάνη</string>
+    <string name="medication_rizatriptan_10_class">Τριπτάνη, διασπειρόμενη στο στόμα</string>
+    <string name="medication_naproxen_500">Ναπροξένη</string>
+    <string name="medication_naproxen_500_class">ΜΣΑΦ μακράς δράσης</string>
+    <string name="medication_acetaminophen_1000">Παρακεταμόλη</string>
+    <string name="medication_acetaminophen_1000_class">Αναλγητικό</string>
+    <string name="medication_ubrogepant_100">Ουμπρογεπάντη</string>
+    <string name="medication_ubrogepant_100_class">Γεπάντη, ανταγωνιστής CGRP</string>
+    <string name="medication_metoclopramide_10">Μετοκλοπραμίδη</string>
+    <string name="medication_metoclopramide_10_class">Αντιεμετικό</string>
+    <string name="medication_electrolytes">Ηλεκτρολύτες ενυδάτωσης</string>
+    <string name="medication_electrolytes_class">Ενυδάτωση από το στόμα</string>
+    <string name="medication_riboflavin_400">Ριβοφλαβίνη</string>
+    <string name="medication_riboflavin_400_class">Βιταμίνη B2</string>
+    <string name="medication_magnesium_400">Μαγνήσιο</string>
+    <string name="medication_magnesium_400_class">Συμπλήρωμα μετάλλων</string>
+    <string name="medication_propranolol_40">Προπρανολόλη</string>
+    <string name="medication_propranolol_40_class">β-αναστολέας</string>
+    <string name="medication_topiramate_50">Τοπιραμάτη</string>
+    <string name="medication_topiramate_50_class">Αντιεπιληπτικό</string>
+    <string name="medication_amitriptyline_10">Αμιτριπτυλίνη</string>
+    <string name="medication_amitriptyline_10_class">Τρικυκλικό αντικαταθλιπτικό</string>
+    <string name="medication_erenumab_70">Ερενουμάμπη</string>
+    <string name="medication_erenumab_70_class">Αντίσωμα έναντι CGRP, μηνιαία</string>
+    <string name="medication_custom_class">Δικό σας φάρμακο</string>
+    <!-- &#160; (no-break space) keeps the number and "mg" on one line. Greek product information writes "mg". -->
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">Ε%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%1$s από %2$s δεν έχει σημειωμένους παράγοντες</item>
+        <item quantity="other">%1$s από %2$s δεν έχουν σημειωμένους παράγοντες</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s κρίση</item>
+        <item quantity="other">%1$s κρίσεις</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">Κλινική αναφορά ημικρανίας</string>
+    <string name="report_page">MigraTrack · Σελίδα %1$s</string>
+    <string name="report_patient">Ασθενής: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Δημιουργήθηκε %1$s</string>
+    <string name="report_disclaimer">Δεδομένα που κατέγραψε ο ασθενής στο MigraTrack. Η αναφορά υποστηρίζει την κλινική αξιολόγηση και δεν την αντικαθιστά.</string>
+    <string name="report_stat_episodes">Σύνολο κρίσεων</string>
+    <string name="report_stat_migraine_days">Μέρες ημικρανίας</string>
+    <string name="report_stat_pain_free_days">Χωρίς πόνο</string>
+    <string name="report_stat_average_intensity">Μέση ένταση /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">Η παρακολούθηση ξεκίνησε στις %1$s. %2$s προηγούμενη ημέρα αυτής της περιόδου δεν έχει καταγραφές και δεν μετρά ως ημέρα χωρίς πόνο.</item>
+        <item quantity="other">Η παρακολούθηση ξεκίνησε στις %1$s. %2$s προηγούμενες ημέρες αυτής της περιόδου δεν έχουν καταγραφές και δεν μετρούν ως ημέρες χωρίς πόνο.</item>
+    </plurals>
+    <string name="report_baseline_title">Αρχικό προφίλ</string>
+    <string name="report_baseline_diagnoses">Διαγνώσεις</string>
+    <string name="report_baseline_frequency">Μηνιαία συχνότητα</string>
+    <string name="report_baseline_duration">Συνήθης διάρκεια</string>
+    <string name="report_baseline_intensity">Συνήθης ένταση</string>
+    <string name="report_baseline_triggers">Γνωστοί παράγοντες</string>
+    <string name="report_baseline_treatments">Σχέδιο θεραπείας</string>
+    <string name="report_pain_chart_title">Ένταση πόνου ανά ημέρα (1–10)</string>
+    <string name="report_legend_mild">Ήπιος %1$s–%2$s</string>
+    <string name="report_legend_moderate">Μέτριος %1$s–%2$s</string>
+    <string name="report_legend_severe">Σοβαρός %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Χωρίς δεδομένα</string>
+    <string name="report_medication_title">Χρήση φαρμάκων</string>
+    <string name="report_no_medications">Δεν καταγράφηκαν λήψεις φαρμάκων σε αυτή την περίοδο.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s λήψη</item>
+        <item quantity="other">%1$s λήψεις</item>
+    </plurals>
+    <string name="report_symptoms_title">Αύρα και προειδοποιητικά συμπτώματα</string>
+    <string name="report_no_symptoms">Δεν καταγράφηκε αύρα ή αισθητηριακά συμπτώματα σε αυτή την περίοδο.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s από %2$s κρίση (%3$s)</item>
+        <item quantity="other">%1$s από %2$s κρίσεις (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Πιθανοί εκλυτικοί παράγοντες που σημειώθηκαν</string>
+    <string name="report_no_triggers">Δεν σημειώθηκαν παράγοντες σε αυτή την περίοδο.</string>
+    <string name="report_triggers_note">Οι αριθμοί δείχνουν πόσο συχνά ο ασθενής σημείωσε έναν παράγοντα μαζί με μια κρίση. Δεν δείχνουν αιτία.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%1$s από %2$s δεν έχει σημειωμένους παράγοντες.</item>
+        <item quantity="other">%1$s από %2$s δεν έχουν σημειωμένους παράγοντες.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s κρίση</item>
+        <item quantity="other">%1$s κρίσεις</item>
+    </plurals>
+    <string name="report_episodes_title">Κρίσεις</string>
+    <string name="report_no_episodes">Δεν καταγράφηκαν κρίσεις σε αυτή την περίοδο.</string>
+    <string name="report_column_date_time">Ημ/νία και ώρα</string>
+    <string name="report_column_pain">Έντ.</string>
+    <string name="report_column_epicenter">Εντόπιση</string>
+    <string name="report_column_symptoms">Συμπτώματα</string>
+    <string name="report_column_medications">Φάρμακα</string>
+    <string name="report_column_triggers">Παράγοντες</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Δεν ορίστηκε</string>
+    <string name="report_none">Κανένα</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">Κρίσεις</string>
+    <string name="report_sheet_medications">Φάρμακα</string>
+    <string name="report_sheet_daily_pain">Πόνος ανά ημέρα</string>
+    <string name="report_sheet_profile">Προφίλ</string>
+    <string name="report_header_started">Έναρξη</string>
+    <string name="report_header_pain_intensity">Ένταση πόνου (1–10)</string>
+    <string name="report_header_epicenter">Εντόπιση πόνου</string>
+    <string name="report_header_symptoms">Αύρα και αισθητηριακά συμπτώματα</string>
+    <string name="report_header_medications">Φάρμακα</string>
+    <string name="report_header_triggers">Πιθανοί εκλυτικοί παράγοντες</string>
+    <string name="report_header_episode_started">Έναρξη κρίσης</string>
+    <string name="report_header_medication">Φάρμακο</string>
+    <string name="report_header_dose">Δόση</string>
+    <string name="report_header_date">Ημερομηνία</string>
+    <string name="report_header_peak_pain">Μέγιστη ένταση πόνου (1–10, 0 = χωρίς πόνο)</string>
+    <string name="report_header_day">Ημέρα</string>
+    <string name="report_header_field">Πεδίο</string>
+    <string name="report_header_value">Τιμή</string>
+    <string name="report_day_migraine">Ημικρανία</string>
+    <string name="report_day_pain_free">Χωρίς πόνο</string>
+    <string name="report_day_not_tracked">Χωρίς δεδομένα</string>
+    <string name="report_profile_patient">Ασθενής</string>
+    <string name="report_profile_range">Περίοδος αναφοράς</string>
+    <string name="report_profile_tracked_since">Παρακολούθηση από</string>
+    <string name="report_profile_diagnoses">Διαγνώσεις</string>
+    <string name="report_profile_frequency">Μηνιαία συχνότητα</string>
+    <string name="report_profile_duration">Συνήθης διάρκεια</string>
+    <string name="report_profile_intensity">Συνήθης ένταση</string>
+    <string name="report_profile_triggers">Γνωστοί εκλυτικοί παράγοντες</string>
+    <string name="report_profile_treatments">Σχέδιο θεραπείας</string>
+    <string name="report_iso_range">%1$s έως %2$s</string>
+</resources>

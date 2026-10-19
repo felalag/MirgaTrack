@@ -11,6 +11,12 @@
             "value" : "MigraTrack счытвае сон мінулай ночы з Apple Health і паказвае яго ў зводцы. Даныя застаюцца на гэтым iPhone."
           }
         },
+        "bg" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack чете съня от изминалата нощ от „Здраве“ и го показва в обобщението. Данните остават на този iPhone."
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +39,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack liest den Schlaf der letzten Nacht aus Apple Health und zeigt ihn in der Übersicht. Die Daten bleiben auf diesem iPhone."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το MigraTrack διαβάζει τον χθεσινό ύπνο από την εφαρμογή «Υγεία» και τον δείχνει στη Σύνοψη. Τα δεδομένα μένουν σε αυτό το iPhone."
           }
         },
         "en" : {
@@ -87,6 +99,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack legge il sonno di stanotte dall’app Salute e lo mostra nel riepilogo. I dati restano su questo iPhone."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack кешегі түнгі ұйқыны «Денсаулық» қолданбасынан оқып, шолуда көрсетеді. Деректер осы iPhone-да қалады."
           }
         },
         "lt" : {
@@ -159,6 +177,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack dün geceki uykunuzu Sağlık uygulamasından okur ve Özet’te gösterir. Veriler bu iPhone’da kalır."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack зчитує сон минулої ночі з програми «Здоровʼя» і показує його у зведенні. Дані залишаються на цьому iPhone."
           }
         }
       }

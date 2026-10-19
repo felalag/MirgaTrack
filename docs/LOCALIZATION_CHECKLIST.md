@@ -30,6 +30,7 @@ Use the folder code of the plan, section 1.1. Examples here use Polish, `pl`.
 - Do not translate brand names (MigraTrack) or keys marked "Do not translate".
 - Join a number and its unit with a no-break space, written as the entity `&#160;` ("50&#160;mg", "90&#160;dni"), and put a word joiner `&#8288;` on both sides of the dash in "1–10". At the largest text size the lines break there otherwise.
 - Use the term of the national sources for the word of the episode before the sample goes to the owner. In batch 4 the Romanian ICHD-3 said "atac", and the sample had "criză".
+- A length limit counts characters, not width. Cyrillic and Greek capitals are wide: read the PDF table headers and the 40 mm watch at the largest text size even when the build passes. In batch 5 "БОЛКА", "ΠΟΝΟΣ" (5 characters) and "КҮНІ МЕН УАҚЫТЫ" (15) broke onto two lines.
 
 ## 3. Back-translation
 

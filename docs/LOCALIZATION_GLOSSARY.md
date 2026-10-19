@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -628,3 +628,134 @@ Checked on October 18, 2026. A page number is the page of the PDF file; a web pa
 | NSAID | NSAID | DA1 | NSAID | NO1 | NSAID | SE1, p. 17 | tulehduskipulääke | FI1 |
 | Triptan | triptan | DA1 | triptan | NO1 | triptan | SE1, p. 15 | triptaani | FI1 |
 | Beta blocker | betablokker | **Not verified** | betablokker | **Not verified** | betablockerare | SE1, p. 6 | beetasalpaaja | FI1 |
+
+### Cyrillic and Greek: Ukrainian, Bulgarian, Kazakh, Greek
+
+Ukrainian (`uk`), Bulgarian (`bg`), Kazakh (`kk`) and Greek (`el`). All four use the system font. The project owner approved the address, the word for episode, the medical disclaimer and the watch texts on October 19, 2026. The owner reads Russian, so the Russian equivalents helped the check of Ukrainian and Kazakh. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7).
+
+| Language | Address | Buttons |
+|---|---|---|
+| uk | "ви", in lower case, as in Ukrainian iOS | Infinitive: "Зберегти", "Скасувати" |
+| bg | The polite plural verb forms ("Говорете"); "вие" in lower case where a pronoun is necessary | The imperative singular of Bulgarian iOS: "Запази", "Отказ" |
+| kk | "сіз" and the polite verb forms ("сөйлесіңіз") | Verbal nouns, as in Kazakh iOS: "Сақтау", "Бас тарту" |
+| el | The polite plural ("Μιλήστε") | Nouns, as in Greek iOS: "Αποθήκευση", "Ακύρωση" |
+
+Kazakh puts no case suffix after a placeholder, because the suffix follows the vowels of the number. A noun after a number stays singular, so both plural forms are equal.
+
+| Term | uk | bg | kk | el |
+|---|---|---|---|---|
+| episode | напад | пристъп | ұстама | κρίση |
+| attack (App Store only) | напад | пристъп | ұстама | κρίση |
+| migraine | мігрень | мигрена | мигрень | ημικρανία |
+| log (verb) | записати | запиши, записвам | жазу | καταγραφή, καταγράφω |
+| intensity | інтенсивність (болю); "Біль 6/10" with a score | интензитет (на болката); "Болка 6/10" | қарқындылық; "Ауырсыну 6/10" | ένταση (πόνου); "Πόνος 6/10" |
+| migraine day | день з мігренню | ден с мигрена | мигрень күні | ημέρα ημικρανίας; pill "3 ημ. ημικρανίας" |
+| tracked day | день спостереження | ден на проследяване | бақыланған күн | ημέρα παρακολούθησης |
+| pain-free day | день без болю | ден без болка | ауырсынусыз күн; short "Ауырсынусыз" | ημέρα χωρίς πόνο; short "Χωρίς πόνο" |
+| not tracked | без спостереження; legend "Немає даних" | без проследяване; legend "Няма данни" | бақыланбаған; legend "Деректер жоқ" | χωρίς παρακολούθηση; legend "Χωρίς δεδομένα" |
+| trigger | тригер | тригер | триггер | εκλυτικός παράγοντας; short "παράγοντας" |
+| possible trigger | можливий тригер | възможен тригер | ықтимал триггер | πιθανός εκλυτικός παράγοντας |
+| aura | аура | аура | аура | αύρα |
+| acute medication | ліки для купірування нападу | лекарство за овладяване на пристъпа | ұстаманы басуға арналған дәрі | φάρμακο για την κρίση |
+| preventive medication | профілактика | профилактика | алдын алу | προληπτικά |
+| treatment blueprint | план лікування | план за лечение | емдеу жоспары | σχέδιο θεραπείας |
+| baseline profile | вихідний профіль | изходен профил | бастапқы профиль | αρχικό προφίλ |
+| report | звіт | отчет | есеп | αναφορά |
+| Health app | «Здоровʼя» | „Здраве“ | «Денсаулық» | «Υγεία» |
+| Settings (iOS) | «Параметри» | „Настройки“ | «Параметрлер» | Ρυθμίσεις |
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "Новий напад", "Нов пристъп", "Жаңа ұстама", "Νέα κρίση". "Save Episode" = "Зберегти", "Запази", "Сақтау", "Αποθήκευση". The round complication "LOG" (4 characters) = "ВВІД" (as the Russian "ВВОД"), "НОВ", "ЖАҢА", "ΝΕΑ" (Greek upper case drops the accent).
+
+#### Sources of the Cyrillic and Greek terms
+
+Checked on October 19, 2026. A page number is the page of the PDF file.
+
+- **[UA1]** Ministry of Health of Ukraine, order No. 487 of August 17, 2007, "Клінічний протокол надання медичної допомоги хворим на мігрень": [copy at mozok.ua](https://mozok.ua/migren/article/2635-klnchnij-protokol-nadannya-medichno-dopomogi-hvorim-na-mgren). Old, but the only national text found. The register of current guidelines, [guidelines.moz.gov.ua](https://guidelines.moz.gov.ua/documents), answered with a Cloudflare check and was **not read**. No Ukrainian ICHD-3 exists on the IHS website.
+- **[UA2]** State Register of Medicinal Products of Ukraine, full export [reestr.csv](http://www.drlz.com.ua/ibp/zvity.nsf/all/zvit/$file/reestr.csv) of [drlz.com.ua](http://www.drlz.com.ua/), downloaded and searched by international name.
+- **[BG1]** ICHD-3, Bulgarian translation: [3675_ichd-3-bulgarian.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3675_ichd-3-bulgarian.pdf). **[EU-BG]** EMA, Aimovig product information in Bulgarian (`aimovig-epar-product-information_bg.pdf`, pattern of the Central European sources). No Bulgarian national migraine guideline was found. The Bulgarian Drug Agency register was **not searched**.
+- **[KZ1]** Ministry of Health of the Republic of Kazakhstan, clinical protocol "Мигрень у взрослых", approved by the Joint Commission on the Quality of Medical Services on September 7, 2023, protocol No. 188: [MedElement copy](https://diseases.medelement.com/disease/%D0%BC%D0%B8%D0%B3%D1%80%D0%B5%D0%BD%D1%8C-%D1%83-%D0%B2%D0%B7%D1%80%D0%BE%D1%81%D0%BB%D1%8B%D1%85-%D0%BA%D0%BF-%D1%80%D0%BA-2023/17775), sections "Лечение (амбулатория)", tables 5–8. It is in Russian; no Kazakh version was found. **[KZ2]** Kazakh Wikipedia, [Бас сақинасы](https://kk.wikipedia.org/wiki/Бас_сақинасы) (edited November 8, 2020): "мигрень", "бастың ұстамалы ауруы". A spelling reference, not a medical source. No medical source in Kazakh was found, so the Kazakh medical words are **not verified**; KZ1 gives the meaning. The register of the National Center for Expertise of Medicines ([register.ndda.kz](https://register.ndda.kz/)) is a script page and was **not searched**.
+- **[EU-EL]** EMA, Aimovig product information in Greek: [aimovig-epar-product-information_el.pdf](https://www.ema.europa.eu/el/documents/product-information/aimovig-epar-product-information_el.pdf). **[EU-EL2]** EMA, Vydura (rimegepant) product information in Greek, `vydura-epar-product-information_el.pdf`: "κρίση ημικρανίας". **[EU-EL3]** EMA, Pedea (ibuprofen) product information in Greek, `pedea-epar-product-information_el.pdf`: "ιβουπροφαίνη", "ΜΣΑΦ".
+- **[EL1]** Vikelis M., neurologist, [Θεραπεία της κρίσης ημικρανίας](https://www.headaches.gr/migraine/treatment-of-migraine-attack.html), headaches.gr, © 2024. **[EL2]** Eginition Hospital, National and Kapodistrian University of Athens, patient leaflets [HEADACHE_CLUSTER_NKUA_2026.pdf](https://eginitio.uoa.gr/fileadmin/depts/uoa.gr/eginitio/uploads/documents/HEADACHE/HEADACHE_CLUSTER_NKUA_2026.pdf) and [HEADACHE_TENSION_NKUA_2026.pdf](https://eginitio.uoa.gr/fileadmin/depts/uoa.gr/eginitio/uploads/documents/HEADACHE/HEADACHE_TENSION_NKUA_2026.pdf), as quoted by the search. No Greek ICHD-3 and no Greek national guideline were found. The EOF register was **not searched**.
+
+#### Medical terms: Ukrainian, Bulgarian
+
+| Term | Ukrainian | Source (uk) | Bulgarian | Source (bg) |
+|---|---|---|---|---|
+| Migraine without aura | Мігрень без аури | UA1 | Мигрена без аура | BG1, 1.1, p. 19 |
+| Migraine with aura | Мігрень з аурою | UA1 | Мигрена с аура | BG1, 1.2, p. 22 |
+| Chronic migraine | Хронічна мігрень | **Not verified** | Хронична мигрена | BG1, 1.3, p. 19 |
+| Tension-type headache | Головний біль напруги | **Not verified** | Тензионен тип главоболие | BG1, 2, p. 55 |
+| Cluster headache | Кластерний головний біль | **Not verified** | Кластърно главоболие | BG1, 3.1, p. 9 |
+| attack | напад | UA1 ("мігренозного нападу") | пристъп | BG1, throughout; EU-BG, p. 10 |
+| Photophobia | фотофобія (світлобоязнь) | **Not verified** | фотофобия | BG1, p. 19 |
+| Phonophobia | фонофобія (звукобоязнь) | **Not verified** | фонофобия | BG1, p. 19 |
+| Scintillating scotoma | мерехтлива скотома | **Not verified** | сцинтилираща скотома | BG1, p. 23 ("сцинтилации, скотоми") |
+| Nausea | нудота | **Not verified** | гадене | BG1, p. 19 |
+| Aphasia | афазія | **Not verified** | афазия | BG1, p. 22 |
+| Paresthesia | поколювання / парестезії | **Not verified** | изтръпване / парестезии | BG1, p. 91 |
+| Neck stiffness | скутість шиї | **Not verified** | скованост на врата | BG1, p. 19 |
+| Migraine day | день з мігренню | **Not verified** | ден с мигрена | EU-BG, p. 2 |
+| Acute treatment | купірування нападу | UA1 ("купірування мігренозного приступу") | овладяване на пристъпа | **Not verified**; BG1, p. 55 has "остро лечение" |
+| Preventive treatment | профілактика | UA1 ("Профілактичне лікування мігрені") | профилактика | EU-BG, p. 2 |
+| Trigger | тригер | **Not verified** | тригер | BG1, p. 8 ("тригерирани") |
+| Dose unit | мг | UA2 | mg | EU-BG, p. 2 |
+
+| Medication (class) | Ukrainian | Source (uk) | Bulgarian | Source (bg) |
+|---|---|---|---|---|
+| Ibuprofen | Ібупрофен | UA2: 125 records (400 mg capsules) | Ибупрофен | **Not verified** |
+| Sumatriptan | Суматриптан | UA2: 16 records | Суматриптан | EU-BG, p. 4 |
+| Rizatriptan | Ризатриптан | UA2: 10 records, orally dispersible 10 mg | Ризатриптан | **Not verified** |
+| Naproxen | Напроксен | UA2: 8 records | Напроксен | **Not verified** |
+| Acetaminophen | Парацетамол | UA2: 76 records | Парацетамол | **Not verified** |
+| Ubrogepant | Уброгепант | Not in UA2: **no registration**; the INN in Cyrillic | Уброгепант | **No registration** (EU) |
+| Metoclopramide | Метоклопрамід | UA2: 10 records | Метоклопрамид | **Not verified** |
+| Riboflavin | Рибофлавін | UA2: 2 single-substance records | Рибофлавин | **Not verified** |
+| Magnesium | Магній | UA2: only in combinations | Магнезий | **Not verified** |
+| Propranolol | Пропранолол | UA2: 5 records (40 mg) | Пропранолол | **Not verified** |
+| Topiramate | Топірамат | UA2: 14 records | Топирамат | **Not verified** |
+| Amitriptyline | Амітриптилін | UA2: 11 records | Амитриптилин | **Not verified** |
+| Erenumab | Еренумаб | Not in UA2: **no registration**; the INN in Cyrillic | Еренумаб | EU-BG, p. 2 |
+| NSAID | НПЗЗ | UA2 group "Нестероїдні протизапальні … засоби" | НСПВС | **Not verified** |
+| Triptan | триптан | UA2 group "Селективні агоністи 5-НТ1-рецепторів" | триптан | **Not verified** |
+| Beta blocker | бета-адреноблокатор | UA1 ("β-адреноблокаторів") | бета-блокер | **Not verified** |
+| Anticonvulsant | протиепілептичний засіб | UA1 ("антиепілептичних засобів"); UA2 group "Протиепілептичні засоби" | антиепилептично средство | **Not verified** |
+| Tricyclic antidepressant | трициклічний антидепресант | UA1 | трицикличен антидепресант | **Not verified** |
+
+#### Medical terms: Kazakh, Greek
+
+| Term | Kazakh | Source (kk) | Greek | Source (el) |
+|---|---|---|---|---|
+| Migraine without aura | Аурасыз мигрень | KZ1 meaning ("Мигрень без ауры"); **not verified** | Ημικρανία χωρίς αύρα | EL1 |
+| Migraine with aura | Аурасы бар мигрень | KZ1 meaning; **not verified** | Ημικρανία με αύρα | EL1 |
+| Chronic migraine | Созылмалы мигрень | KZ1 meaning; **not verified** | Χρόνια ημικρανία | **Not verified** |
+| Tension-type headache | Шиеленіс түріндегі бас ауруы | **Not verified** | Κεφαλαλγία τύπου τάσεως | EL2 |
+| Cluster headache | Кластерлік бас ауруы | **Not verified** | Αθροιστική κεφαλαλγία | EL2 |
+| attack | ұстама | KZ2 ("ұстамалы"); KZ1 meaning ("приступ") | κρίση | EU-EL2; EL1 ("κρίση ημικρανίας") |
+| Photophobia | фотофобия (жарық) | **Not verified** | φωτοφοβία (φως) | **Not verified**; EL1 has "ευαισθησία σε φως" |
+| Phonophobia | фонофобия (дыбыс) | **Not verified** | φωνοφοβία (ήχος) | **Not verified**; EL1 has "ευαισθησία σε ήχους" |
+| Scintillating scotoma | жыпылықтайтын скотома | **Not verified** | σπινθηροβόλο σκότωμα | **Not verified** |
+| Nausea | жүрек айну | **Not verified** | ναυτία | EL1 |
+| Migraine day | мигрень күні | **Not verified** | ημέρα ημικρανίας | EU-EL, p. 2 ("ημέρες ημικρανίας") |
+| Acute treatment | ұстаманы басу | KZ1 meaning ("Купирование приступов мигрени") | θεραπεία της κρίσης | EL1 |
+| Preventive treatment | алдын алу | KZ1 meaning ("Профилактическое лечение") | προληπτική θεραπεία | EL1; EU-EL, p. 2 ("προφύλαξη") |
+| Trigger | триггер | **Not verified** | εκλυτικός παράγοντας | **Not verified** |
+| Dose unit | мг | KZ1 ("мг") | mg | EU-EL, p. 2 |
+
+| Medication (class) | Kazakh | Source (kk) | Greek | Source (el) |
+|---|---|---|---|---|
+| Ibuprofen | Ибупрофен | KZ1, table 5 (400 мг) | Ιβουπροφαίνη | EU-EL3, p. 2 |
+| Sumatriptan | Суматриптан | KZ1, table 6 | Σουματριπτάνη | EU-EL, p. 4; EL1 |
+| Rizatriptan | Ризатриптан | KZ1, table 6 | Ριζατριπτάνη | EL1 |
+| Naproxen | Напроксен | KZ1, table 5 (500 мг) | Ναπροξένη | EL1 |
+| Acetaminophen | Парацетамол | KZ1, table 5 (1000 мг) | Παρακεταμόλη | EL1 |
+| Ubrogepant | Уброгепант | Not in KZ1; register not searched: **not verified** | Ουμπρογεπάντη | **No registration** (EU); Greek INN spelling **not verified** |
+| Metoclopramide | Метоклопрамид | KZ1, table 7 | Μετοκλοπραμίδη | **Not verified** |
+| Riboflavin | Рибофлавин | Not in KZ1: **not verified** | Ριβοφλαβίνη | **Not verified** |
+| Magnesium | Магний | KZ1, table 10 (magnesium sulfate i.v. only) | Μαγνήσιο | **Not verified** |
+| Propranolol | Пропранолол | KZ1, table 8 | Προπρανολόλη | **Not verified** |
+| Topiramate | Топирамат | KZ1, table 8 | Τοπιραμάτη | **Not verified** |
+| Amitriptyline | Амитриптилин | KZ1, table 8 | Αμιτριπτυλίνη | **Not verified** |
+| Erenumab | Эренумаб | Not in KZ1 (it names fremanezumab only): **not verified** | Ερενουμάμπη | EU-EL, p. 2 |
+| NSAID | стероидты емес қабынуға қарсы дәрі (written out) | **Not verified** | ΜΣΑΦ | EU-EL3, p. 3 |
+| Triptan | триптан | KZ1, table 6 | τριπτάνη | EL1 |
+| Beta blocker | бета-адреноблокатор | **Not verified** | β-αναστολέας | **Not verified** |
