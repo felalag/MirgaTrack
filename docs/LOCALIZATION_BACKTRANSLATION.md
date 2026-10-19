@@ -213,3 +213,49 @@ Languages: Ukrainian, Bulgarian, Kazakh and Greek. Scope: the keys of the checkl
 - Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2–4.
 - Terms of Service, all four texts: not a medical device ("медичний виріб", "медицинско изделие", "медициналық бұйым", "ιατροτεχνολογικό προϊόν"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 6: Vietnamese, Indonesian, Malay, Thai (October 19, 2026)
+
+Languages: Vietnamese, Indonesian, Malay and Thai. Scope: the keys of the checklist, section 3, the Siri dialogs and watch strings, and `docs/legal/files/{vi,id,ms,th}/*.md`. Vietnamese, Malay and Thai have Siri phrases; Indonesian has none.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| vi | `episode_update` | "Update" | Update Episode | "Cập nhật cơn migraine" |
+| vi, id | `duration_*` | "4–12 hours" with "giờ", "jam": 8 or 9 characters | 4–12h | "h" and "j", the short units of the two languages; the limit is 7 |
+| id | `export_range_last_12_months` | "Last 12 months": 17 characters | Last 12 Months | "1 tahun terakhir" (last 1 year); the limit is 16 |
+| th | `pain_scale_middle` | "5 Clearly felt": 15 characters | 5 Noticeable | "5 รู้สึกชัด" (felt clearly) |
+| vi | Watch "Last episode %@" | "Latest episode: 12 Oct": 23 characters | Last episode Oct 12 | "Gần nhất: %@" (latest); the limit is 22 |
+| th | `summary_sleep_hint`, `insights_without_triggers`, `common_medical_disclaimer`, the PDF trigger and symptom lists | "Settings" split as "การตั้ง / ค่า"; "trigger" split as "สิ่ง / กระตุ้น"; "medical" split as "ทางการ / แพทย์" ("official / doctor") at the largest text size and in the PDF | — | A word joiner inside "สิ่งกระตุ้น", "การตั้งค่า", "ทางการแพทย์", "อดอาหาร", "เหน็บชา", "ผิดปกติ" and "เป็นเวลา" |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| vi, th | `pain_scale_high` | "10 Very severe" | 10 Disabling | 14 characters, as uk, bg, kk and el in batch 5 |
+| vi | `common_clear` | "Deselect" ("Bỏ chọn") | Clear | "Xóa" also means delete; the button removes the choices of one card, not data (as el in batch 5) |
+| vi | aura in the UI | "warning sign" ("thoáng báo") | aura | The Vietnamese ICHD-3 says "cơn thoáng báo"; "cơn" is the episode word of the app, so the UI keeps only "thoáng báo". The diagnoses keep the ICHD-3 form. |
+| vi | `symptom_photophobia`, `symptom_phonophobia` | "Fear of light", "Fear of sound" | Photophobia (Light), Phonophobia (Sound) | The Vietnamese ICHD-3 term is already the common word, so no word in brackets |
+| vi | `insights_period_*`, `insights_bar_week` | "T", "Th", "6Th", "N"; "T1" | W, M, 6M, Y; W1 | 3 characters. "T" (tuần) can also read as a weekday ("T2" = Monday); the bars are under the month chart, which shows weeks only |
+| th | `duration_*`, `onboarding_episode_duration`, `report_baseline_duration`, `report_profile_duration` | "4–12" in the chip; "Typical duration of the pain episode (hours)" in the caption | 4–12h | 7 characters: "4–12 ชม." has 8. The unit moves to the caption and the report label, as kk in batch 5 |
+| th | `symptom_aphasia` | "Difficulty speaking / brain fog" | Aphasia / Brain Fog | The patient words; the clinical term "ภาวะเสียการสื่อความ" is long and not in TH1 |
+| th | `symptom_paresthesia` | "Pins and needles / abnormal sensation" | Tingling / Paresthesia | The second part explains paresthesia in common words |
+| vi, id, ms, th | `settings_member` | "Since" | Member | No account exists; the value is the first tracked month (as in batches 2–5) |
+| id, ms, th | `report_column_pain` | "Int.", "Int." ("Kmt."), "Level" ("ระดับ") | Pain | 5 characters, as batches 4 and 5 |
+| th | `common_save_episode`, watch "Save Episode" | "Save" ("บันทึก") | Save Episode | 14 characters on the watch; the term pair makes the iPhone button equal. "บันทึก" means both save and record, as in Thai iOS |
+| vi, id, ms, th | Watch and complication "Log Migraine" | "Record new episode", "New attack", "New attack", "Record episode" | Log Migraine | 14 characters on a 40 mm watch. The owner approved them |
+| vi, id, ms, th | Complication "LOG" | "RECORD" ("GHI"), "NEW", "NEW", "NEW" | LOG | 4 characters under a plus sign. The owner approved them |
+| id, ms | `pain_scale_high` | "10 Disabling" on two lines at the largest text size | 10 Disabling | The line breaks between the number and the word, nothing is cut |
+
+### No difference in meaning
+
+- Diagnoses, symptoms, regions, frequency chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit ("mg" in vi, id and ms, "มก." in th) with a no-break space.
+- `common_medical_disclaimer`, for example Thai: "MigraTrack is a diary, not medical advice. Please consult a doctor before you change the treatment."
+- `insights_triggers_hint`, for example Indonesian: "How often you noted each trigger together with an attack. This does not show a cause."
+- `report_triggers_note`, for example Malay: "The numbers show how often the patient noted a trigger together with an attack. These numbers do not show a cause."
+- `report_disclaimer`, for example Vietnamese: "Data self-recorded by the patient in MigraTrack. This report supports, and does not replace, the clinical assessment."
+- The other `report_*` keys, the Siri dialogs and the watch strings.
+- Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2–5.
+- Terms of Service, all four texts: not a medical device ("thiết bị y tế", "alat kesehatan", "peranti perubatan", "เครื่องมือแพทย์"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.

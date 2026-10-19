@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Vietnamese strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences address the user as "bạn", as Vietnamese iOS does. The medical terms follow the Vietnamese ICHD-3.
+  Vietnamese has only the CLDR plural form "other".
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Quay lại</string>
+    <string name="common_settings">Cài đặt</string>
+    <string name="common_cancel">Hủy</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Lưu</string>
+    <string name="common_add">Thêm</string>
+    <string name="common_next">Tiếp</string>
+    <string name="common_on">Bật</string>
+    <string name="common_off">Tắt</string>
+    <string name="common_clear">Bỏ chọn</string>
+    <string name="common_none">Không có</string>
+    <string name="common_today">Hôm nay</string>
+    <string name="common_not_set">Chưa đặt</string>
+    <string name="common_expanded">Đã mở rộng</string>
+    <string name="common_collapsed">Đã thu gọn</string>
+    <string name="common_last_30_days">30 ngày qua</string>
+    <string name="common_medical_disclaimer">MigraTrack là nhật ký, không phải lời khuyên y tế. Hãy hỏi bác sĩ trước khi thay đổi việc điều trị.</string>
+    <string name="common_log_migraine_episode">Ghi lại cơn migraine</string>
+    <string name="common_save_episode">Lưu</string>
+    <string name="common_edit_episode">Sửa cơn migraine</string>
+    <string name="common_delete_episode">Xóa cơn migraine</string>
+    <string name="common_intensity_of_ten">Cường độ %1$s/10</string>
+    <string name="common_date_at_time">%1$s lúc %2$s</string>
+    <string name="common_possible_triggers">Yếu tố kích thích có thể</string>
+    <string name="common_add_trigger">Thêm yếu tố kích thích</string>
+    <string name="common_add_medication">Thêm thuốc</string>
+    <string name="common_treatment_blueprint">Kế hoạch điều trị</string>
+    <string name="common_medication_name_and_dose">Nhập tên thuốc và liều.</string>
+    <string name="common_medication_placeholder">Ví dụ: Eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Tổng quan</string>
+    <string name="tab_log">Ghi lại</string>
+    <string name="tab_insights">Phân tích</string>
+    <string name="tab_export">Xuất</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Cường độ đau</string>
+    <string name="pain_scale_value">%1$s trên 10</string>
+    <string name="pain_scale_low">%1$s Nhẹ</string>
+    <string name="pain_scale_middle">%1$s Rõ rệt</string>
+    <string name="pain_scale_high">%1$s Rất nặng</string>
+    <string name="medication_remove">Bỏ %1$s</string>
+    <string name="duration_minutes">%1$s phút</string>
+    <string name="duration_hours_minutes">%1$s giờ %2$s phút</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Hôm nay, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">/ %1$s ngày theo dõi</item>
+    </plurals>
+    <string name="summary_without_logged_episode">không ghi nhận cơn migraine</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">%1$s trên %2$s ngày theo dõi không ghi nhận cơn migraine trong 30 ngày qua</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Tính từ ngày bạn bắt đầu theo dõi. Những ngày trước đó không được theo dõi.</string>
+    <string name="strip_legend_migraine">Migraine</string>
+    <string name="strip_legend_pain_free">Không đau</string>
+    <string name="strip_legend_not_tracked">Chưa theo dõi</string>
+    <string name="summary_sleep_last_night">Giấc ngủ đêm qua</string>
+    <string name="summary_sleep_not_recorded">Chưa ghi nhận</string>
+    <string name="summary_sleep_hint">Hãy đeo Apple Watch khi ngủ hoặc theo dõi giấc ngủ trong ứng dụng Sức khỏe. Nếu bạn đã tắt quyền truy cập, hãy bật lại trong Cài đặt › Sức khỏe.</string>
+    <string name="summary_sleep_caption">Giấc ngủ</string>
+    <string name="summary_sleep_connect_title">Xem giấc ngủ đêm qua trong Tổng quan</string>
+    <string name="summary_sleep_connect_body">MigraTrack đọc giấc ngủ đêm qua từ Apple Health. Dữ liệu chỉ ở trên iPhone này.</string>
+    <string name="summary_sleep_connect_button">Kết nối Apple Health</string>
+    <string name="summary_last_episode">Cơn gần nhất</string>
+    <string name="summary_last_episode_none">Chưa có</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Ghi lại cơn</string>
+    <string name="episode_update">Cập nhật cơn migraine</string>
+    <string name="episode_updated_banner">Đã cập nhật cơn migraine.</string>
+    <string name="episode_deleted_banner">Đã xóa cơn migraine.</string>
+    <string name="episode_saved_banner">Đã lưu cơn migraine. Hãy nghỉ ngơi và ở nơi ánh sáng dịu.</string>
+    <string name="episode_pain_intensity_index">Chỉ số cường độ đau</string>
+    <string name="episode_cranial_epicenter">Vị trí đau</string>
+    <string name="episode_aura_symptoms">Thoáng báo và triệu chứng cảm giác</string>
+    <string name="episode_acute_therapy">Thuốc cắt cơn</string>
+    <string name="episode_add_medication_row">Thêm thuốc / dung dịch điện giải</string>
+    <string name="episode_start">Thời điểm bắt đầu</string>
+    <string name="episode_start_now">Bây giờ</string>
+    <string name="episode_add_trigger_message">Điều gì xảy ra trước cơn này?</string>
+    <string name="episode_other_trigger_action">Yếu tố khác…</string>
+    <string name="episode_other_trigger_title">Yếu tố khác</string>
+    <string name="episode_other_trigger_message">Hãy ghi điều đã xảy ra trước cơn này.</string>
+    <string name="episode_other_trigger_placeholder">Ví dụ: nước hoa nồng</string>
+    <string name="episode_add_medication_message">Bạn đã dùng thuốc gì cho cơn này?</string>
+    <string name="episode_other_medication_action">Thuốc khác…</string>
+    <string name="episode_other_medication_title">Thuốc khác</string>
+    <string name="episode_missing_title">Cơn đã bị xóa</string>
+    <string name="episode_missing_message">Cơn này đã bị xóa trên thiết bị khác, vì vậy không thể lưu các thay đổi.</string>
+    <string name="episode_delete_message">Cường độ %1$s/10. Cơn này sẽ bị xóa khỏi lịch sử và báo cáo của bạn.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">T</string>
+    <string name="insights_period_month">Th</string>
+    <string name="insights_period_six_months">6Th</string>
+    <string name="insights_period_year">N</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">cơn trong tuần này</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">cơn trong tuần từ %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">cơn trong %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">cơn trong 6 tháng</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">cơn trong năm %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">Ít hơn %1$s phần trăm số cơn so với kỳ trước</string>
+    <string name="insights_trend_more">Nhiều hơn %1$s phần trăm số cơn so với kỳ trước</string>
+    <string name="insights_legend_migraine_day">Ngày migraine</string>
+    <string name="insights_legend_pain_free_day">Ngày không đau</string>
+    <string name="insights_legend_not_tracked">Chưa theo dõi</string>
+    <string name="insights_bar_no_data">%1$s: chưa có dữ liệu</string>
+    <string name="insights_bar_not_tracked">%1$s: chưa theo dõi</string>
+    <string name="insights_bar_pain_free">%1$s: không đau</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s: %2$s ngày migraine, cao nhất %3$s trên 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Hãy ghi các yếu tố kích thích có thể khi bạn ghi lại hoặc sửa một cơn. Thẻ này sẽ cho biết bạn ghi mỗi yếu tố bao nhiêu lần.</string>
+    <string name="insights_triggers_hint">Số lần bạn ghi mỗi yếu tố kích thích cùng với một cơn. Điều này không cho thấy nguyên nhân.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s, được ghi trong %2$s trên %3$s cơn</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">Lịch, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$s có %2$s cơn.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Cường độ %2$s/10</string>
+    <string name="insights_month_picker_title">Tháng</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Tháng trước</string>
+    <string name="calendar_next_month">Tháng sau</string>
+    <string name="calendar_choose_month_a11y">%1$s, chọn tháng khác</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">%1$s ngày migraine</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Hôm nay, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">không có sẵn</string>
+    <string name="calendar_day_not_tracked">chưa theo dõi</string>
+    <string name="calendar_day_no_episodes">không có cơn</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">%1$s cơn, cao nhất %2$s trên 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">%1$s cơn</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Cường độ cao nhất</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Thuốc</string>
+    <string name="calendar_edit_episode_details">Sửa chi tiết cơn</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Đang tạo PDF…</string>
+    <string name="export_preparing_excel">Đang tạo Excel…</string>
+    <string name="export_preparing_report">Đang tạo báo cáo…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">cơn</item>
+    </plurals>
+    <string name="export_episodes_recorded">Số cơn đã ghi</string>
+    <string name="export_include">Nội dung báo cáo</string>
+    <string name="export_medications">Lần dùng thuốc</string>
+    <string name="export_medications_subtitle">Liều và tổng số lần dùng</string>
+    <string name="export_symptoms">Thoáng báo và triệu chứng báo trước</string>
+    <string name="export_symptoms_subtitle">Loại thoáng báo và tần suất</string>
+    <string name="export_triggers_subtitle">Yếu tố đã ghi và tần suất</string>
+    <string name="export_pain_charts">Biểu đồ cường độ đau</string>
+    <string name="export_pain_charts_subtitle">Cường độ đau theo thời gian, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Xuất báo cáo PDF</string>
+    <string name="export_excel">Xuất Excel (.xlsx)</string>
+    <string name="export_share">Chia sẻ</string>
+    <string name="export_range_title">Khoảng thời gian báo cáo</string>
+    <plurals name="export_share_text">
+        <item quantity="other">Báo cáo MigraTrack: %1$s cơn, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Xuất không thành công</string>
+    <string name="export_failed_message">Không thể tạo báo cáo.</string>
+    <string name="export_write_failed">Không thể ghi %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">%1$s yếu tố đã biết</item>
+    </plurals>
+    <string name="settings_no_triggers">Chưa chọn yếu tố nào</string>
+    <string name="settings_no_medications">Chưa chọn thuốc nào</string>
+    <string name="settings_name_title">Tên của bạn</string>
+    <string name="settings_name_message">Tên này xuất hiện trên các báo cáo bạn xuất.</string>
+    <string name="settings_name_placeholder">Tên</string>
+    <string name="settings_delete_title">Xóa toàn bộ dữ liệu?</string>
+    <string name="settings_delete_message">MigraTrack lưu dữ liệu của bạn trên iPhone này và một bản sao trên Apple Watch. Thao tác này xóa vĩnh viễn mọi cơn migraine và hồ sơ ban đầu của bạn; đồng hồ sẽ xóa bản sao ở lần đồng bộ tiếp theo. Các bản sao lưu thiết bị vẫn giữ bản sao của chúng. Hãy xuất báo cáo trước nếu bạn cần.</string>
+    <string name="settings_delete_all">Xóa toàn bộ dữ liệu</string>
+    <string name="settings_section_baseline">Hồ sơ lâm sàng ban đầu</string>
+    <string name="settings_baseline_diagnoses">Chẩn đoán ban đầu</string>
+    <string name="settings_known_triggers">Yếu tố kích thích đã biết</string>
+    <string name="settings_section_preferences">Tùy chọn</string>
+    <string name="settings_appearance">Giao diện</string>
+    <string name="settings_appearance_value">Tối (cố định)</string>
+    <string name="settings_version">Phiên bản</string>
+    <string name="settings_version_value">v%1$s (bản dựng %2$s)</string>
+    <string name="settings_section_legal">Pháp lý</string>
+    <string name="settings_section_developer">Nhà phát triển</string>
+    <string name="settings_load_sample_data">Tải dữ liệu mẫu</string>
+    <string name="settings_load_sample_data_subtitle">Thêm các cơn được tạo cho một năm để xem trước biểu đồ</string>
+    <string name="settings_edit_name_a11y">Sửa tên</string>
+    <string name="settings_add_name">Thêm tên của bạn</string>
+    <string name="settings_member">Từ</string>
+    <string name="settings_episodes">Số cơn</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">%1$s đã ghi</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="legal_terms_of_service">Điều khoản dịch vụ</string>
+    <string name="legal_folder">vi</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Tiếp: yếu tố kích thích</string>
+    <string name="onboarding_continue_to_medications">Tiếp: thuốc</string>
+    <string name="onboarding_finish_setup">Hoàn tất thiết lập</string>
+    <string name="onboarding_back_to_diagnoses">Quay lại chẩn đoán</string>
+    <string name="onboarding_back_to_triggers">Quay lại yếu tố</string>
+    <string name="onboarding_save_changes">Lưu thay đổi</string>
+    <string name="onboarding_step">Bước %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Chẩn đoán và tiền sử</string>
+    <string name="onboarding_diagnoses_subtitle">Thiết lập hồ sơ ban đầu của bạn. Các cơn và báo cáo của bạn dựa trên hồ sơ này.</string>
+    <string name="onboarding_primary_diagnosis">Chẩn đoán chính</string>
+    <string name="onboarding_episode_frequency">Số cơn mỗi tháng</string>
+    <string name="onboarding_episode_duration">Thời gian thường gặp của một cơn</string>
+    <string name="onboarding_intensity_baseline">Cường độ đau thường gặp</string>
+    <string name="onboarding_update_later">Bạn có thể cập nhật hồ sơ ban đầu bất cứ lúc nào trong Cài đặt.</string>
+    <string name="onboarding_triggers_title">Yếu tố kích thích của bạn</string>
+    <string name="onboarding_triggers_subtitle">Chọn các yếu tố kích thích bạn đã biết hoặc nghi ngờ. Báo cáo sẽ liệt kê chúng cho bác sĩ của bạn.</string>
+    <string name="onboarding_add_custom_trigger">Thêm yếu tố khác</string>
+    <string name="onboarding_treatment_subtitle">Chọn thuốc bạn dùng. Thuốc cắt cơn được điền sẵn vào mỗi cơn mới, nên chỉ cần một lần chạm để ghi lại.</string>
+    <string name="onboarding_add_custom_medication">Thêm thuốc khác</string>
+    <string name="onboarding_custom_trigger_title">Thêm yếu tố khác</string>
+    <string name="onboarding_custom_trigger_message">Hãy ghi điều thường gây ra cơn migraine của bạn.</string>
+    <string name="onboarding_custom_trigger_placeholder">Ví dụ: ánh sáng nhấp nháy</string>
+    <string name="onboarding_medication_role_message">Bạn dùng thuốc này khi nào?</string>
+    <string name="onboarding_medication_role_acute">Trong cơn (cắt cơn)</string>
+    <string name="onboarding_medication_role_preventive">Hằng ngày (dự phòng)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Nhật ký migraine và yếu tố kích thích</string>
+    <string name="welcome_example">Ví dụ</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">ngày không đau</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">Ví dụ: %1$s ngày không đau trong 30 ngày qua</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Hiểu rõ quy luật của bạn.</string>
+    <string name="welcome_headline_doctor">Mang dữ liệu đến bác sĩ.</string>
+    <string name="welcome_body">Theo dõi triệu chứng, nhận ra các yếu tố kích thích có thể và xuất báo cáo cá nhân bất cứ lúc nào.</string>
+    <string name="welcome_get_started">Bắt đầu</string>
+    <string name="welcome_agreement">Khi tiếp tục, bạn đồng ý với %1$s và %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migraine không cơn thoáng báo</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Dạng migraine thường gặp</string>
+    <string name="diagnosis_migraine_with_aura">Migraine có cơn thoáng báo</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Thoáng báo khu trú về thị giác hoặc cảm giác</string>
+    <string name="diagnosis_chronic_migraine">Migraine mạn tính</string>
+    <string name="diagnosis_chronic_migraine_subtitle">Từ 15 ngày đau đầu mỗi tháng trở lên</string>
+    <string name="diagnosis_tension_type">Đau đầu kiểu căng thẳng</string>
+    <string name="diagnosis_tension_type_subtitle">Đau kiểu bó chặt như dải băng</string>
+    <string name="diagnosis_cluster">Đau đầu cụm</string>
+    <string name="diagnosis_cluster_subtitle">Các cơn nặng ở hốc mắt, một bên</string>
+    <string name="diagnosis_not_diagnosed">Chưa chẩn đoán / đang tìm hiểu</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Theo dõi quy luật triệu chứng</string>
+    <string name="frequency_less_than_one">&lt; 1/th</string>
+    <string name="frequency_one_to_four">1–4/th</string>
+    <string name="frequency_five_to_eight">5–7/th</string>
+    <string name="frequency_eight_plus">8+/th</string>
+    <string name="duration_two_to_four">2–4&#160;h</string>
+    <string name="duration_four_to_twelve">4–12&#160;h</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;h</string>
+    <string name="duration_one_to_three_days">24–72&#160;h</string>
+    <string name="region_left_temple">Thái dương trái</string>
+    <string name="region_right_temple">Thái dương phải</string>
+    <string name="region_frontal_brow">Trán / chân mày</string>
+    <string name="region_retro_orbital">Sau hốc mắt</string>
+    <string name="region_occipital_neck">Vùng chẩm và gáy</string>
+    <string name="symptom_scintillating_scotoma">Ám điểm nhấp nháy (thị giác)</string>
+    <string name="symptom_scintillating_scotoma_short">Thoáng báo mắt</string>
+    <string name="symptom_neck_stiffness">Cứng cổ</string>
+    <string name="symptom_neck_stiffness_short">Cứng cổ</string>
+    <string name="symptom_photophobia">Sợ ánh sáng</string>
+    <string name="symptom_photophobia_short">Ánh sáng</string>
+    <string name="symptom_nausea">Buồn nôn</string>
+    <string name="symptom_nausea_short">Buồn nôn</string>
+    <string name="symptom_phonophobia">Sợ âm thanh</string>
+    <string name="symptom_phonophobia_short">Âm thanh</string>
+    <string name="symptom_aphasia">Mất ngôn ngữ / đầu óc mơ hồ</string>
+    <string name="symptom_aphasia_short">Đầu óc mơ hồ</string>
+    <string name="symptom_paresthesia">Châm chích / dị cảm</string>
+    <string name="symptom_paresthesia_short">Châm chích</string>
+    <string name="trigger_category_weather_environment">Thời tiết và môi trường</string>
+    <string name="trigger_category_sleep_physical">Giấc ngủ và vận động</string>
+    <string name="trigger_category_stress_emotions">Căng thẳng và cảm xúc</string>
+    <string name="trigger_category_hormonal">Nội tiết</string>
+    <string name="trigger_category_diet_consumption">Ăn uống</string>
+    <string name="trigger_category_custom">Tự thêm</string>
+    <string name="medication_role_acute">Cắt cơn</string>
+    <string name="medication_role_preventive">Dự phòng và bổ sung</string>
+    <string name="export_range_last_30_days">30&#160;ngày qua</string>
+    <string name="export_range_last_90_days">90&#160;ngày qua</string>
+    <string name="export_range_last_6_months">6&#160;tháng qua</string>
+    <string name="export_range_last_12_months">12&#160;tháng qua</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Giảm áp suất khí quyển</string>
+    <string name="trigger_barometric_pressure_description">Thay đổi thời tiết, độ cao</string>
+    <string name="trigger_bright_light">Ánh sáng mạnh và nắng</string>
+    <string name="trigger_bright_light_description">Chói, đèn nhấp nháy, sợ ánh sáng</string>
+    <string name="trigger_heat_humidity">Nóng hoặc ẩm cao</string>
+    <string name="trigger_heat_humidity_description">Thay đổi nhiệt độ</string>
+    <string name="trigger_loud_noise">Tiếng ồn lớn</string>
+    <string name="trigger_loud_noise_description">Sợ âm thanh, tiếng ồn đột ngột</string>
+    <string name="trigger_poor_sleep">Ngủ kém / không đều</string>
+    <string name="trigger_poor_sleep_description">Thiếu ngủ, thiếu giấc ngủ REM</string>
+    <string name="trigger_dehydration">Mất nước</string>
+    <string name="trigger_dehydration_description">Thiếu chất điện giải</string>
+    <string name="trigger_skipped_meals">Bỏ bữa / nhịn ăn</string>
+    <string name="trigger_skipped_meals_description">Ngưỡng hạ đường huyết</string>
+    <string name="trigger_overexertion">Gắng sức thể chất</string>
+    <string name="trigger_overexertion_description">Căng thẳng mạch máu khi gắng sức</string>
+    <string name="trigger_emotional_stress">Căng thẳng cảm xúc / sau căng thẳng</string>
+    <string name="trigger_emotional_stress_description">Thả lỏng sau giờ làm việc</string>
+    <string name="trigger_screen_fatigue">Mỏi mắt do màn hình</string>
+    <string name="trigger_screen_fatigue_description">Ánh sáng xanh, mắt phải điều tiết</string>
+    <string name="trigger_hormonal_cycle">Thay đổi nội tiết / chu kỳ</string>
+    <string name="trigger_hormonal_cycle_description">Biến đổi theo chu kỳ kinh nguyệt</string>
+    <string name="trigger_caffeine">Thiếu hoặc thừa caffeine</string>
+    <string name="trigger_caffeine_description">Thay đổi ở thụ thể adenosine</string>
+    <string name="trigger_aged_cheese">Phô mai lâu năm / tyramin</string>
+    <string name="trigger_aged_cheese_description">Nhạy cảm với amin lên men</string>
+    <string name="trigger_alcohol">Rượu / vang đỏ</string>
+    <string name="trigger_alcohol_description">Tanin, histamin</string>
+    <string name="trigger_sweeteners">Chất tạo ngọt nhân tạo</string>
+    <string name="trigger_sweeteners_description">Aspartam, sucralose</string>
+    <string name="trigger_custom_description">Yếu tố tự thêm</string>
+
+    <!-- Catalog: built-in medications. Names after the Vietnamese National Drug Formulary (Dược thư Quốc gia). -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Thuốc chống viêm hỗ trợ</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, chất chủ vận serotonin</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, viên tan trong miệng</string>
+    <string name="medication_naproxen_500">Naproxen</string>
+    <string name="medication_naproxen_500_class">NSAID tác dụng kéo dài</string>
+    <string name="medication_acetaminophen_1000">Paracetamol</string>
+    <string name="medication_acetaminophen_1000_class">Thuốc giảm đau</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, chất đối kháng CGRP</string>
+    <string name="medication_metoclopramide_10">Metoclopramid</string>
+    <string name="medication_metoclopramide_10_class">Thuốc chống nôn</string>
+    <string name="medication_electrolytes">Dung dịch điện giải</string>
+    <string name="medication_electrolytes_class">Bù nước đường uống</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">Vitamin B2</string>
+    <string name="medication_magnesium_400">Magnesi</string>
+    <string name="medication_magnesium_400_class">Khoáng chất bổ sung</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Thuốc chẹn beta</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Thuốc chống động kinh</string>
+    <string name="medication_amitriptyline_10">Amitriptylin</string>
+    <string name="medication_amitriptyline_10_class">Thuốc chống trầm cảm ba vòng</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Kháng thể CGRP, hằng tháng</string>
+    <string name="medication_custom_class">Thuốc tự thêm</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">T%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%1$s trên %2$s không ghi yếu tố kích thích</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">%1$s cơn</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">Báo cáo lâm sàng về migraine</string>
+    <string name="report_page">MigraTrack · Trang %1$s</string>
+    <string name="report_patient">Người bệnh: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Ngày tạo: %1$s</string>
+    <string name="report_disclaimer">Dữ liệu do người bệnh tự ghi trong MigraTrack. Báo cáo này hỗ trợ, không thay thế, việc đánh giá lâm sàng.</string>
+    <string name="report_stat_episodes">Số cơn đã ghi</string>
+    <string name="report_stat_migraine_days">Ngày migraine</string>
+    <string name="report_stat_pain_free_days">Ngày không đau</string>
+    <string name="report_stat_average_intensity">Cường độ trung bình /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">Bắt đầu theo dõi từ %1$s. %2$s ngày trước đó trong khoảng này không có dữ liệu và không được tính là ngày không đau.</item>
+    </plurals>
+    <string name="report_baseline_title">Hồ sơ ban đầu</string>
+    <string name="report_baseline_diagnoses">Chẩn đoán</string>
+    <string name="report_baseline_frequency">Số cơn mỗi tháng</string>
+    <string name="report_baseline_duration">Thời gian thường gặp</string>
+    <string name="report_baseline_intensity">Cường độ thường gặp</string>
+    <string name="report_baseline_triggers">Yếu tố đã biết</string>
+    <string name="report_baseline_treatments">Kế hoạch điều trị</string>
+    <string name="report_pain_chart_title">Cường độ đau theo thời gian (1–10)</string>
+    <string name="report_legend_mild">Nhẹ %1$s–%2$s</string>
+    <string name="report_legend_moderate">Vừa %1$s–%2$s</string>
+    <string name="report_legend_severe">Nặng %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Chưa theo dõi</string>
+    <string name="report_medication_title">Sử dụng thuốc</string>
+    <string name="report_no_medications">Không có lần dùng thuốc nào trong khoảng này.</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s lần</item>
+    </plurals>
+    <string name="report_symptoms_title">Thoáng báo và triệu chứng báo trước</string>
+    <string name="report_no_symptoms">Không có thoáng báo hay triệu chứng cảm giác nào trong khoảng này.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">%1$s trên %2$s cơn (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Yếu tố kích thích có thể đã ghi</string>
+    <string name="report_no_triggers">Không có yếu tố kích thích nào được ghi trong khoảng này.</string>
+    <string name="report_triggers_note">Các con số cho biết người bệnh ghi một yếu tố kích thích cùng với một cơn bao nhiêu lần. Chúng không cho thấy nguyên nhân.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%1$s trên %2$s không ghi yếu tố kích thích.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">%1$s cơn</item>
+    </plurals>
+    <string name="report_episodes_title">Các cơn migraine</string>
+    <string name="report_no_episodes">Không có cơn nào được ghi trong khoảng này.</string>
+    <string name="report_column_date_time">Ngày và giờ</string>
+    <string name="report_column_pain">Đau</string>
+    <string name="report_column_epicenter">Vị trí</string>
+    <string name="report_column_symptoms">Triệu chứng</string>
+    <string name="report_column_medications">Thuốc</string>
+    <string name="report_column_triggers">Yếu tố</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Chưa đặt</string>
+    <string name="report_none">Không có</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">Các cơn</string>
+    <string name="report_sheet_medications">Thuốc</string>
+    <string name="report_sheet_daily_pain">Đau theo ngày</string>
+    <string name="report_sheet_profile">Hồ sơ</string>
+    <string name="report_header_started">Bắt đầu</string>
+    <string name="report_header_pain_intensity">Cường độ đau (1–10)</string>
+    <string name="report_header_epicenter">Vị trí đau</string>
+    <string name="report_header_symptoms">Thoáng báo và triệu chứng cảm giác</string>
+    <string name="report_header_medications">Thuốc</string>
+    <string name="report_header_triggers">Yếu tố kích thích có thể</string>
+    <string name="report_header_episode_started">Cơn bắt đầu</string>
+    <string name="report_header_medication">Thuốc</string>
+    <string name="report_header_dose">Liều</string>
+    <string name="report_header_date">Ngày</string>
+    <string name="report_header_peak_pain">Cường độ đau cao nhất (1–10, 0 = không đau)</string>
+    <string name="report_header_day">Loại ngày</string>
+    <string name="report_header_field">Mục</string>
+    <string name="report_header_value">Giá trị</string>
+    <string name="report_day_migraine">Migraine</string>
+    <string name="report_day_pain_free">Không đau</string>
+    <string name="report_day_not_tracked">Chưa theo dõi</string>
+    <string name="report_profile_patient">Người bệnh</string>
+    <string name="report_profile_range">Khoảng thời gian báo cáo</string>
+    <string name="report_profile_tracked_since">Theo dõi từ</string>
+    <string name="report_profile_diagnoses">Chẩn đoán</string>
+    <string name="report_profile_frequency">Số cơn mỗi tháng</string>
+    <string name="report_profile_duration">Thời gian thường gặp</string>
+    <string name="report_profile_intensity">Cường độ thường gặp</string>
+    <string name="report_profile_triggers">Yếu tố kích thích đã biết</string>
+    <string name="report_profile_treatments">Kế hoạch điều trị</string>
+    <string name="report_iso_range">%1$s đến %2$s</string>
+</resources>

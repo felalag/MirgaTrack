@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Thai strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Thai writes no space between words; a space separates phrases and sentences. Sentences leave out the pronoun,
+  and use "คุณ" where one is necessary, as Thai iOS does. Thai has only the CLDR plural form "other".
+  The duration chips have no unit, because "4–12 ชม." is longer than 7 characters: the captions name the hours.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">ย้อนกลับ</string>
+    <string name="common_settings">การ&#8288;ตั้ง&#8288;ค่า</string>
+    <string name="common_cancel">ยกเลิก</string>
+    <string name="common_ok">ตกลง</string>
+    <string name="common_save">บันทึก</string>
+    <string name="common_add">เพิ่ม</string>
+    <string name="common_next">ถัดไป</string>
+    <string name="common_on">เปิด</string>
+    <string name="common_off">ปิด</string>
+    <string name="common_clear">ล้าง</string>
+    <string name="common_none">ไม่มี</string>
+    <string name="common_today">วันนี้</string>
+    <string name="common_not_set">ไม่ได้ระบุ</string>
+    <string name="common_expanded">ขยายอยู่</string>
+    <string name="common_collapsed">ยุบอยู่</string>
+    <string name="common_last_30_days">30 วันที่ผ่านมา</string>
+    <string name="common_medical_disclaimer">MigraTrack เป็นสมุดบันทึก ไม่ใช่คำแนะนำทาง&#8288;การ&#8288;แพทย์ โปรดปรึกษาแพทย์ก่อนเปลี่ยนการรักษา</string>
+    <string name="common_log_migraine_episode">บันทึกอาการปวดไมเกรน</string>
+    <string name="common_save_episode">บันทึก</string>
+    <string name="common_edit_episode">แก้ไขอาการปวด</string>
+    <string name="common_delete_episode">ลบอาการปวด</string>
+    <string name="common_intensity_of_ten">ความรุนแรง %1$s/10</string>
+    <string name="common_date_at_time">%1$s เวลา %2$s</string>
+    <string name="common_possible_triggers">สิ่ง&#8288;กระตุ้นที่อาจเกี่ยวข้อง</string>
+    <string name="common_add_trigger">เพิ่มสิ่ง&#8288;กระตุ้น</string>
+    <string name="common_add_medication">เพิ่มยา</string>
+    <string name="common_treatment_blueprint">แผนการรักษา</string>
+    <string name="common_medication_name_and_dose">ป้อนชื่อยาและขนาดยา</string>
+    <string name="common_medication_placeholder">เช่น เอลีทริปแทน 40&#160;มก.</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">สรุป</string>
+    <string name="tab_log">บันทึก</string>
+    <string name="tab_insights">วิเคราะห์</string>
+    <string name="tab_export">ส่งออก</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">ความรุนแรงของอาการปวด</string>
+    <string name="pain_scale_value">%1$s จาก 10</string>
+    <string name="pain_scale_low">%1$s เล็กน้อย</string>
+    <string name="pain_scale_middle">%1$s รู้สึกชัด</string>
+    <string name="pain_scale_high">%1$s รุนแรงมาก</string>
+    <string name="medication_remove">เอา %1$s ออก</string>
+    <string name="duration_minutes">%1$s นาที</string>
+    <string name="duration_hours_minutes">%1$s ชม. %2$s นาที</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">วันนี้ %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">จาก %1$s วันที่ติดตาม</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ไม่มีอาการปวดที่บันทึกไว้</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">%1$s จาก %2$s วันที่ติดตามไม่มีอาการปวดที่บันทึกไว้ใน 30 วันที่ผ่านมา</item>
+    </plurals>
+    <string name="summary_tracking_start_note">นับตั้งแต่วันที่คุณเริ่มติดตาม วันก่อนหน้านั้นไม่ได้ติดตาม</string>
+    <string name="strip_legend_migraine">ไมเกรน</string>
+    <string name="strip_legend_pain_free">ไม่ปวด</string>
+    <string name="strip_legend_not_tracked">ไม่ได้ติดตาม</string>
+    <string name="summary_sleep_last_night">การนอนเมื่อคืน</string>
+    <string name="summary_sleep_not_recorded">ไม่มีข้อมูล</string>
+    <string name="summary_sleep_hint">สวม Apple Watch ขณะนอน หรือติดตามการนอนในแอปสุขภาพ หากคุณปิดการเข้าถึงไว้ ให้เปิดในการ&#8288;ตั้ง&#8288;ค่า › สุขภาพ</string>
+    <string name="summary_sleep_caption">การนอน</string>
+    <string name="summary_sleep_connect_title">ดูการนอนเมื่อคืนในหน้าสรุป</string>
+    <string name="summary_sleep_connect_body">MigraTrack อ่านข้อมูลการนอนเมื่อคืนจาก Apple Health ข้อมูลจะอยู่ใน iPhone เครื่องนี้เท่านั้น</string>
+    <string name="summary_sleep_connect_button">เชื่อมต่อ Apple Health</string>
+    <string name="summary_last_episode">อาการปวดครั้งล่าสุด</string>
+    <string name="summary_last_episode_none">ยังไม่มี</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">บันทึกอาการปวด</string>
+    <string name="episode_update">อัปเดตอาการปวด</string>
+    <string name="episode_updated_banner">อัปเดตอาการปวดแล้ว</string>
+    <string name="episode_deleted_banner">ลบอาการปวดแล้ว</string>
+    <string name="episode_saved_banner">บันทึกอาการปวดแล้ว พักผ่อนและอยู่ในที่แสงสลัว</string>
+    <string name="episode_pain_intensity_index">ดัชนีความรุนแรงของอาการปวด</string>
+    <string name="episode_cranial_epicenter">ตำแหน่งที่ปวด</string>
+    <string name="episode_aura_symptoms">ออร่าและอาการทางประสาทสัมผัส</string>
+    <string name="episode_acute_therapy">ยาบรรเทาอาการปวด</string>
+    <string name="episode_add_medication_row">เพิ่มยา / ผงเกลือแร่</string>
+    <string name="episode_start">เวลาเริ่มปวด</string>
+    <string name="episode_start_now">ตอนนี้</string>
+    <string name="episode_add_trigger_message">เกิดอะไรขึ้นก่อนอาการปวดครั้งนี้</string>
+    <string name="episode_other_trigger_action">สิ่ง&#8288;กระตุ้นอื่น…</string>
+    <string name="episode_other_trigger_title">สิ่ง&#8288;กระตุ้นอื่น</string>
+    <string name="episode_other_trigger_message">ระบุสิ่งที่เกิดขึ้นก่อนอาการปวดครั้งนี้</string>
+    <string name="episode_other_trigger_placeholder">เช่น น้ำหอมกลิ่นแรง</string>
+    <string name="episode_add_medication_message">คุณใช้ยาอะไรสำหรับอาการปวดครั้งนี้</string>
+    <string name="episode_other_medication_action">ยาอื่น…</string>
+    <string name="episode_other_medication_title">ยาอื่น</string>
+    <string name="episode_missing_title">อาการปวดถูกลบแล้ว</string>
+    <string name="episode_missing_message">อาการปวดครั้งนี้ถูกลบในอุปกรณ์อื่น จึงบันทึกการเปลี่ยนแปลงไม่ได้</string>
+    <string name="episode_delete_message">ความรุนแรง %1$s/10 อาการปวดครั้งนี้จะถูกลบออกจากประวัติและรายงานของคุณ</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">ส</string>
+    <string name="insights_period_month">ด</string>
+    <string name="insights_period_six_months">6ด</string>
+    <string name="insights_period_year">ป</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">ครั้งในสัปดาห์นี้</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">ครั้งในสัปดาห์ของ %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">ครั้งใน %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">ครั้งใน 6 เดือน</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">ครั้งในปี %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">อาการปวดน้อยกว่าช่วงก่อนหน้า %1$s เปอร์เซ็นต์</string>
+    <string name="insights_trend_more">อาการปวดมากกว่าช่วงก่อนหน้า %1$s เปอร์เซ็นต์</string>
+    <string name="insights_legend_migraine_day">วันที่มีไมเกรน</string>
+    <string name="insights_legend_pain_free_day">วันที่ไม่ปวด</string>
+    <string name="insights_legend_not_tracked">ไม่ได้ติดตาม</string>
+    <string name="insights_bar_no_data">%1$s: ยังไม่มีข้อมูล</string>
+    <string name="insights_bar_not_tracked">%1$s: ไม่ได้ติดตาม</string>
+    <string name="insights_bar_pain_free">%1$s: ไม่ปวด</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s: มีไมเกรน %2$s วัน สูงสุด %3$s จาก 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">บันทึกสิ่ง&#8288;กระตุ้นที่อาจเกี่ยวข้องเมื่อคุณบันทึกหรือแก้ไขอาการปวด แล้วการ์ดนี้จะแสดงว่าคุณบันทึกแต่ละรายการบ่อยเพียงใด</string>
+    <string name="insights_triggers_hint">ความถี่ที่คุณบันทึกสิ่ง&#8288;กระตุ้นแต่ละอย่างพร้อมกับอาการปวด ข้อมูลนี้ไม่ได้แสดงสาเหตุ</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s บันทึกไว้ %2$s ครั้งจากอาการปวด %3$s ครั้ง</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s จาก %2$s</string>
+    <string name="insights_calendar_a11y">ปฏิทิน %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$s มีอาการปวด %2$s ครั้ง</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · ความรุนแรง %2$s/10</string>
+    <string name="insights_month_picker_title">เดือน</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">เดือนก่อน</string>
+    <string name="calendar_next_month">เดือนถัดไป</string>
+    <string name="calendar_choose_month_a11y">%1$s เลือกเดือนอื่น</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">ไมเกรน %1$s วัน</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">วันนี้ %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ไม่พร้อมใช้งาน</string>
+    <string name="calendar_day_not_tracked">ไม่ได้ติดตาม</string>
+    <string name="calendar_day_no_episodes">ไม่มีอาการปวด</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">อาการปวด %1$s ครั้ง สูงสุด %2$s จาก 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">%1$s ครั้ง</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">ความรุนแรงสูงสุด</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">ยา</string>
+    <string name="calendar_edit_episode_details">แก้ไขรายละเอียดอาการปวด</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">กำลังสร้าง PDF…</string>
+    <string name="export_preparing_excel">กำลังสร้าง Excel…</string>
+    <string name="export_preparing_report">กำลังสร้างรายงาน…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">ครั้ง</item>
+    </plurals>
+    <string name="export_episodes_recorded">อาการปวดที่บันทึกไว้</string>
+    <string name="export_include">รวมในการส่งออก</string>
+    <string name="export_medications">การใช้ยา</string>
+    <string name="export_medications_subtitle">ขนาดยาและจำนวนครั้งที่ใช้</string>
+    <string name="export_symptoms">ออร่าและอาการเตือน</string>
+    <string name="export_symptoms_subtitle">ชนิดของออร่าและความถี่</string>
+    <string name="export_triggers_subtitle">สิ่ง&#8288;กระตุ้นที่บันทึกไว้และความถี่</string>
+    <string name="export_pain_charts">กราฟความรุนแรงของอาการปวด</string>
+    <string name="export_pain_charts_subtitle">ความรุนแรงของอาการปวดตามเวลา 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">ส่งออกรายงาน PDF</string>
+    <string name="export_excel">ส่งออกเป็น Excel (.xlsx)</string>
+    <string name="export_share">แชร์</string>
+    <string name="export_range_title">ช่วงเวลาของรายงาน</string>
+    <plurals name="export_share_text">
+        <item quantity="other">รายงาน MigraTrack: อาการปวด %1$s ครั้ง, %2$s</item>
+    </plurals>
+    <string name="export_failed_title">ส่งออกไม่สำเร็จ</string>
+    <string name="export_failed_message">ไม่สามารถสร้างรายงานได้</string>
+    <string name="export_write_failed">ไม่สามารถเขียน %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">สิ่ง&#8288;กระตุ้นที่ทราบ %1$s รายการ</item>
+    </plurals>
+    <string name="settings_no_triggers">ไม่ได้เลือกสิ่ง&#8288;กระตุ้น</string>
+    <string name="settings_no_medications">ไม่ได้เลือกยา</string>
+    <string name="settings_name_title">ชื่อของคุณ</string>
+    <string name="settings_name_message">ชื่อนี้จะแสดงในรายงานที่คุณส่งออก</string>
+    <string name="settings_name_placeholder">ชื่อ</string>
+    <string name="settings_delete_title">ลบข้อมูลทั้งหมดใช่ไหม</string>
+    <string name="settings_delete_message">MigraTrack เก็บข้อมูลของคุณไว้ใน iPhone เครื่องนี้และสำเนาใน Apple Watch ของคุณ การดำเนินการนี้จะลบอาการปวดทุกครั้งและโปรไฟล์พื้นฐานของคุณอย่างถาวร นาฬิกาจะลบสำเนาเมื่อซิงค์ครั้งถัดไป ข้อมูลสำรองของอุปกรณ์ยังคงเก็บสำเนาไว้ หากต้องการ ให้ส่งออกรายงานก่อน</string>
+    <string name="settings_delete_all">ลบข้อมูลทั้งหมด</string>
+    <string name="settings_section_baseline">โปรไฟล์ทางคลินิกพื้นฐาน</string>
+    <string name="settings_baseline_diagnoses">การวินิจฉัยพื้นฐาน</string>
+    <string name="settings_known_triggers">สิ่ง&#8288;กระตุ้นที่ทราบ</string>
+    <string name="settings_section_preferences">การกำหนดค่า</string>
+    <string name="settings_appearance">ลักษณะที่ปรากฏ</string>
+    <string name="settings_appearance_value">มืด (ล็อกไว้)</string>
+    <string name="settings_version">เวอร์ชัน</string>
+    <string name="settings_version_value">v%1$s (บิลด์ %2$s)</string>
+    <string name="settings_section_legal">กฎหมาย</string>
+    <string name="settings_section_developer">นักพัฒนา</string>
+    <string name="settings_load_sample_data">โหลดข้อมูลตัวอย่าง</string>
+    <string name="settings_load_sample_data_subtitle">เพิ่มอาการปวดที่สร้างขึ้นหนึ่งปีเพื่อดูตัวอย่างกราฟ</string>
+    <string name="settings_edit_name_a11y">แก้ไขชื่อ</string>
+    <string name="settings_add_name">เพิ่มชื่อของคุณ</string>
+    <string name="settings_member">ตั้งแต่</string>
+    <string name="settings_episodes">อาการปวด</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">%1$s ครั้ง</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="legal_terms_of_service">ข้อกำหนดการให้บริการ</string>
+    <string name="legal_folder">th</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">ไปที่สิ่ง&#8288;กระตุ้น</string>
+    <string name="onboarding_continue_to_medications">ไปที่ยา</string>
+    <string name="onboarding_finish_setup">ตั้งค่าให้เสร็จ</string>
+    <string name="onboarding_back_to_diagnoses">กลับไปที่การวินิจฉัย</string>
+    <string name="onboarding_back_to_triggers">กลับไปที่สิ่ง&#8288;กระตุ้น</string>
+    <string name="onboarding_save_changes">บันทึกการเปลี่ยนแปลง</string>
+    <string name="onboarding_step">ขั้นตอน %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">การวินิจฉัยและประวัติ</string>
+    <string name="onboarding_diagnoses_subtitle">ตั้งค่าโปรไฟล์พื้นฐานของคุณ อาการปวดและรายงานของคุณจะเริ่มจากโปรไฟล์นี้</string>
+    <string name="onboarding_primary_diagnosis">การวินิจฉัยหลัก</string>
+    <string name="onboarding_episode_frequency">จำนวนครั้งที่ปวดต่อเดือน</string>
+    <string name="onboarding_episode_duration">ระยะเวลาปวดโดยทั่วไป (ชั่วโมง)</string>
+    <string name="onboarding_intensity_baseline">ความรุนแรงโดยทั่วไปของอาการปวด</string>
+    <string name="onboarding_update_later">คุณอัปเดตโปรไฟล์พื้นฐานได้ทุกเมื่อในการ&#8288;ตั้ง&#8288;ค่า</string>
+    <string name="onboarding_triggers_title">สิ่ง&#8288;กระตุ้นของคุณ</string>
+    <string name="onboarding_triggers_subtitle">เลือกสิ่ง&#8288;กระตุ้นที่คุณทราบหรือสงสัย รายงานจะแสดงรายการเหล่านี้ให้แพทย์ของคุณ</string>
+    <string name="onboarding_add_custom_trigger">เพิ่มสิ่ง&#8288;กระตุ้นเอง</string>
+    <string name="onboarding_treatment_subtitle">เลือกยาที่คุณใช้ ยาบรรเทาอาการปวดจะใส่ไว้ล่วงหน้าในทุกครั้งที่บันทึกใหม่ การบันทึกจึงใช้เพียงการแตะครั้งเดียว</string>
+    <string name="onboarding_add_custom_medication">เพิ่มยาเอง</string>
+    <string name="onboarding_custom_trigger_title">เพิ่มสิ่ง&#8288;กระตุ้นเอง</string>
+    <string name="onboarding_custom_trigger_message">ระบุสิ่งที่มักทำให้ไมเกรนของคุณกำเริบ</string>
+    <string name="onboarding_custom_trigger_placeholder">เช่น แสงไฟกะพริบ</string>
+    <string name="onboarding_medication_role_message">คุณใช้ยานี้เมื่อใด</string>
+    <string name="onboarding_medication_role_acute">ระหว่างปวด (บรรเทาอาการ)</string>
+    <string name="onboarding_medication_role_preventive">ทุกวัน (ป้องกัน)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">บันทึกไมเกรนและสิ่ง&#8288;กระตุ้นส่วนตัว</string>
+    <string name="welcome_example">ตัวอย่าง</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">วันที่ไม่ปวด</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">ตัวอย่าง: ไม่ปวด %1$s วันใน 30 วันที่ผ่านมา</item>
+    </plurals>
+    <string name="welcome_headline_patterns">เข้าใจรูปแบบของคุณ</string>
+    <string name="welcome_headline_doctor">นำข้อมูลจริงไปให้แพทย์</string>
+    <string name="welcome_body">ติดตามอาการ สังเกตสิ่ง&#8288;กระตุ้นที่อาจเกี่ยวข้อง และส่งออกรายงานส่วนตัวได้ทุกเมื่อ</string>
+    <string name="welcome_get_started">เริ่มต้นใช้งาน</string>
+    <string name="welcome_agreement">เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ%1$sและ%2$s</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ไมเกรนชนิดไม่มีออร่า</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">ไมเกรนรูปแบบที่พบบ่อย</string>
+    <string name="diagnosis_migraine_with_aura">ไมเกรนชนิดมีออร่า</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">ออร่าเฉพาะที่ทางการมองเห็นหรือความรู้สึก</string>
+    <string name="diagnosis_chronic_migraine">ไมเกรนชนิดเรื้อรัง</string>
+    <string name="diagnosis_chronic_migraine_subtitle">ปวดศีรษะ 15 วันขึ้นไปต่อเดือน</string>
+    <string name="diagnosis_tension_type">ปวดศีรษะชนิดตึงเครียด</string>
+    <string name="diagnosis_tension_type_subtitle">ปวดบีบรัดรอบศีรษะเหมือนมีแถบรัด</string>
+    <string name="diagnosis_cluster">ปวดศีรษะคลัสเตอร์</string>
+    <string name="diagnosis_cluster_subtitle">ปวดรุนแรงรอบตาข้างเดียวเป็นชุด</string>
+    <string name="diagnosis_not_diagnosed">ยังไม่ได้วินิจฉัย / กำลังหาสาเหตุ</string>
+    <string name="diagnosis_not_diagnosed_subtitle">สังเกตรูปแบบของอาการ</string>
+    <string name="frequency_less_than_one">&lt; 1/เดือน</string>
+    <string name="frequency_one_to_four">1–4/เดือน</string>
+    <string name="frequency_five_to_eight">5–7/เดือน</string>
+    <string name="frequency_eight_plus">8+/เดือน</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">ขมับซ้าย</string>
+    <string name="region_right_temple">ขมับขวา</string>
+    <string name="region_frontal_brow">หน้าผาก / คิ้ว</string>
+    <string name="region_retro_orbital">หลังเบ้าตา</string>
+    <string name="region_occipital_neck">ท้ายทอยและต้นคอ</string>
+    <string name="symptom_scintillating_scotoma">จุดบอดแสงระยิบระยับ (การมองเห็น)</string>
+    <string name="symptom_scintillating_scotoma_short">ออร่าทางตา</string>
+    <string name="symptom_neck_stiffness">คอแข็งตึง</string>
+    <string name="symptom_neck_stiffness_short">คอแข็งตึง</string>
+    <string name="symptom_photophobia">แพ้แสง</string>
+    <string name="symptom_photophobia_short">แสง</string>
+    <string name="symptom_nausea">คลื่นไส้</string>
+    <string name="symptom_nausea_short">คลื่นไส้</string>
+    <string name="symptom_phonophobia">แพ้เสียง</string>
+    <string name="symptom_phonophobia_short">เสียง</string>
+    <string name="symptom_aphasia">พูดลำบาก / สมองตื้อ</string>
+    <string name="symptom_aphasia_short">สมองตื้อ</string>
+    <string name="symptom_paresthesia">เหน็บ&#8288;ชา / ความรู้สึกผิด&#8288;ปกติ</string>
+    <string name="symptom_paresthesia_short">เหน็บ&#8288;ชา</string>
+    <string name="trigger_category_weather_environment">สภาพอากาศและสิ่งแวดล้อม</string>
+    <string name="trigger_category_sleep_physical">การนอนและกิจวัตรทางกาย</string>
+    <string name="trigger_category_stress_emotions">ความเครียดและอารมณ์</string>
+    <string name="trigger_category_hormonal">ฮอร์โมน</string>
+    <string name="trigger_category_diet_consumption">อาหารและเครื่องดื่ม</string>
+    <string name="trigger_category_custom">เพิ่มเอง</string>
+    <string name="medication_role_acute">บรรเทาอาการปวด</string>
+    <string name="medication_role_preventive">ยาป้องกันและอาหารเสริม</string>
+    <string name="export_range_last_30_days">30&#160;วันล่าสุด</string>
+    <string name="export_range_last_90_days">90&#160;วันล่าสุด</string>
+    <string name="export_range_last_6_months">6&#160;เดือนล่าสุด</string>
+    <string name="export_range_last_12_months">12&#160;เดือนล่าสุด</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">ความกดอากาศลดลง</string>
+    <string name="trigger_barometric_pressure_description">อากาศเปลี่ยน ระดับความสูงเปลี่ยน</string>
+    <string name="trigger_bright_light">แสงจ้าและแสงแดด</string>
+    <string name="trigger_bright_light_description">แสงแยงตา แสงกะพริบ แพ้แสง</string>
+    <string name="trigger_heat_humidity">ร้อนจัด / ชื้นจัด</string>
+    <string name="trigger_heat_humidity_description">อุณหภูมิเปลี่ยนแปลง</string>
+    <string name="trigger_loud_noise">เสียงดัง</string>
+    <string name="trigger_loud_noise_description">แพ้เสียง เสียงดังฉับพลัน</string>
+    <string name="trigger_poor_sleep">นอนไม่พอ / นอนไม่เป็น&#8288;เวลา</string>
+    <string name="trigger_poor_sleep_description">อดนอน นอนหลับระยะ REM ไม่พอ</string>
+    <string name="trigger_dehydration">ขาดน้ำ</string>
+    <string name="trigger_dehydration_description">ขาดเกลือแร่</string>
+    <string name="trigger_skipped_meals">อด&#8288;อาหาร / ข้ามมื้อ</string>
+    <string name="trigger_skipped_meals_description">ระดับน้ำตาลในเลือดต่ำ</string>
+    <string name="trigger_overexertion">ออกแรงมากเกินไป</string>
+    <string name="trigger_overexertion_description">หลอดเลือดทำงานหนักขณะออกแรง</string>
+    <string name="trigger_emotional_stress">ความเครียด / ช่วงหลังความเครียด</string>
+    <string name="trigger_emotional_stress_description">ช่วงผ่อนคลายหลังเลิกงาน</string>
+    <string name="trigger_screen_fatigue">ตาล้าจากหน้าจอ</string>
+    <string name="trigger_screen_fatigue_description">แสงสีฟ้า ตาต้องเพ่งนาน</string>
+    <string name="trigger_hormonal_cycle">ฮอร์โมนเปลี่ยน / รอบเดือน</string>
+    <string name="trigger_hormonal_cycle_description">การเปลี่ยนแปลงตามรอบเดือน</string>
+    <string name="trigger_caffeine">ขาดหรือได้รับคาเฟอีนมากเกินไป</string>
+    <string name="trigger_caffeine_description">การเปลี่ยนแปลงของตัวรับอะดีโนซีน</string>
+    <string name="trigger_aged_cheese">ชีสบ่มนาน / ไทรามีน</string>
+    <string name="trigger_aged_cheese_description">ไวต่อเอมีนจากการหมัก</string>
+    <string name="trigger_alcohol">แอลกอฮอล์ / ไวน์แดง</string>
+    <string name="trigger_alcohol_description">แทนนิน ฮิสตามีน</string>
+    <string name="trigger_sweeteners">สารให้ความหวานเทียม</string>
+    <string name="trigger_sweeteners_description">แอสปาร์แตม ซูคราโลส</string>
+    <string name="trigger_custom_description">สิ่ง&#8288;กระตุ้นที่เพิ่มเอง</string>
+
+    <!-- Catalog: built-in medications. The Thai transliteration of each international name; "มก." as the Thai guideline writes it. -->
+
+    <string name="medication_ibuprofen_400">ไอบูโพรเฟน</string>
+    <string name="medication_ibuprofen_400_class">ยาต้านการอักเสบเสริม</string>
+    <string name="medication_sumatriptan_50">ซูมาทริปแทน</string>
+    <string name="medication_sumatriptan_50_class">ยากลุ่มทริปแทน ออกฤทธิ์ที่ตัวรับเซโรโทนิน</string>
+    <string name="medication_rizatriptan_10">ไรซาทริปแทน</string>
+    <string name="medication_rizatriptan_10_class">ยากลุ่มทริปแทน ชนิดละลายในปาก</string>
+    <string name="medication_naproxen_500">นาพรอกเซน</string>
+    <string name="medication_naproxen_500_class">NSAID ออกฤทธิ์นาน</string>
+    <string name="medication_acetaminophen_1000">พาราเซตามอล</string>
+    <string name="medication_acetaminophen_1000_class">ยาแก้ปวด</string>
+    <string name="medication_ubrogepant_100">ยูโบรเจแพนท์</string>
+    <string name="medication_ubrogepant_100_class">ยากลุ่มเจแพนท์ ต้านตัวรับ CGRP</string>
+    <string name="medication_metoclopramide_10">เมโทโคลพราไมด์</string>
+    <string name="medication_metoclopramide_10_class">ยาแก้คลื่นไส้อาเจียน</string>
+    <string name="medication_electrolytes">ผงเกลือแร่</string>
+    <string name="medication_electrolytes_class">สารละลายเกลือแร่ทางปาก</string>
+    <string name="medication_riboflavin_400">ไรโบฟลาวิน</string>
+    <string name="medication_riboflavin_400_class">วิตามินบี 2</string>
+    <string name="medication_magnesium_400">แมกนีเซียม</string>
+    <string name="medication_magnesium_400_class">แร่ธาตุเสริม</string>
+    <string name="medication_propranolol_40">โพรพราโนลอล</string>
+    <string name="medication_propranolol_40_class">ยาปิดกั้นเบตา</string>
+    <string name="medication_topiramate_50">โทพิราเมต</string>
+    <string name="medication_topiramate_50_class">ยากันชัก</string>
+    <string name="medication_amitriptyline_10">อะมิทริปไทลีน</string>
+    <string name="medication_amitriptyline_10_class">ยาต้านซึมเศร้าชนิดไตรไซคลิก</string>
+    <string name="medication_erenumab_70">เอเรนูแมบ</string>
+    <string name="medication_erenumab_70_class">แอนติบอดีต่อ CGRP เดือนละครั้ง</string>
+    <string name="medication_custom_class">ยาที่เพิ่มเอง</string>
+    <string name="medication_dose_milligrams">%1$s&#160;มก.</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">ส%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%1$s ครั้งจาก%2$sไม่ได้บันทึกสิ่ง&#8288;กระตุ้น</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">อาการปวด %1$s ครั้ง</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">รายงานทางคลินิกเรื่องไมเกรน</string>
+    <string name="report_page">MigraTrack · หน้า %1$s</string>
+    <string name="report_patient">ผู้ป่วย: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">สร้างเมื่อ %1$s</string>
+    <string name="report_disclaimer">ข้อมูลที่ผู้ป่วยบันทึกเองใน MigraTrack รายงานนี้ใช้ประกอบการประเมินทางคลินิก ไม่ได้ใช้แทน</string>
+    <string name="report_stat_episodes">อาการปวดที่บันทึกไว้</string>
+    <string name="report_stat_migraine_days">วันที่มีไมเกรน</string>
+    <string name="report_stat_pain_free_days">วันที่ไม่ปวด</string>
+    <string name="report_stat_average_intensity">ความรุนแรงเฉลี่ย /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">เริ่มติดตามเมื่อ %1$s ช่วงเวลานี้มี %2$s วันก่อนหน้านั้นที่ไม่มีบันทึก และไม่นับเป็นวันที่ไม่ปวด</item>
+    </plurals>
+    <string name="report_baseline_title">โปรไฟล์พื้นฐาน</string>
+    <string name="report_baseline_diagnoses">การวินิจฉัย</string>
+    <string name="report_baseline_frequency">ความถี่ต่อเดือน</string>
+    <string name="report_baseline_duration">ระยะเวลาโดยทั่วไป (ชม.)</string>
+    <string name="report_baseline_intensity">ความรุนแรงโดยทั่วไป</string>
+    <string name="report_baseline_triggers">สิ่ง&#8288;กระตุ้นที่ทราบ</string>
+    <string name="report_baseline_treatments">แผนการรักษา</string>
+    <string name="report_pain_chart_title">ความรุนแรงของอาการปวดตามเวลา (1–10)</string>
+    <string name="report_legend_mild">น้อย %1$s–%2$s</string>
+    <string name="report_legend_moderate">ปานกลาง %1$s–%2$s</string>
+    <string name="report_legend_severe">รุนแรง %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">ไม่ได้ติดตาม</string>
+    <string name="report_medication_title">การใช้ยา</string>
+    <string name="report_no_medications">ไม่มีการใช้ยาที่บันทึกไว้ในช่วงเวลานี้</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s ครั้ง</item>
+    </plurals>
+    <string name="report_symptoms_title">ออร่าและอาการเตือน</string>
+    <string name="report_no_symptoms">ไม่มีออร่าหรืออาการทางประสาทสัมผัสที่บันทึกไว้ในช่วงเวลานี้</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">%1$s จาก %2$s ครั้ง (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">สิ่ง&#8288;กระตุ้นที่อาจเกี่ยวข้องซึ่งบันทึกไว้</string>
+    <string name="report_no_triggers">ไม่มีสิ่ง&#8288;กระตุ้นที่บันทึกไว้ในช่วงเวลานี้</string>
+    <string name="report_triggers_note">ตัวเลขแสดงความถี่ที่ผู้ป่วยบันทึกสิ่ง&#8288;กระตุ้นพร้อมกับอาการปวด ตัวเลขนี้ไม่ได้แสดงสาเหตุ</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%1$s ครั้งจาก%2$sไม่ได้บันทึกสิ่ง&#8288;กระตุ้น</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">อาการปวด %1$s ครั้ง</item>
+    </plurals>
+    <string name="report_episodes_title">อาการปวด</string>
+    <string name="report_no_episodes">ไม่มีอาการปวดที่บันทึกไว้ในช่วงเวลานี้</string>
+    <string name="report_column_date_time">วันที่และเวลา</string>
+    <string name="report_column_pain">ระดับ</string>
+    <string name="report_column_epicenter">ตำแหน่ง</string>
+    <string name="report_column_symptoms">อาการ</string>
+    <string name="report_column_medications">ยา</string>
+    <string name="report_column_triggers">สิ่ง&#8288;กระตุ้น</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">ไม่ได้ระบุ</string>
+    <string name="report_none">ไม่มี</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">อาการปวด</string>
+    <string name="report_sheet_medications">ยา</string>
+    <string name="report_sheet_daily_pain">อาการปวดรายวัน</string>
+    <string name="report_sheet_profile">โปรไฟล์</string>
+    <string name="report_header_started">เริ่มเมื่อ</string>
+    <string name="report_header_pain_intensity">ความรุนแรงของอาการปวด (1–10)</string>
+    <string name="report_header_epicenter">ตำแหน่งที่ปวด</string>
+    <string name="report_header_symptoms">ออร่าและอาการทางประสาทสัมผัส</string>
+    <string name="report_header_medications">ยา</string>
+    <string name="report_header_triggers">สิ่ง&#8288;กระตุ้นที่อาจเกี่ยวข้อง</string>
+    <string name="report_header_episode_started">เวลาเริ่มปวด</string>
+    <string name="report_header_medication">ยา</string>
+    <string name="report_header_dose">ขนาดยา</string>
+    <string name="report_header_date">วันที่</string>
+    <string name="report_header_peak_pain">ความรุนแรงสูงสุดของอาการปวด (1–10, 0 = ไม่ปวด)</string>
+    <string name="report_header_day">ประเภทวัน</string>
+    <string name="report_header_field">รายการ</string>
+    <string name="report_header_value">ค่า</string>
+    <string name="report_day_migraine">ไมเกรน</string>
+    <string name="report_day_pain_free">ไม่ปวด</string>
+    <string name="report_day_not_tracked">ไม่ได้ติดตาม</string>
+    <string name="report_profile_patient">ผู้ป่วย</string>
+    <string name="report_profile_range">ช่วงเวลาของรายงาน</string>
+    <string name="report_profile_tracked_since">ติดตามตั้งแต่</string>
+    <string name="report_profile_diagnoses">การวินิจฉัย</string>
+    <string name="report_profile_frequency">ความถี่ต่อเดือน</string>
+    <string name="report_profile_duration">ระยะเวลาโดยทั่วไป (ชั่วโมง)</string>
+    <string name="report_profile_intensity">ความรุนแรงโดยทั่วไป</string>
+    <string name="report_profile_triggers">สิ่ง&#8288;กระตุ้นที่ทราบ</string>
+    <string name="report_profile_treatments">แผนการรักษา</string>
+    <string name="report_iso_range">%1$s ถึง %2$s</string>
+</resources>

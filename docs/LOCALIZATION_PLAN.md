@@ -473,6 +473,10 @@ Sources found for the pilot languages and Polish (checked on October 17, 2026):
 | Bulgarian | [ICHD-3 in Bulgarian](https://ihs-headache.org/wp-content/uploads/2020/05/3675_ichd-3-bulgarian.pdf) | No Bulgarian guideline found; EMA product information in Bulgarian | Bulgarian Drug Agency: not searched |
 | Kazakh | No Kazakh ICHD-3 found | Clinical protocol "Мигрень у взрослых", Ministry of Health of Kazakhstan, 2023, protocol No. 188 (in Russian; no Kazakh text found) | NDDA register: not searched (script page) |
 | Greek | No Greek ICHD-3 found | No national guideline found; EMA product information in Greek, Eginition Hospital leaflets (2026), headaches.gr | EOF: not searched |
+| Vietnamese | [ICHD-3 in Vietnamese](https://ihs-headache.org/wp-content/uploads/2025/04/ICHD-3-Vietnamese.pdf) (2025) | No guideline of the Ministry of Health found | DAV and the National Drug Formulary: not searched |
+| Indonesian | No Indonesian ICHD-3 found | PERDOSSI, Acuan Panduan Praktik Klinis Neurologi, 2016, chapter "Migren" (partly scanned) | BPOM: not searched |
+| Malay | No Malay ICHD-3 found | The Malaysian guidelines are in English; Cochrane plain language summaries in Malay | NPRA: not searched |
+| Thai | No Thai ICHD-3 found | Neurological Society of Thailand, [migraine guideline 2022](https://neurothai.org/media/news_file/495-CPG-migraine-2565-20230104074752.pdf) (drug names in English) | Thai FDA: not searched |
 
 The pilot could not search GRLS: its search asks for a CAPTCHA, which Claude does not solve. [LOCALIZATION_GLOSSARY.md](LOCALIZATION_GLOSSARY.md) marks these checks as open, with the page of the Russian guideline that names each medication.
 

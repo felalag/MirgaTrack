@@ -86,6 +86,15 @@
             ]
           }
         },
+        "ms" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Catat migrain dalam ${applicationName}",
+              "Serangan baru dalam ${applicationName}"
+            ]
+          }
+        },
         "nb" : {
           "stringSet" : {
             "state" : "translated",
@@ -140,12 +149,30 @@
             ]
           }
         },
+        "th" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "บันทึกไมเกรนใน ${applicationName}",
+              "บันทึกอาการใน ${applicationName}"
+            ]
+          }
+        },
         "tr" : {
           "stringSet" : {
             "state" : "translated",
             "values" : [
               "${applicationName} ile migren kaydet",
               "${applicationName} ile yeni atak"
+            ]
+          }
+        },
+        "vi" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "Ghi migraine trong ${applicationName}",
+              "Ghi cơn mới trong ${applicationName}"
             ]
           }
         }
