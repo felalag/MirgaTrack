@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Malay strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences address the user as "anda", in lower case, as the Malay of Malaysia writes it. Malay has only the
+  CLDR plural form "other".
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">brand</string>
+
+    <string name="common_back">Kembali</string>
+    <string name="common_settings">Seting</string>
+    <string name="common_cancel">Batal</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">Simpan</string>
+    <string name="common_add">Tambah</string>
+    <string name="common_next">Seterusnya</string>
+    <string name="common_on">Hidup</string>
+    <string name="common_off">Mati</string>
+    <string name="common_clear">Kosongkan</string>
+    <string name="common_none">Tiada</string>
+    <string name="common_today">Hari ini</string>
+    <string name="common_not_set">Belum ditetapkan</string>
+    <string name="common_expanded">Dikembangkan</string>
+    <string name="common_collapsed">Dikuncupkan</string>
+    <string name="common_last_30_days">30 hari lepas</string>
+    <string name="common_medical_disclaimer">MigraTrack ialah diari, bukan nasihat perubatan. Berbincang dengan doktor anda sebelum mengubah rawatan.</string>
+    <string name="common_log_migraine_episode">Catat serangan migrain</string>
+    <string name="common_save_episode">Simpan</string>
+    <string name="common_edit_episode">Edit serangan</string>
+    <string name="common_delete_episode">Padam serangan</string>
+    <string name="common_intensity_of_ten">Keamatan %1$s/10</string>
+    <string name="common_date_at_time">%1$s pada %2$s</string>
+    <string name="common_possible_triggers">Kemungkinan pencetus</string>
+    <string name="common_add_trigger">Tambah pencetus</string>
+    <string name="common_add_medication">Tambah ubat</string>
+    <string name="common_treatment_blueprint">Pelan rawatan</string>
+    <string name="common_medication_name_and_dose">Masukkan nama dan dos.</string>
+    <string name="common_medication_placeholder">Contohnya, Eletriptan 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">Ringkasan</string>
+    <string name="tab_log">Catat</string>
+    <string name="tab_insights">Analisis</string>
+    <string name="tab_export">Eksport</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">Keamatan sakit</string>
+    <string name="pain_scale_value">%1$s daripada 10</string>
+    <string name="pain_scale_low">%1$s Ringan</string>
+    <string name="pain_scale_middle">%1$s Ketara</string>
+    <string name="pain_scale_high">%1$s Melumpuhkan</string>
+    <string name="medication_remove">Alih keluar %1$s</string>
+    <string name="duration_minutes">%1$s min</string>
+    <string name="duration_hours_minutes">%1$s j %2$s min</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">Hari ini, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">daripada %1$s hari dipantau</item>
+    </plurals>
+    <string name="summary_without_logged_episode">tanpa serangan yang dicatat</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">%1$s daripada %2$s hari dipantau tanpa serangan yang dicatat dalam 30 hari lepas</item>
+    </plurals>
+    <string name="summary_tracking_start_note">Dikira dari hari anda mula memantau. Hari sebelumnya tidak dipantau.</string>
+    <string name="strip_legend_migraine">Migrain</string>
+    <string name="strip_legend_pain_free">Tanpa sakit</string>
+    <string name="strip_legend_not_tracked">Tidak dipantau</string>
+    <string name="summary_sleep_last_night">Tidur malam tadi</string>
+    <string name="summary_sleep_not_recorded">Tidak direkodkan</string>
+    <string name="summary_sleep_hint">Pakai Apple Watch semasa tidur atau jejak tidur dalam app Kesihatan. Jika anda telah mematikan akses, hidupkannya dalam Seting › Kesihatan.</string>
+    <string name="summary_sleep_caption">Tidur</string>
+    <string name="summary_sleep_connect_title">Lihat tidur malam tadi dalam Ringkasan</string>
+    <string name="summary_sleep_connect_body">MigraTrack membaca tidur malam tadi daripada Apple Health. Data kekal dalam iPhone ini.</string>
+    <string name="summary_sleep_connect_button">Sambungkan Apple Health</string>
+    <string name="summary_last_episode">Serangan terakhir</string>
+    <string name="summary_last_episode_none">Belum ada</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">Catat serangan</string>
+    <string name="episode_update">Kemas kini serangan</string>
+    <string name="episode_updated_banner">Serangan dikemas kini.</string>
+    <string name="episode_deleted_banner">Serangan dipadam.</string>
+    <string name="episode_saved_banner">Serangan disimpan. Berehatlah dan kekal di tempat yang malap.</string>
+    <string name="episode_pain_intensity_index">Indeks keamatan sakit</string>
+    <string name="episode_cranial_epicenter">Lokasi sakit</string>
+    <string name="episode_aura_symptoms">Aura dan simptom deria</string>
+    <string name="episode_acute_therapy">Ubat semasa serangan</string>
+    <string name="episode_add_medication_row">Tambah ubat / larutan elektrolit</string>
+    <string name="episode_start">Mula serangan</string>
+    <string name="episode_start_now">Sekarang</string>
+    <string name="episode_add_trigger_message">Apakah yang berlaku sebelum serangan ini?</string>
+    <string name="episode_other_trigger_action">Pencetus lain…</string>
+    <string name="episode_other_trigger_title">Pencetus lain</string>
+    <string name="episode_other_trigger_message">Namakan sesuatu yang berlaku sebelum serangan ini.</string>
+    <string name="episode_other_trigger_placeholder">Contohnya, minyak wangi yang kuat</string>
+    <string name="episode_add_medication_message">Apakah ubat yang anda ambil untuk serangan ini?</string>
+    <string name="episode_other_medication_action">Ubat lain…</string>
+    <string name="episode_other_medication_title">Ubat lain</string>
+    <string name="episode_missing_title">Serangan dipadam</string>
+    <string name="episode_missing_message">Serangan ini telah dipadam pada peranti lain, jadi perubahan tidak dapat disimpan.</string>
+    <string name="episode_delete_message">Keamatan %1$s/10. Serangan ini akan hilang daripada sejarah dan laporan anda.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">M</string>
+    <string name="insights_period_month">B</string>
+    <string name="insights_period_six_months">6B</string>
+    <string name="insights_period_year">T</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">serangan minggu ini</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">serangan dalam minggu %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">serangan pada %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">serangan dalam 6 bulan</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">serangan pada %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s peratus kurang serangan berbanding tempoh sebelumnya</string>
+    <string name="insights_trend_more">%1$s peratus lebih banyak serangan berbanding tempoh sebelumnya</string>
+    <string name="insights_legend_migraine_day">Hari migrain</string>
+    <string name="insights_legend_pain_free_day">Hari tanpa sakit</string>
+    <string name="insights_legend_not_tracked">Tidak dipantau</string>
+    <string name="insights_bar_no_data">%1$s: belum ada data</string>
+    <string name="insights_bar_not_tracked">%1$s: tidak dipantau</string>
+    <string name="insights_bar_pain_free">%1$s: tanpa sakit</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s: %2$s hari migrain, puncak %3$s daripada 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">Catat kemungkinan pencetus semasa anda mencatat atau mengedit serangan. Kad ini kemudian menunjukkan kekerapan anda mencatat setiap satu.</string>
+    <string name="insights_triggers_hint">Kekerapan anda mencatat setiap pencetus bersama serangan. Ini tidak menunjukkan punca.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s, dicatat dalam %2$s daripada %3$s serangan</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">Kalendar, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$s ada %2$s serangan.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · Keamatan %2$s/10</string>
+    <string name="insights_month_picker_title">Bulan</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">Bulan sebelumnya</string>
+    <string name="calendar_next_month">Bulan seterusnya</string>
+    <string name="calendar_choose_month_a11y">%1$s, pilih bulan lain</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">%1$s hari migrain</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">Hari ini, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">tidak tersedia</string>
+    <string name="calendar_day_not_tracked">tidak dipantau</string>
+    <string name="calendar_day_no_episodes">tiada serangan</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">%1$s serangan, puncak %2$s daripada 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">%1$s serangan</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">Keamatan puncak</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">Ubat</string>
+    <string name="calendar_edit_episode_details">Edit butiran serangan</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">Menyediakan PDF…</string>
+    <string name="export_preparing_excel">Menyediakan Excel…</string>
+    <string name="export_preparing_report">Menyediakan laporan…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">serangan</item>
+    </plurals>
+    <string name="export_episodes_recorded">Serangan direkodkan</string>
+    <string name="export_include">Sertakan dalam eksport</string>
+    <string name="export_medications">Pengambilan ubat</string>
+    <string name="export_medications_subtitle">Dos dan jumlah penggunaan</string>
+    <string name="export_symptoms">Aura dan simptom amaran</string>
+    <string name="export_symptoms_subtitle">Jenis aura dan kekerapannya</string>
+    <string name="export_triggers_subtitle">Pencetus yang dicatat dan kekerapannya</string>
+    <string name="export_pain_charts">Carta keamatan sakit</string>
+    <string name="export_pain_charts_subtitle">Keamatan sakit mengikut masa, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">Eksport laporan PDF</string>
+    <string name="export_excel">Eksport ke Excel (.xlsx)</string>
+    <string name="export_share">Kongsi</string>
+    <string name="export_range_title">Julat laporan</string>
+    <plurals name="export_share_text">
+        <item quantity="other">Laporan MigraTrack: %1$s serangan, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">Eksport gagal</string>
+    <string name="export_failed_message">Laporan tidak dapat dibuat.</string>
+    <string name="export_write_failed">Tidak dapat menulis %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">%1$s pencetus diketahui</item>
+    </plurals>
+    <string name="settings_no_triggers">Tiada pencetus dipilih</string>
+    <string name="settings_no_medications">Tiada ubat dipilih</string>
+    <string name="settings_name_title">Nama anda</string>
+    <string name="settings_name_message">Nama ini dipaparkan pada laporan yang anda eksport.</string>
+    <string name="settings_name_placeholder">Nama</string>
+    <string name="settings_delete_title">Padam semua data?</string>
+    <string name="settings_delete_message">MigraTrack menyimpan data anda dalam iPhone ini dan salinannya dalam Apple Watch anda. Tindakan ini memadam secara kekal setiap serangan dan profil asas anda; jam memadam salinannya pada penyegerakan seterusnya. Sandaran peranti mengekalkan salinan mereka. Eksport laporan dahulu jika anda memerlukannya.</string>
+    <string name="settings_delete_all">Padam semua data</string>
+    <string name="settings_section_baseline">Profil klinikal asas</string>
+    <string name="settings_baseline_diagnoses">Diagnosis asas</string>
+    <string name="settings_known_triggers">Pencetus yang diketahui</string>
+    <string name="settings_section_preferences">Keutamaan</string>
+    <string name="settings_appearance">Penampilan</string>
+    <string name="settings_appearance_value">Gelap (dikunci)</string>
+    <string name="settings_version">Versi</string>
+    <string name="settings_version_value">v%1$s (binaan %2$s)</string>
+    <string name="settings_section_legal">Undang-undang</string>
+    <string name="settings_section_developer">Pembangun</string>
+    <string name="settings_load_sample_data">Muatkan data sampel</string>
+    <string name="settings_load_sample_data_subtitle">Menambah serangan yang dijana untuk setahun bagi pratonton carta</string>
+    <string name="settings_edit_name_a11y">Edit nama</string>
+    <string name="settings_add_name">Tambah nama anda</string>
+    <string name="settings_member">Sejak</string>
+    <string name="settings_episodes">Serangan</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">%1$s dicatat</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">Dasar Privasi</string>
+    <string name="legal_terms_of_service">Terma Perkhidmatan</string>
+    <string name="legal_folder">ms</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">Teruskan ke pencetus</string>
+    <string name="onboarding_continue_to_medications">Teruskan ke ubat</string>
+    <string name="onboarding_finish_setup">Selesaikan persediaan</string>
+    <string name="onboarding_back_to_diagnoses">Kembali ke diagnosis</string>
+    <string name="onboarding_back_to_triggers">Kembali ke pencetus</string>
+    <string name="onboarding_save_changes">Simpan perubahan</string>
+    <string name="onboarding_step">Langkah %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">Diagnosis dan sejarah</string>
+    <string name="onboarding_diagnoses_subtitle">Sediakan profil asas anda. Serangan dan laporan anda bermula daripadanya.</string>
+    <string name="onboarding_primary_diagnosis">Diagnosis utama</string>
+    <string name="onboarding_episode_frequency">Kekerapan serangan sebulan</string>
+    <string name="onboarding_episode_duration">Tempoh biasa serangan</string>
+    <string name="onboarding_intensity_baseline">Keamatan sakit biasa</string>
+    <string name="onboarding_update_later">Anda boleh mengemas kini profil asas anda bila-bila masa dalam Seting.</string>
+    <string name="onboarding_triggers_title">Pencetus anda</string>
+    <string name="onboarding_triggers_subtitle">Pilih pencetus yang anda ketahui atau syaki. Laporan anda menyenaraikannya untuk doktor anda.</string>
+    <string name="onboarding_add_custom_trigger">Tambah pencetus sendiri</string>
+    <string name="onboarding_treatment_subtitle">Pilih ubat yang anda ambil. Ubat semasa serangan diisi terlebih dahulu dalam setiap serangan baharu, jadi mencatat hanya perlu satu ketikan.</string>
+    <string name="onboarding_add_custom_medication">Tambah ubat sendiri</string>
+    <string name="onboarding_custom_trigger_title">Tambah pencetus sendiri</string>
+    <string name="onboarding_custom_trigger_message">Namakan sesuatu yang biasanya mencetuskan migrain anda.</string>
+    <string name="onboarding_custom_trigger_placeholder">Contohnya, lampu berkelip</string>
+    <string name="onboarding_medication_role_message">Bilakah anda mengambilnya?</string>
+    <string name="onboarding_medication_role_acute">Semasa serangan (akut)</string>
+    <string name="onboarding_medication_role_preventive">Setiap hari (pencegahan)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">Penjejak migrain dan pencetus peribadi</string>
+    <string name="welcome_example">Contoh</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">hari tanpa sakit</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">Contoh: %1$s hari tanpa sakit dalam 30 hari lepas</item>
+    </plurals>
+    <string name="welcome_headline_patterns">Fahami corak anda.</string>
+    <string name="welcome_headline_doctor">Bawa faktanya kepada doktor anda.</string>
+    <string name="welcome_body">Jejak simptom, kenal pasti kemungkinan pencetus dan eksport laporan peribadi anda bila-bila masa.</string>
+    <string name="welcome_get_started">Mulakan</string>
+    <string name="welcome_agreement">Dengan meneruskan, anda bersetuju dengan %1$s dan %2$s.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">Migrain tanpa aura</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">Corak migrain yang biasa</string>
+    <string name="diagnosis_migraine_with_aura">Migrain dengan aura</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">Aura fokal visual atau deria</string>
+    <string name="diagnosis_chronic_migraine">Migrain kronik</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 hari sakit kepala atau lebih sebulan</string>
+    <string name="diagnosis_tension_type">Sakit kepala jenis tegang</string>
+    <string name="diagnosis_tension_type_subtitle">Rasa tegang seperti diikat</string>
+    <string name="diagnosis_cluster">Sakit kepala kelompok</string>
+    <string name="diagnosis_cluster_subtitle">Serangan teruk sekitar mata, sebelah</string>
+    <string name="diagnosis_not_diagnosed">Belum didiagnosis / sedang dikaji</string>
+    <string name="diagnosis_not_diagnosed_subtitle">Memerhati corak simptom</string>
+    <string name="frequency_less_than_one">&lt; 1/bln</string>
+    <string name="frequency_one_to_four">1–4/bln</string>
+    <string name="frequency_five_to_eight">5–7/bln</string>
+    <string name="frequency_eight_plus">8+/bln</string>
+    <string name="duration_two_to_four">2–4&#160;j</string>
+    <string name="duration_four_to_twelve">4–12&#160;j</string>
+    <string name="duration_twelve_to_twenty_four">12–24&#160;j</string>
+    <string name="duration_one_to_three_days">24–72&#160;j</string>
+    <string name="region_left_temple">Pelipis kiri</string>
+    <string name="region_right_temple">Pelipis kanan</string>
+    <string name="region_frontal_brow">Dahi / kening</string>
+    <string name="region_retro_orbital">Belakang mata</string>
+    <string name="region_occipital_neck">Belakang kepala dan tengkuk</string>
+    <string name="symptom_scintillating_scotoma">Skotoma berkelip (visual)</string>
+    <string name="symptom_scintillating_scotoma_short">Aura visual</string>
+    <string name="symptom_neck_stiffness">Leher kaku</string>
+    <string name="symptom_neck_stiffness_short">Leher kaku</string>
+    <string name="symptom_photophobia">Fotofobia (cahaya)</string>
+    <string name="symptom_photophobia_short">Cahaya</string>
+    <string name="symptom_nausea">Loya</string>
+    <string name="symptom_nausea_short">Loya</string>
+    <string name="symptom_phonophobia">Fonofobia (bunyi)</string>
+    <string name="symptom_phonophobia_short">Bunyi</string>
+    <string name="symptom_aphasia">Afasia / kabus otak</string>
+    <string name="symptom_aphasia_short">Kabus otak</string>
+    <string name="symptom_paresthesia">Kesemutan / parestesia</string>
+    <string name="symptom_paresthesia_short">Kesemutan</string>
+    <string name="trigger_category_weather_environment">Cuaca dan persekitaran</string>
+    <string name="trigger_category_sleep_physical">Tidur dan rutin fizikal</string>
+    <string name="trigger_category_stress_emotions">Tekanan dan emosi</string>
+    <string name="trigger_category_hormonal">Hormon</string>
+    <string name="trigger_category_diet_consumption">Makanan dan minuman</string>
+    <string name="trigger_category_custom">Tambahan sendiri</string>
+    <string name="medication_role_acute">Akut / abortif</string>
+    <string name="medication_role_preventive">Pencegahan dan suplemen</string>
+    <string name="export_range_last_30_days">30&#160;hari lepas</string>
+    <string name="export_range_last_90_days">90&#160;hari lepas</string>
+    <string name="export_range_last_6_months">6&#160;bulan lepas</string>
+    <string name="export_range_last_12_months">12&#160;bulan lepas</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">Penurunan tekanan udara</string>
+    <string name="trigger_barometric_pressure_description">Perubahan cuaca, ketinggian</string>
+    <string name="trigger_bright_light">Cahaya terang dan matahari</string>
+    <string name="trigger_bright_light_description">Silau, lampu strob, fotofobia</string>
+    <string name="trigger_heat_humidity">Panas atau lembap melampau</string>
+    <string name="trigger_heat_humidity_description">Perubahan suhu</string>
+    <string name="trigger_loud_noise">Bunyi bising</string>
+    <string name="trigger_loud_noise_description">Fonofobia, bunyi mengejut</string>
+    <string name="trigger_poor_sleep">Tidur kurang / tidak teratur</string>
+    <string name="trigger_poor_sleep_description">Kurang tidur, kurang tidur REM</string>
+    <string name="trigger_dehydration">Dehidrasi</string>
+    <string name="trigger_dehydration_description">Kekurangan elektrolit</string>
+    <string name="trigger_skipped_meals">Tidak makan / berpuasa</string>
+    <string name="trigger_skipped_meals_description">Ambang hipoglisemia</string>
+    <string name="trigger_overexertion">Aktiviti fizikal berlebihan</string>
+    <string name="trigger_overexertion_description">Tekanan pada salur darah semasa bersenam</string>
+    <string name="trigger_emotional_stress">Tekanan emosi / selepas tekanan</string>
+    <string name="trigger_emotional_stress_description">Masa berehat selepas kerja</string>
+    <string name="trigger_screen_fatigue">Penat skrin</string>
+    <string name="trigger_screen_fatigue_description">Cahaya biru, mata sentiasa memfokus</string>
+    <string name="trigger_hormonal_cycle">Perubahan hormon / kitaran</string>
+    <string name="trigger_hormonal_cycle_description">Perubahan kitaran bulanan</string>
+    <string name="trigger_caffeine">Kekurangan atau lebihan kafein</string>
+    <string name="trigger_caffeine_description">Perubahan reseptor adenosin</string>
+    <string name="trigger_aged_cheese">Keju matang / tiramina</string>
+    <string name="trigger_aged_cheese_description">Kepekaan terhadap amina tapaian</string>
+    <string name="trigger_alcohol">Alkohol / wain merah</string>
+    <string name="trigger_alcohol_description">Tanin, histamina</string>
+    <string name="trigger_sweeteners">Pemanis tiruan</string>
+    <string name="trigger_sweeteners_description">Aspartam, sukralosa</string>
+    <string name="trigger_custom_description">Pencetus tambahan</string>
+
+    <!-- Catalog: built-in medications. Names as the product information of Malaysia writes them in Malay. -->
+
+    <string name="medication_ibuprofen_400">Ibuprofen</string>
+    <string name="medication_ibuprofen_400_class">Antiradang sokongan</string>
+    <string name="medication_sumatriptan_50">Sumatriptan</string>
+    <string name="medication_sumatriptan_50_class">Triptan, agonis serotonin</string>
+    <string name="medication_rizatriptan_10">Rizatriptan</string>
+    <string name="medication_rizatriptan_10_class">Triptan, larut dalam mulut</string>
+    <string name="medication_naproxen_500">Naproksen</string>
+    <string name="medication_naproxen_500_class">NSAID bertindak lama</string>
+    <string name="medication_acetaminophen_1000">Parasetamol</string>
+    <string name="medication_acetaminophen_1000_class">Analgesik</string>
+    <string name="medication_ubrogepant_100">Ubrogepant</string>
+    <string name="medication_ubrogepant_100_class">Gepant, antagonis CGRP</string>
+    <string name="medication_metoclopramide_10">Metoklopramid</string>
+    <string name="medication_metoclopramide_10_class">Antiemetik</string>
+    <string name="medication_electrolytes">Larutan elektrolit</string>
+    <string name="medication_electrolytes_class">Penghidratan oral</string>
+    <string name="medication_riboflavin_400">Riboflavin</string>
+    <string name="medication_riboflavin_400_class">Vitamin B2</string>
+    <string name="medication_magnesium_400">Magnesium</string>
+    <string name="medication_magnesium_400_class">Suplemen mineral</string>
+    <string name="medication_propranolol_40">Propranolol</string>
+    <string name="medication_propranolol_40_class">Penyekat beta</string>
+    <string name="medication_topiramate_50">Topiramat</string>
+    <string name="medication_topiramate_50_class">Antikonvulsan</string>
+    <string name="medication_amitriptyline_10">Amitriptilin</string>
+    <string name="medication_amitriptyline_10_class">Antidepresan trisiklik</string>
+    <string name="medication_erenumab_70">Erenumab</string>
+    <string name="medication_erenumab_70_class">Antibodi CGRP, bulanan</string>
+    <string name="medication_custom_class">Ubat tambahan</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">M%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%1$s daripada %2$s tanpa pencetus dicatat</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">%1$s serangan</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">Laporan klinikal migrain</string>
+    <string name="report_page">MigraTrack · Halaman %1$s</string>
+    <string name="report_patient">Pesakit: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">Dijana %1$s</string>
+    <string name="report_disclaimer">Data yang dicatat sendiri oleh pesakit dalam MigraTrack. Laporan ini menyokong, bukan menggantikan, penilaian klinikal.</string>
+    <string name="report_stat_episodes">Serangan direkodkan</string>
+    <string name="report_stat_migraine_days">Hari migrain</string>
+    <string name="report_stat_pain_free_days">Hari tanpa sakit</string>
+    <string name="report_stat_average_intensity">Keamatan purata /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">Pemantauan bermula pada %1$s. %2$s hari lebih awal dalam julat ini tiada rekod dan tidak dikira sebagai hari tanpa sakit.</item>
+    </plurals>
+    <string name="report_baseline_title">Profil asas</string>
+    <string name="report_baseline_diagnoses">Diagnosis</string>
+    <string name="report_baseline_frequency">Kekerapan sebulan</string>
+    <string name="report_baseline_duration">Tempoh biasa</string>
+    <string name="report_baseline_intensity">Keamatan biasa</string>
+    <string name="report_baseline_triggers">Pencetus diketahui</string>
+    <string name="report_baseline_treatments">Pelan rawatan</string>
+    <string name="report_pain_chart_title">Keamatan sakit mengikut masa (1–10)</string>
+    <string name="report_legend_mild">Ringan %1$s–%2$s</string>
+    <string name="report_legend_moderate">Sederhana %1$s–%2$s</string>
+    <string name="report_legend_severe">Teruk %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">Tidak dipantau</string>
+    <string name="report_medication_title">Penggunaan ubat</string>
+    <string name="report_no_medications">Tiada pengambilan ubat dicatat dalam julat ini.</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s kali</item>
+    </plurals>
+    <string name="report_symptoms_title">Aura dan simptom amaran</string>
+    <string name="report_no_symptoms">Tiada aura atau simptom deria dicatat dalam julat ini.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">%1$s daripada %2$s serangan (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">Kemungkinan pencetus yang dicatat</string>
+    <string name="report_no_triggers">Tiada pencetus dicatat dalam julat ini.</string>
+    <string name="report_triggers_note">Angka menunjukkan kekerapan pesakit mencatat sesuatu pencetus bersama serangan. Angka ini tidak menunjukkan punca.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%1$s daripada %2$s tanpa pencetus dicatat.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">%1$s serangan</item>
+    </plurals>
+    <string name="report_episodes_title">Serangan</string>
+    <string name="report_no_episodes">Tiada serangan direkodkan dalam julat ini.</string>
+    <string name="report_column_date_time">Tarikh, masa</string>
+    <string name="report_column_pain">Kmt.</string>
+    <string name="report_column_epicenter">Lokasi</string>
+    <string name="report_column_symptoms">Simptom</string>
+    <string name="report_column_medications">Ubat</string>
+    <string name="report_column_triggers">Pencetus</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">Belum ditetapkan</string>
+    <string name="report_none">Tiada</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">Serangan</string>
+    <string name="report_sheet_medications">Ubat</string>
+    <string name="report_sheet_daily_pain">Sakit harian</string>
+    <string name="report_sheet_profile">Profil</string>
+    <string name="report_header_started">Bermula</string>
+    <string name="report_header_pain_intensity">Keamatan sakit (1–10)</string>
+    <string name="report_header_epicenter">Lokasi sakit</string>
+    <string name="report_header_symptoms">Aura dan simptom deria</string>
+    <string name="report_header_medications">Ubat</string>
+    <string name="report_header_triggers">Kemungkinan pencetus</string>
+    <string name="report_header_episode_started">Mula serangan</string>
+    <string name="report_header_medication">Ubat</string>
+    <string name="report_header_dose">Dos</string>
+    <string name="report_header_date">Tarikh</string>
+    <string name="report_header_peak_pain">Keamatan sakit puncak (1–10, 0 = tanpa sakit)</string>
+    <string name="report_header_day">Hari</string>
+    <string name="report_header_field">Medan</string>
+    <string name="report_header_value">Nilai</string>
+    <string name="report_day_migraine">Migrain</string>
+    <string name="report_day_pain_free">Tanpa sakit</string>
+    <string name="report_day_not_tracked">Tidak dipantau</string>
+    <string name="report_profile_patient">Pesakit</string>
+    <string name="report_profile_range">Julat laporan</string>
+    <string name="report_profile_tracked_since">Dipantau sejak</string>
+    <string name="report_profile_diagnoses">Diagnosis</string>
+    <string name="report_profile_frequency">Kekerapan sebulan</string>
+    <string name="report_profile_duration">Tempoh biasa</string>
+    <string name="report_profile_intensity">Keamatan biasa</string>
+    <string name="report_profile_triggers">Pencetus diketahui</string>
+    <string name="report_profile_treatments">Pelan rawatan</string>
+    <string name="report_iso_range">%1$s hingga %2$s</string>
+</resources>

@@ -321,9 +321,11 @@
 				"fr-CA",
 				hr,
 				hu,
+				id,
 				it,
 				kk,
 				lt,
+				ms,
 				nb,
 				nl,
 				pl,
@@ -334,8 +336,10 @@
 				sk,
 				sl,
 				sv,
+				th,
 				tr,
 				uk,
+				vi,
 			);
 			mainGroup = 7A0000000000000000000201;
 			productRefGroup = 7A0000000000000000000204 /* Products */;

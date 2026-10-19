@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -759,3 +759,139 @@ Checked on October 19, 2026. A page number is the page of the PDF file.
 | NSAID | стероидты емес қабынуға қарсы дәрі (written out) | **Not verified** | ΜΣΑΦ | EU-EL3, p. 3 |
 | Triptan | триптан | KZ1, table 6 | τριπτάνη | EL1 |
 | Beta blocker | бета-адреноблокатор | **Not verified** | β-αναστολέας | **Not verified** |
+
+### Southeast Asia: Vietnamese, Indonesian, Malay, Thai
+
+Vietnamese (`vi`), Indonesian (`id`), Malay (`ms`) and Thai (`th`). Vietnamese, Indonesian and Malay use Plus Jakarta Sans; Thai uses the system font. The project owner approved the address, the word for episode, the medical disclaimer and the watch texts on October 19, 2026. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7). The reference countries are Vietnam, Indonesia, Malaysia and Thailand.
+
+| Language | Address | Buttons |
+|---|---|---|
+| vi | "bạn", as in Vietnamese iOS | Verbs, as in Vietnamese iOS: "Lưu", "Hủy" |
+| id | "Anda", with a capital letter, as in Indonesian iOS | Verbs: "Simpan", "Batalkan" |
+| ms | "anda", in lower case, as the Malay of Malaysia writes it | Verbs: "Simpan", "Batal" |
+| th | No pronoun; "คุณ" where one is necessary, as in Thai iOS; "โปรด" for a polite request | Verbs: "บันทึก", "ยกเลิก" |
+
+The four languages have one plural form. Thai writes no space between words, so a line can break inside a compound word. A word joiner (`&#8288;`) holds the compounds that broke on the screenshots or in the PDF together: "สิ่ง⁠กระตุ้น", "การ⁠ตั้ง⁠ค่า", "ทาง⁠การ⁠แพทย์", "อด⁠อาหาร", "เหน็บ⁠ชา", "ผิด⁠ปกติ", "เป็น⁠เวลา".
+
+| Term | vi | id | ms | th |
+|---|---|---|---|---|
+| episode | cơn; "cơn migraine" where the context needs it | serangan | serangan | อาการปวด; counted with "ครั้ง" ("4 ครั้ง") |
+| attack (App Store only) | cơn migraine | serangan migren | serangan migrain | อาการปวดไมเกรน |
+| migraine | migraine | migren | migrain | ไมเกรน |
+| log (verb) | ghi lại | catat | catat | บันทึก |
+| intensity | cường độ (đau); "Cường độ 6/10" | intensitas (nyeri); "Intensitas 6/10" | keamatan (sakit); "Keamatan 6/10" | ความรุนแรง; "ความรุนแรง 6/10" |
+| migraine day | ngày migraine | hari migren | hari migrain | วันที่มีไมเกรน |
+| tracked day | ngày theo dõi | hari terpantau | hari dipantau | วันที่ติดตาม |
+| pain-free day | ngày không đau | hari bebas nyeri | hari tanpa sakit | วันที่ไม่ปวด |
+| not tracked | chưa theo dõi | belum dipantau | tidak dipantau | ไม่ได้ติดตาม |
+| trigger | yếu tố kích thích; short "yếu tố" | pencetus | pencetus | สิ่งกระตุ้น |
+| possible trigger | yếu tố kích thích có thể | kemungkinan pencetus | kemungkinan pencetus | สิ่งกระตุ้นที่อาจเกี่ยวข้อง |
+| aura | thoáng báo (ICHD-3: "cơn thoáng báo") | aura | aura | ออร่า |
+| acute medication | thuốc cắt cơn | obat untuk serangan; "Akut / abortif" | ubat semasa serangan; "Akut / abortif" | ยาบรรเทาอาการปวด |
+| preventive medication | thuốc dự phòng | pencegahan | pencegahan | ยาป้องกัน |
+| treatment blueprint | kế hoạch điều trị | rencana pengobatan | pelan rawatan | แผนการรักษา |
+| baseline profile | hồ sơ ban đầu | profil awal | profil asas | โปรไฟล์พื้นฐาน |
+| report | báo cáo | laporan | laporan | รายงาน |
+| Health app | Sức khỏe | Kesehatan | Kesihatan | สุขภาพ |
+| Settings (iOS) | Cài đặt | Pengaturan | Seting | การตั้งค่า |
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "Ghi cơn mới", "Serangan baru", "Serangan baru", "บันทึกอาการ". "Save Episode" = "Lưu", "Simpan", "Simpan", "บันทึก". The round complication "LOG" (4 characters) = "GHI" (record), "BARU", "BARU" (new), "ใหม่" (new).
+
+#### Sources of the Southeast Asian terms
+
+Checked on October 19, 2026. A page number is the page of the PDF file.
+
+- **[VN1]** ICHD-3, Vietnamese translation: [ICHD-3-Vietnamese.pdf](https://ihs-headache.org/wp-content/uploads/2025/04/ICHD-3-Vietnamese.pdf) on the IHS website (uploaded April 2025). No Vietnamese national migraine guideline of the Ministry of Health was found. The register of the Drug Administration of Vietnam (dav.gov.vn) and the National Drug Formulary (Dược thư Quốc gia, 2018) were **not searched**: no free copy was found.
+- **[ID1]** PERDOSSI (Indonesian Neurological Association), *Acuan Panduan Praktik Klinis Neurologi*, 2016, chapter "Migren" (ICD-10 G43): [copy](https://galihendradita.wordpress.com/wp-content/uploads/2021/06/2016-ppk-neurologi.pdf). Many pages of the copy are scans without text, so some terms could not be searched. The BPOM register (cekbpom.pom.go.id) was **not searched**.
+- **[MY1]** Cochrane, Malay plain language summary of review CD009108, [Sumatriptan (semua cara pengambilan) untuk serangan migrain akut](https://www.cochrane.org/ms/CD009108/sumatriptan-semua-cara-pengambilan-untuk-serangan-migrain-akut-pada-orang-dewasa-gambaran), May 28, 2014: "serangan migrain akut", "sakit kepala", "dos oral 50 mg". The Malaysian migraine guidelines are in English, and no Malay clinical text of the Ministry of Health was found. The NPRA register (Quest3+) was **not searched**. Most Malay medical words are therefore **not verified**.
+- **[TH1]** Headache Study Group of the Neurological Society of Thailand, *แนวทางเวชปฏิบัติการวินิจฉัยและการรักษาปวดศีรษะไมเกรน* (clinical practice guideline for migraine), 2022 (B.E. 2565): [PDF](https://neurothai.org/media/news_file/495-CPG-migraine-2565-20230104074752.pdf). The text layer of the PDF is damaged, so pages 27 and 59 were read as images. The guideline writes the drug names in English and the dose unit "มก.". No Thai ICHD-3 is on the IHS website.
+- **[TH2]** Drug Information Center, Faculty of Pharmacy, Mahidol University, [question 8461](https://pharmacy.mahidol.ac.th/dic/qa_full.php?id=8461), November 24, 2021: "ซูมาทริปแทน". The register of the Thai FDA was **not searched**. The other Thai drug names are transliterations of the INN, **not verified**.
+
+#### Medical terms: Vietnamese, Indonesian
+
+| Term | Vietnamese | Source (vi) | Indonesian | Source (id) |
+|---|---|---|---|---|
+| Migraine without aura | Migraine không cơn thoáng báo | VN1, 1.1, p. 10 | Migren tanpa aura | ID1, p. 8 |
+| Migraine with aura | Migraine có cơn thoáng báo | VN1, 1.2, p. 10 | Migren dengan aura | ID1, p. 7 |
+| Chronic migraine | Migraine mạn tính | VN1, 1.3, p. 36 | Migren kronik | ID1, p. 9 |
+| Tension-type headache | Đau đầu kiểu căng thẳng | VN1, 2, p. 10 | Nyeri kepala tipe tegang | ID1, p. 12 |
+| Cluster headache | Đau đầu cụm | VN1, 3.1, p. 59 | Nyeri kepala klaster | ID1, p. 8 |
+| attack | cơn; "cơn migraine" | VN1, p. 29 | serangan | ID1, p. 7 ("serangan migren") |
+| Photophobia | sợ ánh sáng | VN1, p. 29 | fotofobia (cahaya) | ID1, p. 7 |
+| Phonophobia | sợ âm thanh | VN1, p. 29 | fonofobia (suara) | ID1, p. 7 |
+| Scintillating scotoma | ám điểm nhấp nháy | VN1, p. 31 ("nhấp nháy", "ám điểm") | skotoma berkilau | **Not verified** |
+| Nausea | buồn nôn | VN1, p. 29 | mual | **Not verified** |
+| Aphasia | mất ngôn ngữ | VN1, p. 31 | afasia | **Not verified** |
+| Paresthesia | châm chích / dị cảm | VN1, p. 31 ("châm chích"), p. 75 ("dị cảm") | kesemutan / parestesia | ID1, p. 17 ("parestesia") |
+| Neck stiffness | cứng cổ | VN1, p. 30 | kaku leher | **Not verified** |
+| Migraine day | ngày migraine | **Not verified**; VN1, p. 257 has "ngày đau đầu" | hari migren | **Not verified** |
+| Acute treatment | cắt cơn | **Not verified** | obat untuk serangan; "abortif" | ID1, p. 9 ("Terapi abortif") |
+| Preventive treatment | dự phòng | VN1, p. 232 ("điều trị dự phòng") | pencegahan, profilaksis | ID1, p. 10 ("profilaksis") |
+| Trigger | yếu tố kích thích | VN1, p. 38 ("yếu tố kích thích (trigger)") | pencetus | ID1, p. 7 ("Faktor Pencetus") |
+| Dose unit | mg | VN1 | mg | ID1, p. 9 |
+
+| Medication (class) | Vietnamese | Source (vi) | Indonesian | Source (id) |
+|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | **Not verified** | Ibuprofen | ID1, p. 9 |
+| Sumatriptan | Sumatriptan | **Not verified** | Sumatriptan | ID1, p. 9 |
+| Rizatriptan | Rizatriptan | **Not verified** | Rizatriptan | ID1, p. 9 |
+| Naproxen | Naproxen | **Not verified** | Naproksen | **Not verified**; ID1, p. 13 has "naproxen" |
+| Acetaminophen | Paracetamol | **Not verified**; VN1, p. 155 has "acetaminophen" | Parasetamol | ID1, p. 9 |
+| Ubrogepant | Ubrogepant | **Not verified**; registration unknown | Ubrogepant | **Not verified**; registration unknown |
+| Metoclopramide | Metoclopramid | **Not verified** | Metoklopramid | **Not verified** |
+| Riboflavin | Riboflavin | **Not verified** | Riboflavin | **Not verified** |
+| Magnesium | Magnesi | **Not verified** | Magnesium | **Not verified** |
+| Propranolol | Propranolol | **Not verified** | Propranolol | **Not verified** |
+| Topiramate | Topiramat | **Not verified** | Topiramat | ID1, p. 9 |
+| Amitriptyline | Amitriptylin | **Not verified** | Amitriptilin | ID1, p. 9 |
+| Erenumab | Erenumab | **Not verified**; registration unknown | Erenumab | **Not verified**; registration unknown |
+| NSAID | NSAID | VN1, p. 155 ("thuốc chống viêm không steroid (NSAID)") | OAINS | ID1, p. 9 |
+| Triptan | triptan | VN1, p. 30 | triptan | ID1, p. 9 |
+| Beta blocker | thuốc chẹn beta | **Not verified** | penyekat beta | **Not verified**; ID1, p. 9 has "Beta bloker" |
+| Anticonvulsant | thuốc chống động kinh | **Not verified** | antiepilepsi | ID1, p. 9 |
+| Tricyclic antidepressant | thuốc chống trầm cảm ba vòng | **Not verified** | antidepresan trisiklik | ID1, p. 14 ("trisiklik") |
+
+#### Medical terms: Malay, Thai
+
+| Term | Malay | Source (ms) | Thai | Source (th) |
+|---|---|---|---|---|
+| Migraine without aura | Migrain tanpa aura | **Not verified** | ไมเกรนชนิดไม่มีออร่า | TH1, p. 27 ("migraine without aura", in English); Thai form **not verified** |
+| Migraine with aura | Migrain dengan aura | **Not verified** | ไมเกรนชนิดมีออร่า | TH1, p. 27; Thai form **not verified** |
+| Chronic migraine | Migrain kronik | **Not verified** | ไมเกรนชนิดเรื้อรัง | TH1, p. 59 ("โรคปวดศีรษะไมเกรนชนิดเรื้อรัง") |
+| Tension-type headache | Sakit kepala jenis tegang | **Not verified** | ปวดศีรษะชนิดตึงเครียด | **Not verified**; TH1 writes "tension-type" in English |
+| Cluster headache | Sakit kepala kelompok | **Not verified** | ปวดศีรษะคลัสเตอร์ | **Not verified** |
+| attack | serangan | MY1 ("serangan migrain akut") | อาการปวด, "ครั้ง" | TH1, p. 27 ("อาการปวดศีรษะแต่ละครั้ง") |
+| Photophobia | fotofobia (cahaya) | **Not verified**; MY1 has "sensitiviti kepada cahaya" | แพ้แสง | TH1, p. 59 ("แพ้แสงหรือเสียง") |
+| Phonophobia | fonofobia (bunyi) | **Not verified**; MY1 has "bunyi" | แพ้เสียง | TH1, p. 59 |
+| Scintillating scotoma | skotoma berkelip | **Not verified** | จุดบอดแสงระยิบระยับ | **Not verified** |
+| Nausea | loya | **Not verified** | คลื่นไส้ | TH1, p. 27 |
+| Aphasia | afasia | **Not verified** | พูดลำบาก | **Not verified** |
+| Paresthesia | kesemutan / parestesia | **Not verified** | เหน็บชา | **Not verified** |
+| Neck stiffness | leher kaku | **Not verified** | คอแข็งตึง | **Not verified** |
+| Migraine day | hari migrain | **Not verified** | วันที่มีไมเกรน | **Not verified** |
+| Acute treatment | ubat semasa serangan | **Not verified** | ยาบรรเทาอาการปวด | **Not verified**; TH1 uses "ยาแก้ปวด" |
+| Preventive treatment | pencegahan | **Not verified** | ยาป้องกัน | TH1, p. 59 ("ยาป้องกันไมเกรน") |
+| Trigger | pencetus | **Not verified** | สิ่งกระตุ้น | TH1, p. 59 |
+| Aura | aura | **Not verified** | ออร่า | TH1, p. 36 ("อาการออร่า") |
+| Dose unit | mg | MY1 ("50 mg") | มก. | TH1, pp. 38–39 |
+
+| Medication (class) | Malay | Source (ms) | Thai | Source (th) |
+|---|---|---|---|---|
+| Ibuprofen | Ibuprofen | **Not verified** | ไอบูโพรเฟน | TH1, p. 43 (English name); Thai spelling **not verified** |
+| Sumatriptan | Sumatriptan | MY1 | ซูมาทริปแทน | TH2 |
+| Rizatriptan | Rizatriptan | **Not verified** | ไรซาทริปแทน | Not in TH1: **not verified** |
+| Naproxen | Naproksen | **Not verified** | นาพรอกเซน | TH1, p. 43 (English name); Thai spelling **not verified** |
+| Acetaminophen | Parasetamol | **Not verified** | พาราเซตามอล | TH1, p. 37 ("acetaminophen"); Thai spelling **not verified** |
+| Ubrogepant | Ubrogepant | **Not verified**; registration unknown | ยูโบรเจแพนท์ | TH1, p. 44 (English name); registration unknown |
+| Metoclopramide | Metoklopramid | **Not verified** | เมโทโคลพราไมด์ | TH1, p. 38 (English name); Thai spelling **not verified** |
+| Riboflavin | Riboflavin | **Not verified** | ไรโบฟลาวิน | TH1, p. 80 ("วิตามินบี 2 (riboflavin)") |
+| Magnesium | Magnesium | **Not verified** | แมกนีเซียม | TH1, p. 38 (English name); Thai spelling **not verified** |
+| Propranolol | Propranolol | **Not verified** | โพรพราโนลอล | TH1, p. 63 (English name); Thai spelling **not verified** |
+| Topiramate | Topiramat | **Not verified** | โทพิราเมต | TH1, p. 62 (English name); Thai spelling **not verified** |
+| Amitriptyline | Amitriptilin | **Not verified** | อะมิทริปไทลีน | TH1, p. 64 (English name); Thai spelling **not verified** |
+| Erenumab | Erenumab | **Not verified**; registration unknown | เอเรนูแมบ | TH1, p. 68 (English name); registration unknown |
+| NSAID | NSAID | **Not verified** | NSAID | TH1, p. 43 ("NSAIDs") |
+| Triptan | triptan | MY1 ("ubat triptan") | ทริปแทน | TH1, p. 43 ("ยากลุ่มทริปแทน") |
+| Beta blocker | penyekat beta | **Not verified** | ยาปิดกั้นเบตา | **Not verified**; TH1, p. 63 writes "beta-blocker" |
+| Anticonvulsant | antikonvulsan | **Not verified** | ยากันชัก | **Not verified** |
+| Tricyclic antidepressant | antidepresan trisiklik | **Not verified** | ยาต้านซึมเศร้าชนิดไตรไซคลิก | **Not verified** |

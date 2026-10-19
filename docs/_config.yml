@@ -23,9 +23,11 @@ exclude:
   - legal/files/fr
   - legal/files/hr
   - legal/files/hu
+  - legal/files/id
   - legal/files/it
   - legal/files/kk
   - legal/files/lt
+  - legal/files/ms
   - legal/files/nb
   - legal/files/nl
   - legal/files/pl
@@ -36,7 +38,9 @@ exclude:
   - legal/files/sk
   - legal/files/sl
   - legal/files/sv
+  - legal/files/th
   - legal/files/tr
   - legal/files/uk
+  - legal/files/vi
   - app-store
   - LOCALIZATION_BACKTRANSLATION.md

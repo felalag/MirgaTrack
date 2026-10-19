@@ -88,6 +88,12 @@
             "value" : " / %lld"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -101,6 +107,12 @@
           }
         },
         "lt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "ms" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -166,6 +178,12 @@
             "value" : " / %lld"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -173,6 +191,12 @@
           }
         },
         "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "vi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -277,6 +301,12 @@
             "value" : "%1$lld/%2$lld"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld dari %2$lld"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -293,6 +323,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld iš %2$lld"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld daripada %2$lld"
           }
         },
         "nb" : {
@@ -355,6 +391,12 @@
             "value" : "%1$lld av %2$lld"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld จาก %2$lld"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -365,6 +407,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld з %2$lld"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld trên %2$lld"
           }
         }
       }
@@ -456,6 +504,12 @@
             "value" : "%lld/10"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld dari 10"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -472,6 +526,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld iš 10"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld daripada 10"
           }
         },
         "nb" : {
@@ -534,6 +594,12 @@
             "value" : "%lld av 10"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld จาก 10"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -544,6 +610,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld з 10"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld trên 10"
           }
         }
       }
@@ -635,6 +707,12 @@
             "value" : "Kész"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesai"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -651,6 +729,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atlikta"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesai"
           }
         },
         "nb" : {
@@ -713,6 +797,12 @@
             "value" : "Klar"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เสร็จสิ้น"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -723,6 +813,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Готово"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xong"
           }
         }
       }
@@ -814,6 +910,12 @@
             "value" : "Roham rögzítve"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan dicatat"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -830,6 +932,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Priepuolis įrašytas"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan dicatat"
           }
         },
         "nb" : {
@@ -892,6 +1000,12 @@
             "value" : "Anfall registrerat"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการปวดแล้ว"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -902,6 +1016,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напад записано"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã ghi lại cơn"
           }
         }
       }
@@ -993,6 +1113,12 @@
             "value" : "Utolsó roham: %@"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terakhir: %@"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1009,6 +1135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paskutinis: %@"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terakhir: %@"
           }
         },
         "nb" : {
@@ -1071,6 +1203,12 @@
             "value" : "Senaste anfall %@"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ล่าสุด %@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1081,6 +1219,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Останній напад %@"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gần nhất: %@"
           }
         }
       }
@@ -1172,6 +1316,12 @@
             "value" : "Új roham"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan baru"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1188,6 +1338,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan baru"
           }
         },
         "nb" : {
@@ -1250,6 +1406,12 @@
             "value" : "Nytt anfall"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการ"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1260,6 +1422,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новий напад"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ghi cơn mới"
           }
         }
       }
@@ -1351,6 +1519,12 @@
             "value" : "Nincs roham"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belum ada serangan"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1367,6 +1541,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Priepuolių nėra"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiada serangan"
           }
         },
         "nb" : {
@@ -1429,6 +1609,12 @@
             "value" : "Inga anfall"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ยังไม่มีอาการปวด"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1439,6 +1625,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Нападів немає"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chưa ghi cơn nào"
           }
         }
       }
@@ -1530,6 +1722,12 @@
             "value" : "A szinkronizáláshoz nyissa meg a MigraTracket az iPhone-on."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka MigraTrack di iPhone Anda untuk menyinkronkan."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1546,6 +1744,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Norėdami sinchronizuoti, atidarykite MigraTrack iPhone."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buka MigraTrack pada iPhone anda untuk menyegerakkan."
           }
         },
         "nb" : {
@@ -1608,6 +1812,12 @@
             "value" : "Öppna MigraTrack på din iPhone för att synkronisera."
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิด MigraTrack บน iPhone เพื่อซิงค์"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1618,6 +1828,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Відкрийте MigraTrack на iPhone для синхронізації."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mở MigraTrack trên iPhone để đồng bộ."
           }
         }
       }
@@ -1709,6 +1925,12 @@
             "value" : "Erősség"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intensitas"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1725,6 +1947,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensyvumas"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keamatan"
           }
         },
         "nb" : {
@@ -1787,6 +2015,12 @@
             "value" : "Intensitet"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ความรุนแรง"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1797,6 +2031,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Інтенсивність"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cường độ"
           }
         }
       }
@@ -1888,6 +2128,12 @@
             "value" : "Fájdalom erőssége"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intensitas nyeri"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1904,6 +2150,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Skausmo intensyvumas"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keamatan sakit"
           }
         },
         "nb" : {
@@ -1966,6 +2218,12 @@
             "value" : "Smärtintensitet"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ความรุนแรงของอาการปวด"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1976,6 +2234,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Інтенсивність болю"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cường độ đau"
           }
         }
       }
@@ -2067,6 +2331,12 @@
             "value" : "Fájdalommentes"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hari bebas nyeri"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2083,6 +2353,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Be skausmo"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hari tanpa sakit"
           }
         },
         "nb" : {
@@ -2145,6 +2421,12 @@
             "value" : "Smärtfria dagar"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "วันที่ไม่ปวด"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2155,6 +2437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дні без болю"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ngày không đau"
           }
         }
       }
@@ -2246,6 +2534,12 @@
             "value" : "Mentés"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simpan"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2262,6 +2556,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Išsaugoti"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simpan"
           }
         },
         "nb" : {
@@ -2324,6 +2624,12 @@
             "value" : "Spara"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึก"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2334,6 +2640,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зберегти"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lưu"
           }
         }
       }

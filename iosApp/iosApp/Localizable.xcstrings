@@ -88,6 +88,12 @@
             "value" : "Először fejezze be a beállítást a MigraTrackben."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesaikan pengaturan di MigraTrack terlebih dahulu."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -104,6 +110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pirmiausia baikite sąranką MigraTrack."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selesaikan persediaan dalam MigraTrack dahulu."
           }
         },
         "nb" : {
@@ -166,6 +178,12 @@
             "value" : "Slutför konfigurationen i MigraTrack först."
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดตั้งค่าใน MigraTrack ให้เสร็จก่อน"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -176,6 +194,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Спершу завершіть налаштування в MigraTrack."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hãy hoàn tất thiết lập trong MigraTrack trước."
           }
         }
       }
@@ -267,6 +291,12 @@
             "value" : "Új roham"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan baru"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -283,6 +313,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan baru"
           }
         },
         "nb" : {
@@ -345,6 +381,12 @@
             "value" : "Nytt anfall"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการ"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -355,6 +397,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Новий напад"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ghi cơn mới"
           }
         }
       }
@@ -446,6 +494,12 @@
             "value" : "Migrénroham rögzítése"
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catat serangan migren"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -462,6 +516,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti migrenos priepuolį"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Catat serangan migrain"
           }
         },
         "nb" : {
@@ -524,6 +584,12 @@
             "value" : "Registrera migränanfall"
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการปวดไมเกรน"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -534,6 +600,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Записати напад мігрені"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ghi lại cơn migraine"
           }
         }
       }
@@ -631,6 +703,12 @@
             "value" : "Migrénroham rögzítve: erősség %1$lld/10, gyógyszerek: %2$@."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan migren dicatat: intensitas %1$lld dari 10, dengan %2$@."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -647,6 +725,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migrenos priepuolis įrašytas: intensyvumas %1$lld iš 10, vaistai: %2$@."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan migrain dicatat: keamatan %1$lld daripada 10, dengan %2$@."
           }
         },
         "nb" : {
@@ -709,6 +793,12 @@
             "value" : "Migränanfall registrerat: intensitet %1$lld av 10, med %2$@."
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการปวดไมเกรนแล้ว ความรุนแรง %1$lld จาก 10 ยา: %2$@"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -719,6 +809,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напад мігрені записано: інтенсивність %1$lld з 10, ліки: %2$@."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã ghi lại cơn migraine: cường độ %1$lld trên 10, thuốc: %2$@."
           }
         }
       }
@@ -810,6 +906,12 @@
             "value" : "Migrénroham rögzítve: erősség %lld/10."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan migren dicatat: intensitas %lld dari 10."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -826,6 +928,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migrenos priepuolis įrašytas: intensyvumas %lld iš 10."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serangan migrain dicatat: keamatan %lld daripada 10."
           }
         },
         "nb" : {
@@ -888,6 +996,12 @@
             "value" : "Migränanfall registrerat: intensitet %lld av 10."
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการปวดไมเกรนแล้ว ความรุนแรง %lld จาก 10"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -898,6 +1012,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Напад мігрені записано: інтенсивність %lld з 10."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã ghi lại cơn migraine: cường độ %lld trên 10."
           }
         }
       }
@@ -989,6 +1109,12 @@
             "value" : "Most rögzít egy rohamot a szokásos fájdalomerősséggel és a MigraTrackben megadott akut gyógyszerekkel."
           }
         },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mencatat serangan sekarang dengan intensitas nyeri yang biasa dan obat untuk serangan Anda dari MigraTrack."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1005,6 +1131,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dabar įrašo priepuolį su jūsų įprastu skausmo intensyvumu ir ūminio gydymo vaistais iš MigraTrack."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mencatat serangan sekarang dengan keamatan sakit biasa dan ubat semasa serangan anda daripada MigraTrack."
           }
         },
         "nb" : {
@@ -1067,6 +1199,12 @@
             "value" : "Registrerar ett anfall nu med din typiska smärtintensitet och dina anfallsläkemedel från MigraTrack."
           }
         },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "บันทึกอาการปวดทันทีด้วยความรุนแรงโดยทั่วไปและยาบรรเทาอาการปวดของคุณจาก MigraTrack"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1077,6 +1215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Записує напад зараз із вашою звичайною інтенсивністю болю та ліками для купірування нападу з MigraTrack."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ghi lại một cơn ngay bây giờ với cường độ đau thường gặp và thuốc cắt cơn của bạn từ MigraTrack."
           }
         }
       }
