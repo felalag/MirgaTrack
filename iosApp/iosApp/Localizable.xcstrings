@@ -100,10 +100,22 @@
             "value" : "Completi prima la configurazione in MigraTrack."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先にMigraTrackで設定を完了してください。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Алдымен MigraTrack ішінде баптауды аяқтаңыз."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "먼저 MigraTrack에서 설정을 완료하십시오."
           }
         },
         "lt" : {
@@ -200,6 +212,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hãy hoàn tất thiết lập trong MigraTrack trước."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先在 MigraTrack 中完成设置。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請先在 MigraTrack 中完成設定。"
           }
         }
       }
@@ -303,10 +327,22 @@
             "value" : "Nuovo attacco"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛を記録"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Жаңа ұстама"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 기록"
           }
         },
         "lt" : {
@@ -403,6 +439,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ghi cơn mới"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录偏头痛"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄偏頭痛"
           }
         }
       }
@@ -506,10 +554,22 @@
             "value" : "Annota attacco di emicrania"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛発作を記録"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мигрень ұстамасын жазу"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 발작 기록"
           }
         },
         "lt" : {
@@ -606,6 +666,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ghi lại cơn migraine"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录偏头痛发作"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄偏頭痛發作"
           }
         }
       }
@@ -715,10 +787,22 @@
             "value" : "Attacco di emicrania annotato: intensità %1$lld su 10, con %2$@."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛発作を記録しました。強さは10段階中%1$lld、薬は%2$@です。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %1$lld, дәрілер: %2$@."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 발작을 기록했습니다. 강도는 10점 중 %1$lld점, 약은 %2$@입니다."
           }
         },
         "lt" : {
@@ -815,6 +899,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Đã ghi lại cơn migraine: cường độ %1$lld trên 10, thuốc: %2$@."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录一次偏头痛发作：强度为 %1$lld 分（满分 10 分），用药：%2$@。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已記錄一次偏頭痛發作：強度為 %1$lld 分（滿分 10 分），用藥：%2$@。"
           }
         }
       }
@@ -918,10 +1014,22 @@
             "value" : "Attacco di emicrania annotato: intensità %lld su 10."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛発作を記録しました。強さは10段階中%lldです。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %lld."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 발작을 기록했습니다. 강도는 10점 중 %lld점입니다."
           }
         },
         "lt" : {
@@ -1018,6 +1126,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Đã ghi lại cơn migraine: cường độ %lld trên 10."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已记录一次偏头痛发作：强度为 %lld 分（满分 10 分）。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已記錄一次偏頭痛發作：強度為 %lld 分（滿分 10 分）。"
           }
         }
       }
@@ -1121,10 +1241,22 @@
             "value" : "Annota ora un attacco con la sua intensità abituale del dolore e i farmaci per l’attacco di MigraTrack."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrackに設定した通常の痛みの強さと急性期治療薬で、今すぐ発作を記録します。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack ішіндегі әдеттегі ауырсыну қарқындылығыңызбен және ұстаманы басуға арналған дәрілеріңізбен ұстаманы қазір жазады."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack에 설정한 일반적인 통증 강도와 급성기 치료제로 지금 발작을 기록합니다."
           }
         },
         "lt" : {
@@ -1221,6 +1353,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ghi lại một cơn ngay bây giờ với cường độ đau thường gặp và thuốc cắt cơn của bạn từ MigraTrack."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用您在 MigraTrack 中设置的通常疼痛强度和急性期药物，立即记录一次发作。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用您在 MigraTrack 中設定的通常疼痛強度和急性期藥物，立即記錄一次發作。"
           }
         }
       }

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Chinese (Simplified) strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The reference country is China mainland. The text uses "您" where a pronoun is necessary, full-width punctuation,
+  and a space between Chinese characters and Latin letters or digits, as Chinese iOS does.
+  Chinese has only the CLDR plural form "other".
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">返回</string>
+    <string name="common_settings">设置</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_ok">好</string>
+    <string name="common_save">保存</string>
+    <string name="common_add">添加</string>
+    <string name="common_next">下一步</string>
+    <string name="common_on">开</string>
+    <string name="common_off">关</string>
+    <string name="common_clear">清除</string>
+    <string name="common_none">无</string>
+    <string name="common_today">今天</string>
+    <string name="common_not_set">未设置</string>
+    <string name="common_expanded">已展开</string>
+    <string name="common_collapsed">已收起</string>
+    <string name="common_last_30_days">最近 30 天</string>
+    <string name="common_medical_disclaimer">MigraTrack 是日记，不是医疗建议。更改治疗前，请咨询医生。</string>
+    <string name="common_log_migraine_episode">记录偏头痛发作</string>
+    <string name="common_save_episode">保存</string>
+    <string name="common_edit_episode">编辑发作</string>
+    <string name="common_delete_episode">删除发作</string>
+    <string name="common_intensity_of_ten">强度 %1$s/10</string>
+    <string name="common_date_at_time">%1$s %2$s</string>
+    <string name="common_possible_triggers">可能的诱因</string>
+    <string name="common_add_trigger">添加诱因</string>
+    <string name="common_add_medication">添加药物</string>
+    <string name="common_treatment_blueprint">治疗方案</string>
+    <string name="common_medication_name_and_dose">请输入名称和剂量。</string>
+    <string name="common_medication_placeholder">例如：依来曲普坦 40&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">概览</string>
+    <string name="tab_log">记录</string>
+    <string name="tab_insights">分析</string>
+    <string name="tab_export">导出</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">疼痛强度</string>
+    <string name="pain_scale_value">%1$s/10</string>
+    <string name="pain_scale_low">%1$s 轻微</string>
+    <string name="pain_scale_middle">%1$s 明显</string>
+    <string name="pain_scale_high">%1$s 无法活动</string>
+    <string name="medication_remove">移除%1$s</string>
+    <string name="duration_minutes">%1$s 分钟</string>
+    <string name="duration_hours_minutes">%1$s 小时 %2$s 分钟</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">今天，%1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">/ %1$s 个记录日</item>
+    </plurals>
+    <string name="summary_without_logged_episode">无发作记录</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">最近 30 天的 %2$s 个记录日中，有 %1$s 天无发作记录</item>
+    </plurals>
+    <string name="summary_tracking_start_note">从您开始记录的那天算起。此前的日子不计入。</string>
+    <string name="strip_legend_migraine">偏头痛</string>
+    <string name="strip_legend_pain_free">无痛</string>
+    <string name="strip_legend_not_tracked">未记录</string>
+    <string name="summary_sleep_last_night">昨晚睡眠</string>
+    <string name="summary_sleep_not_recorded">无记录</string>
+    <string name="summary_sleep_hint">请戴着 Apple Watch 睡觉，或在“健康”App 中记录睡眠。如果您关闭了访问权限，请在“设置”›“健康”中开启。</string>
+    <string name="summary_sleep_caption">睡眠</string>
+    <string name="summary_sleep_connect_title">在概览中查看昨晚的睡眠</string>
+    <string name="summary_sleep_connect_body">MigraTrack 从 Apple 健康读取昨晚的睡眠数据。数据仅保存在这台 iPhone 上。</string>
+    <string name="summary_sleep_connect_button">连接 Apple 健康</string>
+    <string name="summary_last_episode">上次发作</string>
+    <string name="summary_last_episode_none">暂无</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">记录发作</string>
+    <string name="episode_update">更新发作</string>
+    <string name="episode_updated_banner">发作已更新。</string>
+    <string name="episode_deleted_banner">发作已删除。</string>
+    <string name="episode_saved_banner">发作已保存。请好好休息，待在光线柔和的地方。</string>
+    <string name="episode_pain_intensity_index">疼痛强度指数</string>
+    <string name="episode_cranial_epicenter">疼痛部位</string>
+    <string name="episode_aura_symptoms">先兆和感觉症状</string>
+    <string name="episode_acute_therapy">急性期治疗</string>
+    <string name="episode_add_medication_row">添加药物 / 补液电解质</string>
+    <string name="episode_start">发作开始</string>
+    <string name="episode_start_now">现在</string>
+    <string name="episode_add_trigger_message">这次发作之前发生了什么？</string>
+    <string name="episode_other_trigger_action">其他诱因…</string>
+    <string name="episode_other_trigger_title">其他诱因</string>
+    <string name="episode_other_trigger_message">请写下这次发作之前发生的事情。</string>
+    <string name="episode_other_trigger_placeholder">例如：浓烈的香水</string>
+    <string name="episode_add_medication_message">这次发作您用了什么药？</string>
+    <string name="episode_other_medication_action">其他药物…</string>
+    <string name="episode_other_medication_title">其他药物</string>
+    <string name="episode_missing_title">发作已删除</string>
+    <string name="episode_missing_message">这次发作已在另一台设备上删除，因此无法保存更改。</string>
+    <string name="episode_delete_message">强度 %1$s/10。这次发作将从您的历史记录和报告中移除。</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">周</string>
+    <string name="insights_period_month">月</string>
+    <string name="insights_period_six_months">6个月</string>
+    <string name="insights_period_year">年</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">次发作（本周）</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">次发作（%1$s 那一周）</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">次发作（%1$s）</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">次发作（近 6 个月）</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">次发作（%1$s 年）</item>
+    </plurals>
+    <string name="insights_trend_fewer">发作比上一时段减少百分之 %1$s</string>
+    <string name="insights_trend_more">发作比上一时段增加百分之 %1$s</string>
+    <string name="insights_legend_migraine_day">偏头痛日</string>
+    <string name="insights_legend_pain_free_day">无痛日</string>
+    <string name="insights_legend_not_tracked">未记录</string>
+    <string name="insights_bar_no_data">%1$s：暂无数据</string>
+    <string name="insights_bar_not_tracked">%1$s：未记录</string>
+    <string name="insights_bar_pain_free">%1$s：无痛</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s：%2$s 个偏头痛日，最高 %3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">记录或编辑发作时，请记下可能的诱因。之后，此卡片会显示每个诱因被记下的次数。</string>
+    <string name="insights_triggers_hint">您在发作时记下每个诱因的次数。这并不说明它就是病因。</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s，在 %3$s 次发作中记下 %2$s 次</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">日历，%1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$s 有 %2$s 次发作。</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · 强度 %2$s/10</string>
+    <string name="insights_month_picker_title">月份</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">上个月</string>
+    <string name="calendar_next_month">下个月</string>
+    <string name="calendar_choose_month_a11y">%1$s，选择其他月份</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">%1$s 个偏头痛日</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s，%2$s</string>
+    <string name="calendar_day_today_a11y">今天，%1$s，%2$s</string>
+    <string name="calendar_day_not_available">不可用</string>
+    <string name="calendar_day_not_tracked">未记录</string>
+    <string name="calendar_day_no_episodes">无发作</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">%1$s 次发作，最高 %2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">%1$s 次发作</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">最高强度</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">药物</string>
+    <string name="calendar_edit_episode_details">编辑发作详情</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">正在准备 PDF…</string>
+    <string name="export_preparing_excel">正在准备 Excel…</string>
+    <string name="export_preparing_report">正在准备报告…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">次发作</item>
+    </plurals>
+    <string name="export_episodes_recorded">已记录的发作</string>
+    <string name="export_include">导出内容</string>
+    <string name="export_medications">用药记录</string>
+    <string name="export_medications_subtitle">剂量和用药总数</string>
+    <string name="export_symptoms">先兆和预警症状</string>
+    <string name="export_symptoms_subtitle">先兆类型及其频率</string>
+    <string name="export_triggers_subtitle">记下的诱因及其频率</string>
+    <string name="export_pain_charts">疼痛强度图表</string>
+    <string name="export_pain_charts_subtitle">疼痛强度时间线，1&#8288;–&#8288;10</string>
+    <string name="export_pdf">导出 PDF 报告</string>
+    <string name="export_excel">导出为 Excel (.xlsx)</string>
+    <string name="export_share">共享</string>
+    <string name="export_range_title">报告范围</string>
+    <plurals name="export_share_text">
+        <item quantity="other">MigraTrack 报告：%1$s 次发作，%2$s。</item>
+    </plurals>
+    <string name="export_failed_title">导出失败</string>
+    <string name="export_failed_message">无法生成报告。</string>
+    <string name="export_write_failed">无法写入 %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">%1$s 个已知诱因</item>
+    </plurals>
+    <string name="settings_no_triggers">未选择诱因</string>
+    <string name="settings_no_medications">未选择药物</string>
+    <string name="settings_name_title">您的姓名</string>
+    <string name="settings_name_message">它会显示在您导出的报告上。</string>
+    <string name="settings_name_placeholder">姓名</string>
+    <string name="settings_delete_title">删除所有数据？</string>
+    <string name="settings_delete_message">MigraTrack 将您的数据保存在这台 iPhone 上，并在 Apple Watch 上保留一份副本。此操作将永久删除所有发作和您的基线资料；手表会在下次同步时删除其副本。设备备份中的副本仍会保留。如有需要，请先导出报告。</string>
+    <string name="settings_delete_all">删除所有数据</string>
+    <string name="settings_section_baseline">临床基线和方案</string>
+    <string name="settings_baseline_diagnoses">基线诊断</string>
+    <string name="settings_known_triggers">已知诱因</string>
+    <string name="settings_section_preferences">偏好设置</string>
+    <string name="settings_appearance">外观</string>
+    <string name="settings_appearance_value">深色（固定）</string>
+    <string name="settings_version">版本</string>
+    <string name="settings_version_value">v%1$s（版本号 %2$s）</string>
+    <string name="settings_section_legal">法律信息</string>
+    <string name="settings_section_developer">开发者</string>
+    <string name="settings_load_sample_data">载入示例数据</string>
+    <string name="settings_load_sample_data_subtitle">添加一年的生成发作，用于预览图表</string>
+    <string name="settings_edit_name_a11y">编辑姓名</string>
+    <string name="settings_add_name">添加您的姓名</string>
+    <string name="settings_member">开始日期</string>
+    <string name="settings_episodes">发作</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">已记录 %1$s 次</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">隐私政策</string>
+    <string name="legal_terms_of_service">服务条款</string>
+    <string name="legal_folder">zh-Hans</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">继续：诱因</string>
+    <string name="onboarding_continue_to_medications">继续：药物</string>
+    <string name="onboarding_finish_setup">完成设置</string>
+    <string name="onboarding_back_to_diagnoses">返回诊断</string>
+    <string name="onboarding_back_to_triggers">返回诱因</string>
+    <string name="onboarding_save_changes">保存更改</string>
+    <string name="onboarding_step">第 %1$s/%2$s 步</string>
+    <string name="onboarding_diagnoses_title">诊断和病史</string>
+    <string name="onboarding_diagnoses_subtitle">设置您的基线资料。您的发作记录和报告都以它为基础。</string>
+    <string name="onboarding_primary_diagnosis">主要诊断</string>
+    <string name="onboarding_episode_frequency">每月发作频率</string>
+    <string name="onboarding_episode_duration">通常发作时长</string>
+    <string name="onboarding_intensity_baseline">通常疼痛强度基线</string>
+    <string name="onboarding_update_later">您可以随时在“设置”中更新基线资料。</string>
+    <string name="onboarding_triggers_title">您的诱因</string>
+    <string name="onboarding_triggers_subtitle">请选择已知或可疑的诱因。您的报告会为医生列出它们。</string>
+    <string name="onboarding_add_custom_trigger">添加自定义诱因</string>
+    <string name="onboarding_treatment_subtitle">请选择您使用的药物。急性期药物会自动填入每次新的发作，只需轻点一下即可记录。</string>
+    <string name="onboarding_add_custom_medication">添加自定义药物</string>
+    <string name="onboarding_custom_trigger_title">添加自定义诱因</string>
+    <string name="onboarding_custom_trigger_message">请写下容易引发您偏头痛的事情。</string>
+    <string name="onboarding_custom_trigger_placeholder">例如：闪烁的灯光</string>
+    <string name="onboarding_medication_role_message">您什么时候用这种药？</string>
+    <string name="onboarding_medication_role_acute">发作时（急性期）</string>
+    <string name="onboarding_medication_role_preventive">每天（预防性）</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">个人偏头痛和诱因记录</string>
+    <string name="welcome_example">示例</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">个无痛日</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">示例：最近 30 天中有 %1$s 个无痛日</item>
+    </plurals>
+    <string name="welcome_headline_patterns">了解您的规律。</string>
+    <string name="welcome_headline_doctor">把事实带给医生。</string>
+    <string name="welcome_body">记录症状，发现可能的诱因，随时导出您的个人报告。</string>
+    <string name="welcome_get_started">开始使用</string>
+    <string name="welcome_agreement">继续即表示您同意%1$s和%2$s。</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">无先兆偏头痛</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">常见的偏头痛类型</string>
+    <string name="diagnosis_migraine_with_aura">有先兆偏头痛</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">视觉或感觉性局灶先兆</string>
+    <string name="diagnosis_chronic_migraine">慢性偏头痛</string>
+    <string name="diagnosis_chronic_migraine_subtitle">每月头痛 15 天或以上</string>
+    <string name="diagnosis_tension_type">紧张型头痛</string>
+    <string name="diagnosis_tension_type_subtitle">压迫性、紧箍样头痛</string>
+    <string name="diagnosis_cluster">丛集性头痛</string>
+    <string name="diagnosis_cluster_subtitle">严重的单侧眼眶部发作</string>
+    <string name="diagnosis_not_diagnosed">未确诊 / 观察中</string>
+    <string name="diagnosis_not_diagnosed_subtitle">观察症状的规律</string>
+    <string name="frequency_less_than_one">每月 &lt;1 次</string>
+    <string name="frequency_one_to_four">每月 1–4 次</string>
+    <string name="frequency_five_to_eight">每月 5–7 次</string>
+    <string name="frequency_eight_plus">每月 8+ 次</string>
+    <string name="duration_two_to_four">2–4 小时</string>
+    <string name="duration_four_to_twelve">4–12 小时</string>
+    <string name="duration_twelve_to_twenty_four">12–24小时</string>
+    <string name="duration_one_to_three_days">24–72小时</string>
+    <string name="region_left_temple">左太阳穴</string>
+    <string name="region_right_temple">右太阳穴</string>
+    <string name="region_frontal_brow">前额 / 眉部</string>
+    <string name="region_retro_orbital">眼眶后</string>
+    <string name="region_occipital_neck">枕部和颈部</string>
+    <string name="symptom_scintillating_scotoma">闪光暗点（视觉）</string>
+    <string name="symptom_scintillating_scotoma_short">视觉先兆</string>
+    <string name="symptom_neck_stiffness">颈部僵硬</string>
+    <string name="symptom_neck_stiffness_short">颈部僵硬</string>
+    <string name="symptom_photophobia">畏光（光线）</string>
+    <string name="symptom_photophobia_short">怕光</string>
+    <string name="symptom_nausea">恶心</string>
+    <string name="symptom_nausea_short">恶心</string>
+    <string name="symptom_phonophobia">畏声（声音）</string>
+    <string name="symptom_phonophobia_short">怕吵</string>
+    <string name="symptom_aphasia">失语 / 脑雾</string>
+    <string name="symptom_aphasia_short">脑雾</string>
+    <string name="symptom_paresthesia">麻刺感 / 感觉异常</string>
+    <string name="symptom_paresthesia_short">麻刺感</string>
+    <string name="trigger_category_weather_environment">天气和环境</string>
+    <string name="trigger_category_sleep_physical">睡眠和身体作息</string>
+    <string name="trigger_category_stress_emotions">压力和情绪</string>
+    <string name="trigger_category_hormonal">激素</string>
+    <string name="trigger_category_diet_consumption">饮食</string>
+    <string name="trigger_category_custom">自定义</string>
+    <string name="medication_role_acute">急性期 / 终止发作</string>
+    <string name="medication_role_preventive">预防药物和补充剂</string>
+    <string name="export_range_last_30_days">最近 30 天</string>
+    <string name="export_range_last_90_days">最近 90 天</string>
+    <string name="export_range_last_6_months">最近 6 个月</string>
+    <string name="export_range_last_12_months">最近 12 个月</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">气压下降</string>
+    <string name="trigger_barometric_pressure_description">天气锋面、海拔变化</string>
+    <string name="trigger_bright_light">强光和日光</string>
+    <string name="trigger_bright_light_description">眩光、频闪、畏光</string>
+    <string name="trigger_heat_humidity">酷热 / 潮湿</string>
+    <string name="trigger_heat_humidity_description">温度波动</string>
+    <string name="trigger_loud_noise">噪音</string>
+    <string name="trigger_loud_noise_description">畏声、突发巨响</string>
+    <string name="trigger_poor_sleep">睡眠差 / 不规律</string>
+    <string name="trigger_poor_sleep_description">睡眠不足、快速眼动睡眠缺乏</string>
+    <string name="trigger_dehydration">脱水</string>
+    <string name="trigger_dehydration_description">电解质流失</string>
+    <string name="trigger_skipped_meals">漏餐 / 禁食</string>
+    <string name="trigger_skipped_meals_description">低血糖阈值</string>
+    <string name="trigger_overexertion">体力透支</string>
+    <string name="trigger_overexertion_description">用力引起的血管负荷</string>
+    <string name="trigger_emotional_stress">情绪压力 / 压力后放松</string>
+    <string name="trigger_emotional_stress_description">下班后放松时的延迟反应</string>
+    <string name="trigger_screen_fatigue">屏幕疲劳</string>
+    <string name="trigger_screen_fatigue_description">蓝光过多、眼睛集合负担</string>
+    <string name="trigger_hormonal_cycle">激素变化 / 月经周期</string>
+    <string name="trigger_hormonal_cycle_description">每月周期波动</string>
+    <string name="trigger_caffeine">咖啡因戒断 / 过量</string>
+    <string name="trigger_caffeine_description">腺苷受体变化</string>
+    <string name="trigger_aged_cheese">陈年奶酪 / 酪胺</string>
+    <string name="trigger_aged_cheese_description">对发酵产生的胺类敏感</string>
+    <string name="trigger_alcohol">酒精 / 红酒</string>
+    <string name="trigger_alcohol_description">单宁、组胺</string>
+    <string name="trigger_sweeteners">人工甜味剂</string>
+    <string name="trigger_sweeteners_description">阿斯巴甜、三氯蔗糖</string>
+    <string name="trigger_custom_description">自定义诱因</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">布洛芬</string>
+    <string name="medication_ibuprofen_400_class">抗炎辅助用药</string>
+    <string name="medication_sumatriptan_50">舒马普坦</string>
+    <string name="medication_sumatriptan_50_class">曲普坦类，5-HT 受体激动剂</string>
+    <string name="medication_rizatriptan_10">利扎曲普坦</string>
+    <string name="medication_rizatriptan_10_class">曲普坦类，口崩片</string>
+    <string name="medication_naproxen_500">萘普生</string>
+    <string name="medication_naproxen_500_class">长效非甾体抗炎药</string>
+    <string name="medication_acetaminophen_1000">对乙酰氨基酚</string>
+    <string name="medication_acetaminophen_1000_class">镇痛药</string>
+    <string name="medication_ubrogepant_100">乌布吉泮</string>
+    <string name="medication_ubrogepant_100_class">吉泮类，CGRP 受体拮抗剂</string>
+    <string name="medication_metoclopramide_10">甲氧氯普胺</string>
+    <string name="medication_metoclopramide_10_class">止吐药</string>
+    <string name="medication_electrolytes">补液电解质</string>
+    <string name="medication_electrolytes_class">口服补液</string>
+    <string name="medication_riboflavin_400">核黄素</string>
+    <string name="medication_riboflavin_400_class">维生素 B2</string>
+    <string name="medication_magnesium_400">镁</string>
+    <string name="medication_magnesium_400_class">矿物质补充剂</string>
+    <string name="medication_propranolol_40">普萘洛尔</string>
+    <string name="medication_propranolol_40_class">β 受体阻滞剂</string>
+    <string name="medication_topiramate_50">托吡酯</string>
+    <string name="medication_topiramate_50_class">抗癫痫药</string>
+    <string name="medication_amitriptyline_10">阿米替林</string>
+    <string name="medication_amitriptyline_10_class">三环类抗抑郁药</string>
+    <string name="medication_erenumab_70">依瑞奈尤单抗</string>
+    <string name="medication_erenumab_70_class">CGRP 受体抗体，每月一次</string>
+    <string name="medication_custom_class">自定义药物</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">%1$s周</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%2$s中有 %1$s 次未记下诱因</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">%1$s 次发作</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">偏头痛临床报告</string>
+    <string name="report_page">MigraTrack · 第 %1$s 页</string>
+    <string name="report_patient">患者：%1$s</string>
+    <string name="report_range_with_title">%1$s（%2$s）</string>
+    <string name="report_generated">生成日期：%1$s</string>
+    <string name="report_disclaimer">数据由患者在 MigraTrack 中自行记录。本报告用于辅助而非替代临床评估。</string>
+    <string name="report_stat_episodes">已记录的发作</string>
+    <string name="report_stat_migraine_days">偏头痛日</string>
+    <string name="report_stat_pain_free_days">无痛日</string>
+    <string name="report_stat_average_intensity">平均强度 /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">从 %1$s 开始记录。此范围内更早的 %2$s 天没有记录，不计为无痛日。</item>
+    </plurals>
+    <string name="report_baseline_title">基线资料</string>
+    <string name="report_baseline_diagnoses">诊断</string>
+    <string name="report_baseline_frequency">每月频率</string>
+    <string name="report_baseline_duration">通常时长</string>
+    <string name="report_baseline_intensity">通常强度</string>
+    <string name="report_baseline_triggers">已知诱因</string>
+    <string name="report_baseline_treatments">治疗方案</string>
+    <string name="report_pain_chart_title">疼痛强度时间线（1&#8288;–&#8288;10）</string>
+    <string name="report_legend_mild">轻度 %1$s–%2$s</string>
+    <string name="report_legend_moderate">中度 %1$s–%2$s</string>
+    <string name="report_legend_severe">重度 %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">未记录</string>
+    <string name="report_medication_title">用药情况</string>
+    <string name="report_no_medications">此范围内没有用药记录。</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s 次</item>
+    </plurals>
+    <string name="report_symptoms_title">先兆和预警症状</string>
+    <string name="report_no_symptoms">此范围内没有先兆或感觉症状记录。</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">%2$s 次发作中 %1$s 次（%3$s）</item>
+    </plurals>
+    <string name="report_triggers_title">记下的可能诱因</string>
+    <string name="report_no_triggers">此范围内没有记下诱因。</string>
+    <string name="report_triggers_note">计数表示患者在发作时记下某个诱因的次数，并不说明病因。</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%2$s中有 %1$s 次未记下诱因。</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">%1$s 次发作</item>
+    </plurals>
+    <string name="report_episodes_title">发作</string>
+    <string name="report_no_episodes">此范围内没有发作记录。</string>
+    <string name="report_column_date_time">日期和时间</string>
+    <string name="report_column_pain">疼痛</string>
+    <string name="report_column_epicenter">疼痛部位</string>
+    <string name="report_column_symptoms">症状</string>
+    <string name="report_column_medications">药物</string>
+    <string name="report_column_triggers">诱因</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">未设置</string>
+    <string name="report_none">无</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">发作</string>
+    <string name="report_sheet_medications">药物</string>
+    <string name="report_sheet_daily_pain">每日疼痛</string>
+    <string name="report_sheet_profile">资料</string>
+    <string name="report_header_started">开始时间</string>
+    <string name="report_header_pain_intensity">疼痛强度（1–10）</string>
+    <string name="report_header_epicenter">疼痛部位</string>
+    <string name="report_header_symptoms">先兆和感觉症状</string>
+    <string name="report_header_medications">药物</string>
+    <string name="report_header_triggers">可能的诱因</string>
+    <string name="report_header_episode_started">发作开始时间</string>
+    <string name="report_header_medication">药物</string>
+    <string name="report_header_dose">剂量</string>
+    <string name="report_header_date">日期</string>
+    <string name="report_header_peak_pain">最高疼痛强度（1–10，0 = 无痛）</string>
+    <string name="report_header_day">日期类型</string>
+    <string name="report_header_field">项目</string>
+    <string name="report_header_value">值</string>
+    <string name="report_day_migraine">偏头痛</string>
+    <string name="report_day_pain_free">无痛</string>
+    <string name="report_day_not_tracked">未记录</string>
+    <string name="report_profile_patient">患者</string>
+    <string name="report_profile_range">报告范围</string>
+    <string name="report_profile_tracked_since">开始记录日期</string>
+    <string name="report_profile_diagnoses">诊断</string>
+    <string name="report_profile_frequency">每月频率</string>
+    <string name="report_profile_duration">通常时长</string>
+    <string name="report_profile_intensity">通常强度</string>
+    <string name="report_profile_triggers">已知诱因</string>
+    <string name="report_profile_treatments">治疗方案</string>
+    <string name="report_iso_range">%1$s 至 %2$s</string>
+</resources>

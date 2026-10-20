@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Japanese strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the polite desu/masu form, as Japanese iOS does; buttons and labels are short nouns or verbs.
+  The text uses full-width punctuation and no space between Japanese and Latin letters or digits.
+  Japanese has only the CLDR plural form "other".
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">戻る</string>
+    <string name="common_settings">設定</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="common_ok">OK</string>
+    <string name="common_save">保存</string>
+    <string name="common_add">追加</string>
+    <string name="common_next">次へ</string>
+    <string name="common_on">オン</string>
+    <string name="common_off">オフ</string>
+    <string name="common_clear">クリア</string>
+    <string name="common_none">なし</string>
+    <string name="common_today">今日</string>
+    <string name="common_not_set">未設定</string>
+    <string name="common_expanded">展開</string>
+    <string name="common_collapsed">折りたたみ</string>
+    <string name="common_last_30_days">過去30日間</string>
+    <string name="common_medical_disclaimer">MigraTrackは記録用の日記であり、医学的な助言ではありません。治療を変更する前に医師にご相談ください。</string>
+    <string name="common_log_migraine_episode">片頭痛発作を記録</string>
+    <string name="common_save_episode">保存</string>
+    <string name="common_edit_episode">発作を編集</string>
+    <string name="common_delete_episode">発作を削除</string>
+    <string name="common_intensity_of_ten">強さ %1$s/10</string>
+    <string name="common_date_at_time">%1$s %2$s</string>
+    <string name="common_possible_triggers">考えられる誘因</string>
+    <string name="common_add_trigger">誘因を追加</string>
+    <string name="common_add_medication">薬を追加</string>
+    <string name="common_treatment_blueprint">治療プラン</string>
+    <string name="common_medication_name_and_dose">名前と用量を入力してください。</string>
+    <string name="common_medication_placeholder">例：エレトリプタン 20&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">概要</string>
+    <string name="tab_log">記録</string>
+    <string name="tab_insights">分析</string>
+    <string name="tab_export">書き出し</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">痛みの強さ</string>
+    <string name="pain_scale_value">%1$s/10</string>
+    <string name="pain_scale_low">%1$s 軽い</string>
+    <string name="pain_scale_middle">%1$s はっきり</string>
+    <string name="pain_scale_high">%1$s 動けない</string>
+    <string name="medication_remove">%1$sを削除</string>
+    <string name="duration_minutes">%1$s分</string>
+    <string name="duration_hours_minutes">%1$s時間%2$s分</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">今日、%1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">/ 記録した%1$s日</item>
+    </plurals>
+    <string name="summary_without_logged_episode">発作の記録なし</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">過去30日間の記録した%2$s日のうち、%1$s日は発作の記録がありません</item>
+    </plurals>
+    <string name="summary_tracking_start_note">記録を始めた日から数えます。それより前の日は記録の対象外です。</string>
+    <string name="strip_legend_migraine">片頭痛</string>
+    <string name="strip_legend_pain_free">痛みなし</string>
+    <string name="strip_legend_not_tracked">記録なし</string>
+    <string name="summary_sleep_last_night">昨夜の睡眠</string>
+    <string name="summary_sleep_not_recorded">記録なし</string>
+    <string name="summary_sleep_hint">Apple Watchを着けて寝るか、ヘルスケアAppで睡眠を記録してください。アクセスをオフにした場合は、「設定」›「ヘルスケア」でオンにしてください。</string>
+    <string name="summary_sleep_caption">睡眠</string>
+    <string name="summary_sleep_connect_title">昨夜の睡眠を概要に表示</string>
+    <string name="summary_sleep_connect_body">MigraTrackはAppleのヘルスケアから昨夜の睡眠を読み取ります。データはこのiPhoneの中だけに保存されます。</string>
+    <string name="summary_sleep_connect_button">ヘルスケアに接続</string>
+    <string name="summary_last_episode">前回の発作</string>
+    <string name="summary_last_episode_none">まだありません</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">発作を記録</string>
+    <string name="episode_update">発作を更新</string>
+    <string name="episode_updated_banner">発作を更新しました。</string>
+    <string name="episode_deleted_banner">発作を削除しました。</string>
+    <string name="episode_saved_banner">発作を保存しました。無理をせず、暗めの場所で休んでください。</string>
+    <string name="episode_pain_intensity_index">痛みの強さ</string>
+    <string name="episode_cranial_epicenter">痛みの部位</string>
+    <string name="episode_aura_symptoms">前兆と感覚症状</string>
+    <string name="episode_acute_therapy">急性期治療</string>
+    <string name="episode_add_medication_row">薬 / 経口補水液を追加</string>
+    <string name="episode_start">発作の開始</string>
+    <string name="episode_start_now">今</string>
+    <string name="episode_add_trigger_message">この発作の前に何がありましたか？</string>
+    <string name="episode_other_trigger_action">その他の誘因…</string>
+    <string name="episode_other_trigger_title">その他の誘因</string>
+    <string name="episode_other_trigger_message">この発作の前にあったことを入力してください。</string>
+    <string name="episode_other_trigger_placeholder">例：強い香水</string>
+    <string name="episode_add_medication_message">この発作に何を使いましたか？</string>
+    <string name="episode_other_medication_action">その他の薬…</string>
+    <string name="episode_other_medication_title">その他の薬</string>
+    <string name="episode_missing_title">発作は削除済みです</string>
+    <string name="episode_missing_message">この発作は別のデバイスで削除されたため、変更を保存できません。</string>
+    <string name="episode_delete_message">強さ %1$s/10。この発作は履歴とレポートから削除されます。</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">週</string>
+    <string name="insights_period_month">月</string>
+    <string name="insights_period_six_months">6か月</string>
+    <string name="insights_period_year">年</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">回の発作（今週）</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">回の発作（%1$sの週）</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">回の発作（%1$s）</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">回の発作（過去6か月）</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">回の発作（%1$s年）</item>
+    </plurals>
+    <string name="insights_trend_fewer">発作は前の期間より%1$sパーセント減りました</string>
+    <string name="insights_trend_more">発作は前の期間より%1$sパーセント増えました</string>
+    <string name="insights_legend_migraine_day">片頭痛日</string>
+    <string name="insights_legend_pain_free_day">痛みのない日</string>
+    <string name="insights_legend_not_tracked">記録なし</string>
+    <string name="insights_bar_no_data">%1$s：まだデータがありません</string>
+    <string name="insights_bar_not_tracked">%1$s：記録なし</string>
+    <string name="insights_bar_pain_free">%1$s：痛みなし</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s：片頭痛日%2$s日、最大%3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">発作を記録または編集するときに、考えられる誘因を記録してください。このカードに、それぞれの誘因を記録した回数が表示されます。</string>
+    <string name="insights_triggers_hint">発作と一緒にそれぞれの誘因を記録した回数です。原因を示すものではありません。</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s、%3$s回の発作のうち%2$s回で記録</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">カレンダー、%1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$sの発作は%2$s回です。</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s・強さ %2$s/10</string>
+    <string name="insights_month_picker_title">月</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">前の月</string>
+    <string name="calendar_next_month">次の月</string>
+    <string name="calendar_choose_month_a11y">%1$s、ほかの月を選択</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">片頭痛日 %1$s日</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s、%2$s</string>
+    <string name="calendar_day_today_a11y">今日、%1$s、%2$s</string>
+    <string name="calendar_day_not_available">対象外</string>
+    <string name="calendar_day_not_tracked">記録なし</string>
+    <string name="calendar_day_no_episodes">発作なし</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">発作%1$s回、最大%2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">発作%1$s回</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s・%2$s</string>
+    <string name="calendar_peak_intensity">最大の強さ</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">薬</string>
+    <string name="calendar_edit_episode_details">発作の詳細を編集</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDFを準備中…</string>
+    <string name="export_preparing_excel">Excelを準備中…</string>
+    <string name="export_preparing_report">レポートを準備中…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">回の発作</item>
+    </plurals>
+    <string name="export_episodes_recorded">記録した発作</string>
+    <string name="export_include">書き出す内容</string>
+    <string name="export_medications">服薬</string>
+    <string name="export_medications_subtitle">用量と使用回数の合計</string>
+    <string name="export_symptoms">前兆と予兆症状</string>
+    <string name="export_symptoms_subtitle">前兆の種類と頻度</string>
+    <string name="export_triggers_subtitle">記録した誘因と頻度</string>
+    <string name="export_pain_charts">痛みの強さのグラフ</string>
+    <string name="export_pain_charts_subtitle">痛みの強さの推移、1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDFレポートを書き出す</string>
+    <string name="export_excel">Excel（.xlsx）で書き出す</string>
+    <string name="export_share">共有</string>
+    <string name="export_range_title">レポートの期間</string>
+    <plurals name="export_share_text">
+        <item quantity="other">MigraTrackレポート：発作%1$s回、%2$s。</item>
+    </plurals>
+    <string name="export_failed_title">書き出しに失敗しました</string>
+    <string name="export_failed_message">レポートを作成できませんでした。</string>
+    <string name="export_write_failed">%1$sを書き込めませんでした</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">既知の誘因 %1$s件</item>
+    </plurals>
+    <string name="settings_no_triggers">誘因が選択されていません</string>
+    <string name="settings_no_medications">薬が選択されていません</string>
+    <string name="settings_name_title">名前</string>
+    <string name="settings_name_message">書き出すレポートに表示されます。</string>
+    <string name="settings_name_placeholder">名前</string>
+    <string name="settings_delete_title">すべてのデータを削除しますか？</string>
+    <string name="settings_delete_message">MigraTrackはデータをこのiPhoneに保存し、Apple Watchにコピーを保存します。この操作で、すべての発作と基本プロフィールが完全に削除されます。Apple Watchは次回の同期でコピーを削除します。デバイスのバックアップにはコピーが残ります。必要な場合は、先にレポートを書き出してください。</string>
+    <string name="settings_delete_all">すべてのデータを削除</string>
+    <string name="settings_section_baseline">臨床的な基本情報と治療</string>
+    <string name="settings_baseline_diagnoses">基本の診断</string>
+    <string name="settings_known_triggers">既知の誘因</string>
+    <string name="settings_section_preferences">環境設定</string>
+    <string name="settings_appearance">外観モード</string>
+    <string name="settings_appearance_value">ダーク（固定）</string>
+    <string name="settings_version">バージョン</string>
+    <string name="settings_version_value">v%1$s（ビルド%2$s）</string>
+    <string name="settings_section_legal">法的情報</string>
+    <string name="settings_section_developer">デベロッパ</string>
+    <string name="settings_load_sample_data">サンプルデータを読み込む</string>
+    <string name="settings_load_sample_data_subtitle">グラフのプレビュー用に、生成した1年分の発作を追加します</string>
+    <string name="settings_edit_name_a11y">名前を編集</string>
+    <string name="settings_add_name">名前を追加</string>
+    <string name="settings_member">利用開始</string>
+    <string name="settings_episodes">発作</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">%1$s回記録</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">プライバシーポリシー</string>
+    <string name="legal_terms_of_service">利用規約</string>
+    <string name="legal_folder">ja</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">次へ：誘因</string>
+    <string name="onboarding_continue_to_medications">次へ：薬</string>
+    <string name="onboarding_finish_setup">設定を完了</string>
+    <string name="onboarding_back_to_diagnoses">診断に戻る</string>
+    <string name="onboarding_back_to_triggers">誘因に戻る</string>
+    <string name="onboarding_save_changes">変更を保存</string>
+    <string name="onboarding_step">ステップ %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">診断と病歴</string>
+    <string name="onboarding_diagnoses_subtitle">基本プロフィールを設定してください。発作の記録とレポートはここから始まります。</string>
+    <string name="onboarding_primary_diagnosis">主な診断</string>
+    <string name="onboarding_episode_frequency">1か月の発作回数</string>
+    <string name="onboarding_episode_duration">発作の通常の長さ</string>
+    <string name="onboarding_intensity_baseline">通常の痛みの強さ</string>
+    <string name="onboarding_update_later">基本プロフィールは「設定」でいつでも変更できます。</string>
+    <string name="onboarding_triggers_title">あなたの誘因</string>
+    <string name="onboarding_triggers_subtitle">わかっている誘因や疑わしい誘因を選択してください。レポートで医師に一覧を示します。</string>
+    <string name="onboarding_add_custom_trigger">カスタムの誘因を追加</string>
+    <string name="onboarding_treatment_subtitle">使っている薬を選択してください。急性期の薬は新しい発作に自動で入力されるので、1回タップするだけで記録できます。</string>
+    <string name="onboarding_add_custom_medication">カスタムの薬を追加</string>
+    <string name="onboarding_custom_trigger_title">カスタムの誘因を追加</string>
+    <string name="onboarding_custom_trigger_message">片頭痛のきっかけになりやすいものを入力してください。</string>
+    <string name="onboarding_custom_trigger_placeholder">例：点滅する光</string>
+    <string name="onboarding_medication_role_message">いつ使いますか？</string>
+    <string name="onboarding_medication_role_acute">発作のとき（急性期）</string>
+    <string name="onboarding_medication_role_preventive">毎日（予防）</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">片頭痛と誘因のパーソナル記録</string>
+    <string name="welcome_example">例</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">日は痛みなし</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">例：過去30日間で痛みのない日は%1$s日</item>
+    </plurals>
+    <string name="welcome_headline_patterns">自分のパターンを知る。</string>
+    <string name="welcome_headline_doctor">事実を医師に伝える。</string>
+    <string name="welcome_body">症状を記録して、考えられる誘因を見つけ、個人のレポートをいつでも書き出せます。</string>
+    <string name="welcome_get_started">はじめる</string>
+    <string name="welcome_agreement">続けると、%1$sと%2$sに同意したことになります。</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">前兆のない片頭痛</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">よくみられる片頭痛のタイプ</string>
+    <string name="diagnosis_migraine_with_aura">前兆のある片頭痛</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">視覚性または感覚性の局在性前兆</string>
+    <string name="diagnosis_chronic_migraine">慢性片頭痛</string>
+    <string name="diagnosis_chronic_migraine_subtitle">頭痛が月に15日以上</string>
+    <string name="diagnosis_tension_type">緊張型頭痛</string>
+    <string name="diagnosis_tension_type_subtitle">締めつけられるような頭痛</string>
+    <string name="diagnosis_cluster">群発頭痛</string>
+    <string name="diagnosis_cluster_subtitle">片側の眼窩部の激しい発作</string>
+    <string name="diagnosis_not_diagnosed">未診断 / 経過観察中</string>
+    <string name="diagnosis_not_diagnosed_subtitle">症状のパターンを観察中</string>
+    <string name="frequency_less_than_one">月1回未満</string>
+    <string name="frequency_one_to_four">月1–4回</string>
+    <string name="frequency_five_to_eight">月5–7回</string>
+    <string name="frequency_eight_plus">月8回以上</string>
+    <string name="duration_two_to_four">2–4時間</string>
+    <string name="duration_four_to_twelve">4–12時間</string>
+    <string name="duration_twelve_to_twenty_four">12–24時間</string>
+    <string name="duration_one_to_three_days">24–72時間</string>
+    <string name="region_left_temple">左こめかみ</string>
+    <string name="region_right_temple">右こめかみ</string>
+    <string name="region_frontal_brow">前頭部 / 眉</string>
+    <string name="region_retro_orbital">眼の奥</string>
+    <string name="region_occipital_neck">後頭部と首</string>
+    <string name="symptom_scintillating_scotoma">閃輝暗点（視覚）</string>
+    <string name="symptom_scintillating_scotoma_short">視覚の前兆</string>
+    <string name="symptom_neck_stiffness">首のこわばり</string>
+    <string name="symptom_neck_stiffness_short">首のこわばり</string>
+    <string name="symptom_photophobia">光過敏（光）</string>
+    <string name="symptom_photophobia_short">光</string>
+    <string name="symptom_nausea">悪心（吐き気）</string>
+    <string name="symptom_nausea_short">吐き気</string>
+    <string name="symptom_phonophobia">音過敏（音）</string>
+    <string name="symptom_phonophobia_short">音</string>
+    <string name="symptom_aphasia">失語 / ブレインフォグ</string>
+    <string name="symptom_aphasia_short">ブレインフォグ</string>
+    <string name="symptom_paresthesia">しびれ / 異常感覚</string>
+    <string name="symptom_paresthesia_short">しびれ</string>
+    <string name="trigger_category_weather_environment">天候と環境</string>
+    <string name="trigger_category_sleep_physical">睡眠と生活リズム</string>
+    <string name="trigger_category_stress_emotions">ストレスと感情</string>
+    <string name="trigger_category_hormonal">ホルモン</string>
+    <string name="trigger_category_diet_consumption">飲食</string>
+    <string name="trigger_category_custom">カスタム</string>
+    <string name="medication_role_acute">急性期治療薬</string>
+    <string name="medication_role_preventive">予防薬とサプリメント</string>
+    <string name="export_range_last_30_days">過去30日間</string>
+    <string name="export_range_last_90_days">過去90日間</string>
+    <string name="export_range_last_6_months">過去6か月間</string>
+    <string name="export_range_last_12_months">過去12か月間</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">気圧の低下</string>
+    <string name="trigger_barometric_pressure_description">前線の通過、高度の変化</string>
+    <string name="trigger_bright_light">まぶしい光と日光</string>
+    <string name="trigger_bright_light_description">ぎらつき、点滅、光過敏</string>
+    <string name="trigger_heat_humidity">猛暑 / 高い湿度</string>
+    <string name="trigger_heat_humidity_description">気温の変動</string>
+    <string name="trigger_loud_noise">大きな音</string>
+    <string name="trigger_loud_noise_description">音過敏、突然の大音量</string>
+    <string name="trigger_poor_sleep">睡眠不足 / 不規則な睡眠</string>
+    <string name="trigger_poor_sleep_description">寝不足の蓄積、レム睡眠の不足</string>
+    <string name="trigger_dehydration">脱水</string>
+    <string name="trigger_dehydration_description">電解質の不足</string>
+    <string name="trigger_skipped_meals">食事抜き / 絶食</string>
+    <string name="trigger_skipped_meals_description">低血糖のしきい値</string>
+    <string name="trigger_overexertion">身体の過労</string>
+    <string name="trigger_overexertion_description">運動による血管への負担</string>
+    <string name="trigger_emotional_stress">精神的ストレス / ストレスからの解放</string>
+    <string name="trigger_emotional_stress_description">仕事の後、気がゆるんだとき</string>
+    <string name="trigger_screen_fatigue">画面による疲れ</string>
+    <string name="trigger_screen_fatigue_description">ブルーライトの浴びすぎ、目の寄せの負担</string>
+    <string name="trigger_hormonal_cycle">ホルモンの変動 / 月経周期</string>
+    <string name="trigger_hormonal_cycle_description">月ごとの周期の変化</string>
+    <string name="trigger_caffeine">カフェインの離脱 / 過剰</string>
+    <string name="trigger_caffeine_description">アデノシン受容体の変化</string>
+    <string name="trigger_aged_cheese">熟成チーズ / チラミン</string>
+    <string name="trigger_aged_cheese_description">発酵食品のアミンへの過敏</string>
+    <string name="trigger_alcohol">アルコール / 赤ワイン</string>
+    <string name="trigger_alcohol_description">タンニン、ヒスタミン</string>
+    <string name="trigger_sweeteners">人工甘味料</string>
+    <string name="trigger_sweeteners_description">アスパルテーム、スクラロース</string>
+    <string name="trigger_custom_description">カスタムの誘因</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">イブプロフェン</string>
+    <string name="medication_ibuprofen_400_class">抗炎症の補助薬</string>
+    <string name="medication_sumatriptan_50">スマトリプタン</string>
+    <string name="medication_sumatriptan_50_class">トリプタン系、セロトニン受容体作動薬</string>
+    <string name="medication_rizatriptan_10">リザトリプタン</string>
+    <string name="medication_rizatriptan_10_class">トリプタン系、口腔内崩壊錠</string>
+    <string name="medication_naproxen_500">ナプロキセン</string>
+    <string name="medication_naproxen_500_class">長時間作用型NSAID</string>
+    <string name="medication_acetaminophen_1000">アセトアミノフェン</string>
+    <string name="medication_acetaminophen_1000_class">鎮痛薬</string>
+    <string name="medication_ubrogepant_100">ウブロゲパント</string>
+    <string name="medication_ubrogepant_100_class">ゲパント系、CGRP受容体拮抗薬</string>
+    <string name="medication_metoclopramide_10">メトクロプラミド</string>
+    <string name="medication_metoclopramide_10_class">制吐薬</string>
+    <string name="medication_electrolytes">経口補水液</string>
+    <string name="medication_electrolytes_class">経口補水</string>
+    <string name="medication_riboflavin_400">リボフラビン</string>
+    <string name="medication_riboflavin_400_class">ビタミンB2</string>
+    <string name="medication_magnesium_400">マグネシウム</string>
+    <string name="medication_magnesium_400_class">ミネラルサプリメント</string>
+    <string name="medication_propranolol_40">プロプラノロール</string>
+    <string name="medication_propranolol_40_class">β遮断薬</string>
+    <string name="medication_topiramate_50">トピラマート</string>
+    <string name="medication_topiramate_50_class">抗てんかん薬</string>
+    <string name="medication_amitriptyline_10">アミトリプチリン</string>
+    <string name="medication_amitriptyline_10_class">三環系抗うつ薬</string>
+    <string name="medication_erenumab_70">エレヌマブ</string>
+    <string name="medication_erenumab_70_class">抗CGRP受容体抗体、月1回</string>
+    <string name="medication_custom_class">カスタムの薬</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">%1$s週</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%2$sのうち%1$s回は誘因の記録なし</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">%1$s回の発作</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">片頭痛の臨床レポート</string>
+    <string name="report_page">MigraTrack・%1$sページ</string>
+    <string name="report_patient">患者：%1$s</string>
+    <string name="report_range_with_title">%1$s（%2$s）</string>
+    <string name="report_generated">作成日：%1$s</string>
+    <string name="report_disclaimer">MigraTrackに患者本人が記録したデータです。このレポートは臨床評価を補助するものであり、代わるものではありません。</string>
+    <string name="report_stat_episodes">記録した発作</string>
+    <string name="report_stat_migraine_days">片頭痛日</string>
+    <string name="report_stat_pain_free_days">痛みのない日</string>
+    <string name="report_stat_average_intensity">平均の強さ /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">記録の開始日は%1$sです。この期間のそれより前の%2$s日は記録がなく、痛みのない日として数えません。</item>
+    </plurals>
+    <string name="report_baseline_title">基本プロフィール</string>
+    <string name="report_baseline_diagnoses">診断</string>
+    <string name="report_baseline_frequency">1か月の頻度</string>
+    <string name="report_baseline_duration">通常の長さ</string>
+    <string name="report_baseline_intensity">通常の強さ</string>
+    <string name="report_baseline_triggers">既知の誘因</string>
+    <string name="report_baseline_treatments">治療プラン</string>
+    <string name="report_pain_chart_title">痛みの強さの推移（1&#8288;–&#8288;10）</string>
+    <string name="report_legend_mild">軽度 %1$s–%2$s</string>
+    <string name="report_legend_moderate">中等度 %1$s–%2$s</string>
+    <string name="report_legend_severe">重度 %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">記録なし</string>
+    <string name="report_medication_title">服薬状況</string>
+    <string name="report_no_medications">この期間に記録された服薬はありません。</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s回</item>
+    </plurals>
+    <string name="report_symptoms_title">前兆と予兆症状</string>
+    <string name="report_no_symptoms">この期間に記録された前兆や感覚症状はありません。</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">%2$s回の発作のうち%1$s回（%3$s）</item>
+    </plurals>
+    <string name="report_triggers_title">記録された考えられる誘因</string>
+    <string name="report_no_triggers">この期間に記録された誘因はありません。</string>
+    <string name="report_triggers_note">回数は、患者が発作と一緒にその誘因を記録した頻度です。原因を示すものではありません。</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%2$sのうち%1$s回は誘因の記録がありません。</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">%1$s回の発作</item>
+    </plurals>
+    <string name="report_episodes_title">発作</string>
+    <string name="report_no_episodes">この期間に記録された発作はありません。</string>
+    <string name="report_column_date_time">日時</string>
+    <string name="report_column_pain">痛み</string>
+    <string name="report_column_epicenter">痛みの部位</string>
+    <string name="report_column_symptoms">症状</string>
+    <string name="report_column_medications">薬</string>
+    <string name="report_column_triggers">誘因</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">未設定</string>
+    <string name="report_none">なし</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">発作</string>
+    <string name="report_sheet_medications">薬</string>
+    <string name="report_sheet_daily_pain">毎日の痛み</string>
+    <string name="report_sheet_profile">プロフィール</string>
+    <string name="report_header_started">開始日時</string>
+    <string name="report_header_pain_intensity">痛みの強さ（1–10）</string>
+    <string name="report_header_epicenter">痛みの部位</string>
+    <string name="report_header_symptoms">前兆と感覚症状</string>
+    <string name="report_header_medications">薬</string>
+    <string name="report_header_triggers">考えられる誘因</string>
+    <string name="report_header_episode_started">発作の開始日時</string>
+    <string name="report_header_medication">薬</string>
+    <string name="report_header_dose">用量</string>
+    <string name="report_header_date">日付</string>
+    <string name="report_header_peak_pain">最大の痛みの強さ（1–10、0 = 痛みなし）</string>
+    <string name="report_header_day">日の種類</string>
+    <string name="report_header_field">項目</string>
+    <string name="report_header_value">値</string>
+    <string name="report_day_migraine">片頭痛</string>
+    <string name="report_day_pain_free">痛みなし</string>
+    <string name="report_day_not_tracked">記録なし</string>
+    <string name="report_profile_patient">患者</string>
+    <string name="report_profile_range">レポートの期間</string>
+    <string name="report_profile_tracked_since">記録の開始日</string>
+    <string name="report_profile_diagnoses">診断</string>
+    <string name="report_profile_frequency">1か月の頻度</string>
+    <string name="report_profile_duration">通常の長さ</string>
+    <string name="report_profile_intensity">通常の強さ</string>
+    <string name="report_profile_triggers">既知の誘因</string>
+    <string name="report_profile_treatments">治療プラン</string>
+    <string name="report_iso_range">%1$s～%2$s</string>
+</resources>

@@ -14,6 +14,7 @@ import platform.Foundation.create
 import platform.UIKit.NSFontAttributeName
 import platform.UIKit.NSForegroundColorAttributeName
 import platform.UIKit.NSLineBreakByWordWrapping
+import platform.UIKit.NSLineBreakStrategyHangulWordPriority
 import platform.UIKit.NSMutableParagraphStyle
 import platform.UIKit.NSParagraphStyleAttributeName
 import platform.UIKit.NSStringDrawingUsesLineFragmentOrigin
@@ -104,6 +105,8 @@ private class UIKitCanvas(
         }
         val paragraph = NSMutableParagraphStyle().apply {
             setLineBreakMode(NSLineBreakByWordWrapping)
+            // Without it, Korean breaks inside a word ("수 / 마트립탄"); the strategy changes no other script.
+            setLineBreakStrategy(NSLineBreakStrategyHangulWordPriority)
             setAlignment(
                 when (style.align) {
                     // Natural follows the script of the text, so a mirrored layout needs the edges by name.

@@ -259,3 +259,48 @@ Languages: Vietnamese, Indonesian, Malay and Thai. Scope: the keys of the checkl
 - Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "default values for logging", as in batches 2–5.
 - Terms of Service, all four texts: not a medical device ("thiết bị y tế", "alat kesehatan", "peranti perubatan", "เครื่องมือแพทย์"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 7: Chinese (Simplified), Chinese (Traditional), Japanese, Korean (October 20, 2026)
+
+Languages: Chinese (Simplified), Chinese (Traditional), Japanese and Korean. Scope: the keys of the checklist, section 3, the Siri dialogs and watch strings, and `docs/legal/files/{zh-Hans,zh-Hant,ja,ko}/*.md`. All four languages have Siri phrases.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| zh-Hans | `settings_member` | "Time of joining" ("加入时间"): suggests an account | Member | "开始日期" (start date), as zh-Hant and batches 2–6 |
+| zh-Hans, zh-Hant, ja | `insights_bar_week` | "Week 1" ("第1周"): 4 characters by the count of the build | W1 | "1周", "1週" (week 1); the limit is 3 |
+| zh-Hans | `insights_trend_fewer`, `insights_trend_more` | "%%" after the number: the first draft escaped the percent sign | 25 percent fewer episodes | The word for percent ("百分之"), as in the English source and the other languages |
+| ko | Every screen at the default text size, and the PDF table | Words split between two lines: "기록하 / 십시오" (please record), "의 / 사와" (with the doctor), "수 / 마트립탄" (sumatriptan) | — | Korean breaks lines at spaces. The code keeps each Korean word on one line: `keepKoreanWords` in `MtText` and on the welcome screen, and `NSLineBreakStrategyHangulWordPriority` in the PDF |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| zh-Hans, zh-Hant, ja, ko | `common_save_episode`, watch "Save Episode" | "Save" | Save Episode | 14 characters on the watch; the term pair makes the iPhone button equal. The owner approved it |
+| zh-Hans, zh-Hant, ja, ko | Watch and complication "Log Migraine" | "Record migraine" | Log Migraine | The owner approved it |
+| zh-Hans, zh-Hant, ja, ko | Complication "LOG" | "Record" | LOG | 4 characters under a plus sign. The owner approved it |
+| zh-Hans, zh-Hant, ja, ko | `episode_cranial_epicenter`, `report_column_epicenter` | "Pain location" | Cranial Epicenter | The plain words of a patient; the four ICHD-3 editions have no term for "epicenter" |
+| zh-Hans, zh-Hant | `pain_scale_high` | "10 Cannot move about" ("无法活动") | 10 Disabling | The meaning of "disabling" for a headache: the pain stops normal activity |
+| ja | `pain_scale_high` | "10 Cannot move" ("動けない") | 10 Disabling | The same reason |
+| ko | `pain_scale_high` | "10 Daily life impossible" ("일상 불가") | 10 Disabling | The same reason |
+| zh-Hant | `symptom_phonophobia` | "Dislike of noise (sound)" ("怕吵") | Phonophobia (Sound) | The term of the Taiwanese ICHD-3 (TW1, p. 25), which is also the common word |
+| ja | `export_symptoms`, `report_symptoms_title` | "Aura and prodromal symptoms" ("前兆と予兆症状") | Aura & Warning Symptoms | "予兆" is the Japanese word for a warning sign before a migraine |
+| ja | `symptom_nausea` | "Nausea (feeling sick)" ("悪心（吐き気）") | Nausea | The ICHD-3 term and the common word, as the plan section 6.1 asks |
+| ko | `symptom_nausea` | "Nausea (queasiness)" ("구역(메스꺼움)") | Nausea | The same reason |
+| zh-Hans, zh-Hant, ja, ko | `settings_member` | "Start date", "Start of use" | Member | No account exists; the value is the first tracked month (as in batches 2–6) |
+| zh-Hans, zh-Hant | `region_retro_orbital` | "Behind the eye socket" | Retro-Orbital | The anatomic term in plain words |
+| ja, ko | Long sentences at the largest text size | Japanese "くだ / さい" on two lines; Chinese "“健 / 康”" | — | Chinese and Japanese break between any two characters; this is correct, and no line starts with closing punctuation |
+| zh-Hans, zh-Hant, ja | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with ", " | — | The code joins lists with ", " for every language. The Chinese and Japanese list mark "、" needs a change of the code and of every language; it is a follow-up |
+
+### No difference in meaning
+
+- Diagnoses (the terms of the four ICHD-3 editions), symptoms, regions, frequency chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit "mg" with a no-break space.
+- `common_medical_disclaimer`, for example Korean: "MigraTrack is a diary and not medical advice. Consult a doctor before you change the treatment."
+- `insights_triggers_hint`, for example Simplified Chinese: "How many times you noted each trigger at an episode. This does not mean that it is the cause."
+- `report_triggers_note`, for example Japanese: "The count is how often the patient recorded that trigger together with an episode. It does not show a cause."
+- `report_disclaimer`, for example Traditional Chinese: "Data recorded by the patient in MigraTrack. This report helps, and does not replace, the clinical assessment."
+- The other `report_*` keys, the Siri dialogs ("intensity 6 out of 10" comes back as "6 points out of 10" in Chinese and Korean), and the watch strings.
+- Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "recording preset", as in batches 2–6.
+- Terms of Service, all four texts: not a medical device ("医疗器械", "醫療器材", "医療機器", "의료기기"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.

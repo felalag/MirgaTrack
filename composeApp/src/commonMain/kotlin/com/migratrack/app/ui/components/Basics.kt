@@ -41,6 +41,7 @@ import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
+import com.migratrack.app.ui.keepKoreanWords
 import com.migratrack.app.ui.uppercaseInAppLanguage
 
 @Composable
@@ -55,7 +56,7 @@ fun MtText(
     autoSize: TextAutoSize? = null,
 ) {
     BasicText(
-        text = text,
+        text = remember(text) { text.keepKoreanWords() },
         modifier = modifier,
         style = style.merge(TextStyle(color = color, textAlign = textAlign)),
         maxLines = maxLines,

@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Chinese (Simplified), Chinese (Traditional), Japanese and Korean, October 20, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -895,3 +895,143 @@ Checked on October 19, 2026. A page number is the page of the PDF file.
 | Beta blocker | penyekat beta | **Not verified** | ยาปิดกั้นเบตา | **Not verified**; TH1, p. 63 writes "beta-blocker" |
 | Anticonvulsant | antikonvulsan | **Not verified** | ยากันชัก | **Not verified** |
 | Tricyclic antidepressant | antidepresan trisiklik | **Not verified** | ยาต้านซึมเศร้าชนิดไตรไซคลิก | **Not verified** |
+
+### East Asia: Chinese (Simplified), Chinese (Traditional), Japanese, Korean
+
+Chinese Simplified (`zh-Hans`), Chinese Traditional (`zh-Hant`), Japanese (`ja`) and Korean (`ko`). All four use the system font: PingFang SC, PingFang TC, Hiragino Sans and Apple SD Gothic Neo. The project owner approved the address, the word for episode, the medical disclaimer and the watch texts on October 20, 2026. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7). The reference countries are China mainland, Taiwan, Japan and South Korea. Plan section 6.1 picks Taiwan for `zh-Hant`: it has more people than Hong Kong and Macao, so users in Hong Kong also read the words of Taiwan (for example 乙醯胺酚, not 撲熱息痛).
+
+| Language | Address | Buttons and punctuation |
+|---|---|---|
+| zh-Hans | "您" where a pronoun is necessary | Verbs: "保存", "取消". Full-width punctuation; a space between Chinese and Latin letters or digits; quotation marks “” |
+| zh-Hant | "您" where a pronoun is necessary | Verbs: "儲存", "取消". Full-width punctuation; quotation marks 「」 |
+| ja | Polite desu/masu sentences; no pronoun | Nouns and verbs: "保存", "キャンセル". Full-width punctuation; no space between Japanese and Latin letters or digits |
+| ko | Formal polite style (합니다, requests with 하십시오) | Nouns: "저장", "취소". Korean spacing; a counter joins its number ("3회") |
+
+The four languages have one plural form. Chinese and Japanese break a line between any two characters, except before closing punctuation; this is correct for these languages. Korean breaks only at spaces: the app keeps each Korean word on one line in code (`keepKoreanWords` for Compose, `NSLineBreakStrategyHangulWordPriority` for the PDF).
+
+| Term | zh-Hans | zh-Hant | ja | ko |
+|---|---|---|---|---|
+| episode | 发作; counted with "次" ("3 次发作") | 發作; "3 次發作" | 発作; "発作3回" | 발작; "발작 3회" |
+| attack (App Store only) | 偏头痛发作 | 偏頭痛發作 | 片頭痛発作 | 편두통 발작 |
+| migraine | 偏头痛 | 偏頭痛 | 片頭痛 | 편두통 |
+| log (verb) | 记录 | 記錄 (noun 紀錄) | 記録する | 기록하다 |
+| intensity | 强度; "强度 6/10" | 強度; "強度 6/10" | 強さ; "強さ 6/10" | 강도; "강도 6/10" |
+| migraine day | 偏头痛日 | 偏頭痛日 | 片頭痛日 | 편두통일 |
+| tracked day | 记录日 | 記錄日 | 記録した日 | 기록한 날 ("기록한 30일") |
+| pain-free day | 无痛日 | 無痛日 | 痛みのない日 | 통증 없는 날 |
+| not tracked | 未记录 | 未記錄 | 記録なし | 기록 안 함 |
+| trigger | 诱因 | 誘發因子 | 誘因 | 유발 요인 |
+| possible trigger | 可能的诱因 | 可能的誘發因子 | 考えられる誘因 | 가능한 유발 요인 |
+| aura | 先兆 | 預兆 | 前兆 | 조짐 |
+| acute medication | 急性期药物 | 急性期藥物 | 急性期治療薬 | 급성기 치료제 |
+| preventive medication | 预防药物 | 預防藥物 | 予防薬 | 예방 치료제 |
+| treatment blueprint | 治疗方案 | 治療計畫 | 治療プラン | 치료 계획 |
+| baseline profile | 基线资料 | 基本資料 | 基本プロフィール | 기본 프로필 |
+| report | 报告 | 報告 | レポート | 보고서 |
+| Health app | “健康” | 「健康」 | ヘルスケア | 건강 앱 |
+| Settings (iOS) | 设置 | 設定 | 設定 | 설정 |
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "记录偏头痛", "記錄偏頭痛", "片頭痛を記録", "편두통 기록". "Save Episode" = "保存", "儲存", "保存", "저장". The round complication "LOG" (4 characters) = "记录", "記錄", "記録", "기록" (record).
+
+#### Sources of the East Asian terms
+
+Checked on October 20, 2026. A page number is the page of the PDF file.
+
+- **[ZH1]** ICHD-3 beta, Chinese (Simplified) translation: [3349_ichd-3-chinese.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3349_ichd-3-chinese.pdf) on the IHS website. It is the translation of the beta version; the terms of the final ICHD-3 are the same.
+- **[ZH2]** 中国偏头痛诊治指南（2022版） (Chinese guideline for the diagnosis and treatment of migraine, 2022), Chinese Medical Doctor Association, neurology branch, and the headache committee of the Chinese Research Hospital Association, Chinese Journal of Pain Medicine 2022;28(12). Read in the reprint on [cn-healthcare.com](https://www.cn-healthcare.com/articlewm/20230128/content-1502901.html) (January 28, 2023), which has no page numbers. The NMPA register was **not searched**.
+- **[TW1]** ICHD-3, Traditional Chinese translation of the Taiwan Headache Society: [ICHD-3_Mandarin-Traditional-Chinese.pdf](https://ihs-headache.org/wp-content/uploads/2026/09/ICHD-3_Mandarin-Traditional-Chinese.pdf) on the IHS website (uploaded September 2026).
+- **[TW2]** TFDA open data, dataset 36 "全部藥品許可證資料集" (all drug licences), [data.fda.gov.tw](https://data.fda.gov.tw/), file of October 15, 2026, 26,374 licences that are not cancelled. Most product names are brands; the local name of the active substance comes from the generic names in brackets, for example "（乙醯胺酚）". No guideline of the Taiwan Headache Society was found as free text.
+- **[JA1]** ICHD-3, Japanese translation of the Japanese Headache Society: [3652_ichd-3-japanese.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3652_ichd-3-japanese.pdf).
+- **[JA2]** 頭痛の診療ガイドライン2021 (clinical practice guideline for headache 2021), Japanese Society of Neurology, Japanese Headache Society and Japanese Society of Neurological Therapeutics: [PDF](https://neurology-jp.org/guidelinem/pdf/headache_medical_2021.pdf). The PMDA register was **not searched**.
+- **[KO1]** ICHD-3, Korean translation of the Korean Headache Society: [3334_ichd-3-korean.pdf](https://ihs-headache.org/wp-content/uploads/2020/05/3334_ichd-3-korean.pdf).
+- **[KO2]** Korea Pharmaceutical Information Center, 약물백과 "편두통약" (drug encyclopedia, migraine drugs): [PDF](https://common.health.kr/shared/healthkr/pharmreview/%EC%95%BD%EB%AC%BC%EB%B0%B1%EA%B3%BC_%ED%8E%B8%EB%91%90%ED%86%B5%EC%95%BD.pdf). No Korean migraine guideline was found as free text, and the MFDS register (nedrug.mfds.go.kr) was **not searched**.
+
+#### Medical terms: Chinese (Simplified), Chinese (Traditional)
+
+| Term | zh-Hans | Source (zh-Hans) | zh-Hant | Source (zh-Hant) |
+|---|---|---|---|---|
+| Migraine without aura | 无先兆偏头痛 | ZH1, 1.1, p. 12 | 無預兆偏頭痛 | TW1, 1.1, p. 10 |
+| Migraine with aura | 有先兆偏头痛 | ZH1, 1.2, p. 7 | 有預兆偏頭痛 | TW1, 1.2, p. 10 |
+| Chronic migraine | 慢性偏头痛 | ZH1, 1.3, p. 7 | 慢性偏頭痛 | TW1, 1.3, p. 10 |
+| Tension-type headache | 紧张型头痛 | ZH1, 2, p. 6 | 緊縮型頭痛 | TW1, 2, p. 2 |
+| Cluster headache | 丛集性头痛 | ZH1, 3.1, p. 7 | 叢發性頭痛 | TW1, 3.1, p. 3 |
+| attack | 发作 ("偏头痛发作") | ZH1, p. 7; 24 times in ZH1 | 發作 ("偏頭痛發作") | TW1, p. 25 |
+| Photophobia | 畏光 | ZH1, p. 26 | 畏光 | TW1, p. 25 |
+| Phonophobia | 畏声 | ZH1, p. 26 | 怕吵 | TW1, p. 25 ("畏光及怕吵") |
+| Scintillating scotoma | 闪光暗点 | ZH1, p. 95 | 閃輝暗點 | TW1, p. 27 |
+| Nausea | 恶心 | ZH1, p. 26 | 噁心 | TW1, p. 25 |
+| Aphasia | 失语 | ZH1, p. 27 | 失語 | TW1, p. 26 |
+| Paresthesia | 麻刺感 / 感觉异常 | ZH1, p. 28 | 麻刺感 / 感覺異常 | TW1, p. 26 ("麻刺感"), p. 64 |
+| Neck stiffness | 颈部僵硬 | ZH1, p. 26 ("颈部僵硬感") | 頸部僵硬 | TW1, p. 25 |
+| Migraine day | 偏头痛日 | **Not verified** | 偏頭痛日 | **Not verified** |
+| Acute treatment | 急性期治疗 | ZH2 ("急性期治疗") | 急性期治療 | **Not verified** |
+| Preventive treatment | 预防性治疗 | ZH2 ("预防性治疗") | 預防性治療 | **Not verified** |
+| Trigger | 诱因 | ZH2 ("诱因", "诱发因素"); ZH1, p. 67 | 誘發因子 | TW1, p. 156 |
+| Aura | 先兆 | ZH1 (374 times) | 預兆 | TW1 (327 times) |
+| Dose unit | mg | ZH2 | mg | TW2 ("毫克" in product names; the app keeps "mg", as the dose field of the licences does) |
+
+| Medication (class) | zh-Hans | Source (zh-Hans) | zh-Hant | Source (zh-Hant) |
+|---|---|---|---|---|
+| Ibuprofen | 布洛芬 | ZH2 | 布洛芬 | TW2 ("布洛芬注射液"; also "異布洛芬") |
+| Sumatriptan | 舒马普坦 | ZH2 | 舒馬普坦 | **Not verified**; TW2 lists only the brand 英明格 |
+| Rizatriptan | 利扎曲普坦 | ZH2 | 利扎炊坦 | TW2 ("利扎炊坦苯甲酸鹽") |
+| Naproxen | 萘普生 | ZH2 | 那普洛先 | TW2 ("（那普洛先）") |
+| Acetaminophen | 对乙酰氨基酚 | ZH2 | 乙醯胺酚 | TW2 ("（乙醯胺酚）", 70 licences); TW1 |
+| Ubrogepant | 乌布吉泮 | ZH2 | 烏布吉泮 | Not in TW2: **no licence in Taiwan**; INN in Chinese characters after the zh-Hans name |
+| Metoclopramide | 甲氧氯普胺 | ZH2 | 美托拉麥 | TW2 ("（美托拉麥）") |
+| Riboflavin | 核黄素 | ZH2 | 核黃素 | TW2 ("核黃素－5－磷酸鈉") |
+| Magnesium | 镁 | ZH2 ("镁剂") | 鎂 | TW2 ("氧化鎂") |
+| Propranolol | 普萘洛尔 | ZH2 | 普潘奈 | TW2 ("（普潘奈）") |
+| Topiramate | 托吡酯 | ZH2 | 托必拉美 | TW2 ("托必拉美") |
+| Amitriptyline | 阿米替林 | ZH2 | 阿米替林 | **Not verified**; TW2 has only the chemical name "二苯環庚丙胺" |
+| Erenumab | 依瑞奈尤单抗 | ZH2 | 依瑞奈尤單抗 | Not in TW2: **no licence found**; zh-Hans name in Traditional characters |
+| NSAID | 非甾体抗炎药 | **Not verified** | 非類固醇消炎止痛藥 | **Not verified** |
+| Triptan | 曲普坦类 | **Not verified** | 翠普登類 | TW1 ("翠普登 (triptan)") |
+| Beta blocker | β 受体阻滞剂 | **Not verified** | 乙型阻斷劑 | **Not verified** |
+| Anticonvulsant | 抗癫痫药 | **Not verified** | 抗癲癇藥 | **Not verified** |
+| Tricyclic antidepressant | 三环类抗抑郁药 | **Not verified** | 三環抗憂鬱劑 | **Not verified** |
+
+#### Medical terms: Japanese, Korean
+
+| Term | Japanese | Source (ja) | Korean | Source (ko) |
+|---|---|---|---|---|
+| Migraine without aura | 前兆のない片頭痛 | JA1, 1.1, p. 15 | 무조짐편두통 | KO1, 1.1, p. 6 |
+| Migraine with aura | 前兆のある片頭痛 | JA1, 1.2, p. 64 | 조짐편두통 | KO1, 1.2, p. 5 |
+| Chronic migraine | 慢性片頭痛 | JA1, 1.3, p. 66 | 만성편두통 | KO1, 1.3, p. 5 |
+| Tension-type headache | 緊張型頭痛 | JA1, p. 9 | 긴장형두통 | KO1, 2, p. 6 |
+| Cluster headache | 群発頭痛 | JA1, p. 14 | 군발두통 | KO1, 3.1, p. 5 |
+| attack | 発作 ("片頭痛発作") | JA1, p. 17; 40 times in JA1 | 발작 ("편두통 발작") | KO1, p. 28; KO2, p. 1 |
+| Photophobia | 光過敏 | JA1, p. 23 | 빛공포증 | KO1, p. 28 |
+| Phonophobia | 音過敏 | JA1, p. 23 | 소리공포증 | KO1, p. 28 |
+| Scintillating scotoma | 閃輝暗点 | JA1, p. 17 | 섬광암점 | KO1, p. 30 |
+| Nausea | 悪心 (common word 吐き気) | JA1, p. 23 | 구역 (common word 메스꺼움) | KO1, p. 28 |
+| Aphasia | 失語 | JA1, p. 53 | 실어증 | KO1, p. 29 |
+| Paresthesia | しびれ / 異常感覚 | JA1, p. 91 ("異常感覚") | 저림 / 감각이상 | KO1, p. 29 |
+| Neck stiffness | 首のこわばり | **Not verified** | 목 경직 | KO1, p. 28 ("경부경직"); the app uses the common word for the neck |
+| Migraine day | 片頭痛日 | **Not verified** | 편두통일 | **Not verified** |
+| Acute treatment | 急性期治療 | JA2 | 급성기 치료 | KO2, p. 1 ("급성 편두통 약물") |
+| Preventive treatment | 予防 | JA2 | 예방 치료 | KO2, p. 1 ("편두통 예방 약물") |
+| Trigger | 誘因 | JA1, p. 188; JA1, p. 186 has "誘発因子" | 유발 요인 | KO1, p. 86 |
+| Aura | 前兆 | JA1, p. 15 | 조짐 | KO1 (356 times) |
+| Dose unit | mg | JA2, p. 54 ("400 mg") | mg | KO2 |
+
+| Medication (class) | Japanese | Source (ja) | Korean | Source (ko) |
+|---|---|---|---|---|
+| Ibuprofen | イブプロフェン | JA2, p. 54 | 이부프로펜 | KO2, p. 3 |
+| Sumatriptan | スマトリプタン | JA2, p. 47 | 수마트립탄 | KO2, p. 2 |
+| Rizatriptan | リザトリプタン | JA2, p. 151 | 리자트립탄 | **Not verified** |
+| Naproxen | ナプロキセン | JA2, p. 152 | 나프록센 | KO2, p. 3 |
+| Acetaminophen | アセトアミノフェン | JA2, p. 13 | 아세트아미노펜 | KO2, p. 3 |
+| Ubrogepant | ウブロゲパント | Not in JA2: **no approval in Japan known**; INN in katakana | 우브로게판트 | **Not verified**; registration unknown; INN in Hangul |
+| Metoclopramide | メトクロプラミド | JA2, p. 151 | 메토클로프라미드 | **Not verified** |
+| Riboflavin | リボフラビン | JA2, p. 14 | 리보플라빈 | **Not verified** |
+| Magnesium | マグネシウム | JA2, p. 14 | 마그네슘 | **Not verified** |
+| Propranolol | プロプラノロール | JA2, p. 13 | 프로프라놀롤 | **Not verified** |
+| Topiramate | トピラマート | JA2, p. 136 | 토피라메이트 | KO2, p. 3 |
+| Amitriptyline | アミトリプチリン | JA2, p. 14 | 아미트립틸린 | **Not verified** |
+| Erenumab | エレヌマブ | JA2, p. 213 | 에레누맙 | **Not verified** |
+| NSAID | NSAID (非ステロイド性抗炎症薬) | JA2, p. 13 | NSAID (비스테로이드성 소염진통제) | KO2, p. 3 |
+| Triptan | トリプタン系 | JA2, p. 151 | 트립탄계 | KO2, p. 2 ("트립탄제") |
+| Beta blocker | β遮断薬 | JA2, p. 13 | 베타 차단제 | **Not verified** |
+| Anticonvulsant | 抗てんかん薬 | JA2, p. 136 | 항경련제 | **Not verified** |
+| Tricyclic antidepressant | 三環系抗うつ薬 | **Not verified**; JA2, p. 14 has "抗うつ薬" | 삼환계 항우울제 | **Not verified** |

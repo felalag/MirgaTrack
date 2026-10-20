@@ -452,10 +452,22 @@
             "value" : "Senza dolore: %1$lld/%2$lld"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "痛みなし %1$lld/%2$lld日"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld/%2$lld күн ауырсынусыз"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통증 없음 %1$lld/%2$lld일"
           }
         },
         "lt" : {
@@ -879,6 +891,18 @@
             "state" : "translated",
             "value" : "%1$lld/%2$lld ngày không đau"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无痛 %1$lld/%2$lld 天"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無痛 %1$lld/%2$lld 天"
+          }
         }
       }
     },
@@ -981,10 +1005,22 @@
             "value" : "NOTA"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記録"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ЖАҢА"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "기록"
           }
         },
         "lt" : {
@@ -1081,6 +1117,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GHI"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄"
           }
         }
       }
@@ -1184,10 +1232,22 @@
             "value" : "Nuovo attacco"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "片頭痛を記録"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Жаңа ұстама"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "편두통 기록"
           }
         },
         "lt" : {
@@ -1284,6 +1344,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ghi cơn mới"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "记录偏头痛"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記錄偏頭痛"
           }
         }
       }
@@ -1387,10 +1459,22 @@
             "value" : "Apri su iPhone"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhoneでMigraTrackを開く"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "iPhone-да ашыңыз"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone에서 MigraTrack 열기"
           }
         },
         "lt" : {
@@ -1487,6 +1571,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mở MigraTrack trên iPhone"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 iPhone 上打开 MigraTrack"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 iPhone 上開啟 MigraTrack"
           }
         }
       }
@@ -1590,10 +1686,22 @@
             "value" : "Apre l’annotazione di un attacco."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発作の記録画面を開きます。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ұстаманы жазуды ашады."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발작 기록 화면을 엽니다."
           }
         },
         "lt" : {
@@ -1690,6 +1798,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mở màn hình ghi cơn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开发作记录。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟發作記錄。"
           }
         }
       }
@@ -1793,10 +1913,22 @@
             "value" : "Apre l’annotazione di un attacco. Lo stile rettangolare mostra anche i suoi giorni senza dolore."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発作の記録画面を開きます。長方形のスタイルでは痛みのない日も表示されます。"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ұстаманы жазуды ашады. Тікбұрышты нұсқасы ауырсынусыз күндерді де көрсетеді."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "발작 기록 화면을 엽니다. 직사각형 스타일에는 통증 없는 날도 표시됩니다."
           }
         },
         "lt" : {
@@ -1893,6 +2025,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mở màn hình ghi cơn. Kiểu hình chữ nhật cũng hiển thị số ngày không đau của bạn."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开发作记录。矩形样式还会显示您的无痛日。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟發作記錄。矩形樣式也會顯示您的無痛日。"
           }
         }
       }
@@ -1996,10 +2140,22 @@
             "value" : "Giorni senza dolore –"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "痛みのない日 –"
+          }
+        },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ауырсынусыз –"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "통증 없는 날 –"
           }
         },
         "lt" : {
@@ -2096,6 +2252,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ngày không đau –"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无痛日 –"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無痛日 –"
           }
         }
       }

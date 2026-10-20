@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Korean strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Sentences use the formal polite style (합니다, requests with 하십시오), as Korean iOS system text does;
+  buttons and labels are short nouns. Spacing follows the Korean standard rules; a counter joins its number ("3회").
+  Korean has only the CLDR plural form "other".
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">뒤로</string>
+    <string name="common_settings">설정</string>
+    <string name="common_cancel">취소</string>
+    <string name="common_ok">확인</string>
+    <string name="common_save">저장</string>
+    <string name="common_add">추가</string>
+    <string name="common_next">다음</string>
+    <string name="common_on">켬</string>
+    <string name="common_off">끔</string>
+    <string name="common_clear">지우기</string>
+    <string name="common_none">없음</string>
+    <string name="common_today">오늘</string>
+    <string name="common_not_set">설정 안 됨</string>
+    <string name="common_expanded">펼쳐짐</string>
+    <string name="common_collapsed">접힘</string>
+    <string name="common_last_30_days">지난 30일</string>
+    <string name="common_medical_disclaimer">MigraTrack은 일지이며 의학적 조언이 아닙니다. 치료를 변경하기 전에 의사와 상담하십시오.</string>
+    <string name="common_log_migraine_episode">편두통 발작 기록</string>
+    <string name="common_save_episode">저장</string>
+    <string name="common_edit_episode">발작 편집</string>
+    <string name="common_delete_episode">발작 삭제</string>
+    <string name="common_intensity_of_ten">강도 %1$s/10</string>
+    <string name="common_date_at_time">%1$s %2$s</string>
+    <string name="common_possible_triggers">가능한 유발 요인</string>
+    <string name="common_add_trigger">유발 요인 추가</string>
+    <string name="common_add_medication">약 추가</string>
+    <string name="common_treatment_blueprint">치료 계획</string>
+    <string name="common_medication_name_and_dose">이름과 용량을 입력하십시오.</string>
+    <string name="common_medication_placeholder">예: 졸미트립탄 2.5&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">요약</string>
+    <string name="tab_log">기록</string>
+    <string name="tab_insights">분석</string>
+    <string name="tab_export">내보내기</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">통증 강도</string>
+    <string name="pain_scale_value">%1$s/10</string>
+    <string name="pain_scale_low">%1$s 약함</string>
+    <string name="pain_scale_middle">%1$s 뚜렷함</string>
+    <string name="pain_scale_high">%1$s 일상 불가</string>
+    <string name="medication_remove">%1$s 제거</string>
+    <string name="duration_minutes">%1$s분</string>
+    <string name="duration_hours_minutes">%1$s시간 %2$s분</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">오늘, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="other">/ 기록한 %1$s일</item>
+    </plurals>
+    <string name="summary_without_logged_episode">발작 기록 없음</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="other">지난 30일 중 기록한 %2$s일 가운데 %1$s일은 발작 기록이 없습니다</item>
+    </plurals>
+    <string name="summary_tracking_start_note">기록을 시작한 날부터 셉니다. 그 이전의 날은 기록 대상이 아닙니다.</string>
+    <string name="strip_legend_migraine">편두통</string>
+    <string name="strip_legend_pain_free">통증 없음</string>
+    <string name="strip_legend_not_tracked">기록 안 함</string>
+    <string name="summary_sleep_last_night">어젯밤 수면</string>
+    <string name="summary_sleep_not_recorded">기록 없음</string>
+    <string name="summary_sleep_hint">Apple Watch를 착용하고 잠자리에 들거나 건강 앱에서 수면을 기록하십시오. 접근을 끈 경우 설정 › 건강에서 켜십시오.</string>
+    <string name="summary_sleep_caption">수면</string>
+    <string name="summary_sleep_connect_title">요약에서 어젯밤 수면 보기</string>
+    <string name="summary_sleep_connect_body">MigraTrack은 Apple 건강에서 어젯밤 수면을 읽습니다. 데이터는 이 iPhone에만 저장됩니다.</string>
+    <string name="summary_sleep_connect_button">Apple 건강 연결</string>
+    <string name="summary_last_episode">마지막 발작</string>
+    <string name="summary_last_episode_none">아직 없음</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">발작 기록</string>
+    <string name="episode_update">발작 업데이트</string>
+    <string name="episode_updated_banner">발작을 업데이트했습니다.</string>
+    <string name="episode_deleted_banner">발작을 삭제했습니다.</string>
+    <string name="episode_saved_banner">발작을 저장했습니다. 무리하지 말고 어두운 곳에서 쉬십시오.</string>
+    <string name="episode_pain_intensity_index">통증 강도 지수</string>
+    <string name="episode_cranial_epicenter">통증 부위</string>
+    <string name="episode_aura_symptoms">조짐 및 감각 증상</string>
+    <string name="episode_acute_therapy">급성기 치료</string>
+    <string name="episode_add_medication_row">약 / 수분 보충 전해질 추가</string>
+    <string name="episode_start">발작 시작</string>
+    <string name="episode_start_now">지금</string>
+    <string name="episode_add_trigger_message">이번 발작 전에 무엇이 있었습니까?</string>
+    <string name="episode_other_trigger_action">기타 유발 요인…</string>
+    <string name="episode_other_trigger_title">기타 유발 요인</string>
+    <string name="episode_other_trigger_message">이번 발작 전에 있었던 일을 입력하십시오.</string>
+    <string name="episode_other_trigger_placeholder">예: 강한 향수</string>
+    <string name="episode_add_medication_message">이번 발작에 무엇을 복용했습니까?</string>
+    <string name="episode_other_medication_action">기타 약…</string>
+    <string name="episode_other_medication_title">기타 약</string>
+    <string name="episode_missing_title">삭제된 발작</string>
+    <string name="episode_missing_message">이 발작은 다른 기기에서 삭제되어 변경 사항을 저장할 수 없습니다.</string>
+    <string name="episode_delete_message">강도 %1$s/10. 이 발작은 기록과 보고서에서 삭제됩니다.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">주</string>
+    <string name="insights_period_month">월</string>
+    <string name="insights_period_six_months">6개월</string>
+    <string name="insights_period_year">년</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="other">회 발작(이번 주)</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="other">회 발작(%1$s부터 한 주)</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="other">회 발작(%1$s)</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="other">회 발작(최근 6개월)</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="other">회 발작(%1$s년)</item>
+    </plurals>
+    <string name="insights_trend_fewer">발작이 이전 기간보다 %1$s퍼센트 줄었습니다</string>
+    <string name="insights_trend_more">발작이 이전 기간보다 %1$s퍼센트 늘었습니다</string>
+    <string name="insights_legend_migraine_day">편두통일</string>
+    <string name="insights_legend_pain_free_day">통증 없는 날</string>
+    <string name="insights_legend_not_tracked">기록 안 함</string>
+    <string name="insights_bar_no_data">%1$s: 아직 데이터 없음</string>
+    <string name="insights_bar_not_tracked">%1$s: 기록 안 함</string>
+    <string name="insights_bar_pain_free">%1$s: 통증 없음</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="other">%1$s: 편두통일 %2$s일, 최고 %3$s/10</item>
+    </plurals>
+    <string name="insights_triggers_empty">발작을 기록하거나 편집할 때 가능한 유발 요인을 기록하십시오. 그러면 이 카드에 각 유발 요인을 기록한 횟수가 표시됩니다.</string>
+    <string name="insights_triggers_hint">발작과 함께 각 유발 요인을 기록한 횟수입니다. 원인을 나타내지는 않습니다.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="other">%1$s, 발작 %3$s회 중 %2$s회 기록</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">캘린더, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="other">%1$s에 발작이 %2$s회 있습니다.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · 강도 %2$s/10</string>
+    <string name="insights_month_picker_title">월</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">이전 달</string>
+    <string name="calendar_next_month">다음 달</string>
+    <string name="calendar_choose_month_a11y">%1$s, 다른 달 선택</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="other">편두통일 %1$s일</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">오늘, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">해당 없음</string>
+    <string name="calendar_day_not_tracked">기록 안 함</string>
+    <string name="calendar_day_no_episodes">발작 없음</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="other">발작 %1$s회, 최고 %2$s/10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="other">발작 %1$s회</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">최고 강도</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">약</string>
+    <string name="calendar_edit_episode_details">발작 세부 사항 편집</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF 준비 중…</string>
+    <string name="export_preparing_excel">Excel 준비 중…</string>
+    <string name="export_preparing_report">보고서 준비 중…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="other">회 발작</item>
+    </plurals>
+    <string name="export_episodes_recorded">기록된 발작</string>
+    <string name="export_include">내보낼 항목</string>
+    <string name="export_medications">복용 기록</string>
+    <string name="export_medications_subtitle">용량과 복용 합계</string>
+    <string name="export_symptoms">조짐 및 경고 증상</string>
+    <string name="export_symptoms_subtitle">조짐 유형과 빈도</string>
+    <string name="export_triggers_subtitle">기록한 유발 요인과 빈도</string>
+    <string name="export_pain_charts">통증 강도 차트</string>
+    <string name="export_pain_charts_subtitle">통증 강도 추이, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF 보고서 내보내기</string>
+    <string name="export_excel">Excel(.xlsx)로 내보내기</string>
+    <string name="export_share">공유</string>
+    <string name="export_range_title">보고서 기간</string>
+    <plurals name="export_share_text">
+        <item quantity="other">MigraTrack 보고서: 발작 %1$s회, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">내보내기 실패</string>
+    <string name="export_failed_message">보고서를 만들 수 없습니다.</string>
+    <string name="export_write_failed">%1$s 파일을 쓸 수 없습니다</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="other">알려진 유발 요인 %1$s개</item>
+    </plurals>
+    <string name="settings_no_triggers">선택한 유발 요인 없음</string>
+    <string name="settings_no_medications">선택한 약 없음</string>
+    <string name="settings_name_title">이름</string>
+    <string name="settings_name_message">내보내는 보고서에 표시됩니다.</string>
+    <string name="settings_name_placeholder">이름</string>
+    <string name="settings_delete_title">모든 데이터를 삭제하겠습니까?</string>
+    <string name="settings_delete_message">MigraTrack은 데이터를 이 iPhone에 저장하고 Apple Watch에 사본을 저장합니다. 이 작업은 모든 발작과 기본 프로필을 영구적으로 삭제합니다. Apple Watch는 다음 동기화 때 사본을 삭제합니다. 기기 백업에는 사본이 남습니다. 필요하면 먼저 보고서를 내보내십시오.</string>
+    <string name="settings_delete_all">모든 데이터 삭제</string>
+    <string name="settings_section_baseline">임상 기본 정보 및 치료</string>
+    <string name="settings_baseline_diagnoses">기본 진단</string>
+    <string name="settings_known_triggers">알려진 유발 요인</string>
+    <string name="settings_section_preferences">환경설정</string>
+    <string name="settings_appearance">화면 모드</string>
+    <string name="settings_appearance_value">다크(고정)</string>
+    <string name="settings_version">버전</string>
+    <string name="settings_version_value">v%1$s(빌드 %2$s)</string>
+    <string name="settings_section_legal">법률 정보</string>
+    <string name="settings_section_developer">개발자</string>
+    <string name="settings_load_sample_data">샘플 데이터 불러오기</string>
+    <string name="settings_load_sample_data_subtitle">차트를 미리 보도록 생성된 1년 치 발작을 추가합니다</string>
+    <string name="settings_edit_name_a11y">이름 편집</string>
+    <string name="settings_add_name">이름 추가</string>
+    <string name="settings_member">사용 시작</string>
+    <string name="settings_episodes">발작</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="other">%1$s회 기록</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">개인정보 처리방침</string>
+    <string name="legal_terms_of_service">서비스 약관</string>
+    <string name="legal_folder">ko</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">다음: 유발 요인</string>
+    <string name="onboarding_continue_to_medications">다음: 약</string>
+    <string name="onboarding_finish_setup">설정 완료</string>
+    <string name="onboarding_back_to_diagnoses">진단으로 돌아가기</string>
+    <string name="onboarding_back_to_triggers">유발 요인으로 돌아가기</string>
+    <string name="onboarding_save_changes">변경 사항 저장</string>
+    <string name="onboarding_step">단계 %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">진단 및 병력</string>
+    <string name="onboarding_diagnoses_subtitle">기본 프로필을 설정하십시오. 발작 기록과 보고서는 이 프로필을 기준으로 합니다.</string>
+    <string name="onboarding_primary_diagnosis">주 진단</string>
+    <string name="onboarding_episode_frequency">월간 발작 빈도</string>
+    <string name="onboarding_episode_duration">일반적인 발작 지속 시간</string>
+    <string name="onboarding_intensity_baseline">일반적인 통증 강도</string>
+    <string name="onboarding_update_later">기본 프로필은 설정에서 언제든지 변경할 수 있습니다.</string>
+    <string name="onboarding_triggers_title">나의 유발 요인</string>
+    <string name="onboarding_triggers_subtitle">알고 있거나 의심되는 유발 요인을 선택하십시오. 보고서에 의사를 위한 목록이 표시됩니다.</string>
+    <string name="onboarding_add_custom_trigger">사용자 유발 요인 추가</string>
+    <string name="onboarding_treatment_subtitle">복용하는 약을 선택하십시오. 급성기 치료제는 새 발작에 자동으로 입력되므로 한 번 탭하면 기록됩니다.</string>
+    <string name="onboarding_add_custom_medication">사용자 약 추가</string>
+    <string name="onboarding_custom_trigger_title">사용자 유발 요인 추가</string>
+    <string name="onboarding_custom_trigger_message">편두통을 자주 일으키는 것을 입력하십시오.</string>
+    <string name="onboarding_custom_trigger_placeholder">예: 깜박이는 불빛</string>
+    <string name="onboarding_medication_role_message">언제 복용합니까?</string>
+    <string name="onboarding_medication_role_acute">발작 중(급성기)</string>
+    <string name="onboarding_medication_role_preventive">매일(예방)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">개인 편두통 및 유발 요인 기록</string>
+    <string name="welcome_example">예시</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="other">일 통증 없음</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="other">예시: 지난 30일 중 통증 없는 날 %1$s일</item>
+    </plurals>
+    <string name="welcome_headline_patterns">나의 패턴을 이해하십시오.</string>
+    <string name="welcome_headline_doctor">사실을 의사에게 전하십시오.</string>
+    <string name="welcome_body">증상을 기록하고, 가능한 유발 요인을 찾고, 개인 보고서를 언제든지 내보낼 수 있습니다.</string>
+    <string name="welcome_get_started">시작하기</string>
+    <string name="welcome_agreement">계속하면 %1$s 및 %2$s에 동의하는 것입니다.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">무조짐편두통</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">흔한 편두통 유형</string>
+    <string name="diagnosis_migraine_with_aura">조짐편두통</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">시각 또는 감각의 국소 조짐</string>
+    <string name="diagnosis_chronic_migraine">만성편두통</string>
+    <string name="diagnosis_chronic_migraine_subtitle">두통이 한 달에 15일 이상</string>
+    <string name="diagnosis_tension_type">긴장형두통</string>
+    <string name="diagnosis_tension_type_subtitle">띠처럼 조이는 긴장</string>
+    <string name="diagnosis_cluster">군발두통</string>
+    <string name="diagnosis_cluster_subtitle">한쪽 눈 주위의 심한 발작</string>
+    <string name="diagnosis_not_diagnosed">진단 없음 / 관찰 중</string>
+    <string name="diagnosis_not_diagnosed_subtitle">증상 패턴 관찰 중</string>
+    <string name="frequency_less_than_one">월 1회 미만</string>
+    <string name="frequency_one_to_four">월 1–4회</string>
+    <string name="frequency_five_to_eight">월 5–7회</string>
+    <string name="frequency_eight_plus">월 8회 이상</string>
+    <string name="duration_two_to_four">2–4시간</string>
+    <string name="duration_four_to_twelve">4–12시간</string>
+    <string name="duration_twelve_to_twenty_four">12–24시간</string>
+    <string name="duration_one_to_three_days">24–72시간</string>
+    <string name="region_left_temple">왼쪽 관자놀이</string>
+    <string name="region_right_temple">오른쪽 관자놀이</string>
+    <string name="region_frontal_brow">이마 / 눈썹</string>
+    <string name="region_retro_orbital">눈 뒤쪽</string>
+    <string name="region_occipital_neck">뒤통수와 목</string>
+    <string name="symptom_scintillating_scotoma">섬광암점(시각)</string>
+    <string name="symptom_scintillating_scotoma_short">시각 조짐</string>
+    <string name="symptom_neck_stiffness">목 경직</string>
+    <string name="symptom_neck_stiffness_short">목 경직</string>
+    <string name="symptom_photophobia">빛공포증(빛)</string>
+    <string name="symptom_photophobia_short">빛</string>
+    <string name="symptom_nausea">구역(메스꺼움)</string>
+    <string name="symptom_nausea_short">메스꺼움</string>
+    <string name="symptom_phonophobia">소리공포증(소리)</string>
+    <string name="symptom_phonophobia_short">소리</string>
+    <string name="symptom_aphasia">실어증 / 브레인 포그</string>
+    <string name="symptom_aphasia_short">브레인 포그</string>
+    <string name="symptom_paresthesia">저림 / 감각이상</string>
+    <string name="symptom_paresthesia_short">저림</string>
+    <string name="trigger_category_weather_environment">날씨 및 환경</string>
+    <string name="trigger_category_sleep_physical">수면 및 생활 리듬</string>
+    <string name="trigger_category_stress_emotions">스트레스 및 감정</string>
+    <string name="trigger_category_hormonal">호르몬</string>
+    <string name="trigger_category_diet_consumption">식사 및 음식</string>
+    <string name="trigger_category_custom">사용자</string>
+    <string name="medication_role_acute">급성기 치료제</string>
+    <string name="medication_role_preventive">예방 치료제 및 보충제</string>
+    <string name="export_range_last_30_days">지난 30일</string>
+    <string name="export_range_last_90_days">지난 90일</string>
+    <string name="export_range_last_6_months">지난 6개월</string>
+    <string name="export_range_last_12_months">지난 12개월</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">기압 하강</string>
+    <string name="trigger_barometric_pressure_description">기상 전선, 고도 변화</string>
+    <string name="trigger_bright_light">밝은 빛과 햇빛</string>
+    <string name="trigger_bright_light_description">눈부심, 깜박임, 빛공포증</string>
+    <string name="trigger_heat_humidity">폭염 / 높은 습도</string>
+    <string name="trigger_heat_humidity_description">기온 변동</string>
+    <string name="trigger_loud_noise">큰 소음</string>
+    <string name="trigger_loud_noise_description">소리공포증, 갑작스러운 큰 소리</string>
+    <string name="trigger_poor_sleep">수면 부족 / 불규칙한 수면</string>
+    <string name="trigger_poor_sleep_description">누적된 수면 부족, 렘수면 부족</string>
+    <string name="trigger_dehydration">탈수</string>
+    <string name="trigger_dehydration_description">전해질 부족</string>
+    <string name="trigger_skipped_meals">끼니 거르기 / 금식</string>
+    <string name="trigger_skipped_meals_description">저혈당 역치</string>
+    <string name="trigger_overexertion">신체 과로</string>
+    <string name="trigger_overexertion_description">운동으로 인한 혈관 부담</string>
+    <string name="trigger_emotional_stress">정서적 스트레스 / 긴장 이완</string>
+    <string name="trigger_emotional_stress_description">퇴근 후 긴장이 풀릴 때</string>
+    <string name="trigger_screen_fatigue">화면 피로</string>
+    <string name="trigger_screen_fatigue_description">청색광 과다, 눈 모음 부담</string>
+    <string name="trigger_hormonal_cycle">호르몬 변화 / 월경 주기</string>
+    <string name="trigger_hormonal_cycle_description">월간 주기 변화</string>
+    <string name="trigger_caffeine">카페인 금단 / 과다</string>
+    <string name="trigger_caffeine_description">아데노신 수용체 변화</string>
+    <string name="trigger_aged_cheese">숙성 치즈 / 티라민</string>
+    <string name="trigger_aged_cheese_description">발효 식품의 아민에 대한 민감성</string>
+    <string name="trigger_alcohol">알코올 / 레드 와인</string>
+    <string name="trigger_alcohol_description">타닌, 히스타민</string>
+    <string name="trigger_sweeteners">인공 감미료</string>
+    <string name="trigger_sweeteners_description">아스파탐, 수크랄로스</string>
+    <string name="trigger_custom_description">사용자 유발 요인</string>
+
+    <!-- Catalog: built-in medications -->
+
+    <string name="medication_ibuprofen_400">이부프로펜</string>
+    <string name="medication_ibuprofen_400_class">소염 보조제</string>
+    <string name="medication_sumatriptan_50">수마트립탄</string>
+    <string name="medication_sumatriptan_50_class">트립탄계, 세로토닌 수용체 작용제</string>
+    <string name="medication_rizatriptan_10">리자트립탄</string>
+    <string name="medication_rizatriptan_10_class">트립탄계, 구강붕해정</string>
+    <string name="medication_naproxen_500">나프록센</string>
+    <string name="medication_naproxen_500_class">지속형 NSAID</string>
+    <string name="medication_acetaminophen_1000">아세트아미노펜</string>
+    <string name="medication_acetaminophen_1000_class">진통제</string>
+    <string name="medication_ubrogepant_100">우브로게판트</string>
+    <string name="medication_ubrogepant_100_class">게판트계, CGRP 수용체 길항제</string>
+    <string name="medication_metoclopramide_10">메토클로프라미드</string>
+    <string name="medication_metoclopramide_10_class">진토제</string>
+    <string name="medication_electrolytes">수분 보충 전해질</string>
+    <string name="medication_electrolytes_class">경구 수분 보충</string>
+    <string name="medication_riboflavin_400">리보플라빈</string>
+    <string name="medication_riboflavin_400_class">비타민 B2</string>
+    <string name="medication_magnesium_400">마그네슘</string>
+    <string name="medication_magnesium_400_class">미네랄 보충제</string>
+    <string name="medication_propranolol_40">프로프라놀롤</string>
+    <string name="medication_propranolol_40_class">베타 차단제</string>
+    <string name="medication_topiramate_50">토피라메이트</string>
+    <string name="medication_topiramate_50_class">항경련제</string>
+    <string name="medication_amitriptyline_10">아미트립틸린</string>
+    <string name="medication_amitriptyline_10_class">삼환계 항우울제</string>
+    <string name="medication_erenumab_70">에레누맙</string>
+    <string name="medication_erenumab_70_class">CGRP 수용체 항체, 월 1회</string>
+    <string name="medication_custom_class">사용자 약</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">%1$s주</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="other">%2$s 중 %1$s회는 유발 요인 기록 없음</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="other">발작 %1$s회</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">편두통 임상 보고서</string>
+    <string name="report_page">MigraTrack · %1$s페이지</string>
+    <string name="report_patient">환자: %1$s</string>
+    <string name="report_range_with_title">%1$s(%2$s)</string>
+    <string name="report_generated">작성일: %1$s</string>
+    <string name="report_disclaimer">환자가 MigraTrack에 직접 기록한 데이터입니다. 이 보고서는 임상 평가를 보조하며 대체하지 않습니다.</string>
+    <string name="report_stat_episodes">기록된 발작</string>
+    <string name="report_stat_migraine_days">편두통일</string>
+    <string name="report_stat_pain_free_days">통증 없는 날</string>
+    <string name="report_stat_average_intensity">평균 강도 /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="other">기록 시작일은 %1$s입니다. 이 기간에서 그 이전의 %2$s일은 기록이 없으며 통증 없는 날로 세지 않습니다.</item>
+    </plurals>
+    <string name="report_baseline_title">기본 프로필</string>
+    <string name="report_baseline_diagnoses">진단</string>
+    <string name="report_baseline_frequency">월간 빈도</string>
+    <string name="report_baseline_duration">일반적인 지속 시간</string>
+    <string name="report_baseline_intensity">일반적인 강도</string>
+    <string name="report_baseline_triggers">알려진 유발 요인</string>
+    <string name="report_baseline_treatments">치료 계획</string>
+    <string name="report_pain_chart_title">통증 강도 추이(1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">경도 %1$s–%2$s</string>
+    <string name="report_legend_moderate">중등도 %1$s–%2$s</string>
+    <string name="report_legend_severe">중증 %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">기록 안 함</string>
+    <string name="report_medication_title">약 복용</string>
+    <string name="report_no_medications">이 기간에 기록된 복용이 없습니다.</string>
+    <plurals name="report_intakes">
+        <item quantity="other">%1$s회 복용</item>
+    </plurals>
+    <string name="report_symptoms_title">조짐 및 경고 증상</string>
+    <string name="report_no_symptoms">이 기간에 기록된 조짐이나 감각 증상이 없습니다.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="other">발작 %2$s회 중 %1$s회(%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">기록된 가능한 유발 요인</string>
+    <string name="report_no_triggers">이 기간에 기록된 유발 요인이 없습니다.</string>
+    <string name="report_triggers_note">횟수는 환자가 발작과 함께 유발 요인을 기록한 빈도입니다. 원인을 나타내지는 않습니다.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="other">%2$s 중 %1$s회는 유발 요인 기록이 없습니다.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="other">발작 %1$s회</item>
+    </plurals>
+    <string name="report_episodes_title">발작</string>
+    <string name="report_no_episodes">이 기간에 기록된 발작이 없습니다.</string>
+    <string name="report_column_date_time">날짜 및 시간</string>
+    <string name="report_column_pain">통증</string>
+    <string name="report_column_epicenter">통증 부위</string>
+    <string name="report_column_symptoms">증상</string>
+    <string name="report_column_medications">약</string>
+    <string name="report_column_triggers">유발 요인</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">설정 안 됨</string>
+    <string name="report_none">없음</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">발작</string>
+    <string name="report_sheet_medications">약</string>
+    <string name="report_sheet_daily_pain">일별 통증</string>
+    <string name="report_sheet_profile">프로필</string>
+    <string name="report_header_started">시작 시각</string>
+    <string name="report_header_pain_intensity">통증 강도(1–10)</string>
+    <string name="report_header_epicenter">통증 부위</string>
+    <string name="report_header_symptoms">조짐 및 감각 증상</string>
+    <string name="report_header_medications">약</string>
+    <string name="report_header_triggers">가능한 유발 요인</string>
+    <string name="report_header_episode_started">발작 시작 시각</string>
+    <string name="report_header_medication">약</string>
+    <string name="report_header_dose">용량</string>
+    <string name="report_header_date">날짜</string>
+    <string name="report_header_peak_pain">최고 통증 강도(1–10, 0 = 통증 없음)</string>
+    <string name="report_header_day">날 유형</string>
+    <string name="report_header_field">항목</string>
+    <string name="report_header_value">값</string>
+    <string name="report_day_migraine">편두통</string>
+    <string name="report_day_pain_free">통증 없음</string>
+    <string name="report_day_not_tracked">기록 안 함</string>
+    <string name="report_profile_patient">환자</string>
+    <string name="report_profile_range">보고서 기간</string>
+    <string name="report_profile_tracked_since">기록 시작일</string>
+    <string name="report_profile_diagnoses">진단</string>
+    <string name="report_profile_frequency">월간 빈도</string>
+    <string name="report_profile_duration">일반적인 지속 시간</string>
+    <string name="report_profile_intensity">일반적인 강도</string>
+    <string name="report_profile_triggers">알려진 유발 요인</string>
+    <string name="report_profile_treatments">치료 계획</string>
+    <string name="report_iso_range">%1$s~%2$s</string>
+</resources>
