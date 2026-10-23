@@ -80,7 +80,9 @@ import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.pluralStringResource
 import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.text
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
@@ -96,8 +98,6 @@ import kotlinx.datetime.YearMonth
 import kotlinx.datetime.minusMonth
 import kotlinx.datetime.plusMonth
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
 
 private val CellGap = 6.dp
 

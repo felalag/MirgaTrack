@@ -132,8 +132,6 @@ import com.migratrack.domain.model.TriggerCategory
 import com.migratrack.domain.model.TypicalDuration
 import com.migratrack.export.report.CatalogNames
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.getString
-import org.jetbrains.compose.resources.stringResource
 
 /**
  * A text that is either a resource with its arguments or the user's own words.

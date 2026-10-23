@@ -84,6 +84,7 @@ import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.nameText
 import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.subtitle
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
@@ -97,7 +98,6 @@ import com.migratrack.domain.model.MedicationRole
 import com.migratrack.domain.model.TriggerCategory
 import com.migratrack.domain.model.TypicalDuration
 import kotlinx.serialization.Serializable
-import org.jetbrains.compose.resources.stringResource
 
 @Serializable private data object WelcomeStep
 @Serializable private data class DocumentStep(val document: String)

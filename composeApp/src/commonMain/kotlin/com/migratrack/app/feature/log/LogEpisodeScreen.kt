@@ -17,7 +17,7 @@ import com.migratrack.app.generated.resources.episode_log_title
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.icons.Symbols
-import org.jetbrains.compose.resources.stringResource
+import com.migratrack.app.ui.stringResource
 
 @Composable
 fun LogEpisodeScreen(onOpenSettings: () -> Unit, onSaved: () -> Unit) {

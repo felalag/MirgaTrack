@@ -35,11 +35,11 @@ import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.medication_remove
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
-import org.jetbrains.compose.resources.stringResource
 
 enum class SelectionStyle {
     /** Step 1: round icon that fills with the accent, small check on the right. */

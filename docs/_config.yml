@@ -11,6 +11,7 @@ exclude:
   - review-readiness
   - LOCALIZATION_GLOSSARY.md
   - LOCALIZATION_CHECKLIST.md
+  - legal/files/ar
   - legal/files/be
   - legal/files/bg
   - legal/files/ca
@@ -21,6 +22,7 @@ exclude:
   - legal/files/es
   - legal/files/fi
   - legal/files/fr
+  - legal/files/he
   - legal/files/hr
   - legal/files/hu
   - legal/files/id
@@ -43,6 +45,7 @@ exclude:
   - legal/files/th
   - legal/files/tr
   - legal/files/uk
+  - legal/files/ur
   - legal/files/vi
   - legal/files/zh-Hans
   - legal/files/zh-Hant

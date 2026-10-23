@@ -11,6 +11,7 @@ import com.migratrack.app.generated.resources.common_intensity_of_ten
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.app.ui.Dates
 import com.migratrack.app.ui.Numbers
+import com.migratrack.app.ui.getString
 import com.migratrack.domain.analytics.SummaryCalculator
 import com.migratrack.domain.analytics.SummarySnapshot
 import com.migratrack.domain.model.Episode
@@ -25,7 +26,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.getString
 
 sealed interface SleepCard {
     data object Loading : SleepCard

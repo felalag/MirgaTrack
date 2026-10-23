@@ -86,7 +86,9 @@ import com.migratrack.app.ui.components.glow
 import com.migratrack.app.ui.components.pressable
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.pluralStringResource
 import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -105,8 +107,6 @@ import kotlin.math.abs
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.YearMonth
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun InsightsScreen(

@@ -24,8 +24,8 @@ import com.migratrack.app.ui.components.DestructiveButton
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.stringResource
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.stringResource
 
 /**
  * Edit Episode, or Log Episode for a day picked in the calendar. Pushed under the tab bar with a back button,

@@ -4,6 +4,12 @@
     "Finish setup in MigraTrack first." : {
       "comment" : "Siri says this when the user has not finished onboarding; Siri then offers to open the app.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أكمل الإعداد في MigraTrack أولًا."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -74,6 +80,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminez d’abord la configuration dans MigraTrack."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש לסיים קודם את ההגדרה ב־MigraTrack."
           }
         },
         "hr" : {
@@ -208,6 +220,12 @@
             "value" : "Спершу завершіть налаштування в MigraTrack."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "پہلے MigraTrack میں سیٹ اپ مکمل کریں۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -231,6 +249,12 @@
     "Log Migraine" : {
       "comment" : "Short title of the App Shortcut in Spotlight and the Shortcuts app. Max 20 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تسجيل نوبة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -301,6 +325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouvelle crise"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיעוד מיגרנה"
           }
         },
         "hr" : {
@@ -435,6 +465,12 @@
             "value" : "Новий напад"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج کریں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -458,6 +494,12 @@
     "Log Migraine Episode" : {
       "comment" : "Title of the App Intent in Shortcuts and Spotlight. Use the glossary term for episode.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تسجيل نوبة صداع نصفي"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -528,6 +570,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noter une crise de migraine"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיעוד התקף מיגרנה"
           }
         },
         "hr" : {
@@ -662,6 +710,12 @@
             "value" : "Записати напад мігрені"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مائیگرین کا دورہ درج کریں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -685,6 +739,12 @@
     "Logged a migraine episode: intensity %lld of 10, with %@." : {
       "comment" : "Siri says this after a quick log. %1$lld = pain intensity, 1 to 10. %2$@ = medication names and doses, separated by commas.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تسجيل نوبة صداع نصفي: الشدة %1$lld من 10، مع %2$@."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -761,6 +821,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crise de migraine notée : intensité %1$lld sur 10, avec %2$@."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התקף מיגרנה תועד: עוצמה %1$lld מתוך 10, עם %2$@."
           }
         },
         "hr" : {
@@ -895,6 +961,12 @@
             "value" : "Напад мігрені записано: інтенсивність %1$lld з 10, ліки: %2$@."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مائیگرین کا دورہ درج ہو گیا: شدت 10 میں سے %1$lld، ساتھ میں %2$@۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -918,6 +990,12 @@
     "Logged a migraine episode: intensity %lld of 10." : {
       "comment" : "Siri says this after a quick log without medications. %lld = pain intensity, 1 to 10.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تسجيل نوبة صداع نصفي: الشدة %lld من 10."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -988,6 +1066,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crise de migraine notée : intensité %lld sur 10."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התקף מיגרנה תועד: עוצמה %lld מתוך 10."
           }
         },
         "hr" : {
@@ -1122,6 +1206,12 @@
             "value" : "Напад мігрені записано: інтенсивність %lld з 10."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مائیگرین کا دورہ درج ہو گیا: شدت 10 میں سے %lld۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1145,6 +1235,12 @@
     "Logs an episode now with your typical pain intensity and acute medications from MigraTrack." : {
       "comment" : "Description of the App Intent in the Shortcuts app.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يسجّل نوبة الآن بشدة الألم المعتادة لديك وأدوية النوبة الحادة من MigraTrack."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1215,6 +1311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Note une crise maintenant avec votre intensité habituelle et vos traitements de crise de MigraTrack."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מתעד התקף עכשיו עם עוצמת הכאב הטיפוסית והתרופות להתקף חד מ־MigraTrack."
           }
         },
         "hr" : {
@@ -1347,6 +1449,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Записує напад зараз із вашою звичайною інтенсивністю болю та ліками для купірування нападу з MigraTrack."
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack سے آپ کی عام درد کی شدت اور فوری علاج کی دواؤں کے ساتھ ابھی دورہ درج کرتا ہے۔"
           }
         },
         "vi" : {

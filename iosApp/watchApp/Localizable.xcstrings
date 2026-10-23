@@ -4,6 +4,12 @@
     " / %lld" : {
       "comment" : "After the large number of pain-free days, for example \"25 / 30\". %lld = tracked days in the last 30 days.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -71,6 +77,12 @@
           }
         },
         "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
+        "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : " / %lld"
@@ -208,6 +220,12 @@
             "value" : " / %lld"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " / %lld"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -235,6 +253,12 @@
     "%lld of %lld" : {
       "comment" : "VoiceOver value of the pain-free days. %1$lld = pain-free days, %2$lld = tracked days.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld من %2$lld"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -311,6 +335,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%1$lld sur %2$lld"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld מתוך %2$lld"
           }
         },
         "hr" : {
@@ -445,6 +475,12 @@
             "value" : "%1$lld з %2$lld"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$lld میں سے %1$lld"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -468,6 +504,12 @@
     "%lld out of 10" : {
       "comment" : "VoiceOver value of the intensity gauge. %lld = intensity, 1 to 10.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld من 10"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -538,6 +580,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%lld sur 10"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld מתוך 10"
           }
         },
         "hr" : {
@@ -672,6 +720,12 @@
             "value" : "%lld з 10"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10 میں سے %lld"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -695,6 +749,12 @@
     "Done" : {
       "comment" : "Button after a save. It closes the logger.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -765,6 +825,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Terminé"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סיום"
           }
         },
         "hr" : {
@@ -899,6 +965,12 @@
             "value" : "Готово"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ہو گیا"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -922,6 +994,12 @@
     "Episode logged" : {
       "comment" : "VoiceOver label of the checkmark after a save.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تسجيل النوبة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -992,6 +1070,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Crise notée"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ההתקף תועד"
           }
         },
         "hr" : {
@@ -1126,6 +1210,12 @@
             "value" : "Напад записано"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج ہو گیا"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1149,6 +1239,12 @@
     "Last episode %@" : {
       "comment" : "Watch summary line. %@ = short date of the last episode, for example \"Oct 12\". Max 22 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "آخر نوبة %@"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1219,6 +1315,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dernière crise %@"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התקף אחרון %@"
           }
         },
         "hr" : {
@@ -1353,6 +1455,12 @@
             "value" : "Останній напад %@"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "آخری دورہ %@"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1376,6 +1484,12 @@
     "Log Migraine" : {
       "comment" : "Main button of the watch app and title of the control intent. Max 14 characters on a 40 mm watch.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تسجيل نوبة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1446,6 +1560,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouvelle crise"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיעוד מיגרנה"
           }
         },
         "hr" : {
@@ -1580,6 +1700,12 @@
             "value" : "Новий напад"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج کریں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1603,6 +1729,12 @@
     "No episodes logged" : {
       "comment" : "Watch summary line before the first episode. Max 22 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد نوبات مسجلة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1673,6 +1805,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aucune crise notée"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אין התקפים מתועדים"
           }
         },
         "hr" : {
@@ -1807,6 +1945,12 @@
             "value" : "Нападів немає"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "کوئی دورہ درج نہیں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1830,6 +1974,12 @@
     "Open MigraTrack on your iPhone to sync." : {
       "comment" : "Watch hint before the iPhone app sent its data.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح MigraTrack على iPhone للمزامنة."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1900,6 +2050,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrez MigraTrack sur votre iPhone pour synchroniser."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש לפתוח את MigraTrack ב־iPhone לסנכרון."
           }
         },
         "hr" : {
@@ -2034,6 +2190,12 @@
             "value" : "Відкрийте MigraTrack на iPhone для синхронізації."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سنک کے لیے اپنے iPhone پر MigraTrack کھولیں۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2057,6 +2219,12 @@
     "Pain Intensity" : {
       "comment" : "Caption under the intensity gauge. Max 16 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شدة الألم"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2127,6 +2295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensité"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עוצמת הכאב"
           }
         },
         "hr" : {
@@ -2261,6 +2435,12 @@
             "value" : "Інтенсивність"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "درد کی شدت"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2284,6 +2464,12 @@
     "Pain intensity" : {
       "comment" : "VoiceOver label of the intensity gauge.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شدة الألم"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2354,6 +2540,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Intensité de la douleur"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עוצמת הכאב"
           }
         },
         "hr" : {
@@ -2488,6 +2680,12 @@
             "value" : "Інтенсивність болю"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "درد کی شدت"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2511,6 +2709,12 @@
     "Pain-free days" : {
       "comment" : "Watch summary caption over the large number, and its VoiceOver label. Max 16 characters on a 40 mm watch.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أيام دون ألم"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2581,6 +2785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sans douleur"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ימים ללא כאב"
           }
         },
         "hr" : {
@@ -2715,6 +2925,12 @@
             "value" : "Дні без болю"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بغیر درد کے دن"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2738,6 +2954,12 @@
     "Save Episode" : {
       "comment" : "Button of the logger. Max 14 characters on a 40 mm watch.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حفظ النوبة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2808,6 +3030,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enregistrer"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שמירת ההתקף"
           }
         },
         "hr" : {
@@ -2940,6 +3168,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Зберегти"
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "محفوظ کریں"
           }
         },
         "vi" : {

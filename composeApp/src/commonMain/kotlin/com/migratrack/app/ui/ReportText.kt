@@ -83,8 +83,6 @@ import com.migratrack.export.format.NumberFormats
 import com.migratrack.export.report.ReportStrings
 import org.jetbrains.compose.resources.PluralStringResource
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.getPluralString
-import org.jetbrains.compose.resources.getString
 
 /** Loads every report text in the current language, so the PDF and the XLSX can use them without suspending. */
 suspend fun loadReportStrings(rightToLeft: Boolean, numbers: NumberFormats = Numbers): ReportStrings {

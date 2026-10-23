@@ -66,7 +66,9 @@ import com.migratrack.app.ui.formatHoursMinutes
 import com.migratrack.app.ui.icon
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.pluralStringResource
 import com.migratrack.app.ui.shortTitle
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -78,8 +80,6 @@ import com.migratrack.domain.model.EpisodeId
 import com.migratrack.domain.model.SleepSummary
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SummaryScreen(onOpenSettings: () -> Unit, onLogEpisode: () -> Unit, onEditEpisode: (EpisodeId) -> Unit) {

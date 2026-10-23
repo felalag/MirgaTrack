@@ -59,13 +59,13 @@ import com.migratrack.app.ui.components.TabBarHeight
 import com.migratrack.app.ui.components.TabRail
 import com.migratrack.app.ui.components.TabRailWidth
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.domain.model.EpisodeId
 import kotlinx.coroutines.delay
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.stringResource
 
 @Serializable
 data object MainRoute

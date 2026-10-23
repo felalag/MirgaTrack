@@ -59,12 +59,12 @@ import com.migratrack.app.generated.resources.tab_summary
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.app.ui.theme.WithoutFontScaling
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.stringResource
 
 val HeaderHeight = 64.dp
 val TabBarHeight = 60.dp

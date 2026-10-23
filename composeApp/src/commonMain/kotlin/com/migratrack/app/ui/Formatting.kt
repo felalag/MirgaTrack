@@ -10,7 +10,6 @@ import com.migratrack.app.generated.resources.duration_minutes
 import com.migratrack.export.format.DateFormats
 import com.migratrack.export.format.NumberFormats
 import kotlin.time.Duration
-import org.jetbrains.compose.resources.stringResource
 
 /** Dates in the language and region of the device, for the UI and the report. */
 expect val Dates: DateFormats
