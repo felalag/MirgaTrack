@@ -51,6 +51,7 @@ import com.migratrack.app.ui.icons.Icon
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.nameText
 import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
@@ -63,7 +64,6 @@ import com.migratrack.domain.usecase.EpisodeDraft
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.stringResource
 
 /** The cards of the Log Episode and Edit Episode screens, without the buttons under them. */
 @OptIn(ExperimentalLayoutApi::class)

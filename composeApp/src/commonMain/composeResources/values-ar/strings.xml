@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Arabic strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Modern Standard Arabic. Buttons use the verbal noun ("حفظ"), instructions the masculine singular, as Arabic iOS does.
+  Arabic has six CLDR plural forms; the forms one and two leave out the number ("نوبة واحدة", "نوبتان").
+  The app shows digits as the iPhone sets them, also the digits written in these strings (plan, section 4.5).
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">رجوع</string>
+    <string name="common_settings">الإعدادات</string>
+    <string name="common_cancel">إلغاء</string>
+    <string name="common_ok">حسنًا</string>
+    <string name="common_save">حفظ</string>
+    <string name="common_add">إضافة</string>
+    <string name="common_next">التالي</string>
+    <string name="common_on">تشغيل</string>
+    <string name="common_off">إيقاف</string>
+    <string name="common_clear">مسح</string>
+    <string name="common_none">لا شيء</string>
+    <string name="common_today">اليوم</string>
+    <string name="common_not_set">غير محدد</string>
+    <string name="common_expanded">موسّع</string>
+    <string name="common_collapsed">مطوي</string>
+    <string name="common_last_30_days">آخر 30 يومًا</string>
+    <string name="common_medical_disclaimer">MigraTrack مذكرات يومية وليس نصيحة طبية. استشر طبيبك قبل أن تغيّر علاجك.</string>
+    <string name="common_log_migraine_episode">تسجيل نوبة صداع نصفي</string>
+    <string name="common_save_episode">حفظ النوبة</string>
+    <string name="common_edit_episode">تعديل النوبة</string>
+    <string name="common_delete_episode">حذف النوبة</string>
+    <string name="common_intensity_of_ten">الشدة %1$s/10</string>
+    <string name="common_date_at_time">%1$s في %2$s</string>
+    <string name="common_possible_triggers">المحفزات المحتملة</string>
+    <string name="common_add_trigger">إضافة محفز</string>
+    <string name="common_add_medication">إضافة دواء</string>
+    <string name="common_treatment_blueprint">خطة العلاج</string>
+    <string name="common_medication_name_and_dose">أدخل الاسم والجرعة.</string>
+    <string name="common_medication_placeholder">مثلًا: إليتريبتان 40&#160;مجم</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">الملخص</string>
+    <string name="tab_log">تسجيل</string>
+    <string name="tab_insights">التحليلات</string>
+    <string name="tab_export">تصدير</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">شدة الألم</string>
+    <string name="pain_scale_value">%1$s من 10</string>
+    <string name="pain_scale_low">%1$s خفيف</string>
+    <string name="pain_scale_middle">%1$s ملحوظ</string>
+    <string name="pain_scale_high">%1$s معيق</string>
+    <string name="medication_remove">إزالة %1$s</string>
+    <string name="duration_minutes">%1$s د</string>
+    <string name="duration_hours_minutes">%1$s س %2$s د</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">اليوم، %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="zero">من أصل %1$s يوم متابعة</item>
+        <item quantity="one">من أصل يوم متابعة واحد</item>
+        <item quantity="two">من أصل يومَي متابعة</item>
+        <item quantity="few">من أصل %1$s أيام متابعة</item>
+        <item quantity="many">من أصل %1$s يومَ متابعة</item>
+        <item quantity="other">من أصل %1$s يوم متابعة</item>
+    </plurals>
+    <string name="summary_without_logged_episode">دون نوبة مسجلة</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="zero">%1$s من أصل %2$s يوم متابعة دون نوبة مسجلة في آخر 30 يومًا</item>
+        <item quantity="one">%1$s من أصل يوم متابعة واحد دون نوبة مسجلة في آخر 30 يومًا</item>
+        <item quantity="two">%1$s من أصل يومَي متابعة دون نوبة مسجلة في آخر 30 يومًا</item>
+        <item quantity="few">%1$s من أصل %2$s أيام متابعة دون نوبة مسجلة في آخر 30 يومًا</item>
+        <item quantity="many">%1$s من أصل %2$s يومَ متابعة دون نوبة مسجلة في آخر 30 يومًا</item>
+        <item quantity="other">%1$s من أصل %2$s يوم متابعة دون نوبة مسجلة في آخر 30 يومًا</item>
+    </plurals>
+    <string name="summary_tracking_start_note">يبدأ العدّ من يوم بدء المتابعة. الأيام التي قبله خارج المتابعة.</string>
+    <string name="strip_legend_migraine">صداع نصفي</string>
+    <string name="strip_legend_pain_free">دون ألم</string>
+    <string name="strip_legend_not_tracked">قبل المتابعة</string>
+    <string name="summary_sleep_last_night">النوم الليلة الماضية</string>
+    <string name="summary_sleep_not_recorded">غير مسجل</string>
+    <string name="summary_sleep_hint">ارتدِ Apple Watch أثناء النوم أو سجّل النوم في تطبيق «صحتي». إذا أوقفت الوصول، ففعّله في الإعدادات › صحتي.</string>
+    <string name="summary_sleep_caption">النوم</string>
+    <string name="summary_sleep_connect_title">اعرض نوم الليلة الماضية في الملخص</string>
+    <string name="summary_sleep_connect_body">يقرأ MigraTrack نوم الليلة الماضية من Apple Health. تبقى البيانات على هذا iPhone.</string>
+    <string name="summary_sleep_connect_button">ربط Apple Health</string>
+    <string name="summary_last_episode">آخر نوبة</string>
+    <string name="summary_last_episode_none">لا توجد بعد</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">تسجيل نوبة</string>
+    <string name="episode_update">تحديث النوبة</string>
+    <string name="episode_updated_banner">تم تحديث النوبة.</string>
+    <string name="episode_deleted_banner">تم حذف النوبة.</string>
+    <string name="episode_saved_banner">تم حفظ النوبة. خذ قسطًا من الراحة وابقَ في ضوء خافت.</string>
+    <string name="episode_pain_intensity_index">مؤشر شدة الألم</string>
+    <string name="episode_cranial_epicenter">موضع الألم في الرأس</string>
+    <string name="episode_aura_symptoms">الأورة والأعراض الحسية</string>
+    <string name="episode_acute_therapy">علاج النوبة الحاد</string>
+    <string name="episode_add_medication_row">إضافة دواء / أملاح الإماهة</string>
+    <string name="episode_start">بداية النوبة</string>
+    <string name="episode_start_now">الآن</string>
+    <string name="episode_add_trigger_message">ما الذي سبق هذه النوبة؟</string>
+    <string name="episode_other_trigger_action">محفز آخر…</string>
+    <string name="episode_other_trigger_title">محفز آخر</string>
+    <string name="episode_other_trigger_message">اكتب شيئًا سبق هذه النوبة.</string>
+    <string name="episode_other_trigger_placeholder">مثلًا: عطر قوي</string>
+    <string name="episode_add_medication_message">ماذا تناولت لهذه النوبة؟</string>
+    <string name="episode_other_medication_action">دواء آخر…</string>
+    <string name="episode_other_medication_title">دواء آخر</string>
+    <string name="episode_missing_title">حُذفت النوبة</string>
+    <string name="episode_missing_message">حُذفت هذه النوبة على جهاز آخر، لذا لا يمكن حفظ التغييرات.</string>
+    <string name="episode_delete_message">الشدة %1$s/10. ستُحذف النوبة من سجلك وتقاريرك.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">أ</string>
+    <string name="insights_period_month">ش</string>
+    <string name="insights_period_six_months">6ش</string>
+    <string name="insights_period_year">ع</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="zero">نوبة هذا الأسبوع</item>
+        <item quantity="one">نوبة هذا الأسبوع</item>
+        <item quantity="two">نوبتان هذا الأسبوع</item>
+        <item quantity="few">نوبات هذا الأسبوع</item>
+        <item quantity="many">نوبة هذا الأسبوع</item>
+        <item quantity="other">نوبة هذا الأسبوع</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="zero">نوبة في أسبوع %1$s</item>
+        <item quantity="one">نوبة في أسبوع %1$s</item>
+        <item quantity="two">نوبتان في أسبوع %1$s</item>
+        <item quantity="few">نوبات في أسبوع %1$s</item>
+        <item quantity="many">نوبة في أسبوع %1$s</item>
+        <item quantity="other">نوبة في أسبوع %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="zero">نوبة في %1$s</item>
+        <item quantity="one">نوبة في %1$s</item>
+        <item quantity="two">نوبتان في %1$s</item>
+        <item quantity="few">نوبات في %1$s</item>
+        <item quantity="many">نوبة في %1$s</item>
+        <item quantity="other">نوبة في %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="zero">نوبة في 6 أشهر</item>
+        <item quantity="one">نوبة في 6 أشهر</item>
+        <item quantity="two">نوبتان في 6 أشهر</item>
+        <item quantity="few">نوبات في 6 أشهر</item>
+        <item quantity="many">نوبة في 6 أشهر</item>
+        <item quantity="other">نوبة في 6 أشهر</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="zero">نوبة في %1$s</item>
+        <item quantity="one">نوبة في %1$s</item>
+        <item quantity="two">نوبتان في %1$s</item>
+        <item quantity="few">نوبات في %1$s</item>
+        <item quantity="many">نوبة في %1$s</item>
+        <item quantity="other">نوبة في %1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">نوبات أقل بنسبة %1$s بالمئة من الفترة السابقة</string>
+    <string name="insights_trend_more">نوبات أكثر بنسبة %1$s بالمئة من الفترة السابقة</string>
+    <string name="insights_legend_migraine_day">يوم صداع نصفي</string>
+    <string name="insights_legend_pain_free_day">يوم دون ألم</string>
+    <string name="insights_legend_not_tracked">قبل المتابعة</string>
+    <string name="insights_bar_no_data">%1$s: لا توجد بيانات بعد</string>
+    <string name="insights_bar_not_tracked">%1$s: قبل المتابعة</string>
+    <string name="insights_bar_pain_free">%1$s: دون ألم</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="zero">%1$s: %2$s يوم صداع نصفي، الذروة %3$s من 10</item>
+        <item quantity="one">%1$s: يوم صداع نصفي واحد، الذروة %3$s من 10</item>
+        <item quantity="two">%1$s: يوما صداع نصفي، الذروة %3$s من 10</item>
+        <item quantity="few">%1$s: %2$s أيام صداع نصفي، الذروة %3$s من 10</item>
+        <item quantity="many">%1$s: %2$s يومَ صداع نصفي، الذروة %3$s من 10</item>
+        <item quantity="other">%1$s: %2$s يوم صداع نصفي، الذروة %3$s من 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">سجّل المحفزات المحتملة عند تسجيل نوبة أو تعديلها. ستعرض هذه البطاقة بعدها عدد مرات تسجيل كل محفز.</string>
+    <string name="insights_triggers_hint">عدد المرات التي سجّلت فيها كل محفز مع نوبة. هذا لا يدل على سبب.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="zero">%1$s، سُجّل في %2$s من أصل %3$s نوبة</item>
+        <item quantity="one">%1$s، سُجّل في %2$s من أصل نوبة واحدة</item>
+        <item quantity="two">%1$s، سُجّل في %2$s من أصل نوبتين</item>
+        <item quantity="few">%1$s، سُجّل في %2$s من أصل %3$s نوبات</item>
+        <item quantity="many">%1$s، سُجّل في %2$s من أصل %3$s نوبة</item>
+        <item quantity="other">%1$s، سُجّل في %2$s من أصل %3$s نوبة</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s من %2$s</string>
+    <string name="insights_calendar_a11y">التقويم، %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="zero">في %1$s %2$s نوبة.</item>
+        <item quantity="one">في %1$s نوبة واحدة.</item>
+        <item quantity="two">في %1$s نوبتان.</item>
+        <item quantity="few">في %1$s %2$s نوبات.</item>
+        <item quantity="many">في %1$s %2$s نوبة.</item>
+        <item quantity="other">في %1$s %2$s نوبة.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · الشدة %2$s/10</string>
+    <string name="insights_month_picker_title">الشهر</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">الشهر السابق</string>
+    <string name="calendar_next_month">الشهر التالي</string>
+    <string name="calendar_choose_month_a11y">%1$s، اختر شهرًا آخر</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="zero">%1$s يوم صداع نصفي</item>
+        <item quantity="one">يوم صداع نصفي واحد</item>
+        <item quantity="two">يوما صداع نصفي</item>
+        <item quantity="few">%1$s أيام صداع نصفي</item>
+        <item quantity="many">%1$s يومَ صداع نصفي</item>
+        <item quantity="other">%1$s يوم صداع نصفي</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s، %2$s</string>
+    <string name="calendar_day_today_a11y">اليوم، %1$s، %2$s</string>
+    <string name="calendar_day_not_available">غير متاح</string>
+    <string name="calendar_day_not_tracked">قبل المتابعة</string>
+    <string name="calendar_day_no_episodes">لا توجد نوبات</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="zero">%1$s نوبة، الذروة %2$s من 10</item>
+        <item quantity="one">نوبة واحدة، الذروة %2$s من 10</item>
+        <item quantity="two">نوبتان، الذروة %2$s من 10</item>
+        <item quantity="few">%1$s نوبات، الذروة %2$s من 10</item>
+        <item quantity="many">%1$s نوبة، الذروة %2$s من 10</item>
+        <item quantity="other">%1$s نوبة، الذروة %2$s من 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="zero">%1$s نوبة</item>
+        <item quantity="one">نوبة واحدة</item>
+        <item quantity="two">نوبتان</item>
+        <item quantity="few">%1$s نوبات</item>
+        <item quantity="many">%1$s نوبة</item>
+        <item quantity="other">%1$s نوبة</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">أعلى شدة</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">الأدوية</string>
+    <string name="calendar_edit_episode_details">تعديل تفاصيل النوبة</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">جارٍ تجهيز PDF…</string>
+    <string name="export_preparing_excel">جارٍ تجهيز Excel…</string>
+    <string name="export_preparing_report">جارٍ تجهيز التقرير…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="zero">نوبة</item>
+        <item quantity="one">نوبة</item>
+        <item quantity="two">نوبتان</item>
+        <item quantity="few">نوبات</item>
+        <item quantity="many">نوبة</item>
+        <item quantity="other">نوبة</item>
+    </plurals>
+    <string name="export_episodes_recorded">النوبات المسجلة</string>
+    <string name="export_include">تضمين في التصدير</string>
+    <string name="export_medications">الأدوية المتناولة</string>
+    <string name="export_medications_subtitle">الجرعات وإجمالي الاستخدام</string>
+    <string name="export_symptoms">الأورة والأعراض التحذيرية</string>
+    <string name="export_symptoms_subtitle">أنواع الأورة وتكرارها</string>
+    <string name="export_triggers_subtitle">المحفزات المسجلة وتكرارها</string>
+    <string name="export_pain_charts">رسوم شدة الألم</string>
+    <string name="export_pain_charts_subtitle">شدة الألم عبر الزمن، 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">تصدير تقرير PDF</string>
+    <string name="export_excel">تصدير كملف Excel (.xlsx)‎</string>
+    <string name="export_share">مشاركة</string>
+    <string name="export_range_title">فترة التقرير</string>
+    <plurals name="export_share_text">
+        <item quantity="zero">تقرير MigraTrack:‏ %1$s نوبة، %2$s.</item>
+        <item quantity="one">تقرير MigraTrack:‏ نوبة واحدة، %2$s.</item>
+        <item quantity="two">تقرير MigraTrack:‏ نوبتان، %2$s.</item>
+        <item quantity="few">تقرير MigraTrack:‏ %1$s نوبات، %2$s.</item>
+        <item quantity="many">تقرير MigraTrack:‏ %1$s نوبة، %2$s.</item>
+        <item quantity="other">تقرير MigraTrack:‏ %1$s نوبة، %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">تعذّر التصدير</string>
+    <string name="export_failed_message">تعذّر إنشاء التقرير.</string>
+    <string name="export_write_failed">تعذّرت كتابة %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="zero">%1$s محفز معروف</item>
+        <item quantity="one">محفز معروف واحد</item>
+        <item quantity="two">محفزان معروفان</item>
+        <item quantity="few">%1$s محفزات معروفة</item>
+        <item quantity="many">%1$s محفزًا معروفًا</item>
+        <item quantity="other">%1$s محفز معروف</item>
+    </plurals>
+    <string name="settings_no_triggers">لم يتم اختيار محفزات</string>
+    <string name="settings_no_medications">لم يتم اختيار أدوية</string>
+    <string name="settings_name_title">اسمك</string>
+    <string name="settings_name_message">يظهر في التقارير التي تصدّرها.</string>
+    <string name="settings_name_placeholder">الاسم</string>
+    <string name="settings_delete_title">حذف كل البيانات؟</string>
+    <string name="settings_delete_message">يحفظ MigraTrack بياناتك على هذا iPhone ونسخة منها على Apple Watch. سيؤدي هذا إلى حذف كل النوبات وملفك الأساسي نهائيًا، وتحذف الساعة نسختها عند المزامنة التالية. تحتفظ النسخ الاحتياطية للجهاز بنسختها. صدّر تقريرًا أولًا إذا كنت تحتاج إليه.</string>
+    <string name="settings_delete_all">حذف كل البيانات</string>
+    <string name="settings_section_baseline">الأساس السريري والبروتوكول</string>
+    <string name="settings_baseline_diagnoses">التشخيصات الأساسية</string>
+    <string name="settings_known_triggers">المحفزات المعروفة</string>
+    <string name="settings_section_preferences">التفضيلات</string>
+    <string name="settings_appearance">المظهر</string>
+    <string name="settings_appearance_value">داكن (ثابت)</string>
+    <string name="settings_version">الإصدار</string>
+    <string name="settings_version_value">v%1$s (البنية %2$s)</string>
+    <string name="settings_section_legal">قانوني</string>
+    <string name="settings_section_developer">المطوّر</string>
+    <string name="settings_load_sample_data">تحميل بيانات نموذجية</string>
+    <string name="settings_load_sample_data_subtitle">يضيف سنة من النوبات المولّدة لمعاينة الرسوم البيانية</string>
+    <string name="settings_edit_name_a11y">تعديل الاسم</string>
+    <string name="settings_add_name">أضف اسمك</string>
+    <string name="settings_member">منذ</string>
+    <string name="settings_episodes">النوبات</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="zero">المسجلة: %1$s</item>
+        <item quantity="one">المسجلة: %1$s</item>
+        <item quantity="two">المسجلة: %1$s</item>
+        <item quantity="few">المسجلة: %1$s</item>
+        <item quantity="many">المسجلة: %1$s</item>
+        <item quantity="other">المسجلة: %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">سياسة الخصوصية</string>
+    <string name="legal_terms_of_service">شروط الخدمة</string>
+    <string name="legal_folder">ar</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">المتابعة إلى المحفزات</string>
+    <string name="onboarding_continue_to_medications">المتابعة إلى الأدوية</string>
+    <string name="onboarding_finish_setup">إنهاء الإعداد</string>
+    <string name="onboarding_back_to_diagnoses">الرجوع إلى التشخيصات</string>
+    <string name="onboarding_back_to_triggers">الرجوع إلى المحفزات</string>
+    <string name="onboarding_save_changes">حفظ التغييرات</string>
+    <string name="onboarding_step">الخطوة %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">التشخيصات والتاريخ المرضي</string>
+    <string name="onboarding_diagnoses_subtitle">أعدّ ملفك الأساسي. تنطلق منه نوباتك وتقاريرك.</string>
+    <string name="onboarding_primary_diagnosis">التشخيص الرئيسي</string>
+    <string name="onboarding_episode_frequency">عدد النوبات شهريًا</string>
+    <string name="onboarding_episode_duration">المدة المعتادة للنوبة</string>
+    <string name="onboarding_intensity_baseline">الشدة المعتادة للألم</string>
+    <string name="onboarding_update_later">يمكنك تحديث ملفك الأساسي في أي وقت من الإعدادات.</string>
+    <string name="onboarding_triggers_title">محفزاتك</string>
+    <string name="onboarding_triggers_subtitle">اختر المحفزات المعروفة لديك أو التي تشك فيها. يدرجها تقريرك لطبيبك.</string>
+    <string name="onboarding_add_custom_trigger">إضافة محفز خاص</string>
+    <string name="onboarding_treatment_subtitle">اختر ما تتناوله. تُملأ أدوية النوبة الحادة مسبقًا في كل نوبة جديدة، فيكفي التسجيل لمسة واحدة.</string>
+    <string name="onboarding_add_custom_medication">إضافة دواء خاص</string>
+    <string name="onboarding_custom_trigger_title">إضافة محفز خاص</string>
+    <string name="onboarding_custom_trigger_message">اكتب شيئًا يثير نوبات الصداع النصفي لديك عادةً.</string>
+    <string name="onboarding_custom_trigger_placeholder">مثلًا: أضواء وامضة</string>
+    <string name="onboarding_medication_role_message">متى تتناوله؟</string>
+    <string name="onboarding_medication_role_acute">أثناء النوبة (علاج حاد)</string>
+    <string name="onboarding_medication_role_preventive">كل يوم (علاج وقائي)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">متتبّع شخصي للصداع النصفي ومحفزاته</string>
+    <string name="welcome_example">مثال</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="zero">يوم دون ألم</item>
+        <item quantity="one">يوم دون ألم</item>
+        <item quantity="two">يومان دون ألم</item>
+        <item quantity="few">أيام دون ألم</item>
+        <item quantity="many">يومًا دون ألم</item>
+        <item quantity="other">يوم دون ألم</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="zero">مثال: %1$s يوم دون ألم في آخر 30 يومًا</item>
+        <item quantity="one">مثال: يوم واحد دون ألم في آخر 30 يومًا</item>
+        <item quantity="two">مثال: يومان دون ألم في آخر 30 يومًا</item>
+        <item quantity="few">مثال: %1$s أيام دون ألم في آخر 30 يومًا</item>
+        <item quantity="many">مثال: %1$s يومًا دون ألم في آخر 30 يومًا</item>
+        <item quantity="other">مثال: %1$s يوم دون ألم في آخر 30 يومًا</item>
+    </plurals>
+    <string name="welcome_headline_patterns">افهم أنماطك.</string>
+    <string name="welcome_headline_doctor">وقدّم الحقائق لطبيبك.</string>
+    <string name="welcome_body">تتبّع الأعراض، ولاحظ المحفزات المحتملة، وصدّر تقاريرك الشخصية في أي وقت.</string>
+    <string name="welcome_get_started">ابدأ</string>
+    <string name="welcome_agreement">بالمتابعة، فإنك توافق على %1$s و%2$s.</string>
+
+    <string name="diagnosis_migraine_without_aura">صداع نصفي غير مصحوب بأورة</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">النمط الشائع للصداع النصفي</string>
+    <string name="diagnosis_migraine_with_aura">صداع نصفي مصحوب بأورة</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">أورة بصرية أو حسية بؤرية</string>
+    <string name="diagnosis_chronic_migraine">صداع نصفي مزمن</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 يومًا أو أكثر من الصداع شهريًا</string>
+    <string name="diagnosis_tension_type">صداع التوتر</string>
+    <string name="diagnosis_tension_type_subtitle">ضغط شدّ يطوّق الرأس كالحزام</string>
+    <string name="diagnosis_cluster">الصداع العنقودي</string>
+    <string name="diagnosis_cluster_subtitle">نوبات شديدة حول العين في جانب واحد</string>
+    <string name="diagnosis_not_diagnosed">لا تشخيص / قيد الاستكشاف</string>
+    <string name="diagnosis_not_diagnosed_subtitle">مراقبة أنماط الأعراض</string>
+    <string name="frequency_less_than_one">&lt; 1 / شهر</string>
+    <string name="frequency_one_to_four">1–4 / شهر</string>
+    <string name="frequency_five_to_eight">5–7 / شهر</string>
+    <string name="frequency_eight_plus">8+ / شهر</string>
+    <string name="duration_two_to_four">2–4 س</string>
+    <string name="duration_four_to_twelve">4–12 س</string>
+    <string name="duration_twelve_to_twenty_four">12–24 س</string>
+    <string name="duration_one_to_three_days">24–72 س</string>
+    <string name="region_left_temple">الصدغ الأيسر</string>
+    <string name="region_right_temple">الصدغ الأيمن</string>
+    <string name="region_frontal_brow">الجبهة / الحاجب</string>
+    <string name="region_retro_orbital">خلف العين</string>
+    <string name="region_occipital_neck">مؤخرة الرأس والرقبة</string>
+    <string name="symptom_scintillating_scotoma">العتمة الوامضة (بصرية)</string>
+    <string name="symptom_scintillating_scotoma_short">أورة بصرية</string>
+    <string name="symptom_neck_stiffness">تيبّس الرقبة</string>
+    <string name="symptom_neck_stiffness_short">تيبّس الرقبة</string>
+    <string name="symptom_photophobia">رهاب الضوء (الضوء)</string>
+    <string name="symptom_photophobia_short">الضوء</string>
+    <string name="symptom_nausea">الغثيان</string>
+    <string name="symptom_nausea_short">الغثيان</string>
+    <string name="symptom_phonophobia">رهاب الصوت (الصوت)</string>
+    <string name="symptom_phonophobia_short">الصوت</string>
+    <string name="symptom_aphasia">الحُبسة / تشوّش الذهن</string>
+    <string name="symptom_aphasia_short">تشوّش الذهن</string>
+    <string name="symptom_paresthesia">وخز / تنمّل</string>
+    <string name="symptom_paresthesia_short">وخز</string>
+    <string name="trigger_category_weather_environment">الطقس والبيئة</string>
+    <string name="trigger_category_sleep_physical">النوم والروتين البدني</string>
+    <string name="trigger_category_stress_emotions">التوتر والمشاعر</string>
+    <string name="trigger_category_hormonal">الهرمونات</string>
+    <string name="trigger_category_diet_consumption">الغذاء والاستهلاك</string>
+    <string name="trigger_category_custom">خاص</string>
+    <string name="medication_role_acute">علاج حاد / لإيقاف النوبة</string>
+    <string name="medication_role_preventive">وقائي ومكمّلات</string>
+    <string name="export_range_last_30_days">آخر 30 يومًا</string>
+    <string name="export_range_last_90_days">آخر 90 يومًا</string>
+    <string name="export_range_last_6_months">آخر 6 أشهر</string>
+    <string name="export_range_last_12_months">آخر 12 شهرًا</string>
+
+    <string name="trigger_barometric_pressure">انخفاض الضغط الجوي</string>
+    <string name="trigger_barometric_pressure_description">جبهات الطقس، تغيّر الارتفاع</string>
+    <string name="trigger_bright_light">الأضواء الساطعة والشمس</string>
+    <string name="trigger_bright_light_description">الوهج، الضوء الوامض، رهاب الضوء</string>
+    <string name="trigger_heat_humidity">الحر الشديد / الرطوبة</string>
+    <string name="trigger_heat_humidity_description">تقلبات الحرارة</string>
+    <string name="trigger_loud_noise">الضجيج العالي</string>
+    <string name="trigger_loud_noise_description">رهاب الصوت، ذروات الصوت</string>
+    <string name="trigger_poor_sleep">نوم سيئ / غير منتظم</string>
+    <string name="trigger_poor_sleep_description">قلة النوم، نقص نوم حركة العين السريعة</string>
+    <string name="trigger_dehydration">الجفاف</string>
+    <string name="trigger_dehydration_description">نقص الأملاح المعدنية</string>
+    <string name="trigger_skipped_meals">تفويت الوجبات / الصيام</string>
+    <string name="trigger_skipped_meals_description">انخفاض سكر الدم</string>
+    <string name="trigger_overexertion">الإجهاد البدني المفرط</string>
+    <string name="trigger_overexertion_description">إجهاد وعائي ناتج عن المجهود</string>
+    <string name="trigger_emotional_stress">التوتر النفسي / ما بعده</string>
+    <string name="trigger_emotional_stress_description">الصداع بعد انتهاء ضغط العمل</string>
+    <string name="trigger_screen_fatigue">إجهاد الشاشات</string>
+    <string name="trigger_screen_fatigue_description">الضوء الأزرق، تقارب العينين</string>
+    <string name="trigger_hormonal_cycle">التغيرات الهرمونية / الدورة</string>
+    <string name="trigger_hormonal_cycle_description">تغيرات الدورة الشهرية</string>
+    <string name="trigger_caffeine">انسحاب الكافيين / الإفراط فيه</string>
+    <string name="trigger_caffeine_description">تغيرات مستقبلات الأدينوسين</string>
+    <string name="trigger_aged_cheese">الأجبان المعتّقة / التيرامين</string>
+    <string name="trigger_aged_cheese_description">حساسية للأمينات المخمّرة</string>
+    <string name="trigger_alcohol">الكحول / النبيذ الأحمر</string>
+    <string name="trigger_alcohol_description">التانينات، الهستامين</string>
+    <string name="trigger_sweeteners">المحليات الصناعية</string>
+    <string name="trigger_sweeteners_description">الأسبارتام، السكرالوز</string>
+    <string name="trigger_custom_description">محفز خاص</string>
+
+    <string name="medication_ibuprofen_400">إيبوبروفين</string>
+    <string name="medication_ibuprofen_400_class">مضاد التهاب مساعد</string>
+    <string name="medication_sumatriptan_50">سوماتريبتان</string>
+    <string name="medication_sumatriptan_50_class">تريبتان، ناهض السيروتونين</string>
+    <string name="medication_rizatriptan_10">ريزاتريبتان</string>
+    <string name="medication_rizatriptan_10_class">تريبتان، يذوب في الفم</string>
+    <string name="medication_naproxen_500">نابروكسين</string>
+    <string name="medication_naproxen_500_class">مضاد التهاب غير ستيرويدي طويل المفعول</string>
+    <string name="medication_acetaminophen_1000">باراسيتامول</string>
+    <string name="medication_acetaminophen_1000_class">مسكّن للألم</string>
+    <string name="medication_ubrogepant_100">أوبروجيبانت</string>
+    <string name="medication_ubrogepant_100_class">جيبانت، مضاد CGRP</string>
+    <string name="medication_metoclopramide_10">ميتوكلوبراميد</string>
+    <string name="medication_metoclopramide_10_class">مضاد للقيء</string>
+    <string name="medication_electrolytes">أملاح الإماهة</string>
+    <string name="medication_electrolytes_class">إماهة فموية</string>
+    <string name="medication_riboflavin_400">ريبوفلافين</string>
+    <string name="medication_riboflavin_400_class">فيتامين B2</string>
+    <string name="medication_magnesium_400">مغنيسيوم</string>
+    <string name="medication_magnesium_400_class">مكمّل معدني</string>
+    <string name="medication_propranolol_40">بروبرانولول</string>
+    <string name="medication_propranolol_40_class">حاصر بيتا</string>
+    <string name="medication_topiramate_50">توبيرامات</string>
+    <string name="medication_topiramate_50_class">مضاد للاختلاج</string>
+    <string name="medication_amitriptyline_10">أميتريبتيلين</string>
+    <string name="medication_amitriptyline_10_class">مضاد اكتئاب ثلاثي الحلقات</string>
+    <string name="medication_erenumab_70">إرينوماب</string>
+    <string name="medication_erenumab_70_class">جسم مضاد لـ CGRP، شهريًا</string>
+    <string name="medication_custom_class">دواء خاص</string>
+    <string name="medication_dose_milligrams">%1$s&#160;مجم</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <string name="insights_bar_week">أ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="zero">%1$s من %2$s دون محفزات مسجلة</item>
+        <item quantity="one">%1$s من %2$s دون محفزات مسجلة</item>
+        <item quantity="two">%1$s من %2$s دون محفزات مسجلة</item>
+        <item quantity="few">%1$s من %2$s دون محفزات مسجلة</item>
+        <item quantity="many">%1$s من %2$s دون محفزات مسجلة</item>
+        <item quantity="other">%1$s من %2$s دون محفزات مسجلة</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="zero">%1$s نوبة</item>
+        <item quantity="one">نوبة واحدة</item>
+        <item quantity="two">نوبتين</item>
+        <item quantity="few">%1$s نوبات</item>
+        <item quantity="many">%1$s نوبة</item>
+        <item quantity="other">%1$s نوبة</item>
+    </plurals>
+
+    <string name="report_title">تقرير سريري عن الصداع النصفي</string>
+    <string name="report_page">MigraTrack · صفحة %1$s</string>
+    <string name="report_patient">المريض: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">أُنشئ في %1$s</string>
+    <string name="report_disclaimer">بيانات سجّلها المريض بنفسه في MigraTrack. يدعم هذا التقرير التقييم السريري ولا يحلّ محلّه.</string>
+    <string name="report_stat_episodes">النوبات المسجلة</string>
+    <string name="report_stat_migraine_days">أيام الصداع النصفي</string>
+    <string name="report_stat_pain_free_days">أيام دون ألم</string>
+    <string name="report_stat_average_intensity">متوسط الشدة /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="zero">بدأت المتابعة في %1$s. لا توجد سجلات لـ %2$s يوم سابق من هذه الفترة، ولا تُحسب أيامًا دون ألم.</item>
+        <item quantity="one">بدأت المتابعة في %1$s. لا توجد سجلات ليوم واحد سابق من هذه الفترة، ولا يُحسب يومًا دون ألم.</item>
+        <item quantity="two">بدأت المتابعة في %1$s. لا توجد سجلات ليومين سابقين من هذه الفترة، ولا يُحسبان أيامًا دون ألم.</item>
+        <item quantity="few">بدأت المتابعة في %1$s. لا توجد سجلات لـ %2$s أيام سابقة من هذه الفترة، ولا تُحسب أيامًا دون ألم.</item>
+        <item quantity="many">بدأت المتابعة في %1$s. لا توجد سجلات لـ %2$s يومًا سابقًا من هذه الفترة، ولا تُحسب أيامًا دون ألم.</item>
+        <item quantity="other">بدأت المتابعة في %1$s. لا توجد سجلات لـ %2$s يوم سابق من هذه الفترة، ولا تُحسب أيامًا دون ألم.</item>
+    </plurals>
+    <string name="report_baseline_title">الملف الأساسي</string>
+    <string name="report_baseline_diagnoses">التشخيصات</string>
+    <string name="report_baseline_frequency">عدد النوبات شهريًا</string>
+    <string name="report_baseline_duration">المدة المعتادة</string>
+    <string name="report_baseline_intensity">الشدة المعتادة</string>
+    <string name="report_baseline_triggers">المحفزات المعروفة</string>
+    <string name="report_baseline_treatments">خطة العلاج</string>
+    <string name="report_pain_chart_title">شدة الألم عبر الزمن (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">خفيف %1$s–%2$s</string>
+    <string name="report_legend_moderate">متوسط %1$s–%2$s</string>
+    <string name="report_legend_severe">شديد %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">قبل المتابعة</string>
+    <string name="report_medication_title">استخدام الأدوية</string>
+    <string name="report_no_medications">لم تُسجَّل أي أدوية متناولة في هذه الفترة.</string>
+    <plurals name="report_intakes">
+        <item quantity="zero">%1$s جرعة</item>
+        <item quantity="one">جرعة واحدة</item>
+        <item quantity="two">جرعتان</item>
+        <item quantity="few">%1$s جرعات</item>
+        <item quantity="many">%1$s جرعة</item>
+        <item quantity="other">%1$s جرعة</item>
+    </plurals>
+    <string name="report_symptoms_title">الأورة والأعراض التحذيرية</string>
+    <string name="report_no_symptoms">لم تُسجَّل أي أورة أو أعراض حسية في هذه الفترة.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="zero">%1$s من %2$s نوبة (%3$s)</item>
+        <item quantity="one">%1$s من نوبة واحدة (%3$s)</item>
+        <item quantity="two">%1$s من نوبتين (%3$s)</item>
+        <item quantity="few">%1$s من %2$s نوبات (%3$s)</item>
+        <item quantity="many">%1$s من %2$s نوبة (%3$s)</item>
+        <item quantity="other">%1$s من %2$s نوبة (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">المحفزات المحتملة المسجلة</string>
+    <string name="report_no_triggers">لم تُسجَّل أي محفزات في هذه الفترة.</string>
+    <string name="report_triggers_note">تبيّن الأعداد عدد المرات التي سجّل فيها المريض محفزًا مع نوبة. ولا تدل على سبب.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="zero">%1$s من %2$s دون محفزات مسجلة.</item>
+        <item quantity="one">%1$s من %2$s دون محفزات مسجلة.</item>
+        <item quantity="two">%1$s من %2$s دون محفزات مسجلة.</item>
+        <item quantity="few">%1$s من %2$s دون محفزات مسجلة.</item>
+        <item quantity="many">%1$s من %2$s دون محفزات مسجلة.</item>
+        <item quantity="other">%1$s من %2$s دون محفزات مسجلة.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="zero">%1$s نوبة</item>
+        <item quantity="one">نوبة واحدة</item>
+        <item quantity="two">نوبتين</item>
+        <item quantity="few">%1$s نوبات</item>
+        <item quantity="many">%1$s نوبة</item>
+        <item quantity="other">%1$s نوبة</item>
+    </plurals>
+    <string name="report_episodes_title">النوبات</string>
+    <string name="report_no_episodes">لم تُسجَّل أي نوبات في هذه الفترة.</string>
+    <string name="report_column_date_time">التاريخ والوقت</string>
+    <string name="report_column_pain">الألم</string>
+    <string name="report_column_epicenter">موضع الألم</string>
+    <string name="report_column_symptoms">الأعراض</string>
+    <string name="report_column_medications">الأدوية</string>
+    <string name="report_column_triggers">المحفزات</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">غير محدد</string>
+    <string name="report_none">لا شيء</string>
+
+    <string name="report_sheet_episodes">النوبات</string>
+    <string name="report_sheet_medications">الأدوية</string>
+    <string name="report_sheet_daily_pain">الألم اليومي</string>
+    <string name="report_sheet_profile">الملف</string>
+    <string name="report_header_started">البداية</string>
+    <string name="report_header_pain_intensity">شدة الألم (1&#8288;–&#8288;10)</string>
+    <string name="report_header_epicenter">موضع الألم في الرأس</string>
+    <string name="report_header_symptoms">الأورة والأعراض الحسية</string>
+    <string name="report_header_medications">الأدوية</string>
+    <string name="report_header_triggers">المحفزات المحتملة</string>
+    <string name="report_header_episode_started">بداية النوبة</string>
+    <string name="report_header_medication">الدواء</string>
+    <string name="report_header_dose">الجرعة</string>
+    <string name="report_header_date">التاريخ</string>
+    <string name="report_header_peak_pain">أعلى شدة للألم (1&#8288;–&#8288;10، 0 = دون ألم)</string>
+    <string name="report_header_day">اليوم</string>
+    <string name="report_header_field">الحقل</string>
+    <string name="report_header_value">القيمة</string>
+    <string name="report_day_migraine">صداع نصفي</string>
+    <string name="report_day_pain_free">دون ألم</string>
+    <string name="report_day_not_tracked">قبل المتابعة</string>
+    <string name="report_profile_patient">المريض</string>
+    <string name="report_profile_range">فترة التقرير</string>
+    <string name="report_profile_tracked_since">المتابعة منذ</string>
+    <string name="report_profile_diagnoses">التشخيصات</string>
+    <string name="report_profile_frequency">عدد النوبات شهريًا</string>
+    <string name="report_profile_duration">المدة المعتادة</string>
+    <string name="report_profile_intensity">الشدة المعتادة</string>
+    <string name="report_profile_triggers">المحفزات المعروفة</string>
+    <string name="report_profile_treatments">خطة العلاج</string>
+    <string name="report_iso_range">من %1$s إلى %2$s</string>
+</resources>

@@ -304,3 +304,50 @@ Languages: Chinese (Simplified), Chinese (Traditional), Japanese and Korean. Sco
 - Privacy Policy, all four texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes. "Logging preset" comes back as "recording preset", as in batches 2–6.
 - Terms of Service, all four texts: not a medical device ("医疗器械", "醫療器材", "医療機器", "의료기기"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 8: Arabic, Hebrew, Urdu (October 23, 2026)
+
+Languages: Arabic, Hebrew and Urdu. Scope: the keys of the checklist, section 3, the Siri dialogs and watch strings, and `docs/legal/files/{ar,he,ur}/*.md`. Arabic and Hebrew have Siri phrases; Urdu has none, because Siri does not speak it.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| ur | `pain_scale_high` | "10 Not capable of work" ("ناقابلِ کار"): not natural Urdu | 10 Disabling | "کام ناممکن" (work impossible), the meaning of batches 2–7 |
+| he | `episode_acute_therapy`, `medication_role_acute`, `onboarding_medication_role_acute`, `onboarding_treatment_subtitle`, Siri description | "Acute" as a loanword ("אקוטי") | Acute | "חד", as Maccabi writes "טיפול בהתקף חד" (HE1) |
+| he | `symptom_paresthesia` | "Tingling / numbness" ("נימול") | Tingling / Paresthesia | "נמלול", the word of HE1 |
+| ar | Privacy Policy, developer sentence | "Ira Babayed (feminine verb) developed MigraTrack" | MigraTrack is developed by Ira Babayed | The passive voice, without a gender: "طُوِّر MigraTrack على يد Ira Babayed" |
+| ar, he, ur | `export_excel` | "(xlsx.)" on the screen: the period moved to the other side | Export as Excel (.xlsx) | A left-to-right mark after "(.xlsx)" |
+| ar | Watch summary | Last episode "6 Jumada al-Ula": the Hijri date of `ar_SA` | Last episode Oct 17 | The watch formats the date with a Gregorian calendar, as the iPhone does |
+| ar | Watch summary | "27" in Western digits next to "/ ٣٠" | 27 / 30 | The watch formats the number with the region (`formatted()`) |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| ar, ur | Watch and complication "Log Migraine" | "Record an episode" | Log Migraine | 14 characters on the watch; "صداع نصفي" and "مائیگرین" do not fit with the verb. The owner approved it |
+| ur | `common_save_episode`, watch "Save Episode" | "Save" | Save Episode | 14 characters on the watch; the term pair makes the iPhone button equal |
+| he | Complication "LOG" | "Record!" (masculine imperative "תעד") | LOG | 4 characters; the noun "תיעוד" has 5. The owner approved it |
+| he, ur | `duration_*` | "2–4" without a unit | 2–4h | 7 characters; "(שעות)" and "(گھنٹے)" (hours) are in the caption of step 1 and the report |
+| he | `export_range_last_12_months` | "The last year" | Last 12 Months | 16 characters |
+| ar | `strip_legend_not_tracked` and the other "not tracked" keys | "Before tracking" | Not tracked | The meaning of the glossary term: a day before the first tracked day |
+| ar, he, ur | `episode_cranial_epicenter`, `report_column_epicenter` | "Pain location (in the head)" | Cranial Epicenter | The plain words of a patient, as batches 2–7 |
+| ar | `pain_scale_high` | "10 Hindering" ("معيق") | 10 Disabling | The pain stops normal activity |
+| he | `pain_scale_high` | "10 Disabling (shuts down)" ("משבית") | 10 Disabling | — |
+| ar, he, ur | `settings_member` | "Since", "Tracked since", "Start" | Member | No account exists; the value is the first tracked month |
+| ar | Instructions ("استشر طبيبك") | Masculine singular | — | Arabic iOS writes instructions in the masculine singular (iOS 27.1 `HealthUI.framework`) |
+| he | `report_patient`, `report_triggers_note`, `report_disclaimer` | "Patient (m/f)" ("מטופל/ת") | Patient | The report names a person whose gender the app does not know |
+| ar, he, ur | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with "," | — | The code joins lists with ", " for every language. The Arabic and Urdu comma "،" needs a change of the code; it is the follow-up of batch 7 |
+
+### No difference in meaning
+
+- Diagnoses (Mayo Clinic in Arabic for "مصحوب بأورة", Maccabi for "מיגרנה עם אאורה"), symptoms, regions, frequency chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose units "مجم", "מ״ג" and "mg" with a no-break space.
+- `common_medical_disclaimer`, for example Hebrew: "MigraTrack is a diary and not medical advice. Before changing the treatment, one should consult the doctor."
+- `insights_triggers_hint`, for example Arabic: "The number of times that you noted each trigger with an episode. This does not indicate a cause."
+- `report_triggers_note`, for example Urdu: "The count shows how many times the patient noted a trigger with an episode. It does not show a cause."
+- `report_disclaimer`, for example Arabic: "Data that the patient recorded himself in MigraTrack. This report supports the clinical assessment and does not replace it."
+- The plural forms: Arabic zero, one, two, few, many and other; Hebrew one, two and other; Urdu one and other. For example Arabic `calendar_migraine_days` for 2: "two migraine days" ("يوما صداع نصفي").
+- The other `report_*` keys, the Siri dialogs ("intensity 6 out of 10"), and the watch strings.
+- Privacy Policy, all three texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes.
+- Terms of Service, all three texts: not a medical device ("جهازًا طبيًا", "אביזר רפואי", "طبی آلہ"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.

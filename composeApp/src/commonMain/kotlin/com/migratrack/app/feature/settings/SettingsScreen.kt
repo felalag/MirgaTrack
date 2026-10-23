@@ -69,10 +69,13 @@ import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
 import com.migratrack.app.ui.components.RowTrailing
 import com.migratrack.app.ui.components.pressable
+import com.migratrack.app.ui.getString
 import com.migratrack.app.ui.icons.AppIcons
 import com.migratrack.app.ui.icons.Symbols
 import com.migratrack.app.ui.nameText
+import com.migratrack.app.ui.pluralStringResource
 import com.migratrack.app.ui.resolve
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
@@ -88,9 +91,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.datetime.yearMonth
-import org.jetbrains.compose.resources.getString
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
 
 /** [diagnoses] and [treatments] are empty when nothing is selected; the screen then shows a hint. */
 data class SettingsUiState(

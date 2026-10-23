@@ -14,6 +14,8 @@ import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.app.ui.Dates
 import com.migratrack.app.ui.Numbers
+import com.migratrack.app.ui.getPluralString
+import com.migratrack.app.ui.getString
 import com.migratrack.domain.analytics.CalendarBuilder
 import com.migratrack.domain.analytics.DayEpisodes
 import com.migratrack.domain.analytics.Insights
@@ -39,8 +41,6 @@ import kotlinx.datetime.YearMonth
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.datetime.yearMonth
-import org.jetbrains.compose.resources.getPluralString
-import org.jetbrains.compose.resources.getString
 
 data class InsightsUiState(
     val period: InsightsPeriod,

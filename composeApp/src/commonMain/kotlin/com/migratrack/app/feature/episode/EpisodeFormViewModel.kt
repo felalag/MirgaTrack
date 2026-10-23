@@ -27,6 +27,7 @@ import com.migratrack.app.platform.DatePickerMode
 import com.migratrack.app.platform.SheetAction
 import com.migratrack.app.ui.Dates
 import com.migratrack.app.ui.Numbers
+import com.migratrack.app.ui.getString
 import com.migratrack.app.ui.load
 import com.migratrack.app.ui.nameText
 import com.migratrack.domain.model.CranialRegion
@@ -52,7 +53,6 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.getString
 
 /** What the episode form works on. */
 sealed interface EpisodeTarget {

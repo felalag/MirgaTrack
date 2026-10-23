@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Chinese (Simplified), Chinese (Traditional), Japanese and Korean, October 20, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Chinese (Simplified), Chinese (Traditional), Japanese and Korean, October 20, 2026. Arabic, Hebrew and Urdu, October 23, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -1035,3 +1035,99 @@ Checked on October 20, 2026. A page number is the page of the PDF file.
 | Beta blocker | β遮断薬 | JA2, p. 13 | 베타 차단제 | **Not verified** |
 | Anticonvulsant | 抗てんかん薬 | JA2, p. 136 | 항경련제 | **Not verified** |
 | Tricyclic antidepressant | 三環系抗うつ薬 | **Not verified**; JA2, p. 14 has "抗うつ薬" | 삼환계 항우울제 | **Not verified** |
+
+### Right to left: Arabic, Hebrew, Urdu
+
+Arabic (`ar`), Hebrew (`he`) and Urdu (`ur`). All three use the system font: SF Arabic, SF Hebrew, and Noto Nastaliq Urdu, which iOS selects for Urdu by itself. The project owner approved the decisions of batch 8 on October 23, 2026: Modern Standard Arabic, the digits of the region (plan, section 4.5), "אאורה" for aura in Hebrew, "مائیگرین" for migraine in Urdu, and Pakistan as the reference country of Urdu. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7). The reference countries are Egypt, Israel and Pakistan. Plan section 6.1 would pick India for Urdu, because India is the largest country whose App Store shows Urdu; Urdu is the national language of Pakistan, so Pakistan gives the words, as South Korea and not the United States did for Korean.
+
+| Language | Address | Buttons and punctuation |
+|---|---|---|
+| ar | Masculine singular in instructions ("استشر طبيبك"), as Arabic iOS writes them | Verbal nouns, as Arabic iOS: "حفظ", "إلغاء", "تسجيل نوبة". Arabic comma "،" in sentences; quotation marks «» |
+| he | No gender: buttons are nouns and instructions are impersonal ("יש להתייעץ", "אפשר לעדכן"), as Hebrew iOS writes them | Nouns: "שמירה", "ביטול". Names of apps in gershayim (״בריאות״); a maqaf joins a prefix to a Latin word ("ב־iPhone") |
+| ur | "آپ" with the polite imperative "کریں"; the verbs do not show the gender of the user | Verbs: "محفوظ کریں", "منسوخ کریں". English loanwords where Urdu iOS uses them ("سیٹنگ", "ایکسپورٹ"); Urdu full stop "۔" |
+
+Plural forms: Arabic has six (zero, one, two, few, many, other). The forms one and two leave out the number ("نوبة واحدة", "نوبتان"); few takes the plural noun ("٣ نوبات"); many and other take the singular ("١١ نوبة", "٣٠ يومًا"). Hebrew has one, two and other; only days take the dual form ("יומיים"). Urdu has one and other.
+
+| Term | ar | he | ur |
+|---|---|---|---|
+| episode | نوبة (plural نوبات) | התקף (plural התקפים) | دورہ (plural دورے, oblique دوروں) |
+| attack (App Store only) | نوبة صداع نصفي | התקף מיגרנה | مائیگرین کا دورہ |
+| migraine | الصداع النصفي | מיגרנה | مائیگرین |
+| log (verb) | تسجيل, سجّل | תיעוד, לתעד | درج کرنا |
+| intensity | الشدة; "الشدة ٦/١٠" | עוצמה; "עוצמה 6/10" | شدت; "شدت 6/10" |
+| migraine day | يوم صداع نصفي | יום מיגרנה | مائیگرین کا دن |
+| tracked day | يوم متابعة | יום מעקב | ٹریک کیا گیا دن |
+| pain-free day | يوم دون ألم | יום ללא כאב | بغیر درد کا دن |
+| not tracked | قبل المتابعة (before tracking) | לפני המעקב | ٹریکنگ سے پہلے |
+| trigger | محفز (plural محفزات) | גורם מעורר (plural גורמים מעוררים) | محرک (plural محرکات) |
+| possible trigger | محفز محتمل | גורם מעורר אפשרי | ممکنہ محرک |
+| aura | الأورة | אאורה | اورا |
+| acute medication | علاج حاد; "علاج النوبة الحاد" | טיפול חד; "טיפול בהתקף חד" | فوری علاج |
+| preventive medication | علاج وقائي | טיפול מונע | روک تھام |
+| treatment blueprint | خطة العلاج | תוכנית הטיפול | علاج کا منصوبہ |
+| baseline profile | الملف الأساسي | פרופיל בסיס | بنیادی پروفائل |
+| report | تقرير | דוח | رپورٹ |
+| Health app | صحتي | בריאות | صحت |
+| Settings (iOS) | الإعدادات | הגדרות | سیٹنگ (Settings app), سیٹنگز (in the app) |
+
+The names of the Health and Settings apps come from the iOS 27.1 simulator runtime: `HealthUI.framework` (`HEALTH`) and the display name of `Preferences.app` in each `.lproj` folder.
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "تسجيل نوبة" (record an episode), "תיעוד מיגרנה", "دورہ درج کریں" (record an episode). "Save Episode" = "حفظ النوبة", "שמירת ההתקף", "محفوظ کریں" (save; 14 characters on the watch). The round complication "LOG" (4 characters) = "سجل", "תעד" (masculine imperative, the only form that fits), "درج".
+
+#### Sources of the right-to-left terms
+
+Checked on October 23, 2026. The IHS has no ICHD-3 translation into Arabic, Hebrew or Urdu ([ICHD translations](https://ihs-headache.org/en/resources/ichd/)).
+
+- **[AR1]** Mayo Clinic in Arabic, "الشقيقة (الصداع النصفي) - الأعراض والأسباب", [mayoclinic.org/ar](https://www.mayoclinic.org/ar/diseases-conditions/migraine-headache/symptoms-causes/syc-20360201), read in the browser. It writes "الشقيقة (الصداع النصفي)", "نوبات", "الأورة", "المحفزات", "الحساسية الشديدة للضوء والصوت", "الغثيان", "وخز", "صعوبة الكلام", "تيبّس الرقبة".
+- **[AR2]** Mayo Clinic in Arabic, "الصداع النصفي المصحوب بالأورة", [mayoclinic.org/ar](https://www.mayoclinic.org/ar/diseases-conditions/migraine-with-aura/symptoms-causes/syc-20352072): "الصداع النصفي المصحوب بالأورة" and "غير المصحوب بها". The Arabic ICD-11 browser and the WHO EMRO Unified Medical Dictionary did not load without JavaScript; the registers of the Egyptian Drug Authority and the Saudi FDA were **not searched**.
+- **[HE1]** Maccabi Healthcare Services, "מיגרנה - מידע רפואי", [maccabi4u.co.il](https://www.maccabi4u.co.il/healthguide/medicalconditions/migraines/), read in the browser. It writes "אאורה (aura)", "התקף מיגרנה", "טיפול בהתקף חד של מיגרנה", "טריגרים", "רגישות מוגברת לאור, לרעש", "בחילה", "נמלולים", "מיגרנה כרונית", "טריפטנים".
+- **[HE2]** Clalit, Meir Medical Center, neurology department, patient text on migraine aura ([PDF](https://hospitals.clalit.co.il/meir/he/med/neuro/Documents/%D7%A0%D7%99%D7%A8%D7%99%D7%AA%20%D7%9C%D7%91%20%D7%9E%D7%99%D7%92%D7%A8%D7%A0%D7%95%D7%AA%20%D7%99%D7%93%D7%99%D7%A2%D7%95%D7%AA%20%D7%94%D7%A9%D7%A8%D7%95%D7%9F%20%D7%99%D7%A0%D7%95%D7%90%D7%A8%2023.pdf), January 2023, a scan): "אאורה", "סקוטומה". The register of the Israeli Ministry of Health (israeldrugs.health.gov.il) was **not searched**.
+- **[UR1]** Continental Hospitals, Urdu page "درد شقیقہ: وجوہات، خطرے کے عوامل، علامات، علاج", [continentalhospitals.com/ur](https://continentalhospitals.com/ur/diseases/migraine), read in the browser. It writes "مائیگرین" and "درد شقیقہ", "محرکات", "متلی", "روشنی اور آواز کی حساسیت", "دائمی درد شقیقہ", "ٹرپٹانس". The hospital is in India; the words are also those of Pakistani newspapers ([Jang](https://jang.com.pk/news/1314215), found by search, not read in full).
+- The DRAP register of Pakistan lists drugs in English only; the Urdu drug names are transliterations of the INN and are **not verified**.
+
+#### Medical terms: Arabic, Hebrew, Urdu
+
+| Term | ar | Source (ar) | he | Source (he) | ur | Source (ur) |
+|---|---|---|---|---|---|---|
+| Migraine without aura | صداع نصفي غير مصحوب بأورة | AR2 | מיגרנה ללא אאורה | HE1 ("אאורה") | اورا کے بغیر مائیگرین | **Not verified** |
+| Migraine with aura | صداع نصفي مصحوب بأورة | AR2 | מיגרנה עם אאורה | HE1 | اورا کے ساتھ مائیگرین | **Not verified** |
+| Chronic migraine | صداع نصفي مزمن | **Not verified** | מיגרנה כרונית | HE1 | دائمی مائیگرین | UR1 ("دائمی درد شقیقہ") |
+| Tension-type headache | صداع التوتر | **Not verified** | כאב ראש מסוג מתח | **Not verified** | تناؤ والا سر درد | **Not verified** |
+| Cluster headache | الصداع العنقودي | **Not verified** | כאב ראש מקבצי | **Not verified** | کلسٹر سر درد | **Not verified** |
+| attack | نوبة | AR1 | התקף | HE1 | دورہ | **Not verified**; the common word for an attack of an illness |
+| Photophobia | رهاب الضوء | **Not verified**; AR1 has "الحساسية للضوء" | פוטופוביה | **Not verified**; HE1 has "רגישות לאור" | فوٹوفوبیا | **Not verified**; UR1 has "روشنی کی حساسیت" |
+| Phonophobia | رهاب الصوت | **Not verified** | פונופוביה | **Not verified** | فونوفوبیا | **Not verified** |
+| Scintillating scotoma | العتمة الوامضة | **Not verified**; AR1 has "ومضات ضوئية أو بقع عمياء" | סקוטומה מנצנצת | HE2 ("סקוטומה") | چمکتا اسکوٹوما | **Not verified** |
+| Nausea | الغثيان | AR1 | בחילה | HE1 | متلی | UR1 |
+| Aphasia | الحُبسة | **Not verified**; AR1 has "صعوبة الكلام" | אפזיה | **Not verified** | افیزیا | **Not verified** |
+| Paresthesia | تنمّل; tingling "وخز" | AR1 ("وخز") | נמלול; tingling "עקצוץ" | HE1 ("נמלולים") | پیرستھیزیا; tingling "سنسناہٹ" | **Not verified** |
+| Neck stiffness | تيبّس الرقبة | AR1 | נוקשות בצוואר | **Not verified** | گردن کی اکڑن | **Not verified** |
+| Migraine day | يوم صداع نصفي | **Not verified** | יום מיגרנה | **Not verified** | مائیگرین کا دن | **Not verified** |
+| Acute treatment | علاج حاد | **Not verified** | טיפול בהתקף חד | HE1 | فوری علاج | **Not verified** |
+| Preventive treatment | علاج وقائي | **Not verified** | טיפול מונע | **Not verified**; HE1 has "מניעה" | روک تھام | **Not verified** |
+| Trigger | محفز | AR1 ("المحفزات") | גורם מעורר | **Not verified**; HE1 has the common word "טריגר" | محرک | UR1 ("محرکات") |
+| Aura | الأورة | AR1, AR2 | אאורה | HE1, HE2 | اورا | **Not verified** |
+| Dose unit | مجم | **Not verified**; the unit of Egyptian packs | מ״ג | **Not verified** | mg | **Not verified**; Pakistani packs write "mg" |
+
+| Medication (class) | ar | he | ur |
+|---|---|---|---|
+| Ibuprofen | إيبوبروفين | איבופרופן | آئبوپروفین |
+| Sumatriptan | سوماتريبتان | סומטריפטן | سوماٹرپٹان |
+| Rizatriptan | ريزاتريبتان | ריזטריפטן | رزاٹرپٹان |
+| Naproxen | نابروكسين | נפרוקסן | نیپروکسن |
+| Acetaminophen | باراسيتامول (paracetamol, the name in Egypt and Saudi Arabia) | פרצטמול (paracetamol, the name in Israel) | پیراسیٹامول (paracetamol, the name in Pakistan) |
+| Ubrogepant | أوبروجيبانت | אוברוגפנט | یوبروجیپینٹ |
+| Metoclopramide | ميتوكلوبراميد | מטוקלופרמיד | میٹوکلوپرامائیڈ |
+| Riboflavin | ريبوفلافين | ריבופלבין | رائبوفلیون |
+| Magnesium | مغنيسيوم | מגנזיום | میگنیشیم |
+| Propranolol | بروبرانولول | פרופרנולול | پروپرانولول |
+| Topiramate | توبيرامات | טופירמט | ٹوپیرامیٹ |
+| Amitriptyline | أميتريبتيلين | אמיטריפטילין | ایمی ٹرپٹیلین |
+| Erenumab | إرينوماب | ארנומאב | ایرینومیب |
+| NSAID | مضاد التهاب غير ستيرويدي | NSAID | NSAID |
+| Triptan | تريبتان | טריפטן (HE1 "טריפטנים") | ٹرپٹان (UR1 "ٹرپٹانس") |
+| Beta blocker | حاصر بيتا | חוסם בטא | بیٹا بلاکر |
+| Anticonvulsant | مضاد للاختلاج | נוגד פרכוסים | اینٹی کنولسنٹ |
+| Tricyclic antidepressant | مضاد اكتئاب ثلاثي الحلقات | נוגד דיכאון טריציקלי | ٹرائی سائیکلک اینٹی ڈپریسنٹ |
+
+The medication names are the INN in the script of each language. No drug register of Egypt, Israel or Pakistan was searched, so each name and its registration are **not verified**; the medications stay in the catalog (decision of October 17, 2026).

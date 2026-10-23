@@ -38,11 +38,11 @@ import com.migratrack.app.generated.resources.pain_scale_low
 import com.migratrack.app.generated.resources.pain_scale_middle
 import com.migratrack.app.generated.resources.pain_scale_value
 import com.migratrack.app.ui.Numbers
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.model.PainIntensity
 import kotlin.math.roundToInt
-import org.jetbrains.compose.resources.stringResource
 
 private val DimGreen = Color(0xFF3C5222)
 private val DimSlate = Color(0xFF34464A)

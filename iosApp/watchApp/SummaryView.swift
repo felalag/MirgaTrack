@@ -50,7 +50,7 @@ struct PainFreeDays: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text(days.map(String.init) ?? "–")
+                    Text(days.map { $0.formatted() } ?? "–")
                         .font(.largeTitle.bold())
                         .contentTransition(.numericText())
                     Text(" / \(window)")
@@ -70,7 +70,7 @@ struct PainFreeDays: View {
             if let status {
                 Group {
                     if let last = status.lastEpisodeStartedAt {
-                        Text("Last episode \(last, format: .dateTime.month(.abbreviated).day())")
+                        Text("Last episode \(last.formatted(Self.lastEpisodeDate))")
                     } else {
                         Text("No episodes logged")
                     }
@@ -84,6 +84,14 @@ struct PainFreeDays: View {
         .animation(.smooth, value: days)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
     }
+
+    // The iPhone shows Gregorian dates in every region, so the watch does too where the system calendar is Hijri.
+    // Text(_:format:) would take the calendar of the environment, so the date becomes a string first.
+    private static let lastEpisodeDate: Date.FormatStyle = {
+        var style = Date.FormatStyle.dateTime.month(.abbreviated).day()
+        style.calendar = Calendar(identifier: .gregorian)
+        return style
+    }()
 }
 
 extension View {

@@ -5,6 +5,12 @@
       "comment" : "iOS shows this when the app asks for sleep data from Apple Health. Keep the promise that the data stays on the iPhone.",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يقرأ MigraTrack نوم الليلة الماضية من تطبيق «صحتي» ويعرضه في الملخص. تبقى البيانات على هذا iPhone."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,6 +87,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack lit le sommeil de la nuit dernière dans l’app Santé et l’affiche dans le résumé. Les données restent sur cet iPhone."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack קורא את השינה של הלילה האחרון מהיישום ״בריאות״ ומציג אותה בסיכום. הנתונים נשארים ב‑iPhone הזה."
           }
         },
         "hr" : {
@@ -213,6 +225,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack зчитує сон минулої ночі з програми «Здоровʼя» і показує його у зведенні. Дані залишаються на цьому iPhone."
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack پچھلی رات کی نیند Apple Health سے پڑھتا ہے اور اسے خلاصے میں دکھاتا ہے۔ ڈیٹا اسی iPhone پر رہتا ہے۔"
           }
         },
         "vi" : {

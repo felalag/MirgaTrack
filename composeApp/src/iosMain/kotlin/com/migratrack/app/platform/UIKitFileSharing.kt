@@ -2,6 +2,7 @@ package com.migratrack.app.platform
 
 import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.export_write_failed
+import com.migratrack.app.ui.getString
 import com.migratrack.export.ExportFile
 import kotlinx.cinterop.BetaInteropApi
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -10,7 +11,6 @@ import kotlinx.cinterop.usePinned
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.withContext
-import org.jetbrains.compose.resources.getString
 import platform.Foundation.NSData
 import platform.Foundation.NSFileManager
 import platform.Foundation.NSTemporaryDirectory

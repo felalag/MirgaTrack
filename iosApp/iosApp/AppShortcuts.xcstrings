@@ -5,6 +5,15 @@
       "comment" : "Siri phrases. Keep ${applicationName}; Siri puts the app name there. Translate only for languages that Siri supports.",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "ar" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "سجّل صداعًا نصفيًا في ${applicationName}",
+              "سجّل نوبة في ${applicationName}"
+            ]
+          }
+        },
         "da" : {
           "stringSet" : {
             "state" : "translated",
@@ -74,6 +83,15 @@
             "values" : [
               "Noter une migraine dans ${applicationName}",
               "Nouvelle crise dans ${applicationName}"
+            ]
+          }
+        },
+        "he" : {
+          "stringSet" : {
+            "state" : "translated",
+            "values" : [
+              "תעד מיגרנה ב־${applicationName}",
+              "תעד התקף ב־${applicationName}"
             ]
           }
         },

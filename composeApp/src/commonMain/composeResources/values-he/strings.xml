@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Hebrew strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Buttons use nouns ("שמירה") and instructions are impersonal ("יש להזין"), as Hebrew iOS does, so no text has a gender.
+  Hebrew has the CLDR plural forms one, two and other.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">חזרה</string>
+    <string name="common_settings">הגדרות</string>
+    <string name="common_cancel">ביטול</string>
+    <string name="common_ok">אישור</string>
+    <string name="common_save">שמירה</string>
+    <string name="common_add">הוספה</string>
+    <string name="common_next">הבא</string>
+    <string name="common_on">מופעל</string>
+    <string name="common_off">כבוי</string>
+    <string name="common_clear">ניקוי</string>
+    <string name="common_none">אין</string>
+    <string name="common_today">היום</string>
+    <string name="common_not_set">לא הוגדר</string>
+    <string name="common_expanded">מורחב</string>
+    <string name="common_collapsed">מכווץ</string>
+    <string name="common_last_30_days">30 הימים האחרונים</string>
+    <string name="common_medical_disclaimer">MigraTrack הוא יומן ולא ייעוץ רפואי. לפני שינוי הטיפול יש להתייעץ עם הרופא.</string>
+    <string name="common_log_migraine_episode">תיעוד התקף מיגרנה</string>
+    <string name="common_save_episode">שמירת ההתקף</string>
+    <string name="common_edit_episode">עריכת ההתקף</string>
+    <string name="common_delete_episode">מחיקת ההתקף</string>
+    <string name="common_intensity_of_ten">עוצמה %1$s/10</string>
+    <string name="common_date_at_time">%1$s בשעה %2$s</string>
+    <string name="common_possible_triggers">גורמים מעוררים אפשריים</string>
+    <string name="common_add_trigger">הוספת גורם מעורר</string>
+    <string name="common_add_medication">הוספת תרופה</string>
+    <string name="common_treatment_blueprint">תוכנית הטיפול</string>
+    <string name="common_medication_name_and_dose">יש להזין את השם והמינון.</string>
+    <string name="common_medication_placeholder">לדוגמה, אלטריפטן 40&#160;מ״ג</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">סיכום</string>
+    <string name="tab_log">תיעוד</string>
+    <string name="tab_insights">תובנות</string>
+    <string name="tab_export">ייצוא</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">עוצמת הכאב</string>
+    <string name="pain_scale_value">%1$s מתוך 10</string>
+    <string name="pain_scale_low">%1$s קל</string>
+    <string name="pain_scale_middle">%1$s מורגש</string>
+    <string name="pain_scale_high">%1$s משבית</string>
+    <string name="medication_remove">הסרת %1$s</string>
+    <string name="duration_minutes">%1$s דק׳</string>
+    <string name="duration_hours_minutes">%1$s שע׳ %2$s דק׳</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">היום, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">מתוך יום מעקב אחד</item>
+        <item quantity="two">מתוך יומיים של מעקב</item>
+        <item quantity="other">מתוך %1$s ימי מעקב</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ללא התקף מתועד</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">%1$s מתוך יום מעקב אחד ללא התקף מתועד ב־30 הימים האחרונים</item>
+        <item quantity="two">%1$s מתוך יומיים של מעקב ללא התקף מתועד ב־30 הימים האחרונים</item>
+        <item quantity="other">%1$s מתוך %2$s ימי מעקב ללא התקף מתועד ב־30 הימים האחרונים</item>
+    </plurals>
+    <string name="summary_tracking_start_note">הספירה מתחילה ביום שבו התחיל המעקב. הימים שלפניו אינם במעקב.</string>
+    <string name="strip_legend_migraine">מיגרנה</string>
+    <string name="strip_legend_pain_free">ללא כאב</string>
+    <string name="strip_legend_not_tracked">לפני המעקב</string>
+    <string name="summary_sleep_last_night">שינה בלילה האחרון</string>
+    <string name="summary_sleep_not_recorded">לא נרשמה</string>
+    <string name="summary_sleep_hint">אפשר לענוד Apple Watch בשינה או לתעד שינה ביישום ״בריאות״. אם הגישה כובתה, יש להפעיל אותה ב״הגדרות״ › ״בריאות״.</string>
+    <string name="summary_sleep_caption">שינה</string>
+    <string name="summary_sleep_connect_title">השינה של הלילה האחרון בסיכום</string>
+    <string name="summary_sleep_connect_body">MigraTrack קורא את השינה של הלילה האחרון מ־Apple Health. הנתונים נשארים ב־iPhone הזה.</string>
+    <string name="summary_sleep_connect_button">חיבור ל־Apple Health</string>
+    <string name="summary_last_episode">ההתקף האחרון</string>
+    <string name="summary_last_episode_none">עדיין אין</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">תיעוד התקף</string>
+    <string name="episode_update">עדכון ההתקף</string>
+    <string name="episode_updated_banner">ההתקף עודכן.</string>
+    <string name="episode_deleted_banner">ההתקף נמחק.</string>
+    <string name="episode_saved_banner">ההתקף נשמר. כדאי לנוח ולהישאר באור עמום.</string>
+    <string name="episode_pain_intensity_index">מדד עוצמת הכאב</string>
+    <string name="episode_cranial_epicenter">מיקום הכאב בראש</string>
+    <string name="episode_aura_symptoms">אאורה ותסמינים תחושתיים</string>
+    <string name="episode_acute_therapy">טיפול בהתקף חד</string>
+    <string name="episode_add_medication_row">הוספת תרופה / תמיסת אלקטרוליטים</string>
+    <string name="episode_start">תחילת ההתקף</string>
+    <string name="episode_start_now">עכשיו</string>
+    <string name="episode_add_trigger_message">מה קדם להתקף הזה?</string>
+    <string name="episode_other_trigger_action">גורם מעורר אחר…</string>
+    <string name="episode_other_trigger_title">גורם מעורר אחר</string>
+    <string name="episode_other_trigger_message">מה עוד קדם להתקף הזה?</string>
+    <string name="episode_other_trigger_placeholder">לדוגמה, בושם חזק</string>
+    <string name="episode_add_medication_message">מה נלקח עבור ההתקף הזה?</string>
+    <string name="episode_other_medication_action">תרופה אחרת…</string>
+    <string name="episode_other_medication_title">תרופה אחרת</string>
+    <string name="episode_missing_title">ההתקף נמחק</string>
+    <string name="episode_missing_message">ההתקף הזה נמחק במכשיר אחר, ולכן אי אפשר לשמור את השינויים.</string>
+    <string name="episode_delete_message">עוצמה %1$s/10. ההתקף יוסר מההיסטוריה ומהדוחות.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">שב׳</string>
+    <string name="insights_period_month">ח׳</string>
+    <string name="insights_period_six_months">6ח׳</string>
+    <string name="insights_period_year">שנ׳</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">התקף השבוע</item>
+        <item quantity="two">התקפים השבוע</item>
+        <item quantity="other">התקפים השבוע</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">התקף בשבוע של %1$s</item>
+        <item quantity="two">התקפים בשבוע של %1$s</item>
+        <item quantity="other">התקפים בשבוע של %1$s</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">התקף ב%1$s</item>
+        <item quantity="two">התקפים ב%1$s</item>
+        <item quantity="other">התקפים ב%1$s</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">התקף ב־6 חודשים</item>
+        <item quantity="two">התקפים ב־6 חודשים</item>
+        <item quantity="other">התקפים ב־6 חודשים</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">התקף ב־%1$s</item>
+        <item quantity="two">התקפים ב־%1$s</item>
+        <item quantity="other">התקפים ב־%1$s</item>
+    </plurals>
+    <string name="insights_trend_fewer">%1$s אחוז פחות התקפים מהתקופה הקודמת</string>
+    <string name="insights_trend_more">%1$s אחוז יותר התקפים מהתקופה הקודמת</string>
+    <string name="insights_legend_migraine_day">יום מיגרנה</string>
+    <string name="insights_legend_pain_free_day">יום ללא כאב</string>
+    <string name="insights_legend_not_tracked">לפני המעקב</string>
+    <string name="insights_bar_no_data">%1$s: עדיין אין נתונים</string>
+    <string name="insights_bar_not_tracked">%1$s: לפני המעקב</string>
+    <string name="insights_bar_pain_free">%1$s: ללא כאב</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: יום מיגרנה אחד, שיא %3$s מתוך 10</item>
+        <item quantity="two">%1$s: יומיים של מיגרנה, שיא %3$s מתוך 10</item>
+        <item quantity="other">%1$s: %2$s ימי מיגרנה, שיא %3$s מתוך 10</item>
+    </plurals>
+    <string name="insights_triggers_empty">כדאי לציין גורמים מעוררים אפשריים בעת תיעוד או עריכה של התקף. הכרטיס יראה אז כמה פעמים צוין כל אחד מהם.</string>
+    <string name="insights_triggers_hint">כמה פעמים צוין כל גורם מעורר יחד עם התקף. זה לא מצביע על סיבה.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, צוין ב־%2$s מתוך התקף אחד</item>
+        <item quantity="two">%1$s, צוין ב־%2$s מתוך 2 התקפים</item>
+        <item quantity="other">%1$s, צוין ב־%2$s מתוך %3$s התקפים</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s מתוך %2$s</string>
+    <string name="insights_calendar_a11y">לוח שנה, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">ב%1$s יש התקף אחד.</item>
+        <item quantity="two">ב%1$s יש 2 התקפים.</item>
+        <item quantity="other">ב%1$s יש %2$s התקפים.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · עוצמה %2$s/10</string>
+    <string name="insights_month_picker_title">חודש</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">החודש הקודם</string>
+    <string name="calendar_next_month">החודש הבא</string>
+    <string name="calendar_choose_month_a11y">%1$s, בחירת חודש אחר</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">יום מיגרנה אחד</item>
+        <item quantity="two">יומיים של מיגרנה</item>
+        <item quantity="other">%1$s ימי מיגרנה</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">היום, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">לא זמין</string>
+    <string name="calendar_day_not_tracked">לפני המעקב</string>
+    <string name="calendar_day_no_episodes">אין התקפים</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">התקף אחד, שיא %2$s מתוך 10</item>
+        <item quantity="two">2 התקפים, שיא %2$s מתוך 10</item>
+        <item quantity="other">%1$s התקפים, שיא %2$s מתוך 10</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">התקף אחד</item>
+        <item quantity="two">2 התקפים</item>
+        <item quantity="other">%1$s התקפים</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">עוצמת שיא</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">תרופות</string>
+    <string name="calendar_edit_episode_details">עריכת פרטי ההתקף</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">מכין PDF…</string>
+    <string name="export_preparing_excel">מכין Excel…</string>
+    <string name="export_preparing_report">מכין דוח…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">התקף</item>
+        <item quantity="two">התקפים</item>
+        <item quantity="other">התקפים</item>
+    </plurals>
+    <string name="export_episodes_recorded">התקפים מתועדים</string>
+    <string name="export_include">לכלול בייצוא</string>
+    <string name="export_medications">נטילת תרופות</string>
+    <string name="export_medications_subtitle">מינונים וסך השימוש</string>
+    <string name="export_symptoms">אאורה ותסמינים מקדימים</string>
+    <string name="export_symptoms_subtitle">סוגי אאורה ותדירותם</string>
+    <string name="export_triggers_subtitle">גורמים מעוררים שצוינו ותדירותם</string>
+    <string name="export_pain_charts">תרשימי עוצמת כאב</string>
+    <string name="export_pain_charts_subtitle">עוצמת הכאב לאורך זמן, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">ייצוא דוח PDF</string>
+    <string name="export_excel">ייצוא כ־Excel (.xlsx)‎</string>
+    <string name="export_share">שיתוף</string>
+    <string name="export_range_title">טווח הדוח</string>
+    <plurals name="export_share_text">
+        <item quantity="one">דוח MigraTrack: התקף אחד, %2$s.</item>
+        <item quantity="two">דוח MigraTrack: 2 התקפים, %2$s.</item>
+        <item quantity="other">דוח MigraTrack: %1$s התקפים, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">הייצוא נכשל</string>
+    <string name="export_failed_message">לא ניתן היה ליצור את הדוח.</string>
+    <string name="export_write_failed">לא ניתן היה לכתוב את %1$s</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">גורם מעורר ידוע אחד</item>
+        <item quantity="two">2 גורמים מעוררים ידועים</item>
+        <item quantity="other">%1$s גורמים מעוררים ידועים</item>
+    </plurals>
+    <string name="settings_no_triggers">לא נבחרו גורמים מעוררים</string>
+    <string name="settings_no_medications">לא נבחרו תרופות</string>
+    <string name="settings_name_title">השם שלך</string>
+    <string name="settings_name_message">השם מופיע בדוחות שמייצאים.</string>
+    <string name="settings_name_placeholder">שם</string>
+    <string name="settings_delete_title">למחוק את כל הנתונים?</string>
+    <string name="settings_delete_message">MigraTrack שומר את הנתונים ב־iPhone הזה ועותק שלהם ב־Apple Watch. פעולה זו מוחקת לצמיתות את כל ההתקפים ואת פרופיל הבסיס; השעון ימחק את העותק שלו בסנכרון הבא. בגיבויים של המכשיר נשאר עותק. אם הדוח נחוץ, כדאי לייצא אותו קודם.</string>
+    <string name="settings_delete_all">מחיקת כל הנתונים</string>
+    <string name="settings_section_baseline">בסיס קליני ופרוטוקול</string>
+    <string name="settings_baseline_diagnoses">אבחנות בסיס</string>
+    <string name="settings_known_triggers">גורמים מעוררים ידועים</string>
+    <string name="settings_section_preferences">העדפות</string>
+    <string name="settings_appearance">מראה</string>
+    <string name="settings_appearance_value">כהה (נעול)</string>
+    <string name="settings_version">גרסה</string>
+    <string name="settings_version_value">v%1$s (בנייה %2$s)</string>
+    <string name="settings_section_legal">משפטי</string>
+    <string name="settings_section_developer">מפתחים</string>
+    <string name="settings_load_sample_data">טעינת נתוני דוגמה</string>
+    <string name="settings_load_sample_data_subtitle">מוסיף שנה של התקפים לדוגמה לתצוגה מקדימה של התרשימים</string>
+    <string name="settings_edit_name_a11y">עריכת השם</string>
+    <string name="settings_add_name">הוספת שם</string>
+    <string name="settings_member">במעקב מאז</string>
+    <string name="settings_episodes">התקפים</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">תועדו: %1$s</item>
+        <item quantity="two">תועדו: %1$s</item>
+        <item quantity="other">תועדו: %1$s</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">מדיניות פרטיות</string>
+    <string name="legal_terms_of_service">תנאי שירות</string>
+    <string name="legal_folder">he</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">המשך לגורמים מעוררים</string>
+    <string name="onboarding_continue_to_medications">המשך לתרופות</string>
+    <string name="onboarding_finish_setup">סיום ההגדרה</string>
+    <string name="onboarding_back_to_diagnoses">חזרה לאבחנות</string>
+    <string name="onboarding_back_to_triggers">חזרה לגורמים מעוררים</string>
+    <string name="onboarding_save_changes">שמירת השינויים</string>
+    <string name="onboarding_step">שלב %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">אבחנות והיסטוריה</string>
+    <string name="onboarding_diagnoses_subtitle">הגדרת פרופיל הבסיס. ההתקפים והדוחות מתבססים עליו.</string>
+    <string name="onboarding_primary_diagnosis">אבחנה עיקרית</string>
+    <string name="onboarding_episode_frequency">תדירות התקפים בחודש</string>
+    <string name="onboarding_episode_duration">משך התקף טיפוסי (שעות)</string>
+    <string name="onboarding_intensity_baseline">עוצמת כאב טיפוסית</string>
+    <string name="onboarding_update_later">אפשר לעדכן את פרופיל הבסיס בכל עת ב״הגדרות״.</string>
+    <string name="onboarding_triggers_title">הגורמים המעוררים שלך</string>
+    <string name="onboarding_triggers_subtitle">יש לבחור גורמים מעוררים ידועים או חשודים. הדוח מציג אותם לרופא.</string>
+    <string name="onboarding_add_custom_trigger">הוספת גורם מעורר משלך</string>
+    <string name="onboarding_treatment_subtitle">יש לבחור את התרופות שנוטלים. תרופות להתקף חד ממולאות מראש בכל התקף חדש, כך שהתיעוד דורש הקשה אחת.</string>
+    <string name="onboarding_add_custom_medication">הוספת תרופה משלך</string>
+    <string name="onboarding_custom_trigger_title">הוספת גורם מעורר משלך</string>
+    <string name="onboarding_custom_trigger_message">מה נוטה לעורר אצלך מיגרנה?</string>
+    <string name="onboarding_custom_trigger_placeholder">לדוגמה, אורות מהבהבים</string>
+    <string name="onboarding_medication_role_message">מתי נוטלים אותה?</string>
+    <string name="onboarding_medication_role_acute">בזמן התקף (טיפול חד)</string>
+    <string name="onboarding_medication_role_preventive">כל יום (מונע)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">מעקב אישי אחר מיגרנה וגורמים מעוררים</string>
+    <string name="welcome_example">דוגמה</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">יום ללא כאב</item>
+        <item quantity="two">ימים ללא כאב</item>
+        <item quantity="other">ימים ללא כאב</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">דוגמה: יום אחד ללא כאב ב־30 הימים האחרונים</item>
+        <item quantity="two">דוגמה: יומיים ללא כאב ב־30 הימים האחרונים</item>
+        <item quantity="other">דוגמה: %1$s ימים ללא כאב ב־30 הימים האחרונים</item>
+    </plurals>
+    <string name="welcome_headline_patterns">להבין את הדפוסים.</string>
+    <string name="welcome_headline_doctor">להביא לרופא את העובדות.</string>
+    <string name="welcome_body">מעקב אחר תסמינים, זיהוי גורמים מעוררים אפשריים וייצוא דוחות אישיים בכל עת.</string>
+    <string name="welcome_get_started">מתחילים</string>
+    <string name="welcome_agreement">המשך השימוש מהווה הסכמה ל%1$s ול%2$s.</string>
+
+    <string name="diagnosis_migraine_without_aura">מיגרנה ללא אאורה</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">הדפוס הנפוץ של מיגרנה</string>
+    <string name="diagnosis_migraine_with_aura">מיגרנה עם אאורה</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">אאורה ממוקדת, ראייתית או תחושתית</string>
+    <string name="diagnosis_chronic_migraine">מיגרנה כרונית</string>
+    <string name="diagnosis_chronic_migraine_subtitle">15 ימי כאב ראש או יותר בחודש</string>
+    <string name="diagnosis_tension_type">כאב ראש מסוג מתח</string>
+    <string name="diagnosis_tension_type_subtitle">לחץ מהודק, כמו חגורה סביב הראש</string>
+    <string name="diagnosis_cluster">כאב ראש מקבצי</string>
+    <string name="diagnosis_cluster_subtitle">התקפים קשים סביב עין אחת</string>
+    <string name="diagnosis_not_diagnosed">ללא אבחנה / בבירור</string>
+    <string name="diagnosis_not_diagnosed_subtitle">מעקב אחר דפוסי תסמינים</string>
+    <string name="frequency_less_than_one">&lt; 1 בחודש</string>
+    <string name="frequency_one_to_four">1–4 בחודש</string>
+    <string name="frequency_five_to_eight">5–7 בחודש</string>
+    <string name="frequency_eight_plus">8+ בחודש</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">רקה שמאלית</string>
+    <string name="region_right_temple">רקה ימנית</string>
+    <string name="region_frontal_brow">מצח / גבה</string>
+    <string name="region_retro_orbital">מאחורי העין</string>
+    <string name="region_occipital_neck">עורף וצוואר</string>
+    <string name="symptom_scintillating_scotoma">סקוטומה מנצנצת (ראייה)</string>
+    <string name="symptom_scintillating_scotoma_short">אאורה ראייתית</string>
+    <string name="symptom_neck_stiffness">נוקשות בצוואר</string>
+    <string name="symptom_neck_stiffness_short">נוקשות בצוואר</string>
+    <string name="symptom_photophobia">פוטופוביה (אור)</string>
+    <string name="symptom_photophobia_short">אור</string>
+    <string name="symptom_nausea">בחילה</string>
+    <string name="symptom_nausea_short">בחילה</string>
+    <string name="symptom_phonophobia">פונופוביה (רעש)</string>
+    <string name="symptom_phonophobia_short">רעש</string>
+    <string name="symptom_aphasia">אפזיה / ערפול מוחי</string>
+    <string name="symptom_aphasia_short">ערפול מוחי</string>
+    <string name="symptom_paresthesia">עקצוץ / נמלול</string>
+    <string name="symptom_paresthesia_short">עקצוץ</string>
+    <string name="trigger_category_weather_environment">מזג אוויר וסביבה</string>
+    <string name="trigger_category_sleep_physical">שינה ושגרה גופנית</string>
+    <string name="trigger_category_stress_emotions">לחץ ורגשות</string>
+    <string name="trigger_category_hormonal">הורמונים</string>
+    <string name="trigger_category_diet_consumption">תזונה וצריכה</string>
+    <string name="trigger_category_custom">משלך</string>
+    <string name="medication_role_acute">טיפול חד / עצירת התקף</string>
+    <string name="medication_role_preventive">מונע ותוספים</string>
+    <string name="export_range_last_30_days">30 ימים אחרונים</string>
+    <string name="export_range_last_90_days">90 ימים אחרונים</string>
+    <string name="export_range_last_6_months">6 חודשים אחרונים</string>
+    <string name="export_range_last_12_months">השנה האחרונה</string>
+
+    <string name="trigger_barometric_pressure">ירידה בלחץ הברומטרי</string>
+    <string name="trigger_barometric_pressure_description">חזיתות מזג אוויר, שינויי גובה</string>
+    <string name="trigger_bright_light">אור חזק ושמש</string>
+    <string name="trigger_bright_light_description">סנוור, אור מהבהב, פוטופוביה</string>
+    <string name="trigger_heat_humidity">חום קיצוני / לחות</string>
+    <string name="trigger_heat_humidity_description">תנודות טמפרטורה</string>
+    <string name="trigger_loud_noise">רעש חזק</string>
+    <string name="trigger_loud_noise_description">פונופוביה, שיאי רעש</string>
+    <string name="trigger_poor_sleep">שינה לקויה / לא סדירה</string>
+    <string name="trigger_poor_sleep_description">חוסר שינה, מחסור בשנת REM</string>
+    <string name="trigger_dehydration">התייבשות</string>
+    <string name="trigger_dehydration_description">חוסר באלקטרוליטים</string>
+    <string name="trigger_skipped_meals">ארוחות שדולגו / צום</string>
+    <string name="trigger_skipped_meals_description">סף היפוגליקמיה</string>
+    <string name="trigger_overexertion">מאמץ גופני מופרז</string>
+    <string name="trigger_overexertion_description">עומס על כלי הדם במאמץ</string>
+    <string name="trigger_emotional_stress">לחץ רגשי / הרפיה אחריו</string>
+    <string name="trigger_emotional_stress_description">כאב ראש כשהלחץ בעבודה יורד</string>
+    <string name="trigger_screen_fatigue">עייפות מסכים</string>
+    <string name="trigger_screen_fatigue_description">עומס אור כחול, התכנסות העיניים</string>
+    <string name="trigger_hormonal_cycle">שינויים הורמונליים / מחזור</string>
+    <string name="trigger_hormonal_cycle_description">שינויים במחזור החודשי</string>
+    <string name="trigger_caffeine">גמילה מקפאין / עודף קפאין</string>
+    <string name="trigger_caffeine_description">שינויים בקולטני אדנוזין</string>
+    <string name="trigger_aged_cheese">גבינות מיושנות / טירמין</string>
+    <string name="trigger_aged_cheese_description">רגישות לאמינים מתסיסה</string>
+    <string name="trigger_alcohol">אלכוהול / יין אדום</string>
+    <string name="trigger_alcohol_description">טאנינים, היסטמין</string>
+    <string name="trigger_sweeteners">ממתיקים מלאכותיים</string>
+    <string name="trigger_sweeteners_description">אספרטיים, סוכרלוז</string>
+    <string name="trigger_custom_description">גורם מעורר משלך</string>
+
+    <string name="medication_ibuprofen_400">איבופרופן</string>
+    <string name="medication_ibuprofen_400_class">נוגד דלקת משלים</string>
+    <string name="medication_sumatriptan_50">סומטריפטן</string>
+    <string name="medication_sumatriptan_50_class">טריפטן, אגוניסט לסרוטונין</string>
+    <string name="medication_rizatriptan_10">ריזטריפטן</string>
+    <string name="medication_rizatriptan_10_class">טריפטן, מתמוסס בפה</string>
+    <string name="medication_naproxen_500">נפרוקסן</string>
+    <string name="medication_naproxen_500_class">NSAID ארוך טווח</string>
+    <string name="medication_acetaminophen_1000">פרצטמול</string>
+    <string name="medication_acetaminophen_1000_class">משכך כאבים</string>
+    <string name="medication_ubrogepant_100">אוברוגפנט</string>
+    <string name="medication_ubrogepant_100_class">גפנט, אנטגוניסט ל־CGRP</string>
+    <string name="medication_metoclopramide_10">מטוקלופרמיד</string>
+    <string name="medication_metoclopramide_10_class">נוגד הקאה</string>
+    <string name="medication_electrolytes">תמיסת אלקטרוליטים</string>
+    <string name="medication_electrolytes_class">מתן נוזלים דרך הפה</string>
+    <string name="medication_riboflavin_400">ריבופלבין</string>
+    <string name="medication_riboflavin_400_class">ויטמין B2</string>
+    <string name="medication_magnesium_400">מגנזיום</string>
+    <string name="medication_magnesium_400_class">תוסף מינרלים</string>
+    <string name="medication_propranolol_40">פרופרנולול</string>
+    <string name="medication_propranolol_40_class">חוסם בטא</string>
+    <string name="medication_topiramate_50">טופירמט</string>
+    <string name="medication_topiramate_50_class">נוגד פרכוסים</string>
+    <string name="medication_amitriptyline_10">אמיטריפטילין</string>
+    <string name="medication_amitriptyline_10_class">נוגד דיכאון טריציקלי</string>
+    <string name="medication_erenumab_70">ארנומאב</string>
+    <string name="medication_erenumab_70_class">נוגדן ל־CGRP, פעם בחודש</string>
+    <string name="medication_custom_class">תרופה משלך</string>
+    <string name="medication_dose_milligrams">%1$s&#160;מ״ג</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <string name="insights_bar_week">ש%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים</item>
+        <item quantity="two">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים</item>
+        <item quantity="other">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">התקף אחד</item>
+        <item quantity="two">2 התקפים</item>
+        <item quantity="other">%1$s התקפים</item>
+    </plurals>
+
+    <string name="report_title">דוח קליני על מיגרנה</string>
+    <string name="report_page">MigraTrack · עמוד %1$s</string>
+    <string name="report_patient">מטופל/ת: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">נוצר ב־%1$s</string>
+    <string name="report_disclaimer">נתונים שהמטופל/ת תיעד/ה ב־MigraTrack. הדוח תומך בהערכה הקלינית ואינו מחליף אותה.</string>
+    <string name="report_stat_episodes">התקפים מתועדים</string>
+    <string name="report_stat_migraine_days">ימי מיגרנה</string>
+    <string name="report_stat_pain_free_days">ימים ללא כאב</string>
+    <string name="report_stat_average_intensity">עוצמה ממוצעת /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">המעקב התחיל ב־%1$s. ליום אחד מוקדם יותר בטווח הזה אין רשומות, והוא לא נספר כיום ללא כאב.</item>
+        <item quantity="two">המעקב התחיל ב־%1$s. ליומיים מוקדמים יותר בטווח הזה אין רשומות, והם לא נספרים כימים ללא כאב.</item>
+        <item quantity="other">המעקב התחיל ב־%1$s. ל־%2$s ימים מוקדמים יותר בטווח הזה אין רשומות, והם לא נספרים כימים ללא כאב.</item>
+    </plurals>
+    <string name="report_baseline_title">פרופיל בסיס</string>
+    <string name="report_baseline_diagnoses">אבחנות</string>
+    <string name="report_baseline_frequency">תדירות חודשית</string>
+    <string name="report_baseline_duration">משך טיפוסי (שעות)</string>
+    <string name="report_baseline_intensity">עוצמה טיפוסית</string>
+    <string name="report_baseline_triggers">גורמים מעוררים ידועים</string>
+    <string name="report_baseline_treatments">תוכנית הטיפול</string>
+    <string name="report_pain_chart_title">עוצמת הכאב לאורך זמן (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">קל %1$s–%2$s</string>
+    <string name="report_legend_moderate">בינוני %1$s–%2$s</string>
+    <string name="report_legend_severe">חזק %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">לפני המעקב</string>
+    <string name="report_medication_title">שימוש בתרופות</string>
+    <string name="report_no_medications">לא תועדה נטילת תרופות בטווח הזה.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">נטילה אחת</item>
+        <item quantity="two">2 נטילות</item>
+        <item quantity="other">%1$s נטילות</item>
+    </plurals>
+    <string name="report_symptoms_title">אאורה ותסמינים מקדימים</string>
+    <string name="report_no_symptoms">לא תועדו אאורה או תסמינים תחושתיים בטווח הזה.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%1$s מתוך התקף אחד (%3$s)</item>
+        <item quantity="two">%1$s מתוך 2 התקפים (%3$s)</item>
+        <item quantity="other">%1$s מתוך %2$s התקפים (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">גורמים מעוררים אפשריים שצוינו</string>
+    <string name="report_no_triggers">לא צוינו גורמים מעוררים בטווח הזה.</string>
+    <string name="report_triggers_note">המספרים מראים כמה פעמים המטופל/ת ציין/ה גורם מעורר יחד עם התקף. הם לא מצביעים על סיבה.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים.</item>
+        <item quantity="two">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים.</item>
+        <item quantity="other">ל־%1$s מתוך %2$s לא צוינו גורמים מעוררים.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">התקף אחד</item>
+        <item quantity="two">2 התקפים</item>
+        <item quantity="other">%1$s התקפים</item>
+    </plurals>
+    <string name="report_episodes_title">התקפים</string>
+    <string name="report_no_episodes">לא תועדו התקפים בטווח הזה.</string>
+    <string name="report_column_date_time">תאריך ושעה</string>
+    <string name="report_column_pain">כאב</string>
+    <string name="report_column_epicenter">מיקום הכאב</string>
+    <string name="report_column_symptoms">תסמינים</string>
+    <string name="report_column_medications">תרופות</string>
+    <string name="report_column_triggers">גורמים מעוררים</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">לא הוגדר</string>
+    <string name="report_none">אין</string>
+
+    <string name="report_sheet_episodes">התקפים</string>
+    <string name="report_sheet_medications">תרופות</string>
+    <string name="report_sheet_daily_pain">כאב יומי</string>
+    <string name="report_sheet_profile">פרופיל</string>
+    <string name="report_header_started">התחלה</string>
+    <string name="report_header_pain_intensity">עוצמת הכאב (1&#8288;–&#8288;10)</string>
+    <string name="report_header_epicenter">מיקום הכאב בראש</string>
+    <string name="report_header_symptoms">אאורה ותסמינים תחושתיים</string>
+    <string name="report_header_medications">תרופות</string>
+    <string name="report_header_triggers">גורמים מעוררים אפשריים</string>
+    <string name="report_header_episode_started">תחילת ההתקף</string>
+    <string name="report_header_medication">תרופה</string>
+    <string name="report_header_dose">מינון</string>
+    <string name="report_header_date">תאריך</string>
+    <string name="report_header_peak_pain">עוצמת כאב מרבית (1&#8288;–&#8288;10, 0 = ללא כאב)</string>
+    <string name="report_header_day">יום</string>
+    <string name="report_header_field">שדה</string>
+    <string name="report_header_value">ערך</string>
+    <string name="report_day_migraine">מיגרנה</string>
+    <string name="report_day_pain_free">ללא כאב</string>
+    <string name="report_day_not_tracked">לפני המעקב</string>
+    <string name="report_profile_patient">מטופל/ת</string>
+    <string name="report_profile_range">טווח הדוח</string>
+    <string name="report_profile_tracked_since">במעקב מאז</string>
+    <string name="report_profile_diagnoses">אבחנות</string>
+    <string name="report_profile_frequency">תדירות חודשית</string>
+    <string name="report_profile_duration">משך טיפוסי (שעות)</string>
+    <string name="report_profile_intensity">עוצמה טיפוסית</string>
+    <string name="report_profile_triggers">גורמים מעוררים ידועים</string>
+    <string name="report_profile_treatments">תוכנית הטיפול</string>
+    <string name="report_iso_range">%1$s עד %2$s</string>
+</resources>

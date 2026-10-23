@@ -16,6 +16,7 @@ import com.migratrack.app.generated.resources.onboarding_medication_role_acute
 import com.migratrack.app.generated.resources.onboarding_medication_role_message
 import com.migratrack.app.generated.resources.onboarding_medication_role_preventive
 import com.migratrack.app.platform.SheetAction
+import com.migratrack.app.ui.getString
 import com.migratrack.domain.model.BaselineProfile
 import com.migratrack.domain.model.Diagnosis
 import com.migratrack.domain.model.EpisodeFrequency
@@ -31,7 +32,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.getString
 
 data class BaselineFormState(
     val draft: BaselineProfile,

@@ -25,11 +25,11 @@ import com.migratrack.app.generated.resources.strip_legend_not_tracked
 import com.migratrack.app.generated.resources.strip_legend_pain_free
 import com.migratrack.app.ui.components.Dot
 import com.migratrack.app.ui.components.MtText
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import com.migratrack.domain.analytics.SummaryDay
-import org.jetbrains.compose.resources.stringResource
 
 enum class StripDay(val color: Color) {
     Attack(MtColors.Pink),

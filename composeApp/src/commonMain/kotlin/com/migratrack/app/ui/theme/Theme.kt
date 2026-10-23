@@ -22,8 +22,8 @@ import com.migratrack.app.generated.resources.plus_jakarta_sans_extra_bold
 import com.migratrack.app.generated.resources.plus_jakarta_sans_medium
 import com.migratrack.app.generated.resources.plus_jakarta_sans_regular
 import com.migratrack.app.generated.resources.plus_jakarta_sans_semi_bold
+import com.migratrack.app.ui.stringResource
 import org.jetbrains.compose.resources.Font
-import org.jetbrains.compose.resources.stringResource
 
 /**
  * Type scale of the specification, set in Plus Jakarta Sans.

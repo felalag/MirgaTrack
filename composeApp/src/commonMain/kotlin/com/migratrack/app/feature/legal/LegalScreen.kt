@@ -15,19 +15,20 @@ import com.migratrack.app.generated.resources.legal_terms_of_service
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.Page
+import com.migratrack.app.ui.getString
+import com.migratrack.app.ui.localizeDigits
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
 import org.jetbrains.compose.resources.MissingResourceException
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.getString
-import org.jetbrains.compose.resources.stringResource
 
 /** A document that the welcome screen and Settings link to. The text ships with the app, so it opens offline. */
 @Composable
 fun LegalScreen(document: LegalDocument, onBack: () -> Unit) {
     val text by produceState<LegalText?>(null, document) {
-        value = parseLegalMarkdown(readLegalText(document))
+        value = parseLegalMarkdown(readLegalText(document).localizeDigits())
     }
     Page(title = stringResource(document.title), onBack = onBack, spacing = MtSpacing.md) {
         val loaded = text ?: return@Page

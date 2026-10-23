@@ -4,6 +4,58 @@
     "%lld of %lld days pain-free" : {
       "comment" : "Rectangular complication. %1$lld = pain-free days. %2$lld = tracked days; the plural form follows it. Max 24 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld من %2$#@tracked@ دون ألم"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "few" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg أيام"
+                    }
+                  },
+                  "many" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg يومًا"
+                    }
+                  },
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg يوم"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg يوم"
+                    }
+                  },
+                  "two" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg يوم"
+                    }
+                  },
+                  "zero" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg يوم"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -393,6 +445,40 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg jours"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld מתוך %2$#@tracked@ ללא כאב"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg יום"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ימים"
+                    }
+                  },
+                  "two" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ימים"
                     }
                   }
                 }
@@ -886,6 +972,34 @@
             }
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$#@tracked@ میں سے %1$lld بغیر درد"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg دن"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg دن"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -909,6 +1023,12 @@
     "LOG" : {
       "comment" : "Text under the plus in the small round complication. A verb. Max 4 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سجل"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -979,6 +1099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NOTE"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תעד"
           }
         },
         "hr" : {
@@ -1113,6 +1239,12 @@
             "value" : "ВВІД"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "درج"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1136,6 +1268,12 @@
     "Log Migraine" : {
       "comment" : "Name of the complication and the control in the watch face gallery, and their VoiceOver label. Max 14 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تسجيل نوبة"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1206,6 +1344,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nouvelle crise"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיעוד מיגרנה"
           }
         },
         "hr" : {
@@ -1340,6 +1484,12 @@
             "value" : "Новий напад"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج کریں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1363,6 +1513,12 @@
     "Open MigraTrack on iPhone" : {
       "comment" : "Rectangular complication before the iPhone app sent its data. Max 25 characters.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح التطبيق على iPhone"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1433,6 +1589,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvrir sur l’iPhone"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש לפתוח ב־iPhone"
           }
         },
         "hr" : {
@@ -1567,6 +1729,12 @@
             "value" : "Відкрийте на iPhone"
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone پر کھولیں"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1590,6 +1758,12 @@
     "Opens the logger." : {
       "comment" : "Description of the control in Control Center.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يفتح تسجيل النوبة."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1660,6 +1834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvre la saisie d’une crise."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פותח את תיעוד ההתקף."
           }
         },
         "hr" : {
@@ -1794,6 +1974,12 @@
             "value" : "Відкриває запис нападу."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج کرنے کا صفحہ کھولتا ہے۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1817,6 +2003,12 @@
     "Opens the logger. The rectangular style also shows your pain-free days." : {
       "comment" : "Description of the complication in the watch face gallery.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يفتح تسجيل النوبة. ويعرض النمط المستطيل أيضًا أيامك دون ألم."
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1887,6 +2079,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ouvre la saisie d’une crise. Le style rectangulaire affiche aussi vos jours sans douleur."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פותח את תיעוד ההתקף. הסגנון המלבני מציג גם את הימים ללא כאב."
           }
         },
         "hr" : {
@@ -2021,6 +2219,12 @@
             "value" : "Відкриває запис нападу. Прямокутний варіант також показує дні без болю."
           }
         },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دورہ درج کرنے کا صفحہ کھولتا ہے۔ مستطیل انداز آپ کے بغیر درد کے دن بھی دکھاتا ہے۔"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2044,6 +2248,12 @@
     "Pain-free days –" : {
       "comment" : "Rectangular complication before the first sync. The dash stands for a missing number.",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أيام دون ألم –"
+          }
+        },
         "be" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2114,6 +2324,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jours sans douleur –"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ימים ללא כאב –"
           }
         },
         "hr" : {
@@ -2246,6 +2462,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дні без болю –"
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بغیر درد کے دن –"
           }
         },
         "vi" : {

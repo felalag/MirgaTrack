@@ -47,11 +47,11 @@ import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.common_off
 import com.migratrack.app.generated.resources.common_on
 import com.migratrack.app.ui.icons.Icon
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
-import org.jetbrains.compose.resources.stringResource
 
 /** Full-width pink pill: "Log Migraine Episode", "Save Episode", "Export PDF Report". */
 @Composable

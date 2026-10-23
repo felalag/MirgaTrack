@@ -4,12 +4,12 @@ import com.migratrack.app.generated.resources.Res
 import com.migratrack.app.generated.resources.common_cancel
 import com.migratrack.app.generated.resources.common_ok
 import com.migratrack.app.generated.resources.common_save
+import com.migratrack.app.ui.getString
 import kotlin.coroutines.resume
 import kotlin.time.Instant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import org.jetbrains.compose.resources.getString
 import platform.Foundation.NSDate
 import platform.Foundation.dateWithTimeIntervalSince1970
 import platform.Foundation.timeIntervalSince1970

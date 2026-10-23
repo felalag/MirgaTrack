@@ -59,19 +59,19 @@ import com.migratrack.app.generated.resources.welcome_pain_free_days
 import com.migratrack.app.generated.resources.welcome_tagline
 import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.appendWithPlaceholders
-import com.migratrack.app.ui.keepKoreanWords
 import com.migratrack.app.ui.components.BrandMark
 import com.migratrack.app.ui.components.Card
 import com.migratrack.app.ui.components.MtText
 import com.migratrack.app.ui.components.PrimaryButton
 import com.migratrack.app.ui.components.SectionCaption
 import com.migratrack.app.ui.components.contentColumn
+import com.migratrack.app.ui.keepKoreanWords
+import com.migratrack.app.ui.pluralStringResource
+import com.migratrack.app.ui.stringResource
 import com.migratrack.app.ui.theme.MtColors
 import com.migratrack.app.ui.theme.MtRadius
 import com.migratrack.app.ui.theme.MtSpacing
 import com.migratrack.app.ui.theme.MtTheme
-import org.jetbrains.compose.resources.pluralStringResource
-import org.jetbrains.compose.resources.stringResource
 
 /** First screen before onboarding. The app has no accounts, so one button starts the setup. */
 @Composable
