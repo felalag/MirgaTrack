@@ -206,6 +206,24 @@ class ReportTest {
     }
 
     @Test
+    fun listsUseTheSeparatorOfTheLanguage() {
+        val japanese = object : ReportStrings by EnglishReportStrings {
+            override val listSeparator = "、"
+        }
+        val report = report(listOf(episode(20)))
+        val symptoms = report.episodes.single().symptoms.joinToString("、")
+        val treatments = report.baseline!!.treatments.joinToString("、")
+        assertTrue(symptoms.contains("、") && treatments.contains("、"))
+
+        val pdf = RecordingRenderer().also { ReportPdf.render(report, it, japanese, EnglishDateFormats, EnglishNumberFormats) }
+        assertTrue(symptoms in pdf.texts, pdf.texts.toString())
+        assertTrue(treatments in pdf.texts, pdf.texts.toString())
+        val cells = ReportWorkbook.sheets(report, japanese).flatMap { it.rows.flatten() }
+        assertTrue(Cell.Text(symptoms) in cells)
+        assertTrue(Cell.Text(treatments) in cells)
+    }
+
+    @Test
     fun rightToLeftPdfMirrorsTheLayoutButNotTheText() {
         val arabic = object : ReportStrings by EnglishReportStrings {
             override val rightToLeft = true

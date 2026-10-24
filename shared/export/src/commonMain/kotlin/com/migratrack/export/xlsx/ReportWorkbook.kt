@@ -32,11 +32,11 @@ object ReportWorkbook {
                 add(Cell.DateTime(episode.startedAt))
                 add(Cell.Number(episode.intensity.toDouble()))
                 add(episode.region?.let(Cell::Text) ?: Cell.Empty)
-                if (report.options.includeSymptoms) add(Cell.Text(episode.symptoms.joinToString(", ")))
+                if (report.options.includeSymptoms) add(Cell.Text(episode.symptoms.joinToString(strings.listSeparator)))
                 if (report.options.includeMedications) {
-                    add(Cell.Text(episode.medications.joinToString(", ") { it.name + " " + it.dose }.trim()))
+                    add(Cell.Text(episode.medications.joinToString(strings.listSeparator) { it.name + " " + it.dose }.trim()))
                 }
-                if (report.options.includeTriggers) add(Cell.Text(episode.triggers.joinToString(", ")))
+                if (report.options.includeTriggers) add(Cell.Text(episode.triggers.joinToString(strings.listSeparator)))
             }
         }
         return Sheet(strings.sheetEpisodes, columns, rows)
@@ -90,12 +90,12 @@ object ReportWorkbook {
             strings.profilePatient to report.patientName.ifBlank { strings.notSet },
             strings.profileRange to strings.isoRange(report.from.toString(), report.to.toString()),
             strings.profileTrackedSince to report.trackedSince.toString(),
-            strings.profileDiagnoses to baseline.diagnoses.joinToString(", ").ifBlank { strings.notSet },
+            strings.profileDiagnoses to baseline.diagnoses.joinToString(strings.listSeparator).ifBlank { strings.notSet },
             strings.profileFrequency to baseline.frequency,
             strings.profileDuration to baseline.typicalDuration,
             strings.profileIntensity to strings.intensityOfTen(baseline.typicalIntensity),
-            strings.profileTriggers to baseline.triggers.joinToString(", ").ifBlank { strings.none },
-            strings.profileTreatments to baseline.treatments.joinToString(", ").ifBlank { strings.none },
+            strings.profileTriggers to baseline.triggers.joinToString(strings.listSeparator).ifBlank { strings.none },
+            strings.profileTreatments to baseline.treatments.joinToString(strings.listSeparator).ifBlank { strings.none },
         ).map { (key, value) -> listOf(Cell.Text(key), Cell.Text(value)) }
         return Sheet(strings.sheetProfile, listOf(Column(strings.headerField, 22.0), Column(strings.headerValue, 70.0)), rows)
     }

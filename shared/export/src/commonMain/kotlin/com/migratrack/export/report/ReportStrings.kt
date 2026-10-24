@@ -156,6 +156,9 @@ interface ReportStrings {
     /** "None", for an empty list of triggers or treatments */
     val none: String
 
+    /** ", " between the items of a list: medications, triggers, symptoms and diagnoses */
+    val listSeparator: String
+
     // XLSX: sheet names
 
     /** "Episodes" */

@@ -9,6 +9,7 @@ import com.migratrack.app.generated.resources.duration_hours_minutes
 import com.migratrack.app.generated.resources.duration_minutes
 import com.migratrack.export.format.DateFormats
 import com.migratrack.export.format.NumberFormats
+import com.migratrack.export.format.listSeparatorFor
 import kotlin.time.Duration
 
 /** Dates in the language and region of the device, for the UI and the report. */
@@ -28,6 +29,9 @@ expect suspend fun appReadsRightToLeft(): Boolean
 
 /** Upper case by the rules of the app language: Turkish "i" becomes "İ", not "I". */
 fun String.uppercaseInAppLanguage(): String = toUpperCase(TextLocale)
+
+/** The mark between list items in the app language: "、" in Japanese, "، " in Arabic. */
+val ListSeparator: String get() = listSeparatorFor(TextLocale.language)
 
 /**
  * Korean breaks lines only at spaces, but Compose breaks between any two Hangul syllables, also in "10월" or "MigraTrack은".

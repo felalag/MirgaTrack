@@ -128,12 +128,12 @@ private class PageCursor(
         val baseline = report.baseline ?: return
         sectionTitle(strings.baselineTitle, Palette.CYAN)
         val rows = listOf(
-            strings.baselineDiagnoses to baseline.diagnoses.joinToString(", ").ifBlank { strings.notSet },
+            strings.baselineDiagnoses to baseline.diagnoses.joinToString(strings.listSeparator).ifBlank { strings.notSet },
             strings.baselineFrequency to baseline.frequency,
             strings.baselineDuration to baseline.typicalDuration,
             strings.baselineIntensity to strings.intensityOfTen(baseline.typicalIntensity),
-            strings.baselineTriggers to baseline.triggers.joinToString(", ").ifBlank { strings.none },
-            strings.baselineTreatments to baseline.treatments.joinToString(", ").ifBlank { strings.none },
+            strings.baselineTriggers to baseline.triggers.joinToString(strings.listSeparator).ifBlank { strings.none },
+            strings.baselineTreatments to baseline.treatments.joinToString(strings.listSeparator).ifBlank { strings.none },
         )
         keyValueRows(rows)
         y += 14f
@@ -313,11 +313,11 @@ private class PageCursor(
             TableColumn(ColumnId.Epicenter, strings.columnEpicenter, 96f) { it.region ?: "–" },
         )
         val flexible = buildList {
-            if (report.options.includeSymptoms) add(Triple(ColumnId.Symptoms, strings.columnSymptoms) { e: ReportEpisode -> e.symptoms.joinToString(", ").ifBlank { "–" } })
+            if (report.options.includeSymptoms) add(Triple(ColumnId.Symptoms, strings.columnSymptoms) { e: ReportEpisode -> e.symptoms.joinToString(strings.listSeparator).ifBlank { "–" } })
             if (report.options.includeMedications) add(Triple(ColumnId.Medications, strings.columnMedications) { e: ReportEpisode ->
-                e.medications.joinToString(", ") { "${it.name} ${it.dose}".trim() }.ifBlank { "–" }
+                e.medications.joinToString(strings.listSeparator) { "${it.name} ${it.dose}".trim() }.ifBlank { "–" }
             })
-            if (report.options.includeTriggers) add(Triple(ColumnId.Triggers, strings.columnTriggers) { e: ReportEpisode -> e.triggers.joinToString(", ").ifBlank { "–" } })
+            if (report.options.includeTriggers) add(Triple(ColumnId.Triggers, strings.columnTriggers) { e: ReportEpisode -> e.triggers.joinToString(strings.listSeparator).ifBlank { "–" } })
         }
         val remaining = width - fixed.sumOf { it.width.toDouble() }.toFloat()
         val fixedColumns = if (flexible.isEmpty()) {
