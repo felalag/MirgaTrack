@@ -56,3 +56,9 @@ data class TextStyle(
     enum class Weight { Regular, Semibold, Bold }
     enum class Align { Start, Center, End }
 }
+
+/**
+ * The line height of [text] as a multiple of the font's own. The system fonts of the Indian scripts (SF Devanagari
+ * to SF Malayalam, U+0900–U+0DFF) are 1.3 times as tall as SF, but a paragraph takes its line height from SF.
+ */
+internal fun lineHeightMultiple(text: String): Float = if (text.any { it in '\u0900'..'\u0DFF' }) 1.3f else 1f

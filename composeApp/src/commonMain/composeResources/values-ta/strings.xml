@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Tamil strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  Tamil iOS uses native words and bare verbs on buttons ("சேமி", "நீக்கு"); sentences use the polite "-ங்கள்".
+  Migraine is "ஒற்றைத் தலைவலி"; a migraine day is "தாக்குதல் நாள்" (attack day), because the migraine word has 14 characters.
+  Tamil has the CLDR plural forms one and other. The duration chips have no unit; the captions name the hours.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">பின்செல்</string>
+    <string name="common_settings">அமைப்புகள்</string>
+    <string name="common_cancel">ரத்துசெய்</string>
+    <string name="common_ok">சரி</string>
+    <string name="common_save">சேமி</string>
+    <string name="common_add">சேர்</string>
+    <string name="common_next">அடுத்து</string>
+    <string name="common_on">இயக்கத்தில்</string>
+    <string name="common_off">முடக்கத்தில்</string>
+    <string name="common_clear">அழி</string>
+    <string name="common_none">எதுவுமில்லை</string>
+    <string name="common_today">இன்று</string>
+    <string name="common_not_set">அமைக்கவில்லை</string>
+    <string name="common_expanded">விரிந்துள்ளது</string>
+    <string name="common_collapsed">சுருங்கியுள்ளது</string>
+    <string name="common_last_30_days">கடந்த 30 நாட்கள்</string>
+    <string name="common_medical_disclaimer">MigraTrack ஒரு நாட்குறிப்பு, மருத்துவ ஆலோசனை அல்ல. சிகிச்சையை மாற்றும் முன் உங்கள் மருத்துவரிடம் பேசுங்கள்.</string>
+    <string name="common_log_migraine_episode">ஒற்றைத் தலைவலியைப் பதிவுசெய்</string>
+    <string name="common_save_episode">சேமி</string>
+    <string name="common_edit_episode">தாக்குதலைத் திருத்து</string>
+    <string name="common_delete_episode">தாக்குதலை நீக்கு</string>
+    <string name="common_intensity_of_ten">தீவிரம் %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s மணிக்கு</string>
+    <string name="common_possible_triggers">சாத்தியமான தூண்டிகள்</string>
+    <string name="common_add_trigger">தூண்டியைச் சேர்</string>
+    <string name="common_add_medication">மருந்தைச் சேர்</string>
+    <string name="common_treatment_blueprint">சிகிச்சைத் திட்டம்</string>
+    <string name="common_medication_name_and_dose">பெயரையும் அளவையும் உள்ளிடுங்கள்.</string>
+    <string name="common_medication_placeholder">எ.கா., ரிசாட்ரிப்டான் 10&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">சுருக்கம்</string>
+    <string name="tab_log">பதிவுசெய்</string>
+    <string name="tab_insights">ஆய்வு</string>
+    <string name="tab_export">ஏற்றுமதி</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">வலியின் தீவிரம்</string>
+    <string name="pain_scale_value">10-இல் %1$s</string>
+    <string name="pain_scale_low">%1$s லேசானது</string>
+    <string name="pain_scale_middle">%1$s மிதமானது</string>
+    <string name="pain_scale_high">%1$s மிகக் கடுமை</string>
+    <string name="medication_remove">%1$s-ஐ நீக்கு</string>
+    <string name="duration_minutes">%1$s நிமிடம்</string>
+    <string name="duration_hours_minutes">%1$s மணி %2$s நிமிடம்</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">இன்று, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">நாட்கள், கண்காணித்த %1$s நாளில்</item>
+        <item quantity="other">நாட்கள், கண்காணித்த %1$s நாட்களில்</item>
+    </plurals>
+    <string name="summary_without_logged_episode">எந்தத் தாக்குதலும் பதிவாகவில்லை</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">கடந்த 30 நாட்களில் கண்காணித்த %2$s நாளில் %1$s நாட்கள் எந்தத் தாக்குதலும் பதிவாகவில்லை</item>
+        <item quantity="other">கடந்த 30 நாட்களில் கண்காணித்த %2$s நாட்களில் %1$s நாட்கள் எந்தத் தாக்குதலும் பதிவாகவில்லை</item>
+    </plurals>
+    <string name="summary_tracking_start_note">நீங்கள் கண்காணிக்கத் தொடங்கிய நாளிலிருந்து எண்ணப்பட்டது. அதற்கு முந்தைய நாட்கள் கண்காணிக்கப்படவில்லை.</string>
+    <string name="strip_legend_migraine">ஒற்றைத் தலைவலி</string>
+    <string name="strip_legend_pain_free">வலியற்றது</string>
+    <string name="strip_legend_not_tracked">கண்காணிக்காதது</string>
+    <string name="summary_sleep_last_night">நேற்றிரவு உறக்கம்</string>
+    <string name="summary_sleep_not_recorded">பதிவில்லை</string>
+    <string name="summary_sleep_hint">தூங்கும்போது Apple Watch அணியுங்கள் அல்லது உடல்நலம் ஆப்ஸில் உறக்கத்தைக் கண்காணியுங்கள். அணுகலை முடக்கியிருந்தால், அமைப்புகள் › உடல்நலம் என்பதில் அதை இயக்குங்கள்.</string>
+    <string name="summary_sleep_caption">உறக்கம்</string>
+    <string name="summary_sleep_connect_title">சுருக்கத்தில் நேற்றிரவு உறக்கத்தைப் பாருங்கள்</string>
+    <string name="summary_sleep_connect_body">MigraTrack நேற்றிரவு உறக்கத்தை Apple Health-இலிருந்து படிக்கிறது. தரவு இந்த iPhone-இலேயே இருக்கும்.</string>
+    <string name="summary_sleep_connect_button">Apple Health-ஐ இணை</string>
+    <string name="summary_last_episode">கடைசித் தாக்குதல்</string>
+    <string name="summary_last_episode_none">இன்னும் இல்லை</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">தாக்குதலைப் பதிவுசெய்</string>
+    <string name="episode_update">தாக்குதலைப் புதுப்பி</string>
+    <string name="episode_updated_banner">தாக்குதல் புதுப்பிக்கப்பட்டது.</string>
+    <string name="episode_deleted_banner">தாக்குதல் நீக்கப்பட்டது.</string>
+    <string name="episode_saved_banner">தாக்குதல் சேமிக்கப்பட்டது. ஓய்வெடுங்கள், மங்கலான வெளிச்சத்தில் இருங்கள்.</string>
+    <string name="episode_pain_intensity_index">வலியின் தீவிரம்</string>
+    <string name="episode_cranial_epicenter">தலையில் வலி உள்ள இடம்</string>
+    <string name="episode_aura_symptoms">ஆரா மற்றும் உணர்வு அறிகுறிகள்</string>
+    <string name="episode_acute_therapy">தாக்குதலின்போது எடுக்கும் மருந்து</string>
+    <string name="episode_add_medication_row">மருந்து / எலக்ட்ரோலைட் கரைசலைச் சேர்</string>
+    <string name="episode_start">தாக்குதல் தொடக்கம்</string>
+    <string name="episode_start_now">இப்போது</string>
+    <string name="episode_add_trigger_message">இந்தத் தாக்குதலுக்கு முன் என்ன நடந்தது?</string>
+    <string name="episode_other_trigger_action">வேறு தூண்டி…</string>
+    <string name="episode_other_trigger_title">வேறு தூண்டி</string>
+    <string name="episode_other_trigger_message">இந்தத் தாக்குதலுக்கு முன் நடந்த ஒன்றின் பெயரை எழுதுங்கள்.</string>
+    <string name="episode_other_trigger_placeholder">எ.கா., கடுமையான வாசனைத் திரவியம்</string>
+    <string name="episode_add_medication_message">இந்தத் தாக்குதலுக்கு நீங்கள் என்ன எடுத்தீர்கள்?</string>
+    <string name="episode_other_medication_action">வேறு மருந்து…</string>
+    <string name="episode_other_medication_title">வேறு மருந்து</string>
+    <string name="episode_missing_title">தாக்குதல் நீக்கப்பட்டது</string>
+    <string name="episode_missing_message">இந்தத் தாக்குதல் வேறொரு சாதனத்தில் நீக்கப்பட்டது, எனவே மாற்றங்களைச் சேமிக்க முடியாது.</string>
+    <string name="episode_delete_message">தீவிரம் %1$s/10. இந்தத் தாக்குதல் உங்கள் வரலாற்றிலிருந்தும் அறிக்கைகளிலிருந்தும் நீக்கப்படும்.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">வ</string>
+    <string name="insights_period_month">மா</string>
+    <string name="insights_period_six_months">6மா</string>
+    <string name="insights_period_year">ஆ</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">தாக்குதல் இந்த வாரம்</item>
+        <item quantity="other">தாக்குதல்கள் இந்த வாரம்</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">தாக்குதல், %1$s வாரத்தில்</item>
+        <item quantity="other">தாக்குதல்கள், %1$s வாரத்தில்</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">தாக்குதல், %1$s-இல்</item>
+        <item quantity="other">தாக்குதல்கள், %1$s-இல்</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">தாக்குதல், 6 மாதங்களில்</item>
+        <item quantity="other">தாக்குதல்கள், 6 மாதங்களில்</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">தாக்குதல், %1$s-இல்</item>
+        <item quantity="other">தாக்குதல்கள், %1$s-இல்</item>
+    </plurals>
+    <string name="insights_trend_fewer">முந்தைய காலத்தைவிட %1$s சதவீதம் குறைவான தாக்குதல்கள்</string>
+    <string name="insights_trend_more">முந்தைய காலத்தைவிட %1$s சதவீதம் அதிகமான தாக்குதல்கள்</string>
+    <string name="insights_legend_migraine_day">தாக்குதல் நாள்</string>
+    <string name="insights_legend_pain_free_day">வலியற்ற நாள்</string>
+    <string name="insights_legend_not_tracked">கண்காணிப்பில்லை</string>
+    <string name="insights_bar_no_data">%1$s: இன்னும் தரவு இல்லை</string>
+    <string name="insights_bar_not_tracked">%1$s: கண்காணிக்கப்படவில்லை</string>
+    <string name="insights_bar_pain_free">%1$s: வலியற்றது</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s தாக்குதல் நாள், அதிகபட்சம் 10-இல் %3$s</item>
+        <item quantity="other">%1$s: %2$s தாக்குதல் நாட்கள், அதிகபட்சம் 10-இல் %3$s</item>
+    </plurals>
+    <string name="insights_triggers_empty">தாக்குதலைப் பதிவுசெய்யும்போது அல்லது திருத்தும்போது சாத்தியமான தூண்டிகளைக் குறிப்பிடுங்கள். பிறகு ஒவ்வொரு தூண்டியையும் எத்தனை முறை குறிப்பிட்டீர்கள் என்று இந்த அட்டை காட்டும்.</string>
+    <string name="insights_triggers_hint">தாக்குதலுடன் ஒவ்வொரு தூண்டியையும் எத்தனை முறை குறிப்பிட்டீர்கள். இது காரணத்தைக் காட்டாது.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s தாக்குதலில் %2$s-இல் குறிப்பிடப்பட்டது</item>
+        <item quantity="other">%1$s, %3$s தாக்குதல்களில் %2$s-இல் குறிப்பிடப்பட்டது</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">நாள்காட்டி, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s அன்று %2$s தாக்குதல் உள்ளது.</item>
+        <item quantity="other">%1$s அன்று %2$s தாக்குதல்கள் உள்ளன.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · தீவிரம் %2$s/10</string>
+    <string name="insights_month_picker_title">மாதம்</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">முந்தைய மாதம்</string>
+    <string name="calendar_next_month">அடுத்த மாதம்</string>
+    <string name="calendar_choose_month_a11y">%1$s, வேறு மாதத்தைத் தேர்வுசெய்</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">தாக்குதல்: %1$s நாள்</item>
+        <item quantity="other">தாக்குதல்: %1$s நாள்</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">இன்று, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">கிடைக்கவில்லை</string>
+    <string name="calendar_day_not_tracked">கண்காணிக்கப்படவில்லை</string>
+    <string name="calendar_day_no_episodes">தாக்குதல் இல்லை</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s தாக்குதல், அதிகபட்சம் 10-இல் %2$s</item>
+        <item quantity="other">%1$s தாக்குதல்கள், அதிகபட்சம் 10-இல் %2$s</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s தாக்குதல்</item>
+        <item quantity="other">%1$s தாக்குதல்கள்</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">அதிகபட்சத் தீவிரம்</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">மருந்துகள்</string>
+    <string name="calendar_edit_episode_details">விவரங்களைத் திருத்து</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF தயாராகிறது…</string>
+    <string name="export_preparing_excel">Excel தயாராகிறது…</string>
+    <string name="export_preparing_report">அறிக்கை தயாராகிறது…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">தாக்குதல்</item>
+        <item quantity="other">தாக்குதல்கள்</item>
+    </plurals>
+    <string name="export_episodes_recorded">பதிவான தாக்குதல்கள்</string>
+    <string name="export_include">ஏற்றுமதியில் சேர்</string>
+    <string name="export_medications">எடுத்த மருந்துகள்</string>
+    <string name="export_medications_subtitle">அளவுகளும் மொத்தப் பயன்பாடும்</string>
+    <string name="export_symptoms">ஆரா மற்றும் எச்சரிக்கை அறிகுறிகள்</string>
+    <string name="export_symptoms_subtitle">ஆராவின் வகைகளும் எண்ணிக்கையும்</string>
+    <string name="export_triggers_subtitle">குறிப்பிட்ட தூண்டிகளும் எண்ணிக்கையும்</string>
+    <string name="export_pain_charts">வலித் தீவிர விளக்கப்படங்கள்</string>
+    <string name="export_pain_charts_subtitle">காலப்போக்கில் வலியின் தீவிரம், 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF அறிக்கையை ஏற்றுமதிசெய்</string>
+    <string name="export_excel">Excel (.xlsx) ஆக ஏற்றுமதி</string>
+    <string name="export_share">பகிர்</string>
+    <string name="export_range_title">அறிக்கைக் காலம்</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack அறிக்கை: %1$s தாக்குதல், %2$s.</item>
+        <item quantity="other">MigraTrack அறிக்கை: %1$s தாக்குதல்கள், %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">ஏற்றுமதி தோல்வியடைந்தது</string>
+    <string name="export_failed_message">அறிக்கையை உருவாக்க முடியவில்லை.</string>
+    <string name="export_write_failed">%1$s-ஐச் சேமிக்க முடியவில்லை</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s அறிந்த தூண்டி</item>
+        <item quantity="other">%1$s அறிந்த தூண்டிகள்</item>
+    </plurals>
+    <string name="settings_no_triggers">தூண்டி எதுவும் தேர்வுசெய்யப்படவில்லை</string>
+    <string name="settings_no_medications">மருந்து எதுவும் தேர்வுசெய்யப்படவில்லை</string>
+    <string name="settings_name_title">உங்கள் பெயர்</string>
+    <string name="settings_name_message">நீங்கள் ஏற்றுமதி செய்யும் அறிக்கைகளில் இது தோன்றும்.</string>
+    <string name="settings_name_placeholder">பெயர்</string>
+    <string name="settings_delete_title">எல்லாத் தரவையும் நீக்கவா?</string>
+    <string name="settings_delete_message">MigraTrack உங்கள் தரவை இந்த iPhone-இலும், அதன் நகலை உங்கள் Apple Watch-இலும் வைத்திருக்கிறது. இது ஒவ்வொரு தாக்குதலையும் உங்கள் தொடக்கச் சுயவிவரத்தையும் நிரந்தரமாக நீக்கும்; அடுத்த ஒத்திசைவில் கடிகாரம் தன் நகலை நீக்கும். சாதன காப்புப்பிரதிகளில் அவற்றின் நகல் இருக்கும். அறிக்கை தேவையெனில் முதலில் அதை ஏற்றுமதி செய்யுங்கள்.</string>
+    <string name="settings_delete_all">எல்லாத் தரவையும் நீக்கு</string>
+    <string name="settings_section_baseline">மருத்துவத் தகவல் மற்றும் நெறிமுறை</string>
+    <string name="settings_baseline_diagnoses">நோயறிதல்</string>
+    <string name="settings_known_triggers">அறிந்த தூண்டிகள்</string>
+    <string name="settings_section_preferences">விருப்பங்கள்</string>
+    <string name="settings_appearance">தோற்றம்</string>
+    <string name="settings_appearance_value">இருண்டது (நிலையானது)</string>
+    <string name="settings_version">பதிப்பு</string>
+    <string name="settings_version_value">v%1$s (பில்ட் %2$s)</string>
+    <string name="settings_section_legal">சட்டம்</string>
+    <string name="settings_section_developer">டெவலப்பர்</string>
+    <string name="settings_load_sample_data">மாதிரித் தரவை ஏற்று</string>
+    <string name="settings_load_sample_data_subtitle">விளக்கப்படங்களைக் காண ஓராண்டு உருவாக்கிய தாக்குதல்களைச் சேர்க்கும்</string>
+    <string name="settings_edit_name_a11y">பெயரைத் திருத்து</string>
+    <string name="settings_add_name">உங்கள் பெயரைச் சேர்</string>
+    <string name="settings_member">தொடக்கம்</string>
+    <string name="settings_episodes">தாக்குதல்கள்</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s பதிவு</item>
+        <item quantity="other">%1$s பதிவுகள்</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">தனியுரிமைக் கொள்கை</string>
+    <string name="legal_terms_of_service">சேவை விதிமுறைகள்</string>
+    <string name="legal_folder">ta</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">தூண்டிகளுக்குத் தொடர்</string>
+    <string name="onboarding_continue_to_medications">மருந்துகளுக்குத் தொடர்</string>
+    <string name="onboarding_finish_setup">அமைப்பை முடி</string>
+    <string name="onboarding_back_to_diagnoses">நோயறிதலுக்குத் திரும்பு</string>
+    <string name="onboarding_back_to_triggers">தூண்டிகளுக்குத் திரும்பு</string>
+    <string name="onboarding_save_changes">மாற்றங்களைச் சேமி</string>
+    <string name="onboarding_step">படி %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">நோயறிதல் மற்றும் வரலாறு</string>
+    <string name="onboarding_diagnoses_subtitle">உங்கள் தொடக்கச் சுயவிவரத்தை அமையுங்கள். உங்கள் தாக்குதல்களும் அறிக்கைகளும் இதிலிருந்து தொடங்கும்.</string>
+    <string name="onboarding_primary_diagnosis">முதன்மை நோயறிதல்</string>
+    <string name="onboarding_episode_frequency">மாதத்திற்கு எத்தனை தாக்குதல்கள்</string>
+    <string name="onboarding_episode_duration">வழக்கமாகத் தாக்குதல் எவ்வளவு நேரம் (மணி)</string>
+    <string name="onboarding_intensity_baseline">வலியின் வழக்கமான தீவிரம்</string>
+    <string name="onboarding_update_later">உங்கள் தொடக்கச் சுயவிவரத்தை எப்போது வேண்டுமானாலும் அமைப்புகளில் மாற்றலாம்.</string>
+    <string name="onboarding_triggers_title">உங்கள் தூண்டிகள்</string>
+    <string name="onboarding_triggers_subtitle">உங்களுக்குத் தெரிந்த அல்லது சந்தேகமான தூண்டிகளைத் தேர்வுசெய்யுங்கள். உங்கள் அறிக்கை அவற்றை மருத்துவருக்காகப் பட்டியலிடும்.</string>
+    <string name="onboarding_add_custom_trigger">சொந்தத் தூண்டியைச் சேர்</string>
+    <string name="onboarding_treatment_subtitle">நீங்கள் எடுப்பதைத் தேர்வுசெய்யுங்கள். தாக்குதலின்போது எடுக்கும் மருந்துகள் ஒவ்வொரு புதிய தாக்குதலிலும் முன்பே நிரப்பப்பட்டிருக்கும், எனவே பதிவுசெய்ய ஒரு தட்டு போதும்.</string>
+    <string name="onboarding_add_custom_medication">சொந்த மருந்தைச் சேர்</string>
+    <string name="onboarding_custom_trigger_title">சொந்தத் தூண்டியைச் சேர்</string>
+    <string name="onboarding_custom_trigger_message">உங்கள் ஒற்றைத் தலைவலியை அடிக்கடி தொடங்கச் செய்யும் ஒன்றின் பெயரை எழுதுங்கள்.</string>
+    <string name="onboarding_custom_trigger_placeholder">எ.கா., மின்னும் விளக்குகள்</string>
+    <string name="onboarding_medication_role_message">இதை எப்போது எடுக்கிறீர்கள்?</string>
+    <string name="onboarding_medication_role_acute">தாக்குதலின்போது (உடனடி)</string>
+    <string name="onboarding_medication_role_preventive">தினமும் (தடுப்பு)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">ஒற்றைத் தலைவலி மற்றும் தூண்டிகளுக்கான தனிப்பட்ட கண்காணிப்பு</string>
+    <string name="welcome_example">எடுத்துக்காட்டு</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">வலியற்ற நாள்</item>
+        <item quantity="other">வலியற்ற நாட்கள்</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">எடுத்துக்காட்டு: கடந்த 30 நாட்களில் %1$s வலியற்ற நாள்</item>
+        <item quantity="other">எடுத்துக்காட்டு: கடந்த 30 நாட்களில் %1$s வலியற்ற நாட்கள்</item>
+    </plurals>
+    <string name="welcome_headline_patterns">உங்கள் போக்குகளைப் புரிந்துகொள்ளுங்கள்.</string>
+    <string name="welcome_headline_doctor">உண்மைகளுடன் மருத்துவரைச் சந்தியுங்கள்.</string>
+    <string name="welcome_body">அறிகுறிகளைக் கண்காணியுங்கள், சாத்தியமான தூண்டிகளைக் கண்டறியுங்கள், உங்கள் தனிப்பட்ட அறிக்கைகளை எப்போது வேண்டுமானாலும் ஏற்றுமதி செய்யுங்கள்.</string>
+    <string name="welcome_get_started">தொடங்கு</string>
+    <string name="welcome_agreement">தொடர்வதன் மூலம் %1$s மற்றும் %2$s-ஐ ஏற்கிறீர்கள்.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ஆரா இல்லாத ஒற்றைத் தலைவலி</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">ஒற்றைத் தலைவலியின் பொதுவான வகை</string>
+    <string name="diagnosis_migraine_with_aura">ஆராவுடன் கூடிய ஒற்றைத் தலைவலி</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">பார்வை அல்லது உணர்வு சார்ந்த ஆரா</string>
+    <string name="diagnosis_chronic_migraine">நாள்பட்ட ஒற்றைத் தலைவலி</string>
+    <string name="diagnosis_chronic_migraine_subtitle">மாதத்தில் 15 அல்லது அதிக நாட்கள் தலைவலி</string>
+    <string name="diagnosis_tension_type">இறுக்க வகைத் தலைவலி</string>
+    <string name="diagnosis_tension_type_subtitle">தலையைச் சுற்றிப் பட்டை போன்ற இறுக்கம்</string>
+    <string name="diagnosis_cluster">கொத்துத் தலைவலி</string>
+    <string name="diagnosis_cluster_subtitle">ஒரு கண்ணைச் சுற்றிக் கடுமையான தாக்குதல்கள்</string>
+    <string name="diagnosis_not_diagnosed">நோயறிதல் இல்லை / ஆய்வில்</string>
+    <string name="diagnosis_not_diagnosed_subtitle">அறிகுறிகளின் போக்குகளைக் கவனித்தல்</string>
+    <string name="frequency_less_than_one">&lt; 1/மாதம்</string>
+    <string name="frequency_one_to_four">1–4/மாதம்</string>
+    <string name="frequency_five_to_eight">5–7/மாதம்</string>
+    <string name="frequency_eight_plus">8+/மாதம்</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">இடது நெற்றிப்பொட்டு</string>
+    <string name="region_right_temple">வலது நெற்றிப்பொட்டு</string>
+    <string name="region_frontal_brow">நெற்றி / புருவம்</string>
+    <string name="region_retro_orbital">கண்ணுக்குப் பின்னால்</string>
+    <string name="region_occipital_neck">தலையின் பின்பகுதி மற்றும் கழுத்து</string>
+    <string name="symptom_scintillating_scotoma">மின்னும் ஸ்கோடோமா (பார்வை)</string>
+    <string name="symptom_scintillating_scotoma_short">பார்வை ஆரா</string>
+    <string name="symptom_neck_stiffness">கழுத்து விறைப்பு</string>
+    <string name="symptom_neck_stiffness_short">கழுத்து இறுகல்</string>
+    <string name="symptom_photophobia">ஒளியால் தொல்லை (ஃபோட்டோஃபோபியா)</string>
+    <string name="symptom_photophobia_short">ஒளி</string>
+    <string name="symptom_nausea">குமட்டல்</string>
+    <string name="symptom_nausea_short">குமட்டல்</string>
+    <string name="symptom_phonophobia">ஒலியால் தொல்லை (ஃபோனோஃபோபியா)</string>
+    <string name="symptom_phonophobia_short">ஒலி</string>
+    <string name="symptom_aphasia">பேசுவதில் சிரமம் (அஃபேசியா) / மனக் குழப்பம்</string>
+    <string name="symptom_aphasia_short">மனக் குழப்பம்</string>
+    <string name="symptom_paresthesia">கூச்ச உணர்வு / பரஸ்தீசியா</string>
+    <string name="symptom_paresthesia_short">கூச்ச உணர்வு</string>
+    <string name="trigger_category_weather_environment">வானிலை மற்றும் சூழல்</string>
+    <string name="trigger_category_sleep_physical">உறக்கம் மற்றும் உடல் வழக்கம்</string>
+    <string name="trigger_category_stress_emotions">மன அழுத்தம் மற்றும் உணர்ச்சிகள்</string>
+    <string name="trigger_category_hormonal">ஹார்மோன்</string>
+    <string name="trigger_category_diet_consumption">உணவு மற்றும் பானம்</string>
+    <string name="trigger_category_custom">உங்களுடையவை</string>
+    <string name="medication_role_acute">தாக்குதலின்போது (உடனடி)</string>
+    <string name="medication_role_preventive">தடுப்பு மற்றும் துணை உணவுகள்</string>
+    <string name="export_range_last_30_days">கடந்த 30 நாட்கள்</string>
+    <string name="export_range_last_90_days">கடந்த 90 நாட்கள்</string>
+    <string name="export_range_last_6_months">கடந்த 6 மாதங்கள்</string>
+    <string name="export_range_last_12_months">கடந்த ஓராண்டு</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">காற்றழுத்தம் குறைதல்</string>
+    <string name="trigger_barometric_pressure_description">வானிலை மாற்றம், உயர மாற்றம்</string>
+    <string name="trigger_bright_light">கடும் ஒளி மற்றும் வெயில்</string>
+    <string name="trigger_bright_light_description">கண்கூச்சம், மின்னும் ஒளி, ஃபோட்டோஃபோபியா</string>
+    <string name="trigger_heat_humidity">கடும் வெப்பம் / ஈரப்பதம்</string>
+    <string name="trigger_heat_humidity_description">வெப்பநிலை ஏற்ற இறக்கம்</string>
+    <string name="trigger_loud_noise">உரத்த சத்தம்</string>
+    <string name="trigger_loud_noise_description">ஃபோனோஃபோபியா, திடீர் உரத்த ஒலி</string>
+    <string name="trigger_poor_sleep">குறைந்த / ஒழுங்கற்ற உறக்கம்</string>
+    <string name="trigger_poor_sleep_description">உறக்கக் குறைபாடு, REM உறக்கக் குறைபாடு</string>
+    <string name="trigger_dehydration">நீரிழப்பு</string>
+    <string name="trigger_dehydration_description">எலக்ட்ரோலைட் குறைபாடு</string>
+    <string name="trigger_skipped_meals">உணவைத் தவிர்த்தல் / விரதம்</string>
+    <string name="trigger_skipped_meals_description">இரத்தச் சர்க்கரை குறைதல்</string>
+    <string name="trigger_overexertion">அதிக உடல் உழைப்பு</string>
+    <string name="trigger_overexertion_description">உழைப்பால் இரத்த நாளங்களில் அழுத்தம்</string>
+    <string name="trigger_emotional_stress">மன அழுத்தம் / அதன் பிறகு தளர்வு</string>
+    <string name="trigger_emotional_stress_description">வேலை அழுத்தம் முடிந்த பிறகு</string>
+    <string name="trigger_screen_fatigue">திரைச் சோர்வு</string>
+    <string name="trigger_screen_fatigue_description">நீல ஒளி, கண் அழுத்தம்</string>
+    <string name="trigger_hormonal_cycle">ஹார்மோன் மாற்றம் / மாதவிடாய்ச் சுழற்சி</string>
+    <string name="trigger_hormonal_cycle_description">மாதச் சுழற்சி மாற்றம்</string>
+    <string name="trigger_caffeine">காஃபின் நிறுத்தம் / அதிக காஃபின்</string>
+    <string name="trigger_caffeine_description">அடினோசின் ஏற்பி மாற்றங்கள்</string>
+    <string name="trigger_aged_cheese">பழைய சீஸ் / டைரமின்</string>
+    <string name="trigger_aged_cheese_description">நொதித்த அமீன்களுக்கு உணர்திறன்</string>
+    <string name="trigger_alcohol">மது / சிவப்பு ஒயின்</string>
+    <string name="trigger_alcohol_description">டானின், ஹிஸ்டமின்</string>
+    <string name="trigger_sweeteners">செயற்கை இனிப்பூட்டிகள்</string>
+    <string name="trigger_sweeteners_description">அஸ்பார்டேம், சுக்ரலோஸ்</string>
+    <string name="trigger_custom_description">உங்கள் சொந்தத் தூண்டி</string>
+
+    <!-- Catalog: built-in medications. The Tamil transliteration of each international name; paracetamol, as India names acetaminophen; "mg" as Indian packs write it. -->
+
+    <string name="medication_ibuprofen_400">ஐபுப்ரோஃபென்</string>
+    <string name="medication_ibuprofen_400_class">வீக்கம் குறைக்கும் துணை மருந்து</string>
+    <string name="medication_sumatriptan_50">சுமாட்ரிப்டான்</string>
+    <string name="medication_sumatriptan_50_class">டிரிப்டான், செரோடோனின் அகோனிஸ்ட்</string>
+    <string name="medication_rizatriptan_10">ரிசாட்ரிப்டான்</string>
+    <string name="medication_rizatriptan_10_class">டிரிப்டான், வாயில் கரையும்</string>
+    <string name="medication_naproxen_500">நாப்ராக்ஸென்</string>
+    <string name="medication_naproxen_500_class">நீண்ட நேரம் செயல்படும் NSAID</string>
+    <string name="medication_acetaminophen_1000">பாராசிட்டமால்</string>
+    <string name="medication_acetaminophen_1000_class">வலி நிவாரணி</string>
+    <string name="medication_ubrogepant_100">உப்ரோஜெபான்ட்</string>
+    <string name="medication_ubrogepant_100_class">ஜெபான்ட், CGRP எதிரி</string>
+    <string name="medication_metoclopramide_10">மெட்டோகுளோப்ரமைடு</string>
+    <string name="medication_metoclopramide_10_class">வாந்தித் தடுப்பு</string>
+    <string name="medication_electrolytes">எலக்ட்ரோலைட் கரைசல்</string>
+    <string name="medication_electrolytes_class">ORS</string>
+    <string name="medication_riboflavin_400">ரைபோஃப்ளேவின்</string>
+    <string name="medication_riboflavin_400_class">வைட்டமின் B2</string>
+    <string name="medication_magnesium_400">மெக்னீசியம்</string>
+    <string name="medication_magnesium_400_class">கனிமத் துணை உணவு</string>
+    <string name="medication_propranolol_40">ப்ரோப்ரானோலோல்</string>
+    <string name="medication_propranolol_40_class">பீட்டா பிளாக்கர்</string>
+    <string name="medication_topiramate_50">டோபிராமேட்</string>
+    <string name="medication_topiramate_50_class">வலிப்புத் தடுப்பு மருந்து</string>
+    <string name="medication_amitriptyline_10">அமிட்ரிப்டிலின்</string>
+    <string name="medication_amitriptyline_10_class">முச்சுழல் மனச்சோர்வு எதிர்ப்பி</string>
+    <string name="medication_erenumab_70">எரெனுமாப்</string>
+    <string name="medication_erenumab_70_class">CGRP எதிர்ப்பொருள், மாதம் ஒருமுறை</string>
+    <string name="medication_custom_class">உங்கள் சொந்த மருந்து</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">வ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">மொத்தம் %2$s; அவற்றில் %1$s-இல் தூண்டி குறிப்பிடப்படவில்லை</item>
+        <item quantity="other">மொத்தம் %2$s; அவற்றில் %1$s-இல் தூண்டி குறிப்பிடப்படவில்லை</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s தாக்குதல்</item>
+        <item quantity="other">%1$s தாக்குதல்கள்</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">ஒற்றைத் தலைவலி மருத்துவ அறிக்கை</string>
+    <string name="report_page">MigraTrack · பக்கம் %1$s</string>
+    <string name="report_patient">நோயாளி: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">உருவாக்கியது: %1$s</string>
+    <string name="report_disclaimer">நோயாளியே MigraTrack-இல் பதிவுசெய்த தரவு. இந்த அறிக்கை மருத்துவ மதிப்பீட்டுக்கு உதவுகிறது, அதற்கு மாற்று அல்ல.</string>
+    <string name="report_stat_episodes">பதிவான தாக்குதல்கள்</string>
+    <string name="report_stat_migraine_days">தாக்குதல் நாட்கள்</string>
+    <string name="report_stat_pain_free_days">வலியற்ற நாட்கள்</string>
+    <string name="report_stat_average_intensity">சராசரித் தீவிரம் /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">கண்காணிப்பு %1$s அன்று தொடங்கியது. இந்தக் காலத்தின் முந்தைய %2$s நாளுக்குப் பதிவு இல்லை, அது வலியற்ற நாளாகக் கணக்கிடப்படாது.</item>
+        <item quantity="other">கண்காணிப்பு %1$s அன்று தொடங்கியது. இந்தக் காலத்தின் முந்தைய %2$s நாட்களுக்குப் பதிவு இல்லை, அவை வலியற்ற நாட்களாகக் கணக்கிடப்படாது.</item>
+    </plurals>
+    <string name="report_baseline_title">தொடக்கச் சுயவிவரம்</string>
+    <string name="report_baseline_diagnoses">நோயறிதல்</string>
+    <string name="report_baseline_frequency">மாதத் தாக்குதல்கள்</string>
+    <string name="report_baseline_duration">வழக்கமான நேரம் (மணி)</string>
+    <string name="report_baseline_intensity">வழக்கமான தீவிரம்</string>
+    <string name="report_baseline_triggers">அறிந்த தூண்டிகள்</string>
+    <string name="report_baseline_treatments">சிகிச்சைத் திட்டம்</string>
+    <string name="report_pain_chart_title">காலப்போக்கில் வலியின் தீவிரம் (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">லேசானது %1$s–%2$s</string>
+    <string name="report_legend_moderate">மிதமானது %1$s–%2$s</string>
+    <string name="report_legend_severe">கடுமை %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">கண்காணிப்பில்லை</string>
+    <string name="report_medication_title">மருந்துப் பயன்பாடு</string>
+    <string name="report_no_medications">இந்தக் காலத்தில் மருந்து எதுவும் பதிவாகவில்லை.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s முறை எடுத்தது</item>
+        <item quantity="other">%1$s முறை எடுத்தது</item>
+    </plurals>
+    <string name="report_symptoms_title">ஆரா மற்றும் எச்சரிக்கை அறிகுறிகள்</string>
+    <string name="report_no_symptoms">இந்தக் காலத்தில் ஆரா அல்லது உணர்வு அறிகுறி எதுவும் பதிவாகவில்லை.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s தாக்குதலில் %1$s (%3$s)</item>
+        <item quantity="other">%2$s தாக்குதல்களில் %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">குறிப்பிட்ட சாத்தியமான தூண்டிகள்</string>
+    <string name="report_no_triggers">இந்தக் காலத்தில் தூண்டி எதுவும் குறிப்பிடப்படவில்லை.</string>
+    <string name="report_triggers_note">தாக்குதலுடன் நோயாளி ஒரு தூண்டியை எத்தனை முறை குறிப்பிட்டார் என்பதை எண்ணிக்கைகள் காட்டுகின்றன. அவை காரணத்தைக் காட்டாது.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">மொத்தம் %2$s; அவற்றில் %1$s-இல் தூண்டி குறிப்பிடப்படவில்லை.</item>
+        <item quantity="other">மொத்தம் %2$s; அவற்றில் %1$s-இல் தூண்டி குறிப்பிடப்படவில்லை.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s தாக்குதல்</item>
+        <item quantity="other">%1$s தாக்குதல்கள்</item>
+    </plurals>
+    <string name="report_episodes_title">தாக்குதல்கள்</string>
+    <string name="report_no_episodes">இந்தக் காலத்தில் தாக்குதல் எதுவும் பதிவாகவில்லை.</string>
+    <string name="report_column_date_time">தேதி, நேரம்</string>
+    <string name="report_column_pain">வலி</string>
+    <string name="report_column_epicenter">வலி உள்ள இடம்</string>
+    <string name="report_column_symptoms">அறிகுறிகள்</string>
+    <string name="report_column_medications">மருந்துகள்</string>
+    <string name="report_column_triggers">தூண்டிகள்</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">அமைக்கவில்லை</string>
+    <string name="report_none">எதுவுமில்லை</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">தாக்குதல்கள்</string>
+    <string name="report_sheet_medications">மருந்துகள்</string>
+    <string name="report_sheet_daily_pain">தினசரி வலி</string>
+    <string name="report_sheet_profile">சுயவிவரம்</string>
+    <string name="report_header_started">தொடக்கம்</string>
+    <string name="report_header_pain_intensity">வலியின் தீவிரம் (1–10)</string>
+    <string name="report_header_epicenter">தலையில் வலி உள்ள இடம்</string>
+    <string name="report_header_symptoms">ஆரா மற்றும் உணர்வு அறிகுறிகள்</string>
+    <string name="report_header_medications">மருந்துகள்</string>
+    <string name="report_header_triggers">சாத்தியமான தூண்டிகள்</string>
+    <string name="report_header_episode_started">தாக்குதல் தொடக்கம்</string>
+    <string name="report_header_medication">மருந்து</string>
+    <string name="report_header_dose">அளவு</string>
+    <string name="report_header_date">தேதி</string>
+    <string name="report_header_peak_pain">வலியின் அதிகபட்சத் தீவிரம் (1–10, 0 = வலியற்றது)</string>
+    <string name="report_header_day">நாள்</string>
+    <string name="report_header_field">புலம்</string>
+    <string name="report_header_value">மதிப்பு</string>
+    <string name="report_day_migraine">ஒற்றைத் தலைவலி</string>
+    <string name="report_day_pain_free">வலியற்றது</string>
+    <string name="report_day_not_tracked">கண்காணிப்பில்லை</string>
+    <string name="report_profile_patient">நோயாளி</string>
+    <string name="report_profile_range">அறிக்கைக் காலம்</string>
+    <string name="report_profile_tracked_since">கண்காணிப்புத் தொடக்கம்</string>
+    <string name="report_profile_diagnoses">நோயறிதல்</string>
+    <string name="report_profile_frequency">மாதத் தாக்குதல்கள்</string>
+    <string name="report_profile_duration">வழக்கமான நேரம் (மணி)</string>
+    <string name="report_profile_intensity">வழக்கமான தீவிரம்</string>
+    <string name="report_profile_triggers">அறிந்த தூண்டிகள்</string>
+    <string name="report_profile_treatments">சிகிச்சைத் திட்டம்</string>
+    <string name="report_iso_range">%1$s முதல் %2$s வரை</string>
+</resources>

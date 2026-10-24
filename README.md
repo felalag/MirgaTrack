@@ -157,7 +157,7 @@ Additions that the screens imply but do not show:
 
 ## Known limits
 
-- The UI text is English only.
+- The app is translated into 47 languages next to English ([LOCALIZATION_PLAN.md](docs/LOCALIZATION_PLAN.md)), but no native speaker read the translations except Russian and Belarusian.
 - An episode has a start time but no end, so the app shows no attack duration.
 - A medication has no time of its own. The app sets it to the start of the attack, so the PDF and the XLSX show no intake time.
 - The project has no linter configured. The build has no compiler warnings.

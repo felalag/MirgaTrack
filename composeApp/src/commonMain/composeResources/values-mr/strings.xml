@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Marathi strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The polite form "तुम्ही" with "-आ", as Marathi iOS writes "जतन करा" and "हटवा". "झटका" is the episode, as Marathi says
+  "मायग्रेनचा झटका". Marathi has the CLDR plural forms one and other.
+  The duration chips have no unit, because "12–24 तास" is longer than 7 characters: the captions name the hours.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">मागे</string>
+    <string name="common_settings">सेटिंग</string>
+    <string name="common_cancel">रद्द करा</string>
+    <string name="common_ok">ओके</string>
+    <string name="common_save">जतन करा</string>
+    <string name="common_add">जोडा</string>
+    <string name="common_next">पुढे</string>
+    <string name="common_on">चालू</string>
+    <string name="common_off">बंद</string>
+    <string name="common_clear">काढा</string>
+    <string name="common_none">काहीही नाही</string>
+    <string name="common_today">आज</string>
+    <string name="common_not_set">सेट नाही</string>
+    <string name="common_expanded">उघडलेले</string>
+    <string name="common_collapsed">बंद केलेले</string>
+    <string name="common_last_30_days">मागील 30 दिवस</string>
+    <string name="common_medical_disclaimer">MigraTrack ही एक डायरी आहे, वैद्यकीय सल्ला नाही. उपचार बदलण्यापूर्वी तुमच्या डॉक्टरांशी बोला.</string>
+    <string name="common_log_migraine_episode">मायग्रेनचा झटका नोंदवा</string>
+    <string name="common_save_episode">जतन करा</string>
+    <string name="common_edit_episode">झटका संपादित करा</string>
+    <string name="common_delete_episode">झटका हटवा</string>
+    <string name="common_intensity_of_ten">तीव्रता %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s वाजता</string>
+    <string name="common_possible_triggers">संभाव्य ट्रिगर</string>
+    <string name="common_add_trigger">ट्रिगर जोडा</string>
+    <string name="common_add_medication">औषध जोडा</string>
+    <string name="common_treatment_blueprint">उपचार योजना</string>
+    <string name="common_medication_name_and_dose">नाव आणि डोस लिहा.</string>
+    <string name="common_medication_placeholder">उदाहरणार्थ, रिझाट्रिप्टान 10&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">सारांश</string>
+    <string name="tab_log">नोंदवा</string>
+    <string name="tab_insights">विश्लेषण</string>
+    <string name="tab_export">एक्सपोर्ट</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">वेदनेची तीव्रता</string>
+    <string name="pain_scale_value">10 पैकी %1$s</string>
+    <string name="pain_scale_low">%1$s सौम्य</string>
+    <string name="pain_scale_middle">%1$s मध्यम</string>
+    <string name="pain_scale_high">%1$s असह्य</string>
+    <string name="medication_remove">%1$s काढा</string>
+    <string name="duration_minutes">%1$s मिनिटे</string>
+    <string name="duration_hours_minutes">%1$s तास %2$s मिनिटे</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">आज, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">दिवस, नोंद ठेवलेल्या %1$s दिवसापैकी</item>
+        <item quantity="other">दिवस, नोंद ठेवलेल्या %1$s दिवसांपैकी</item>
+    </plurals>
+    <string name="summary_without_logged_episode">एकही झटका न नोंदवता</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">मागील 30 दिवसांत नोंद ठेवलेल्या %2$s दिवसापैकी %1$s दिवस एकही झटका नोंदवलेला नाही</item>
+        <item quantity="other">मागील 30 दिवसांत नोंद ठेवलेल्या %2$s दिवसांपैकी %1$s दिवस एकही झटका नोंदवलेला नाही</item>
+    </plurals>
+    <string name="summary_tracking_start_note">तुम्ही नोंद ठेवायला सुरुवात केली त्या दिवसापासून मोजले आहे. त्याआधीच्या दिवसांची नोंद नाही.</string>
+    <string name="strip_legend_migraine">मायग्रेन</string>
+    <string name="strip_legend_pain_free">वेदनामुक्त</string>
+    <string name="strip_legend_not_tracked">नोंद नाही</string>
+    <string name="summary_sleep_last_night">काल रात्रीची झोप</string>
+    <string name="summary_sleep_not_recorded">नोंद नाही</string>
+    <string name="summary_sleep_hint">झोपताना Apple Watch घाला किंवा आरोग्य ॲपमध्ये झोपेची नोंद ठेवा. तुम्ही ॲक्सेस बंद केला असल्यास, तो सेटिंग › आरोग्य मध्ये सुरू करा.</string>
+    <string name="summary_sleep_caption">झोप</string>
+    <string name="summary_sleep_connect_title">सारांशात काल रात्रीची झोप पाहा</string>
+    <string name="summary_sleep_connect_body">MigraTrack काल रात्रीची झोप Apple Health मधून वाचते. डेटा याच iPhone वर राहतो.</string>
+    <string name="summary_sleep_connect_button">Apple Health जोडा</string>
+    <string name="summary_last_episode">शेवटचा झटका</string>
+    <string name="summary_last_episode_none">अजून नाही</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">झटका नोंदवा</string>
+    <string name="episode_update">झटका अपडेट करा</string>
+    <string name="episode_updated_banner">झटका अपडेट झाला.</string>
+    <string name="episode_deleted_banner">झटका हटवला.</string>
+    <string name="episode_saved_banner">झटका जतन झाला. आराम करा आणि मंद प्रकाशात राहा.</string>
+    <string name="episode_pain_intensity_index">वेदनेची तीव्रता</string>
+    <string name="episode_cranial_epicenter">डोक्यात वेदनेची जागा</string>
+    <string name="episode_aura_symptoms">ऑरा आणि संवेदी लक्षणे</string>
+    <string name="episode_acute_therapy">झटक्याच्या वेळचे औषध</string>
+    <string name="episode_add_medication_row">औषध / इलेक्ट्रोलाइट द्रावण जोडा</string>
+    <string name="episode_start">झटक्याची सुरुवात</string>
+    <string name="episode_start_now">आता</string>
+    <string name="episode_add_trigger_message">या झटक्याआधी काय झाले होते?</string>
+    <string name="episode_other_trigger_action">दुसरा ट्रिगर…</string>
+    <string name="episode_other_trigger_title">दुसरा ट्रिगर</string>
+    <string name="episode_other_trigger_message">या झटक्याआधी घडलेली एखादी गोष्ट लिहा.</string>
+    <string name="episode_other_trigger_placeholder">उदाहरणार्थ, तीव्र परफ्यूम</string>
+    <string name="episode_add_medication_message">या झटक्यासाठी तुम्ही काय घेतले?</string>
+    <string name="episode_other_medication_action">दुसरे औषध…</string>
+    <string name="episode_other_medication_title">दुसरे औषध</string>
+    <string name="episode_missing_title">झटका हटवला गेला आहे</string>
+    <string name="episode_missing_message">हा झटका दुसऱ्या डिव्हाइसवर हटवला गेला आहे, त्यामुळे बदल जतन करता येत नाहीत.</string>
+    <string name="episode_delete_message">तीव्रता %1$s/10. हा झटका तुमच्या इतिहासातून आणि रिपोर्टमधून काढला जाईल.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">आ</string>
+    <string name="insights_period_month">म</string>
+    <string name="insights_period_six_months">6म</string>
+    <string name="insights_period_year">व</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">झटका या आठवड्यात</item>
+        <item quantity="other">झटके या आठवड्यात</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">झटका, %1$s च्या आठवड्यात</item>
+        <item quantity="other">झटके, %1$s च्या आठवड्यात</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">झटका, %1$s मध्ये</item>
+        <item quantity="other">झटके, %1$s मध्ये</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">झटका, 6 महिन्यांत</item>
+        <item quantity="other">झटके, 6 महिन्यांत</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">झटका, %1$s मध्ये</item>
+        <item quantity="other">झटके, %1$s मध्ये</item>
+    </plurals>
+    <string name="insights_trend_fewer">मागील कालावधीपेक्षा %1$s टक्के कमी झटके</string>
+    <string name="insights_trend_more">मागील कालावधीपेक्षा %1$s टक्के जास्त झटके</string>
+    <string name="insights_legend_migraine_day">मायग्रेनचा दिवस</string>
+    <string name="insights_legend_pain_free_day">वेदनामुक्त दिवस</string>
+    <string name="insights_legend_not_tracked">नोंद नाही</string>
+    <string name="insights_bar_no_data">%1$s: अजून डेटा नाही</string>
+    <string name="insights_bar_not_tracked">%1$s: नोंद नाही</string>
+    <string name="insights_bar_pain_free">%1$s: वेदनामुक्त</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: मायग्रेनचा %2$s दिवस, कमाल 10 पैकी %3$s</item>
+        <item quantity="other">%1$s: मायग्रेनचे %2$s दिवस, कमाल 10 पैकी %3$s</item>
+    </plurals>
+    <string name="insights_triggers_empty">झटका नोंदवताना किंवा संपादित करताना संभाव्य ट्रिगर लिहा. मग हे कार्ड तुम्ही प्रत्येक ट्रिगर किती वेळा लिहिला ते दाखवेल.</string>
+    <string name="insights_triggers_hint">झटक्यासोबत तुम्ही प्रत्येक ट्रिगर किती वेळा लिहिला. यावरून कारण कळत नाही.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s झटक्यापैकी %2$s मध्ये लिहिला</item>
+        <item quantity="other">%1$s, %3$s झटक्यांपैकी %2$s मध्ये लिहिला</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">कॅलेंडर, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s रोजी %2$s झटका आहे.</item>
+        <item quantity="other">%1$s रोजी %2$s झटके आहेत.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · तीव्रता %2$s/10</string>
+    <string name="insights_month_picker_title">महिना</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">मागील महिना</string>
+    <string name="calendar_next_month">पुढील महिना</string>
+    <string name="calendar_choose_month_a11y">%1$s, दुसरा महिना निवडा</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">मायग्रेनचा %1$s दिवस</item>
+        <item quantity="other">मायग्रेनचे %1$s दिवस</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">आज, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">उपलब्ध नाही</string>
+    <string name="calendar_day_not_tracked">नोंद नाही</string>
+    <string name="calendar_day_no_episodes">एकही झटका नाही</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s झटका, कमाल 10 पैकी %2$s</item>
+        <item quantity="other">%1$s झटके, कमाल 10 पैकी %2$s</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s झटका</item>
+        <item quantity="other">%1$s झटके</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">कमाल तीव्रता</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">औषधे</string>
+    <string name="calendar_edit_episode_details">झटक्याचे तपशील संपादित करा</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF तयार होत आहे…</string>
+    <string name="export_preparing_excel">Excel तयार होत आहे…</string>
+    <string name="export_preparing_report">रिपोर्ट तयार होत आहे…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">झटका</item>
+        <item quantity="other">झटके</item>
+    </plurals>
+    <string name="export_episodes_recorded">नोंदवलेले झटके</string>
+    <string name="export_include">एक्सपोर्टमध्ये समाविष्ट करा</string>
+    <string name="export_medications">घेतलेली औषधे</string>
+    <string name="export_medications_subtitle">डोस आणि एकूण वापर</string>
+    <string name="export_symptoms">ऑरा आणि इशारा देणारी लक्षणे</string>
+    <string name="export_symptoms_subtitle">ऑराचे प्रकार आणि त्यांची संख्या</string>
+    <string name="export_triggers_subtitle">लिहिलेले ट्रिगर आणि त्यांची संख्या</string>
+    <string name="export_pain_charts">वेदनेच्या तीव्रतेचे चार्ट</string>
+    <string name="export_pain_charts_subtitle">वेळेनुसार वेदनेची तीव्रता, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF रिपोर्ट एक्सपोर्ट करा</string>
+    <string name="export_excel">Excel (.xlsx) एक्सपोर्ट करा</string>
+    <string name="export_share">शेअर करा</string>
+    <string name="export_range_title">रिपोर्टचा कालावधी</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack रिपोर्ट: %1$s झटका, %2$s.</item>
+        <item quantity="other">MigraTrack रिपोर्ट: %1$s झटके, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">एक्सपोर्ट अयशस्वी</string>
+    <string name="export_failed_message">रिपोर्ट तयार करता आला नाही.</string>
+    <string name="export_write_failed">%1$s जतन करता आली नाही</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s ज्ञात ट्रिगर</item>
+        <item quantity="other">%1$s ज्ञात ट्रिगर</item>
+    </plurals>
+    <string name="settings_no_triggers">कोणताही ट्रिगर निवडलेला नाही</string>
+    <string name="settings_no_medications">कोणतेही औषध निवडलेले नाही</string>
+    <string name="settings_name_title">तुमचे नाव</string>
+    <string name="settings_name_message">तुम्ही एक्सपोर्ट केलेल्या रिपोर्टवर ते दिसते.</string>
+    <string name="settings_name_placeholder">नाव</string>
+    <string name="settings_delete_title">सर्व डेटा हटवायचा?</string>
+    <string name="settings_delete_message">MigraTrack तुमचा डेटा या iPhone वर आणि त्याची एक प्रत तुमच्या Apple Watch वर ठेवते. यामुळे प्रत्येक झटका आणि तुमचे प्रारंभिक प्रोफाइल कायमचे हटवले जातील; घड्याळ पुढच्या सिंकच्या वेळी आपली प्रत हटवेल. डिव्हाइसच्या बॅकअपमध्ये त्यांची प्रत राहते. रिपोर्ट हवा असल्यास आधी तो एक्सपोर्ट करा.</string>
+    <string name="settings_delete_all">सर्व डेटा हटवा</string>
+    <string name="settings_section_baseline">क्लिनिकल माहिती आणि प्रोटोकॉल</string>
+    <string name="settings_baseline_diagnoses">निदान</string>
+    <string name="settings_known_triggers">ज्ञात ट्रिगर</string>
+    <string name="settings_section_preferences">प्राधान्ये</string>
+    <string name="settings_appearance">स्वरूप</string>
+    <string name="settings_appearance_value">डार्क (कायम)</string>
+    <string name="settings_version">आवृत्ती</string>
+    <string name="settings_version_value">v%1$s (बिल्ड %2$s)</string>
+    <string name="settings_section_legal">कायदेशीर</string>
+    <string name="settings_section_developer">डेव्हलपर</string>
+    <string name="settings_load_sample_data">नमुना डेटा लोड करा</string>
+    <string name="settings_load_sample_data_subtitle">चार्ट पाहण्यासाठी एका वर्षाचे तयार केलेले झटके जोडते</string>
+    <string name="settings_edit_name_a11y">नाव संपादित करा</string>
+    <string name="settings_add_name">तुमचे नाव जोडा</string>
+    <string name="settings_member">सुरुवात</string>
+    <string name="settings_episodes">झटके</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s नोंदवला</item>
+        <item quantity="other">%1$s नोंदवले</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">गोपनीयता धोरण</string>
+    <string name="legal_terms_of_service">सेवा अटी</string>
+    <string name="legal_folder">mr</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">ट्रिगरकडे पुढे जा</string>
+    <string name="onboarding_continue_to_medications">औषधांकडे पुढे जा</string>
+    <string name="onboarding_finish_setup">सेटअप पूर्ण करा</string>
+    <string name="onboarding_back_to_diagnoses">निदानाकडे परत</string>
+    <string name="onboarding_back_to_triggers">ट्रिगरकडे परत</string>
+    <string name="onboarding_save_changes">बदल जतन करा</string>
+    <string name="onboarding_step">पायरी %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">निदान आणि इतिहास</string>
+    <string name="onboarding_diagnoses_subtitle">तुमचे प्रारंभिक प्रोफाइल सेट करा. तुमचे झटके आणि रिपोर्ट यापासून सुरू होतात.</string>
+    <string name="onboarding_primary_diagnosis">मुख्य निदान</string>
+    <string name="onboarding_episode_frequency">दर महिन्याला किती झटके</string>
+    <string name="onboarding_episode_duration">झटका सहसा किती वेळ (तास)</string>
+    <string name="onboarding_intensity_baseline">वेदनेची नेहमीची तीव्रता</string>
+    <string name="onboarding_update_later">तुम्ही तुमचे प्रारंभिक प्रोफाइल केव्हाही सेटिंगमध्ये बदलू शकता.</string>
+    <string name="onboarding_triggers_title">तुमचे ट्रिगर</string>
+    <string name="onboarding_triggers_subtitle">तुमचे ज्ञात किंवा संशयित ट्रिगर निवडा. तुमचा रिपोर्ट ते तुमच्या डॉक्टरांसाठी दाखवतो.</string>
+    <string name="onboarding_add_custom_trigger">स्वतःचा ट्रिगर जोडा</string>
+    <string name="onboarding_treatment_subtitle">तुम्ही काय घेता ते निवडा. झटक्याच्या वेळची औषधे प्रत्येक नवीन झटक्यात आधीच भरलेली असतात, त्यामुळे नोंद एका टॅपमध्ये होते.</string>
+    <string name="onboarding_add_custom_medication">स्वतःचे औषध जोडा</string>
+    <string name="onboarding_custom_trigger_title">स्वतःचा ट्रिगर जोडा</string>
+    <string name="onboarding_custom_trigger_message">ज्यामुळे तुमचा मायग्रेन अनेकदा सुरू होतो अशी एखादी गोष्ट लिहा.</string>
+    <string name="onboarding_custom_trigger_placeholder">उदाहरणार्थ, चमकणारे दिवे</string>
+    <string name="onboarding_medication_role_message">तुम्ही हे केव्हा घेता?</string>
+    <string name="onboarding_medication_role_acute">झटक्याच्या वेळी (ॲक्यूट)</string>
+    <string name="onboarding_medication_role_preventive">दररोज (प्रतिबंधक)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">मायग्रेन आणि ट्रिगरचा वैयक्तिक ट्रॅकर</string>
+    <string name="welcome_example">उदाहरण</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">वेदनामुक्त दिवस</item>
+        <item quantity="other">वेदनामुक्त दिवस</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">उदाहरण: मागील 30 दिवसांत %1$s वेदनामुक्त दिवस</item>
+        <item quantity="other">उदाहरण: मागील 30 दिवसांत %1$s वेदनामुक्त दिवस</item>
+    </plurals>
+    <string name="welcome_headline_patterns">तुमचे पॅटर्न समजून घ्या.</string>
+    <string name="welcome_headline_doctor">डॉक्टरांकडे तथ्ये घेऊन जा.</string>
+    <string name="welcome_body">लक्षणांची नोंद ठेवा, संभाव्य ट्रिगर ओळखा आणि तुमचे वैयक्तिक रिपोर्ट केव्हाही एक्सपोर्ट करा.</string>
+    <string name="welcome_get_started">सुरू करा</string>
+    <string name="welcome_agreement">पुढे जाऊन तुम्ही %1$s आणि %2$s यांना सहमती देता.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ऑराशिवाय मायग्रेन</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">मायग्रेनचा सामान्य प्रकार</string>
+    <string name="diagnosis_migraine_with_aura">ऑरासह मायग्रेन</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">दृष्टी किंवा संवेदनेशी संबंधित ऑरा</string>
+    <string name="diagnosis_chronic_migraine">क्रॉनिक मायग्रेन</string>
+    <string name="diagnosis_chronic_migraine_subtitle">महिन्यात 15 किंवा जास्त दिवस डोकेदुखी</string>
+    <string name="diagnosis_tension_type">टेन्शन-टाइप डोकेदुखी</string>
+    <string name="diagnosis_tension_type_subtitle">डोक्याभोवती पट्ट्यासारखा दाब</string>
+    <string name="diagnosis_cluster">क्लस्टर डोकेदुखी</string>
+    <string name="diagnosis_cluster_subtitle">एका डोळ्याभोवती तीव्र झटके</string>
+    <string name="diagnosis_not_diagnosed">निदान नाही / तपासणी सुरू</string>
+    <string name="diagnosis_not_diagnosed_subtitle">लक्षणांचे पॅटर्न पाहत आहे</string>
+    <string name="frequency_less_than_one">&lt; 1/महिना</string>
+    <string name="frequency_one_to_four">1–4/महिना</string>
+    <string name="frequency_five_to_eight">5–7/महिना</string>
+    <string name="frequency_eight_plus">8+/महिना</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">डावे कानशील</string>
+    <string name="region_right_temple">उजवे कानशील</string>
+    <string name="region_frontal_brow">कपाळ / भुवया</string>
+    <string name="region_retro_orbital">डोळ्यामागे</string>
+    <string name="region_occipital_neck">डोक्याचा मागचा भाग आणि मान</string>
+    <string name="symptom_scintillating_scotoma">चमकणारा स्कोटोमा (दृष्टी)</string>
+    <string name="symptom_scintillating_scotoma_short">दृष्टीचा ऑरा</string>
+    <string name="symptom_neck_stiffness">मान ताठ होणे</string>
+    <string name="symptom_neck_stiffness_short">मान ताठ</string>
+    <string name="symptom_photophobia">प्रकाशाचा त्रास (फोटोफोबिया)</string>
+    <string name="symptom_photophobia_short">प्रकाश</string>
+    <string name="symptom_nausea">मळमळ</string>
+    <string name="symptom_nausea_short">मळमळ</string>
+    <string name="symptom_phonophobia">आवाजाचा त्रास (फोनोफोबिया)</string>
+    <string name="symptom_phonophobia_short">आवाज</string>
+    <string name="symptom_aphasia">बोलण्यात अडचण (अफेजिया) / गोंधळलेले मन</string>
+    <string name="symptom_aphasia_short">गोंधळलेले मन</string>
+    <string name="symptom_paresthesia">मुंग्या येणे / पॅरेस्थेशिया</string>
+    <string name="symptom_paresthesia_short">मुंग्या येणे</string>
+    <string name="trigger_category_weather_environment">हवामान आणि पर्यावरण</string>
+    <string name="trigger_category_sleep_physical">झोप आणि शारीरिक दिनचर्या</string>
+    <string name="trigger_category_stress_emotions">ताण आणि भावना</string>
+    <string name="trigger_category_hormonal">हार्मोन</string>
+    <string name="trigger_category_diet_consumption">आहार</string>
+    <string name="trigger_category_custom">तुमचे स्वतःचे</string>
+    <string name="medication_role_acute">झटक्याच्या वेळी (ॲक्यूट)</string>
+    <string name="medication_role_preventive">प्रतिबंधक आणि पूरक</string>
+    <string name="export_range_last_30_days">मागील 30 दिवस</string>
+    <string name="export_range_last_90_days">मागील 90 दिवस</string>
+    <string name="export_range_last_6_months">मागील 6 महिने</string>
+    <string name="export_range_last_12_months">मागील 12 महिने</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">हवेचा दाब कमी होणे</string>
+    <string name="trigger_barometric_pressure_description">हवामानातील बदल, उंचीतील बदल</string>
+    <string name="trigger_bright_light">प्रखर प्रकाश आणि ऊन</string>
+    <string name="trigger_bright_light_description">चकाकी, लुकलुकणारा प्रकाश, फोटोफोबिया</string>
+    <string name="trigger_heat_humidity">खूप उष्णता / दमटपणा</string>
+    <string name="trigger_heat_humidity_description">तापमानातील चढ-उतार</string>
+    <string name="trigger_loud_noise">मोठा आवाज</string>
+    <string name="trigger_loud_noise_description">फोनोफोबिया, अचानक मोठा आवाज</string>
+    <string name="trigger_poor_sleep">अपुरी / अनियमित झोप</string>
+    <string name="trigger_poor_sleep_description">झोपेची कमतरता, REM झोपेची कमतरता</string>
+    <string name="trigger_dehydration">पाण्याची कमतरता</string>
+    <string name="trigger_dehydration_description">इलेक्ट्रोलाइटची कमतरता</string>
+    <string name="trigger_skipped_meals">जेवण चुकणे / उपवास</string>
+    <string name="trigger_skipped_meals_description">रक्तातील साखर कमी होणे</string>
+    <string name="trigger_overexertion">जास्त शारीरिक श्रम</string>
+    <string name="trigger_overexertion_description">श्रमामुळे रक्तवाहिन्यांवर ताण</string>
+    <string name="trigger_emotional_stress">ताण / ताण संपल्यानंतर</string>
+    <string name="trigger_emotional_stress_description">कामाचा ताण संपल्यानंतर</string>
+    <string name="trigger_screen_fatigue">स्क्रीनमुळे थकवा</string>
+    <string name="trigger_screen_fatigue_description">निळा प्रकाश, डोळ्यांवर ताण</string>
+    <string name="trigger_hormonal_cycle">हार्मोनमधील बदल / मासिक पाळी</string>
+    <string name="trigger_hormonal_cycle_description">मासिक चक्रातील बदल</string>
+    <string name="trigger_caffeine">कॅफिन सोडणे / जास्त कॅफिन</string>
+    <string name="trigger_caffeine_description">ॲडेनोसिन रिसेप्टरमधील बदल</string>
+    <string name="trigger_aged_cheese">जुने चीज / टायरामीन</string>
+    <string name="trigger_aged_cheese_description">आंबवलेल्या अमाइनची संवेदनशीलता</string>
+    <string name="trigger_alcohol">दारू / रेड वाइन</string>
+    <string name="trigger_alcohol_description">टॅनिन, हिस्टामीन</string>
+    <string name="trigger_sweeteners">कृत्रिम गोडवा</string>
+    <string name="trigger_sweeteners_description">ॲस्पार्टेम, सुक्रालोज</string>
+    <string name="trigger_custom_description">तुमचा स्वतःचा ट्रिगर</string>
+
+    <!-- Catalog: built-in medications. The Marathi transliteration of each international name; paracetamol, as India names acetaminophen; "mg" as Indian packs write it. -->
+
+    <string name="medication_ibuprofen_400">आयबुप्रोफेन</string>
+    <string name="medication_ibuprofen_400_class">दाहशामक सहाय्यक औषध</string>
+    <string name="medication_sumatriptan_50">सुमाट्रिप्टान</string>
+    <string name="medication_sumatriptan_50_class">ट्रिप्टान, सेरोटोनिन ॲगोनिस्ट</string>
+    <string name="medication_rizatriptan_10">रिझाट्रिप्टान</string>
+    <string name="medication_rizatriptan_10_class">ट्रिप्टान, तोंडात विरघळणारी</string>
+    <string name="medication_naproxen_500">नॅप्रोक्सेन</string>
+    <string name="medication_naproxen_500_class">दीर्घ परिणाम देणारे NSAID</string>
+    <string name="medication_acetaminophen_1000">पॅरासिटामॉल</string>
+    <string name="medication_acetaminophen_1000_class">वेदनाशामक</string>
+    <string name="medication_ubrogepant_100">युब्रोजेपंट</string>
+    <string name="medication_ubrogepant_100_class">जेपंट, CGRP विरोधी</string>
+    <string name="medication_metoclopramide_10">मेटोक्लोप्रामाइड</string>
+    <string name="medication_metoclopramide_10_class">उलटीविरोधी</string>
+    <string name="medication_electrolytes">इलेक्ट्रोलाइट द्रावण</string>
+    <string name="medication_electrolytes_class">ओआरएस</string>
+    <string name="medication_riboflavin_400">रायबोफ्लेविन</string>
+    <string name="medication_riboflavin_400_class">व्हिटॅमिन B2</string>
+    <string name="medication_magnesium_400">मॅग्नेशियम</string>
+    <string name="medication_magnesium_400_class">खनिज पूरक</string>
+    <string name="medication_propranolol_40">प्रोप्रानोलॉल</string>
+    <string name="medication_propranolol_40_class">बीटा ब्लॉकर</string>
+    <string name="medication_topiramate_50">टोपिरामेट</string>
+    <string name="medication_topiramate_50_class">आकडीविरोधी औषध</string>
+    <string name="medication_amitriptyline_10">ॲमिट्रिप्टिलीन</string>
+    <string name="medication_amitriptyline_10_class">ट्रायसायक्लिक अँटिडिप्रेसंट</string>
+    <string name="medication_erenumab_70">एरेनुमॅब</string>
+    <string name="medication_erenumab_70_class">CGRP अँटिबॉडी, दर महिन्याला</string>
+    <string name="medication_custom_class">तुमचे स्वतःचे औषध</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">आ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">एकूण %2$s; त्यांपैकी %1$s मध्ये एकही ट्रिगर लिहिलेला नाही</item>
+        <item quantity="other">एकूण %2$s; त्यांपैकी %1$s मध्ये एकही ट्रिगर लिहिलेला नाही</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s झटका</item>
+        <item quantity="other">%1$s झटके</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">मायग्रेनचा क्लिनिकल रिपोर्ट</string>
+    <string name="report_page">MigraTrack · पान %1$s</string>
+    <string name="report_patient">रुग्ण: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">तयार केले: %1$s</string>
+    <string name="report_disclaimer">रुग्णाने MigraTrack मध्ये स्वतः नोंदवलेला डेटा. हा रिपोर्ट क्लिनिकल तपासणीला मदत करतो, तिची जागा घेत नाही.</string>
+    <string name="report_stat_episodes">नोंदवलेले झटके</string>
+    <string name="report_stat_migraine_days">मायग्रेनचे दिवस</string>
+    <string name="report_stat_pain_free_days">वेदनामुक्त दिवस</string>
+    <string name="report_stat_average_intensity">सरासरी तीव्रता /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">नोंद %1$s रोजी सुरू झाली. या कालावधीतील आधीच्या %2$s दिवसाची नोंद नाही, आणि तो वेदनामुक्त दिवस म्हणून मोजला जात नाही.</item>
+        <item quantity="other">नोंद %1$s रोजी सुरू झाली. या कालावधीतील आधीच्या %2$s दिवसांची नोंद नाही, आणि ते वेदनामुक्त दिवस म्हणून मोजले जात नाहीत.</item>
+    </plurals>
+    <string name="report_baseline_title">प्रारंभिक प्रोफाइल</string>
+    <string name="report_baseline_diagnoses">निदान</string>
+    <string name="report_baseline_frequency">दर महिन्याचे झटके</string>
+    <string name="report_baseline_duration">नेहमीचा कालावधी (तास)</string>
+    <string name="report_baseline_intensity">नेहमीची तीव्रता</string>
+    <string name="report_baseline_triggers">ज्ञात ट्रिगर</string>
+    <string name="report_baseline_treatments">उपचार योजना</string>
+    <string name="report_pain_chart_title">वेळेनुसार वेदनेची तीव्रता (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">सौम्य %1$s–%2$s</string>
+    <string name="report_legend_moderate">मध्यम %1$s–%2$s</string>
+    <string name="report_legend_severe">तीव्र %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">नोंद नाही</string>
+    <string name="report_medication_title">औषधांचा वापर</string>
+    <string name="report_no_medications">या कालावधीत एकही औषध नोंदवलेले नाही.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s वेळा घेतले</item>
+        <item quantity="other">%1$s वेळा घेतले</item>
+    </plurals>
+    <string name="report_symptoms_title">ऑरा आणि इशारा देणारी लक्षणे</string>
+    <string name="report_no_symptoms">या कालावधीत ऑरा किंवा संवेदी लक्षण नोंदवलेले नाही.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s झटक्यापैकी %1$s (%3$s)</item>
+        <item quantity="other">%2$s झटक्यांपैकी %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">लिहिलेले संभाव्य ट्रिगर</string>
+    <string name="report_no_triggers">या कालावधीत एकही ट्रिगर लिहिलेला नाही.</string>
+    <string name="report_triggers_note">संख्या दाखवते की रुग्णाने झटक्यासोबत ट्रिगर किती वेळा लिहिला. यावरून कारण कळत नाही.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">एकूण %2$s; त्यांपैकी %1$s मध्ये एकही ट्रिगर लिहिलेला नाही.</item>
+        <item quantity="other">एकूण %2$s; त्यांपैकी %1$s मध्ये एकही ट्रिगर लिहिलेला नाही.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s झटका</item>
+        <item quantity="other">%1$s झटके</item>
+    </plurals>
+    <string name="report_episodes_title">झटके</string>
+    <string name="report_no_episodes">या कालावधीत एकही झटका नोंदवलेला नाही.</string>
+    <string name="report_column_date_time">तारीख आणि वेळ</string>
+    <string name="report_column_pain">वेदना</string>
+    <string name="report_column_epicenter">वेदनेची जागा</string>
+    <string name="report_column_symptoms">लक्षणे</string>
+    <string name="report_column_medications">औषधे</string>
+    <string name="report_column_triggers">ट्रिगर</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">सेट नाही</string>
+    <string name="report_none">काहीही नाही</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">झटके</string>
+    <string name="report_sheet_medications">औषधे</string>
+    <string name="report_sheet_daily_pain">दररोजची वेदना</string>
+    <string name="report_sheet_profile">प्रोफाइल</string>
+    <string name="report_header_started">सुरुवात</string>
+    <string name="report_header_pain_intensity">वेदनेची तीव्रता (1–10)</string>
+    <string name="report_header_epicenter">डोक्यात वेदनेची जागा</string>
+    <string name="report_header_symptoms">ऑरा आणि संवेदी लक्षणे</string>
+    <string name="report_header_medications">औषधे</string>
+    <string name="report_header_triggers">संभाव्य ट्रिगर</string>
+    <string name="report_header_episode_started">झटक्याची सुरुवात</string>
+    <string name="report_header_medication">औषध</string>
+    <string name="report_header_dose">डोस</string>
+    <string name="report_header_date">तारीख</string>
+    <string name="report_header_peak_pain">वेदनेची कमाल तीव्रता (1–10, 0 = वेदनामुक्त)</string>
+    <string name="report_header_day">दिवस</string>
+    <string name="report_header_field">फील्ड</string>
+    <string name="report_header_value">मूल्य</string>
+    <string name="report_day_migraine">मायग्रेन</string>
+    <string name="report_day_pain_free">वेदनामुक्त</string>
+    <string name="report_day_not_tracked">नोंद नाही</string>
+    <string name="report_profile_patient">रुग्ण</string>
+    <string name="report_profile_range">रिपोर्टचा कालावधी</string>
+    <string name="report_profile_tracked_since">नोंद सुरू झाली</string>
+    <string name="report_profile_diagnoses">निदान</string>
+    <string name="report_profile_frequency">दर महिन्याचे झटके</string>
+    <string name="report_profile_duration">नेहमीचा कालावधी (तास)</string>
+    <string name="report_profile_intensity">नेहमीची तीव्रता</string>
+    <string name="report_profile_triggers">ज्ञात ट्रिगर</string>
+    <string name="report_profile_treatments">उपचार योजना</string>
+    <string name="report_iso_range">%1$s ते %2$s</string>
+</resources>

@@ -22,6 +22,12 @@
             "value" : "Първо завършете настройката в MigraTrack."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "আগে MigraTrack-এ সেটআপ শেষ করুন।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -82,10 +88,22 @@
             "value" : "Terminez d’abord la configuration dans MigraTrack."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "પહેલાં MigraTrackમાં સેટઅપ પૂર્ણ કરો."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "יש לסיים קודם את ההגדרה ב־MigraTrack."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पहले MigraTrack में सेटअप पूरा करें।"
           }
         },
         "hr" : {
@@ -124,6 +142,12 @@
             "value" : "Алдымен MigraTrack ішінде баптауды аяқтаңыз."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಮೊದಲು MigraTrackನಲ್ಲಿ ಸೆಟಪ್ ಮುಗಿಸಿ."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -134,6 +158,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pirmiausia baikite sąranką MigraTrack."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ആദ്യം MigraTrack-ൽ സജ്ജീകരണം പൂർത്തിയാക്കൂ."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आधी MigraTrack मध्ये सेटअप पूर्ण करा."
           }
         },
         "ms" : {
@@ -152,6 +188,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voltooi eerst het instellen in MigraTrack."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ପ୍ରଥମେ MigraTrackରେ ସେଟଅପ୍ ଶେଷ କରନ୍ତୁ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਪਹਿਲਾਂ MigraTrack ਵਿੱਚ ਸੈੱਟਅੱਪ ਪੂਰਾ ਕਰੋ।"
           }
         },
         "pl" : {
@@ -200,6 +248,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Slutför konfigurationen i MigraTrack först."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "முதலில் MigraTrack-இல் அமைப்பை முடியுங்கள்."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ముందుగా MigraTrackలో సెటప్ పూర్తి చేయండి."
           }
         },
         "th" : {
@@ -267,6 +327,12 @@
             "value" : "Нов пристъп"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নতুন অ্যাটাক"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -327,10 +393,22 @@
             "value" : "Nouvelle crise"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "નવો હુમલો"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "תיעוד מיגרנה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नया दौरा"
           }
         },
         "hr" : {
@@ -369,6 +447,12 @@
             "value" : "Жаңа ұстама"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಹೊಸ ಅಟ್ಯಾಕ್"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -379,6 +463,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "രേഖപ്പെടുത്തൂ"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नवा झटका"
           }
         },
         "ms" : {
@@ -397,6 +493,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nieuwe aanval"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ନୂଆ ଆଟାକ୍"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਨਵਾਂ ਦੌਰਾ"
           }
         },
         "pl" : {
@@ -445,6 +553,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nytt anfall"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "பதிவு செய்"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "కొత్త ఎటాక్"
           }
         },
         "th" : {
@@ -512,6 +632,12 @@
             "value" : "Запиши пристъп на мигрена"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "মাইগ্রেন অ্যাটাক রেকর্ড করুন"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -572,10 +698,22 @@
             "value" : "Noter une crise de migraine"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "માઇગ્રેનનો હુમલો નોંધો"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "תיעוד התקף מיגרנה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "माइग्रेन का दौरा दर्ज करें"
           }
         },
         "hr" : {
@@ -614,6 +752,12 @@
             "value" : "Мигрень ұстамасын жазу"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಮೈಗ್ರೇನ್ ಅಟ್ಯಾಕ್ ದಾಖಲಿಸಿ"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -624,6 +768,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti migrenos priepuolį"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "മൈഗ്രേൻ അറ്റാക്ക് ചേർക്കൂ"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मायग्रेनचा झटका नोंदवा"
           }
         },
         "ms" : {
@@ -642,6 +798,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval noteren"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ମାଇଗ୍ରେନ ଆଟାକ୍ ରେକର୍ଡ କରନ୍ତୁ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਮਾਈਗ੍ਰੇਨ ਦਾ ਦੌਰਾ ਦਰਜ ਕਰੋ"
           }
         },
         "pl" : {
@@ -690,6 +858,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registrera migränanfall"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒற்றைத் தலைவலியைப் பதிவுசெய்"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "మైగ్రేన్ ఎటాక్ నమోదు చేయండి"
           }
         },
         "th" : {
@@ -755,6 +935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Пристъпът на мигрена е записан: интензитет %1$lld от 10, лекарства: %2$@."
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "মাইগ্রেন অ্যাটাক রেকর্ড হয়েছে: তীব্রতা 10-এর মধ্যে %1$lld, ওষুধ: %2$@।"
           }
         },
         "ca" : {
@@ -823,10 +1009,22 @@
             "value" : "Crise de migraine notée : intensité %1$lld sur 10, avec %2$@."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "માઇગ્રેનનો હુમલો નોંધાયો: તીવ્રતા 10માંથી %1$lld, દવા: %2$@."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "התקף מיגרנה תועד: עוצמה %1$lld מתוך 10, עם %2$@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "माइग्रेन का दौरा दर्ज हुआ: तीव्रता 10 में से %1$lld, दवा: %2$@।"
           }
         },
         "hr" : {
@@ -865,6 +1063,12 @@
             "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %1$lld, дәрілер: %2$@."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಮೈಗ್ರೇನ್ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿದೆ: ತೀವ್ರತೆ 10ರಲ್ಲಿ %1$lld, ಔಷಧ: %2$@."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -875,6 +1079,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migrenos priepuolis įrašytas: intensyvumas %1$lld iš 10, vaistai: %2$@."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "മൈഗ്രേൻ അറ്റാക്ക് രേഖപ്പെടുത്തി: തീവ്രത 10-ൽ %1$lld, മരുന്ന്: %2$@."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मायग्रेनचा झटका नोंदवला: तीव्रता 10 पैकी %1$lld, औषध: %2$@."
           }
         },
         "ms" : {
@@ -893,6 +1109,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval genoteerd: intensiteit %1$lld van 10, met %2$@."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ମାଇଗ୍ରେନ ଆଟାକ୍ ରେକର୍ଡ ହେଲା: ତୀବ୍ରତା 10 ମଧ୍ୟରୁ %1$lld, ଔଷଧ: %2$@।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਮਾਈਗ੍ਰੇਨ ਦਾ ਦੌਰਾ ਦਰਜ ਹੋਇਆ: ਤੀਬਰਤਾ 10 ਵਿੱਚੋਂ %1$lld, ਦਵਾਈ: %2$@।"
           }
         },
         "pl" : {
@@ -941,6 +1169,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migränanfall registrerat: intensitet %1$lld av 10, med %2$@."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒற்றைத் தலைவலித் தாக்குதல் பதிவானது: தீவிரம் 10-இல் %1$lld, மருந்து: %2$@."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "మైగ్రేన్ ఎటాక్ నమోదైంది: తీవ్రత 10లో %1$lld, మందు: %2$@."
           }
         },
         "th" : {
@@ -1008,6 +1248,12 @@
             "value" : "Пристъпът на мигрена е записан: интензитет %lld от 10."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "মাইগ্রেন অ্যাটাক রেকর্ড হয়েছে: তীব্রতা 10-এর মধ্যে %lld।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1068,10 +1314,22 @@
             "value" : "Crise de migraine notée : intensité %lld sur 10."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "માઇગ્રેનનો હુમલો નોંધાયો: તીવ્રતા 10માંથી %lld."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "התקף מיגרנה תועד: עוצמה %lld מתוך 10."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "माइग्रेन का दौरा दर्ज हुआ: तीव्रता 10 में से %lld।"
           }
         },
         "hr" : {
@@ -1110,6 +1368,12 @@
             "value" : "Мигрень ұстамасы жазылды: қарқындылық 10 ішінен %lld."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಮೈಗ್ರೇನ್ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿದೆ: ತೀವ್ರತೆ 10ರಲ್ಲಿ %lld."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1120,6 +1384,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migrenos priepuolis įrašytas: intensyvumas %lld iš 10."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "മൈഗ്രേൻ അറ്റാക്ക് രേഖപ്പെടുത്തി: തീവ്രത 10-ൽ %lld."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मायग्रेनचा झटका नोंदवला: तीव्रता 10 पैकी %lld."
           }
         },
         "ms" : {
@@ -1138,6 +1414,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migraineaanval genoteerd: intensiteit %lld van 10."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ମାଇଗ୍ରେନ ଆଟାକ୍ ରେକର୍ଡ ହେଲା: ତୀବ୍ରତା 10 ମଧ୍ୟରୁ %lld।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਮਾਈਗ੍ਰੇਨ ਦਾ ਦੌਰਾ ਦਰਜ ਹੋਇਆ: ਤੀਬਰਤਾ 10 ਵਿੱਚੋਂ %lld।"
           }
         },
         "pl" : {
@@ -1186,6 +1474,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Migränanfall registrerat: intensitet %lld av 10."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ஒற்றைத் தலைவலித் தாக்குதல் பதிவானது: தீவிரம் 10-இல் %lld."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "మైగ్రేన్ ఎటాక్ నమోదైంది: తీవ్రత 10లో %lld."
           }
         },
         "th" : {
@@ -1253,6 +1553,12 @@
             "value" : "Записва пристъп сега с обичайния ви интензитет на болката и лекарствата ви за овладяване на пристъпа от MigraTrack."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "আপনার সাধারণ ব্যথার তীব্রতা ও MigraTrack-এর অ্যাটাকের সময়ের ওষুধ দিয়ে এখনই একটি অ্যাটাক রেকর্ড করে।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1313,10 +1619,22 @@
             "value" : "Note une crise maintenant avec votre intensité habituelle et vos traitements de crise de MigraTrack."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "તમારી પીડાની સામાન્ય તીવ્રતા અને MigraTrackની હુમલા વખતની દવાઓ સાથે હમણાં એક હુમલો નોંધે છે."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "מתעד התקף עכשיו עם עוצמת הכאב הטיפוסית והתרופות להתקף חד מ־MigraTrack."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपकी आम दर्द तीव्रता और MigraTrack में चुनी गई दौरे के समय की दवाओं के साथ अभी एक दौरा दर्ज करता है।"
           }
         },
         "hr" : {
@@ -1355,6 +1673,12 @@
             "value" : "MigraTrack ішіндегі әдеттегі ауырсыну қарқындылығыңызбен және ұстаманы басуға арналған дәрілеріңізбен ұстаманы қазір жазады."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ನಿಮ್ಮ ನೋವಿನ ಸಾಮಾನ್ಯ ತೀವ್ರತೆ ಮತ್ತು MigraTrackನ ಅಟ್ಯಾಕ್ ವೇಳೆಯ ಔಷಧಗಳೊಂದಿಗೆ ಈಗಲೇ ಒಂದು ಅಟ್ಯಾಕ್ ದಾಖಲಿಸುತ್ತದೆ."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1365,6 +1689,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dabar įrašo priepuolį su jūsų įprastu skausmo intensyvumu ir ūminio gydymo vaistais iš MigraTrack."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "നിങ്ങളുടെ സാധാരണ വേദന തീവ്രതയും MigraTrack-ലെ അറ്റാക്ക് സമയത്തെ മരുന്നുകളും ചേർത്ത് ഇപ്പോൾ ഒരു അറ്റാക്ക് രേഖപ്പെടുത്തുന്നു."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "तुमची नेहमीची वेदनेची तीव्रता आणि MigraTrack मधील झटक्याच्या वेळच्या औषधांसह आत्ता एक झटका नोंदवते."
           }
         },
         "ms" : {
@@ -1383,6 +1719,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noteert nu een aanval met uw gewone pijnintensiteit en aanvalsmedicatie uit MigraTrack."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ଆପଣଙ୍କ ପୀଡ଼ାର ସାଧାରଣ ତୀବ୍ରତା ଓ MigraTrackର ଆଟାକ୍ ସମୟର ଔଷଧ ସହ ବର୍ତ୍ତମାନ ଏକ ଆଟାକ୍ ରେକର୍ଡ କରେ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਤੁਹਾਡੀ ਦਰਦ ਦੀ ਆਮ ਤੀਬਰਤਾ ਅਤੇ MigraTrack ਵਿੱਚੋਂ ਦੌਰੇ ਵੇਲੇ ਦੀਆਂ ਦਵਾਈਆਂ ਨਾਲ ਹੁਣੇ ਇੱਕ ਦੌਰਾ ਦਰਜ ਕਰਦਾ ਹੈ।"
           }
         },
         "pl" : {
@@ -1431,6 +1779,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Registrerar ett anfall nu med din typiska smärtintensitet och dina anfallsläkemedel från MigraTrack."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "உங்கள் வழக்கமான வலித் தீவிரத்துடனும் MigraTrack-இல் உள்ள தாக்குதலின்போது எடுக்கும் மருந்துகளுடனும் இப்போதே ஒரு தாக்குதலைப் பதிவுசெய்கிறது."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "మీ సాధారణ నొప్పి తీవ్రతతో, MigraTrackలోని ఎటాక్ సమయంలో మందులతో ఇప్పుడే ఒక ఎటాక్‌ను నమోదు చేస్తుంది."
           }
         },
         "th" : {

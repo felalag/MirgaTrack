@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Telugu strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The polite form "మీరు" with "-ండి", and English loanwords where Telugu iOS uses them ("సేవ్", "డిలీట్", "ఎడిట్").
+  Telugu has the CLDR plural forms one and other. Labels with 16 characters say "నొప్పిలేని రోజు" (pain-free day) in the singular.
+  The Export tab is "ఎగుమతి", because "ఎక్స్‌పోర్ట్" is longer than 10 characters. The duration chips have no unit.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">వెనుకకు</string>
+    <string name="common_settings">సెట్టింగ్స్</string>
+    <string name="common_cancel">రద్దు</string>
+    <string name="common_ok">సరే</string>
+    <string name="common_save">సేవ్</string>
+    <string name="common_add">జోడించండి</string>
+    <string name="common_next">తదుపరి</string>
+    <string name="common_on">ఆన్</string>
+    <string name="common_off">ఆఫ్</string>
+    <string name="common_clear">తీసివేయి</string>
+    <string name="common_none">ఏమీ లేవు</string>
+    <string name="common_today">ఈరోజు</string>
+    <string name="common_not_set">సెట్ చేయలేదు</string>
+    <string name="common_expanded">తెరిచి ఉంది</string>
+    <string name="common_collapsed">మూసి ఉంది</string>
+    <string name="common_last_30_days">గత 30 రోజులు</string>
+    <string name="common_medical_disclaimer">MigraTrack ఒక డైరీ, వైద్య సలహా కాదు. మీ చికిత్సను మార్చే ముందు మీ డాక్టర్‌తో మాట్లాడండి.</string>
+    <string name="common_log_migraine_episode">మైగ్రేన్ ఎటాక్ నమోదు చేయండి</string>
+    <string name="common_save_episode">సేవ్</string>
+    <string name="common_edit_episode">ఎటాక్‌ను ఎడిట్ చేయండి</string>
+    <string name="common_delete_episode">ఎటాక్‌ను డిలీట్ చేయండి</string>
+    <string name="common_intensity_of_ten">తీవ్రత %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$sకి</string>
+    <string name="common_possible_triggers">సాధ్యమైన ట్రిగ్గర్‌లు</string>
+    <string name="common_add_trigger">ట్రిగ్గర్ జోడించండి</string>
+    <string name="common_add_medication">మందు జోడించండి</string>
+    <string name="common_treatment_blueprint">చికిత్స ప్రణాళిక</string>
+    <string name="common_medication_name_and_dose">పేరు, డోస్ నమోదు చేయండి.</string>
+    <string name="common_medication_placeholder">ఉదాహరణకు, రిజాట్రిప్టాన్ 10&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">సారాంశం</string>
+    <string name="tab_log">నమోదు</string>
+    <string name="tab_insights">విశ్లేషణ</string>
+    <string name="tab_export">ఎగుమతి</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">నొప్పి తీవ్రత</string>
+    <string name="pain_scale_value">10లో %1$s</string>
+    <string name="pain_scale_low">%1$s తేలికపాటి</string>
+    <string name="pain_scale_middle">%1$s మధ్యస్థం</string>
+    <string name="pain_scale_high">%1$s భరించలేనిది</string>
+    <string name="medication_remove">%1$s తీసివేయి</string>
+    <string name="duration_minutes">%1$s నిమిషాలు</string>
+    <string name="duration_hours_minutes">%1$s గం %2$s నిమి</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">ఈరోజు, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">రోజులు, ట్రాక్ చేసిన %1$s రోజులో</item>
+        <item quantity="other">రోజులు, ట్రాక్ చేసిన %1$s రోజుల్లో</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ఏ ఎటాక్ నమోదు కాలేదు</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">గత 30 రోజుల్లో ట్రాక్ చేసిన %2$s రోజులో %1$s రోజులు ఏ ఎటాక్ నమోదు కాలేదు</item>
+        <item quantity="other">గత 30 రోజుల్లో ట్రాక్ చేసిన %2$s రోజుల్లో %1$s రోజులు ఏ ఎటాక్ నమోదు కాలేదు</item>
+    </plurals>
+    <string name="summary_tracking_start_note">మీరు ట్రాక్ చేయడం మొదలుపెట్టిన రోజు నుండి లెక్కించబడింది. అంతకు ముందు రోజులు ట్రాక్ కాలేదు.</string>
+    <string name="strip_legend_migraine">మైగ్రేన్</string>
+    <string name="strip_legend_pain_free">నొప్పి లేదు</string>
+    <string name="strip_legend_not_tracked">ట్రాక్ కాలేదు</string>
+    <string name="summary_sleep_last_night">నిన్న రాత్రి నిద్ర</string>
+    <string name="summary_sleep_not_recorded">నమోదు లేదు</string>
+    <string name="summary_sleep_hint">నిద్రపోయేటప్పుడు Apple Watch ధరించండి లేదా ఆరోగ్యం యాప్‌లో నిద్రను ట్రాక్ చేయండి. మీరు యాక్సెస్ ఆఫ్ చేసి ఉంటే, సెట్టింగ్స్ › ఆరోగ్యంలో దాన్ని ఆన్ చేయండి.</string>
+    <string name="summary_sleep_caption">నిద్ర</string>
+    <string name="summary_sleep_connect_title">సారాంశంలో నిన్న రాత్రి నిద్రను చూడండి</string>
+    <string name="summary_sleep_connect_body">MigraTrack నిన్న రాత్రి నిద్రను Apple Health నుండి చదువుతుంది. డేటా ఈ iPhoneలోనే ఉంటుంది.</string>
+    <string name="summary_sleep_connect_button">Apple Health కనెక్ట్ చేయండి</string>
+    <string name="summary_last_episode">చివరి ఎటాక్</string>
+    <string name="summary_last_episode_none">ఇంకా లేదు</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">ఎటాక్ నమోదు చేయండి</string>
+    <string name="episode_update">ఎటాక్‌ను అప్‌డేట్ చేయండి</string>
+    <string name="episode_updated_banner">ఎటాక్ అప్‌డేట్ అయింది.</string>
+    <string name="episode_deleted_banner">ఎటాక్ డిలీట్ అయింది.</string>
+    <string name="episode_saved_banner">ఎటాక్ సేవ్ అయింది. విశ్రాంతి తీసుకోండి, తక్కువ వెలుతురులో ఉండండి.</string>
+    <string name="episode_pain_intensity_index">నొప్పి తీవ్రత</string>
+    <string name="episode_cranial_epicenter">తలలో నొప్పి ఉన్న చోటు</string>
+    <string name="episode_aura_symptoms">ఆరా, ఇంద్రియ లక్షణాలు</string>
+    <string name="episode_acute_therapy">ఎటాక్ సమయంలో మందు</string>
+    <string name="episode_add_medication_row">మందు / ఎలక్ట్రోలైట్ ద్రావణం జోడించండి</string>
+    <string name="episode_start">ఎటాక్ ప్రారంభం</string>
+    <string name="episode_start_now">ఇప్పుడు</string>
+    <string name="episode_add_trigger_message">ఈ ఎటాక్‌కు ముందు ఏమి జరిగింది?</string>
+    <string name="episode_other_trigger_action">వేరే ట్రిగ్గర్…</string>
+    <string name="episode_other_trigger_title">వేరే ట్రిగ్గర్</string>
+    <string name="episode_other_trigger_message">ఈ ఎటాక్‌కు ముందు జరిగిన దేనికైనా పేరు రాయండి.</string>
+    <string name="episode_other_trigger_placeholder">ఉదాహరణకు, ఘాటైన పెర్ఫ్యూమ్</string>
+    <string name="episode_add_medication_message">ఈ ఎటాక్‌కు మీరు ఏమి తీసుకున్నారు?</string>
+    <string name="episode_other_medication_action">వేరే మందు…</string>
+    <string name="episode_other_medication_title">వేరే మందు</string>
+    <string name="episode_missing_title">ఎటాక్ డిలీట్ అయింది</string>
+    <string name="episode_missing_message">ఈ ఎటాక్ వేరే పరికరంలో డిలీట్ అయింది, కాబట్టి మార్పులను సేవ్ చేయలేము.</string>
+    <string name="episode_delete_message">తీవ్రత %1$s/10. ఈ ఎటాక్ మీ చరిత్ర, రిపోర్ట్‌ల నుండి తొలగిపోతుంది.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">వ</string>
+    <string name="insights_period_month">నె</string>
+    <string name="insights_period_six_months">6నె</string>
+    <string name="insights_period_year">సం</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">ఎటాక్ ఈ వారం</item>
+        <item quantity="other">ఎటాక్‌లు ఈ వారం</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">ఎటాక్, %1$s వారంలో</item>
+        <item quantity="other">ఎటాక్‌లు, %1$s వారంలో</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">ఎటాక్, %1$sలో</item>
+        <item quantity="other">ఎటాక్‌లు, %1$sలో</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">ఎటాక్, 6 నెలల్లో</item>
+        <item quantity="other">ఎటాక్‌లు, 6 నెలల్లో</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">ఎటాక్, %1$sలో</item>
+        <item quantity="other">ఎటాక్‌లు, %1$sలో</item>
+    </plurals>
+    <string name="insights_trend_fewer">గత వ్యవధి కంటే %1$s శాతం తక్కువ ఎటాక్‌లు</string>
+    <string name="insights_trend_more">గత వ్యవధి కంటే %1$s శాతం ఎక్కువ ఎటాక్‌లు</string>
+    <string name="insights_legend_migraine_day">మైగ్రేన్ రోజు</string>
+    <string name="insights_legend_pain_free_day">నొప్పిలేని రోజు</string>
+    <string name="insights_legend_not_tracked">ట్రాక్ కాలేదు</string>
+    <string name="insights_bar_no_data">%1$s: ఇంకా డేటా లేదు</string>
+    <string name="insights_bar_not_tracked">%1$s: ట్రాక్ కాలేదు</string>
+    <string name="insights_bar_pain_free">%1$s: నొప్పి లేదు</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s మైగ్రేన్ రోజు, గరిష్ఠం 10లో %3$s</item>
+        <item quantity="other">%1$s: %2$s మైగ్రేన్ రోజులు, గరిష్ఠం 10లో %3$s</item>
+    </plurals>
+    <string name="insights_triggers_empty">ఎటాక్‌ను నమోదు చేసేటప్పుడు లేదా ఎడిట్ చేసేటప్పుడు సాధ్యమైన ట్రిగ్గర్‌లను రాయండి. అప్పుడు మీరు ప్రతి ట్రిగ్గర్‌ను ఎన్నిసార్లు రాశారో ఈ కార్డ్ చూపుతుంది.</string>
+    <string name="insights_triggers_hint">ఎటాక్‌తో పాటు మీరు ప్రతి ట్రిగ్గర్‌ను ఎన్నిసార్లు రాశారు. ఇది కారణాన్ని చూపదు.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s ఎటాక్‌లో %2$sలో రాశారు</item>
+        <item quantity="other">%1$s, %3$s ఎటాక్‌లలో %2$sలో రాశారు</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">క్యాలెండర్, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$sన %2$s ఎటాక్ ఉంది.</item>
+        <item quantity="other">%1$sన %2$s ఎటాక్‌లు ఉన్నాయి.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · తీవ్రత %2$s/10</string>
+    <string name="insights_month_picker_title">నెల</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">మునుపటి నెల</string>
+    <string name="calendar_next_month">తదుపరి నెల</string>
+    <string name="calendar_choose_month_a11y">%1$s, వేరే నెలను ఎంచుకోండి</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s మైగ్రేన్ రోజు</item>
+        <item quantity="other">%1$s మైగ్రేన్ రోజులు</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">ఈరోజు, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">అందుబాటులో లేదు</string>
+    <string name="calendar_day_not_tracked">ట్రాక్ కాలేదు</string>
+    <string name="calendar_day_no_episodes">ఎటాక్‌లు లేవు</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s ఎటాక్, గరిష్ఠం 10లో %2$s</item>
+        <item quantity="other">%1$s ఎటాక్‌లు, గరిష్ఠం 10లో %2$s</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s ఎటాక్</item>
+        <item quantity="other">%1$s ఎటాక్‌లు</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">గరిష్ఠ తీవ్రత</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">మందులు</string>
+    <string name="calendar_edit_episode_details">ఎటాక్ వివరాలు ఎడిట్ చేయండి</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF సిద్ధమవుతోంది…</string>
+    <string name="export_preparing_excel">Excel సిద్ధమవుతోంది…</string>
+    <string name="export_preparing_report">రిపోర్ట్ సిద్ధమవుతోంది…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">ఎటాక్</item>
+        <item quantity="other">ఎటాక్‌లు</item>
+    </plurals>
+    <string name="export_episodes_recorded">నమోదైన ఎటాక్‌లు</string>
+    <string name="export_include">ఎగుమతిలో చేర్చండి</string>
+    <string name="export_medications">తీసుకున్న మందులు</string>
+    <string name="export_medications_subtitle">డోస్‌లు, మొత్తం వాడకం</string>
+    <string name="export_symptoms">ఆరా, హెచ్చరిక లక్షణాలు</string>
+    <string name="export_symptoms_subtitle">ఆరా రకాలు, వాటి సంఖ్య</string>
+    <string name="export_triggers_subtitle">రాసిన ట్రిగ్గర్‌లు, వాటి సంఖ్య</string>
+    <string name="export_pain_charts">నొప్పి తీవ్రత చార్ట్‌లు</string>
+    <string name="export_pain_charts_subtitle">కాలక్రమంలో నొప్పి తీవ్రత, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF రిపోర్ట్ ఎగుమతి చేయండి</string>
+    <string name="export_excel">Excel (.xlsx)గా ఎగుమతి</string>
+    <string name="export_share">షేర్</string>
+    <string name="export_range_title">రిపోర్ట్ వ్యవధి</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack రిపోర్ట్: %1$s ఎటాక్, %2$s.</item>
+        <item quantity="other">MigraTrack రిపోర్ట్: %1$s ఎటాక్‌లు, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">ఎగుమతి విఫలమైంది</string>
+    <string name="export_failed_message">రిపోర్ట్‌ను సృష్టించలేకపోయాము.</string>
+    <string name="export_write_failed">%1$s సేవ్ చేయలేకపోయాము</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s తెలిసిన ట్రిగ్గర్</item>
+        <item quantity="other">%1$s తెలిసిన ట్రిగ్గర్‌లు</item>
+    </plurals>
+    <string name="settings_no_triggers">ఏ ట్రిగ్గర్ ఎంచుకోలేదు</string>
+    <string name="settings_no_medications">ఏ మందు ఎంచుకోలేదు</string>
+    <string name="settings_name_title">మీ పేరు</string>
+    <string name="settings_name_message">మీరు ఎగుమతి చేసే రిపోర్ట్‌లలో ఇది కనిపిస్తుంది.</string>
+    <string name="settings_name_placeholder">పేరు</string>
+    <string name="settings_delete_title">మొత్తం డేటాను డిలీట్ చేయాలా?</string>
+    <string name="settings_delete_message">MigraTrack మీ డేటాను ఈ iPhoneలో, దాని కాపీని మీ Apple Watchలో ఉంచుతుంది. ఇది ప్రతి ఎటాక్‌ను, మీ ప్రారంభ ప్రొఫైల్‌ను శాశ్వతంగా డిలీట్ చేస్తుంది; తదుపరి సింక్‌లో వాచ్ తన కాపీని డిలీట్ చేస్తుంది. పరికర బ్యాకప్‌లలో వాటి కాపీ ఉంటుంది. రిపోర్ట్ అవసరమైతే ముందుగా దాన్ని ఎగుమతి చేయండి.</string>
+    <string name="settings_delete_all">మొత్తం డేటాను డిలీట్ చేయండి</string>
+    <string name="settings_section_baseline">క్లినికల్ సమాచారం, ప్రోటోకాల్</string>
+    <string name="settings_baseline_diagnoses">రోగ నిర్ధారణ</string>
+    <string name="settings_known_triggers">తెలిసిన ట్రిగ్గర్‌లు</string>
+    <string name="settings_section_preferences">ప్రాధాన్యతలు</string>
+    <string name="settings_appearance">రూపం</string>
+    <string name="settings_appearance_value">డార్క్ (స్థిరం)</string>
+    <string name="settings_version">వెర్షన్</string>
+    <string name="settings_version_value">v%1$s (బిల్డ్ %2$s)</string>
+    <string name="settings_section_legal">చట్టపరమైనవి</string>
+    <string name="settings_section_developer">డెవలపర్</string>
+    <string name="settings_load_sample_data">నమూనా డేటా లోడ్ చేయండి</string>
+    <string name="settings_load_sample_data_subtitle">చార్ట్‌లను చూడటానికి ఒక సంవత్సరం సృష్టించిన ఎటాక్‌లను జోడిస్తుంది</string>
+    <string name="settings_edit_name_a11y">పేరు ఎడిట్ చేయండి</string>
+    <string name="settings_add_name">మీ పేరు జోడించండి</string>
+    <string name="settings_member">ప్రారంభం</string>
+    <string name="settings_episodes">ఎటాక్‌లు</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s నమోదు</item>
+        <item quantity="other">%1$s నమోదులు</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">గోప్యతా విధానం</string>
+    <string name="legal_terms_of_service">సేవా నిబంధనలు</string>
+    <string name="legal_folder">te</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">ట్రిగ్గర్‌లకు కొనసాగండి</string>
+    <string name="onboarding_continue_to_medications">మందులకు కొనసాగండి</string>
+    <string name="onboarding_finish_setup">సెటప్ పూర్తి చేయండి</string>
+    <string name="onboarding_back_to_diagnoses">రోగ నిర్ధారణకు వెనుకకు</string>
+    <string name="onboarding_back_to_triggers">ట్రిగ్గర్‌లకు వెనుకకు</string>
+    <string name="onboarding_save_changes">మార్పులను సేవ్ చేయండి</string>
+    <string name="onboarding_step">దశ %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">రోగ నిర్ధారణ, చరిత్ర</string>
+    <string name="onboarding_diagnoses_subtitle">మీ ప్రారంభ ప్రొఫైల్‌ను సెట్ చేయండి. మీ ఎటాక్‌లు, రిపోర్ట్‌లు దీని నుండే మొదలవుతాయి.</string>
+    <string name="onboarding_primary_diagnosis">ప్రధాన రోగ నిర్ధారణ</string>
+    <string name="onboarding_episode_frequency">నెలకు ఎన్ని ఎటాక్‌లు</string>
+    <string name="onboarding_episode_duration">సాధారణంగా ఎటాక్ ఎంతసేపు (గంటలు)</string>
+    <string name="onboarding_intensity_baseline">నొప్పి సాధారణ తీవ్రత</string>
+    <string name="onboarding_update_later">మీ ప్రారంభ ప్రొఫైల్‌ను ఎప్పుడైనా సెట్టింగ్స్‌లో మార్చవచ్చు.</string>
+    <string name="onboarding_triggers_title">మీ ట్రిగ్గర్‌లు</string>
+    <string name="onboarding_triggers_subtitle">మీకు తెలిసిన లేదా అనుమానం ఉన్న ట్రిగ్గర్‌లను ఎంచుకోండి. మీ రిపోర్ట్ వాటిని మీ డాక్టర్ కోసం చూపుతుంది.</string>
+    <string name="onboarding_add_custom_trigger">సొంత ట్రిగ్గర్ జోడించండి</string>
+    <string name="onboarding_treatment_subtitle">మీరు ఏమి తీసుకుంటారో ఎంచుకోండి. ఎటాక్ సమయంలో మందులు ప్రతి కొత్త ఎటాక్‌లో ముందే నిండి ఉంటాయి, కాబట్టి నమోదుకు ఒక ట్యాప్ చాలు.</string>
+    <string name="onboarding_add_custom_medication">సొంత మందు జోడించండి</string>
+    <string name="onboarding_custom_trigger_title">సొంత ట్రిగ్గర్ జోడించండి</string>
+    <string name="onboarding_custom_trigger_message">మీ మైగ్రేన్‌ను తరచుగా మొదలుపెట్టే దేనికైనా పేరు రాయండి.</string>
+    <string name="onboarding_custom_trigger_placeholder">ఉదాహరణకు, మెరిసే లైట్లు</string>
+    <string name="onboarding_medication_role_message">మీరు దీన్ని ఎప్పుడు తీసుకుంటారు?</string>
+    <string name="onboarding_medication_role_acute">ఎటాక్ సమయంలో (అక్యూట్)</string>
+    <string name="onboarding_medication_role_preventive">ప్రతిరోజు (నివారణ)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">మైగ్రేన్, ట్రిగ్గర్‌ల వ్యక్తిగత ట్రాకర్</string>
+    <string name="welcome_example">ఉదాహరణ</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">నొప్పిలేని రోజు</item>
+        <item quantity="other">నొప్పిలేని రోజులు</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">ఉదాహరణ: గత 30 రోజుల్లో %1$s నొప్పిలేని రోజు</item>
+        <item quantity="other">ఉదాహరణ: గత 30 రోజుల్లో %1$s నొప్పిలేని రోజులు</item>
+    </plurals>
+    <string name="welcome_headline_patterns">మీ ప్యాటర్న్‌లను అర్థం చేసుకోండి.</string>
+    <string name="welcome_headline_doctor">వాస్తవాలతో డాక్టర్‌ను కలవండి.</string>
+    <string name="welcome_body">లక్షణాలను ట్రాక్ చేయండి, సాధ్యమైన ట్రిగ్గర్‌లను గుర్తించండి, మీ వ్యక్తిగత రిపోర్ట్‌లను ఎప్పుడైనా ఎగుమతి చేయండి.</string>
+    <string name="welcome_get_started">ప్రారంభించండి</string>
+    <string name="welcome_agreement">కొనసాగడం ద్వారా మీరు %1$s, %2$sకు అంగీకరిస్తున్నారు.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ఆరా లేని మైగ్రేన్</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">మైగ్రేన్ సాధారణ రకం</string>
+    <string name="diagnosis_migraine_with_aura">ఆరాతో కూడిన మైగ్రేన్</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">చూపు లేదా స్పర్శకు సంబంధించిన ఆరా</string>
+    <string name="diagnosis_chronic_migraine">క్రానిక్ మైగ్రేన్</string>
+    <string name="diagnosis_chronic_migraine_subtitle">నెలలో 15 లేదా ఎక్కువ రోజులు తలనొప్పి</string>
+    <string name="diagnosis_tension_type">టెన్షన్-టైప్ తలనొప్పి</string>
+    <string name="diagnosis_tension_type_subtitle">తల చుట్టూ పట్టీ లాంటి ఒత్తిడి</string>
+    <string name="diagnosis_cluster">క్లస్టర్ తలనొప్పి</string>
+    <string name="diagnosis_cluster_subtitle">ఒక కన్ను చుట్టూ తీవ్రమైన ఎటాక్‌లు</string>
+    <string name="diagnosis_not_diagnosed">నిర్ధారణ కాలేదు / పరీక్షలో</string>
+    <string name="diagnosis_not_diagnosed_subtitle">లక్షణాల ప్యాటర్న్‌లను గమనిస్తున్నాము</string>
+    <string name="frequency_less_than_one">&lt; 1/నెల</string>
+    <string name="frequency_one_to_four">1–4/నెల</string>
+    <string name="frequency_five_to_eight">5–7/నెల</string>
+    <string name="frequency_eight_plus">8+/నెల</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">ఎడమ కణత</string>
+    <string name="region_right_temple">కుడి కణత</string>
+    <string name="region_frontal_brow">నుదురు / కనుబొమ్మ</string>
+    <string name="region_retro_orbital">కంటి వెనుక</string>
+    <string name="region_occipital_neck">తల వెనుక భాగం, మెడ</string>
+    <string name="symptom_scintillating_scotoma">మెరిసే స్కోటోమా (చూపు)</string>
+    <string name="symptom_scintillating_scotoma_short">చూపు ఆరా</string>
+    <string name="symptom_neck_stiffness">మెడ బిగుసుకుపోవడం</string>
+    <string name="symptom_neck_stiffness_short">మెడ బిగువు</string>
+    <string name="symptom_photophobia">వెలుతురుతో ఇబ్బంది (ఫోటోఫోబియా)</string>
+    <string name="symptom_photophobia_short">వెలుతురు</string>
+    <string name="symptom_nausea">వికారం</string>
+    <string name="symptom_nausea_short">వికారం</string>
+    <string name="symptom_phonophobia">శబ్దంతో ఇబ్బంది (ఫోనోఫోబియా)</string>
+    <string name="symptom_phonophobia_short">శబ్దం</string>
+    <string name="symptom_aphasia">మాట్లాడటంలో ఇబ్బంది (అఫేసియా) / మెదడు మసక</string>
+    <string name="symptom_aphasia_short">మెదడు మసక</string>
+    <string name="symptom_paresthesia">తిమ్మిర్లు / పరెస్థీషియా</string>
+    <string name="symptom_paresthesia_short">తిమ్మిర్లు</string>
+    <string name="trigger_category_weather_environment">వాతావరణం, పరిసరాలు</string>
+    <string name="trigger_category_sleep_physical">నిద్ర, శారీరక దినచర్య</string>
+    <string name="trigger_category_stress_emotions">ఒత్తిడి, భావోద్వేగాలు</string>
+    <string name="trigger_category_hormonal">హార్మోన్లు</string>
+    <string name="trigger_category_diet_consumption">ఆహారం, పానీయాలు</string>
+    <string name="trigger_category_custom">మీ సొంతవి</string>
+    <string name="medication_role_acute">ఎటాక్ సమయంలో (అక్యూట్)</string>
+    <string name="medication_role_preventive">నివారణ, సప్లిమెంట్లు</string>
+    <string name="export_range_last_30_days">గత 30 రోజులు</string>
+    <string name="export_range_last_90_days">గత 90 రోజులు</string>
+    <string name="export_range_last_6_months">గత 6 నెలలు</string>
+    <string name="export_range_last_12_months">గత 12 నెలలు</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">వాయు పీడనం తగ్గడం</string>
+    <string name="trigger_barometric_pressure_description">వాతావరణ మార్పు, ఎత్తులో మార్పు</string>
+    <string name="trigger_bright_light">తీవ్రమైన వెలుతురు, ఎండ</string>
+    <string name="trigger_bright_light_description">కాంతి మిరుమిట్లు, మెరుపు, ఫోటోఫోబియా</string>
+    <string name="trigger_heat_humidity">విపరీతమైన వేడి / తేమ</string>
+    <string name="trigger_heat_humidity_description">ఉష్ణోగ్రత హెచ్చుతగ్గులు</string>
+    <string name="trigger_loud_noise">పెద్ద శబ్దం</string>
+    <string name="trigger_loud_noise_description">ఫోనోఫోబియా, అకస్మాత్తు పెద్ద శబ్దం</string>
+    <string name="trigger_poor_sleep">తక్కువ / క్రమరహిత నిద్ర</string>
+    <string name="trigger_poor_sleep_description">నిద్ర లోటు, REM నిద్ర లోటు</string>
+    <string name="trigger_dehydration">డీహైడ్రేషన్</string>
+    <string name="trigger_dehydration_description">ఎలక్ట్రోలైట్ లోటు</string>
+    <string name="trigger_skipped_meals">భోజనం మానడం / ఉపవాసం</string>
+    <string name="trigger_skipped_meals_description">రక్తంలో చక్కెర తగ్గడం</string>
+    <string name="trigger_overexertion">అధిక శారీరక శ్రమ</string>
+    <string name="trigger_overexertion_description">శ్రమ వల్ల రక్తనాళాలపై ఒత్తిడి</string>
+    <string name="trigger_emotional_stress">మానసిక ఒత్తిడి / ఒత్తిడి తగ్గాక</string>
+    <string name="trigger_emotional_stress_description">పని ఒత్తిడి ముగిసిన తర్వాత</string>
+    <string name="trigger_screen_fatigue">స్క్రీన్ అలసట</string>
+    <string name="trigger_screen_fatigue_description">నీలి కాంతి, కళ్లపై ఒత్తిడి</string>
+    <string name="trigger_hormonal_cycle">హార్మోన్ మార్పులు / నెలసరి చక్రం</string>
+    <string name="trigger_hormonal_cycle_description">నెలసరి చక్రంలో మార్పు</string>
+    <string name="trigger_caffeine">కెఫీన్ మానడం / అధిక కెఫీన్</string>
+    <string name="trigger_caffeine_description">అడెనోసిన్ రిసెప్టర్ మార్పులు</string>
+    <string name="trigger_aged_cheese">పాత చీజ్ / టైరమిన్</string>
+    <string name="trigger_aged_cheese_description">పులియబెట్టిన అమైన్‌లకు సున్నితత్వం</string>
+    <string name="trigger_alcohol">మద్యం / రెడ్ వైన్</string>
+    <string name="trigger_alcohol_description">టానిన్లు, హిస్టమిన్</string>
+    <string name="trigger_sweeteners">కృత్రిమ తీపి పదార్థాలు</string>
+    <string name="trigger_sweeteners_description">అస్పార్టేమ్, సుక్రలోజ్</string>
+    <string name="trigger_custom_description">మీ సొంత ట్రిగ్గర్</string>
+
+    <!-- Catalog: built-in medications. The Telugu transliteration of each international name; paracetamol, as India names acetaminophen; "mg" as Indian packs write it. -->
+
+    <string name="medication_ibuprofen_400">ఐబుప్రొఫెన్</string>
+    <string name="medication_ibuprofen_400_class">వాపు తగ్గించే సహాయక మందు</string>
+    <string name="medication_sumatriptan_50">సుమాట్రిప్టాన్</string>
+    <string name="medication_sumatriptan_50_class">ట్రిప్టాన్, సెరోటోనిన్ అగోనిస్ట్</string>
+    <string name="medication_rizatriptan_10">రిజాట్రిప్టాన్</string>
+    <string name="medication_rizatriptan_10_class">ట్రిప్టాన్, నోటిలో కరిగేది</string>
+    <string name="medication_naproxen_500">నాప్రోక్సెన్</string>
+    <string name="medication_naproxen_500_class">దీర్ఘకాలం పనిచేసే NSAID</string>
+    <string name="medication_acetaminophen_1000">పారాసిటమాల్</string>
+    <string name="medication_acetaminophen_1000_class">నొప్పి నివారిణి</string>
+    <string name="medication_ubrogepant_100">ఉబ్రోజెపాంట్</string>
+    <string name="medication_ubrogepant_100_class">జెపాంట్, CGRP నిరోధకం</string>
+    <string name="medication_metoclopramide_10">మెటోక్లోప్రమైడ్</string>
+    <string name="medication_metoclopramide_10_class">వాంతి నిరోధకం</string>
+    <string name="medication_electrolytes">ఎలక్ట్రోలైట్ ద్రావణం</string>
+    <string name="medication_electrolytes_class">ORS</string>
+    <string name="medication_riboflavin_400">రైబోఫ్లేవిన్</string>
+    <string name="medication_riboflavin_400_class">విటమిన్ B2</string>
+    <string name="medication_magnesium_400">మెగ్నీషియం</string>
+    <string name="medication_magnesium_400_class">ఖనిజ సప్లిమెంట్</string>
+    <string name="medication_propranolol_40">ప్రొప్రానొలాల్</string>
+    <string name="medication_propranolol_40_class">బీటా బ్లాకర్</string>
+    <string name="medication_topiramate_50">టోపిరమేట్</string>
+    <string name="medication_topiramate_50_class">మూర్ఛ నిరోధక మందు</string>
+    <string name="medication_amitriptyline_10">అమిట్రిప్టిలిన్</string>
+    <string name="medication_amitriptyline_10_class">ట్రైసైక్లిక్ యాంటీడిప్రెసెంట్</string>
+    <string name="medication_erenumab_70">ఎరెనుమాబ్</string>
+    <string name="medication_erenumab_70_class">CGRP యాంటీబాడీ, నెలకు ఒకసారి</string>
+    <string name="medication_custom_class">మీ సొంత మందు</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">వ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">మొత్తం %2$s; వాటిలో %1$sలో ట్రిగ్గర్ రాయలేదు</item>
+        <item quantity="other">మొత్తం %2$s; వాటిలో %1$sలో ట్రిగ్గర్ రాయలేదు</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s ఎటాక్</item>
+        <item quantity="other">%1$s ఎటాక్‌లు</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">మైగ్రేన్ క్లినికల్ రిపోర్ట్</string>
+    <string name="report_page">MigraTrack · పేజీ %1$s</string>
+    <string name="report_patient">రోగి: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">సృష్టించినది: %1$s</string>
+    <string name="report_disclaimer">రోగి స్వయంగా MigraTrackలో నమోదు చేసిన డేటా. ఈ రిపోర్ట్ క్లినికల్ అంచనాకు సహాయపడుతుంది, దానికి ప్రత్యామ్నాయం కాదు.</string>
+    <string name="report_stat_episodes">నమోదైన ఎటాక్‌లు</string>
+    <string name="report_stat_migraine_days">మైగ్రేన్ రోజులు</string>
+    <string name="report_stat_pain_free_days">నొప్పిలేని రోజు</string>
+    <string name="report_stat_average_intensity">సగటు తీవ్రత /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">ట్రాకింగ్ %1$sన మొదలైంది. ఈ వ్యవధిలో అంతకు ముందు ఉన్న %2$s రోజుకు రికార్డు లేదు, దాన్ని నొప్పిలేని రోజుగా లెక్కించరు.</item>
+        <item quantity="other">ట్రాకింగ్ %1$sన మొదలైంది. ఈ వ్యవధిలో అంతకు ముందు ఉన్న %2$s రోజులకు రికార్డు లేదు, వాటిని నొప్పిలేని రోజులుగా లెక్కించరు.</item>
+    </plurals>
+    <string name="report_baseline_title">ప్రారంభ ప్రొఫైల్</string>
+    <string name="report_baseline_diagnoses">రోగ నిర్ధారణ</string>
+    <string name="report_baseline_frequency">నెలకు ఎటాక్‌లు</string>
+    <string name="report_baseline_duration">సాధారణ వ్యవధి (గంటలు)</string>
+    <string name="report_baseline_intensity">సాధారణ తీవ్రత</string>
+    <string name="report_baseline_triggers">తెలిసిన ట్రిగ్గర్‌లు</string>
+    <string name="report_baseline_treatments">చికిత్స ప్రణాళిక</string>
+    <string name="report_pain_chart_title">కాలక్రమంలో నొప్పి తీవ్రత (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">తేలిక %1$s–%2$s</string>
+    <string name="report_legend_moderate">మధ్యస్థం %1$s–%2$s</string>
+    <string name="report_legend_severe">తీవ్రం %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">ట్రాక్ కాలేదు</string>
+    <string name="report_medication_title">మందుల వాడకం</string>
+    <string name="report_no_medications">ఈ వ్యవధిలో ఏ మందూ నమోదు కాలేదు.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s సార్లు తీసుకున్నారు</item>
+        <item quantity="other">%1$s సార్లు తీసుకున్నారు</item>
+    </plurals>
+    <string name="report_symptoms_title">ఆరా, హెచ్చరిక లక్షణాలు</string>
+    <string name="report_no_symptoms">ఈ వ్యవధిలో ఏ ఆరా లేదా ఇంద్రియ లక్షణం నమోదు కాలేదు.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s ఎటాక్‌లో %1$s (%3$s)</item>
+        <item quantity="other">%2$s ఎటాక్‌లలో %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">రాసిన సాధ్యమైన ట్రిగ్గర్‌లు</string>
+    <string name="report_no_triggers">ఈ వ్యవధిలో ఏ ట్రిగ్గర్ రాయలేదు.</string>
+    <string name="report_triggers_note">రోగి ఎటాక్‌తో పాటు ఒక ట్రిగ్గర్‌ను ఎన్నిసార్లు రాశారో సంఖ్యలు చూపుతాయి. అవి కారణాన్ని చూపవు.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">మొత్తం %2$s; వాటిలో %1$sలో ట్రిగ్గర్ రాయలేదు.</item>
+        <item quantity="other">మొత్తం %2$s; వాటిలో %1$sలో ట్రిగ్గర్ రాయలేదు.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s ఎటాక్</item>
+        <item quantity="other">%1$s ఎటాక్‌లు</item>
+    </plurals>
+    <string name="report_episodes_title">ఎటాక్‌లు</string>
+    <string name="report_no_episodes">ఈ వ్యవధిలో ఏ ఎటాక్ నమోదు కాలేదు.</string>
+    <string name="report_column_date_time">తేదీ, సమయం</string>
+    <string name="report_column_pain">బాధ</string>
+    <string name="report_column_epicenter">నొప్పి చోటు</string>
+    <string name="report_column_symptoms">లక్షణాలు</string>
+    <string name="report_column_medications">మందులు</string>
+    <string name="report_column_triggers">ట్రిగ్గర్‌లు</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">సెట్ చేయలేదు</string>
+    <string name="report_none">ఏమీ లేవు</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">ఎటాక్‌లు</string>
+    <string name="report_sheet_medications">మందులు</string>
+    <string name="report_sheet_daily_pain">రోజువారీ నొప్పి</string>
+    <string name="report_sheet_profile">ప్రొఫైల్</string>
+    <string name="report_header_started">ప్రారంభం</string>
+    <string name="report_header_pain_intensity">నొప్పి తీవ్రత (1–10)</string>
+    <string name="report_header_epicenter">తలలో నొప్పి ఉన్న చోటు</string>
+    <string name="report_header_symptoms">ఆరా, ఇంద్రియ లక్షణాలు</string>
+    <string name="report_header_medications">మందులు</string>
+    <string name="report_header_triggers">సాధ్యమైన ట్రిగ్గర్‌లు</string>
+    <string name="report_header_episode_started">ఎటాక్ ప్రారంభం</string>
+    <string name="report_header_medication">మందు</string>
+    <string name="report_header_dose">డోస్</string>
+    <string name="report_header_date">తేదీ</string>
+    <string name="report_header_peak_pain">గరిష్ఠ నొప్పి తీవ్రత (1–10, 0 = నొప్పి లేదు)</string>
+    <string name="report_header_day">రోజు</string>
+    <string name="report_header_field">ఫీల్డ్</string>
+    <string name="report_header_value">విలువ</string>
+    <string name="report_day_migraine">మైగ్రేన్</string>
+    <string name="report_day_pain_free">నొప్పి లేదు</string>
+    <string name="report_day_not_tracked">ట్రాక్ కాలేదు</string>
+    <string name="report_profile_patient">రోగి</string>
+    <string name="report_profile_range">రిపోర్ట్ వ్యవధి</string>
+    <string name="report_profile_tracked_since">ట్రాకింగ్ ప్రారంభం</string>
+    <string name="report_profile_diagnoses">రోగ నిర్ధారణ</string>
+    <string name="report_profile_frequency">నెలకు ఎటాక్‌లు</string>
+    <string name="report_profile_duration">సాధారణ వ్యవధి (గంటలు)</string>
+    <string name="report_profile_intensity">సాధారణ తీవ్రత</string>
+    <string name="report_profile_triggers">తెలిసిన ట్రిగ్గర్‌లు</string>
+    <string name="report_profile_treatments">చికిత్స ప్రణాళిక</string>
+    <string name="report_iso_range">%1$s నుండి %2$s వరకు</string>
+</resources>
