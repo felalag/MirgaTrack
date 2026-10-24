@@ -1,6 +1,6 @@
 # Localization glossary
 
-Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Chinese (Simplified), Chinese (Traditional), Japanese and Korean, October 20, 2026. Arabic, Hebrew and Urdu, October 23, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
+Status: English source terms, October 17, 2026. Russian and Belarusian, October 18, 2026. The Western European and the Central and Northern European batches, October 18, 2026. Ukrainian, Bulgarian, Kazakh and Greek, October 19, 2026. Vietnamese, Indonesian, Malay and Thai, October 19, 2026. Chinese (Simplified), Chinese (Traditional), Japanese and Korean, October 20, 2026. Arabic, Hebrew and Urdu, October 23, 2026. The ten languages of India, October 24, 2026. Each translation batch adds a column for each of its languages and a source for each medical term ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), sections 6 and 6.1).
 
 Every string of the app uses the terms of this file. One term names one thing. A new string that needs a new term adds it here first.
 
@@ -1131,3 +1131,107 @@ Checked on October 23, 2026. The IHS has no ICHD-3 translation into Arabic, Hebr
 | Tricyclic antidepressant | مضاد اكتئاب ثلاثي الحلقات | נוגד דיכאון טריציקלי | ٹرائی سائیکلک اینٹی ڈپریسنٹ |
 
 The medication names are the INN in the script of each language. No drug register of Egypt, Israel or Pakistan was searched, so each name and its registration are **not verified**; the medications stay in the catalog (decision of October 17, 2026).
+
+### India: Hindi, Marathi, Bangla, Gujarati, Punjabi, Odia, Kannada, Malayalam, Tamil, Telugu
+
+Hindi (`hi`), Marathi (`mr`), Bangla (`bn`), Gujarati (`gu`), Punjabi in the Gurmukhi script (`pa`), Odia (`or`), Kannada (`kn`), Malayalam (`ml`), Tamil (`ta`) and Telugu (`te`). All ten use the system font. The project owner approved the decisions of batch 9 on October 23, 2026: digits 0–9 in the text, as the region of each language writes them by default; the everyday register of iOS with its English loanwords; the loanword for migraine, except Tamil; the word for episode below; and the watch texts. No native speaker reads these languages before a release ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 7). The reference country of all ten is India: the App Store shows them as additional languages of India, and it has no Bangladesh storefront and no Tamil in Sri Lanka.
+
+| Language | Address | Buttons |
+|---|---|---|
+| hi | "आप" with "-ें" | As Hindi iOS: "सहेजें", "रद्द करें", "डिलीट करें" |
+| mr | "तुम्ही" with "-आ" | As Marathi iOS: "जतन करा", "रद्द करा", "हटवा" |
+| bn | "আপনি" with "-উন" | As Bangla iOS: "সেভ করুন", "বাতিল", "ডিলিট করুন" |
+| gu | "તમે" with "-ો" | As Gujarati iOS: "સેવ કરો", "રદ કરો", "ડિલીટ કરો" |
+| pa | "ਤੁਸੀਂ" with "-ੋ" | As Punjabi iOS: "ਸੰਭਾਲੋ", "ਰੱਦ ਕਰੋ", "ਡਿਲੀਟ ਕਰੋ" |
+| or | "ଆପଣ" with "-ନ୍ତୁ" | As Odia iOS: "ସେଭ୍ କରନ୍ତୁ", "ବାତିଲ୍ କରନ୍ତୁ", "ଡିଲୀଟ୍ କରନ୍ତୁ" |
+| kn | "ನೀವು" with "-ಿ" | As Kannada iOS, short: "ಸೇವ್", "ರದ್ದು", "ಡಿಲೀಟ್ ಮಾಡಿ" |
+| ml | "നിങ്ങൾ" with "-ൂ" | As Malayalam iOS: "സേവ് ചെയ്യൂ", "റദ്ദാക്കൂ" |
+| ta | "நீங்கள்" with "-ங்கள்" in sentences | As Tamil iOS, native bare verbs: "சேமி", "ரத்துசெய்", "நீக்கு" |
+| te | "మీరు" with "-ండి" | As Telugu iOS, short: "సేవ్", "రద్దు", "డిలీట్" |
+
+The button words come from `UIKitCore.framework` of the iOS 27.1 simulator runtime; the names of the Health and Settings apps come from `HealthUI.framework` (`HEALTH`) and from `Preferences.app`.
+
+All ten languages have the CLDR plural forms one and other. In Hindi, Bangla, Gujarati and Kannada "one" also takes 0, and in Punjabi 0 and 1, so each form keeps the number. Bangla and Odia do not change a noun after a number, so both forms are often equal. A length limit of the build counts each vowel sign and virama as a character; the strings fit these counts.
+
+| Term | hi | mr | bn | gu | pa |
+|---|---|---|---|---|---|
+| episode | दौरा (plural दौरे) | झटका (plural झटके) | অ্যাটাক | હુમલો (plural હુમલા) | ਦੌਰਾ (plural ਦੌਰੇ) |
+| migraine | माइग्रेन | मायग्रेन | মাইগ্রেন | માઇગ્રેન | ਮਾਈਗ੍ਰੇਨ |
+| log (verb) | दर्ज करना | नोंदवणे | রেকর্ড করা | નોંધવું | ਦਰਜ ਕਰਨਾ |
+| intensity | तीव्रता | तीव्रता | তীব্রতা | તીવ્રતા | ਤੀਬਰਤਾ |
+| pain | दर्द | वेदना | ব্যথা | પીડા | ਦਰਦ |
+| migraine day | माइग्रेन का दिन | मायग्रेनचा दिवस | মাইগ্রেনের দিন | માઇગ્રેનનો દિવસ | ਮਾਈਗ੍ਰੇਨ ਦਾ ਦਿਨ |
+| pain-free day | दर्द-मुक्त दिन | वेदनामुक्त दिवस | ব্যথামুক্ত দিন | પીડામુક્ત દિવસ | ਦਰਦ-ਮੁਕਤ ਦਿਨ |
+| not tracked | ट्रैक नहीं हुआ | नोंद नाही | ট্র্যাক হয়নি | ટ્રૅક થયું નથી | ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ |
+| trigger | ट्रिगर | ट्रिगर | ট্রিগার | ટ્રિગર | ਟ੍ਰਿਗਰ |
+| aura | ऑरा | ऑरा | অরা | ઓરા | ਔਰਾ |
+| acute medication | दौरे के समय की दवा | झटक्याच्या वेळचे औषध | অ্যাটাকের সময়ের ওষুধ | હુમલા વખતની દવા | ਦੌਰੇ ਵੇਲੇ ਦੀ ਦਵਾਈ |
+| preventive medication | रोकथाम | प्रतिबंधक | প্রতিরোধমূলক | નિવારક | ਰੋਕਥਾਮ |
+| treatment blueprint | इलाज की योजना | उपचार योजना | চিকিৎসার পরিকল্পনা | સારવારની યોજના | ਇਲਾਜ ਦੀ ਯੋਜਨਾ |
+| baseline profile | शुरुआती प्रोफ़ाइल | प्रारंभिक प्रोफाइल | প্রাথমিক প্রোফাইল | પ્રારંભિક પ્રોફાઇલ | ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਫਾਈਲ |
+| report | रिपोर्ट | रिपोर्ट | রিপোর্ট | રિપોર્ટ | ਰਿਪੋਰਟ |
+| Health app | सेहत | आरोग्य | স্বাস্থ্য | આરોગ્ય | ਸਿਹਤ |
+| Settings (iOS) | सेटिंग | सेटिंग | সেটিংস | સેટિંગ્સ | ਸੈਟਿੰਗਾਂ |
+
+| Term | or | kn | ml | ta | te |
+|---|---|---|---|---|---|
+| episode | ଆଟାକ୍ | ಅಟ್ಯಾಕ್ (plural ಅಟ್ಯಾಕ್‌ಗಳು) | അറ്റാക്ക് (plural അറ്റാക്കുകൾ) | தாக்குதல் (plural தாக்குதல்கள்) | ఎటాక్ (plural ఎటాక్‌లు) |
+| migraine | ମାଇଗ୍ରେନ | ಮೈಗ್ರೇನ್ | മൈഗ്രേൻ | ஒற்றைத் தலைவலி | మైగ్రేన్ |
+| log (verb) | ରେକର୍ଡ କରିବା | ದಾಖಲಿಸು | രേഖപ്പെടുത്തുക | பதிவுசெய் | నమోదు చేయు |
+| intensity | ତୀବ୍ରତା | ತೀವ್ರತೆ | തീവ്രത | தீவிரம் | తీవ్రత |
+| pain | ପୀଡ଼ା | ನೋವು | വേദന | வலி | నొప్పి |
+| migraine day | ମାଇଗ୍ରେନ ଦିନ | ಮೈಗ್ರೇನ್ ದಿನ | മൈഗ്രേൻ ദിവസം | தாக்குதல் நாள் (attack day) | మైగ్రేన్ రోజు |
+| pain-free day | ପୀଡ଼ାମୁକ୍ତ ଦିନ | ನೋವಿಲ್ಲದ ದಿನ | വേദനരഹിത ദിനം | வலியற்ற நாள் | నొప్పిలేని రోజు |
+| not tracked | ଟ୍ରାକ୍ ହୋଇନାହିଁ | ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ | ട്രാക്ക് ചെയ്തിട്ടില്ല | கண்காணிக்கப்படவில்லை | ట్రాక్ కాలేదు |
+| trigger | ଟ୍ରିଗର | ಟ್ರಿಗರ್ | ട്രിഗർ | தூண்டி | ట్రిగ్గర్ |
+| aura | ଅରା | ಔರಾ | ഓറ | ஆரா | ఆరా |
+| acute medication | ଆଟାକ୍ ସମୟର ଔଷଧ | ಅಟ್ಯಾಕ್ ವೇಳೆಯ ಔಷಧ | അറ്റാക്ക് സമയത്തെ മരുന്ന് | தாக்குதலின்போது எடுக்கும் மருந்து | ఎటాక్ సమయంలో మందు |
+| preventive medication | ପ୍ରତିରୋଧକ | ತಡೆಗಟ್ಟುವಿಕೆ | പ്രതിരോധം | தடுப்பு | నివారణ |
+| treatment blueprint | ଚିକିତ୍ସା ଯୋଜନା | ಚಿಕಿತ್ಸಾ ಯೋಜನೆ | ചികിത്സാ പദ്ധതി | சிகிச்சைத் திட்டம் | చికిత్స ప్రణాళిక |
+| baseline profile | ପ୍ରାରମ୍ଭିକ ପ୍ରୋଫାଇଲ୍ | ಆರಂಭಿಕ ಪ್ರೊಫೈಲ್ | പ്രാരംഭ പ്രൊഫൈൽ | தொடக்கச் சுயவிவரம் | ప్రారంభ ప్రొఫైల్ |
+| report | ରିପୋର୍ଟ | ವರದಿ | റിപ്പോർട്ട് | அறிக்கை | రిపోర్ట్ |
+| Health app | ସ୍ବାସ୍ଥ୍ଯ | ಆರೋಗ್ಯ | ആരോഗ്യം | உடல்நலம் | ఆరోగ్యం |
+| Settings (iOS) | ସେଟିଂସ୍ | ಸೆಟ್ಟಿಂಗ್ಸ್ | ക്രമീകരണം | அமைப்புகள் | సెట్టింగ్స్ |
+
+Notes on the terms:
+
+- Tamil writes migraine as "ஒற்றைத் தலைவலி" (14 characters), so the short labels say "தாக்குதல் நாள்" (attack day) for a migraine day and the calendar pill "தாக்குதல்: %1$s நாள்".
+- Telugu labels with a limit of 16 characters say "నొప్పిలేని రోజు" in the singular: the plural "నొప్పిలేని రోజులు" has 17. The watch caption and the PDF stat are a term pair, so both use the singular.
+- Malayalam "pain-free" is "വേദനരഹിതം". The watch caption and the PDF stat say only "വേദനരഹിതം", as German says "Schmerzfrei": "വേദനരഹിത ദിനങ്ങൾ" was cut on the 40 mm watch at the largest text size.
+- The Export tab is "ವರದಿ" (report) in Kannada, "പങ്കിടൂ" (share) in Malayalam and "ఎగుమతి" (export, a native word) in Telugu, because the loanword has more than 10 characters.
+- The anticonvulsant class names convulsions or epilepsy ("ਮਿਰਗੀ", "ಸೆಳವು", "അപസ്മാര", "வலிப்பு", "మూర్ఛ") or uses the loanword (hi), never the word for episode: in Hindi and Punjabi "दौरा" / "ਦੌਰਾ" also means a seizure.
+
+Watch and complication texts (term pairs of the build): "Log Migraine" = "नया दौरा", "नवा झटका", "নতুন অ্যাটাক", "નવો હુમલો", "ਨਵਾਂ ਦੌਰਾ", "ନୂଆ ଆଟାକ୍", "ಹೊಸ ಅಟ್ಯಾಕ್" (new episode); "രേഖപ്പെടുത്തൂ", "பதிவு செய்" (record), because "new episode" has more than 14 characters in Malayalam and Tamil; "కొత్త ఎటాక్" (new episode). The round complication "LOG" (4 characters) = "नया", "नवा", "নতুন", "નવો", "ਨਵਾਂ", "ନୂଆ", "ಹೊಸ", "புது" (new); "ലോഗ്" and "లాగ്" (log), because "new" has 5 characters in Malayalam and Telugu.
+
+#### Sources of the Indian terms
+
+Checked on October 23 and 24, 2026. The IHS has no ICHD-3 translation into an Indian language ([ICHD translations](https://ihs-headache.org/en/resources/ichd/), 17 translations). The Indian guidelines are in English.
+
+- **[IN1]** Indian Academy of Neurology, headache guidelines for primary care, [Ann Indian Acad Neurol 2011;14(Suppl 1)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3152170). In English; it names paracetamol, the triptans, propranolol, topiramate, amitriptyline and flunarizine.
+- **[IN2]** Translation and validation of the ID-Migraine questionnaire in Hindi and Punjabi, Ann Indian Acad Neurol, January 2023 ([repository record](https://kr.cup.edu.in/handle/32116/4270)). Abstract read; the questionnaire text was **not read**.
+- **[IN3]** Duggal et al., validation of a Hindi version of the HARDSHIP questionnaire, J Headache Pain 2024 ([PMC10949646](https://pmc.ncbi.nlm.nih.gov/articles/PMC10949646/)). It cites a validated Kannada version from the Karnataka study. The questionnaire texts were **not read**.
+- **[IN4]** Continental Hospitals, Hyderabad, "Migraine: causes, risk factors, symptoms, treatment" in nine Indian languages, for example [Hindi](https://continentalhospitals.com/hi/diseases/migraine) and [Telugu](https://continentalhospitals.com/te/diseases/migraine), read on October 24, 2026. There is no Odia page. The texts look machine-translated: "aura" is "आभा", "ಸೆಳವು" and "പ്രഭാവലയം" (glow), and "minimally invasive" is "ন্যূনতম আক্রমণাত্মক" (least attacking). They confirm the loanword for migraine (and "ஒற்றைத் தலைவலி" in Tamil), "ट्रिगर" and its equivalents, and the words for nausea: "मतली", "मळमळ", "বমি বমি ভাব", "ઉબકા", "ਮਤਲੀ", "ವಾಕರಿಕೆ", "ഓക്കാനം", "குமட்டல்", "వికారం". For attack they write "आक्रमण" words ("আক্রমণ", "ದಾಳಿ", "ആക്രമണം", "దాడి"), Marathi "हल्ला" next to "झटका", and Gujarati "હુમલો". The batch keeps the approved loanword for bn, or, kn, ml and te, because the native words read as an assault and the page is a machine translation.
+- **[IN5]** Central Drugs Standard Control Organisation (CDSCO): the Indian register lists drugs under their English names. It was **not searched** for the 14 medications. No approval of erenumab or ubrogepant in India was found; Indian distributors list imported Aimovig. Both stay in the catalog with the note "registration unknown".
+
+#### Medical terms: India
+
+The diagnoses, symptoms and regions follow the English pattern "clinical term (common word)". Except where IN4 confirms a word, each term is **not verified**.
+
+| Term | Verified in IN4 | Not verified |
+|---|---|---|
+| Migraine | All nine languages with a page | Odia "ମାଇଗ୍ରେନ" |
+| Migraine with / without aura | — | All ten; "aura" is the loanword in every language |
+| Chronic migraine | "क्रोनिक" (hi), "ક્રોનિક" (gu), "ক্রনিক" (bn) | The other seven |
+| Tension-type and cluster headache | "तनाव" (hi, as a cause) | All ten; the names are loanwords "टेंशन-टाइप", "क्लस्टर" and their equivalents, as Indian neurologists say them |
+| Nausea | All nine (see IN4) | Odia "ବାନ୍ତି ଭାବ" |
+| Photophobia, phonophobia | The words for light and sound (hi, mr, bn, gu, kn, ta) | The loanwords in brackets |
+| Paresthesia | "झुनझुनी" (hi), "ਝਰਨਾਹਟ" (pa), "ಜುಮ್ಮೆನಿಸುವಿಕೆ" (kn) | The other seven |
+| Trigger | hi, mr, bn, gu, te; pa writes "ਟਰਿੱਗਰ" | kn and ml (IN4 has native "ಪ್ರಚೋದಕ", "പ്രേരക"); Tamil "தூண்டி" (IN4 has the verb "தூண்டு") |
+| Triptan | "ट्रिप्टान" (hi), "ಟ್ರಿಪ್ಟಾನ್" (kn), "ട്രിപ്റ്റാൻ" (ml), "டிரிப்டான்" (ta), "ట్రిప్టాన్" (te) | mr, bn, gu, pa, or |
+| Dose unit | — | "mg" in Latin letters, as Indian packs and prescriptions write it |
+
+| Medication | Name in the ten languages | Status |
+|---|---|---|
+| Acetaminophen | Paracetamol, as India names it: "पैरासिटामोल", "पॅरासिटामॉल", "প্যারাসিটামল", "પેરાસિટામોલ", "ਪੈਰਾਸੀਟਾਮੋਲ", "ପାରାସିଟାମୋଲ୍", "ಪ್ಯಾರಸಿಟಮಾಲ್", "പാരസെറ്റമോൾ", "பாராசிட்டமால்", "పారాసిటమాల్" | IN1 (English name); spellings **not verified** |
+| Ibuprofen, naproxen, sumatriptan, rizatriptan, metoclopramide, propranolol, topiramate, amitriptyline, riboflavin, magnesium | The INN in the script of each language | IN1 names most of them in English; spellings **not verified** |
+| Ubrogepant, erenumab | The INN in the script of each language | Registration in India unknown (IN5) |

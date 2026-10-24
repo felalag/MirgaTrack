@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Punjabi strings of the iPhone UI, in the Gurmukhi script. values/strings.xml has the comments for each key: where the
+  text shows, the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The polite form "ਤੁਸੀਂ" with "-ੋ", and English loanwords where Punjabi iOS uses them ("ਡਿਲੀਟ").
+  Punjabi has the CLDR plural forms one and other; "one" also takes 0, so each form keeps the number.
+  The duration chips have no unit, because "12–24 ਘੰਟੇ" is longer than 7 characters: the captions name the hours.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">ਪਿੱਛੇ</string>
+    <string name="common_settings">ਸੈਟਿੰਗਾਂ</string>
+    <string name="common_cancel">ਰੱਦ ਕਰੋ</string>
+    <string name="common_ok">ਠੀਕ ਹੈ</string>
+    <string name="common_save">ਸੰਭਾਲੋ</string>
+    <string name="common_add">ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="common_next">ਅੱਗੇ</string>
+    <string name="common_on">ਚਾਲੂ</string>
+    <string name="common_off">ਬੰਦ</string>
+    <string name="common_clear">ਹਟਾਓ</string>
+    <string name="common_none">ਕੋਈ ਨਹੀਂ</string>
+    <string name="common_today">ਅੱਜ</string>
+    <string name="common_not_set">ਸੈੱਟ ਨਹੀਂ</string>
+    <string name="common_expanded">ਖੁੱਲ੍ਹਾ</string>
+    <string name="common_collapsed">ਬੰਦ</string>
+    <string name="common_last_30_days">ਪਿਛਲੇ 30 ਦਿਨ</string>
+    <string name="common_medical_disclaimer">MigraTrack ਇੱਕ ਡਾਇਰੀ ਹੈ, ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ। ਆਪਣਾ ਇਲਾਜ ਬਦਲਣ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੇ ਡਾਕਟਰ ਨਾਲ ਗੱਲ ਕਰੋ।</string>
+    <string name="common_log_migraine_episode">ਮਾਈਗ੍ਰੇਨ ਦਾ ਦੌਰਾ ਦਰਜ ਕਰੋ</string>
+    <string name="common_save_episode">ਸੰਭਾਲੋ</string>
+    <string name="common_edit_episode">ਦੌਰੇ ਵਿੱਚ ਸੋਧ ਕਰੋ</string>
+    <string name="common_delete_episode">ਦੌਰਾ ਡਿਲੀਟ ਕਰੋ</string>
+    <string name="common_intensity_of_ten">ਤੀਬਰਤਾ %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$s ਵਜੇ</string>
+    <string name="common_possible_triggers">ਸੰਭਾਵੀ ਟ੍ਰਿਗਰ</string>
+    <string name="common_add_trigger">ਟ੍ਰਿਗਰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="common_add_medication">ਦਵਾਈ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="common_treatment_blueprint">ਇਲਾਜ ਦੀ ਯੋਜਨਾ</string>
+    <string name="common_medication_name_and_dose">ਨਾਮ ਅਤੇ ਖੁਰਾਕ ਲਿਖੋ।</string>
+    <string name="common_medication_placeholder">ਉਦਾਹਰਨ: ਰਿਜ਼ਾਟ੍ਰਿਪਟਾਨ 10&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">ਸਾਰਾਂਸ਼</string>
+    <string name="tab_log">ਦਰਜ ਕਰੋ</string>
+    <string name="tab_insights">ਵਿਸ਼ਲੇਸ਼ਣ</string>
+    <string name="tab_export">ਐਕਸਪੋਰਟ</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">ਦਰਦ ਦੀ ਤੀਬਰਤਾ</string>
+    <string name="pain_scale_value">10 ਵਿੱਚੋਂ %1$s</string>
+    <string name="pain_scale_low">%1$s ਹਲਕਾ</string>
+    <string name="pain_scale_middle">%1$s ਦਰਮਿਆਨਾ</string>
+    <string name="pain_scale_high">%1$s ਅਸਹਿ</string>
+    <string name="medication_remove">%1$s ਹਟਾਓ</string>
+    <string name="duration_minutes">%1$s ਮਿੰਟ</string>
+    <string name="duration_hours_minutes">%1$s ਘੰਟੇ %2$s ਮਿੰਟ</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">ਅੱਜ, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">ਦਿਨ, ਟ੍ਰੈਕ ਕੀਤੇ %1$s ਦਿਨ ਵਿੱਚੋਂ</item>
+        <item quantity="other">ਦਿਨ, ਟ੍ਰੈਕ ਕੀਤੇ %1$s ਦਿਨਾਂ ਵਿੱਚੋਂ</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ਬਿਨਾਂ ਕਿਸੇ ਦਰਜ ਦੌਰੇ ਦੇ</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ ਟ੍ਰੈਕ ਕੀਤੇ %2$s ਦਿਨ ਵਿੱਚੋਂ %1$s ਦਿਨ ਬਿਨਾਂ ਕਿਸੇ ਦਰਜ ਦੌਰੇ ਦੇ</item>
+        <item quantity="other">ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ ਟ੍ਰੈਕ ਕੀਤੇ %2$s ਦਿਨਾਂ ਵਿੱਚੋਂ %1$s ਦਿਨ ਬਿਨਾਂ ਕਿਸੇ ਦਰਜ ਦੌਰੇ ਦੇ</item>
+    </plurals>
+    <string name="summary_tracking_start_note">ਗਿਣਤੀ ਉਸ ਦਿਨ ਤੋਂ ਹੈ ਜਦੋਂ ਤੁਸੀਂ ਟ੍ਰੈਕ ਕਰਨਾ ਸ਼ੁਰੂ ਕੀਤਾ। ਉਸ ਤੋਂ ਪਹਿਲਾਂ ਦੇ ਦਿਨ ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਏ।</string>
+    <string name="strip_legend_migraine">ਮਾਈਗ੍ਰੇਨ</string>
+    <string name="strip_legend_pain_free">ਦਰਦ-ਮੁਕਤ</string>
+    <string name="strip_legend_not_tracked">ਟ੍ਰੈਕ ਨਹੀਂ</string>
+    <string name="summary_sleep_last_night">ਪਿਛਲੀ ਰਾਤ ਦੀ ਨੀਂਦ</string>
+    <string name="summary_sleep_not_recorded">ਦਰਜ ਨਹੀਂ</string>
+    <string name="summary_sleep_hint">ਸੌਣ ਵੇਲੇ Apple Watch ਪਹਿਨੋ ਜਾਂ ਸਿਹਤ ਐਪ ਵਿੱਚ ਨੀਂਦ ਟ੍ਰੈਕ ਕਰੋ। ਜੇ ਤੁਸੀਂ ਪਹੁੰਚ ਬੰਦ ਕੀਤੀ ਹੈ, ਤਾਂ ਇਸਨੂੰ ਸੈਟਿੰਗਾਂ › ਸਿਹਤ ਵਿੱਚ ਚਾਲੂ ਕਰੋ।</string>
+    <string name="summary_sleep_caption">ਨੀਂਦ</string>
+    <string name="summary_sleep_connect_title">ਸਾਰਾਂਸ਼ ਵਿੱਚ ਪਿਛਲੀ ਰਾਤ ਦੀ ਨੀਂਦ ਦੇਖੋ</string>
+    <string name="summary_sleep_connect_body">MigraTrack ਪਿਛਲੀ ਰਾਤ ਦੀ ਨੀਂਦ Apple Health ਤੋਂ ਪੜ੍ਹਦਾ ਹੈ। ਡਾਟਾ ਇਸੇ iPhone 'ਤੇ ਰਹਿੰਦਾ ਹੈ।</string>
+    <string name="summary_sleep_connect_button">Apple Health ਨਾਲ ਜੋੜੋ</string>
+    <string name="summary_last_episode">ਪਿਛਲਾ ਦੌਰਾ</string>
+    <string name="summary_last_episode_none">ਹਾਲੇ ਕੋਈ ਨਹੀਂ</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">ਦੌਰਾ ਦਰਜ ਕਰੋ</string>
+    <string name="episode_update">ਦੌਰਾ ਅੱਪਡੇਟ ਕਰੋ</string>
+    <string name="episode_updated_banner">ਦੌਰਾ ਅੱਪਡੇਟ ਹੋ ਗਿਆ।</string>
+    <string name="episode_deleted_banner">ਦੌਰਾ ਡਿਲੀਟ ਹੋ ਗਿਆ।</string>
+    <string name="episode_saved_banner">ਦੌਰਾ ਸੰਭਾਲਿਆ ਗਿਆ। ਆਰਾਮ ਕਰੋ ਅਤੇ ਘੱਟ ਰੋਸ਼ਨੀ ਵਿੱਚ ਰਹੋ।</string>
+    <string name="episode_pain_intensity_index">ਦਰਦ ਦੀ ਤੀਬਰਤਾ</string>
+    <string name="episode_cranial_epicenter">ਸਿਰ ਵਿੱਚ ਦਰਦ ਦੀ ਥਾਂ</string>
+    <string name="episode_aura_symptoms">ਔਰਾ ਅਤੇ ਸੰਵੇਦੀ ਲੱਛਣ</string>
+    <string name="episode_acute_therapy">ਦੌਰੇ ਵੇਲੇ ਦੀ ਦਵਾਈ</string>
+    <string name="episode_add_medication_row">ਦਵਾਈ / ਇਲੈਕਟ੍ਰੋਲਾਈਟ ਘੋਲ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="episode_start">ਦੌਰੇ ਦੀ ਸ਼ੁਰੂਆਤ</string>
+    <string name="episode_start_now">ਹੁਣੇ</string>
+    <string name="episode_add_trigger_message">ਇਸ ਦੌਰੇ ਤੋਂ ਪਹਿਲਾਂ ਕੀ ਹੋਇਆ ਸੀ?</string>
+    <string name="episode_other_trigger_action">ਕੋਈ ਹੋਰ ਟ੍ਰਿਗਰ…</string>
+    <string name="episode_other_trigger_title">ਕੋਈ ਹੋਰ ਟ੍ਰਿਗਰ</string>
+    <string name="episode_other_trigger_message">ਕੋਈ ਅਜਿਹੀ ਚੀਜ਼ ਲਿਖੋ ਜੋ ਇਸ ਦੌਰੇ ਤੋਂ ਪਹਿਲਾਂ ਹੋਈ ਸੀ।</string>
+    <string name="episode_other_trigger_placeholder">ਉਦਾਹਰਨ: ਤੇਜ਼ ਖੁਸ਼ਬੂ</string>
+    <string name="episode_add_medication_message">ਇਸ ਦੌਰੇ ਲਈ ਤੁਸੀਂ ਕੀ ਲਿਆ?</string>
+    <string name="episode_other_medication_action">ਕੋਈ ਹੋਰ ਦਵਾਈ…</string>
+    <string name="episode_other_medication_title">ਕੋਈ ਹੋਰ ਦਵਾਈ</string>
+    <string name="episode_missing_title">ਦੌਰਾ ਡਿਲੀਟ ਹੋ ਚੁੱਕਾ ਹੈ</string>
+    <string name="episode_missing_message">ਇਹ ਦੌਰਾ ਕਿਸੇ ਹੋਰ ਡਿਵਾਈਸ 'ਤੇ ਡਿਲੀਟ ਹੋ ਚੁੱਕਾ ਹੈ, ਇਸ ਲਈ ਬਦਲਾਅ ਸੰਭਾਲੇ ਨਹੀਂ ਜਾ ਸਕਦੇ।</string>
+    <string name="episode_delete_message">ਤੀਬਰਤਾ %1$s/10। ਇਹ ਦੌਰਾ ਤੁਹਾਡੇ ਇਤਿਹਾਸ ਅਤੇ ਰਿਪੋਰਟਾਂ ਤੋਂ ਹਟ ਜਾਵੇਗਾ।</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">ਹ</string>
+    <string name="insights_period_month">ਮ</string>
+    <string name="insights_period_six_months">6ਮ</string>
+    <string name="insights_period_year">ਸ</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">ਦੌਰਾ ਇਸ ਹਫ਼ਤੇ</item>
+        <item quantity="other">ਦੌਰੇ ਇਸ ਹਫ਼ਤੇ</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">ਦੌਰਾ, %1$s ਵਾਲੇ ਹਫ਼ਤੇ ਵਿੱਚ</item>
+        <item quantity="other">ਦੌਰੇ, %1$s ਵਾਲੇ ਹਫ਼ਤੇ ਵਿੱਚ</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">ਦੌਰਾ, %1$s ਵਿੱਚ</item>
+        <item quantity="other">ਦੌਰੇ, %1$s ਵਿੱਚ</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">ਦੌਰਾ, 6 ਮਹੀਨਿਆਂ ਵਿੱਚ</item>
+        <item quantity="other">ਦੌਰੇ, 6 ਮਹੀਨਿਆਂ ਵਿੱਚ</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">ਦੌਰਾ, %1$s ਵਿੱਚ</item>
+        <item quantity="other">ਦੌਰੇ, %1$s ਵਿੱਚ</item>
+    </plurals>
+    <string name="insights_trend_fewer">ਪਿਛਲੀ ਮਿਆਦ ਨਾਲੋਂ %1$s ਫ਼ੀਸਦੀ ਘੱਟ ਦੌਰੇ</string>
+    <string name="insights_trend_more">ਪਿਛਲੀ ਮਿਆਦ ਨਾਲੋਂ %1$s ਫ਼ੀਸਦੀ ਵੱਧ ਦੌਰੇ</string>
+    <string name="insights_legend_migraine_day">ਮਾਈਗ੍ਰੇਨ ਦਾ ਦਿਨ</string>
+    <string name="insights_legend_pain_free_day">ਦਰਦ-ਮੁਕਤ ਦਿਨ</string>
+    <string name="insights_legend_not_tracked">ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="insights_bar_no_data">%1$s: ਹਾਲੇ ਕੋਈ ਡਾਟਾ ਨਹੀਂ</string>
+    <string name="insights_bar_not_tracked">%1$s: ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="insights_bar_pain_free">%1$s: ਦਰਦ-ਮੁਕਤ</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: ਮਾਈਗ੍ਰੇਨ ਦਾ %2$s ਦਿਨ, ਵੱਧ ਤੋਂ ਵੱਧ 10 ਵਿੱਚੋਂ %3$s</item>
+        <item quantity="other">%1$s: ਮਾਈਗ੍ਰੇਨ ਦੇ %2$s ਦਿਨ, ਵੱਧ ਤੋਂ ਵੱਧ 10 ਵਿੱਚੋਂ %3$s</item>
+    </plurals>
+    <string name="insights_triggers_empty">ਦੌਰਾ ਦਰਜ ਕਰਦੇ ਜਾਂ ਸੋਧਦੇ ਸਮੇਂ ਸੰਭਾਵੀ ਟ੍ਰਿਗਰ ਲਿਖੋ। ਫਿਰ ਇਹ ਕਾਰਡ ਦਿਖਾਏਗਾ ਕਿ ਤੁਸੀਂ ਹਰ ਟ੍ਰਿਗਰ ਕਿੰਨੀ ਵਾਰ ਲਿਖਿਆ।</string>
+    <string name="insights_triggers_hint">ਕਿਸੇ ਦੌਰੇ ਨਾਲ ਤੁਸੀਂ ਹਰ ਟ੍ਰਿਗਰ ਕਿੰਨੀ ਵਾਰ ਲਿਖਿਆ। ਇਸ ਤੋਂ ਕਾਰਨ ਪਤਾ ਨਹੀਂ ਲੱਗਦਾ।</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s ਦੌਰੇ ਵਿੱਚੋਂ %2$s ਵਿੱਚ ਲਿਖਿਆ</item>
+        <item quantity="other">%1$s, %3$s ਦੌਰਿਆਂ ਵਿੱਚੋਂ %2$s ਵਿੱਚ ਲਿਖਿਆ</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">ਕੈਲੰਡਰ, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s ਨੂੰ %2$s ਦੌਰਾ ਹੈ।</item>
+        <item quantity="other">%1$s ਨੂੰ %2$s ਦੌਰੇ ਹਨ।</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · ਤੀਬਰਤਾ %2$s/10</string>
+    <string name="insights_month_picker_title">ਮਹੀਨਾ</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">ਪਿਛਲਾ ਮਹੀਨਾ</string>
+    <string name="calendar_next_month">ਅਗਲਾ ਮਹੀਨਾ</string>
+    <string name="calendar_choose_month_a11y">%1$s, ਕੋਈ ਹੋਰ ਮਹੀਨਾ ਚੁਣੋ</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">ਮਾਈਗ੍ਰੇਨ ਦਾ %1$s ਦਿਨ</item>
+        <item quantity="other">ਮਾਈਗ੍ਰੇਨ ਦੇ %1$s ਦਿਨ</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">ਅੱਜ, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="calendar_day_not_tracked">ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="calendar_day_no_episodes">ਕੋਈ ਦੌਰਾ ਨਹੀਂ</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s ਦੌਰਾ, ਵੱਧ ਤੋਂ ਵੱਧ 10 ਵਿੱਚੋਂ %2$s</item>
+        <item quantity="other">%1$s ਦੌਰੇ, ਵੱਧ ਤੋਂ ਵੱਧ 10 ਵਿੱਚੋਂ %2$s</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s ਦੌਰਾ</item>
+        <item quantity="other">%1$s ਦੌਰੇ</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">ਵੱਧ ਤੋਂ ਵੱਧ ਤੀਬਰਤਾ</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">ਦਵਾਈਆਂ</string>
+    <string name="calendar_edit_episode_details">ਦੌਰੇ ਦੇ ਵੇਰਵੇ ਸੋਧੋ</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</string>
+    <string name="export_preparing_excel">Excel ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</string>
+    <string name="export_preparing_report">ਰਿਪੋਰਟ ਤਿਆਰ ਹੋ ਰਹੀ ਹੈ…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">ਦੌਰਾ</item>
+        <item quantity="other">ਦੌਰੇ</item>
+    </plurals>
+    <string name="export_episodes_recorded">ਦਰਜ ਦੌਰੇ</string>
+    <string name="export_include">ਐਕਸਪੋਰਟ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="export_medications">ਲਈਆਂ ਦਵਾਈਆਂ</string>
+    <string name="export_medications_subtitle">ਖੁਰਾਕਾਂ ਅਤੇ ਕੁੱਲ ਵਰਤੋਂ</string>
+    <string name="export_symptoms">ਔਰਾ ਅਤੇ ਚੇਤਾਵਨੀ ਲੱਛਣ</string>
+    <string name="export_symptoms_subtitle">ਔਰਾ ਦੀਆਂ ਕਿਸਮਾਂ ਅਤੇ ਉਨ੍ਹਾਂ ਦੀ ਗਿਣਤੀ</string>
+    <string name="export_triggers_subtitle">ਲਿਖੇ ਟ੍ਰਿਗਰ ਅਤੇ ਉਨ੍ਹਾਂ ਦੀ ਗਿਣਤੀ</string>
+    <string name="export_pain_charts">ਦਰਦ ਦੀ ਤੀਬਰਤਾ ਦੇ ਚਾਰਟ</string>
+    <string name="export_pain_charts_subtitle">ਸਮੇਂ ਨਾਲ ਦਰਦ ਦੀ ਤੀਬਰਤਾ, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF ਰਿਪੋਰਟ ਐਕਸਪੋਰਟ ਕਰੋ</string>
+    <string name="export_excel">Excel (.xlsx) ਵਿੱਚ ਐਕਸਪੋਰਟ</string>
+    <string name="export_share">ਸਾਂਝਾ ਕਰੋ</string>
+    <string name="export_range_title">ਰਿਪੋਰਟ ਦੀ ਮਿਆਦ</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack ਰਿਪੋਰਟ: %1$s ਦੌਰਾ, %2$s।</item>
+        <item quantity="other">MigraTrack ਰਿਪੋਰਟ: %1$s ਦੌਰੇ, %2$s।</item>
+    </plurals>
+    <string name="export_failed_title">ਐਕਸਪੋਰਟ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="export_failed_message">ਰਿਪੋਰਟ ਨਹੀਂ ਬਣ ਸਕੀ।</string>
+    <string name="export_write_failed">%1$s ਸੰਭਾਲੀ ਨਹੀਂ ਜਾ ਸਕੀ</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s ਜਾਣਿਆ ਟ੍ਰਿਗਰ</item>
+        <item quantity="other">%1$s ਜਾਣੇ ਟ੍ਰਿਗਰ</item>
+    </plurals>
+    <string name="settings_no_triggers">ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਚੁਣਿਆ</string>
+    <string name="settings_no_medications">ਕੋਈ ਦਵਾਈ ਨਹੀਂ ਚੁਣੀ</string>
+    <string name="settings_name_title">ਤੁਹਾਡਾ ਨਾਮ</string>
+    <string name="settings_name_message">ਇਹ ਤੁਹਾਡੀਆਂ ਐਕਸਪੋਰਟ ਕੀਤੀਆਂ ਰਿਪੋਰਟਾਂ 'ਤੇ ਦਿਖਦਾ ਹੈ।</string>
+    <string name="settings_name_placeholder">ਨਾਮ</string>
+    <string name="settings_delete_title">ਸਾਰਾ ਡਾਟਾ ਡਿਲੀਟ ਕਰਨਾ ਹੈ?</string>
+    <string name="settings_delete_message">MigraTrack ਤੁਹਾਡਾ ਡਾਟਾ ਇਸ iPhone 'ਤੇ ਅਤੇ ਉਸਦੀ ਇੱਕ ਕਾਪੀ ਤੁਹਾਡੀ Apple Watch 'ਤੇ ਰੱਖਦਾ ਹੈ। ਇਸ ਨਾਲ ਹਰ ਦੌਰਾ ਅਤੇ ਤੁਹਾਡੀ ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਫਾਈਲ ਸਦਾ ਲਈ ਡਿਲੀਟ ਹੋ ਜਾਵੇਗੀ; ਘੜੀ ਅਗਲੇ ਸਿੰਕ 'ਤੇ ਆਪਣੀ ਕਾਪੀ ਡਿਲੀਟ ਕਰੇਗੀ। ਡਿਵਾਈਸ ਦੇ ਬੈਕਅੱਪ ਵਿੱਚ ਉਨ੍ਹਾਂ ਦੀ ਕਾਪੀ ਰਹਿੰਦੀ ਹੈ। ਜੇ ਤੁਹਾਨੂੰ ਰਿਪੋਰਟ ਚਾਹੀਦੀ ਹੈ, ਤਾਂ ਪਹਿਲਾਂ ਉਸਨੂੰ ਐਕਸਪੋਰਟ ਕਰੋ।</string>
+    <string name="settings_delete_all">ਸਾਰਾ ਡਾਟਾ ਡਿਲੀਟ ਕਰੋ</string>
+    <string name="settings_section_baseline">ਕਲੀਨਿਕਲ ਜਾਣਕਾਰੀ ਅਤੇ ਪ੍ਰੋਟੋਕੋਲ</string>
+    <string name="settings_baseline_diagnoses">ਤਸ਼ਖੀਸ</string>
+    <string name="settings_known_triggers">ਜਾਣੇ ਟ੍ਰਿਗਰ</string>
+    <string name="settings_section_preferences">ਤਰਜੀਹਾਂ</string>
+    <string name="settings_appearance">ਦਿੱਖ</string>
+    <string name="settings_appearance_value">ਗੂੜ੍ਹਾ (ਸਥਾਈ)</string>
+    <string name="settings_version">ਵਰਜਨ</string>
+    <string name="settings_version_value">v%1$s (ਬਿਲਡ %2$s)</string>
+    <string name="settings_section_legal">ਕਾਨੂੰਨੀ</string>
+    <string name="settings_section_developer">ਡਿਵੈਲਪਰ</string>
+    <string name="settings_load_sample_data">ਨਮੂਨਾ ਡਾਟਾ ਲੋਡ ਕਰੋ</string>
+    <string name="settings_load_sample_data_subtitle">ਚਾਰਟ ਦੇਖਣ ਲਈ ਇੱਕ ਸਾਲ ਦੇ ਬਣਾਏ ਦੌਰੇ ਸ਼ਾਮਲ ਕਰਦਾ ਹੈ</string>
+    <string name="settings_edit_name_a11y">ਨਾਮ ਸੋਧੋ</string>
+    <string name="settings_add_name">ਆਪਣਾ ਨਾਮ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="settings_member">ਸ਼ੁਰੂਆਤ</string>
+    <string name="settings_episodes">ਦੌਰੇ</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s ਦਰਜ</item>
+        <item quantity="other">%1$s ਦਰਜ</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
+    <string name="legal_terms_of_service">ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ</string>
+    <string name="legal_folder">pa</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">ਟ੍ਰਿਗਰਾਂ ਵੱਲ ਅੱਗੇ ਵਧੋ</string>
+    <string name="onboarding_continue_to_medications">ਦਵਾਈਆਂ ਵੱਲ ਅੱਗੇ ਵਧੋ</string>
+    <string name="onboarding_finish_setup">ਸੈੱਟਅੱਪ ਪੂਰਾ ਕਰੋ</string>
+    <string name="onboarding_back_to_diagnoses">ਤਸ਼ਖੀਸ 'ਤੇ ਵਾਪਸ</string>
+    <string name="onboarding_back_to_triggers">ਟ੍ਰਿਗਰਾਂ 'ਤੇ ਵਾਪਸ</string>
+    <string name="onboarding_save_changes">ਬਦਲਾਅ ਸੰਭਾਲੋ</string>
+    <string name="onboarding_step">ਪੜਾਅ %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">ਤਸ਼ਖੀਸ ਅਤੇ ਇਤਿਹਾਸ</string>
+    <string name="onboarding_diagnoses_subtitle">ਆਪਣੀ ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟ ਕਰੋ। ਤੁਹਾਡੇ ਦੌਰੇ ਅਤੇ ਰਿਪੋਰਟਾਂ ਇਸੇ ਤੋਂ ਸ਼ੁਰੂ ਹੁੰਦੀਆਂ ਹਨ।</string>
+    <string name="onboarding_primary_diagnosis">ਮੁੱਖ ਤਸ਼ਖੀਸ</string>
+    <string name="onboarding_episode_frequency">ਹਰ ਮਹੀਨੇ ਕਿੰਨੇ ਦੌਰੇ</string>
+    <string name="onboarding_episode_duration">ਦੌਰਾ ਆਮ ਤੌਰ 'ਤੇ ਕਿੰਨਾ ਸਮਾਂ (ਘੰਟੇ)</string>
+    <string name="onboarding_intensity_baseline">ਦਰਦ ਦੀ ਆਮ ਤੀਬਰਤਾ</string>
+    <string name="onboarding_update_later">ਤੁਸੀਂ ਆਪਣੀ ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਫਾਈਲ ਕਦੇ ਵੀ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।</string>
+    <string name="onboarding_triggers_title">ਤੁਹਾਡੇ ਟ੍ਰਿਗਰ</string>
+    <string name="onboarding_triggers_subtitle">ਆਪਣੇ ਜਾਣੇ ਜਾਂ ਸ਼ੱਕੀ ਟ੍ਰਿਗਰ ਚੁਣੋ। ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਉਨ੍ਹਾਂ ਨੂੰ ਤੁਹਾਡੇ ਡਾਕਟਰ ਲਈ ਦਿਖਾਉਂਦੀ ਹੈ।</string>
+    <string name="onboarding_add_custom_trigger">ਆਪਣਾ ਟ੍ਰਿਗਰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="onboarding_treatment_subtitle">ਚੁਣੋ ਕਿ ਤੁਸੀਂ ਕੀ ਲੈਂਦੇ ਹੋ। ਦੌਰੇ ਵੇਲੇ ਦੀਆਂ ਦਵਾਈਆਂ ਹਰ ਨਵੇਂ ਦੌਰੇ ਵਿੱਚ ਪਹਿਲਾਂ ਤੋਂ ਭਰੀਆਂ ਹੁੰਦੀਆਂ ਹਨ, ਇਸ ਲਈ ਦਰਜ ਕਰਨ ਵਿੱਚ ਇੱਕ ਟੈਪ ਲੱਗਦਾ ਹੈ।</string>
+    <string name="onboarding_add_custom_medication">ਆਪਣੀ ਦਵਾਈ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="onboarding_custom_trigger_title">ਆਪਣਾ ਟ੍ਰਿਗਰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="onboarding_custom_trigger_message">ਕੋਈ ਅਜਿਹੀ ਚੀਜ਼ ਲਿਖੋ ਜਿਸ ਨਾਲ ਅਕਸਰ ਤੁਹਾਡਾ ਮਾਈਗ੍ਰੇਨ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ।</string>
+    <string name="onboarding_custom_trigger_placeholder">ਉਦਾਹਰਨ: ਚਮਕਦੀਆਂ ਲਾਈਟਾਂ</string>
+    <string name="onboarding_medication_role_message">ਤੁਸੀਂ ਇਹ ਕਦੋਂ ਲੈਂਦੇ ਹੋ?</string>
+    <string name="onboarding_medication_role_acute">ਦੌਰੇ ਵੇਲੇ (ਐਕਿਊਟ)</string>
+    <string name="onboarding_medication_role_preventive">ਹਰ ਰੋਜ਼ (ਰੋਕਥਾਮ)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">ਮਾਈਗ੍ਰੇਨ ਅਤੇ ਟ੍ਰਿਗਰਾਂ ਦਾ ਨਿੱਜੀ ਟ੍ਰੈਕਰ</string>
+    <string name="welcome_example">ਉਦਾਹਰਨ</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">ਦਰਦ-ਮੁਕਤ ਦਿਨ</item>
+        <item quantity="other">ਦਰਦ-ਮੁਕਤ ਦਿਨ</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">ਉਦਾਹਰਨ: ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ %1$s ਦਰਦ-ਮੁਕਤ ਦਿਨ</item>
+        <item quantity="other">ਉਦਾਹਰਨ: ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ %1$s ਦਰਦ-ਮੁਕਤ ਦਿਨ</item>
+    </plurals>
+    <string name="welcome_headline_patterns">ਆਪਣੇ ਪੈਟਰਨ ਸਮਝੋ।</string>
+    <string name="welcome_headline_doctor">ਡਾਕਟਰ ਕੋਲ ਤੱਥ ਲੈ ਕੇ ਜਾਓ।</string>
+    <string name="welcome_body">ਲੱਛਣ ਟ੍ਰੈਕ ਕਰੋ, ਸੰਭਾਵੀ ਟ੍ਰਿਗਰ ਪਛਾਣੋ ਅਤੇ ਆਪਣੀਆਂ ਨਿੱਜੀ ਰਿਪੋਰਟਾਂ ਕਦੇ ਵੀ ਐਕਸਪੋਰਟ ਕਰੋ।</string>
+    <string name="welcome_get_started">ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="welcome_agreement">ਅੱਗੇ ਵਧ ਕੇ ਤੁਸੀਂ %1$s ਅਤੇ %2$s ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ਔਰਾ ਤੋਂ ਬਿਨਾਂ ਮਾਈਗ੍ਰੇਨ</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">ਮਾਈਗ੍ਰੇਨ ਦੀ ਆਮ ਕਿਸਮ</string>
+    <string name="diagnosis_migraine_with_aura">ਔਰਾ ਨਾਲ ਮਾਈਗ੍ਰੇਨ</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">ਨਜ਼ਰ ਜਾਂ ਸੰਵੇਦਨਾ ਨਾਲ ਜੁੜਿਆ ਔਰਾ</string>
+    <string name="diagnosis_chronic_migraine">ਕ੍ਰੋਨਿਕ ਮਾਈਗ੍ਰੇਨ</string>
+    <string name="diagnosis_chronic_migraine_subtitle">ਮਹੀਨੇ ਵਿੱਚ 15 ਜਾਂ ਵੱਧ ਦਿਨ ਸਿਰਦਰਦ</string>
+    <string name="diagnosis_tension_type">ਟੈਂਸ਼ਨ-ਟਾਈਪ ਸਿਰਦਰਦ</string>
+    <string name="diagnosis_tension_type_subtitle">ਸਿਰ ਦੁਆਲੇ ਪੱਟੀ ਵਰਗਾ ਦਬਾਅ</string>
+    <string name="diagnosis_cluster">ਕਲੱਸਟਰ ਸਿਰਦਰਦ</string>
+    <string name="diagnosis_cluster_subtitle">ਇੱਕ ਅੱਖ ਦੁਆਲੇ ਤੇਜ਼ ਦੌਰੇ</string>
+    <string name="diagnosis_not_diagnosed">ਤਸ਼ਖੀਸ ਨਹੀਂ / ਜਾਂਚ ਜਾਰੀ</string>
+    <string name="diagnosis_not_diagnosed_subtitle">ਲੱਛਣਾਂ ਦੇ ਪੈਟਰਨ ਦੇਖ ਰਹੇ ਹਾਂ</string>
+    <string name="frequency_less_than_one">&lt; 1/ਮਹੀਨਾ</string>
+    <string name="frequency_one_to_four">1–4/ਮਹੀਨਾ</string>
+    <string name="frequency_five_to_eight">5–7/ਮਹੀਨਾ</string>
+    <string name="frequency_eight_plus">8+/ਮਹੀਨਾ</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">ਖੱਬੀ ਪੁੜਪੁੜੀ</string>
+    <string name="region_right_temple">ਸੱਜੀ ਪੁੜਪੁੜੀ</string>
+    <string name="region_frontal_brow">ਮੱਥਾ / ਭਰਵੱਟੇ</string>
+    <string name="region_retro_orbital">ਅੱਖ ਦੇ ਪਿੱਛੇ</string>
+    <string name="region_occipital_neck">ਸਿਰ ਦਾ ਪਿਛਲਾ ਹਿੱਸਾ ਅਤੇ ਗਰਦਨ</string>
+    <string name="symptom_scintillating_scotoma">ਚਮਕਦਾ ਸਕੋਟੋਮਾ (ਨਜ਼ਰ)</string>
+    <string name="symptom_scintillating_scotoma_short">ਨਜ਼ਰ ਦਾ ਔਰਾ</string>
+    <string name="symptom_neck_stiffness">ਗਰਦਨ ਦੀ ਅਕੜਨ</string>
+    <string name="symptom_neck_stiffness_short">ਗਰਦਨ ਅਕੜਨਾ</string>
+    <string name="symptom_photophobia">ਰੋਸ਼ਨੀ ਤੋਂ ਤਕਲੀਫ਼ (ਫ਼ੋਟੋਫ਼ੋਬੀਆ)</string>
+    <string name="symptom_photophobia_short">ਰੋਸ਼ਨੀ</string>
+    <string name="symptom_nausea">ਮਤਲੀ</string>
+    <string name="symptom_nausea_short">ਮਤਲੀ</string>
+    <string name="symptom_phonophobia">ਆਵਾਜ਼ ਤੋਂ ਤਕਲੀਫ਼ (ਫ਼ੋਨੋਫ਼ੋਬੀਆ)</string>
+    <string name="symptom_phonophobia_short">ਆਵਾਜ਼</string>
+    <string name="symptom_aphasia">ਬੋਲਣ ਵਿੱਚ ਮੁਸ਼ਕਲ (ਅਫ਼ੇਜ਼ੀਆ) / ਦਿਮਾਗੀ ਧੁੰਦ</string>
+    <string name="symptom_aphasia_short">ਦਿਮਾਗੀ ਧੁੰਦ</string>
+    <string name="symptom_paresthesia">ਝਰਨਾਹਟ / ਪੈਰੇਸਥੀਸੀਆ</string>
+    <string name="symptom_paresthesia_short">ਝਰਨਾਹਟ</string>
+    <string name="trigger_category_weather_environment">ਮੌਸਮ ਅਤੇ ਵਾਤਾਵਰਨ</string>
+    <string name="trigger_category_sleep_physical">ਨੀਂਦ ਅਤੇ ਸਰੀਰਕ ਰੁਟੀਨ</string>
+    <string name="trigger_category_stress_emotions">ਤਣਾਅ ਅਤੇ ਭਾਵਨਾਵਾਂ</string>
+    <string name="trigger_category_hormonal">ਹਾਰਮੋਨ</string>
+    <string name="trigger_category_diet_consumption">ਖਾਣ-ਪੀਣ</string>
+    <string name="trigger_category_custom">ਤੁਹਾਡੇ ਆਪਣੇ</string>
+    <string name="medication_role_acute">ਦੌਰੇ ਵੇਲੇ (ਐਕਿਊਟ)</string>
+    <string name="medication_role_preventive">ਰੋਕਥਾਮ ਅਤੇ ਸਪਲੀਮੈਂਟ</string>
+    <string name="export_range_last_30_days">ਪਿਛਲੇ 30 ਦਿਨ</string>
+    <string name="export_range_last_90_days">ਪਿਛਲੇ 90 ਦਿਨ</string>
+    <string name="export_range_last_6_months">ਪਿਛਲੇ 6 ਮਹੀਨੇ</string>
+    <string name="export_range_last_12_months">ਪਿਛਲੇ 12 ਮਹੀਨੇ</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">ਹਵਾ ਦਾ ਦਬਾਅ ਘਟਣਾ</string>
+    <string name="trigger_barometric_pressure_description">ਮੌਸਮ ਦੀ ਤਬਦੀਲੀ, ਉਚਾਈ ਦੀ ਤਬਦੀਲੀ</string>
+    <string name="trigger_bright_light">ਤੇਜ਼ ਰੋਸ਼ਨੀ ਅਤੇ ਧੁੱਪ</string>
+    <string name="trigger_bright_light_description">ਚਕਾਚੌਂਧ, ਝਪਕਦੀ ਰੋਸ਼ਨੀ, ਫ਼ੋਟੋਫ਼ੋਬੀਆ</string>
+    <string name="trigger_heat_humidity">ਬਹੁਤ ਗਰਮੀ / ਹੁੰਮਸ</string>
+    <string name="trigger_heat_humidity_description">ਤਾਪਮਾਨ ਵਿੱਚ ਉਤਾਰ-ਚੜ੍ਹਾਅ</string>
+    <string name="trigger_loud_noise">ਉੱਚਾ ਸ਼ੋਰ</string>
+    <string name="trigger_loud_noise_description">ਫ਼ੋਨੋਫ਼ੋਬੀਆ, ਅਚਾਨਕ ਉੱਚੀ ਆਵਾਜ਼</string>
+    <string name="trigger_poor_sleep">ਮਾੜੀ / ਬੇਨਿਯਮੀ ਨੀਂਦ</string>
+    <string name="trigger_poor_sleep_description">ਨੀਂਦ ਦੀ ਘਾਟ, REM ਨੀਂਦ ਦੀ ਘਾਟ</string>
+    <string name="trigger_dehydration">ਪਾਣੀ ਦੀ ਘਾਟ</string>
+    <string name="trigger_dehydration_description">ਇਲੈਕਟ੍ਰੋਲਾਈਟ ਦੀ ਘਾਟ</string>
+    <string name="trigger_skipped_meals">ਖਾਣਾ ਛੱਡਣਾ / ਵਰਤ</string>
+    <string name="trigger_skipped_meals_description">ਖ਼ੂਨ ਵਿੱਚ ਸ਼ੂਗਰ ਘਟਣਾ</string>
+    <string name="trigger_overexertion">ਬਹੁਤ ਜ਼ਿਆਦਾ ਸਰੀਰਕ ਮਿਹਨਤ</string>
+    <string name="trigger_overexertion_description">ਮਿਹਨਤ ਨਾਲ ਖ਼ੂਨ ਦੀਆਂ ਨਾੜੀਆਂ 'ਤੇ ਦਬਾਅ</string>
+    <string name="trigger_emotional_stress">ਤਣਾਅ / ਤਣਾਅ ਤੋਂ ਬਾਅਦ ਢਿੱਲ</string>
+    <string name="trigger_emotional_stress_description">ਕੰਮ ਦਾ ਦਬਾਅ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਬਾਅਦ</string>
+    <string name="trigger_screen_fatigue">ਸਕ੍ਰੀਨ ਦੀ ਥਕਾਵਟ</string>
+    <string name="trigger_screen_fatigue_description">ਨੀਲੀ ਰੋਸ਼ਨੀ, ਅੱਖਾਂ 'ਤੇ ਜ਼ੋਰ</string>
+    <string name="trigger_hormonal_cycle">ਹਾਰਮੋਨ ਦੀ ਤਬਦੀਲੀ / ਮਾਹਵਾਰੀ ਚੱਕਰ</string>
+    <string name="trigger_hormonal_cycle_description">ਮਾਹਵਾਰੀ ਚੱਕਰ ਵਿੱਚ ਤਬਦੀਲੀ</string>
+    <string name="trigger_caffeine">ਕੈਫ਼ੀਨ ਛੱਡਣਾ / ਜ਼ਿਆਦਾ ਕੈਫ਼ੀਨ</string>
+    <string name="trigger_caffeine_description">ਐਡੀਨੋਸਿਨ ਰੀਸੈਪਟਰ ਵਿੱਚ ਤਬਦੀਲੀ</string>
+    <string name="trigger_aged_cheese">ਪੁਰਾਣਾ ਪਨੀਰ / ਟਾਇਰਾਮੀਨ</string>
+    <string name="trigger_aged_cheese_description">ਖ਼ਮੀਰ ਵਾਲੇ ਐਮੀਨ ਪ੍ਰਤੀ ਸੰਵੇਦਨਸ਼ੀਲਤਾ</string>
+    <string name="trigger_alcohol">ਸ਼ਰਾਬ / ਰੈੱਡ ਵਾਈਨ</string>
+    <string name="trigger_alcohol_description">ਟੈਨਿਨ, ਹਿਸਟਾਮੀਨ</string>
+    <string name="trigger_sweeteners">ਨਕਲੀ ਮਿਠਾਸ</string>
+    <string name="trigger_sweeteners_description">ਐਸਪਾਰਟੇਮ, ਸੁਕਰਾਲੋਜ਼</string>
+    <string name="trigger_custom_description">ਤੁਹਾਡਾ ਆਪਣਾ ਟ੍ਰਿਗਰ</string>
+
+    <!-- Catalog: built-in medications. The Gurmukhi transliteration of each international name; paracetamol, as India names acetaminophen; "mg" as Indian packs write it. -->
+
+    <string name="medication_ibuprofen_400">ਆਈਬੂਪ੍ਰੋਫ਼ੈਨ</string>
+    <string name="medication_ibuprofen_400_class">ਸੋਜ-ਰੋਕੂ ਸਹਾਇਕ ਦਵਾਈ</string>
+    <string name="medication_sumatriptan_50">ਸੁਮਾਟ੍ਰਿਪਟਾਨ</string>
+    <string name="medication_sumatriptan_50_class">ਟ੍ਰਿਪਟਾਨ, ਸੇਰੋਟੋਨਿਨ ਐਗੋਨਿਸਟ</string>
+    <string name="medication_rizatriptan_10">ਰਿਜ਼ਾਟ੍ਰਿਪਟਾਨ</string>
+    <string name="medication_rizatriptan_10_class">ਟ੍ਰਿਪਟਾਨ, ਮੂੰਹ ਵਿੱਚ ਘੁਲਣ ਵਾਲੀ</string>
+    <string name="medication_naproxen_500">ਨੈਪ੍ਰੋਕਸੇਨ</string>
+    <string name="medication_naproxen_500_class">ਲੰਬੇ ਅਸਰ ਵਾਲੀ NSAID</string>
+    <string name="medication_acetaminophen_1000">ਪੈਰਾਸੀਟਾਮੋਲ</string>
+    <string name="medication_acetaminophen_1000_class">ਦਰਦ ਨਿਵਾਰਕ</string>
+    <string name="medication_ubrogepant_100">ਯੂਬ੍ਰੋਜੇਪੈਂਟ</string>
+    <string name="medication_ubrogepant_100_class">ਜੇਪੈਂਟ, CGRP ਵਿਰੋਧੀ</string>
+    <string name="medication_metoclopramide_10">ਮੈਟੋਕਲੋਪ੍ਰਾਮਾਈਡ</string>
+    <string name="medication_metoclopramide_10_class">ਉਲਟੀ-ਰੋਕੂ</string>
+    <string name="medication_electrolytes">ਇਲੈਕਟ੍ਰੋਲਾਈਟ ਘੋਲ</string>
+    <string name="medication_electrolytes_class">ਓਆਰਐਸ</string>
+    <string name="medication_riboflavin_400">ਰਾਈਬੋਫ਼ਲੇਵਿਨ</string>
+    <string name="medication_riboflavin_400_class">ਵਿਟਾਮਿਨ B2</string>
+    <string name="medication_magnesium_400">ਮੈਗਨੀਸ਼ੀਅਮ</string>
+    <string name="medication_magnesium_400_class">ਖਣਿਜ ਸਪਲੀਮੈਂਟ</string>
+    <string name="medication_propranolol_40">ਪ੍ਰੋਪ੍ਰਾਨੋਲੋਲ</string>
+    <string name="medication_propranolol_40_class">ਬੀਟਾ ਬਲੌਕਰ</string>
+    <string name="medication_topiramate_50">ਟੋਪੀਰਾਮੇਟ</string>
+    <string name="medication_topiramate_50_class">ਮਿਰਗੀ-ਰੋਕੂ ਦਵਾਈ</string>
+    <string name="medication_amitriptyline_10">ਐਮੀਟ੍ਰਿਪਟਿਲੀਨ</string>
+    <string name="medication_amitriptyline_10_class">ਟ੍ਰਾਈਸਾਈਕਲਿਕ ਐਂਟੀਡਿਪ੍ਰੈਸੈਂਟ</string>
+    <string name="medication_erenumab_70">ਐਰੇਨੂਮੈਬ</string>
+    <string name="medication_erenumab_70_class">CGRP ਐਂਟੀਬਾਡੀ, ਮਹੀਨੇ ਵਿੱਚ ਇੱਕ ਵਾਰ</string>
+    <string name="medication_custom_class">ਤੁਹਾਡੀ ਆਪਣੀ ਦਵਾਈ</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">ਹ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%2$s ਵਿੱਚੋਂ %1$s ਵਿੱਚ ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਲਿਖਿਆ</item>
+        <item quantity="other">%2$s ਵਿੱਚੋਂ %1$s ਵਿੱਚ ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਲਿਖਿਆ</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s ਦੌਰੇ</item>
+        <item quantity="other">%1$s ਦੌਰਿਆਂ</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">ਮਾਈਗ੍ਰੇਨ ਦੀ ਕਲੀਨਿਕਲ ਰਿਪੋਰਟ</string>
+    <string name="report_page">MigraTrack · ਪੰਨਾ %1$s</string>
+    <string name="report_patient">ਮਰੀਜ਼: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">ਤਿਆਰ ਕੀਤੀ: %1$s</string>
+    <string name="report_disclaimer">ਮਰੀਜ਼ ਵੱਲੋਂ MigraTrack ਵਿੱਚ ਆਪ ਦਰਜ ਕੀਤਾ ਡਾਟਾ। ਇਹ ਰਿਪੋਰਟ ਕਲੀਨਿਕਲ ਜਾਂਚ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ, ਉਸਦੀ ਥਾਂ ਨਹੀਂ ਲੈਂਦੀ।</string>
+    <string name="report_stat_episodes">ਦਰਜ ਦੌਰੇ</string>
+    <string name="report_stat_migraine_days">ਮਾਈਗ੍ਰੇਨ ਦੇ ਦਿਨ</string>
+    <string name="report_stat_pain_free_days">ਦਰਦ-ਮੁਕਤ ਦਿਨ</string>
+    <string name="report_stat_average_intensity">ਔਸਤ ਤੀਬਰਤਾ /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">ਟ੍ਰੈਕਿੰਗ %1$s ਨੂੰ ਸ਼ੁਰੂ ਹੋਈ। ਇਸ ਮਿਆਦ ਦੇ ਪਹਿਲਾਂ ਵਾਲੇ %2$s ਦਿਨ ਦਾ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਹੈ, ਅਤੇ ਉਸਨੂੰ ਦਰਦ-ਮੁਕਤ ਦਿਨ ਨਹੀਂ ਗਿਣਿਆ ਜਾਂਦਾ।</item>
+        <item quantity="other">ਟ੍ਰੈਕਿੰਗ %1$s ਨੂੰ ਸ਼ੁਰੂ ਹੋਈ। ਇਸ ਮਿਆਦ ਦੇ ਪਹਿਲਾਂ ਵਾਲੇ %2$s ਦਿਨਾਂ ਦਾ ਕੋਈ ਰਿਕਾਰਡ ਨਹੀਂ ਹੈ, ਅਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਦਰਦ-ਮੁਕਤ ਦਿਨ ਨਹੀਂ ਗਿਣਿਆ ਜਾਂਦਾ।</item>
+    </plurals>
+    <string name="report_baseline_title">ਸ਼ੁਰੂਆਤੀ ਪ੍ਰੋਫਾਈਲ</string>
+    <string name="report_baseline_diagnoses">ਤਸ਼ਖੀਸ</string>
+    <string name="report_baseline_frequency">ਹਰ ਮਹੀਨੇ ਦੌਰੇ</string>
+    <string name="report_baseline_duration">ਆਮ ਮਿਆਦ (ਘੰਟੇ)</string>
+    <string name="report_baseline_intensity">ਆਮ ਤੀਬਰਤਾ</string>
+    <string name="report_baseline_triggers">ਜਾਣੇ ਟ੍ਰਿਗਰ</string>
+    <string name="report_baseline_treatments">ਇਲਾਜ ਦੀ ਯੋਜਨਾ</string>
+    <string name="report_pain_chart_title">ਸਮੇਂ ਨਾਲ ਦਰਦ ਦੀ ਤੀਬਰਤਾ (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">ਹਲਕਾ %1$s–%2$s</string>
+    <string name="report_legend_moderate">ਦਰਮਿਆਨਾ %1$s–%2$s</string>
+    <string name="report_legend_severe">ਤੇਜ਼ %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="report_medication_title">ਦਵਾਈਆਂ ਦੀ ਵਰਤੋਂ</string>
+    <string name="report_no_medications">ਇਸ ਮਿਆਦ ਵਿੱਚ ਕੋਈ ਦਵਾਈ ਦਰਜ ਨਹੀਂ ਹੋਈ।</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s ਵਾਰ ਲਈ</item>
+        <item quantity="other">%1$s ਵਾਰ ਲਈ</item>
+    </plurals>
+    <string name="report_symptoms_title">ਔਰਾ ਅਤੇ ਚੇਤਾਵਨੀ ਲੱਛਣ</string>
+    <string name="report_no_symptoms">ਇਸ ਮਿਆਦ ਵਿੱਚ ਕੋਈ ਔਰਾ ਜਾਂ ਸੰਵੇਦੀ ਲੱਛਣ ਦਰਜ ਨਹੀਂ ਹੋਇਆ।</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s ਦੌਰੇ ਵਿੱਚੋਂ %1$s (%3$s)</item>
+        <item quantity="other">%2$s ਦੌਰਿਆਂ ਵਿੱਚੋਂ %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">ਲਿਖੇ ਸੰਭਾਵੀ ਟ੍ਰਿਗਰ</string>
+    <string name="report_no_triggers">ਇਸ ਮਿਆਦ ਵਿੱਚ ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਲਿਖਿਆ ਗਿਆ।</string>
+    <string name="report_triggers_note">ਗਿਣਤੀ ਦੱਸਦੀ ਹੈ ਕਿ ਮਰੀਜ਼ ਨੇ ਕਿਸੇ ਦੌਰੇ ਨਾਲ ਟ੍ਰਿਗਰ ਕਿੰਨੀ ਵਾਰ ਲਿਖਿਆ। ਇਸ ਤੋਂ ਕਾਰਨ ਪਤਾ ਨਹੀਂ ਲੱਗਦਾ।</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%2$s ਵਿੱਚੋਂ %1$s ਵਿੱਚ ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਲਿਖਿਆ।</item>
+        <item quantity="other">%2$s ਵਿੱਚੋਂ %1$s ਵਿੱਚ ਕੋਈ ਟ੍ਰਿਗਰ ਨਹੀਂ ਲਿਖਿਆ।</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s ਦੌਰੇ</item>
+        <item quantity="other">%1$s ਦੌਰਿਆਂ</item>
+    </plurals>
+    <string name="report_episodes_title">ਦੌਰੇ</string>
+    <string name="report_no_episodes">ਇਸ ਮਿਆਦ ਵਿੱਚ ਕੋਈ ਦੌਰਾ ਦਰਜ ਨਹੀਂ ਹੋਇਆ।</string>
+    <string name="report_column_date_time">ਤਾਰੀਖ ਅਤੇ ਸਮਾਂ</string>
+    <string name="report_column_pain">ਦਰਦ</string>
+    <string name="report_column_epicenter">ਦਰਦ ਦੀ ਥਾਂ</string>
+    <string name="report_column_symptoms">ਲੱਛਣ</string>
+    <string name="report_column_medications">ਦਵਾਈਆਂ</string>
+    <string name="report_column_triggers">ਟ੍ਰਿਗਰ</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">ਸੈੱਟ ਨਹੀਂ</string>
+    <string name="report_none">ਕੋਈ ਨਹੀਂ</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">ਦੌਰੇ</string>
+    <string name="report_sheet_medications">ਦਵਾਈਆਂ</string>
+    <string name="report_sheet_daily_pain">ਰੋਜ਼ਾਨਾ ਦਰਦ</string>
+    <string name="report_sheet_profile">ਪ੍ਰੋਫਾਈਲ</string>
+    <string name="report_header_started">ਸ਼ੁਰੂਆਤ</string>
+    <string name="report_header_pain_intensity">ਦਰਦ ਦੀ ਤੀਬਰਤਾ (1–10)</string>
+    <string name="report_header_epicenter">ਸਿਰ ਵਿੱਚ ਦਰਦ ਦੀ ਥਾਂ</string>
+    <string name="report_header_symptoms">ਔਰਾ ਅਤੇ ਸੰਵੇਦੀ ਲੱਛਣ</string>
+    <string name="report_header_medications">ਦਵਾਈਆਂ</string>
+    <string name="report_header_triggers">ਸੰਭਾਵੀ ਟ੍ਰਿਗਰ</string>
+    <string name="report_header_episode_started">ਦੌਰੇ ਦੀ ਸ਼ੁਰੂਆਤ</string>
+    <string name="report_header_medication">ਦਵਾਈ</string>
+    <string name="report_header_dose">ਖੁਰਾਕ</string>
+    <string name="report_header_date">ਤਾਰੀਖ</string>
+    <string name="report_header_peak_pain">ਦਰਦ ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਤੀਬਰਤਾ (1–10, 0 = ਦਰਦ-ਮੁਕਤ)</string>
+    <string name="report_header_day">ਦਿਨ</string>
+    <string name="report_header_field">ਖੇਤਰ</string>
+    <string name="report_header_value">ਮੁੱਲ</string>
+    <string name="report_day_migraine">ਮਾਈਗ੍ਰੇਨ</string>
+    <string name="report_day_pain_free">ਦਰਦ-ਮੁਕਤ</string>
+    <string name="report_day_not_tracked">ਟ੍ਰੈਕ ਨਹੀਂ ਹੋਇਆ</string>
+    <string name="report_profile_patient">ਮਰੀਜ਼</string>
+    <string name="report_profile_range">ਰਿਪੋਰਟ ਦੀ ਮਿਆਦ</string>
+    <string name="report_profile_tracked_since">ਟ੍ਰੈਕਿੰਗ ਦੀ ਸ਼ੁਰੂਆਤ</string>
+    <string name="report_profile_diagnoses">ਤਸ਼ਖੀਸ</string>
+    <string name="report_profile_frequency">ਹਰ ਮਹੀਨੇ ਦੌਰੇ</string>
+    <string name="report_profile_duration">ਆਮ ਮਿਆਦ (ਘੰਟੇ)</string>
+    <string name="report_profile_intensity">ਆਮ ਤੀਬਰਤਾ</string>
+    <string name="report_profile_triggers">ਜਾਣੇ ਟ੍ਰਿਗਰ</string>
+    <string name="report_profile_treatments">ਇਲਾਜ ਦੀ ਯੋਜਨਾ</string>
+    <string name="report_iso_range">%1$s ਤੋਂ %2$s</string>
+</resources>

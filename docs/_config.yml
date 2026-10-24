@@ -14,6 +14,7 @@ exclude:
   - legal/files/ar
   - legal/files/be
   - legal/files/bg
+  - legal/files/bn
   - legal/files/ca
   - legal/files/cs
   - legal/files/da
@@ -22,18 +23,25 @@ exclude:
   - legal/files/es
   - legal/files/fi
   - legal/files/fr
+  - legal/files/gu
   - legal/files/he
+  - legal/files/hi
   - legal/files/hr
   - legal/files/hu
   - legal/files/id
   - legal/files/it
   - legal/files/ja
   - legal/files/kk
+  - legal/files/kn
   - legal/files/ko
   - legal/files/lt
+  - legal/files/ml
+  - legal/files/mr
   - legal/files/ms
   - legal/files/nb
   - legal/files/nl
+  - legal/files/or
+  - legal/files/pa
   - legal/files/pl
   - legal/files/pt
   - legal/files/pt-PT
@@ -42,6 +50,8 @@ exclude:
   - legal/files/sk
   - legal/files/sl
   - legal/files/sv
+  - legal/files/ta
+  - legal/files/te
   - legal/files/th
   - legal/files/tr
   - legal/files/uk

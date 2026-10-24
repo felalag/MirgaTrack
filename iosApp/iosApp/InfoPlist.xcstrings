@@ -23,6 +23,12 @@
             "value" : "MigraTrack чете съня от изминалата нощ от „Здраве“ и го показва в обобщението. Данните остават на този iPhone."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack গত রাতের ঘুম Apple Health থেকে পড়ে এবং সারসংক্ষেপে দেখায়। ডেটা এই iPhone-এই থাকে।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,10 +95,22 @@
             "value" : "MigraTrack lit le sommeil de la nuit dernière dans l’app Santé et l’affiche dans le résumé. Les données restent sur cet iPhone."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ગઈ રાતની ઊંઘ Apple Healthમાંથી વાંચે છે અને તેને સારાંશમાં બતાવે છે. ડેટા આ જ iPhone પર રહે છે."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack קורא את השינה של הלילה האחרון מהיישום ״בריאות״ ומציג אותה בסיכום. הנתונים נשארים ב‑iPhone הזה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack पिछली रात की नींद Apple Health से पढ़ता है और उसे सारांश में दिखाता है। डेटा इसी iPhone पर रहता है।"
           }
         },
         "hr" : {
@@ -131,6 +149,12 @@
             "value" : "MigraTrack кешегі түнгі ұйқыны «Денсаулық» қолданбасынан оқып, шолуда көрсетеді. Деректер осы iPhone-да қалады."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ನಿನ್ನೆ ರಾತ್ರಿಯ ನಿದ್ರೆಯನ್ನು Apple Healthನಿಂದ ಓದಿ ಸಾರಾಂಶದಲ್ಲಿ ತೋರಿಸುತ್ತದೆ. ಡೇಟಾ ಇದೇ iPhoneನಲ್ಲಿ ಉಳಿಯುತ್ತದೆ."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -141,6 +165,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack nuskaito praėjusios nakties miegą iš programos „Sveikata“ ir rodo jį suvestinėje. Duomenys lieka šiame iPhone."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ഇന്നലെ രാത്രിയിലെ ഉറക്കം Apple Health-ൽ നിന്ന് വായിച്ച് സംഗ്രഹത്തിൽ കാണിക്കുന്നു. ഡാറ്റ ഈ iPhone-ൽ തന്നെ നിൽക്കും."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack काल रात्रीची झोप Apple Health मधून वाचते आणि ती सारांशात दाखवते. डेटा याच iPhone वर राहतो."
           }
         },
         "ms" : {
@@ -159,6 +195,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack leest de slaap van vannacht uit de Gezondheid-app en toont die in het overzicht. De gegevens blijven op deze iPhone."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ଗତ ରାତିର ନିଦ Apple Healthରୁ ପଢ଼େ ଏବଂ ତାହା ସାରାଂଶରେ ଦେଖାଏ। ଡାଟା ଏହି iPhoneରେ ହିଁ ରହେ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack ਪਿਛਲੀ ਰਾਤ ਦੀ ਨੀਂਦ Apple Health ਤੋਂ ਪੜ੍ਹਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਸਾਰਾਂਸ਼ ਵਿੱਚ ਦਿਖਾਉਂਦਾ ਹੈ। ਡਾਟਾ ਇਸੇ iPhone 'ਤੇ ਰਹਿੰਦਾ ਹੈ।"
           }
         },
         "pl" : {
@@ -207,6 +255,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MigraTrack läser nattens sömn från appen Hälsa och visar den i Översikt. Datan stannar på den här iPhonen."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack நேற்றிரவு உறக்கத்தை Apple Health-இலிருந்து படித்துச் சுருக்கத்தில் காட்டுகிறது. தரவு இந்த iPhone-இலேயே இருக்கும்."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MigraTrack నిన్న రాత్రి నిద్రను Apple Health నుండి చదివి సారాంశంలో చూపుతుంది. డేటా ఈ iPhoneలోనే ఉంటుంది."
           }
         },
         "th" : {

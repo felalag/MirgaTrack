@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Kannada strings of the iPhone UI. values/strings.xml has the comments for each key: where the text shows,
+  the placeholders and the length limits. docs/LOCALIZATION_GLOSSARY.md gives the terms and their sources.
+  The polite form "ನೀವು" with "-ಿ", and English loanwords where Kannada iOS uses them ("ಸೇವ್", "ಡಿಲೀಟ್", "ಎಡಿಟ್").
+  Kannada has the CLDR plural forms one and other; "one" also takes 0, so each form keeps the number.
+  The Export tab is "ವರದಿ" (report): "ಎಕ್ಸ್‌ಪೋರ್ಟ್" is longer than 10 characters. The duration chips have no unit; the captions name the hours.
+-->
+<resources>
+    <!-- Shared -->
+
+    <string name="font_family">system</string>
+
+    <string name="common_back">ಹಿಂದೆ</string>
+    <string name="common_settings">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
+    <string name="common_cancel">ರದ್ದು</string>
+    <string name="common_ok">ಸರಿ</string>
+    <string name="common_save">ಸೇವ್</string>
+    <string name="common_add">ಸೇರಿಸಿ</string>
+    <string name="common_next">ಮುಂದೆ</string>
+    <string name="common_on">ಆನ್</string>
+    <string name="common_off">ಆಫ್</string>
+    <string name="common_clear">ತೆರವು</string>
+    <string name="common_none">ಯಾವುದೂ ಇಲ್ಲ</string>
+    <string name="common_today">ಇಂದು</string>
+    <string name="common_not_set">ಹೊಂದಿಸಿಲ್ಲ</string>
+    <string name="common_expanded">ತೆರೆದಿದೆ</string>
+    <string name="common_collapsed">ಮುಚ್ಚಿದೆ</string>
+    <string name="common_last_30_days">ಕಳೆದ 30 ದಿನಗಳು</string>
+    <string name="common_medical_disclaimer">MigraTrack ಒಂದು ಡೈರಿ, ವೈದ್ಯಕೀಯ ಸಲಹೆ ಅಲ್ಲ. ಚಿಕಿತ್ಸೆ ಬದಲಿಸುವ ಮೊದಲು ನಿಮ್ಮ ವೈದ್ಯರೊಂದಿಗೆ ಮಾತನಾಡಿ.</string>
+    <string name="common_log_migraine_episode">ಮೈಗ್ರೇನ್ ಅಟ್ಯಾಕ್ ದಾಖಲಿಸಿ</string>
+    <string name="common_save_episode">ಸೇವ್</string>
+    <string name="common_edit_episode">ಅಟ್ಯಾಕ್ ಎಡಿಟ್ ಮಾಡಿ</string>
+    <string name="common_delete_episode">ಅಟ್ಯಾಕ್ ಡಿಲೀಟ್ ಮಾಡಿ</string>
+    <string name="common_intensity_of_ten">ತೀವ್ರತೆ %1$s/10</string>
+    <string name="common_date_at_time">%1$s, %2$sಕ್ಕೆ</string>
+    <string name="common_possible_triggers">ಸಂಭಾವ್ಯ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="common_add_trigger">ಟ್ರಿಗರ್ ಸೇರಿಸಿ</string>
+    <string name="common_add_medication">ಔಷಧ ಸೇರಿಸಿ</string>
+    <string name="common_treatment_blueprint">ಚಿಕಿತ್ಸಾ ಯೋಜನೆ</string>
+    <string name="common_medication_name_and_dose">ಹೆಸರು ಮತ್ತು ಡೋಸ್ ನಮೂದಿಸಿ.</string>
+    <string name="common_medication_placeholder">ಉದಾಹರಣೆಗೆ, ರಿಜಾಟ್ರಿಪ್ಟಾನ್ 10&#160;mg</string>
+
+    <!-- Tab bar and page titles -->
+
+    <string name="tab_summary">ಸಾರಾಂಶ</string>
+    <string name="tab_log">ದಾಖಲಿಸಿ</string>
+    <string name="tab_insights">ವಿಶ್ಲೇಷಣೆ</string>
+    <string name="tab_export">ವರದಿ</string>
+
+    <!-- Shared controls -->
+
+    <string name="pain_scale_label">ನೋವಿನ ತೀವ್ರತೆ</string>
+    <string name="pain_scale_value">10ರಲ್ಲಿ %1$s</string>
+    <string name="pain_scale_low">%1$s ಸೌಮ್ಯ</string>
+    <string name="pain_scale_middle">%1$s ಮಧ್ಯಮ</string>
+    <string name="pain_scale_high">%1$s ಅಸಹನೀಯ</string>
+    <string name="medication_remove">%1$s ತೆಗೆದುಹಾಕಿ</string>
+    <string name="duration_minutes">%1$s ನಿಮಿಷ</string>
+    <string name="duration_hours_minutes">%1$s ಗಂ %2$s ನಿಮಿಷ</string>
+
+    <!-- Summary -->
+
+    <string name="summary_today_date">ಇಂದು, %1$s</string>
+    <plurals name="summary_of_tracked_days">
+        <item quantity="one">ದಿನ, ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ %1$s ದಿನದಲ್ಲಿ</item>
+        <item quantity="other">ದಿನ, ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ %1$s ದಿನಗಳಲ್ಲಿ</item>
+    </plurals>
+    <string name="summary_without_logged_episode">ಯಾವುದೇ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿಲ್ಲ</string>
+    <plurals name="summary_pain_free_a11y">
+        <item quantity="one">ಕಳೆದ 30 ದಿನಗಳಲ್ಲಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ %2$s ದಿನದಲ್ಲಿ %1$s ದಿನ ಯಾವುದೇ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿಲ್ಲ</item>
+        <item quantity="other">ಕಳೆದ 30 ದಿನಗಳಲ್ಲಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿದ %2$s ದಿನಗಳಲ್ಲಿ %1$s ದಿನ ಯಾವುದೇ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿಲ್ಲ</item>
+    </plurals>
+    <string name="summary_tracking_start_note">ನೀವು ಟ್ರ್ಯಾಕ್ ಮಾಡಲು ಆರಂಭಿಸಿದ ದಿನದಿಂದ ಎಣಿಸಲಾಗಿದೆ. ಅದಕ್ಕಿಂತ ಹಿಂದಿನ ದಿನಗಳು ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ.</string>
+    <string name="strip_legend_migraine">ಮೈಗ್ರೇನ್</string>
+    <string name="strip_legend_pain_free">ನೋವಿಲ್ಲ</string>
+    <string name="strip_legend_not_tracked">ಟ್ರ್ಯಾಕ್ ಇಲ್ಲ</string>
+    <string name="summary_sleep_last_night">ನಿನ್ನೆ ರಾತ್ರಿಯ ನಿದ್ರೆ</string>
+    <string name="summary_sleep_not_recorded">ದಾಖಲಾಗಿಲ್ಲ</string>
+    <string name="summary_sleep_hint">ಮಲಗುವಾಗ Apple Watch ಧರಿಸಿ ಅಥವಾ ಆರೋಗ್ಯ ಆ್ಯಪ್‌ನಲ್ಲಿ ನಿದ್ರೆ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ. ನೀವು ಆ್ಯಕ್ಸೆಸ್ ಆಫ್ ಮಾಡಿದ್ದರೆ, ಅದನ್ನು ಸೆಟ್ಟಿಂಗ್ಸ್ › ಆರೋಗ್ಯದಲ್ಲಿ ಆನ್ ಮಾಡಿ.</string>
+    <string name="summary_sleep_caption">ನಿದ್ರೆ</string>
+    <string name="summary_sleep_connect_title">ಸಾರಾಂಶದಲ್ಲಿ ನಿನ್ನೆ ರಾತ್ರಿಯ ನಿದ್ರೆ ನೋಡಿ</string>
+    <string name="summary_sleep_connect_body">MigraTrack ನಿನ್ನೆ ರಾತ್ರಿಯ ನಿದ್ರೆಯನ್ನು Apple Healthನಿಂದ ಓದುತ್ತದೆ. ಡೇಟಾ ಇದೇ iPhoneನಲ್ಲಿ ಉಳಿಯುತ್ತದೆ.</string>
+    <string name="summary_sleep_connect_button">Apple Health ಸಂಪರ್ಕಿಸಿ</string>
+    <string name="summary_last_episode">ಕೊನೆಯ ಅಟ್ಯಾಕ್</string>
+    <string name="summary_last_episode_none">ಇನ್ನೂ ಇಲ್ಲ</string>
+
+    <!-- Episode form -->
+
+    <string name="episode_log_title">ಅಟ್ಯಾಕ್ ದಾಖಲಿಸಿ</string>
+    <string name="episode_update">ಅಟ್ಯಾಕ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ</string>
+    <string name="episode_updated_banner">ಅಟ್ಯಾಕ್ ಅಪ್‌ಡೇಟ್ ಆಯಿತು.</string>
+    <string name="episode_deleted_banner">ಅಟ್ಯಾಕ್ ಡಿಲೀಟ್ ಆಯಿತು.</string>
+    <string name="episode_saved_banner">ಅಟ್ಯಾಕ್ ಸೇವ್ ಆಯಿತು. ವಿಶ್ರಾಂತಿ ಪಡೆಯಿರಿ ಮತ್ತು ಮಂದ ಬೆಳಕಿನಲ್ಲಿರಿ.</string>
+    <string name="episode_pain_intensity_index">ನೋವಿನ ತೀವ್ರತೆ</string>
+    <string name="episode_cranial_epicenter">ತಲೆಯಲ್ಲಿ ನೋವಿನ ಸ್ಥಳ</string>
+    <string name="episode_aura_symptoms">ಔರಾ ಮತ್ತು ಸಂವೇದನಾ ಲಕ್ಷಣಗಳು</string>
+    <string name="episode_acute_therapy">ಅಟ್ಯಾಕ್ ವೇಳೆಯ ಔಷಧ</string>
+    <string name="episode_add_medication_row">ಔಷಧ / ಎಲೆಕ್ಟ್ರೋಲೈಟ್ ದ್ರಾವಣ ಸೇರಿಸಿ</string>
+    <string name="episode_start">ಅಟ್ಯಾಕ್ ಆರಂಭ</string>
+    <string name="episode_start_now">ಈಗ</string>
+    <string name="episode_add_trigger_message">ಈ ಅಟ್ಯಾಕ್‌ಗೂ ಮೊದಲು ಏನಾಗಿತ್ತು?</string>
+    <string name="episode_other_trigger_action">ಇನ್ನೊಂದು ಟ್ರಿಗರ್…</string>
+    <string name="episode_other_trigger_title">ಇನ್ನೊಂದು ಟ್ರಿಗರ್</string>
+    <string name="episode_other_trigger_message">ಈ ಅಟ್ಯಾಕ್‌ಗೂ ಮೊದಲು ನಡೆದ ಏನಾದರೂ ಹೆಸರಿಸಿ.</string>
+    <string name="episode_other_trigger_placeholder">ಉದಾಹರಣೆಗೆ, ತೀವ್ರ ಸುಗಂಧ</string>
+    <string name="episode_add_medication_message">ಈ ಅಟ್ಯಾಕ್‌ಗೆ ನೀವು ಏನು ತೆಗೆದುಕೊಂಡಿರಿ?</string>
+    <string name="episode_other_medication_action">ಇನ್ನೊಂದು ಔಷಧ…</string>
+    <string name="episode_other_medication_title">ಇನ್ನೊಂದು ಔಷಧ</string>
+    <string name="episode_missing_title">ಅಟ್ಯಾಕ್ ಡಿಲೀಟ್ ಆಗಿದೆ</string>
+    <string name="episode_missing_message">ಈ ಅಟ್ಯಾಕ್ ಇನ್ನೊಂದು ಸಾಧನದಲ್ಲಿ ಡಿಲೀಟ್ ಆಗಿದೆ, ಆದ್ದರಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಸೇವ್ ಮಾಡಲು ಆಗುವುದಿಲ್ಲ.</string>
+    <string name="episode_delete_message">ತೀವ್ರತೆ %1$s/10. ಈ ಅಟ್ಯಾಕ್ ನಿಮ್ಮ ಇತಿಹಾಸ ಮತ್ತು ವರದಿಗಳಿಂದ ತೆಗೆದುಹೋಗುತ್ತದೆ.</string>
+
+    <!-- Insights -->
+
+    <string name="insights_period_week">ಸ</string>
+    <string name="insights_period_month">ಮಾ</string>
+    <string name="insights_period_six_months">6ಮಾ</string>
+    <string name="insights_period_year">ವ</string>
+    <plurals name="insights_headline_this_week">
+        <item quantity="one">ಅಟ್ಯಾಕ್ ಈ ವಾರ</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು ಈ ವಾರ</item>
+    </plurals>
+    <plurals name="insights_headline_week_of">
+        <item quantity="one">ಅಟ್ಯಾಕ್, %1$s ವಾರದಲ್ಲಿ</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು, %1$s ವಾರದಲ್ಲಿ</item>
+    </plurals>
+    <plurals name="insights_headline_month">
+        <item quantity="one">ಅಟ್ಯಾಕ್, %1$sನಲ್ಲಿ</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು, %1$sನಲ್ಲಿ</item>
+    </plurals>
+    <plurals name="insights_headline_six_months">
+        <item quantity="one">ಅಟ್ಯಾಕ್, 6 ತಿಂಗಳಲ್ಲಿ</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು, 6 ತಿಂಗಳಲ್ಲಿ</item>
+    </plurals>
+    <plurals name="insights_headline_year">
+        <item quantity="one">ಅಟ್ಯಾಕ್, %1$sರಲ್ಲಿ</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು, %1$sರಲ್ಲಿ</item>
+    </plurals>
+    <string name="insights_trend_fewer">ಹಿಂದಿನ ಅವಧಿಗಿಂತ %1$s ಶೇಕಡಾ ಕಡಿಮೆ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="insights_trend_more">ಹಿಂದಿನ ಅವಧಿಗಿಂತ %1$s ಶೇಕಡಾ ಹೆಚ್ಚು ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="insights_legend_migraine_day">ಮೈಗ್ರೇನ್ ದಿನ</string>
+    <string name="insights_legend_pain_free_day">ನೋವಿಲ್ಲದ ದಿನ</string>
+    <string name="insights_legend_not_tracked">ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ</string>
+    <string name="insights_bar_no_data">%1$s: ಇನ್ನೂ ಡೇಟಾ ಇಲ್ಲ</string>
+    <string name="insights_bar_not_tracked">%1$s: ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ</string>
+    <string name="insights_bar_pain_free">%1$s: ನೋವಿಲ್ಲ</string>
+    <plurals name="insights_bar_migraine_days">
+        <item quantity="one">%1$s: %2$s ಮೈಗ್ರೇನ್ ದಿನ, ಗರಿಷ್ಠ 10ರಲ್ಲಿ %3$s</item>
+        <item quantity="other">%1$s: %2$s ಮೈಗ್ರೇನ್ ದಿನಗಳು, ಗರಿಷ್ಠ 10ರಲ್ಲಿ %3$s</item>
+    </plurals>
+    <string name="insights_triggers_empty">ಅಟ್ಯಾಕ್ ದಾಖಲಿಸುವಾಗ ಅಥವಾ ಎಡಿಟ್ ಮಾಡುವಾಗ ಸಂಭಾವ್ಯ ಟ್ರಿಗರ್‌ಗಳನ್ನು ಬರೆಯಿರಿ. ಆಗ ಈ ಕಾರ್ಡ್ ನೀವು ಪ್ರತಿ ಟ್ರಿಗರ್ ಎಷ್ಟು ಬಾರಿ ಬರೆದಿದ್ದೀರಿ ಎಂದು ತೋರಿಸುತ್ತದೆ.</string>
+    <string name="insights_triggers_hint">ಅಟ್ಯಾಕ್ ಜೊತೆ ನೀವು ಪ್ರತಿ ಟ್ರಿಗರ್ ಎಷ್ಟು ಬಾರಿ ಬರೆದಿದ್ದೀರಿ. ಇದು ಕಾರಣವನ್ನು ತೋರಿಸುವುದಿಲ್ಲ.</string>
+    <plurals name="insights_trigger_row_a11y">
+        <item quantity="one">%1$s, %3$s ಅಟ್ಯಾಕ್‌ನಲ್ಲಿ %2$sರಲ್ಲಿ ಬರೆಯಲಾಗಿದೆ</item>
+        <item quantity="other">%1$s, %3$s ಅಟ್ಯಾಕ್‌ಗಳಲ್ಲಿ %2$sರಲ್ಲಿ ಬರೆಯಲಾಗಿದೆ</item>
+    </plurals>
+    <string name="insights_trigger_row_count">%1$s/%2$s</string>
+    <string name="insights_calendar_a11y">ಕ್ಯಾಲೆಂಡರ್, %1$s</string>
+    <plurals name="insights_choose_episode_message">
+        <item quantity="one">%1$s ರಂದು %2$s ಅಟ್ಯಾಕ್ ಇದೆ.</item>
+        <item quantity="other">%1$s ರಂದು %2$s ಅಟ್ಯಾಕ್‌ಗಳಿವೆ.</item>
+    </plurals>
+    <string name="insights_episode_option">%1$s · ತೀವ್ರತೆ %2$s/10</string>
+    <string name="insights_month_picker_title">ತಿಂಗಳು</string>
+
+    <!-- Insights calendar -->
+
+    <string name="calendar_previous_month">ಹಿಂದಿನ ತಿಂಗಳು</string>
+    <string name="calendar_next_month">ಮುಂದಿನ ತಿಂಗಳು</string>
+    <string name="calendar_choose_month_a11y">%1$s, ಬೇರೆ ತಿಂಗಳು ಆಯ್ಕೆಮಾಡಿ</string>
+    <plurals name="calendar_migraine_days">
+        <item quantity="one">%1$s ಮೈಗ್ರೇನ್ ದಿನ</item>
+        <item quantity="other">%1$s ಮೈಗ್ರೇನ್ ದಿನಗಳು</item>
+    </plurals>
+    <string name="calendar_day_a11y">%1$s, %2$s</string>
+    <string name="calendar_day_today_a11y">ಇಂದು, %1$s, %2$s</string>
+    <string name="calendar_day_not_available">ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="calendar_day_not_tracked">ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ</string>
+    <string name="calendar_day_no_episodes">ಅಟ್ಯಾಕ್ ಇಲ್ಲ</string>
+    <plurals name="calendar_day_episodes">
+        <item quantity="one">%1$s ಅಟ್ಯಾಕ್, ಗರಿಷ್ಠ 10ರಲ್ಲಿ %2$s</item>
+        <item quantity="other">%1$s ಅಟ್ಯಾಕ್‌ಗಳು, ಗರಿಷ್ಠ 10ರಲ್ಲಿ %2$s</item>
+    </plurals>
+    <plurals name="calendar_day_episode_count">
+        <item quantity="one">%1$s ಅಟ್ಯಾಕ್</item>
+        <item quantity="other">%1$s ಅಟ್ಯಾಕ್‌ಗಳು</item>
+    </plurals>
+    <string name="calendar_day_header">%1$s · %2$s</string>
+    <string name="calendar_peak_intensity">ಗರಿಷ್ಠ ತೀವ್ರತೆ</string>
+    <string name="calendar_out_of_ten">/10</string>
+    <string name="calendar_medication">ಔಷಧಗಳು</string>
+    <string name="calendar_edit_episode_details">ಅಟ್ಯಾಕ್ ವಿವರ ಎಡಿಟ್ ಮಾಡಿ</string>
+
+    <!-- Export -->
+
+    <string name="export_preparing_pdf">PDF ಸಿದ್ಧವಾಗುತ್ತಿದೆ…</string>
+    <string name="export_preparing_excel">Excel ಸಿದ್ಧವಾಗುತ್ತಿದೆ…</string>
+    <string name="export_preparing_report">ವರದಿ ಸಿದ್ಧವಾಗುತ್ತಿದೆ…</string>
+    <plurals name="export_episodes_unit">
+        <item quantity="one">ಅಟ್ಯಾಕ್</item>
+        <item quantity="other">ಅಟ್ಯಾಕ್‌ಗಳು</item>
+    </plurals>
+    <string name="export_episodes_recorded">ದಾಖಲಾದ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="export_include">ವರದಿಯಲ್ಲಿ ಸೇರಿಸಿ</string>
+    <string name="export_medications">ತೆಗೆದುಕೊಂಡ ಔಷಧಗಳು</string>
+    <string name="export_medications_subtitle">ಡೋಸ್‌ಗಳು ಮತ್ತು ಒಟ್ಟು ಬಳಕೆ</string>
+    <string name="export_symptoms">ಔರಾ ಮತ್ತು ಎಚ್ಚರಿಕೆ ಲಕ್ಷಣಗಳು</string>
+    <string name="export_symptoms_subtitle">ಔರಾದ ಪ್ರಕಾರಗಳು ಮತ್ತು ಅವುಗಳ ಸಂಖ್ಯೆ</string>
+    <string name="export_triggers_subtitle">ಬರೆದ ಟ್ರಿಗರ್‌ಗಳು ಮತ್ತು ಅವುಗಳ ಸಂಖ್ಯೆ</string>
+    <string name="export_pain_charts">ನೋವಿನ ತೀವ್ರತೆಯ ಚಾರ್ಟ್‌ಗಳು</string>
+    <string name="export_pain_charts_subtitle">ಕಾಲಾನುಕ್ರಮದಲ್ಲಿ ನೋವಿನ ತೀವ್ರತೆ, 1&#8288;–&#8288;10</string>
+    <string name="export_pdf">PDF ವರದಿ ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ</string>
+    <string name="export_excel">Excel (.xlsx) ಎಕ್ಸ್‌ಪೋರ್ಟ್</string>
+    <string name="export_share">ಹಂಚಿಕೊಳ್ಳಿ</string>
+    <string name="export_range_title">ವರದಿಯ ಅವಧಿ</string>
+    <plurals name="export_share_text">
+        <item quantity="one">MigraTrack ವರದಿ: %1$s ಅಟ್ಯಾಕ್, %2$s.</item>
+        <item quantity="other">MigraTrack ವರದಿ: %1$s ಅಟ್ಯಾಕ್‌ಗಳು, %2$s.</item>
+    </plurals>
+    <string name="export_failed_title">ಎಕ್ಸ್‌ಪೋರ್ಟ್ ವಿಫಲವಾಯಿತು</string>
+    <string name="export_failed_message">ವರದಿಯನ್ನು ರಚಿಸಲು ಆಗಲಿಲ್ಲ.</string>
+    <string name="export_write_failed">%1$s ಸೇವ್ ಮಾಡಲು ಆಗಲಿಲ್ಲ</string>
+
+    <!-- Settings -->
+
+    <plurals name="settings_known_triggers_count">
+        <item quantity="one">%1$s ತಿಳಿದ ಟ್ರಿಗರ್</item>
+        <item quantity="other">%1$s ತಿಳಿದ ಟ್ರಿಗರ್‌ಗಳು</item>
+    </plurals>
+    <string name="settings_no_triggers">ಯಾವುದೇ ಟ್ರಿಗರ್ ಆಯ್ಕೆಯಾಗಿಲ್ಲ</string>
+    <string name="settings_no_medications">ಯಾವುದೇ ಔಷಧ ಆಯ್ಕೆಯಾಗಿಲ್ಲ</string>
+    <string name="settings_name_title">ನಿಮ್ಮ ಹೆಸರು</string>
+    <string name="settings_name_message">ನೀವು ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡುವ ವರದಿಗಳಲ್ಲಿ ಇದು ಕಾಣಿಸುತ್ತದೆ.</string>
+    <string name="settings_name_placeholder">ಹೆಸರು</string>
+    <string name="settings_delete_title">ಎಲ್ಲ ಡೇಟಾ ಡಿಲೀಟ್ ಮಾಡಬೇಕೆ?</string>
+    <string name="settings_delete_message">MigraTrack ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಈ iPhoneನಲ್ಲಿ ಮತ್ತು ಅದರ ಒಂದು ಪ್ರತಿಯನ್ನು ನಿಮ್ಮ Apple Watchನಲ್ಲಿ ಇಡುತ್ತದೆ. ಇದು ಪ್ರತಿ ಅಟ್ಯಾಕ್ ಮತ್ತು ನಿಮ್ಮ ಆರಂಭಿಕ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಶಾಶ್ವತವಾಗಿ ಡಿಲೀಟ್ ಮಾಡುತ್ತದೆ; ವಾಚ್ ಮುಂದಿನ ಸಿಂಕ್‌ನಲ್ಲಿ ತನ್ನ ಪ್ರತಿಯನ್ನು ಡಿಲೀಟ್ ಮಾಡುತ್ತದೆ. ಸಾಧನದ ಬ್ಯಾಕಪ್‌ಗಳಲ್ಲಿ ಅವುಗಳ ಪ್ರತಿ ಉಳಿಯುತ್ತದೆ. ವರದಿ ಬೇಕಿದ್ದರೆ ಮೊದಲು ಅದನ್ನು ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ.</string>
+    <string name="settings_delete_all">ಎಲ್ಲ ಡೇಟಾ ಡಿಲೀಟ್ ಮಾಡಿ</string>
+    <string name="settings_section_baseline">ಕ್ಲಿನಿಕಲ್ ಮಾಹಿತಿ ಮತ್ತು ಪ್ರೋಟೋಕಾಲ್</string>
+    <string name="settings_baseline_diagnoses">ರೋಗನಿರ್ಣಯ</string>
+    <string name="settings_known_triggers">ತಿಳಿದ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="settings_section_preferences">ಆದ್ಯತೆಗಳು</string>
+    <string name="settings_appearance">ನೋಟ</string>
+    <string name="settings_appearance_value">ಡಾರ್ಕ್ (ಸ್ಥಿರ)</string>
+    <string name="settings_version">ಆವೃತ್ತಿ</string>
+    <string name="settings_version_value">v%1$s (ಬಿಲ್ಡ್ %2$s)</string>
+    <string name="settings_section_legal">ಕಾನೂನು</string>
+    <string name="settings_section_developer">ಡೆವಲಪರ್</string>
+    <string name="settings_load_sample_data">ಮಾದರಿ ಡೇಟಾ ಲೋಡ್ ಮಾಡಿ</string>
+    <string name="settings_load_sample_data_subtitle">ಚಾರ್ಟ್‌ಗಳನ್ನು ನೋಡಲು ಒಂದು ವರ್ಷದ ರಚಿಸಿದ ಅಟ್ಯಾಕ್‌ಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ</string>
+    <string name="settings_edit_name_a11y">ಹೆಸರು ಎಡಿಟ್ ಮಾಡಿ</string>
+    <string name="settings_add_name">ನಿಮ್ಮ ಹೆಸರು ಸೇರಿಸಿ</string>
+    <string name="settings_member">ಆರಂಭ</string>
+    <string name="settings_episodes">ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <plurals name="settings_episodes_logged">
+        <item quantity="one">%1$s ದಾಖಲಾಗಿದೆ</item>
+        <item quantity="other">%1$s ದಾಖಲಾಗಿವೆ</item>
+    </plurals>
+
+    <!-- Legal -->
+
+    <string name="legal_privacy_policy">ಗೌಪ್ಯತಾ ನೀತಿ</string>
+    <string name="legal_terms_of_service">ಸೇವಾ ನಿಯಮಗಳು</string>
+    <string name="legal_folder">kn</string>
+
+    <!-- Onboarding -->
+
+    <string name="onboarding_continue_to_triggers">ಟ್ರಿಗರ್‌ಗಳಿಗೆ ಮುಂದುವರಿಯಿರಿ</string>
+    <string name="onboarding_continue_to_medications">ಔಷಧಗಳಿಗೆ ಮುಂದುವರಿಯಿರಿ</string>
+    <string name="onboarding_finish_setup">ಸೆಟಪ್ ಮುಗಿಸಿ</string>
+    <string name="onboarding_back_to_diagnoses">ರೋಗನಿರ್ಣಯಕ್ಕೆ ಹಿಂದೆ</string>
+    <string name="onboarding_back_to_triggers">ಟ್ರಿಗರ್‌ಗಳಿಗೆ ಹಿಂದೆ</string>
+    <string name="onboarding_save_changes">ಬದಲಾವಣೆ ಸೇವ್ ಮಾಡಿ</string>
+    <string name="onboarding_step">ಹಂತ %1$s/%2$s</string>
+    <string name="onboarding_diagnoses_title">ರೋಗನಿರ್ಣಯ ಮತ್ತು ಇತಿಹಾಸ</string>
+    <string name="onboarding_diagnoses_subtitle">ನಿಮ್ಮ ಆರಂಭಿಕ ಪ್ರೊಫೈಲ್ ಹೊಂದಿಸಿ. ನಿಮ್ಮ ಅಟ್ಯಾಕ್‌ಗಳು ಮತ್ತು ವರದಿಗಳು ಇದರಿಂದ ಆರಂಭವಾಗುತ್ತವೆ.</string>
+    <string name="onboarding_primary_diagnosis">ಮುಖ್ಯ ರೋಗನಿರ್ಣಯ</string>
+    <string name="onboarding_episode_frequency">ತಿಂಗಳಿಗೆ ಎಷ್ಟು ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="onboarding_episode_duration">ಸಾಮಾನ್ಯವಾಗಿ ಅಟ್ಯಾಕ್ ಎಷ್ಟು ಹೊತ್ತು (ಗಂಟೆ)</string>
+    <string name="onboarding_intensity_baseline">ನೋವಿನ ಸಾಮಾನ್ಯ ತೀವ್ರತೆ</string>
+    <string name="onboarding_update_later">ನಿಮ್ಮ ಆರಂಭಿಕ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಸೆಟ್ಟಿಂಗ್ಸ್‌ನಲ್ಲಿ ಬದಲಿಸಬಹುದು.</string>
+    <string name="onboarding_triggers_title">ನಿಮ್ಮ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="onboarding_triggers_subtitle">ನಿಮಗೆ ತಿಳಿದ ಅಥವಾ ಸಂಶಯದ ಟ್ರಿಗರ್‌ಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ. ನಿಮ್ಮ ವರದಿ ಅವುಗಳನ್ನು ನಿಮ್ಮ ವೈದ್ಯರಿಗಾಗಿ ತೋರಿಸುತ್ತದೆ.</string>
+    <string name="onboarding_add_custom_trigger">ನಿಮ್ಮದೇ ಟ್ರಿಗರ್ ಸೇರಿಸಿ</string>
+    <string name="onboarding_treatment_subtitle">ನೀವು ಏನು ತೆಗೆದುಕೊಳ್ಳುತ್ತೀರಿ ಎಂದು ಆಯ್ಕೆಮಾಡಿ. ಅಟ್ಯಾಕ್ ವೇಳೆಯ ಔಷಧಗಳು ಪ್ರತಿ ಹೊಸ ಅಟ್ಯಾಕ್‌ನಲ್ಲಿ ಮೊದಲೇ ತುಂಬಿರುತ್ತವೆ, ಆದ್ದರಿಂದ ದಾಖಲಿಸಲು ಒಂದು ಟ್ಯಾಪ್ ಸಾಕು.</string>
+    <string name="onboarding_add_custom_medication">ನಿಮ್ಮದೇ ಔಷಧ ಸೇರಿಸಿ</string>
+    <string name="onboarding_custom_trigger_title">ನಿಮ್ಮದೇ ಟ್ರಿಗರ್ ಸೇರಿಸಿ</string>
+    <string name="onboarding_custom_trigger_message">ನಿಮ್ಮ ಮೈಗ್ರೇನ್ ಅನ್ನು ಆಗಾಗ ಆರಂಭಿಸುವ ಏನಾದರೂ ಹೆಸರಿಸಿ.</string>
+    <string name="onboarding_custom_trigger_placeholder">ಉದಾಹರಣೆಗೆ, ಮಿನುಗುವ ಬೆಳಕು</string>
+    <string name="onboarding_medication_role_message">ನೀವು ಇದನ್ನು ಯಾವಾಗ ತೆಗೆದುಕೊಳ್ಳುತ್ತೀರಿ?</string>
+    <string name="onboarding_medication_role_acute">ಅಟ್ಯಾಕ್ ವೇಳೆ (ಅಕ್ಯೂಟ್)</string>
+    <string name="onboarding_medication_role_preventive">ಪ್ರತಿದಿನ (ತಡೆಗಟ್ಟುವಿಕೆ)</string>
+
+    <!-- Welcome -->
+
+    <string name="welcome_tagline">ಮೈಗ್ರೇನ್ ಮತ್ತು ಟ್ರಿಗರ್‌ಗಳ ವೈಯಕ್ತಿಕ ಟ್ರ್ಯಾಕರ್</string>
+    <string name="welcome_example">ಉದಾಹರಣೆ</string>
+    <plurals name="welcome_pain_free_days">
+        <item quantity="one">ನೋವಿಲ್ಲದ ದಿನ</item>
+        <item quantity="other">ನೋವಿಲ್ಲದ ದಿನಗಳು</item>
+    </plurals>
+    <plurals name="welcome_example_a11y">
+        <item quantity="one">ಉದಾಹರಣೆ: ಕಳೆದ 30 ದಿನಗಳಲ್ಲಿ %1$s ನೋವಿಲ್ಲದ ದಿನ</item>
+        <item quantity="other">ಉದಾಹರಣೆ: ಕಳೆದ 30 ದಿನಗಳಲ್ಲಿ %1$s ನೋವಿಲ್ಲದ ದಿನಗಳು</item>
+    </plurals>
+    <string name="welcome_headline_patterns">ನಿಮ್ಮ ಪ್ಯಾಟರ್ನ್ ಅರಿಯಿರಿ.</string>
+    <string name="welcome_headline_doctor">ವೈದ್ಯರ ಬಳಿ ಸತ್ಯಾಂಶಗಳನ್ನು ಒಯ್ಯಿರಿ.</string>
+    <string name="welcome_body">ಲಕ್ಷಣಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ, ಸಂಭಾವ್ಯ ಟ್ರಿಗರ್‌ಗಳನ್ನು ಗುರುತಿಸಿ ಮತ್ತು ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ವರದಿಗಳನ್ನು ಯಾವಾಗ ಬೇಕಾದರೂ ಎಕ್ಸ್‌ಪೋರ್ಟ್ ಮಾಡಿ.</string>
+    <string name="welcome_get_started">ಆರಂಭಿಸಿ</string>
+    <string name="welcome_agreement">ಮುಂದುವರಿಯುವ ಮೂಲಕ ನೀವು %1$s ಮತ್ತು %2$s ಗೆ ಒಪ್ಪುತ್ತೀರಿ.</string>
+
+    <!-- Catalog: diagnoses, profile choices, episode details -->
+
+    <string name="diagnosis_migraine_without_aura">ಔರಾ ಇಲ್ಲದ ಮೈಗ್ರೇನ್</string>
+    <string name="diagnosis_migraine_without_aura_subtitle">ಮೈಗ್ರೇನ್‌ನ ಸಾಮಾನ್ಯ ವಿಧ</string>
+    <string name="diagnosis_migraine_with_aura">ಔರಾ ಸಹಿತ ಮೈಗ್ರೇನ್</string>
+    <string name="diagnosis_migraine_with_aura_subtitle">ದೃಷ್ಟಿ ಅಥವಾ ಸಂವೇದನೆಯ ಔರಾ</string>
+    <string name="diagnosis_chronic_migraine">ಕ್ರಾನಿಕ್ ಮೈಗ್ರೇನ್</string>
+    <string name="diagnosis_chronic_migraine_subtitle">ತಿಂಗಳಲ್ಲಿ 15 ಅಥವಾ ಹೆಚ್ಚು ದಿನ ತಲೆನೋವು</string>
+    <string name="diagnosis_tension_type">ಟೆನ್ಶನ್-ಟೈಪ್ ತಲೆನೋವು</string>
+    <string name="diagnosis_tension_type_subtitle">ತಲೆಯ ಸುತ್ತ ಪಟ್ಟಿಯಂತಹ ಒತ್ತಡ</string>
+    <string name="diagnosis_cluster">ಕ್ಲಸ್ಟರ್ ತಲೆನೋವು</string>
+    <string name="diagnosis_cluster_subtitle">ಒಂದು ಕಣ್ಣಿನ ಸುತ್ತ ತೀವ್ರ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="diagnosis_not_diagnosed">ರೋಗನಿರ್ಣಯ ಆಗಿಲ್ಲ / ಪರೀಕ್ಷೆ ನಡೆಯುತ್ತಿದೆ</string>
+    <string name="diagnosis_not_diagnosed_subtitle">ಲಕ್ಷಣಗಳ ಪ್ಯಾಟರ್ನ್ ಗಮನಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="frequency_less_than_one">&lt; 1/ಮಾಸ</string>
+    <string name="frequency_one_to_four">1–4/ಮಾಸ</string>
+    <string name="frequency_five_to_eight">5–7/ಮಾಸ</string>
+    <string name="frequency_eight_plus">8+/ಮಾಸ</string>
+    <string name="duration_two_to_four">2–4</string>
+    <string name="duration_four_to_twelve">4–12</string>
+    <string name="duration_twelve_to_twenty_four">12–24</string>
+    <string name="duration_one_to_three_days">24–72</string>
+    <string name="region_left_temple">ಎಡ ಕಣತಲೆ</string>
+    <string name="region_right_temple">ಬಲ ಕಣತಲೆ</string>
+    <string name="region_frontal_brow">ಹಣೆ / ಹುಬ್ಬು</string>
+    <string name="region_retro_orbital">ಕಣ್ಣಿನ ಹಿಂದೆ</string>
+    <string name="region_occipital_neck">ತಲೆಯ ಹಿಂಭಾಗ ಮತ್ತು ಕುತ್ತಿಗೆ</string>
+    <string name="symptom_scintillating_scotoma">ಮಿನುಗುವ ಸ್ಕೋಟೋಮಾ (ದೃಷ್ಟಿ)</string>
+    <string name="symptom_scintillating_scotoma_short">ದೃಷ್ಟಿ ಔರಾ</string>
+    <string name="symptom_neck_stiffness">ಕುತ್ತಿಗೆ ಬಿಗಿತ</string>
+    <string name="symptom_neck_stiffness_short">ಕುತ್ತಿಗೆ ಬಿಗಿತ</string>
+    <string name="symptom_photophobia">ಬೆಳಕಿನಿಂದ ತೊಂದರೆ (ಫೋಟೋಫೋಬಿಯಾ)</string>
+    <string name="symptom_photophobia_short">ಬೆಳಕು</string>
+    <string name="symptom_nausea">ವಾಕರಿಕೆ</string>
+    <string name="symptom_nausea_short">ವಾಕರಿಕೆ</string>
+    <string name="symptom_phonophobia">ಶಬ್ದದಿಂದ ತೊಂದರೆ (ಫೋನೋಫೋಬಿಯಾ)</string>
+    <string name="symptom_phonophobia_short">ಶಬ್ದ</string>
+    <string name="symptom_aphasia">ಮಾತನಾಡಲು ಕಷ್ಟ (ಅಫೇಸಿಯಾ) / ಮಂಜಾದ ಮನಸ್ಸು</string>
+    <string name="symptom_aphasia_short">ಮಂಜಾದ ಮನಸ್ಸು</string>
+    <string name="symptom_paresthesia">ಜುಮ್ಮೆನಿಸುವಿಕೆ / ಪ್ಯಾರೆಸ್ತೀಸಿಯಾ</string>
+    <string name="symptom_paresthesia_short">ಜುಮ್ಮೆನಿಸುವಿಕೆ</string>
+    <string name="trigger_category_weather_environment">ಹವಾಮಾನ ಮತ್ತು ಪರಿಸರ</string>
+    <string name="trigger_category_sleep_physical">ನಿದ್ರೆ ಮತ್ತು ದೈಹಿಕ ದಿನಚರಿ</string>
+    <string name="trigger_category_stress_emotions">ಒತ್ತಡ ಮತ್ತು ಭಾವನೆಗಳು</string>
+    <string name="trigger_category_hormonal">ಹಾರ್ಮೋನ್</string>
+    <string name="trigger_category_diet_consumption">ಆಹಾರ ಮತ್ತು ಪಾನೀಯ</string>
+    <string name="trigger_category_custom">ನಿಮ್ಮದೇ</string>
+    <string name="medication_role_acute">ಅಟ್ಯಾಕ್ ವೇಳೆ (ಅಕ್ಯೂಟ್)</string>
+    <string name="medication_role_preventive">ತಡೆಗಟ್ಟುವಿಕೆ ಮತ್ತು ಪೂರಕಗಳು</string>
+    <string name="export_range_last_30_days">ಕಳೆದ 30 ದಿನಗಳು</string>
+    <string name="export_range_last_90_days">ಕಳೆದ 90 ದಿನಗಳು</string>
+    <string name="export_range_last_6_months">ಕಳೆದ 6 ತಿಂಗಳು</string>
+    <string name="export_range_last_12_months">ಕಳೆದ 12 ತಿಂಗಳು</string>
+
+    <!-- Catalog: built-in triggers -->
+
+    <string name="trigger_barometric_pressure">ವಾಯುಭಾರ ಕುಸಿತ</string>
+    <string name="trigger_barometric_pressure_description">ಹವಾಮಾನ ಬದಲಾವಣೆ, ಎತ್ತರದ ಬದಲಾವಣೆ</string>
+    <string name="trigger_bright_light">ಪ್ರಖರ ಬೆಳಕು ಮತ್ತು ಬಿಸಿಲು</string>
+    <string name="trigger_bright_light_description">ಕಣ್ಣು ಕೋರೈಸುವ ಬೆಳಕು, ಮಿನುಗು, ಫೋಟೋಫೋಬಿಯಾ</string>
+    <string name="trigger_heat_humidity">ಅತಿಯಾದ ಬಿಸಿ / ತೇವಾಂಶ</string>
+    <string name="trigger_heat_humidity_description">ತಾಪಮಾನದ ಏರಿಳಿತ</string>
+    <string name="trigger_loud_noise">ಜೋರಾದ ಶಬ್ದ</string>
+    <string name="trigger_loud_noise_description">ಫೋನೋಫೋಬಿಯಾ, ಹಠಾತ್ ಜೋರಾದ ಶಬ್ದ</string>
+    <string name="trigger_poor_sleep">ಕಡಿಮೆ / ಅನಿಯಮಿತ ನಿದ್ರೆ</string>
+    <string name="trigger_poor_sleep_description">ನಿದ್ರೆಯ ಕೊರತೆ, REM ನಿದ್ರೆಯ ಕೊರತೆ</string>
+    <string name="trigger_dehydration">ನಿರ್ಜಲೀಕರಣ</string>
+    <string name="trigger_dehydration_description">ಎಲೆಕ್ಟ್ರೋಲೈಟ್ ಕೊರತೆ</string>
+    <string name="trigger_skipped_meals">ಊಟ ಬಿಡುವುದು / ಉಪವಾಸ</string>
+    <string name="trigger_skipped_meals_description">ರಕ್ತದಲ್ಲಿ ಸಕ್ಕರೆ ಇಳಿಕೆ</string>
+    <string name="trigger_overexertion">ಅತಿಯಾದ ದೈಹಿಕ ಶ್ರಮ</string>
+    <string name="trigger_overexertion_description">ಶ್ರಮದಿಂದ ರಕ್ತನಾಳಗಳ ಮೇಲೆ ಒತ್ತಡ</string>
+    <string name="trigger_emotional_stress">ಮಾನಸಿಕ ಒತ್ತಡ / ಒತ್ತಡದ ನಂತರ</string>
+    <string name="trigger_emotional_stress_description">ಕೆಲಸದ ಒತ್ತಡ ಮುಗಿದ ನಂತರ</string>
+    <string name="trigger_screen_fatigue">ಸ್ಕ್ರೀನ್ ಆಯಾಸ</string>
+    <string name="trigger_screen_fatigue_description">ನೀಲಿ ಬೆಳಕು, ಕಣ್ಣಿನ ಮೇಲೆ ಒತ್ತಡ</string>
+    <string name="trigger_hormonal_cycle">ಹಾರ್ಮೋನ್ ಬದಲಾವಣೆ / ಋತುಚಕ್ರ</string>
+    <string name="trigger_hormonal_cycle_description">ಮಾಸಿಕ ಚಕ್ರದ ಬದಲಾವಣೆ</string>
+    <string name="trigger_caffeine">ಕೆಫೀನ್ ಬಿಡುವುದು / ಹೆಚ್ಚು ಕೆಫೀನ್</string>
+    <string name="trigger_caffeine_description">ಅಡೆನೊಸಿನ್ ರಿಸೆಪ್ಟರ್ ಬದಲಾವಣೆ</string>
+    <string name="trigger_aged_cheese">ಹಳೆಯ ಚೀಸ್ / ಟೈರಮೈನ್</string>
+    <string name="trigger_aged_cheese_description">ಹುದುಗಿಸಿದ ಅಮೈನ್‌ಗಳಿಗೆ ಸಂವೇದನೆ</string>
+    <string name="trigger_alcohol">ಮದ್ಯ / ರೆಡ್ ವೈನ್</string>
+    <string name="trigger_alcohol_description">ಟ್ಯಾನಿನ್, ಹಿಸ್ಟಮೈನ್</string>
+    <string name="trigger_sweeteners">ಕೃತಕ ಸಿಹಿಕಾರಕಗಳು</string>
+    <string name="trigger_sweeteners_description">ಆಸ್ಪರ್ಟೇಮ್, ಸುಕ್ರಲೋಸ್</string>
+    <string name="trigger_custom_description">ನಿಮ್ಮದೇ ಟ್ರಿಗರ್</string>
+
+    <!-- Catalog: built-in medications. The Kannada transliteration of each international name; paracetamol, as India names acetaminophen; "mg" as Indian packs write it. -->
+
+    <string name="medication_ibuprofen_400">ಐಬುಪ್ರೊಫೆನ್</string>
+    <string name="medication_ibuprofen_400_class">ಉರಿಯೂತ ನಿವಾರಕ ಸಹಾಯಕ ಔಷಧ</string>
+    <string name="medication_sumatriptan_50">ಸುಮಾಟ್ರಿಪ್ಟಾನ್</string>
+    <string name="medication_sumatriptan_50_class">ಟ್ರಿಪ್ಟಾನ್, ಸಿರೊಟೋನಿನ್ ಅಗೊನಿಸ್ಟ್</string>
+    <string name="medication_rizatriptan_10">ರಿಜಾಟ್ರಿಪ್ಟಾನ್</string>
+    <string name="medication_rizatriptan_10_class">ಟ್ರಿಪ್ಟಾನ್, ಬಾಯಲ್ಲಿ ಕರಗುವ</string>
+    <string name="medication_naproxen_500">ನ್ಯಾಪ್ರೊಕ್ಸೆನ್</string>
+    <string name="medication_naproxen_500_class">ದೀರ್ಘ ಪರಿಣಾಮದ NSAID</string>
+    <string name="medication_acetaminophen_1000">ಪ್ಯಾರಸಿಟಮಾಲ್</string>
+    <string name="medication_acetaminophen_1000_class">ನೋವು ನಿವಾರಕ</string>
+    <string name="medication_ubrogepant_100">ಉಬ್ರೊಜೆಪಾಂಟ್</string>
+    <string name="medication_ubrogepant_100_class">ಜೆಪಾಂಟ್, CGRP ಪ್ರತಿರೋಧಕ</string>
+    <string name="medication_metoclopramide_10">ಮೆಟೊಕ್ಲೊಪ್ರಮೈಡ್</string>
+    <string name="medication_metoclopramide_10_class">ವಾಂತಿ ನಿರೋಧಕ</string>
+    <string name="medication_electrolytes">ಎಲೆಕ್ಟ್ರೋಲೈಟ್ ದ್ರಾವಣ</string>
+    <string name="medication_electrolytes_class">ಒಆರ್‌ಎಸ್</string>
+    <string name="medication_riboflavin_400">ರೈಬೋಫ್ಲೇವಿನ್</string>
+    <string name="medication_riboflavin_400_class">ವಿಟಮಿನ್ B2</string>
+    <string name="medication_magnesium_400">ಮೆಗ್ನೀಸಿಯಮ್</string>
+    <string name="medication_magnesium_400_class">ಖನಿಜ ಪೂರಕ</string>
+    <string name="medication_propranolol_40">ಪ್ರೊಪ್ರಾನೊಲಾಲ್</string>
+    <string name="medication_propranolol_40_class">ಬೀಟಾ ಬ್ಲಾಕರ್</string>
+    <string name="medication_topiramate_50">ಟೋಪಿರಾಮೇಟ್</string>
+    <string name="medication_topiramate_50_class">ಸೆಳವು ನಿರೋಧಕ</string>
+    <string name="medication_amitriptyline_10">ಅಮಿಟ್ರಿಪ್ಟಿಲಿನ್</string>
+    <string name="medication_amitriptyline_10_class">ಟ್ರೈಸೈಕ್ಲಿಕ್ ಖಿನ್ನತೆ ನಿರೋಧಕ</string>
+    <string name="medication_erenumab_70">ಎರೆನುಮ್ಯಾಬ್</string>
+    <string name="medication_erenumab_70_class">CGRP ಪ್ರತಿಕಾಯ, ತಿಂಗಳಿಗೊಮ್ಮೆ</string>
+    <string name="medication_custom_class">ನಿಮ್ಮದೇ ಔಷಧ</string>
+    <string name="medication_dose_milligrams">%1$s&#160;mg</string>
+    <string name="medication_name_and_dose">%1$s %2$s</string>
+
+    <!-- Insights, catalog related -->
+    <string name="insights_bar_week">ಸ%1$s</string>
+    <plurals name="insights_without_triggers">
+        <item quantity="one">%2$sಲ್ಲಿ %1$sರಲ್ಲಿ ಯಾವುದೇ ಟ್ರಿಗರ್ ಬರೆದಿಲ್ಲ</item>
+        <item quantity="other">%2$sಲ್ಲಿ %1$sರಲ್ಲಿ ಯಾವುದೇ ಟ್ರಿಗರ್ ಬರೆದಿಲ್ಲ</item>
+    </plurals>
+    <plurals name="insights_episode_count">
+        <item quantity="one">%1$s ಅಟ್ಯಾಕ್‌ನ</item>
+        <item quantity="other">%1$s ಅಟ್ಯಾಕ್‌ಗಳ</item>
+    </plurals>
+
+    <!-- PDF report -->
+    <string name="report_title">ಮೈಗ್ರೇನ್ ಕ್ಲಿನಿಕಲ್ ವರದಿ</string>
+    <string name="report_page">MigraTrack · ಪುಟ %1$s</string>
+    <string name="report_patient">ರೋಗಿ: %1$s</string>
+    <string name="report_range_with_title">%1$s (%2$s)</string>
+    <string name="report_generated">ರಚಿಸಿದ್ದು: %1$s</string>
+    <string name="report_disclaimer">ರೋಗಿಯೇ MigraTrackನಲ್ಲಿ ದಾಖಲಿಸಿದ ಡೇಟಾ. ಈ ವರದಿ ಕ್ಲಿನಿಕಲ್ ಮೌಲ್ಯಮಾಪನಕ್ಕೆ ನೆರವಾಗುತ್ತದೆ, ಅದರ ಬದಲಿಯಲ್ಲ.</string>
+    <string name="report_stat_episodes">ದಾಖಲಾದ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="report_stat_migraine_days">ಮೈಗ್ರೇನ್ ದಿನಗಳು</string>
+    <string name="report_stat_pain_free_days">ನೋವಿಲ್ಲದ ದಿನಗಳು</string>
+    <string name="report_stat_average_intensity">ಸರಾಸರಿ ತೀವ್ರತೆ /10</string>
+    <plurals name="report_untracked_note">
+        <item quantity="one">ಟ್ರ್ಯಾಕಿಂಗ್ %1$s ರಂದು ಆರಂಭವಾಯಿತು. ಈ ಅವಧಿಯ ಹಿಂದಿನ %2$s ದಿನಕ್ಕೆ ದಾಖಲೆ ಇಲ್ಲ, ಮತ್ತು ಅದನ್ನು ನೋವಿಲ್ಲದ ದಿನವೆಂದು ಎಣಿಸುವುದಿಲ್ಲ.</item>
+        <item quantity="other">ಟ್ರ್ಯಾಕಿಂಗ್ %1$s ರಂದು ಆರಂಭವಾಯಿತು. ಈ ಅವಧಿಯ ಹಿಂದಿನ %2$s ದಿನಗಳಿಗೆ ದಾಖಲೆ ಇಲ್ಲ, ಮತ್ತು ಅವುಗಳನ್ನು ನೋವಿಲ್ಲದ ದಿನಗಳೆಂದು ಎಣಿಸುವುದಿಲ್ಲ.</item>
+    </plurals>
+    <string name="report_baseline_title">ಆರಂಭಿಕ ಪ್ರೊಫೈಲ್</string>
+    <string name="report_baseline_diagnoses">ರೋಗನಿರ್ಣಯ</string>
+    <string name="report_baseline_frequency">ತಿಂಗಳಿಗೆ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="report_baseline_duration">ಸಾಮಾನ್ಯ ಅವಧಿ (ಗಂಟೆ)</string>
+    <string name="report_baseline_intensity">ಸಾಮಾನ್ಯ ತೀವ್ರತೆ</string>
+    <string name="report_baseline_triggers">ತಿಳಿದ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="report_baseline_treatments">ಚಿಕಿತ್ಸಾ ಯೋಜನೆ</string>
+    <string name="report_pain_chart_title">ಕಾಲಾನುಕ್ರಮದಲ್ಲಿ ನೋವಿನ ತೀವ್ರತೆ (1&#8288;–&#8288;10)</string>
+    <string name="report_legend_mild">ಸೌಮ್ಯ %1$s–%2$s</string>
+    <string name="report_legend_moderate">ಮಧ್ಯಮ %1$s–%2$s</string>
+    <string name="report_legend_severe">ತೀವ್ರ %1$s–%2$s</string>
+    <string name="report_legend_not_tracked">ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ</string>
+    <string name="report_medication_title">ಔಷಧ ಬಳಕೆ</string>
+    <string name="report_no_medications">ಈ ಅವಧಿಯಲ್ಲಿ ಯಾವುದೇ ಔಷಧ ದಾಖಲಾಗಿಲ್ಲ.</string>
+    <plurals name="report_intakes">
+        <item quantity="one">%1$s ಬಾರಿ ತೆಗೆದುಕೊಂಡಿದೆ</item>
+        <item quantity="other">%1$s ಬಾರಿ ತೆಗೆದುಕೊಂಡಿದೆ</item>
+    </plurals>
+    <string name="report_symptoms_title">ಔರಾ ಮತ್ತು ಎಚ್ಚರಿಕೆ ಲಕ್ಷಣಗಳು</string>
+    <string name="report_no_symptoms">ಈ ಅವಧಿಯಲ್ಲಿ ಯಾವುದೇ ಔರಾ ಅಥವಾ ಸಂವೇದನಾ ಲಕ್ಷಣ ದಾಖಲಾಗಿಲ್ಲ.</string>
+    <plurals name="report_share_of_episodes">
+        <item quantity="one">%2$s ಅಟ್ಯಾಕ್‌ನಲ್ಲಿ %1$s (%3$s)</item>
+        <item quantity="other">%2$s ಅಟ್ಯಾಕ್‌ಗಳಲ್ಲಿ %1$s (%3$s)</item>
+    </plurals>
+    <string name="report_triggers_title">ಬರೆದ ಸಂಭಾವ್ಯ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="report_no_triggers">ಈ ಅವಧಿಯಲ್ಲಿ ಯಾವುದೇ ಟ್ರಿಗರ್ ಬರೆದಿಲ್ಲ.</string>
+    <string name="report_triggers_note">ರೋಗಿ ಅಟ್ಯಾಕ್ ಜೊತೆ ಟ್ರಿಗರ್ ಅನ್ನು ಎಷ್ಟು ಬಾರಿ ಬರೆದಿದ್ದಾರೆ ಎಂದು ಸಂಖ್ಯೆಗಳು ತೋರಿಸುತ್ತವೆ. ಅವು ಕಾರಣವನ್ನು ತೋರಿಸುವುದಿಲ್ಲ.</string>
+    <plurals name="report_without_triggers">
+        <item quantity="one">%2$sಲ್ಲಿ %1$sರಲ್ಲಿ ಯಾವುದೇ ಟ್ರಿಗರ್ ಬರೆದಿಲ್ಲ.</item>
+        <item quantity="other">%2$sಲ್ಲಿ %1$sರಲ್ಲಿ ಯಾವುದೇ ಟ್ರಿಗರ್ ಬರೆದಿಲ್ಲ.</item>
+    </plurals>
+    <plurals name="report_episode_count">
+        <item quantity="one">%1$s ಅಟ್ಯಾಕ್‌ನ</item>
+        <item quantity="other">%1$s ಅಟ್ಯಾಕ್‌ಗಳ</item>
+    </plurals>
+    <string name="report_episodes_title">ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="report_no_episodes">ಈ ಅವಧಿಯಲ್ಲಿ ಯಾವುದೇ ಅಟ್ಯಾಕ್ ದಾಖಲಾಗಿಲ್ಲ.</string>
+    <string name="report_column_date_time">ದಿನಾಂಕ, ಸಮಯ</string>
+    <string name="report_column_pain">ನೋವು</string>
+    <string name="report_column_epicenter">ನೋವಿನ ಸ್ಥಳ</string>
+    <string name="report_column_symptoms">ಲಕ್ಷಣಗಳು</string>
+    <string name="report_column_medications">ಔಷಧಗಳು</string>
+    <string name="report_column_triggers">ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="report_intensity_of_ten">%1$s/10</string>
+    <string name="report_not_set">ಹೊಂದಿಸಿಲ್ಲ</string>
+    <string name="report_none">ಯಾವುದೂ ಇಲ್ಲ</string>
+
+    <!-- Spreadsheet report -->
+    <string name="report_sheet_episodes">ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="report_sheet_medications">ಔಷಧಗಳು</string>
+    <string name="report_sheet_daily_pain">ದೈನಂದಿನ ನೋವು</string>
+    <string name="report_sheet_profile">ಪ್ರೊಫೈಲ್</string>
+    <string name="report_header_started">ಆರಂಭ</string>
+    <string name="report_header_pain_intensity">ನೋವಿನ ತೀವ್ರತೆ (1–10)</string>
+    <string name="report_header_epicenter">ತಲೆಯಲ್ಲಿ ನೋವಿನ ಸ್ಥಳ</string>
+    <string name="report_header_symptoms">ಔರಾ ಮತ್ತು ಸಂವೇದನಾ ಲಕ್ಷಣಗಳು</string>
+    <string name="report_header_medications">ಔಷಧಗಳು</string>
+    <string name="report_header_triggers">ಸಂಭಾವ್ಯ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="report_header_episode_started">ಅಟ್ಯಾಕ್ ಆರಂಭ</string>
+    <string name="report_header_medication">ಔಷಧ</string>
+    <string name="report_header_dose">ಡೋಸ್</string>
+    <string name="report_header_date">ದಿನಾಂಕ</string>
+    <string name="report_header_peak_pain">ನೋವಿನ ಗರಿಷ್ಠ ತೀವ್ರತೆ (1–10, 0 = ನೋವಿಲ್ಲ)</string>
+    <string name="report_header_day">ದಿನ</string>
+    <string name="report_header_field">ಕ್ಷೇತ್ರ</string>
+    <string name="report_header_value">ಮೌಲ್ಯ</string>
+    <string name="report_day_migraine">ಮೈಗ್ರೇನ್</string>
+    <string name="report_day_pain_free">ನೋವಿಲ್ಲ</string>
+    <string name="report_day_not_tracked">ಟ್ರ್ಯಾಕ್ ಆಗಿಲ್ಲ</string>
+    <string name="report_profile_patient">ರೋಗಿ</string>
+    <string name="report_profile_range">ವರದಿಯ ಅವಧಿ</string>
+    <string name="report_profile_tracked_since">ಟ್ರ್ಯಾಕಿಂಗ್ ಆರಂಭ</string>
+    <string name="report_profile_diagnoses">ರೋಗನಿರ್ಣಯ</string>
+    <string name="report_profile_frequency">ತಿಂಗಳಿಗೆ ಅಟ್ಯಾಕ್‌ಗಳು</string>
+    <string name="report_profile_duration">ಸಾಮಾನ್ಯ ಅವಧಿ (ಗಂಟೆ)</string>
+    <string name="report_profile_intensity">ಸಾಮಾನ್ಯ ತೀವ್ರತೆ</string>
+    <string name="report_profile_triggers">ತಿಳಿದ ಟ್ರಿಗರ್‌ಗಳು</string>
+    <string name="report_profile_treatments">ಚಿಕಿತ್ಸಾ ಯೋಜನೆ</string>
+    <string name="report_iso_range">%1$s ರಿಂದ %2$s</string>
+</resources>

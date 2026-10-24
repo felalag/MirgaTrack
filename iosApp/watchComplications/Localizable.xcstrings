@@ -124,6 +124,34 @@
             }
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ ব্যথামুক্ত"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg দিন"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg দিন"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -452,6 +480,34 @@
             }
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ પીડામુક્ત"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg દિવસ"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg દિવસ"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
@@ -479,6 +535,34 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg ימים"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ दर्द-मुक्त"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg दिन"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg दिन"
                     }
                   }
                 }
@@ -550,6 +634,34 @@
             "value" : "%1$lld/%2$lld күн ауырсынусыз"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ ನೋವಿಲ್ಲ"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ದಿನ"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ದಿನ"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -589,6 +701,62 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg dienų"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ വേദനരഹിതം"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ദിനം"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ദിനം"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ वेदनामुक्त"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg दिवस"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg दिवस"
                     }
                   }
                 }
@@ -651,6 +819,62 @@
                     "stringUnit" : {
                       "state" : "translated",
                       "value" : "%arg dagen"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ ପୀଡ଼ାମୁକ୍ତ"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ଦିନ"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ଦିନ"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ ਦਰਦ-ਮੁਕਤ"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ਦਿਨ"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg ਦਿਨ"
                     }
                   }
                 }
@@ -920,6 +1144,62 @@
             }
           }
         },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ வலியின்றி"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg நாள்"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg நாள்"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld/%2$#@tracked@ నొప్పి లేదు"
+          },
+          "substitutions" : {
+            "tracked" : {
+              "argNum" : 2,
+              "formatSpecifier" : "lld",
+              "variations" : {
+                "plural" : {
+                  "one" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg రోజు"
+                    }
+                  },
+                  "other" : {
+                    "stringUnit" : {
+                      "state" : "translated",
+                      "value" : "%arg రోజులు"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1041,6 +1321,12 @@
             "value" : "НОВ"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নতুন"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1101,10 +1387,22 @@
             "value" : "NOTE"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "નવો"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "תעד"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नया"
           }
         },
         "hr" : {
@@ -1143,6 +1441,12 @@
             "value" : "ЖАҢА"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಹೊಸ"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1153,6 +1457,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ŽYMĖ"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ലോഗ്"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नवा"
           }
         },
         "ms" : {
@@ -1171,6 +1487,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "MELD"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ନୂଆ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਨਵਾਂ"
           }
         },
         "pl" : {
@@ -1219,6 +1547,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "NYTT"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "புது"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "లాగ్"
           }
         },
         "th" : {
@@ -1286,6 +1626,12 @@
             "value" : "Нов пристъп"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নতুন অ্যাটাক"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1346,10 +1692,22 @@
             "value" : "Nouvelle crise"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "નવો હુમલો"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "תיעוד מיגרנה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नया दौरा"
           }
         },
         "hr" : {
@@ -1388,6 +1746,12 @@
             "value" : "Жаңа ұстама"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಹೊಸ ಅಟ್ಯಾಕ್"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1398,6 +1762,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Įrašyti"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "രേഖപ്പെടുത്തൂ"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नवा झटका"
           }
         },
         "ms" : {
@@ -1416,6 +1792,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nieuwe aanval"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ନୂଆ ଆଟାକ୍"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਨਵਾਂ ਦੌਰਾ"
           }
         },
         "pl" : {
@@ -1464,6 +1852,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nytt anfall"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "பதிவு செய்"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "కొత్త ఎటాక్"
           }
         },
         "th" : {
@@ -1531,6 +1931,12 @@
             "value" : "Отворете на iPhone"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone-এ MigraTrack খুলুন"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1591,10 +1997,22 @@
             "value" : "Ouvrir sur l’iPhone"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone પર MigraTrack ખોલો"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "יש לפתוח ב־iPhone"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone पर ऐप खोलें"
           }
         },
         "hr" : {
@@ -1633,6 +2051,12 @@
             "value" : "iPhone-да ашыңыз"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone ಆ್ಯಪ್ ತೆರೆಯಿರಿ"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1643,6 +2067,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atidarykite iPhone"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone-ൽ ആപ്പ് തുറക്കൂ"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone वर MigraTrack उघडा"
           }
         },
         "ms" : {
@@ -1661,6 +2097,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Open op iPhone"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhoneରେ ଆପ୍ ଖୋଲନ୍ତୁ"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone 'ਤੇ ਐਪ ਖੋਲ੍ਹੋ"
           }
         },
         "pl" : {
@@ -1709,6 +2157,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öppna på iPhone"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhone-இல் ஆப்ஸைத் திற"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iPhoneలో యాప్ తెరవండి"
           }
         },
         "th" : {
@@ -1776,6 +2236,12 @@
             "value" : "Отваря записа на пристъп."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অ্যাটাক রেকর্ড করার স্ক্রিন খোলে।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1836,10 +2302,22 @@
             "value" : "Ouvre la saisie d’une crise."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "હુમલો નોંધવાની સ્ક્રીન ખોલે છે."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "פותח את תיעוד ההתקף."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "दौरा दर्ज करने की स्क्रीन खोलता है।"
           }
         },
         "hr" : {
@@ -1878,6 +2356,12 @@
             "value" : "Ұстаманы жазуды ашады."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಅಟ್ಯಾಕ್ ದಾಖಲಿಸುವ ಪರದೆ ತೆರೆಯುತ್ತದೆ."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1888,6 +2372,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atidaro priepuolio įrašymą."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "അറ്റാക്ക് രേഖപ്പെടുത്തുന്ന സ്ക്രീൻ തുറക്കുന്നു."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "झटका नोंदवण्याची स्क्रीन उघडते."
           }
         },
         "ms" : {
@@ -1906,6 +2402,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opent het noteren van een aanval."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ଆଟାକ୍ ରେକର୍ଡ କରିବା ସ୍କ୍ରିନ୍ ଖୋଲେ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਦੌਰਾ ਦਰਜ ਕਰਨ ਵਾਲੀ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹਦਾ ਹੈ।"
           }
         },
         "pl" : {
@@ -1954,6 +2462,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öppnar registrering av anfall."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "தாக்குதலைப் பதிவுசெய்யும் திரையைத் திறக்கும்."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ఎటాక్ నమోదు స్క్రీన్‌ను తెరుస్తుంది."
           }
         },
         "th" : {
@@ -2021,6 +2541,12 @@
             "value" : "Отваря записа на пристъп. Правоъгълният вариант показва и дните без болка."
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "অ্যাটাক রেকর্ড করার স্ক্রিন খোলে। আয়তাকার ধরনে আপনার ব্যথামুক্ত দিনও দেখায়।"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2081,10 +2607,22 @@
             "value" : "Ouvre la saisie d’une crise. Le style rectangulaire affiche aussi vos jours sans douleur."
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "હુમલો નોંધવાની સ્ક્રીન ખોલે છે. લંબચોરસ પ્રકારમાં તમારા પીડામુક્ત દિવસ પણ દેખાય છે."
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "פותח את תיעוד ההתקף. הסגנון המלבני מציג גם את הימים ללא כאב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "दौरा दर्ज करने की स्क्रीन खोलता है। आयताकार रूप में आपके दर्द-मुक्त दिन भी दिखते हैं।"
           }
         },
         "hr" : {
@@ -2123,6 +2661,12 @@
             "value" : "Ұстаманы жазуды ашады. Тікбұрышты нұсқасы ауырсынусыз күндерді де көрсетеді."
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ಅಟ್ಯಾಕ್ ದಾಖಲಿಸುವ ಪರದೆ ತೆರೆಯುತ್ತದೆ. ಆಯತಾಕಾರದ ಶೈಲಿ ನಿಮ್ಮ ನೋವಿಲ್ಲದ ದಿನಗಳನ್ನೂ ತೋರಿಸುತ್ತದೆ."
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2133,6 +2677,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Atidaro priepuolio įrašymą. Stačiakampis variantas rodo ir dienas be skausmo."
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "അറ്റാക്ക് രേഖപ്പെടുത്തുന്ന സ്ക്രീൻ തുറക്കുന്നു. ദീർഘചതുര ശൈലിയിൽ നിങ്ങളുടെ വേദനരഹിത ദിനങ്ങളും കാണാം."
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "झटका नोंदवण्याची स्क्रीन उघडते. आयताकार प्रकारात तुमचे वेदनामुक्त दिवसही दिसतात."
           }
         },
         "ms" : {
@@ -2151,6 +2707,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opent het noteren van een aanval. De rechthoekige stijl toont ook uw pijnvrije dagen."
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ଆଟାକ୍ ରେକର୍ଡ କରିବା ସ୍କ୍ରିନ୍ ଖୋଲେ। ଆୟତାକାର ରୂପରେ ଆପଣଙ୍କ ପୀଡ଼ାମୁକ୍ତ ଦିନ ମଧ୍ୟ ଦେଖାଯାଏ।"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਦੌਰਾ ਦਰਜ ਕਰਨ ਵਾਲੀ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹਦਾ ਹੈ। ਆਇਤਾਕਾਰ ਰੂਪ ਵਿੱਚ ਤੁਹਾਡੇ ਦਰਦ-ਮੁਕਤ ਦਿਨ ਵੀ ਦਿਖਦੇ ਹਨ।"
           }
         },
         "pl" : {
@@ -2199,6 +2767,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Öppnar registrering av anfall. Den rektangulära stilen visar också dina smärtfria dagar."
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "தாக்குதலைப் பதிவுசெய்யும் திரையைத் திறக்கும். செவ்வக வடிவம் உங்கள் வலியற்ற நாட்களையும் காட்டும்."
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ఎటాక్ నమోదు స్క్రీన్‌ను తెరుస్తుంది. దీర్ఘచతురస్ర శైలి మీ నొప్పిలేని రోజులను కూడా చూపుతుంది."
           }
         },
         "th" : {
@@ -2266,6 +2846,12 @@
             "value" : "Дни без болка –"
           }
         },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ব্যথামুক্ত দিন –"
+          }
+        },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2326,10 +2912,22 @@
             "value" : "Jours sans douleur –"
           }
         },
+        "gu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "પીડામુક્ત દિવસ –"
+          }
+        },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ימים ללא כאב –"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "दर्द-मुक्त दिन –"
           }
         },
         "hr" : {
@@ -2368,6 +2966,12 @@
             "value" : "Ауырсынусыз –"
           }
         },
+        "kn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ನೋವಿಲ್ಲದ ದಿನಗಳು –"
+          }
+        },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2378,6 +2982,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dienos be skausmo –"
+          }
+        },
+        "ml" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "വേദനരഹിത ദിനങ്ങൾ –"
+          }
+        },
+        "mr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "वेदनामुक्त दिवस –"
           }
         },
         "ms" : {
@@ -2396,6 +3012,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pijnvrije dagen –"
+          }
+        },
+        "or" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ପୀଡ଼ାମୁକ୍ତ ଦିନ –"
+          }
+        },
+        "pa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ਦਰਦ-ਮੁਕਤ ਦਿਨ –"
           }
         },
         "pl" : {
@@ -2444,6 +3072,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Smärtfria dagar –"
+          }
+        },
+        "ta" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "வலியற்ற நாட்கள் –"
+          }
+        },
+        "te" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "నొప్పిలేని రోజు –"
           }
         },
         "th" : {

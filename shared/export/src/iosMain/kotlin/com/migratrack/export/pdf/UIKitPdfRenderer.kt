@@ -62,7 +62,7 @@ private class UIKitCanvas(
         val rect = NSString.create(string = text).boundingRectWithSize(
             size = CGSizeMake(maxWidth.toDouble(), Double.MAX_VALUE),
             options = NSStringDrawingUsesLineFragmentOrigin,
-            attributes = attributes(style),
+            attributes = attributes(style, text),
             context = null,
         )
         return rect.useContents { ceil(size.height).toFloat() }
@@ -72,7 +72,7 @@ private class UIKitCanvas(
         NSString.create(string = text).drawWithRect(
             rect = CGRectMake(x.toDouble(), y.toDouble(), maxWidth.toDouble(), pageHeight.toDouble()),
             options = NSStringDrawingUsesLineFragmentOrigin,
-            attributes = attributes(style),
+            attributes = attributes(style, text),
             context = null,
         )
     }
@@ -97,7 +97,7 @@ private class UIKitCanvas(
         path.stroke()
     }
 
-    private fun attributes(style: TextStyle): Map<Any?, Any?> {
+    private fun attributes(style: TextStyle, text: String): Map<Any?, Any?> {
         val weight = when (style.weight) {
             TextStyle.Weight.Regular -> UIFontWeightRegular
             TextStyle.Weight.Semibold -> UIFontWeightSemibold
@@ -107,6 +107,7 @@ private class UIKitCanvas(
             setLineBreakMode(NSLineBreakByWordWrapping)
             // Without it, Korean breaks inside a word ("수 / 마트립탄"); the strategy changes no other script.
             setLineBreakStrategy(NSLineBreakStrategyHangulWordPriority)
+            lineHeightMultiple(text).takeIf { it > 1f }?.let { setLineHeightMultiple(it.toDouble()) }
             setAlignment(
                 when (style.align) {
                     // Natural follows the script of the text, so a mirrored layout needs the edges by name.

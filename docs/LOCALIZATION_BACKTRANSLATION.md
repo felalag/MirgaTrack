@@ -351,3 +351,54 @@ Languages: Arabic, Hebrew and Urdu. Scope: the keys of the checklist, section 3,
 - Privacy Policy, all three texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes.
 - Terms of Service, all three texts: not a medical device ("جهازًا طبيًا", "אביזר רפואי", "طبی آلہ"), talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
 - Each legal translation starts with the sentence that the English text is legally binding.
+
+## Batch 9: Hindi, Marathi, Bangla, Gujarati, Punjabi, Odia, Kannada, Malayalam, Tamil, Telugu (October 24, 2026)
+
+Languages: the ten languages of India. Scope: the keys of the checklist, section 3, the Siri dialogs and watch strings, and `docs/legal/files/{hi,mr,bn,gu,pa,or,kn,ml,ta,te}/*.md`. None of the ten has Siri phrases, because Siri does not speak them.
+
+### Fixed
+
+| Language | Key | Back-translation before the fix | English source | Fix |
+|---|---|---|---|---|
+| hi, pa | `symptom_nausea`, `symptom_nausea_short` | "Feeling of sickness in the heart" ("जी मिचलाना", "ਜੀ ਕੱਚਾ ਹੋਣਾ"): colloquial | Nausea | "मतली", "ਮਤਲੀ", the words of IN4 (glossary) |
+| pa | `medication_topiramate_50_class` | "Episode-stopping" ("ਦੌਰਾ-ਰੋਕੂ"): "ਦੌਰਾ" is also the word for episode | Anticonvulsant | "ਮਿਰਗੀ-ਰੋਕੂ ਦਵਾਈ" (anti-epilepsy medicine) |
+| mr | `insights_without_triggers`, `report_without_triggers` | "Of 5 attacks- in 2 …": the count string ended in an oblique stem before a separate word | 2 of 5 episodes have no triggers noted | "एकूण %2$s; त्यांपैकी %1$s मध्ये…" (total 5 attacks; in 2 of them …) |
+| kn | `insights_without_triggers`, `report_without_triggers` | "In 5 attacks-in in 2 …": two case endings | 2 of 5 episodes have no triggers noted | The count string ends in the stem ("ಅಟ್ಯಾಕ್‌ಗಳ") and the sentence adds "-ಲ್ಲಿ" |
+| kn | `insights_period_month`, `insights_period_six_months`, `frequency_*` | "3", "63" and "1–4/30." on the screen: the letters "ತಿ" and "ತಿಂ" look like the digits 3 and 30 | M, 6M, 1–4 / mo | "ಮಾ", "6ಮಾ", "1–4/ಮಾಸ" (ಮಾಸ, month) |
+| kn, or, ml | Watch "Last episode %@" | The line wrapped (kn), touched the edge (or) or was cut on the 40 mm watch at the largest text size (ml) | Last episode Oct 17 | "ಕೊನೆ: %@", "ଶେଷ: %@", "ഒടുവിൽ %@" (last: Oct 17), as Tamil |
+| hi, kn, ml, or, pa, ta, te | Complication "Open MigraTrack on iPhone" | Longer than 25 characters | Open MigraTrack on iPhone | "Open the app on iPhone" ("iPhone पर ऐप खोलें") |
+| bn, mr | Watch "No episodes logged" | 23 and 24 characters | No episodes logged | "No attacks" ("কোনো অ্যাটাক নেই", "एकही झटका नाही") |
+| ml | `common_log_migraine_episode` | 31 characters | Log Migraine Episode | "മൈഗ്രേൻ അറ്റാക്ക് ചേർക്കൂ" (add a migraine attack) |
+
+### Kept, with the reason
+
+| Language | Key | Back-translation | English source | Reason |
+|---|---|---|---|---|
+| bn, or, kn, ml, te | The word for episode | "Attack" as an English loanword | Episode | The owner approved it. IN4 writes "আক্রমণ", "ದಾಳಿ", "ആക്രമണം", "దాడి" (assault), but IN4 is a machine translation |
+| ml, ta | Watch and complication "Log Migraine" | "Record" | Log Migraine | 14 characters; "new attack" does not fit |
+| ml, te | Complication "LOG" | "Log" (loanword) | LOG | 4 characters; "new" has 5 |
+| ta | `insights_legend_migraine_day`, `calendar_migraine_days`, `report_stat_migraine_days` | "Attack day" | Migraine day | The Tamil word for migraine has 14 characters. The meaning of the glossary term: a day with one or more episodes |
+| te | Watch "Pain-free days", `report_stat_pain_free_days`, `insights_legend_pain_free_day` | "Pain-free day" in the singular | Pain-free days | The plural has 17 characters; the limit is 16 |
+| kn, ml, te | `tab_export` | "Report", "Share", "Export" (native word) | Export | The loanword has more than 10 characters |
+| ml | `report_stat_episodes` | "Total attacks" | Episodes recorded | 22 characters |
+| ml | Watch "Pain-free days", `report_stat_pain_free_days` | "Pain-free" | Pain-free days | "വേദനരഹിത ദിനങ്ങൾ" was cut on the 40 mm watch at the largest text size; German writes "Schmerzfrei" there too |
+| ta | `pain_scale_high` | "10 Very severe" | 10 Disabling | 14 characters |
+| hi, mr, bn, gu, pa, or, kn, ml, te | `pain_scale_high` | "10 Unbearable" | 10 Disabling | The pain stops normal activity; the common word at the top of a pain scale |
+| ta | `export_range_last_12_months` | "The last year" | Last 12 Months | 16 characters |
+| all ten | `duration_*` | "2–4" without a unit | 2–4h | 7 characters; "(hours)" is in the caption of step 1 and the report, as batches 6 and 8 |
+| all ten | `settings_member` | "Start" | Member | No account exists; the value is the first tracked month |
+| all ten | `episode_cranial_epicenter`, `report_column_epicenter` | "Place of the pain (in the head)" | Cranial Epicenter | The plain words of a patient, as batches 2–8 |
+| te | `report_column_pain` | "Suffering" ("బాధ") | Pain | 5 characters; "నొప్పి" has 6 |
+
+### No difference in meaning
+
+- Diagnoses, symptoms, regions, frequency chips, the 15 triggers and their descriptions, the 14 medications and their classes, and the dose unit "mg" with a no-break space.
+- `common_medical_disclaimer`, for example Telugu: "MigraTrack is a diary, not medical advice. Talk to your doctor before you change your treatment."
+- `insights_triggers_hint`, for example Kannada: "How many times you wrote each trigger with an attack. This does not show a cause."
+- `report_triggers_note`, for example Hindi: "The number tells how many times the patient wrote a trigger with an episode. It does not show the cause."
+- `report_disclaimer`, for example Malayalam: "Data that the patient recorded in MigraTrack. This report helps the clinical assessment; it is not a substitute for it."
+- The plural forms one and other in all ten languages, with the number in each form.
+- The other `report_*` keys, the Siri dialogs ("intensity 6 of 10"), and the watch strings.
+- Privacy Policy, all ten texts: no account, no server, no analytics; sleep read only; WatchConnectivity; backups; sharing; Delete All Data; contact; changes.
+- Terms of Service, all ten texts: not a medical device, talk to your clinician, the emergency sentence, backups, personal non-commercial use, "as is", the limitation of liability.
+- Each legal translation starts with the sentence that the English text is legally binding.
