@@ -114,6 +114,7 @@ private class ResourceReportStrings(
     private fun n(value: Int) = numbers.integer(value)
 
     override fun uppercase(text: String) = text.uppercaseInAppLanguage()
+    override val listSeparator = ListSeparator
 
     override val title = text(Res.string.report_title)
     override fun page(number: Int) = text(Res.string.report_page, n(number))

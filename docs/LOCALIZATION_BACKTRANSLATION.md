@@ -291,7 +291,7 @@ Languages: Chinese (Simplified), Chinese (Traditional), Japanese and Korean. Sco
 | zh-Hans, zh-Hant, ja, ko | `settings_member` | "Start date", "Start of use" | Member | No account exists; the value is the first tracked month (as in batches 2–6) |
 | zh-Hans, zh-Hant | `region_retro_orbital` | "Behind the eye socket" | Retro-Orbital | The anatomic term in plain words |
 | ja, ko | Long sentences at the largest text size | Japanese "くだ / さい" on two lines; Chinese "“健 / 康”" | — | Chinese and Japanese break between any two characters; this is correct, and no line starts with closing punctuation |
-| zh-Hans, zh-Hant, ja | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with ", " | — | The code joins lists with ", " for every language. The Chinese and Japanese list mark "、" needs a change of the code and of every language; it is a follow-up |
+| zh-Hans, zh-Hant, ja | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with "、" | — | `listSeparatorFor` in `shared/export` gives the list mark of the language; the translations do not contain it |
 
 ### No difference in meaning
 
@@ -337,7 +337,7 @@ Languages: Arabic, Hebrew and Urdu. Scope: the keys of the checklist, section 3,
 | ar, he, ur | `settings_member` | "Since", "Tracked since", "Start" | Member | No account exists; the value is the first tracked month |
 | ar | Instructions ("استشر طبيبك") | Masculine singular | — | Arabic iOS writes instructions in the masculine singular (iOS 27.1 `HealthUI.framework`) |
 | he | `report_patient`, `report_triggers_note`, `report_disclaimer` | "Patient (m/f)" ("מטופל/ת") | Patient | The report names a person whose gender the app does not know |
-| ar, he, ur | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with "," | — | The code joins lists with ", " for every language. The Arabic and Urdu comma "،" needs a change of the code; it is the follow-up of batch 7 |
+| ar, ur | Lists in the PDF, the XLSX, Settings and the calendar | Items joined with "،" | — | `listSeparatorFor` in `shared/export` gives the list mark of the language. Hebrew keeps ", " |
 
 ### No difference in meaning
 

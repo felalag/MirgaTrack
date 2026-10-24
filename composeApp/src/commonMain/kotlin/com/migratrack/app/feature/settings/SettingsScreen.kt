@@ -61,6 +61,7 @@ import com.migratrack.app.generated.resources.settings_section_preferences
 import com.migratrack.app.generated.resources.settings_version
 import com.migratrack.app.generated.resources.settings_version_value
 import com.migratrack.app.ui.Dates
+import com.migratrack.app.ui.ListSeparator
 import com.migratrack.app.ui.Numbers
 import com.migratrack.app.ui.components.GroupedSection
 import com.migratrack.app.ui.components.ListDivider
@@ -158,13 +159,13 @@ fun SettingsScreen(onBack: () -> Unit, onEditBaseline: (step: Int) -> Unit, onOp
         val current = state ?: return@Page
         ProfileCard(current, onEditName = viewModel::editName)
 
-        val diagnoses = current.diagnoses.map { stringResource(it.title) }.joinToString(", ").ifEmpty { stringResource(Res.string.common_not_set) }
+        val diagnoses = current.diagnoses.map { stringResource(it.title) }.joinToString(ListSeparator).ifEmpty { stringResource(Res.string.common_not_set) }
         val triggers = if (current.triggerCount == 0) {
             stringResource(Res.string.settings_no_triggers)
         } else {
             pluralStringResource(Res.plurals.settings_known_triggers_count, current.triggerCount, Numbers.integer(current.triggerCount))
         }
-        val treatments = current.treatments.map { it.nameText.resolve() }.joinToString(", ")
+        val treatments = current.treatments.map { it.nameText.resolve() }.joinToString(ListSeparator)
             .ifEmpty { stringResource(Res.string.settings_no_medications) }
         GroupedSection(stringResource(Res.string.settings_section_baseline)) {
             ListRow(stringResource(Res.string.settings_baseline_diagnoses), Symbols.Psychology, MtColors.Cyan, subtitle = diagnoses, trailing = RowTrailing.Chevron) { onEditBaseline(1) }
