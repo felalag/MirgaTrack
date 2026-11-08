@@ -180,10 +180,27 @@ class TranslationCheck(
         }
 
         val documents = legalFiles.listFiles { file -> file.extension == "md" }.orEmpty().map { it.name }.toSet()
-        val excluded = pagesConfig.readLines().map { it.trim().removePrefix("-").trim() }.toSet()
+        val excluded = pagesExcludes()
         for (language in legalLanguages) {
             (documents - File(legalFiles, language).list().orEmpty().toSet()).forEach { problems += "docs/legal/files/$language: $it is missing." }
-            if ("legal/files/$language" !in excluded) problems += "docs/_config.yml: exclude legal/files/$language, so the website stays English."
+            if ("legal/files/$language/" !in excluded) problems += "docs/_config.yml: exclude legal/files/$language/, so the website stays English."
+        }
+        checkExcludePrefixes(excluded)
+    }
+
+    private fun pagesExcludes(): List<String> = pagesConfig.readLines()
+        .dropWhile { it.trim() != "exclude:" }.drop(1)
+        .takeWhile { it.isBlank() || it.trim().startsWith("-") }
+        .map { it.trim().removePrefix("-").trim() }.filter { it.isNotEmpty() }
+
+    /** Jekyll matches an exclude entry as a bare string prefix: "legal/files/te" also hides "legal/files/terms-of-service.md". */
+    private fun checkExcludePrefixes(excluded: List<String>) {
+        val site = pagesConfig.parentFile
+        val paths = site.walkTopDown().filter { it.isFile }.map { it.relativeTo(site).invariantSeparatorsPath }.toList()
+        for (entry in excluded.filterNot { it.endsWith("/") }) {
+            paths.filter { it.startsWith(entry) && it != entry && !it.startsWith("$entry/") }.forEach {
+                problems += "docs/_config.yml: exclude $entry also hides $it. End a folder entry with \"/\"."
+            }
         }
     }
 
