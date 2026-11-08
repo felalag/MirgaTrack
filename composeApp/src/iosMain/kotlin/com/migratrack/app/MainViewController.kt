@@ -40,6 +40,6 @@ private fun bundleAppInfo(): AppInfo {
         build = info["CFBundleVersion"] as? String ?: "1",
         isDebug = Platform.isDebugBinary,
         // A launch argument "-MigraTrackScreen Insights" lands in the user defaults (scripts/l10n-screenshots.sh).
-        startScreen = NSUserDefaults.standardUserDefaults.stringForKey("MigraTrackScreen").takeIf { Platform.isDebugBinary },
+        startScreen = if (Platform.isDebugBinary) NSUserDefaults.standardUserDefaults.stringForKey("MigraTrackScreen") else null,
     )
 }
