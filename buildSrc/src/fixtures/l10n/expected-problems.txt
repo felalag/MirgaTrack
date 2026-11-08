@@ -22,6 +22,8 @@ InfoPlist.xcstrings languages: de-AT is missing; the Compose resources have it.
 knownRegions in app.xcodeproj/project.pbxproj: de-AT is missing; the Compose resources have it.
 knownRegions in app.xcodeproj/project.pbxproj: de has no folder in the Compose resources.
 docs/legal/files/pl: privacy.md is missing.
-docs/_config.yml: exclude legal/files/pl, so the website stays English.
+docs/_config.yml: exclude legal/files/pl/, so the website stays English.
+docs/_config.yml: exclude legal/p also hides legal/pl/.gitkeep. End a folder entry with "/".
+docs/_config.yml: exclude legal/p also hides legal/privacy.md. End a folder entry with "/".
 Glossary term in en: strings:greeting is "Hello %1$s", App.xcstrings:Hello is "Hello".
 Glossary term in pl: strings:greeting is "Dzień dobry %1$d", App.xcstrings:Hello is "Cześć".
