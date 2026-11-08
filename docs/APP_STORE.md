@@ -1,7 +1,8 @@
 # App Store submission
 
 This file holds the App Store Connect metadata, the privacy and age rating answers, the notes for App Review, and the screenshot plan for MigraTrack 1.0.
-The requirements were checked against the Apple sources in [Sources](#sources) on October 14, 2026.
+The requirements were checked against the Apple sources in [Sources](#sources) on November 8, 2026.
+[RELEASE_PLAN.md](RELEASE_PLAN.md) has the steps that remain before the release.
 
 ## Before you submit
 
@@ -25,6 +26,12 @@ The Support URL must lead to contact information, so the support page shows an e
 ## Localizations
 
 English is the primary language. Each other localization has its own file in [app-store](app-store/) ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 5.4): [Russian](app-store/ru.md), [German](app-store/de.md), [French](app-store/fr.md), [French (Canada)](app-store/fr-CA.md), [Spanish (Mexico)](app-store/es.md), [Spanish (Spain)](app-store/es-ES.md), [Portuguese (Brazil)](app-store/pt.md), [Portuguese (Portugal)](app-store/pt-PT.md), [Italian](app-store/it.md), [Dutch](app-store/nl.md), [Catalan](app-store/ca.md), [Polish](app-store/pl.md), [Czech](app-store/cs.md), [Slovak](app-store/sk.md), [Croatian](app-store/hr.md), [Slovenian](app-store/sl.md), [Romanian](app-store/ro.md), [Hungarian](app-store/hu.md), [Danish](app-store/da.md), [Norwegian](app-store/nb.md), [Swedish](app-store/sv.md), [Finnish](app-store/fi.md), [Turkish](app-store/tr.md), [Ukrainian](app-store/uk.md), [Greek](app-store/el.md), [Vietnamese](app-store/vi.md), [Indonesian](app-store/id.md), [Malay](app-store/ms.md), [Thai](app-store/th.md), [Chinese (Simplified)](app-store/zh-Hans.md), [Chinese (Traditional)](app-store/zh-Hant.md), [Japanese](app-store/ja.md), [Korean](app-store/ko.md), [Arabic](app-store/ar.md), [Hebrew](app-store/he.md), [Urdu](app-store/ur.md), [Hindi](app-store/hi.md), [Marathi](app-store/mr.md), [Bangla](app-store/bn.md), [Gujarati](app-store/gu.md), [Punjabi](app-store/pa.md), [Odia](app-store/or.md), [Kannada](app-store/kn.md), [Malayalam](app-store/ml.md), [Tamil](app-store/ta.md), [Telugu](app-store/te.md). Lithuanian, Bulgarian and Kazakh have no App Store metadata: the App Store in Lithuania, Bulgaria and Kazakhstan shows English (U.K.) only ([LOCALIZATION_PLAN.md](LOCALIZATION_PLAN.md), section 1.1).
+
+**Decision for 1.0 (November 8, 2026, [RELEASE_PLAN.md](RELEASE_PLAN.md) step 3).** All 47 translations ship. Add each localization above in App Store Connect. No native speaker read 45 of them; the owner reads only Russian and Belarusian ([README.md](../README.md#known-limits)). Correct the translations from the feedback of users.
+
+A new localization takes the screenshots of the primary language until you upload others ([Localize app information](https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information)). So the English screenshots are sufficient for 1.0.
+
+**China mainland is not in the availability of 1.0.** MIIT requires an ICP Filing Number from "some apps", and Apple does not say which apps ([App information](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information)). MigraTrack has no filing. In Pricing and Availability, clear China mainland. Keep the Chinese (Simplified) localization. The language that a customer sees also depends on the device language ([App Store localizations](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations)).
 
 ## App information
 
@@ -121,6 +128,8 @@ The expected result is **4+**.
 | Capabilities | Social Media | No |
 | Capabilities | Messaging and Chat | No |
 | Capabilities | Advertising | No |
+| Capabilities | Shared Location | No |
+| Capabilities | Dating and Relationships | No |
 | Mature Themes | Profanity or Crude Humor | None |
 | Mature Themes | Horror/Fear Themes | None |
 | Mature Themes | Alcohol, Tobacco, or Drug Use or References | None |
@@ -131,6 +140,8 @@ The expected result is **4+**.
 | Chance-Based Activities | Gambling, Simulated Gambling, Contests, Loot Boxes | None / No |
 
 **Medical or Treatment Information** means content that gives diagnoses or guidance for the management of medical conditions, for example medication guidance or treatment information. MigraTrack records what the user enters. It gives no diagnosis, no dosage advice, and no treatment advice, so the answer is **None**. Onboarding offers a list of common medications with a dose, such as "Propranolol 40mg", so that the user can select what they already take. If you think that this list is medication information, answer **Infrequent**, and the rating becomes 13+. **Infrequent** gives 13+, and **Frequent** gives 16+ and makes the medical device declaration necessary.
+
+**Shared Location** and **Dating and Relationships** are in the questionnaire from November 16, 2026. All apps must answer them by January 12, 2027 ([Apple Developer News](https://developer.apple.com/news/), November 2, 2026). Shared Location means "sharing of real-world location with another person or group". MigraTrack reads no location, so the answer is **No**. Dating and Relationships means features that connect real people, or a person and a virtual companion, for dating or relationships. A **Yes** gives at least 18+. MigraTrack has no such feature, so the answer is **No**. The [Age ratings values and definitions](https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions) page does not list the two questions yet on November 8, 2026, so the section names in the table are an estimate.
 
 **Health or Wellness Topics** means self-care or lifestyle recommendations, for example calorie tracking or exercise advice. MigraTrack makes no recommendations, so the answer is **No**. If a later version adds tips, the answer becomes **Yes** and the rating becomes 9+.
 
@@ -186,11 +197,16 @@ Upload PNG or JPEG files without transparency, 1 to 10 for each size. Screenshot
 | iPhone with Dynamic Island, large display | iPhone 18 Pro Max | 1320 × 2868 | Recommended: without it, App Store Connect requires the 6.5-inch Face ID set (1284 × 2778 or 1242 × 2688) |
 | iPad 13-inch | — | — | Not needed: the app is for iPhone only |
 | Apple Watch | Apple Watch Series 12 (46mm) | 416 × 496 | Required for a watch app; use this size in all localizations |
-| iPhone Duo | — | — | Required from April 2027 for builds with the iOS 27.1 SDK or later |
+| iPhone Duo, outer display | iPhone Duo (iOS 27.1 or later), closed | 1398 × 2034 | Optional now. Required from April 2027 for apps built with the iOS 27.1 SDK or later |
+| iPhone Duo, inner display | iPhone Duo (iOS 27.1 or later), open | 2007 × 2853 | Optional now. Required from April 2027 for apps built with the iOS 27.1 SDK or later |
+
+With iPhone Duo screenshots, the product page shows a badge that says that the app is optimized for iPhone Duo ([Prepare for iPhone Duo](https://developer.apple.com/iphone-duo/prepare/)). They are optional for 1.0. The first update after April 2027 needs them, because Xcode 27.2 builds with a later SDK than iOS 27.1.
 
 The Apple Watch Series 12 (42mm) simulator makes 374 × 446 pixels, which App Store Connect does not accept. Use the 46mm watch, or the Ultra 4 at 422 × 514.
 
 Use the same set of screens on each iPhone size. Load Settings › Developer › Load Sample Data in a Debug build first, so the charts have data.
+
+Do not take a screenshot of Settings from a Debug build. A Debug build shows the Developer section in Settings ([SettingsScreen.kt:201](../composeApp/src/commonMain/kotlin/com/migratrack/app/feature/settings/SettingsScreen.kt#L201)), and the Release build does not. Screenshots must show the app that users get (guideline 2.3.3). In a store image, the Developer section looks like a hidden feature, which guideline 2.5.19 forbids.
 
 | # | iPhone screen | What it shows |
 |---|---|---|
@@ -237,15 +253,19 @@ These items do not block the submission, but App Review or a user can ask about 
 
 ## Sources
 
-All pages were read on October 14, 2026.
+All pages were read on November 8, 2026. The Apple pages show no date of their own unless the list gives one.
 
-- [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/), last updated June 8, 2026: 1.4.1, 2.1, 2.3.3, 2.4.1, 2.5.1, 5.1.1, 5.1.3.
-- [Screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications), App Store Connect Help.
-- [Platform version information](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information): description, keywords, Support URL, review notes.
-- [App information](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information): name, subtitle, Privacy Policy URL, medical device declaration.
+- [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/), last updated October 16, 2026: 1.4.1, 2.1, 2.3.3, 2.4.1, 2.5.1, 2.5.19, 5.1.1, 5.1.3.
+- [Apple Developer News](https://developer.apple.com/news/): "Prepare and submit your apps for iPhone Duo" (October 5, 2026), "Updated App Review Guidelines are now available" (October 16, 2026), "Upcoming: New age rating content descriptors in App Store Connect" (November 2, 2026).
+- [Screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications), App Store Connect Help: the iPhone, iPhone Duo and Apple Watch sizes.
+- [Prepare for iPhone Duo](https://developer.apple.com/iphone-duo/prepare/): the iOS 27.1 SDK and the product page badge.
+- [Submit your apps](https://developer.apple.com/app-store/submissions/) and [Upcoming requirements](https://developer.apple.com/news/upcoming-requirements/): the SDK and the lowest target, now and from April 2027.
+- [Platform version information](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information): description, keywords, promotional text, Support URL, review notes.
+- [App information](https://developer.apple.com/help/app-store-connect/reference/app-information/app-information): name, subtitle, Privacy Policy URL, ICP Filing Number for China mainland.
+- [App Store localizations](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations) and [Localize app information](https://developer.apple.com/help/app-store-connect/manage-app-information/localize-app-information): the 50 localizations, and the screenshots of a new localization.
 - [Age ratings values and definitions](https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions).
 - [Declare regulated medical device status](https://developer.apple.com/help/app-store-connect/manage-app-information/declare-regulated-medical-device-status/).
 - [App privacy details on the App Store](https://developer.apple.com/app-store/app-privacy-details/).
 - [Describing use of required reason API](https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api) and [privacy manifest files](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files).
 - [Privacy manifest for iOS apps](https://kotlinlang.org/docs/multiplatform/multiplatform-privacy-manifest.html), Kotlin Multiplatform docs, May 16, 2025.
-- [What is GitHub Pages?](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages): Pages for private repositories needs GitHub Pro, Team, or Enterprise.
+- [What is GitHub Pages?](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), read on October 14, 2026: Pages for private repositories needs GitHub Pro, Team, or Enterprise. On November 8, 2026, the page no longer names the plans. The repository is public, so the rule does not apply.
